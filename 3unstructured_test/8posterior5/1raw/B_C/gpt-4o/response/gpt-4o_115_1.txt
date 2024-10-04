@@ -1,0 +1,80 @@
+To apply Bayes' Rule and estimate \( P(H | E) \) for each field, we need to start with the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field.
+2. \( P(E | H) \): The likelihood of observing the personality sketch given that Adam is in a specific field.
+3. \( P(E | \neg H) \): The likelihood of observing the personality sketch given that Adam is not in that specific field.
+
+Given that the precise values for these probabilities are not specified, I will use reasonable assumptions based on the description provided.
+
+### Assumptions
+
+1. **Prior probabilities \( P(H) \) for each field**:
+   - Let's assume the probability that any student randomly selected from these fields is equally likely. We do not have concrete numbers, so slight adjustments might be necessary based on general trends in graduate enrollment.
+   - Given these broad categories, let’s assume:
+     - \( P(\text{Computer Science}) = 0.15 \) (a relatively popular field among graduates)
+     - \( P(\text{Business Administration}) = 0.10 \) (also quite popular but perhaps slightly less so than CS)
+
+2. **Likelihood \( P(E | H) \)**:
+   - Adam's traits seem to align more with fields requiring analytical thinking and an interest in nature and abstract concepts.
+     - Based on the personality sketch, it seems more likely he would fit into fields involving analytical skills and abstract thinking more than business, so we assume:
+       - \( P(E | \text{Computer Science}) = 0.50 \) (high due to analytical and problem-solving skills)
+       - \( P(E | \text{Business Administration}) = 0.20 \) (lower because the warm-hearted, animal-loving characteristics are less typical in MBA profiles)
+
+3. **Likelihood \( P(E | \neg H) \)**:
+   - This involves all other fields. Given Adam’s specific traits, we assume:
+     - \( P(E | \neg \text{Computer Science}) = 0.25 \)
+     - \( P(E | \neg \text{Business Administration}) = 0.40 \)
+
+\[
+P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)}
+\]
+
+### Computing \( P(E) \)
+\[
+P(E) = P(E | H) \cdot P(H) + P(E | \neg H) \cdot P(\neg H)
+\]
+
+For Computer Science:
+\[
+P(E) = 0.50 \cdot 0.15 + 0.25 \cdot (1 - 0.15)
+\]
+\[
+P(E) = 0.075 + 0.25 \cdot 0.85 = 0.075 + 0.2125 = 0.2875
+\]
+
+For Business Administration:
+\[
+P(E) = 0.20 \cdot 0.10 + 0.40 \cdot (1 - 0.10)
+\]
+\[
+P(E) = 0.02 + 0.40 \cdot 0.90 = 0.02 + 0.36 = 0.38
+\]
+
+### Applying Bayes' Rule
+
+For Computer Science:
+\[
+P(\text{Computer Science} | E) = \frac{0.50 \cdot 0.15}{0.2875}
+\]
+\[
+P(\text{Computer Science} | E) = \frac{0.075}{0.2875} \approx 0.26
+\]
+
+For Business Administration:
+\[
+P(\text{Business Administration} | E) = \frac{0.20 \cdot 0.10}{0.38}
+\]
+\[
+P(\text{Business Administration} | E) = \frac{0.02}{0.38} \approx 0.053
+\]
+
+### Results
+
+```json
+{
+  "computer science": 0.26,
+  "business administration": 0.053
+}
+```
+
+Note: These values are based on reasonable assumptions and approximations. The actual probabilities may vary with more precise data.

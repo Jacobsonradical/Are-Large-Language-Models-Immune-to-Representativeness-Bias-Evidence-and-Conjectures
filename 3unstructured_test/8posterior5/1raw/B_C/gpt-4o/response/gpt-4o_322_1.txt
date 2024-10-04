@@ -1,0 +1,41 @@
+In order to compute the probability that Adam was enrolled in each field given his personality sketch, we start by estimating the different probabilities involved.
+
+### Business Administration
+- **P(H):** Probability that Adam was enrolled in Business Administration. Let's assume that business administration is a fairly popular graduate field, so we might assign a moderate probability. Let's estimate it at 0.10.
+- **P(E|H):** Probability of observing the personality sketch if Adam is in Business Administration. Given his interests in nature, solving puzzles, empathy, and love for animals, these traits are less stereotypically aligned with business administration, so this probability might be lower. Let's estimate it at 0.05.
+- **P(E|¬H):** Probability of observing the personality sketch if Adam is not in Business Administration. This includes all other fields, so let's assume it to be an average value of 0.20 due to the diversity of other possible fields. 
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Since \( P(E) \) is the same for all hypotheses, we don't need its exact value to compare probabilities. Instead, we can use unnormalized probabilities for comparison.
+
+Unnormalized probability for Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.05 \times 0.10 = 0.005 \]
+
+### Computer Science
+- **P(H):** Probability that Adam was enrolled in Computer Science. Given the popularity of the field, let's assume it too is moderately probable and estimate it at 0.10.
+- **P(E|H):** Probability of observing the personality sketch if Adam is in Computer Science. Adam's high intelligence, enjoyment in solving puzzles, and understanding of abstract concepts align well with computer science. So let's estimate this at 0.30.
+- **P(E|¬H):** As before, assume this to be 0.20.
+
+Unnormalized probability for Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.30 \times 0.10 = 0.03 \]
+
+Now to normalize and provide values between 0 and 1:
+
+Sum of unnormalized probabilities:
+\[ 0.005 + 0.03 = 0.035 \]
+
+Normalized probabilities:
+- Business Administration:
+\[ \frac{0.005}{0.035} = 0.142857 \approx 0.14 \]
+- Computer Science:
+\[ \frac{0.03}{0.035} = 0.857143 \approx 0.86 \]
+
+Here's the final output:
+
+```json
+{
+  "business administration": 0.14,
+  "computer science": 0.86
+}
+```

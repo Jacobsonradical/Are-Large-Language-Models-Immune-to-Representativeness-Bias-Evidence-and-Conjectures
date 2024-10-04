@@ -1,0 +1,51 @@
+To compute \( P(H|E) \), we need to establish the following probabilities for each field of study:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \): The probability of having Adam's personality sketch given he is in a specific field.
+3. \( P(E|\neg H) \): The probability of having Adam's personality sketch given he is not in a specific field.
+
+### Estimations:
+
+#### Business Administration:
+1. **\( P(H_{\text{BA}}) \)**: Let's assume the probability that a graduate student is in business administration is 0.2 (20%).
+2. **\( P(E|H_{\text{BA}}) \)**:
+   - Likelihood of a business administration student having Adam's traits might be somewhat lower due to the specific nature of his interests (nature, puzzles, animals, etc.).
+   - Estimate: 0.05.
+3. **\( P(E|\neg H_{\text{BA}}) \)**: This is the probability of having Adam's personality traits given that he is not in business administration. Given the wide range of other fields (like natural sciences, environmental studies, etc.) which fit his profile better:
+   - Estimate: 0.2.
+
+#### Computer Science:
+1. **\( P(H_{\text{CS}}) \)**: Let's assume the probability that a graduate student is in computer science is 0.2 (20%).
+2. **\( P(E|H_{\text{CS}}) \)**:
+   - Likelihood of a computer science student having Adam's traits is higher due to his interest in puzzles, high intelligence, and understanding abstract concepts.
+   - Estimate: 0.15.
+3. **\( P(E|\neg H_{\text{CS}}) \)**: This is the probability of having Adam's personality traits given that he is not in computer science. It needs to cover other fields which might still fit his profile:
+   - Estimate: 0.1.
+
+### Bayes Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) (the overall probability of observing Adam's traits) is the same for all calculations and cancels out relatively:
+
+\[ P(H_{\text{BA}}|E) = \frac{0.05 \cdot 0.2}{0.05 \cdot 0.2 + 0.2 \cdot 0.8} \]
+\[ P(H_{\text{CS}}|E) = \frac{0.15 \cdot 0.2}{0.15 \cdot 0.2 + 0.1 \cdot 0.8} \]
+
+### Computing Relative Probabilities:
+
+1. **Business Administration**:
+
+\[ P(H_{\text{BA}}|E) = \frac{0.01}{0.01 + 0.16} = \frac{0.01}{0.17} \approx 0.0588 \]
+
+2. **Computer Science**:
+
+\[ P(H_{\text{CS}}|E) = \frac{0.03}{0.03 + 0.08} = \frac{0.03}{0.11} \approx 0.2727 \]
+
+Finally:
+
+```json
+{
+  "business administration": 0.0588,
+  "computer science": 0.2727
+}
+```

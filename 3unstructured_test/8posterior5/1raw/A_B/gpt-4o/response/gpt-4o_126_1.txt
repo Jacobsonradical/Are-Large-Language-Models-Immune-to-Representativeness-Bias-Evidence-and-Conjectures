@@ -1,0 +1,48 @@
+To compute \( P(H|E) \) using Bayes' Theorem, we need to apply the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability Adam was enrolled in a specific graduate field given his personality sketch.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch given he was enrolled in that specific field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that specific field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch (which acts as a normalizing constant and is the same for both hypotheses in the comparative sense).
+
+Let's assign values based on the personality sketch provided.
+
+### Assessing Business Administration:
+- **P(H):** Business administration is a fairly common field. Let's assume a prior probability of \( P(H) = 0.2 \).
+- **P(E|H):** The personal traits of empathy, love for animals, and strong curiosity about nature seem less aligned with the typical inclinations of a business administration student. Let's assign a lower likelihood, say \( P(E|H) = 0.1 \).
+- **P(E|\neg H):** The likelihood of the personality sketch if Adam was not in business administration should be higher given it might more closely align with other fields. Let's assign \( P(E|\neg H) = 0.5 \).
+
+### Assessing Agricultural and Veterinary Science:
+- **P(H):** This field is less common compared to business administration but aligns well with Adam's traits. Let's assume a prior probability of \( P(H) = 0.05 \).
+- **P(E|H):** The personal traits of empathy, curiosity about nature and plants, and love for animals strongly align with this field. Let's assign a high likelihood, say \( P(E|H) = 0.9 \).
+- **P(E|\neg H):** The likelihood of the personality sketch if Adam was not in agricultural and veterinary science should be lower given the strong alignment of the traits with this field. Let's assign \( P(E|\neg H) = 0.4 \).
+
+### Computing P(H|E):
+We'll consider the normalizing constant \( P(E) \) can be ignored for direct comparison:
+
+#### For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02 \]
+
+#### For Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \cdot 0.05 = 0.045 \]
+
+### Normalizing:
+To get the values that add up to 1, we normalize these proportions:
+
+\[ P(E) = 0.02 + 0.045 = 0.065 \]
+
+\[ P(\text{business administration}|E) = \frac{0.02}{0.065} \approx 0.3077 \]
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.045}{0.065} \approx 0.6923 \]
+
+Thus, the required probabilities are:
+
+```json
+{
+  "business administration": 0.3077,
+  "agricultural and veterinary science": 0.6923
+}
+```

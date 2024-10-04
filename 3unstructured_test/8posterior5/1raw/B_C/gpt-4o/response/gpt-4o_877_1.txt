@@ -1,0 +1,62 @@
+Let's go through Bayes' rule to compute the probability of Adam being enrolled in the specified fields given his personality sketch \(E\).
+
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Business Administration
+
+1. **\( P(H) \)**: The prior probability that a random graduate student is in business administration. For simplicity, assume it's 10%.
+
+\[ P(H_{\text{BA}}) \approx 0.10 \]
+
+2. **\( P(E|H) \)**: The likelihood of observing Adam's personality sketch if he were in business administration. Business students may have varied interests, but Adam's love for nature, animals, and high empathy doesn't align strongly with typical business traits.
+
+\[ P(E|H_{\text{BA}}) \approx 0.05 \]
+
+3. **\( P(E|\neg H) \)**: The likelihood of observing Adam's personality sketch if he were not in business administration. Assuming the non-BA cohort has a broad distribution.
+
+\[ P(E|\neg H_{\text{BA}}) \approx 0.03 \]
+
+Using Bayes' Rule:
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.05 \cdot 0.10}{P(E)} = \frac{0.005}{P(E)} \]
+
+### Computer Science
+
+1. **\( P(H) \)**: The prior probability that a random graduate student is in computer science. For simplicity, assume it's 20%.
+
+\[ P(H_{\text{CS}}) \approx 0.20 \]
+
+2. **\( P(E|H) \)**: The likelihood of observing Adam's personality sketch if he were in computer science. The traits such as high intelligence, understanding abstract concepts, puzzle-solving align well with computer science.
+
+\[ P(E|H_{\text{CS}}) \approx 0.70 \]
+
+3. **\( P(E|\neg H) \)**: The likelihood of observing Adam's personality sketch if he were not in computer science.
+
+\[ P(E|\neg H_{\text{CS}}) \approx 0.10 \]
+
+Using Bayes' Rule:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.70 \cdot 0.20}{P(E)} = \frac{0.14}{P(E)} \]
+
+Since \( P(E) \) is constant for both fields and serves as a normalizing factor, we can compare the numerators directly to compute the relative probabilities:
+
+### Normalization and Relative Probabilities
+Let's assume:
+\[ P(E) \approx 0.145 \]
+
+Then the normalized probabilities would be:
+
+\[ P(H_{\text{BA}}|E) = \frac{0.005}{0.145} \approx 0.034 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.14}{0.145} \approx 0.966 \]
+
+Thus, the final estimates can be approximated as:
+
+```json
+{
+  "business administration": 0.034,
+  "computer science": 0.966
+}
+```

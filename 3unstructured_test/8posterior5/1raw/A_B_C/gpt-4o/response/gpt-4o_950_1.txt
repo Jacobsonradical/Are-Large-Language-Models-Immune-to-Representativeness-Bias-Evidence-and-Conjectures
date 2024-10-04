@@ -1,0 +1,55 @@
+To apply Bayes' Rule for each field of specialization, we need to work with the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in the given field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch given that he was enrolled in the given field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch if he was not enrolled in the given field.
+4. \( P(E) \): The probability of observing Adam's personality sketch regardless of the field he was enrolled in.
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, because \( P(E) \) is constant for all fields and affects all fields equally, we can focus on calculating \( P(H|E) \) up to a normalization constant.
+
+Let's assume some reasonable estimates for our probabilities based on the given personality sketch:
+
+1. **Computer Science**
+   - \( P(H) \): Let's assume the prior probability that a graduate student is enrolled in computer science is relatively high, say 0.20 (20%).
+   - \( P(E|H) \): Adam's personality sketch suggests a strong fit in computer science due to his high intelligence and problem-solving skills but not perfectly, say 0.3 (30%).
+   - \( P(E|\neg H) \): The probability of his personality sketch given he is not in computer science can be lower, say 0.05 (5%).
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H) \): Let's assume the prior probability that a graduate student is enrolled in agricultural and veterinary science is lower, say 0.05 (5%).
+   - \( P(E|H) \): Adam's interest in nature and animals aligns strongly with agricultural and veterinary science, say 0.4 (40%).
+   - \( P(E|\neg H) \): The probability of his personality sketch given he is not in agricultural and veterinary science can also be lower, say 0.02 (2%).
+
+3. **Business Administration**
+   - \( P(H) \): Let's assume the prior probability that a graduate student is enrolled in business administration is moderate, say 0.15 (15%).
+   - \( P(E|H) \): Adam's personality sketch does not particularly fit business administration well, say 0.05 (5%).
+   - \( P(E|\neg H) \): The probability of his personality sketch given he is not in business administration can be lower, say 0.03 (3%).
+
+Now, we'll compute \( P(H|E) \) for each field:
+
+1. **Computer Science**
+   \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.30 \times 0.20}{P(E)} = \frac{0.06}{P(E)} \]
+
+2. **Agricultural and Veterinary Science**
+   \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.40 \times 0.05}{P(E)} = \frac{0.02}{P(E)} \]
+
+3. **Business Administration**
+   \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.05 \times 0.15}{P(E)} = \frac{0.0075}{P(E)} \]
+
+The values above represent \( P(H|E) \) up to a normalization constant. Since we are interested in relative values, we can express them relative to each other, considering \( P(E) \) as a common denominator that normalizes the values:
+
+{
+  "computer science": \( \frac{0.06}{0.06 + 0.02 + 0.0075} = \frac{0.06}{0.0875} \approx 0.686 \),
+  "agricultural and veterinary science": \( \frac{0.02}{0.0875} \approx 0.229 \),
+  "business administration": \( \frac{0.0075}{0.0875} \approx 0.086 \)
+}
+
+So the final answer is:
+
+{
+  "computer science": 0.686,
+  "agricultural and veterinary science": 0.229,
+  "business administration": 0.086
+}

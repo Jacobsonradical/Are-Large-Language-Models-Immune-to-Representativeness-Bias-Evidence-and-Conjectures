@@ -1,0 +1,68 @@
+To compute \( P(H|E) \) for each field, we will follow these steps:
+
+1. **Estimate \( P(H) \)**: The prior probability that Adam is enrolled in a given field.
+2. **Estimate \( P(E|H) \)**: The likelihood of Adam's personality sketch \( E \) given that he was enrolled in that field.
+3. **Estimate \( P(E|\neg H) \)**: The likelihood of Adam's personality sketch \( E \) given that he was not enrolled in that field.
+4. **Compute \( P(H|E) \)**: The posterior probability using Bayes' rule.
+
+### Bayes' Rule Formula
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity and because we don’t have the exact numbers, we'll assume \( P(E) \) is roughly similar for different fields which will allow us to focus on the relative likelihoods.
+
+### Agricultural and Veterinary Science
+
+1. **Estimate \( P(H) \) for Agricultural and Veterinary Science**:
+   - We could reasonably assume that a smaller proportion of graduate students are in this field.
+   - Let's estimate \( P(H) = 0.05 \).
+
+2. **Estimate \( P(E|H) \) for Agricultural and Veterinary Science**:
+   - Adam's love for animals, plants, and nature aligns perfectly.
+   - High likelihood: \( P(E|H) = 0.9 \).
+
+3. **Estimate \( P(E|\neg H) \)**:
+   - The traits are less aligned with fields other than Agricultural and Veterinary Science, but not impossible.
+   - Lower likelihood: \( P(E|\neg H) = 0.1 \).
+
+### Business Administration
+
+1. **Estimate \( P(H) \) for Business Administration**:
+   - A large number of graduate students might be in this field.
+   - Let's estimate \( P(H) = 0.15 \).
+
+2. **Estimate \( P(E|H) \) for Business Administration**:
+   - Adam's personality sketch doesn’t directly align but being analytical and having high intelligence could somewhat correlate.
+   - Lower likelihood: \( P(E|H) = 0.2 \).
+
+3. **Estimate \( P(E|\neg H) \)**:
+   - Traits align less frequently with Business Administration but more frequently with other fields.
+   - \( P(E|\neg H) = 0.15 \).
+
+### Bayesian Calculation
+Let's use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+#### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{0.9 \cdot 0.05}{0.9 \cdot 0.05 + 0.1 \cdot 0.95} \]
+\[ P(H|E) = \frac{0.045}{0.045 + 0.095} \]
+\[ P(H|E) = \frac{0.045}{0.14} \]
+\[ P(H|E) \approx 0.32 \]
+
+#### Business Administration
+\[ P(H|E) = \frac{0.2 \cdot 0.15}{0.2 \cdot 0.15 + 0.15 \cdot 0.85} \]
+\[ P(H|E) = \frac{0.03}{0.03 + 0.1275} \]
+\[ P(H|E) = \frac{0.03}{0.1575} \]
+\[ P(H|E) \approx 0.19 \]
+
+### Results
+```json
+{
+  "agricultural and veterinary science": 0.32,
+  "business administration": 0.19
+}
+```
+
+The probability that Adam was enrolled in Agricultural and Veterinary Science based on his personality sketch is approximately 0.32, while the probability for Business Administration is approximately 0.19.

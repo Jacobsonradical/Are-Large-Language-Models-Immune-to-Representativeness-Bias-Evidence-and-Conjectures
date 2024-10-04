@@ -1,0 +1,70 @@
+To compute \( P(H|E) \) for each field, let's use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all fields and is needed to ensure the total adds up to 1, we can instead focus on the relative values of \( P(H|E) \) across fields by computing:
+
+\[ P(H|E) \propto P(E|H)P(H) \]
+
+We start with some assumptions:
+
+1. \( P(H) \): The prior probability that Adam is in a given field.
+2. \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam is in field \( H \).
+3. \( P(E|\neg H) \): The probability of observing the evidence \( E \) given that Adam is not in field \( H \).
+
+These assumptions are subjective and based on reasonable interpretation:
+
+1. **Computer Science**:
+	- \( P(H_{\text{CS}}) \): Let's assume computer science has a relatively high enrollment among graduate students but is not the largest.
+		\[ P(H_{\text{CS}}) = 0.15 \]
+	- \( P(E|H_{\text{CS}}) \): Adam's curiosity, intelligence, and enjoyment of puzzles fit well with computer science, but empathy and love for nature may not correspond as strongly.
+		\[ P(E|H_{\text{CS}}) = 0.2 \]
+	- \( P(E|\neg H_{\text{CS}}) \): Given that many fields can have empathetic, curious, and intelligent people.
+		\[ P(E|\neg H_{\text{CS}}) = 0.05 \]
+		
+2. **Business Administration**:
+	- \( P(H_{\text{BA}}) \): Business administration is a common field, let's assume a medium prior probability.
+		\[ P(H_{\text{BA}}) = 0.1 \]
+	- \( P(E|H_{\text{BA}}) \): The given traits (empathy, love for animals, curiosity about nature) are less likely in business compared to other fields.
+		\[ P(E|H_{\text{BA}}) = 0.05 \]
+	- \( P(E|\neg H_{\text{BA}}) \): Same as above, many fields can contain people with Adam's traits.
+		\[ P(E|\neg H_{\text{BA}}) = 0.05 \]
+
+3. **Agricultural and Veterinary Science**:
+	- \( P(H_{\text{AVS}}) \): This is a more specialized field with fewer enrollments, but let's assume some.
+		\[ P(H_{\text{AVS}}) = 0.05 \]
+	- \( P(E|H_{\text{AVS}}) \): Adam's traits match very well with this field (love for nature, empathy, love for animals).
+		\[ P(E|H_{\text{AVS}}) = 0.9 \]
+	- \( P(E|\neg H_{\text{AVS}}) \): The rarity of the perfect match of Adam's traits in other disciplines.
+		\[ P(E|\neg H_{\text{AVS}}) = 0.05 \]
+
+Now let's calculate the proportional values for \( P(H|E) \):
+
+1. **Computer Science**:
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}})P(H_{\text{CS}}) = 0.2 \times 0.15 = 0.03 \]
+
+2. **Business Administration**:
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}})P(H_{\text{BA}}) = 0.05 \times 0.1 = 0.005 \]
+
+3. **Agricultural and Veterinary Science**:
+\[ P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}})P(H_{\text{AVS}}) = 0.9 \times 0.05 = 0.045 \]
+
+Now, normalize these values so they sum up to 1:
+
+\[ \text{Total sum} = 0.03 + 0.005 + 0.045 = 0.08 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.03}{0.08} = 0.375 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{0.005}{0.08} = 0.0625 \]
+
+\[ P(H_{\text{AVS}}|E) = \frac{0.045}{0.08} = 0.5625 \]
+
+Therefore, the normalized posterior probabilities are:
+
+```json
+{
+  "computer science": 0.375,
+  "business administration": 0.0625,
+  "agricultural and veterinary science": 0.5625
+}
+```

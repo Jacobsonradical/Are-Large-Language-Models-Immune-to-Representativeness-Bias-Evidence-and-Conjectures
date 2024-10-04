@@ -1,0 +1,57 @@
+To compute \( P(H|E) \) using Bayes' rule, we need to first understand the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence under the null hypothesis \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are asked to provide values between 0 and 1, we'll forego exact probabilities and instead focus on relative likelihood based on the given information.
+
+### Hypotheses
+1. \( H \): Adam was enrolled in a computer science program.
+2. \( \neg H \): Adam was not enrolled in a computer science program.
+
+3. \( H \): Adam was enrolled in a business administration program.
+4. \( \neg H \): Adam was not enrolled in a business administration program.
+
+### Prior Probabilities (\( P(H) \))
+Let's assume we don't have specific intake data from the graduate programs, so we'll assume a reasonable prior:
+
+- \( P(\text{Computer Science}) = 0.2 \)
+- \( P(\text{Business Administration}) = 0.2 \)
+  
+We are assuming the prior probability that Adam is enrolled in either of these fields is equally likely. For other fields combined (denoted as \( \neg H \)), the probability would be \( 1 - 0.2 - 0.2 = 0.6 \).
+
+### Likelihoods (\( P(E|H) \))
+
+#### Computer Science
+- \( P(E|\text{Computer Science}) \): Computer science students often have high intelligence and enjoy solving puzzles. However, being quiet, empathetic, and having a strong understanding of hard work isn't as strongly linked to the field specifically. Let's estimate this at 0.3.
+
+- \( P(E|\neg \text{Computer Science}) \): Similar characteristics can exist in other fields. Given the general description, let's estimate this at 0.7.
+
+#### Business Administration
+- \( P(E|\text{Business Administration}) \): Business administration students are often dedicated and work hard, but other aspects like love for nature and animals, strong empathy, and abstract thinking don't fit as well. Let's estimate this at 0.1.
+
+- \( P(E|\neg \text{Business Administration}) \): Again, similar traits can be attributed to many other fields. Let's estimate this at 0.8.
+
+### Posterior Probabilities (\( P(H|E) \))
+
+Now let's compute the posterior probabilities:
+
+#### Computer Science
+Using Bayes' rule:
+\[ P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E|\text{Computer Science}) \cdot P(\text{Computer Science}) + P(E|\neg \text{Computer Science}) \cdot P(\neg \text{Computer Science})} \]
+\[ P(\text{Computer Science}|E) = \frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.7 \cdot 0.6} =  \frac{0.06}{0.06 + 0.42} =  \frac{0.06}{0.48} = 0.125 \]
+
+#### Business Administration
+Using Bayes' rule:
+\[ P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) + P(E|\neg \text{Business Administration}) \cdot P(\neg \text{Business Administration})} \]
+\[ P(\text{Business Administration}|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.8 \cdot 0.6} = \frac{0.02}{0.02 + 0.48} = \frac{0.02}{0.50} = 0.04 \]
+
+### Summary
+
+Based on the calculations above:
+
+```json
+{
+  "computer science": 0.125,
+  "business administration": 0.04
+}
+```

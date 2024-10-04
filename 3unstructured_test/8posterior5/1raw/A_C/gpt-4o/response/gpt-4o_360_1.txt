@@ -1,0 +1,53 @@
+Let's go through the calculations step by step for both fields.
+
+### Computer Science
+
+#### Prior Probability, P(H_CS)
+- To determine the prior probability \( P(H_{CS}) \), we need the baseline likelihood that a given graduate student is enrolled in computer science. Given that computer science is a popular field, we'll assume a moderately high prior. Let's say \( P(H_{CS}) = 0.15 \)
+
+#### Likelihood of Evidence Given Hypothesis, P(E|H_CS)
+- Adam's personality traits (curiosity about nature, love for animals, empathy) are not typical of computer science students, although his intelligence and enjoyment of solving puzzles do align. Let's assign this a lower probability due to the mixed signals: \( P(E|H_{CS}) = 0.2 \)
+
+#### Likelihood of Evidence Given Not Hypothesis, P(E|\neg H_CS)
+- For \( P(E|\neg H_{CS}) \), this would be the likelihood that Adam has these traits in any field other than computer science. Given that his traits are more aligned with fields like agricultural and veterinary science, we’ll assign this a slightly higher value: \( P(E|\neg H_{CS}) = 0.5 \)
+
+#### Posterior Probability, P(H_CS|E)
+Using Bayes' rule:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Where:
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(\neg H_{CS}) = 1 - P(H_{CS}) = 0.85 \]
+
+Thus:
+\[ P(E) = 0.2 \cdot 0.15 + 0.5 \cdot 0.85 = 0.03 + 0.425 = 0.455 \]
+\[ P(H_{CS}|E) = \frac{0.2 \cdot 0.15}{0.455} \approx 0.066 \]
+
+### Agricultural and Veterinary Science
+
+#### Prior Probability, P(H_AV)
+- Graduate students in agricultural and veterinary science fields are less common but not rare. Let’s assume \( P(H_{AV}) = 0.1 \)
+
+#### Likelihood of Evidence Given Hypothesis, P(E|H_AV)
+- Adam’s traits align well with this field: curiosity about nature, love for animals, empathy, and appreciation of hard work. Hence, \( P(E|H_{AV}) = 0.7 \)
+
+#### Likelihood of Evidence Given Not Hypothesis, P(E|\neg H_AV)
+- This would then be the likelihood of having these traits in any other field. Given the more general alignment, let’s assign \( P(E|\neg H_{AV}) = 0.4 \)
+
+#### Posterior Probability, P(H_AV|E)
+Using Bayes' rule:
+\[ P(H_{AV}|E) = \frac{P(E|H_{AV}) \cdot P(H_{AV})}{P(E)} \]
+Where:
+\[ P(E) = P(E|H_{AV}) \cdot P(H_{AV}) + P(E|\neg H_{AV}) \cdot P(\neg H_{AV}) \]
+\[ P(\neg H_{AV}) = 1 - P(H_{AV}) = 0.9 \]
+
+Thus:
+\[ P(E) = 0.7 \cdot 0.1 + 0.4 \cdot 0.9 = 0.07 + 0.36 = 0.43 \]
+\[ P(H_{AV}|E) = \frac{0.7 \cdot 0.1}{0.43} \approx 0.163 \]
+
+Based on these calculations, we get:
+```json
+{
+  "computer science": 0.066,
+  "agricultural and veterinary science": 0.163
+}
+```

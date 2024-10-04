@@ -1,0 +1,47 @@
+To compute \( P(H|E) \) (the probability that Adam was enrolled in a field given his personality sketch \( E \)), we need to use Bayes' Rule which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability that Adam is enrolled in that field.
+- \( P(E|H) \) is the probability of observing the evidence (personality sketch) given that Adam is enrolled in that field.
+- \( P(E|\neg H) \) is the probability of observing the evidence given that Adam is not enrolled in that field.
+- \( P(E) \) is the overall probability of observing the evidence, which can be calculated as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+For simplicity, we will assume \( P(H) \) is the same for both fields, as we have no specific information about the prior probabilities.
+
+Let's make reasonable estimates:
+- \( P(H) \) is the prior probability.
+- \( P(E|H) \) is the likelihood given the field.
+- \( P(E|\neg H) \) is the likelihood given not the field, which we'll approximate based on each case.
+
+### Agricultural and Veterinary Science
+
+Adam's traits such as curiosity about nature, strong empathy for animals, and appreciation for dedication align well with agricultural and veterinary science. Thus:
+- \( P(E|H) \) (given he's in agricultural and veterinary science) might be high, let's assume 0.8.
+- \( P(E|\neg H) \) should be significantly lower, let's assume 0.2.
+- \( P(H) \), being the prior, could be around 0.1 generally (but this can vary).
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{ (0.8\cdot 0.1 + 0.2\cdot 0.9)} = \frac{0.08}{0.08 + 0.18} = \frac{0.08}{0.26} \approx 0.3077 \]
+
+### Business Administration
+
+Adam's personality traits do not strongly align with typical traits needed for business administration (where personality traits such as leadership, assertiveness, and interest in business concepts might be more fitting). Thus:
+- \( P(E|H) \) (given he's in business administration) might be lower, let's assume 0.2.
+- \( P(E|\neg H) \) would be higher in this case, let's assume 0.7.
+- \( P(H) \), being the prior, could also be around 0.1 generally (but this can vary).
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{ (0.2\cdot 0.1 + 0.7\cdot 0.9)} = \frac{0.02}{0.02 + 0.63} = \frac{0.02}{0.65} \approx 0.0308 \]
+
+Using the estimated values:
+
+```json
+{
+  "agricultural and veterinary science": 0.3077,
+  "business administration": 0.0308
+}
+```
+
+These calculated probabilities give us an indication that based on Adam's personality traits, he is more likely to be enrolled in agricultural and veterinary science than in business administration.

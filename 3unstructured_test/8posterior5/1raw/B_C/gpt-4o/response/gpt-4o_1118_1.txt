@@ -1,0 +1,71 @@
+To apply Bayes' rule to compute the probabilities of Adam being enrolled in computer science (CS) or business administration (BA) given his personality sketch (E), we can follow these steps:
+
+1. **Determine Prior Probabilities \(P(H)\):**
+
+Let's denote:
+- \(H_{\text{CS}}\) as the hypothesis that Adam was enrolled in computer science.
+- \(H_{\text{BA}}\) as the hypothesis that Adam was enrolled in business administration.
+
+Since there are many possible fields of specialization and because we don't have enough information to favor one over the other initially, we can assume that the prior probabilities \(P(H_{\text{CS}})\) and \(P(H_{\text{BA}})\) are equal and reasonably low. For simplicity, let's assume:
+
+\[P(H_{\text{CS}}) = P(H_{\text{BA}}) = 0.1\]
+
+2. **Determine Likelihood \(P(E|H)\):**
+
+Given the details about Adam, we can assess how likely his personality traits are for each field of study.
+
+- For **computer science**:
+  - **Curiosity about nature and puzzles**: High likelihood, as many computer science students have these traits.
+  - **High intelligence and understanding of abstract concepts**: High likelihood, as these are important in CS.
+  - **Strong empathy and love for animals**: These traits are probably less specific to CS, so we’ll consider moderate likelihood here.
+  
+  Taking these into account:
+  \[P(E|H_{\text{CS}}) = 0.7\]
+
+- For **business administration**:
+  - **Curiosity about nature and puzzles**: These traits might be less common in BA students.
+  - **High intelligence and understanding of abstract concepts**: Moderate likelihood, as these are also important for BA.
+  - **Strong empathy and love for animals**: These traits might be less specific to BA, so we’ll consider moderate likelihood here.
+
+  Taking these into account:
+  \[P(E|H_{\text{BA}}) = 0.4\]
+
+3. **Determine \(P(E|\neg H)\):**
+
+This represents the likelihood of Adam's personality traits given he is not majoring in computer science or business administration. Since there are many other fields of study where these traits are common, we can assume moderately high values:
+
+\[P(E|\neg H_{\text{CS}}) = 0.6\]
+\[P(E|\neg H_{\text{BA}}) = 0.6\]
+
+4. **Use Bayes' Rule:**
+
+Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \(P(E)\) can be broken down using the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Given:
+\[P(E)_{\text{CS}} = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}})\]
+\[P(E)_{\text{BA}} = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})\]
+
+Thus:
+
+\[P(E)_{\text{CS}} = 0.7 \times 0.1 + 0.6 \times 0.9 = 0.07 + 0.54 = 0.61\]
+\[P(E)_{\text{BA}} = 0.4 \times 0.1 + 0.6 \times 0.9 = 0.04 + 0.54 = 0.58\]
+
+Now compute \(P(H|E)\):
+
+\[P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.7 \times 0.1}{0.61} \approx 0.1148 \]
+\[P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.4 \times 0.1}{0.58} \approx 0.0689 \]
+
+So the final probabilities are approximately:
+
+```json
+{
+  "computer science": 0.1148,
+  "business administration": 0.0689
+}
+```

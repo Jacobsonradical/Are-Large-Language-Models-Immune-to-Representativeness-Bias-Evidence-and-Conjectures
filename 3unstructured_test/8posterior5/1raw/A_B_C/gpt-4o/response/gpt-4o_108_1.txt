@@ -1,0 +1,62 @@
+To compute P(H|E) for each field using Bayes' rule, we first need to judge the prior probabilities P(H) (the probability that Adam is enrolled in a particular field), the likelihoods P(E|H) (the probability that the personality sketch E is true given that Adam is enrolled in that field), and P(E|¬H) (the probability that the personality sketch E is true given that Adam is not enrolled in that field). Then we use these to calculate the posterior probability P(H|E) using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+However, since the total probability P(E) (the marginal probability of having the personality sketch E) is the same for all fields, we can normalize later and compare the relative values.
+
+Let's judge P(H), P(E|H), and P(E|¬H) for each field and compute P(H|E):
+
+### Agricultural and Veterinary Science
+- **P(H)**: This is a common field for someone who loves nature and animals. Let's assume P(H) = 0.2
+- **P(E|H)**: Given the sketch emphasizes a love for nature and animals, there's a high likelihood he fits this field. So let's assume P(E|H) = 0.9
+- **P(E|¬H)**: There are other fields that fit his personality, but let's assume this is quite specific to Agricultural and Veterinary Science. So P(E|¬H) = 0.3
+
+\[ P(H|E)_{agricultural and veterinary science} \propto \frac{0.9 \times 0.2}{P(E)} \]
+
+### Business Administration
+- **P(H)**: This is not as aligned with his interests. Let's assume P(H) = 0.1
+- **P(E|H)**: Given the subject's traits, the likelihood is lower. Let's assume P(E|H) = 0.2
+- **P(E|¬H)**: There are many other fields more aligned with his interests. Let's assume P(E|¬H) = 0.5
+
+\[ P(H|E)_{business administration} \propto \frac{0.2 \times 0.1}{P(E)} \]
+
+### Computer Science
+- **P(H)**: Has become a popular field. Let's assume P(H) = 0.15
+- **P(E|H)**: Quiet boys who enjoy solving puzzles and have high intelligence often fit in CS. Let's assume P(E|H) = 0.5
+- **P(E|¬H)**: There are other fields he might fit better. Let's assume P(E|¬H) = 0.4
+
+\[ P(H|E)_{computer science} \propto \frac{0.5 \times 0.15}{P(E)} \]
+
+Now we compute the unnormalized probabilities:
+
+\[
+\begin{align*}
+P(H|E)_{agricultural and veterinary science} & \propto 0.9 \times 0.2 = 0.18 \\
+P(H|E)_{business administration} & \propto 0.2 \times 0.1 = 0.02 \\
+P(H|E)_{computer science} & \propto 0.5 \times 0.15 = 0.075 \\
+\end{align*}
+\]
+
+Next, we normalize these probabilities to make them sum to 1, although we do not need to for our purposes as we want to compare them in a relative manner:
+
+Total sum = 0.18 + 0.02 + 0.075 = 0.275
+
+Thus, the normalized probabilities are:
+
+\[
+\begin{align*}
+P(H|E)_{agricultural and veterinary science} & = \frac{0.18}{0.275} \approx 0.6545 \\
+P(H|E)_{business administration} & = \frac{0.02}{0.275} \approx 0.0727 \\
+P(H|E)_{computer science} & = \frac{0.075}{0.275} \approx 0.2727 \\
+\end{align*}
+\]
+
+Therefore, the answers are:
+
+```json
+{
+  "agricultural and veterinary science": 0.6545,
+  "business administration": 0.0727,
+  "computer science": 0.2727
+}
+```

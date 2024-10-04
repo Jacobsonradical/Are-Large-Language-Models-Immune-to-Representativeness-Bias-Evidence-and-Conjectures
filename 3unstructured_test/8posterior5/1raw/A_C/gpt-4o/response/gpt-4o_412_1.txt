@@ -1,0 +1,59 @@
+To estimate \( P(H|E) \) for each field, we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \): The prior probability of Adam being in the given field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch \( E \) given he was in the given field.
+- \( P(E) \): The overall probability of observing Adam's personality sketch \( E \).
+- \( P(\neg H) \): The probability of Adam not being in the given field.
+- \( P(E| \neg H) \): The probability of observing Adam's personality sketch \( E \) given he was not in the given field.
+- \( P(E) = P(E|H) \cdot P(H) + P(E| \neg H) \cdot P(\neg H) \)
+
+Given the information supplied, let's make some qualitative estimates for probabilities:
+
+1. **Prior Probabilities \( P(H) \)**:
+   - \( P(H_\text{CS}) \) (Computer Science): Given the general popularity of computer science, let's assume \( P(H_\text{CS}) = 0.2 \).
+   - \( P(H_\text{AVS}) \) (Agricultural and Veterinary Science): Given the less common nature compared to CS, let's assume \( P(H_\text{AVS}) = 0.05 \).
+   
+   Note that these are rough estimates and are assumptions due to the lack of specific data. 
+
+2. **Conditional Probabilities \( P(E|H) \)**:
+   - \( P(E|H_\text{CS}) \) (likelihood given Computer Science):
+     - High intelligence and understanding abstract concepts are traits that align well with CS, but strong empathy and a love for animals are less directly associated traits for this field. Let's assume \( P(E|H_\text{CS}) \approx 0.4 \).
+   - \( P(E|H_\text{AVS}) \) (likelihood given Agricultural and Veterinary Science):
+     - A curiosity about nature, warm heart, and love for animals align extremely well with AVS. Let's assume \( P(E|H_\text{AVS}) \approx 0.9 \).
+
+3. **Complementary Probabilities \( P(E|\neg H) \)**:
+   - \( P(E|\neg H_\text{CS}) \) (likelihood given not being in CS):
+     - Given these traits, it is slightly less likely overall compared to being in CS. Let's assume \( P(E|\neg H_\text{CS}) \approx 0.6 \).
+   - \( P(E|\neg H_\text{AVS}) \) (likelihood given not being in AVS):
+     - Given these traits, the likelihood aligns slightly less compared to being in AVS. Let's assume \( P(E|\neg H_\text{AVS}) \approx 0.7 \).
+
+Finally, using Bayes' Rule, we can compute the posterior probabilities:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's compute \( P(H|E) \approx \text{k}\cdot P(E|H) \cdot P(H) \) since \( P(E) \) is a common normalization factor and can be omitted for comparative purposes.
+
+{
+  "computer science": \( \approx \text{k} \cdot 0.4 \cdot 0.2 = \text{k} \cdot 0.08 \),
+  "agricultural and veterinary science": \( \approx \text{k} \cdot 0.9 \cdot 0.05 = \text{k} \cdot 0.045 \)
+}
+
+So,
+
+{
+  "computer science": 0.08,
+  "agricultural and veterinary science": 0.045
+}
+
+Please note, actual values of P(E) are required for precise results.
+
+Thus probabilities are compared as ratios:
+
+{
+  "computer science": "0.64",
+  "agricultural and veterinary science": "0.36"
+}
+  
+These are relative comparisons less intuitive normalization factor.

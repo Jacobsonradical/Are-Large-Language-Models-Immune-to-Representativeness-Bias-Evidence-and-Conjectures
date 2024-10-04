@@ -1,0 +1,59 @@
+In order to apply Bayes' rule, we need to estimate the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood \( P(E|\neg H) \) for both fields. Then we can compute the posterior probability \( P(H|E) \).
+
+Let's denote:
+- \( H_1 \) = computer science
+- \( H_2 \) = agricultural and veterinary science
+
+We begin by estimating each of the required probabilities based on the given personality sketch.
+
+**Priors \( P(H) \):**
+- Assume computer science is a relatively common graduate field, so we might roughly guess \( P(H_1) \approx 0.2 \).
+- Agricultural and veterinary science is less common, but given Adam's interests, we might guess \( P(H_2) \approx 0.1 \).
+
+**Likelihoods \( P(E|H) \):**
+- \( P(E|H_1) \) (computer science) might be low, because while Adam's interest in puzzles aligns with computer science, his love for nature and animals does not fit strongly. Let's estimate \( P(E|H_1) \approx 0.1 \).
+- \( P(E|H_2) \) (agricultural and veterinary science) should be high as his empathy, love for animals, and interest in nature align well. Let's estimate \( P(E|H_2) \approx 0.7 \).
+
+**Likelihoods under the complement \( P(E|\neg H) \):**
+- For computer science: Since computer science is common but not strongly aligned with Adam's personality, we need a value close to the overall average probability. Assuming there are many other fields, let's estimate \( P(E|\neg H_1) \approx 0.5 \).
+- For agricultural and veterinary science: This field is less common but aligns well with Adam's personality. For all other fields, it may not fit as well, so \( P(E|\neg H_2) \approx 0.3 \).
+
+Now, we apply Bayes’ rule to compute the posterior probabilities \( P(H|E) \):
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+To compute \( P(E) \):
+\[
+P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H)
+\]
+
+For \( H_1 \) (computer science):
+\[
+P(E) = 0.1 \cdot 0.2 + 0.5 \cdot 0.8 = 0.02 + 0.4 = 0.42
+\]
+\[
+P(H_1|E) = \frac{0.1 \cdot 0.2}{0.42} \approx 0.048
+\]
+
+For \( H_2 \) (agricultural and veterinary science):
+\[
+P(E) = 0.7 \cdot 0.1 + 0.3 \cdot 0.9 = 0.07 + 0.27 = 0.34
+\]
+\[
+P(H_2|E) = \frac{0.7 \cdot 0.1}{0.34} \approx 0.206
+\]
+
+Conclusion:
+- \( P(H_1|E) \approx 0.048 \)
+- \( P(H_2|E) \approx 0.206 \)
+
+The final probabilities are:
+
+```json
+{
+  "computer science": 0.048,
+  "agricultural and veterinary science": 0.206
+}
+```

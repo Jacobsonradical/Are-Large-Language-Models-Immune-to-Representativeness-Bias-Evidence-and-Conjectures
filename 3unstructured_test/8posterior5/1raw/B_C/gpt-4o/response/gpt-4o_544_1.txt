@@ -1,0 +1,61 @@
+To compute the probability that Adam was enrolled in either computer science or business administration given the provided personality sketch (E), we can use Bayes' rule. Bayes' rule states:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+where:
+- \(P(H|E)\) is the probability that hypothesis H is true given the evidence E.
+- \(P(E|H)\) is the probability of observing E given that H is true.
+- \(P(H)\) is the prior probability of H being true.
+- \(P(E)\) is the total probability of observing E.
+
+We will estimate P(H), P(E|H), and P(E|\neg H) based on the given personality sketch of Adam and common attributes for each field.
+
+### Computer Science:
+- **P(H) (prior probability)**: It's challenging to define an exact prior because graduate students could enroll in a wide variety of fields. However, computer science is a relatively popular field. Let's assume P(H) = 0.1.
+- **P(E|H) (likelihood)**: How likely is Adam's profile if he's in computer science? Adam's intelligence and enjoyment of solving puzzles fit well. His curiosity about nature and love for animals are less directly related but not impossible. Estimate P(E|H) = 0.6.
+- **P(E|\neg H)**: This represents the likelihood of Adam's profile if he is in a different field. We're assuming a somewhat lower probability because his interest in puzzles and abstract concepts fits computer science well, but empathy and a love for animals could point to other fields too. Estimate P(E|\neg H) = 0.3.
+
+\[
+P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)}
+\]
+
+### Business Administration:
+- **P(H) (prior probability)**: Business administration is another common graduate field but might appeal to slightly different profiles. Assume P(H) = 0.1.
+- **P(E|H) (likelihood)**: Business administration requires intelligence and understanding of abstract concepts, fitting part of the profile. However, the profile's strong empathy and love for animals might not be as directly aligned. Estimate P(E|H) = 0.3.
+- **P(E|\neg H)**: Same reasoning as above. Estimate P(E|\neg H) = 0.3.
+
+\[
+P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)}
+\]
+
+### Normalizing Constant P(E):
+
+The total probability \(P(E)\) can be computed by considering the likelihoods across all possible hypotheses, but as we're only estimating within the fields given:
+
+\[
+P(E) = P(E|\text{Computer Science}) \cdot P(\text{Computer Science}) + P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) + \cdots
+\]
+
+For simplification in scope, assume normalization only with concerned fields:
+\[
+P(E) \approx 0.6 \cdot 0.1 + 0.3 \cdot 0.1 = 0.09
+\]
+
+Now using Bayes' rule:
+
+\[
+P(\text{Computer Science}|E) = \frac{0.6 \cdot 0.1}{0.09} \approx 0.67
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{0.3 \cdot 0.1}{0.09} \approx 0.33
+\]
+
+### Final Output:
+
+```json
+{
+  "computer science": 0.67,
+  "business administration": 0.33
+}
+```

@@ -1,0 +1,58 @@
+Let's denote:
+
+E = Personality sketch of Adam.
+
+H_CS = Hypothesis that Adam was enrolled in Computer Science.
+H_BA = Hypothesis that Adam was enrolled in Business Administration.
+H_AVS = Hypothesis that Adam was enrolled in Agricultural and Veterinary Science.
+
+We'll evaluate the probabilities as follows:
+
+1. P(H): The prior probability that Adam was enrolled in each field.
+2. P(E|H): The probability of the evidence given that Adam was enrolled in each field.
+3. P(E|¬H): The probability of the evidence given that Adam was not enrolled in each field.
+
+We will then use Bayes' rule to compute P(H|E):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since P(E) will be the same denominator for each field, we only need to compare the numerators to rank the probabilities.
+
+### Analysis
+
+1. **Computer Science**
+   - P(H_CS): Assuming there's an equal distribution across various fields, this could be around 0.1 to 0.2.
+   - P(E|H_CS): The personality traits of empathy, love for animals, and appreciation for hard work are less common in computer science compared to analytical skills. Estimating as 0.1.
+   - P(E|¬H_CS): More aligned with Adam's personality. Estimating as 0.3.
+
+2. **Business Administration**
+   - P(H_BA): Common graduate field, estimating around 0.1 to 0.2.
+   - P(E|H_BA): Business students are less likely to exhibit a deep love for animals and nature. Estimating as 0.05.
+   - P(E|¬H_BA): More aligned with Adam's personality. Estimating as 0.3.
+
+3. **Agricultural and Veterinary Science**
+   - P(H_AVS): Less common, but more aligned with Adam’s personality. Estimating around 0.05 to 0.1.
+   - P(E|H_AVS): Strong match with interest in nature, plants, and animals. Estimating as 0.6.
+   - P(E|¬H_AVS): Less aligned with a specific interest, less likely. Estimating as 0.2.
+
+### Calculations
+
+- For simplicity, let's assume P(H_CS) = 0.15, P(H_BA) = 0.15, and P(H_AVS) = 0.08.
+- Normalizing constants are not required since we are looking at relative values.
+
+Using these estimates:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.1 \cdot 0.15}{P(E)} \approx 0.015 \]
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.05 \cdot 0.15}{P(E)} \approx 0.0075 \]
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} = \frac{0.6 \cdot 0.08}{P(E)} \approx 0.048 \]
+
+### Results
+
+{
+  "computer science": 0.015,
+  "business administration": 0.0075,
+  "agricultural and veterinary science": 0.048
+}
+
+
+This calculation reflects a higher probability that Adam was enrolled in Agricultural and Veterinary Science compared to the other fields, given his personality characteristics.

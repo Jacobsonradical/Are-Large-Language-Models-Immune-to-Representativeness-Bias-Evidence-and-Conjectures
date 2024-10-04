@@ -1,0 +1,49 @@
+To calculate the probabilities \( P(H|E) \) (the probability of Adam being enrolled in a certain field given his personality sketch), we will use Bayes’ theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E|H) \) is the likelihood of observing the evidence (personality sketch) given that Adam is in that field.
+- \( P(E|\neg H) \) is the likelihood of observing the evidence given that Adam is not in that field.
+- \( P(E) \) is the overall probability of observing the evidence (personality sketch).
+
+Since \( P(E) \) is common in both fields and we are considering relative probabilities, we can simplify the comparison by focusing on the numerator \( P(E|H) \cdot P(H) \) for each field. We assign reasonable estimates for these probabilities based on logical deductions from the given personality sketch of Adam.
+
+### Computer Science
+- **Prior Probability, \( P(H) \)**: Reasonably high, say 0.3, since computer science is a common graduate field in the U.S.
+- **Likelihood, \( P(E|H) \)**: Adam's high intelligence, good understanding of abstract concepts, and puzzle-solving abilities align well with a computer science field. Thus, we can assign a high probability, e.g., 0.7.
+- **Likelihood, \( P(E|\neg H) \)**: This will be an averaged out lower value given the general distribution, say 0.4.
+
+### Business Administration 
+- **Prior Probability, \( P(H) \)**: Also reasonably common, say 0.2.
+- **Likelihood, \( P(E|H) \)**: Adam's warm heart, strong empathy, and understanding of hard work and dedication fit moderately well, but less so than computer science attributes. So assign, say, 0.4.
+- **Likelihood, \( P(E|\neg H) \)**: Higher than the background due to business administration comprising a variety of personality types, say 0.5.
+
+### Simplified Computations
+
+Let's take relative values:
+
+\[ P(H|E)_{cs} \propto P(E|H)_{cs} \cdot P(H)_{cs} = 0.7 \cdot 0.3 = 0.21 \]
+\[ P(H|E)_{ba} \propto P(E|H)_{ba} \cdot P(H)_{ba} = 0.4 \cdot 0.2 = 0.08 \]
+
+Now, normalizing them:
+
+\[
+\text{Total} = 0.21 + 0.08 = 0.29
+\]
+\[
+P(H|E)_{cs} = \frac{0.21}{0.29} \approx 0.724
+\]
+\[
+P(H|E)_{ba} = \frac{0.08}{0.29} \approx 0.276
+\]
+
+Thus the results are:
+
+```json
+{
+  "computer science": 0.724,
+  "business administration": 0.276
+}
+```

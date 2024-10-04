@@ -1,0 +1,51 @@
+To compute \( P(H|E) \) using Bayes' rule, we use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the personality sketch of Adam (denoted as \( E \)), we have certain prior probabilities (\( P(H) \)) for each field and conditional probabilities (\( P(E|H) \)) that Adam's personality matches the field. We also need to consider the complementary probabilities (\( P(E|\neg H) \)) that his personality does not match other fields. We can assume \( P(H) \) to be equally distributed among the hypotheses. 
+
+Let's make educated estimates for these probabilities:
+
+1. **Computer Science**:
+   - \( P(H) \): A moderate number of graduate students are enrolled in computer science, so let's assume \( P(H) = 0.3 \).
+   - \( P(E|H) \): Adam's intelligence and puzzle-solving skills are good fits, but his empathy and love for nature might be less related. Let's assume \( P(E|H) = 0.2 \).
+   - \( P(E|\neg H) \): The probability that his personality does not match with other fields could be relatively high since there are many fields that are not as related to his traits. Let's assume \( P(E|\neg H) = 0.7 \).
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): This field has fewer graduate students compared to computer science. So, let's assume \( P(H) = 0.2 \).
+   - \( P(E|H) \): His curiosity about nature and empathy for animals align well with this field. Let's assume \( P(E|H) = 0.8 \).
+   - \( P(E|\neg H) \): The probability of his personality not matching other fields except perhaps environmental and life sciences can be considered moderate. Let's assume \( P(E|\neg H) = 0.5 \).
+
+3. **Business Administration**:
+   - \( P(H) \): Business administration also has a fair number of graduate students. Let's assume \( P(H) = 0.3 \).
+   - \( P(E|H) \): Business administration does not strongly align with Adam's traits described, particularly his empathy for animals and interest in nature. Let's assume \( P(E|H) = 0.1 \).
+   - \( P(E|\neg H) \): The probabilities here can be taken as moderate as well. Let's assume \( P(E|\neg H) = 0.6 \).
+
+**Overall probability for the given personality \( E \)**, \( P(E) \), can be computed using the law of total probability:
+
+\[ P(E) = P(E|H_{cs})P(H_{cs}) + P(E|H_{avs})P(H_{avs}) + P(E|H_{ba})P(H_{ba}) \]
+
+Where, \( H_{cs} \), \( H_{avs} \), and \( H_{ba} \) denote hypotheses for computer science, agricultural and veterinary science, and business administration, respectively.
+
+\[ P(E) = (0.2 \cdot 0.3) + (0.8 \cdot 0.2) + (0.1 \cdot 0.3) = 0.06 + 0.16 + 0.03 = 0.25 \]
+
+**Now, compute \( P(H|E) \):**
+
+1. **Computer Science:**
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.2 \cdot 0.3}{0.25} = 0.24 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H_{avs}|E) = \frac{P(E|H_{avs}) \cdot P(H_{avs})}{P(E)} = \frac{0.8 \cdot 0.2}{0.25} = 0.64 \]
+
+3. **Business Administration:**
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.1 \cdot 0.3}{0.25} = 0.12 \]
+
+Therefore, our estimates for \( P(H|E) \) are:
+
+```json
+{
+  "computer science": 0.24,
+  "agricultural and veterinary science": 0.64,
+  "business administration": 0.12
+}
+```

@@ -1,0 +1,72 @@
+To estimate the probability of Adam being enrolled in different graduate fields given his personality sketch \( E \), we'll use Bayes' theorem. Bayes' theorem states:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field (without considering the personality sketch).
+- \( P(E|H) \) is the probability of observing the personality traits given that Adam is enrolled in the field.
+- \( P(E|\neg H) \) is the probability of observing the personality traits given that Adam is not enrolled in the field.
+- \( P(E) \) is the overall probability of the personality traits, which can be broken down as \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Since \( P(E) \) is a normalizing constant, we don't need its exact value to compare \( P(H|E) \) for different fields; calculating the numerator should be sufficient for relative comparisons.
+
+### For Computer Science:
+
+1. **Prior Probability (\( P(H) \)):**
+   - Assume \( P(H) = 0.1 \) for computer science.
+   
+2. **Likelihood (\( P(E|H) \)):** 
+   - Given Adam's personality traits like high intelligence, appreciation for solving puzzles, and understanding of abstract concepts, \( P(E|H) \) for computer science might be quite high. Let's assume \( P(E|H) = 0.8 \).
+
+3. **Likelihood (\( P(E|\neg H) \)):**
+   - This represents the probability of observing the personality traits if Adam is not in computer science. Assuming there are multiple fields where such traits could be common, let's assume \( P(E|\neg H) = 0.4 \).
+
+### For Business Administration:
+
+1. **Prior Probability (\( P(H) \)):**
+   - Assume \( P(H) = 0.1 \) for business administration.
+   
+2. **Likelihood (\( P(E|H) \)):** 
+   - Given Adam’s personality traits are somewhat less typical for business administration, especially his deep love for animals and nature, \( P(E|H) \) might be lower. Let’s assume \( P(E|H) = 0.2 \).
+
+3. **Likelihood (\( P(E|\neg H) \)):** 
+   - This represents the probability of observing the personality traits if Adam is not in business administration. Assume \( P(E|\neg H) = 0.5 \).
+
+Using Bayes' theorem (numerator only for comparison purposes):
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H)
+\]
+
+### Calculations:
+
+For Computer Science:
+\[
+P(H|E)_{cs} \propto 0.8 \times 0.1 = 0.08
+\]
+
+For Business Administration:
+\[
+P(H|E)_{ba} \propto 0.2 \times 0.1 = 0.02
+\]
+
+Normalizing these for comparative purposes:
+
+The total is \( 0.08 + 0.02 = 0.10 \).
+
+\[
+P(H|E)_{cs} = \frac{0.08}{0.10} = 0.8
+\]
+\[
+P(H|E)_{ba} = \frac{0.02}{0.10} = 0.2
+\]
+
+### Final Answer:
+```
+{
+  "computer science": "0.8",
+  "business administration": "0.2"
+}
+```

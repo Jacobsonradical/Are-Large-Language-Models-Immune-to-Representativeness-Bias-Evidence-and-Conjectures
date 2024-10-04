@@ -1,0 +1,51 @@
+To compute \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+
+Bayes' rule states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+We will need estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+To simplify, we will assume the following estimates, considering the nature of the personality sketch:
+
+1. **Computer Science**:
+   - \( P(H) \): Prior probability of Adam being enrolled in computer science. Given that CS is a common field, but not the only one, let's assume \( P(H) = 0.25 \).
+   - \( P(E|H) \): Likelihood that someone in computer science has the described personality. Given Adam’s characteristics like high intelligence and enjoying solving puzzles, let's estimate \( P(E|H) = 0.6 \).
+   - \( P(E|\neg H) \): Likelihood that someone not in computer science has the described personality. We will assume \( P(E|\neg H) = 0.3 \) to adjust for other fields matching some of Adam’s profile but not fitting perfectly.
+
+2. **Business Administration**:
+   - \( P(H) \): Prior probability of Adam being enrolled in business administration. Given the broad array of fields, let's assume \( P(H) = 0.2 \).
+   - \( P(E|H) \): Likelihood that someone in business administration has the described personality. Adam’s characteristics are less commonly associated with business administration, so let's estimate \( P(E|H) = 0.2 \).
+   - \( P(E|\neg H) \): Likelihood that someone not in business administration has the described personality. We will assume \( P(E|\neg H) = 0.4 \) because other diverse fields may have similar characteristics.
+
+Given these assumptions, \( P(E) \) can be considered as a normalization factor, ensuring that total probabilities are valid but isn't strictly necessary here as we are looking for relative probabilities between fields.
+
+Now, let's compute \( P(H|E) \) for each field:
+
+1. **Computer Science**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.6 \cdot 0.25}{P(E)} \]
+
+2. **Business Administration**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.2}{P(E)} \]
+
+We skip the exact value of \( P(E) \) as it serves to normalize, and we are more concerned with the relative ratio:
+
+{
+  "computer science": "P(H|E) for CS \approx \frac{0.6 \cdot 0.25}{P(E)} = \frac{0.15}{P(E)}",
+  "business administration": "P(H|E) for Business \approx \frac{0.2 \cdot 0.2}{P(E)} = \frac{0.04}{P(E)}"
+}
+
+Since \( \frac{0.15}{P(E)} \) is approximately 3.75 times greater than \( \frac{0.04}{P(E)} \):
+
+{
+  "computer science": "0.79",
+  "business administration": "0.21"
+}
+
+Please note that these are estimated probabilities based on assumptions and can vary with different prior knowledge and likelihoods.

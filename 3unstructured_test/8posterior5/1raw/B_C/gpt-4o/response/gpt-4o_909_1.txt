@@ -1,0 +1,66 @@
+To use Bayes' rule to compute the posterior probabilities \( P(H|E) \), we need to evaluate the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E) \). Additionally, we need to estimate \( P(E|\neg H) \) to consider the likelihood under other fields. For simplicity, I'll make some reasonable assumptions about these probabilities.
+
+### Assumptions:
+
+1. **Prior Probability \( P(H) \)**
+   - \( P(\text{business administration}) = 0.10 \) (assuming business administration is a less common field for someone with Adam's profile)
+   - \( P(\text{computer science}) = 0.25 \) (assuming more STEM fields due to Adam's inclination toward puzzles and abstract thinking and a higher general interest level)
+
+2. **Likelihood \( P(E|H) \)**
+   - For Business Administration:
+     - Adam's characteristics are not highly typical for business administration but it's not impossible.
+     - \( P(E|\text{business administration}) = 0.05 \)
+   - For Computer Science:
+     - Adam's interest in puzzles, high intelligence, and understanding of abstract concepts are a good match.
+     - \( P(E|\text{computer science}) = 0.30 \)
+
+3. **Likelihood under other fields \( P(E|\neg H) \)**
+   - Given there are numerous other potential fields:
+     - Assume a generalized low likelihood for non-matching fields to maintain balance.
+     - \( P(E|\neg \text{business administration}) = 0.10 \) (assuming for non-business fields – general low probability)
+     - \( P(E|\neg \text{computer science}) = 0.10 \)
+
+### Bayes' Rule Application:
+
+Bayes' formula: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+#### Calculations:
+
+**1. Business Administration:**
+
+\[
+P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration})
+\]
+\[
+P(E) = 0.05 \cdot 0.10 + 0.10 \cdot 0.90 = 0.005 + 0.09 = 0.095
+\]
+\[
+P(\text{business administration}|E) = \frac{0.05 \cdot 0.10}{0.095} = \frac{0.005}{0.095} \approx 0.0526
+\]
+
+**2. Computer Science:**
+
+\[
+P(E) = P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\neg \text{computer science}) \cdot P(\neg \text{computer science})
+\]
+\[
+P(E) = 0.30 \cdot 0.25 + 0.10 \cdot 0.75 = 0.075 + 0.075 = 0.15
+\]
+\[
+P(\text{computer science}|E) = \frac{0.30 \cdot 0.25}{0.15} = \frac{0.075}{0.15} = 0.5
+\]
+
+### Results:
+
+\[
+\{
+  "business administration": 0.0526,
+  "computer science": 0.5 
+\}
+\]
+
+These results indicate that based on the given characteristics, Adam is more likely enrolled in Computer Science as a graduate student compared to Business Administration.

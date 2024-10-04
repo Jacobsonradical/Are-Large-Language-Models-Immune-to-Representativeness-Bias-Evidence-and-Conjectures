@@ -1,0 +1,56 @@
+To apply Bayes' rule and compute the probabilities \( P(H|E) \) for each field, we'll go through the following steps:
+
+1. **Estimating Prior Probabilities, \( P(H) \):** The initial likelihood of Adam being in each respective field.
+2. **Estimating Likelihoods, \( P(E|H) \) and \( P(E|\neg H) \):** The probability of Adam’s personality sketch given he is (or is not) in the field.
+3. **Applying Bayes' Rule:** \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+### Assumptions and Estimations:
+
+1. **Prior Probabilities, \( P(H) \):**
+   - Based on general distribution of graduate students, we could assume that fields like agricultural and veterinary science might be less commonly chosen as compared to business administration. However, it can vary widely depending on the university.
+
+2. **Likelihoods, \( P(E|H) \) and \( P(E|\neg H) \):**
+   - **\( P(E|H) \):** For agricultural and veterinary science, based on Adam’s character sketch, it is quite likely he fits this field given his love for nature, plants, and animals.
+   - **\( P(E|\neg H) \):** For other fields, the fit might be lower given he’s empathetic, loves animals, nature, and appreciates hard work. Fields like business administration might not strongly correlate with his personality traits.
+
+### Computation:
+
+#### Agricultural and Veterinary Science
+- \( P(H) \) (prior probability): 0.05 (estimated, assuming a lower enrollment compared to business fields)
+- \( P(E|H) \) (likelihood): 0.8 (high fit given interests and personality)
+- \( P(E|\neg H) \) (likelihood if in other fields): 0.1 (most fields less likely to fit this personality)
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.8 \cdot 0.05}{P(E)} = \frac{0.04}{P(E)} \]
+
+#### Business Administration
+- \( P(H) \) (prior probability): 0.2 (estimated, assuming higher enrollment)
+- \( P(E|H) \) (likelihood): 0.1 (low fit with personality)
+- \( P(E|\neg H) \) (likelihood if in other fields): 0.1 (most fields low fit)
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.1 \cdot 0.2}{P(E)} = \frac{0.02}{P(E)} \]
+
+### Normalization:
+To find \( P(E) \), we need to normalize these probabilities.
+\[ P(E) \approx P(E|H_{agg})P(H_{agg}) + P(E|H_{bus})P(H_{bus}) + ... \]
+
+For simplicity, let's ignore the term \(P(E)\) as it drops out by proportionally comparing the two probabilities. This means we compare:
+
+\[ \frac{P(H_{agg}|E)}{P(H_{bus}|E)} = \frac{0.04}{0.02} = 2 \]
+
+Thus:
+\[
+\textit{Relative terms are:
+} \frac{0.04}{0.06}, \frac{0.02}{0.06}
+\]
+
+Normalizing, we get the proportion:
+
+### Final Probabilities:
+{
+  "agricultural and veterinary science": 0.67,
+  "business administration": 0.33
+}
+
+These are approximate normalized probabilities, underlining that Adam is twice as likely to be in agricultural and veterinary sciences given his personality sketch compared to business administration.

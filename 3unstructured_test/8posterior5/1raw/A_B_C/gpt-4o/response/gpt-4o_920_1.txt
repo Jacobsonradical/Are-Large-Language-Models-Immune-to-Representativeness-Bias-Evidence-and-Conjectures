@@ -1,0 +1,53 @@
+To compute \( P(H|E) \), we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(H) \) is the prior probability of the hypothesis \( H \), \( P(E|H) \) is the likelihood of observing the evidence \( E \) given \( H \), and \( P(E) \) is the overall probability of observing the evidence \( E \).
+
+Let's define the hypotheses:
+- \( H_{cs} \): Adam was enrolled in computer science.
+- \( H_{ba} \): Adam was enrolled in business administration.
+- \( H_{avs} \): Adam was enrolled in agricultural and veterinary science.
+
+### Step 1: Assign prior probabilities \( P(H) \)
+We need to assign prior probabilities \( P(H_{cs}) \), \( P(H_{ba}) \), and \( P(H_{avs}) \). Since these are general fields, I'll assume they are relatively popular among graduate fields. We must also understand that we don't have exact data on enrollments, so this is an educated guess:
+
+- \( P(H_{cs}) = 0.4 \)
+- \( P(H_{ba}) = 0.3 \)
+- \( P(H_{avs}) = 0.3 \)
+
+### Step 2: Assign likelihoods \( P(E|H) \)
+Next, I'll assign likelihoods based on Adam's personality sketch and how well it aligns with each field:
+
+- \( P(E|H_{cs}) \): Given Adam’s love for nature, plants, and animals, it's less likely that he would be in computer science, though not impossible. I'll assign a medium-low likelihood.
+- \( P(E|H_{ba}) \): Business administration focuses on management, finance, and marketing, which contrasts with Adam's interests. I'll assign a low likelihood.
+- \( P(E|H_{avs}) \): Agricultural and veterinary science closely aligns with Adam’s love of nature, animals, and empathy. I'll assign a high likelihood.
+
+We can quantify these as:
+- \( P(E|H_{cs}) = 0.2 \)
+- \( P(E|H_{ba}) = 0.1 \)
+- \( P(E|H_{avs}) = 0.8 \)
+
+### Step 3: Compute \( P(E) \)
+The overall probability of \( E \) can be found by the law of total probability:
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|H_{avs}) \cdot P(H_{avs}) \]
+
+\[ P(E) = (0.2 \cdot 0.4) + (0.1 \cdot 0.3) + (0.8 \cdot 0.3) = 0.08 + 0.03 + 0.24 = 0.35 \]
+
+### Step 4: Compute posterior probabilities \( P(H|E) \)
+Using Bayes' rule:
+
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.2 \cdot 0.4}{0.35} = \frac{0.08}{0.35} \approx 0.229 \]
+
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.1 \cdot 0.3}{0.35} = \frac{0.03}{0.35} \approx 0.086 \]
+
+\[ P(H_{avs}|E) = \frac{P(E|H_{avs}) \cdot P(H_{avs})}{P(E)} = \frac{0.8 \cdot 0.3}{0.35} = \frac{0.24}{0.35} \approx 0.686 \]
+
+Finally, we have:
+```json
+{
+  "computer science": 0.229,
+  "business administration": 0.086,
+  "agricultural and veterinary science": 0.686
+}
+```

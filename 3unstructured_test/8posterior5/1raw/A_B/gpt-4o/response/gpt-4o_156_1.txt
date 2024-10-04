@@ -1,0 +1,69 @@
+Let's denote:
+
+- \( H_1 \) as Adam being enrolled in agricultural and veterinary science.
+- \( H_2 \) as Adam being enrolled in business administration.
+- \( E \) represents the given personality sketch of Adam.
+
+We want to compute \( P(H_1|E) \) and \( P(H_2|E) \).
+
+### Agricultural and Veterinary Science
+
+For \( H_1 \):
+- \( P(H_1) \): The general probability that a graduate student is in agricultural and veterinary science. Let's assume this is around 0.05 based on typical university enrollments.
+- \( P(E|H_1) \): The probability of observing the personality sketch \( E \) given that Adam is in agricultural and veterinary science. Considering his attributes (interest in nature, love for animals, empathy), this is likely very high. Let's estimate this as 0.9.
+- \( P(E|\neg H_1) \): The probability of observing the personality sketch \( E \) given that Adam is **not** in agricultural and veterinary science. This would be lower, given his specific interests. Let's assume about 0.1.
+
+Using Bayes' Rule:
+\[
+P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)}
+\]
+
+Since we need the normalization constant \( P(E) \) for accurate probabilities:
+\[
+P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1)
+\]
+\[
+P(\neg H_1) = 1 - P(H_1) = 0.95
+\]
+\[
+P(E) = 0.9 \cdot 0.05 + 0.1 \cdot 0.95 = 0.045 + 0.095 = 0.14
+\]
+\[
+P(H_1|E) = \frac{0.9 \cdot 0.05}{0.14} = \frac{0.045}{0.14} \approx 0.321
+\]
+
+### Business Administration
+
+For \( H_2 \):
+- \( P(H_2) \): The general probability that a graduate student is in business administration. Let's assume this is around 0.1 based on typical university enrollments.
+- \( P(E|H_2) \): The probability of observing the personality sketch \( E \) given that Adam is in business administration. Given his specific interests, this is likely low. Let's estimate this as 0.05.
+- \( P(E|\neg H_2) \): The probability of observing the personality sketch \( E \) given that Adam is **not** in business administration. This would be higher, as there are many other fields that fit his description better. Let's assume about 0.2.
+
+Using Bayes' Rule:
+\[
+P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)}
+\]
+
+Since we need the normalization constant \( P(E) \) for accurate probabilities:
+\[
+P(E) = P(E|H_2) \cdot P(H_2) + P(E|\neg H_2) \cdot P(\neg H_2)
+\]
+\[
+P(\neg H_2) = 1 - P(H_2) = 0.9
+\]
+\[
+P(E) = 0.05 \cdot 0.1 + 0.2 \cdot 0.9 = 0.005 + 0.18 = 0.185
+\]
+\[
+P(H_2|E) = \frac{0.05 \cdot 0.1}{0.185} = \frac{0.005}{0.185} \approx 0.027
+\]
+
+### Final Answer
+
+```json
+{
+  "agricultural and veterinary science": 0.321,
+  "business administration": 0.027
+}
+```
+These values indicate that, based on the given personality sketch, it is much more likely that Adam is enrolled in agricultural and veterinary science compared to business administration.

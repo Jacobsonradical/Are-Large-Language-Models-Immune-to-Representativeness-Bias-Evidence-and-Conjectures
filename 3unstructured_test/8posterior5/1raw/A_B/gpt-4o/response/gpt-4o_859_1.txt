@@ -1,0 +1,47 @@
+To compute the probabilities, I'll use Bayes' rule, which states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability that Adam was enrolled in the given field.
+- \( P(E|H) \) is the likelihood probability of Adam's personality sketch \( E \given \) that he was in the given field.
+- \( P(E|\neg H) \) is the likelihood probability of Adam's personality sketch \( E \given \) that he was not in the given field.
+- \( P(H|E) \) is the posterior probability that Adam was in the given field given his personality sketch.
+
+Since \( P(E) \) is a normalizing constant and Bayes' theorem needs to be applied in a relative sense, we can ignore it and focus on calculating:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's make some educated estimates.
+
+Firstly, for "agricultural and veterinary science":
+- \( P(H_{\text{agri}}) \): The prior probability of being in agricultural or veterinary science. Let's estimate this prior as being relatively moderate for a graduate student. Say \( 0.1 \). 
+- \( P(E|H_{\text{agri}}) \): Given Adam's interest in nature, plants, animals, and his empathy, the likelihood of this personality in agricultural and veterinary science is quite high. Let's estimate it as \( 0.8 \).
+- \( P(E|\neg H_{\text{agri}}) \): The likelihood of this personality sketch in the context of not being in agricultural and veterinary science can be estimated as lower. Say \( 0.3 \).
+
+Now for "business administration":
+- \( P(H_{\text{bus}}) \): The prior probability of being in business administration. Let’s estimate this as moderate as well. Say \( 0.2 \).
+- \( P(E|H_{\text{bus}}) \): Given Adam's nature-oriented personality, the likelihood of this personality sketch fitting business administration is comparatively lower. Let’s estimate it as \( 0.1 \).
+- \( P(E|\neg H_{\text{bus}}) \): The likelihood of this personality sketch in the context of not being in business administration can be estimated as higher. Say \( 0.4 \).
+
+Using our estimates, we compute the relative probabilities:
+
+\[ P(H_{\text{agri}}|E) \propto P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) = 0.8 \times 0.1 = 0.08 \]
+\[ P(H_{\text{bus}}|E) \propto P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}}) = 0.1 \times 0.2 = 0.02 \]
+
+Normalizing these (though not necessary since the total doesn't need to add up to 1):
+
+For "agricultural and veterinary science":
+\[ \frac{0.08}{0.08 + 0.02} = 0.8 \]
+
+For "business administration":
+\[ \frac{0.02}{0.08 + 0.02} = 0.2 \]
+
+Thus, the estimates are:
+
+```json
+{
+  "agricultural and veterinary science": 0.8,
+  "business administration": 0.2
+}
+```

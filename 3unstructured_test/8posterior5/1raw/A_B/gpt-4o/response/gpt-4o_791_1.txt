@@ -1,0 +1,58 @@
+To use Bayes' rule to compute the probabilities that Adam was enrolled in either agricultural and veterinary science or business administration, we need to break down the required probabilities:
+
+Bayes' rule states that:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the probability of the evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the probability of the evidence \( E \).
+
+Since we have 2 hypotheses (fields), let's denote them as \( H_1 \) (agricultural and veterinary science) and \( H_2 \) (business administration).
+
+Let's set our values based on the information given and reasonable assumptions:
+
+1. **Prior Probabilities (\( P(H) \))**:
+
+- \( P(H_1) \) (agricultural and veterinary science): Students enrolling in such programs are less common compared to business administration, so let's assume \( P(H_1) = 0.1 \).
+- \( P(H_2) \) (business administration): Much more common, so let's assume \( P(H_2) = 0.3 \).
+
+2. **Likelihoods (\( P(E|H) \))**:
+
+- \( P(E|H_1) \) (likelihood of Adam's characteristics given he is in agricultural and veterinary science): High, since his love for nature, animals, and empathy fit well with this field. Let's set \( P(E|H_1) = 0.8 \).
+- \( P(E|H_2) \) (likelihood of Adam's characteristics given he is in business administration): Lower, as his characteristics don't strongly align. Let's set \( P(E|H_2) = 0.2 \).
+
+3. **Complementary Likelihoods (\( P(E|\neg H) \))**:
+
+- For \( H_1 \):
+  - \( P(E|\neg H_1) \) is based on other fields' probabilities and how much Adam’s characteristics fit those. Since \( P(E|H_1) = 0.8 \), we can reasonably assume \( P(E|\neg H_1) = 0.4 \).
+- For \( H_2 \):
+  - \( P(E|\neg H_2) \) is also based on other fields’ probabilities. Since \( P(E|H_2) = 0.2 \), we can assume \( P(E|\neg H_2) = 0.5 \).
+
+Finally, to compute \( P(E) \), we use the law of total probability:
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|H_2) \cdot P(H_2) + P(E|\neg H_1 \cap \neg H_2) \cdot P(\neg H_1 \cap \neg H_2) \]
+
+Assuming the space of possible fields is comprehensive and that other fields apart from \( H_1 \) and \( H_2 \) are as likely as \( \neg H_1 \cap \neg H_2 \):
+
+\[ P(E) = (0.8 \cdot 0.1) + (0.2 \cdot 0.3) + (0.5 \cdot 0.6) \]
+\[ P(E) = 0.08 + 0.06 + 0.3 = 0.44 \]
+
+Thus,
+
+\[
+P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} = \frac{0.8 \cdot 0.1}{0.44} \approx 0.1818
+\]
+
+\[
+P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} = \frac{0.2 \cdot 0.3}{0.44} \approx 0.1364
+\]
+
+So the final probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.1818,
+  "business administration": 0.1364
+}
+```

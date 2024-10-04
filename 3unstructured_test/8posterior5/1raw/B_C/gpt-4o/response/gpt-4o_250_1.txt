@@ -1,0 +1,46 @@
+To determine \( P(H|E) \) for each of the fields, we need to use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E) \) is the total probability of the evidence.
+- \( P(E|\neg H) \) is the likelihood of the evidence given the negation of the hypothesis. (needed for the calculation of \( P(E) \))
+
+Since we don’t have exact probabilities, let's make some reasonable assumptions based on the given personality sketch and characteristics of each field.
+
+### Business Administration (BA)
+- **P(H)**: The prior probability that Adam would be in a business administration program. Let's assume graduate students in BA constitute about 10% of graduate students.
+- **P(E|H)**: The probability of observing the personality sketch given that Adam is in Business Administration. Given Adam’s qualities (curiosity about nature, love for animals), it’s less likely, but still possible. Estimate around 0.2 (20%).
+- **P(E|\neg H)**: The probability of observing the personality sketch if Adam were not in Business Administration. Considering a wider pool of graduate fields, let's assume a moderate probability, around 0.8 (80%).
+
+### Computer Science (CS)
+- **P(H)**: The prior probability that Adam would be in a computer science program. Let’s assume CS fields have higher enrollment, around 20% (0.2).
+- **P(E|H)**: The probability of observing the personality sketch given that Adam is in Computer Science. Given Adam’s intelligence, love for puzzles, and understanding abstract concepts, it is relatively high. Estimate around 0.6 (60%).
+- **P(E|\neg H)**: The probability of observing the personality sketch if Adam were not in Computer Science. Similar to above, estimate around 0.8 (80%).
+
+Now let's calculate \( P(E) \) as a weighted average:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+For Business Administration:
+\[ P(E_{BA}) = 0.2 \cdot 0.1 + 0.8 \cdot 0.9 = 0.02 + 0.72 = 0.74 \]
+
+For Computer Science:
+\[ P(E_{CS}) = 0.6 \cdot 0.2 + 0.8 \cdot 0.8 = 0.12 + 0.64 = 0.76 \]
+
+Finally, applying Bayes’ rule for each field:
+
+For Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E_{BA})} = \frac{0.2 \cdot 0.1}{0.74} \approx 0.027 \]
+
+For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E_{CS})} = \frac{0.6 \cdot 0.2}{0.76} \approx 0.158 \]
+
+Thus, the probability distributions for the two hypotheses are:
+
+{
+  "business administration": "0.027",
+  "computer science": "0.158"
+}

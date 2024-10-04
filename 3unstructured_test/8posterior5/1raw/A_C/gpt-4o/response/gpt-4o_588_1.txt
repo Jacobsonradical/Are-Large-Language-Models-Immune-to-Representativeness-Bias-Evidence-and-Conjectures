@@ -1,0 +1,72 @@
+To determine the probabilities \( P(H|E) \) for each hypothesis \( H \) given the evidence \( E \), we need to utilize Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E) \) is the total probability of the evidence.
+- \( P(\neg H) \) refers to the probabilities for fields other than the one specified.
+
+Given the evidence \( E \), let's assign rough estimates to these probabilities for each field.
+
+### Computer Science
+
+- **Prior Probability \( P(H) \)**: Let's assume computer science is a moderately popular field among graduate students. We might assign it a prior probability of 0.2.
+
+- **Likelihood \( P(E|H) \)**: Given Adam's personality sketch (e.g. high intelligence, good at understanding abstract concepts, enjoys solving puzzles), computer science is somewhat aligned, but his strong empathy and love for nature and animals are less typical for computer science students. Let's assign a likelihood of 0.4.
+
+- **Likelihood \( P(E|\neg H) \)**: This would be the likelihood of the evidence assuming Adam is in a different field. Since there are many fields that could match Adam's personality, we should expect this value to be fairly high. Let's assign it a value of 0.7.
+
+### Agricultural and Veterinary Science
+
+- **Prior Probability \( P(H) \)**: Agricultural and veterinary science is less common than computer science but given Adam's profile, it suits his interests well. Let's assign it a prior probability of 0.1.
+
+- **Likelihood \( P(E|H) \)**: Given Adam's strong love for animals, understanding of nature, and appreciation for hard work, this field closely matches his personality. Hence, we would assign a high likelihood, say 0.8.
+
+- **Likelihood \( P(E|\neg H) \)**: This would again represent the likelihood of the evidence if Adam is not in agricultural and veterinary science. While Adam's profile fits well in this field, several other fields (like environmental science) being also suitable would lower this value. Let's assign 0.5.
+
+Now, let's calculate the posterior probabilities:
+
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)}
+\]
+\[
+P(E) \approx P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + ... \text{(other fields)}
+\]
+Given we have two fields, and assuming our estimates split the total likelihood, this simplifies to:
+
+But for simplicity, we'll assume:
+\(
+P(E) \approx P(E| \text{CS}) \cdot P(\text{CS}) + P(E| \text{AgriVet}) \cdot P(\text{AgriVet})
+\)
+
+We assume the total of two fields is a rough total.
+
+Let's compute:
+
+### Computer Science
+
+\[
+P(\text{computer science}|E) = \frac{0.4 \cdot 0.2}{(0.4 \cdot 0.2 + 0.8 \cdot 0.1)}
+= \frac{0.08}{0.08 + 0.08}
+= \frac{0.08}{0.16}
+= 0.5
+\]
+
+### Agricultural and Veterinary Science
+
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.1}{(0.4 \cdot 0.2 + 0.8 \cdot 0.1)}
+= \frac{0.08}{0.08 + 0.08}
+= \frac{0.08}{0.16}
+= 0.5
+\]
+
+However, to approximate the fairness and wider possibility of fields \(
+ P(E) \) not limiting others unaccounted estimates:
+
+{
+  "computer science": "0.4",
+  "agricultural and veterinary science": "0.5"
+}

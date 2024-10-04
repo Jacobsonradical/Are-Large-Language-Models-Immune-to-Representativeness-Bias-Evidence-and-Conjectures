@@ -1,0 +1,67 @@
+To use Bayes' Theorem effectively, we need estimates or informed guesses for the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+2. \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing the evidence \( E \) given that Adam was not enrolled in that field.
+4. \( P(E) \): The total probability of observing the evidence \( E \).
+
+Given the sketch details, let’s assign some probabilities:
+
+### Business Administration
+
+- **P(H)**:  This would be the base rate probability of a graduate student being enrolled in business administration. Let's assume it’s about 0.15 (15%).
+- **P(E|H)**:  Given the personality sketch, it’s less likely that a person with such a strong affinity for nature, animals, and puzzles would choose business administration. Let’s say it’s 0.05.
+- **P(E|\neg H)**: This is the probability of observing the personality sketch given that Adam is not enrolled in business administration. Since the personality sketch aligns better with other fields, we might set this to something higher, like 0.6.
+
+Using Bayes' Theorem:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+For now, let's simplify by ignoring normalization:
+\[ P(H|E)_{\text{business administration}} \approx \frac{0.05 \times 0.15}{P(E)} \]
+
+### Computer Science
+
+- **P(H)**: This would be the base rate probability of a graduate student being enrolled in computer science. Let’s assume it’s about 0.2 (20%).
+- **P(E|H)**: Given the personality sketch, a strong understanding of abstract concepts and enjoyment in solving puzzles suits well with computer science. Let’s assume it’s 0.4.
+- **P(E|\neg H)**: This is the probability of observing the personality sketch given that Adam is not enrolled in computer science. Given that other fields may also match well, but not as strongly, let’s assign this to 0.5.
+
+Using Bayes’ Theorem:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+For now, let's simplify by ignoring normalization:
+\[ P(H|E)_{\text{computer science}} \approx \frac{0.4 \times 0.2}{P(E)} \]
+
+Now combining these:
+
+### Probability Calculation
+1. **Business Administration**:
+\[ P(H|E)_{\text{business administration}} \approx \frac{0.05 \times 0.15}{P(E)} = \frac{0.0075}{P(E)} \]
+
+2. **Computer Science**:
+\[ P(H|E)_{\text{computer science}} \approx \frac{0.4 \times 0.2}{P(E)} = \frac{0.08}{P(E)} \]
+
+Without the exact total \( P(E) \) (which would include all possible fields), we can provide these conditional probabilities in relative terms:
+
+```json
+{
+  "business administration": "0.0075",
+  "computer science": "0.08"
+}
+```
+
+These values show that given the evidence, it’s much more likely that Adam is enrolled in computer science compared to business administration, forgetting about the exact normalization.
+
+To express these more clearly as normalized probabilities, consider them relative to each other:
+- \( P(H|E)_{\text{business administration}} \approx \frac{0.0075}{0.0075 + 0.08} \approx 0.085 \)
+- \( P(H|E)_{\text{computer science}} \approx \frac{0.08}{0.0075 + 0.08} \approx 0.915 \)
+
+After normalization:
+
+```json
+{
+  "business administration": "0.085",
+  "computer science": "0.915"
+}
+```
+
+Thus, based on the personality sketch, it's approximately 91.5% likely that Adam is enrolled in computer science and about 8.5% likely that he is enrolled in business administration.

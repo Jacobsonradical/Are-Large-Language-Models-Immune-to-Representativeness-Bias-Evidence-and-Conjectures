@@ -1,0 +1,51 @@
+To determine the likelihood that Adam was enrolled in specific fields based on the given personality sketch, we can use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+First, let's break down our variables:
+- \( H \) represents the hypothesis that Adam was enrolled in a specific field.
+- \( E \) represents the evidence, which is Adam's personality sketch.
+- \( \neg H \) represents the hypothesis that Adam was not enrolled in that specific field.
+
+Since the sketches of Adam's personality are somewhat subjective, we'll use the following reasonable assumptions for P(H), P(E|H), and P(E|¬H):
+
+### For Computer Science:
+
+- **P(H)**: The prior probability that any given graduate student is in computer science. Assuming a reasonable proportion for a major U.S. university, let's estimate this to be 0.2 (or 20%).
+
+- **P(E|H)**: The likelihood that a computer science student would match Adam’s personality sketch. Given that computer science students are often intelligent and enjoy solving puzzles, have curiosity, and an understanding of abstract concepts, I would estimate this to be reasonably high, about 0.5 (or 50%).
+
+- **P(E|¬H)**: The likelihood that a non-computer science student would match Adam’s personality sketch. Since the traits described could fit many non-computer science students as well, let’s conservatively estimate this broader group at 0.1 (or 10%).
+
+### For Business Administration:
+
+- **P(H)**: The prior probability that any given graduate student is in business administration. Assuming a reasonable proportion for a major U.S. university, let’s estimate this to be 0.15 (or 15%).
+
+- **P(E|H)**: The likelihood that a business administration student would match Adam’s personality sketch. Business administration students are generally less likely as a group to be deeply into nature and animals, though some might have similar traits. Let’s estimate this to be lower at around 0.3 (or 30%).
+
+- **P(E|¬H)**: The likelihood that a non-business administration student would match Adam’s personality sketch. As with computer science, since the traits described could fit many non-business administration students, let’s conservatively estimate this broader group at 0.1 (or 10%).
+
+### Calculate P(H|E) for each field using Bayes' rule:
+
+\[ P(\text{comp. sci.}|E) = \frac{P(E|\text{comp. sci.}) \cdot P(\text{comp. sci.})}{P(E)} \]
+
+\[ P(\text{business admin.}|E) = \frac{P(E|\text{business admin.}) \cdot P(\text{business admin.})}{P(E)} \]
+
+While \( P(E) \) isn't known outright, we can compare relative probabilities.
+
+For Computer Science:
+\[ P(\text{comp. sci.}|E) \propto P(E|\text{comp. sci.}) \cdot P(\text{comp. sci.}) \]
+\[ P(\text{comp. sci.}|E) \propto 0.5 \times 0.2 = 0.1 \]
+
+For Business Administration:
+\[ P(\text{business admin.}|E) \propto P(E|\text{business admin.}) \cdot P(\text{business admin.}) \]
+\[ P(\text{business admin.}|E) \propto 0.3 \times 0.15 = 0.045 \]
+
+Standardizing and normalizing is unnecessary as the total probabilities should not necessarily sum to 1 for unspecific inclusion. Thus, our answers are:
+
+```json
+{
+  "computer science": 0.1,
+  "business administration": 0.045
+}
+```

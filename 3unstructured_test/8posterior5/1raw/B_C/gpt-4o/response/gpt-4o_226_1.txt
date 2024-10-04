@@ -1,0 +1,56 @@
+To apply Bayes' rule and compute the posterior probability \( P(H|E) \) for each hypothesis \( H \) (i.e., Adam being enrolled in either business administration or computer science) given the evidence \( E \) (the personality sketch of Adam), we need to have prior probabilities \( P(H) \), likelihoods \( P(E|H) \), and the complementary likelihoods \( P(E|\neg H) \).
+
+**Business Administration:**
+
+Let's denote:
+- \( H_{BA} \) is the hypothesis that Adam was enrolled in business administration.
+- \( P(H_{BA}) \) is the prior probability that Adam was in business administration.
+- \( P(E|H_{BA}) \) is the likelihood of observing the personality sketch if Adam is in business administration.
+- \( P(E|\neg H_{BA}) \) is the likelihood of observing the personality sketch if Adam is not in business administration.
+
+Judgements:
+- **Prior Probability (P(H_{BA})):** Let's assume a balanced prior (we don't have detailed data, so we can assume priors to be roughly equal for an average diverse graduate cohort). Assign \( P(H_{BA}) \approx 0.1 \) (this accounts for many possible fields).
+- **Likelihood (P(E|H_{BA})):** The personality traits described (curiosity about nature, empathy, love for animals) are less commonly associated with business administration students, who might more likely focus on economics and management. Assign \( P(E|H_{BA}) \approx 0.01 \).
+- **Complementary Likelihood (P(E|\neg H_{BA})):** Adam's traits are somewhat more common in other fields like environmental science, biology, etc. Assign \( P(E|\neg H_{BA}) \approx 0.05 \).
+
+Using Bayes’ rule:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+Where \( P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \).
+
+Numerically,
+\[ P(E) = 0.01 \cdot 0.1 + 0.05 \cdot 0.9 = 0.001 + 0.045 = 0.046 \]
+
+Thus,
+\[ P(H_{BA}|E) = \frac{0.01 \cdot 0.1}{0.046} \approx 0.0217 \]
+
+**Computer Science:**
+
+Let's denote:
+- \( H_{CS} \) is the hypothesis that Adam was enrolled in computer science.
+- \( P(H_{CS}) \) is the prior probability that Adam was in computer science.
+- \( P(E|H_{CS}) \) is the likelihood of observing the personality sketch if Adam is in computer science.
+- \( P(E|\neg H_{CS}) \) is the likelihood of observing the personality sketch if Adam is not in computer science.
+
+Judgements:
+- **Prior Probability (P(H_{CS})):** Assume a balanced prior. Assign \( P(H_{CS}) \approx 0.1 \).
+- **Likelihood (P(E|H_{CS})):** Traits like intelligence, abstract thinking, and puzzle-solving align fairly well with computer science. Assign \( P(E|H_{CS}) \approx 0.07 \).
+- **Complementary Likelihood (P(E|\neg H_{CS})):** Similar to previous complementary reasoning. Assign \( P(E|\neg H_{CS}) \approx 0.05 \).
+
+Using Bayes' rule:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Where \( P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \).
+
+Numerically,
+\[ P(E) = 0.07 \cdot 0.1 + 0.05 \cdot 0.9 = 0.007 + 0.045 = 0.052 \]
+
+Thus,
+\[ P(H_{CS}|E) = \frac{0.07 \cdot 0.1}{0.052} \approx 0.1346 \]
+
+The final probabilities using Bayes' rule are:
+
+```json
+{
+  "business administration": 0.0217,
+  "computer science": 0.1346
+}
+```

@@ -1,0 +1,69 @@
+To calculate the posterior probability \(P(H|E)\) for each field given Adam's personality sketch, we will use Bayes' Rule. Bayes' Rule is:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+Where:
+- \(P(H)\) is the prior probability of Adam being in that field.
+- \(P(E|H)\) is the probability of observing Adam's personality given he is in that field.
+- \(P(E)\) is the overall probability of observing Adam's personality.
+
+Since we are interested in comparing the fields, we can use relative probabilities, assuming \(P(E)\) is constant across fields. We will therefore focus on calculating the numerator \(P(E|H) \cdot P(H)\) for each field and then normalize.
+
+### Hypotheses:
+1. **Agricultural and Veterinary Science (\(H_1\))**
+2. **Computer Science (\(H_2\))**
+3. **Business Administration (\(H_3\))**
+
+### Assumptions:
+We need to make reasonable assumptions about each field's prior and how well Adam's personality fits. 
+
+1. \(P(E)\): We assume it's constant for normalization purposes.
+2. \(P(H)\) for each field based on typical graduate enrolment:
+   - Assume Agricultural and Veterinary Science: 5%
+   - Assume Computer Science: 25%
+   - Assume Business Administration: 20%
+3. \(P(E|H)\): Judged based on the compatibility of Adam's traits with each field.
+
+#### Agricultural and Veterinary Science (\(H_1\)):
+- Likely fits well given a love for nature, plants, and animals.
+- High appreciation for hard work likely aligns with the field.
+- Thus: \(P(E|H_1) = 0.7\)
+- Assume \(P(H_1) = 0.05\)
+
+\[P(E|H_1) \cdot P(H_1) = 0.7 \cdot 0.05 = 0.035\]
+
+#### Computer Science (\(H_2\)):
+- Solving puzzles and understanding abstract concepts fit well.
+- However, other traits (nature, animals) may not be directly relevant.
+- Thus: \(P(E|H_2) = 0.4\)
+- Assume \(P(H_2) = 0.25\)
+
+\[P(E|H_2) \cdot P(H_2) = 0.4 \cdot 0.25 = 0.1\]
+
+#### Business Administration (\(H_3\)):
+- Hard work appreciation fits, but other traits might be less relevant.
+- Thus: \(P(E|H_3) = 0.2\)
+- Assume \(P(H_3) = 0.2\)
+
+\[P(E|H_3) \cdot P(H_3) = 0.2 \cdot 0.2 = 0.04\]
+
+### Normalization:
+We normalize the values to ensure they sum to 1:
+
+1. Sum of values: \(0.035 + 0.1 + 0.04 = 0.175\)
+
+2. Posterior probabilities:
+\[P(H_1|E) = \frac{0.035}{0.175} = 0.20\]
+\[P(H_2|E) = \frac{0.1}{0.175} = 0.57\]
+\[P(H_3|E) = \frac{0.04}{0.175} = 0.23\]
+
+### Final Answer:
+```json
+{
+  "agricultural and veterinary science": 0.20,
+  "computer science": 0.57,
+  "business administration": 0.23
+}
+```
+
+These probabilities reflect the relative fit of Adam's personality with each field based on the provided sketch and our assumptions regarding the typical profiles in these fields.

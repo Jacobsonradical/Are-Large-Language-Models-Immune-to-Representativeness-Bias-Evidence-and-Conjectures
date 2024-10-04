@@ -1,0 +1,64 @@
+To compute the probabilities \(P(H|E)\) for each field using Bayes' rule, we need to know the following:
+
+1. \(P(H)\): The prior probability that Adam is enrolled in each respective field.
+2. \(P(E|H)\): The probability of observing the personality sketch \(E\) given that Adam is enrolled in each respective field.
+3. \(P(E|\neg H)\): The probability of observing the personality sketch \(E\) given that Adam is *not* enrolled in each respective field.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where \(P(E)\) can be computed as:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+We need to make some assumptions due to the lack of specific data. First, I'll outline some reasonable assumptions based on the personality sketch and typical fields of graduate study:
+
+1. **Prior Probability \(P(H)\)**: 
+   - Let's assume the priors without specific data:
+     - Business administration: \(P(H)_{BA} \approx 0.2\) (since business administration may be less typical for someone with a deep love for nature and abstract thinking)
+     - Computer science: \(P(H)_{CS} \approx 0.3\) (since computer science might align well with high intelligence and solving puzzles)
+   
+2. **Probability of observing \(E\) given enrollment \(P(E|H)\)**:
+   - Given Adam's traits, assume:
+     - Business administration: \(P(E|H)_{BA} \approx 0.1\) (individuals with a love for nature, animals, and puzzles might be less common in this field)
+     - Computer science: \(P(E|H)_{CS} \approx 0.4\) (individuals with strong abstract thinking and puzzle-solving skills might align well here)
+   
+3. **Probability of observing \(E\) given not enrollment \(P(E|\neg H)\)**:
+   - For business administration: \(P(E|\neg H)_{BA} \approx 0.35\) (E could align with other non-BA fields much more)
+   - For computer science: \(P(E|\neg H)_{CS} \approx 0.2\) (since E might be typical in fields other than computer science too)
+
+Next, we perform the computations:
+
+### For Business Administration:
+
+1. Compute \( P(E) \):
+\[ P(E)_{BA} = P(E|H)_{BA} \cdot P(H)_{BA} + P(E|\neg H)_{BA} \cdot P(\neg H)_{BA} \]
+\[ P(E)_{BA} = (0.1 \cdot 0.2) + (0.35 \cdot 0.8) \]
+\[ P(E)_{BA} = 0.02 + 0.28 = 0.30 \]
+
+2. Compute \( P(H|E)_{BA} \):
+\[ P(H|E)_{BA} = \frac{P(E|H)_{BA} \cdot P(H)_{BA}}{P(E)_{BA}} \]
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{0.30} \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.30} \]
+\[ P(H|E)_{BA} \approx 0.067 \]
+
+### For Computer Science:
+
+1. Compute \( P(E) \):
+\[ P(E)_{CS} = P(E|H)_{CS} \cdot P(H)_{CS} + P(E|\neg H)_{CS} \cdot P(\neg H)_{CS} \]
+\[ P(E)_{CS} = (0.4 \cdot 0.3) + (0.2 \cdot 0.7) \]
+\[ P(E)_{CS} = 0.12 + 0.14 = 0.26 \]
+
+2. Compute \( P(H|E)_{CS} \):
+\[ P(H|E)_{CS} = \frac{P(E|H)_{CS} \cdot P(H)_{CS}}{P(E)_{CS}} \]
+\[ P(H|E)_{CS} = \frac{0.4 \cdot 0.3}{0.26} \]
+\[ P(H|E)_{CS} = \frac{0.12}{0.26} \]
+\[ P(H|E)_{CS} \approx 0.462 \]
+
+Thus, the computed probabilities are:
+
+```json
+{
+  "business administration": 0.067,
+  "computer science": 0.462
+}
+```

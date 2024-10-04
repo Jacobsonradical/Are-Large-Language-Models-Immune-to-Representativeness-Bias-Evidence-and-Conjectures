@@ -1,0 +1,49 @@
+To use Bayes' Rule to compute \( P(H|E) \) for each field, I'll start by assessing the individual probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+1. **\( P(H) \) - Prior Probability:**
+   This is the initial probability that Adam is enrolled in a specific field without any additional information (E). Since there are numerous graduate fields, I’ll assume a generic prior probability for simplicity.
+
+   - \( P(H_{BA}) \): Let's assume the probability that a random graduate student is in business administration is about 0.1 (10%).
+   - \( P(H_{CS}) \): Let's assume the probability that a random graduate student is in computer science is about 0.15 (15%).
+
+2. **\( P(E|H) \) - Likelihood:**
+   The probability of the given profile (E) given that Adam is in a specific field (H):
+   
+   - Business Administration:
+     - The profile mentions genuine curiosity about nature and plants, interest in puzzles, empathy, love for animals, and appreciation for hard work.
+     - These traits seem less aligned with a typical business administration student. I'll estimate:
+       - \( P(E|H_{BA}) \) = 0.05 (5%)
+
+   - Computer Science:
+     - The profile mentions high intelligence and understanding of abstract concepts, which are traits often associated with computer science students.
+     - However, strong empathy and love for animals might be less common but are not exclusive.
+       - \( P(E|H_{CS}) \) = 0.2 (20%)
+
+3. **\( P(E|\neg H) \) - Probability of Evidence given Not H:**
+   This is the probability of having the personality profile (E) if Adam were in any other field except the specific one (H). Let's assume the generic average for simplicity:
+   
+   - Assuming the profile (E) is relatively common across various fields but not overly common:
+     - \( P(E|\neg H_{BA}) \) = 0.25 (25%)
+     - \( P(E|\neg H_{CS}) \) = 0.25 (25%)
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+For **Business Administration**:
+\[ P(H_{BA}|E) = \frac{0.05 \times 0.1}{0.05 \times 0.1 + 0.25 \times 0.9} \]
+\[ P(H_{BA}|E) = \frac{0.005}{0.005 + 0.225} \]
+\[ P(H_{BA}|E) = \frac{0.005}{0.23} \approx 0.0217 \]
+
+For **Computer Science**:
+\[ P(H_{CS}|E) = \frac{0.2 \times 0.15}{0.2 \times 0.15 + 0.25 \times 0.85} \]
+\[ P(H_{CS}|E) = \frac{0.03}{0.03 + 0.2125} \]
+\[ P(H_{CS}|E) = \frac{0.03}{0.2425} \approx 0.1237 \]
+
+Thus, the computed probabilities are:
+
+```json
+{
+  "business administration": 0.0217,
+  "computer science": 0.1237
+}
+```

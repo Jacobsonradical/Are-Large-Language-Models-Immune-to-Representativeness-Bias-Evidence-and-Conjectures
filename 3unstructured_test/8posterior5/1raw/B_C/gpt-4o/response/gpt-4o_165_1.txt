@@ -1,0 +1,60 @@
+To apply Bayes' rule, we'll need to evaluate the following:
+- P(H): The prior probability of Adam being enrolled in a particular field.
+- P(E|H): The probability of observing Adam's personality sketch given he is enrolled in a particular field.
+- P(E|¬H): The probability of observing Adam's personality sketch given he is not enrolled in that particular field.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(E) \) can be found by summing \( P(E|H) \cdot P(H) \) over all hypotheses.
+
+Let's consider each field:
+
+### Computer Science (CS)
+1. **P(H - CS)**: The prior probability of being enrolled in CS is reasonably common, it can be approximated as:
+\[ P(H - CS) \approx 0.2 \]
+2. **P(E|H - CS)**: The probability that Adam's personality matches if enrolled in CS:
+   - High intelligence aligns well \( \approx 0.8 \)
+   - Problem-solving aligns \( \approx 0.7 \)
+   - Curiosity about nature and empathy less aligned \( \approx 0.4 \)
+   Given these, an approximate value can be:
+\[ P(E|H - CS) \approx 0.6 \]
+3. **P(E|¬H - CS)**: The probability of observing Adam’s personality sketch given he is not in CS might be:
+\[ P(E|¬H - CS) \approx 0.2 \]
+Given the reasonable fit with some aspects of other fields.
+
+### Business Administration (BA)
+1. **P(H - BA)**: The prior probability of being enrolled in BA:
+\[ P(H - BA) \approx 0.1 \]
+2. **P(E|H - BA)**: The probability that Adam's personality sketch matches if enrolled in BA:
+   - Problem-solving aligns \( \approx 0.6 \)
+   - Strong empathy aligns \( \approx 0.7 \)
+   Given these, an approximate value can be:
+\[ P(E|H - BA) \approx 0.6 \]
+3. **P(E|¬H - BA)**: The probability of observing Adam’s personality sketch given he is not in BA might be:
+\[ P(E|¬H - BA) \approx 0.2 \]
+Given that empathy and problem-solving also align with other fields like psychology or natural sciences.
+
+Using Bayes’ rule:
+
+For CS:
+\[ P(H|E - CS) = \frac{P(E|H - CS) \cdot P(H - CS)}{P(E)} \]
+\[ P(E) = P(E|H - CS) \cdot P(H - CS) + P(E|¬H - CS) \cdot P(¬H - CS) \]
+\[ P(E) = (0.6 \cdot 0.2) + (0.2 \cdot 0.8) = 0.12 + 0.16 = 0.28 \]
+\[ P(H|E - CS) = \frac{0.6 \cdot 0.2}{0.28} \approx 0.428 \]
+
+For BA:
+\[ P(H|E - BA) = \frac{P(E|H - BA) \cdot P(H - BA)}{P(E)} \]
+\[ P(E) = P(E|H - BA) \cdot P(H - BA) + P(E|¬H - BA) \cdot P(¬H - BA) \]
+\[ P(E) = (0.6 \cdot 0.1) + (0.2 \cdot 0.9) = 0.06 + 0.18 = 0.24 \]
+\[ P(H|E - BA) = \frac{0.6 \cdot 0.1}{0.24} \approx 0.25 \]
+
+Therefore, the approximate probability, given Adam's personality sketch, would be:
+
+```json
+{
+  "computer science": 0.428,
+  "business administration": 0.25
+}
+```

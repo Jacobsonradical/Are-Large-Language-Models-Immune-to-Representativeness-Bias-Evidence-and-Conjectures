@@ -1,0 +1,59 @@
+To solve this problem, we first need to define our probabilities:
+
+1. **P(H)**: The prior probability of Adam being enrolled in a particular field.
+2. **P(E|H)**: The likelihood of observing the personality sketch of Adam given that he is enrolled in a specific field.
+3. **P(E|\neg H)**: The likelihood of observing the personality sketch of Adam given that he is NOT enrolled in that specific field.
+4. **P(H|E)**: The posterior probability of Adam being enrolled in a particular field given the personality sketch.
+
+Next, I'll give my estimated probabilities and then apply Bayes' Rule.
+
+### Business Administration
+
+1. **P(H)**: The prior probability that Adam is enrolled in business administration. Since we don't have specific prior probabilities, I'll assume a baseline to start with. For simplicity, I'll assume equal priors for graduate students among common fields.
+   - P(H) ≈ 0.1 (This is arbitrary but reasonable assuming there are many graduate fields)
+
+2. **P(E|H)**: The likelihood of observing E if H is true.
+   - Given Adam's personality (curiosity about nature, quiet, enjoys puzzles, high intelligence, etc.), it seems less typical for a business administration student. Therefore, let's assume it's relatively low.
+   - P(E|H) ≈ 0.05
+
+3. **P(E|\neg H)**: The likelihood of E given that H is not true.
+   - This depends on how well Adam's traits fit non-business administration fields. Since his traits might align more with fields like biology or environmental science (E|\neg H might be more probable than E|H), let's estimate this.
+   - P(E|\neg H) ≈ 0.2
+
+Now we apply Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \):
+\[ P(E) = (0.05 \times 0.1) + (0.2 \times 0.9) = 0.005 + 0.18 = 0.185 \]
+
+Then,
+\[ P(H|E) = \frac{0.05 \times 0.1}{0.185} \approx 0.027 \]
+
+### Computer Science
+
+1. **P(H)**: The prior probability of Adam enrolling in computer science.
+   - Assume a baseline similar to business administration due to lack of specificity.
+   - P(H) ≈ 0.1
+
+2. **P(E|H)**: The likelihood of observing E if H is true.
+   - Given Adam's traits (enjoys puzzles, high intelligence, abstract concepts), computer science seems a more likely fit.
+   - P(E|H) ≈ 0.3
+
+3. **P(E|\neg H)**: The likelihood of E given that H is not true.
+   - As before for business administration, assume general likeliness of personality traits fitting non-CS fields.
+   - P(E|\neg H) ≈ 0.2
+
+Applying Bayes' Rule:
+\[ P(E) = (0.3 \times 0.1) + (0.2 \times 0.9) = 0.03 + 0.18 = 0.21 \]
+
+Then,
+\[ P(H|E) = \frac{0.3 \times 0.1}{0.21} \approx 0.143 \]
+
+Thus, the estimated posterior probabilities are:
+
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.143
+}
+```

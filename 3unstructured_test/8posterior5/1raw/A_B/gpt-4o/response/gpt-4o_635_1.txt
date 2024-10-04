@@ -1,0 +1,59 @@
+To compute P(H|E) using Bayes' rule, we need to estimate the following probabilities for each field:
+
+1. P(H) - The prior probability that Adam is enrolled in a given field.
+2. P(E|H) - The probability of Adam's personality sketch given he is enrolled in a given field.
+3. P(E|\neg H) - The probability of Adam's personality sketch given he is not enrolled in a given field.
+4. P(\neg H) - The prior probability that Adam is not enrolled in a given field, which is 1 - P(H).
+
+Since we are not given exact numerical values, we will make reasonable estimations based on the provided information.
+
+### Agricultural and Veterinary Science:
+
+1. **P(H)** - The prior probability that Adam is enrolled in Agricultural and Veterinary Science:
+   - Agricultural and Veterinary Science is a relatively niche field compared to other fields like Business Administration.
+   - Given Adam’s love for nature, plants, and animals, it is reasonable to assume a higher prior for this field.
+   Let's set P(H) = 0.1 for this field (as a reasonable estimate).
+
+2. **P(E|H)** - The probability of E given H (Adam's personality given he is in this field):
+   - His characteristics match well with someone interested in Agricultural and Veterinary Science.
+   - Let's estimate this to be high, say P(E|H) = 0.9.
+
+3. **P(E|\neg H)** - The probability of E given he is not in this field:
+   - There could be other fields where Adam's personality also fits well, like Environmental Science or Biology.
+   - Let's set P(E|\neg H) = 0.05.
+
+Now, we apply Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+\[ P(E) = 0.9 \cdot 0.1 + 0.05 \cdot 0.9 = 0.09 + 0.045 = 0.135 \]
+\[ P(H|E) = \frac{0.9 \cdot 0.1}{0.135} = \frac{0.09}{0.135} \approx 0.667 \]
+
+### Business Administration:
+
+1. **P(H)** - The prior probability that Adam is enrolled in Business Administration:
+   - Business Administration is a common field, but it doesn't align well with Adam’s described interests.
+   - Let's set P(H) = 0.05 for this field (lower due to lack of direct match).
+
+2. **P(E|H)** - The probability of E given H (Adam's personality given he is in this field):
+   - His characteristics do not specifically match those typically associated with Business Administration.
+   - Let's estimate this to be low, say P(E|H) = 0.1.
+
+3. **P(E|\neg H)** - The probability of E given he is not in this field:
+   - Similar to above, let's set P(E|\neg H) = 0.05.
+
+Now, we apply Bayes' rule:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.1 \cdot 0.05 + 0.05 \cdot 0.95 = 0.005 + 0.0475 = 0.0525 \]
+\[ P(H|E) = \frac{0.1 \cdot 0.05}{0.0525} = \frac{0.005}{0.0525} \approx 0.095 \]
+
+### Final results:
+
+```json
+{
+  "agricultural and veterinary science": 0.667,
+  "business administration": 0.095
+}
+```
+
+These values indicate a higher posterior probability that Adam is enrolled in Agricultural and Veterinary Science compared to Business Administration, given his personality sketch.

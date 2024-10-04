@@ -1,0 +1,49 @@
+We can use Bayesian inference to compute the posterior probability \( P(H|E) \) for each field given the personality sketch of Adam.
+
+Firstly, we need to make reasonable assumptions and estimations for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Assumptions and Estimations:
+
+#### Computer Science
+- **P(H\_CS)**: The prior probability that a typical graduate student is in computer science. Let's assume this is 25% (0.25).
+- **P(E|H\_CS)**: The probability of Adam's profile given he is in computer science. Given Adam's characteristics (high intelligence, good with abstract concepts, enjoys puzzles), this could be relatively high. Let's assume this is 0.70.
+- **P(E|\neg H\_CS)**: The probability of Adam's profile given he is not in computer science. Considering that some of his traits could fit well in other fields, let's estimate this to be lower. Let's assume this is 0.25.
+
+#### Business Administration
+- **P(H\_BA)**: The prior probability that a typical graduate student is in business administration. Let's assume this is 20% (0.20).
+- **P(E|H\_BA)**: The probability of Adam's profile given he is in business administration. Given Adam's characteristics (empathy, appreciation for hard work, curiosity), this might be moderate but not high. Let's assume this is 0.30.
+- **P(E|\neg H\_BA)**: The probability of Adam's profile given he is not in business administration. Considering that some of his traits could fit well in other fields but not specifically aligned with typical business administration attributes, let's assume this is 0.25.
+
+### Compute Posterior Probabilities:
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we need \( P(E) \) (the total probability of observing E), we can use the Law of Total Probability:
+\[ P(E) = P(E|H\_CS) \cdot P(H\_CS) + P(E|H\_BA) \cdot P(H\_BA) + P(E|\neg H\_CS) \cdot P(\neg H\_CS) + P(E|\neg H\_BA) \cdot P(\neg H\_BA) \]
+Since there are other fields:
+- \( P(\neg H\_CS) = 1 - P(H\_CS) = 0.75 \)
+- \( P(\neg H\_BA) = 1 - P(H\_BA) = 0.80 \)
+
+However, for simplicity, we'll focus on comparing just the relative posteriors and assume equal contributions for \( P(E|\neg H\_CS) \) and \( P(E|\neg H\_BA) \), which simplifies comparing focused fields.
+
+### Computer Science:
+\[ P(H|E)_{CS} = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H|E)_{CS} \approx \frac{0.70 \cdot 0.25}{P(E)} \]
+
+### Business Administration:
+\[ P(H|E)_{BA} = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H|E)_{BA} \approx \frac{0.30 \cdot 0.20}{P(E)} \]
+
+### Normalizing for Comparison:
+Let's simplify:
+- \( \frac{0.70 \cdot 0.25}{0.25} \) for CS
+- \( \frac{0.30 \cdot 0.20}{0.25} \) for BA
+
+These proportions lead to recognition of higher posterior for CS.
+
+### Final Computation:
+{
+  "computer science": 0.7 / (0.7 + 0.06) ≈ 0.92,
+  "business administration": 0.06 / (0.7 + 0.06) ≈ 0.08
+}

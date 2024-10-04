@@ -1,0 +1,42 @@
+To compute \(P(H|E)\) for each field, we'll use Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we’re comparing only \(P(H|E)\) between two hypotheses, we do not need the exact value of \(P(E)\), as it serves as a normalizing constant. We can focus on evaluating comparative values of \(P(E|H) \cdot P(H)\).
+
+To do this, we need to assess:
+
+1. \(P(H)\): The prior probability that Adam is enrolled in each of these fields.
+2. \(P(E|H)\): The probability of Adam having the personality sketch \(E\) given he is in each of these fields.
+3. \(P(E|\neg H)\): The probability of Adam having the personality sketch \(E\) given he is not in each of these fields.
+
+### Estimations:
+
+#### Computer Science
+- **Prior Probability, \(P(H_{CS})\)**: Computer Science is a popular field among graduate students, but it may not be overwhelmingly common compared to other fields. Let's assign a moderate prior probability: 0.2.
+- **Likelihood, \(P(E|H_{CS})\)**: The personality sketch fits well with a computer science student, given the interest in solving puzzles and high intelligence. He might have an appreciation for dedication and hard work required in this demanding field. The empathy and love for animals might be less directly relevant, though. Let's assign it a likelihood of 0.5.
+
+#### Business Administration
+- **Prior Probability, \(P(H_{BA})\)**: Business Administration also is a popular field, but considering Adam's personality traits, it might be less likely compared to a more analytical field like computer science. Let's assign it a lower prior probability: 0.1.
+- **Likelihood, \(P(E|H_{BA})\)**: The personality sketch seems less aligned with stereotypical traits of business administration students, who are often perceived as outgoing, less focused on nature, empathy, and more on networking and leadership. Let's assign a likelihood of 0.2.
+
+### Normalization
+
+We can now translate the prior beliefs and the likelihoods into posteriors for comparison:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.5 \cdot 0.2 = 0.1 \]
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.2 \cdot 0.1 = 0.02 \]
+
+Finally, we normalize them to ensure they sum to 1 (though it's not required since it is a comparison):
+
+\[ P(H_{CS}|E) = \frac{0.1}{0.1 + 0.02} \approx 0.833 \]
+\[ P(H_{BA}|E) = \frac{0.02}{0.1 + 0.02} \approx 0.167 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.833,
+  "business administration": 0.167
+}
+```
+
+These probabilities suggest that, based on the personality sketch, Adam is much more likely to be enrolled in computer science than business administration.

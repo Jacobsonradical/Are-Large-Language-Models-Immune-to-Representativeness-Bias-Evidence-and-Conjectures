@@ -1,0 +1,61 @@
+Given the personality sketch E of Adam, we can make informed guesses about which fields of study he might be most likely to be enrolled in based on his interests and attributes.
+
+### Assumptions
+
+Let's assume some prior probabilities for the hypothesis H (which field Adam is in):
+
+- For computer science (H = CS):
+  - P(H) = 0.3 (as computer science is a common graduate field)
+- For agricultural and veterinary science (H = AV):
+  - P(H) = 0.1 (less common than computer science but relevant to Adam's profile)
+- For business administration (H = BA):
+  - P(H) = 0.2 (popular graduate field)
+
+Next, we'll assess how likely it is that Adam's personality sketch E is observed given his major in each field (P(E|H)) and given he is not in that field (P(E|neg H)):
+
+1. **P(E|computer science)**: Adam has high intelligence and is good at understanding abstract concepts, which aligns well with computer science. However, his deep love for animals and nature is less directly related.
+   - P(E|H = CS) ≈ 0.5
+
+2. **P(E|agricultural and veterinary science)**: Adam's love for nature, his empathy, and his curiosity about plants and animals align very well with this field.
+   - P(E|H = AV) ≈ 0.9
+
+3. **P(E|business administration)**: Adam's attributes (warm heart, love for animals, understanding abstract concepts) are less aligned with business administration, although his appreciation for hard work could be a factor.
+   - P(E|H = BA) ≈ 0.2
+
+For the likelihood of the personality sketch given he is not in that field (P(E|neg H)), we approximate an average likelihood since there are many other fields he could potentially be in:
+
+- P(E|neg CS) ≈ 0.4
+- P(E|neg AV) ≈ 0.5
+- P(E|neg BA) ≈ 0.6
+
+### Bayesian Calculation
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+And considering \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P( \neg H ) \):
+
+1. For **computer science**:
+   \[ P(E)_{\text{CS}} = (0.5 \times 0.3) + (0.4 \times 0.7) \]
+   \[ P(E) = 0.15 + 0.28 = 0.43 \]
+   \[ P(H=\text{CS}|E) = \frac{0.5 \times 0.3}{0.43} \approx 0.349 \]
+
+2. For **agricultural and veterinary science**:
+   \[ P(E)_{\text{AV}} = (0.9 \times 0.1) + (0.5 \times 0.9) \]
+   \[ P(E) = 0.09 + 0.45 = 0.54 \]
+   \[ P(H=\text{AV}|E) = \frac{0.9 \times 0.1}{0.54} \approx 0.167 \]
+
+3. For **business administration**:
+   \[ P(E)_{\text{BA}} = (0.2 \times 0.2) + (0.6 \times 0.8) \]
+   \[ P(E) = 0.04 + 0.48 = 0.52 \]
+   \[ P(H=\text{BA}|E) = \frac{0.2 \times 0.2}{0.52} \approx 0.077 \]
+
+### Conclusion:
+
+{
+  "computer science": 0.349,
+  "agricultural and veterinary science": 0.167,
+  "business administration": 0.077
+}
+
+These probabilities suggest that, based on the given personality sketch, Adam is most likely to be enrolled in computer science, with agricultural and veterinary science being the next most probable field, and business administration being less likely.

@@ -1,0 +1,49 @@
+To use Bayes' Rule for computing the posterior probability \( P(H|E) \), we need the following:
+
+- Prior probability \( P(H) \): The initial probability that Adam is enrolled in a specific field without considering his personality sketch.
+- Likelihood \( P(E|H) \): The probability of observing the personality sketch given that Adam is in a certain field.
+- \( P(E| \neg H) \): The probability of observing the personality sketch given that Adam is not in a certain field.
+- Normalizing constant \( P(E) \): This is the same for all hypotheses, so it can be inferred indirectly through comparison.
+
+Given that Adam has a personality sketch \( E \) which highlights his curiosity about nature, plants, love for animals, intelligence, and appreciation for hard work and dedication, we can make sensible estimations about \( P(E|H) \) and \( P(E|\neg H) \).
+
+**Hypothesis: Computer Science (\( H_{\text{CS}} \))**
+
+- \( P(H_{\text{CS}}) \): Let's assume a baseline value, since there's a significant number of graduate students in computer science.
+- \( P(E|H_{\text{CS}}) \): Given that Adam enjoys solving puzzles and has high intelligence, this might be somewhat likely if he were in computer science, although it doesn't align well with his strong empathy, love for animals, and curiosity about nature.
+- \( P(E|\neg H_{\text{CS}}) \): Since there are many other fields that would fit Adam's sketch better, this value might be higher.
+
+We can estimate:
+- \( P(H_{\text{CS}}) \approx 0.2 \)
+- \( P(E|H_{\text{CS}}) \approx 0.3 \)
+- \( P(E|\neg H_{\text{CS}}) \approx 0.7 \)
+
+Using Bayes' Rule:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+Since \( P(E) \) is a normalizing constant:
+\[ P(H_{\text{CS}}|E) = \frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.7 \cdot (1-0.2)} \approx 0.056 \]
+
+**Hypothesis: Agricultural and Veterinary Science (\( H_{\text{AVS}} \))**
+
+- \( P(H_{\text{AVS}}) \): A smaller pool compared to computer science but still non-negligible.
+- \( P(E|H_{\text{AVS}}) \): High, given Adam's love for animals, nature, and plants, as well as his empathy and appreciation for hard work.
+- \( P(E|\neg H_{\text{AVS}}) \): Lower than the former case, as his profile strongly aligns with this field.
+
+We can estimate:
+- \( P(H_{\text{AVS}}) \approx 0.1 \)
+- \( P(E|H_{\text{AVS}}) \approx 0.8 \)
+- \( P(E|\neg H_{\text{AVS}}) \approx 0.2 \)
+
+Using Bayes' Rule:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+Since \( P(E) \) is a normalizing constant:
+\[ P(H_{\text{AVS}}|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.2 \cdot (1-0.1)} \approx 0.286 \]
+
+Given these estimates, we get:
+
+{
+  "computer science": 0.056,
+  "agricultural and veterinary science": 0.286
+}
+
+Note: These probabilities are approximate and hypothetical as they depend on assumptions made about the priors and likelihoods. The exact values could be different with more precise priors and likelihoods.

@@ -1,0 +1,70 @@
+In order to compute \( P(H|E) \) using Bayes' rule, we need to apply the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing two hypotheses, it is more practical to compute the relative likelihoods of each scenario.
+
+Let's start by making reasonable estimations based on the given personality sketch of Adam.
+
+1. **Hypothesis H: Adam was enrolled in business administration**
+   
+   - \(P(H)\): The prior probability that Adam was enrolled in business administration. This is generally low because we want to account for all graduate fields. We'll estimate this as:
+     \[
+     P(H_{\text{BA}}) \approx 0.1
+     \]
+
+   - \(P(E|H)\): The probability of observing Adam's personality traits given he is enrolled in business administration. Given his traits (curiosity about nature, empathy, love for animals), this likelihood is relatively low.
+     \[
+     P(E|H_{\text{BA}}) \approx 0.2
+     \]
+
+   - \(P(E|\neg H)\): The probability of observing Adam's personality traits in fields other than business administration. Given the wide variety of fields and the specific nature traits, this is higher.
+     \[
+     P(E|\neg H_{\text{BA}}) \approx 0.8
+     \]
+
+2. **Hypothesis H: Adam was enrolled in agricultural and veterinary science**
+   
+   - \(P(H)\): The prior probability that Adam was enrolled in agricultural and veterinary science. Considering his traits, this is notably higher.
+     \[
+     P(H_{\text{AgVet}}) \approx 0.05
+     \]
+
+   - \(P(E|H)\): The probability of observing Adam's personality traits given he is enrolled in agricultural and veterinary science. His traits strongly correlate with this field.
+     \[
+     P(E|H_{\text{AgVet}}) \approx 0.9
+     \]
+
+   - \(P(E|\neg H)\): The probability of observing Adam's personality traits in fields other than agricultural and veterinary science. Considering his specific interests in nature and animals, this is lower than for business administration.
+     \[
+     P(E|\neg H_{\text{AgVet}}) \approx 0.4
+     \]
+
+Compute \( P(H|E) \):
+
+1. **For business administration:**
+
+   \[
+   P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})}
+   \]
+
+   \[
+   P(H_{\text{BA}}|E) = \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.8 \cdot 0.9} = \frac{0.02}{0.02 + 0.72} = \frac{0.02}{0.74} \approx 0.027
+   \]
+
+2. **For agricultural and veterinary science:**
+
+   \[
+   P(H_{\text{AgVet}}|E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) + P(E|\neg H_{\text{AgVet}}) \cdot P(\neg H_{\text{AgVet}})}
+   \]
+
+   \[
+   P(H_{\text{AgVet}}|E) = \frac{0.9 \cdot 0.05}{0.9 \cdot 0.05 + 0.4 \cdot (1 - 0.05)} = \frac{0.045}{0.045 + 0.4 \cdot 0.95} = \frac{0.045}{0.045 + 0.38} = \frac{0.045}{0.425} \approx 0.106
+   \]
+
+So, the probabilities are:
+
+{
+  "business administration": 0.027,
+  "agricultural and veterinary science": 0.106
+}

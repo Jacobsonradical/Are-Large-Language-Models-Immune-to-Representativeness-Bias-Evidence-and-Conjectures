@@ -1,0 +1,52 @@
+To estimate the probability that Adam is enrolled in a specific field given his personality sketch (E), we need to utilize Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+
+- \( P(H) \): Prior probability of being enrolled in a certain field.
+- \( P(E|H) \): Likelihood of having Adam's personality sketch given the field.
+- \( P(E|\neg H) \): Likelihood of having Adam's personality sketch given he is not in the field.
+- \( P(E) \): marginal likelihood of having Adam's personality sketch.
+
+I'll make some assumptions based on typical probabilities and qualitative matching of Adam's traits to the fields:
+
+1. **Business Administration**:
+    - \( P(H) \): Prior probability. Business administration is a common graduate field, so let's assume \( P(H) = 0.2 \) (20% as a generic estimate).
+    - \( P(E|H) \): Likelihood given business administration. The traits of empathy, curiosity about nature, love for animals, and appreciation for hard work are somewhat less typical for a business student. Suppose \( P(E|H) = 0.1 \).
+    - \( P(E|\neg H) \): Let's assume the rate of similar personality traits in non-business administration fields. Given that business administration is broadly represented, let's say \( P(E|\neg H) = 0.3 \).
+
+2. **Agricultural and Veterinary Science**:
+    - \( P(H) \): Prior probability. Agricultural and veterinary science is less common but certainly relevant for the specific traits mentioned. Let's assume \( P(H) = 0.1 \) (10% as a specialized estimate).
+    - \( P(E|H) \): Likelihood given agricultural and veterinary science. This field aligns well with Adam's traits. Suppose \( P(E|H) = 0.9 \).
+    - \( P(E|\neg H) \): Assume the rate of similar personality traits in other non-agricultural fields. Let's say \( P(E|\neg H) = 0.2 \).
+
+For the constants:
+
+- \( P(E) \): The overall probability of having such a personality sketch. It's difficult to compute directly, so let's assume it normalizes our conditionals.
+
+Now calculate \( P(H|E) \):
+
+For **Business Administration**:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+For **Agricultural and Veterinary Science**:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.9 \cdot 0.1}{P(E)} \]
+
+Note: \( P(E) \) is a normalizing constant across all potential fields. Therefore, the relative values can be compared:
+
+{
+  "business administration": \(\frac{0.1 \cdot 0.2}{P(E)} = 0.02\),
+  "agricultural and veterinary science": \(\frac{0.9 \cdot 0.1}{P(E)} = 0.09\)
+}
+
+Assuming \( P(E) \) is consistent, we compare the raw values proportionally:
+
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.09
+}
+
+Thus, given Adam's personality sketch, he is more likely to be enrolled in Agricultural and Veterinary Science than Business Administration.

@@ -1,0 +1,52 @@
+To calculate the probabilities \( P(H|E) \) for both fields given the personality sketch of Adam, we need to apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Given that \( P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \), and knowing \(\neg H\) includes all other fields apart from the specified ones, we need to make assumptions about these probabilities.
+
+Let's consider priors for each hypothesis based on common distribution of graduate enrollments in the U.S. and our knowledge about Adam's interests and skills. This is a subjective estimation based on provided information.
+
+For "business administration":
+- \( P(H) \) (prior probability Adam is in business administration): 0.1
+- \( P(E|H) \) (probability that Adam's personality sketch matches business administration): 0.1
+- \( P(E|\neg H) \) (probability that Adam's personality sketch matches any other field): 0.4
+
+For "agricultural and veterinary science":
+- \( P(H) \) (prior probability Adam is in agricultural and veterinary science): 0.15
+- \( P(E|H) \) (probability that Adam's personality sketch matches agricultural and veterinary science): 0.7
+- \( P(E|\neg H) \) (probability that Adam's personality sketch matches any other field): 0.4
+
+We can now calculate \( P(E) \) if we assume only these two fields and a general field somehow balances out to simplify the calculation:
+
+\[ P(E) = (P(E|H_{\text{business}}) \times P(H_{\text{business}})) + (P(E|H_{\text{agricultural}}) \times P(H_{\text{agricultural}})) + (\sum P(H_{\text{other}})P(E|H_{\text{other}})) \]
+
+However, given our assumptions, we will average out the others roughly for computation ease.
+
+### For Business Administration:
+\[ P(H|E)_{\text{business}} = \frac{P(E|H_{\text{business}}) \times P(H_{\text{business}})}{P(E)} \]
+\[ = \frac{0.1 \times 0.1}{(0.1 \times 0.1) + (0.7 \times 0.15) + x} \]
+\[ = \frac{0.01}{0.01 + 0.105 + x} \]
+\[
+P(H|E)_{\text{business}} \approx \frac{0.01}{0.115 + x}
+\]
+Given a general assumption for x being the sum of small contributions of other fields, approximate as negligible here (say x ~0.1), it gives roughly:
+\[ P(H|E)_{\text{business}} \approx \frac{0.01}{0.22} \approx 0.045 \]
+
+### For Agricultural and Veterinary Science:
+\[ P(H|E)_{\text{agricultural}} = \frac{P(E|H_{\text{agricultural}}) \times P(H_{\text{agricultural}})}{P(E)} \]
+\[ = \frac{0.7 \times 0.15}{(0.1 \times 0.1) + (0.7 \times 0.15) + x} \]
+\[ = \frac{0.105}{0.01 + 0.105 + x} \]
+\[
+P(H|E)_{\text{agricultural}} \approx \frac{0.105}{0.115 + x}
+\]
+Under a same simplicity for x:
+\[ P(H|E)_{\text{agricultural}} \approx \frac{0.105}{0.22} \approx 0.477 \]
+
+Therefore, given these assumptions the resulting probabilities are:
+
+```json
+{
+  "business administration": 0.045,
+  "agricultural and veterinary science": 0.477
+}
+```

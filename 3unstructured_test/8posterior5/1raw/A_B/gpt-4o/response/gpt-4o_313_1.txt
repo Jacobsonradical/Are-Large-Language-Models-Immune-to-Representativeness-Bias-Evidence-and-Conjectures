@@ -1,0 +1,59 @@
+To compute the probability \( P(H|E) \) given the personality sketch \( E \) and the field hypotheses \( H \), we'll follow Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in the given field.
+- \( P(E|H) \) is the probability of the personality sketch given that Adam was enrolled in the field.
+- \( P(E|\neg H) \) is the probability of the personality sketch given that Adam was not enrolled in the field.
+- \( P(E) \) can be ignored for relative comparisons since we are interested in \( P(H|E) \) for each field separately rather than absolute values (hence \( P(E) \) will cancel out when comparing).
+
+### For "agricultural and veterinary science"
+
+1. **Prior Probability, \( P(H) \)**
+  - Let's assume the prior probability that a random graduate student is in agricultural and veterinary science is low, due to the relatively smaller size of this field compared to more common fields like business administration.
+  - Let's set \( P(H_{\text{agri}}) \approx 0.05 \).
+
+2. **Likelihood, \( P(E|H) \)**
+  - Given Adam's love for nature, plants, and animals, we expect a high likelihood for the personality sketch if he were in agricultural and veterinary science.
+  - Let’s set \( P(E|H_{\text{agri}}) = 0.9 \).
+
+3. **Complement Likelihood, \( P(E|\neg H) \)**
+  - The probability that Adam has this personality sketch while being in any other field is less, but not extremely low because other fields can potentially have similar personality traits.
+  - Let’s estimate \( P(E|\neg H_{\text{agri}}) = 0.1 \).
+
+### For "business administration"
+
+1. **Prior Probability, \( P(H) \)**
+  - Let's assume the prior probability that a random graduate student is in business administration is higher, due to the popularity of this field.
+  - Let’s set \( P(H_{\text{bus}}) \approx 0.2 \).
+
+2. **Likelihood, \( P(E|H) \)**
+  - Given that business administration typically isn't strongly associated with love for nature and animals, the likelihood is fairly low.
+  - Let’s set \( P(E|H_{\text{bus}}) = 0.2 \).
+
+3. **Complement Likelihood, \( P(E|\neg H) \)**
+  - The probability of Adam having this personality sketch in fields other than business administration could be similar to or higher than in business administration.
+  - Let’s estimate \( P(E|\neg H_{\text{bus}}) = 0.1 \).
+
+Now, we apply Bayes' rule to get the posterior probabilities:
+
+### "agricultural and veterinary science"
+
+\[ P(H_{\text{agri}}|E) = \frac{P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}})}{P(E)} \]
+\[ P(H_{\text{agri}}|E) \propto 0.9 \cdot 0.05 \approx 0.045 \]
+
+### "business administration"
+
+\[ P(H_{\text{bus}}|E) = \frac{P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}})}{P(E)} \]
+\[ P(H_{\text{bus}}|E) \propto 0.2 \cdot 0.2 = 0.04 \]
+
+### Final Results
+We can ignore \( P(E) \) for comparative purposes. Hence, the posterior probabilities are:
+
+{
+  "agricultural and veterinary science": 0.045,
+  "business administration": 0.04
+}
+
+This suggests that, based on Adam's personality sketch, he is slightly more likely to have been enrolled in agricultural and veterinary science than in business administration.

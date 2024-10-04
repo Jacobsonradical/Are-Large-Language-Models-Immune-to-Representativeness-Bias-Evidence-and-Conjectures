@@ -1,0 +1,55 @@
+To apply Bayes' Rule effectively, we'll follow these steps for each hypothesis (H):
+
+1. **P(H)**: The prior probability that Adam was enrolled in the field.
+   - To keep it general and assume no specific bias, we'll assign equal priors to each of the graduate fields.
+   - P(H) for each field (computer science, business administration, agricultural and veterinary science) = 1/3.
+
+2. **P(E|H)**: The probability of observing the evidence (Adam's personality sketch) given that he is in the specific field.
+   - For computer science, while intelligence and understanding abstract concepts fit, the rest might fit less perfectly.
+   - For business administration, empathy and a warm heart could fit, but other traits might fit less well.
+   - For agricultural and veterinary science, curiosity about nature, love for animals, warm heart, and empathy fit extremely well.
+
+3. **P(E|¬H)**: The probability of observing the evidence given that Adam is not in the specific field.
+   - We average the traits fitting the two other fields. To simplify, let's take it as an average of how well the personality fits the other two fields.
+
+4. **P(H|E)**: The posterior probability that Adam was enrolled in the field given the personality sketch. We compute this using Bayes Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) + P(E|H3) \cdot P(H3) \]
+
+Here are rough estimations for the values of P(E|H) and P(E|¬H):
+
+- **computer science**:
+  - P(E|H): Traits fitting CS are moderately matched. Let's say 0.4.
+  - P(E|¬H): Average of fitting to business administration and agricultural/veterinary science. Let's say 0.7 (as it loosely matches).
+- **business administration**:
+  - P(E|H): Traits fitting BA are slightly moderate. Let's say 0.3.
+  - P(E|¬H): Average of fitting to computer science and agricultural/veterinary science. Let's say 0.7 (as it loosely matches).
+- **agricultural and veterinary science**:
+  - P(E|H): Fits traits very well. Let's say 0.9.
+  - P(E|¬H): Average of fitting CS and BA. Let's say 0.3.
+
+Now, let's calculate P(H|E) for each field using simplified Bayes’ Rule.
+
+For simplicity, assuming P(H) is equal across fields:
+- P(computer science|E) ≈ (0.4 * (1/3)) / ((0.4 * (1/3)) + (0.3 * (1/3)) + (0.9 * (1/3)))
+- P(business administration|E) ≈ (0.3 * (1/3)) / ((0.4 * (1/3)) + (0.3 * (1/3)) + (0.9 * (1/3)))
+- P(agricultural and veterinary science|E) ≈ (0.9 * (1/3)) / ((0.4 * (1/3)) + (0.3 * (1/3)) + (0.9 * (1/3)))
+
+Simplifying:
+- Total probability P(E) = ((0.4 + 0.3 + 0.9) / 3) = 0.5333
+
+Then:
+- P(computer science|E) ≈ (0.4 / 3) / 0.5333 ≈ 0.25
+- P(business administration|E) ≈ (0.3 / 3) / 0.5333 ≈ 0.1875
+- P(agricultural and veterinary science|E) ≈ (0.9 / 3) / 0.5333 ≈ 0.5625
+
+Thus, under our simplified calculations:
+
+```json
+{
+  "computer science": 0.25,
+  "business administration": 0.1875,
+  "agricultural and veterinary science": 0.5625
+}
+```

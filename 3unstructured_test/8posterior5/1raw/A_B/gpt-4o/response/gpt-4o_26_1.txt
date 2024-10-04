@@ -1,0 +1,57 @@
+To estimate the probabilities of Adam being enrolled in "business administration" or "agricultural and veterinary science" based on his personality sketch (E) using Bayes' Rule, we need to consider the following:
+
+- \( P(H) \): The prior probability that Adam was enrolled in the specified field, without considering the personality sketch.
+- \( P(E|H) \): The likelihood of observing Adam's personality sketch if he was enrolled in the specified field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch if he was not enrolled in the specified field.
+- \( P(H|E) \): The posterior probability that Adam was enrolled in the specified field given his personality sketch.
+
+Bayes' Rule states:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+Where:
+\[ 
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+### Business Administration
+- **P(H):** The prior probability of Adam being enrolled in business administration. Let's assume \( P(H) \approx 0.1 \) (since many graduate students across various fields).
+- **P(E|H):** The probability of observing Adam's personality traits if he was in business administration. Traits like curiosity about nature, empathy, and love for animals are less common in this field, so let's assume \( P(E|H) \approx 0.1 \).
+- **P(E|\neg H):** The probability of observing his personality traits if he was not in business administration. Given the presence of many other fields, let's assume \( P(E|\neg H) \approx 0.2 \).
+
+### Agricultural and Veterinary Science
+- **P(H):** The prior probability of Adam being enrolled in agricultural and veterinary science. Let's assume \( P(H) \approx 0.05 \) (as it's a more specialized field).
+- **P(E|H):** The probability of observing Adam's personality traits if he was in agricultural and veterinary science. High compatibility with traits like love for animals, empathy, and curiosity about nature makes \( P(E|H) \approx 0.8 \).
+- **P(E|\neg H):** The probability of observing his personality traits if he was not in agricultural and veterinary science. Given that many fields do not align with his traits as closely, let's assume \( P(E|\neg H) \approx 0.2 \).
+
+Computing the posterior probabilities using Bayes' Rule:
+
+### Business Administration
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+\]
+\[ 
+P(H|E) = \frac{0.1 \cdot 0.1}{0.1 \cdot 0.1 + 0.2 \cdot (1 - 0.1)} 
+= \frac{0.01}{0.01 + 0.18} 
+= \frac{0.01}{0.19}
+\approx 0.053 
+\]
+
+### Agricultural and Veterinary Science
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+\]
+\[ 
+P(H|E) = \frac{0.8 \cdot 0.05}{0.8 \cdot 0.05 + 0.2 \cdot (1 - 0.05)} 
+= \frac{0.04}{0.04 + 0.19} 
+= \frac{0.04}{0.23} 
+\approx 0.174 
+\]
+
+The results are:
+```json
+{
+  "business administration": 0.053,
+  "agricultural and veterinary science": 0.174
+}
+```

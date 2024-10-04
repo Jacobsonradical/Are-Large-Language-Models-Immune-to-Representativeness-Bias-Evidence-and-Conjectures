@@ -1,0 +1,71 @@
+To apply Bayes' rule to find P(H|E), we use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the probability of observing the evidence given the hypothesis.
+- \( P(E) \) is the total probability of observing the evidence.
+
+Let's assume some values for these probabilities based on the given personality sketch of Adam.
+
+### Prior Probabilities (\( P(H) \))
+Let's assume the prior probability of Adam being enrolled in each field based on the prevalence of these fields among graduate students.
+
+- \( P(\text{business administration}) \approx 0.1 \)
+- \( P(\text{agricultural and veterinary science}) \approx 0.02 \)
+
+### Probability of Evidence Given Hypothesis (\( P(E|H) \))
+Next, we'll assume the likelihood of Adam's personality traits if he were enrolled in each field.
+
+- For Business Administration:
+  - A quiet nature and curiosity about plants and animals are less common traits for this field, but not impossible.
+  - Let's assign \( P(E|\text{business administration}) \approx 0.01 \)
+
+- For Agricultural and Veterinary Science:
+  - Curiosity about nature, empathy, appreciation for dedication, and love for animals strongly align with this field.
+  - Let's assign \( P(E|\text{agricultural and veterinary science}) \approx 0.8 \)
+
+### Probability of Evidence Given NOT the Hypothesis (\( P(E|\neg H) \))
+Since there are many other fields, we aggregate and estimate.
+
+- For all fields \(\neg H \) excluding business administration:
+  - Let's assume \( P(E|\neg \text{business administration}) \approx 0.02 \)
+
+- For all fields \(\neg H \) excluding agricultural and veterinary science:
+  - Let's assume \( P(E|\neg \text{agricultural and veterinary science}) \approx 0.05 \)
+
+### Total Probability of Evidence (\( P(E) \))
+We need to aggregate the evidence probabilities for all fields:
+
+\[ P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + (P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration}) \] 
+\( + P(E|\neg \text{agricultural and veterinary science}) \cdot P(\neg \text{agricultural and veterinary science}))\]
+
+Given that \(\neg \text{business administration} \) and \(\neg \text{agricultural and veterinary science} \) includes other numerous fields, it impacts the probabilities a bit differently. For simplicity, if we approximate equally for the large domain of \(\neg H\), we take other fields' prevalence less impactful.
+
+\[ P(E) \approx (0.01 \cdot 0.1) + (0.8 \cdot 0.02) + (0.02 \cdot 0.9) + (0.05 \cdot 0.98) \]
+
+\[ P(E) \approx 0.001 + 0.016 + 0.018 + 0.049 \]
+\[ P(E) \approx 0.084 \]
+
+### Posterior Probability (\( P(H|E) \))
+Using Bayes' rule:
+
+For Business Administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{0.01 \cdot 0.1}{0.084} \]
+\[ P(\text{business administration}|E) \approx 0.0119 \]
+
+For Agricultural and Veterinary Science:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.02}{0.084} \]
+\[ P(\text{agricultural and veterinary science}|E) \approx 0.1905 \]
+
+The results are:
+
+```json
+{
+  "business administration": 0.0119,
+  "agricultural and veterinary science": 0.1905
+}
+```

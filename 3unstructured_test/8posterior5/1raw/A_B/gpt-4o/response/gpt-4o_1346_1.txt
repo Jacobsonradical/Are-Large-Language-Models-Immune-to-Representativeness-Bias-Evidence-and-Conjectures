@@ -1,0 +1,55 @@
+To compute \( P(H|E) \) for each field, we need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we want a relative comparison between the two fields, we can focus on the likelihoods and priors and disregard the exact value of \( P(E) \), as it is the same for both fields and will cancel out when comparing them.
+
+### Hypotheses
+- \( H1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H2 \): Adam was enrolled in business administration.
+
+### Assigned Probabilities:
+Let's first judge the probabilities based on the personality sketch E.
+
+#### Priors \( P(H) \)
+- \( P(H1) \): The likelihood of a graduate student being in agricultural and veterinary science. Considering all fields equally and given Adam's personality traits aligning well with this field, let's assign a moderate prior probability.
+  - \( P(H1) \approx 0.15 \)
+
+- \( P(H2) \): The likelihood of a graduate student being in business administration. Given Adam's traits, they seem less aligned with business administration compared to agricultural and veterinary science.
+  - \( P(H2) \approx 0.05 \)
+
+#### Likelihoods \( P(E|H) \)
+- \( P(E|H1) \): The likelihood of exhibiting personality traits E given that Adam is in agricultural and veterinary science. His traits strongly align with this field.
+  - \( P(E|H1) \approx 0.8 \)
+
+- \( P(E|H2) \): The likelihood of exhibiting personality traits E given that Adam is in business administration. His traits do not strongly align with this field.
+  - \( P(E|H2) \approx 0.2 \)
+
+Using these probabilities, we can now compute \( P(H|E) \) for each field.
+
+### Bayes' Rule Application
+For \( H1 \):
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \approx \frac{0.8 \cdot 0.15}{P(E)} \]
+
+For \( H2 \):
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \approx \frac{0.2 \cdot 0.05}{P(E)} \]
+
+Since \( P(E) \) is the same for both, we can drop it for comparative purposes:
+
+### Relative Posterior Probabilities
+\[ P(H1|E) \propto 0.8 \cdot 0.15 = 0.12 \]
+\[ P(H2|E) \propto 0.2 \cdot 0.05 = 0.01 \]
+
+Normalizing these to sum to 1 for these two fields:
+
+\[ P(H1|E) = \frac{0.12}{0.12 + 0.01} = \frac{0.12}{0.13} \approx 0.923 \]
+\[ P(H2|E) = \frac{0.01}{0.12 + 0.01} = \frac{0.01}{0.13} \approx 0.077 \]
+
+Thus, our answers are:
+
+```json
+{
+  "agricultural and veterinary science": 0.923,
+  "business administration": 0.077
+}
+```

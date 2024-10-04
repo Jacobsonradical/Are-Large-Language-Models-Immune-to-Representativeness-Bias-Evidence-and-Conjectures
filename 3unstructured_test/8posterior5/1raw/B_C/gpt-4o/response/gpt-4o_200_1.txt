@@ -1,0 +1,55 @@
+To compute the posterior probabilities, we need to use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and the same for all fields, we can simplify the comparison by considering the proportionality:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+We need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field. Note that we don't need the exact values of \( P(H) \) as long as we keep the same proportionality for each field.
+
+### Assessing Each Field
+
+1. **Computer Science**:
+   - **P(H)** (prior probability): Computer science is a common field among graduate students, so let's assume \( P(H) = 0.2 \).
+   - **P(E|H)** (likelihood): Adam's profile indicates high intelligence and an ability to understand abstract concepts, which aligns well with computer science. However, the profile does not explicitly mention strong computer or technical skills, which are critical for computer science. Let's approximate \( P(E|H) = 0.4 \).
+   - **P(E|¬H)** (probability of the evidence given not in the field): This would be the probability of Adam's profile given that he is not in computer science. Since his traits are not uniquely aligned with computer science, \( P(E|¬H) \) could be around the average of other fields, say \( 0.2 \).
+
+2. **Business Administration**:
+   - **P(H)** (prior probability): Business administration is another common field among graduate students, but slightly less compared to computer science, so let's assume \( P(H) = 0.15 \).
+   - **P(E|H)** (likelihood): Adam’s profile has some traits (e.g., appreciation for hard work and dedication) relevant to business administration, but lacks other critical attributes such as strong social dominance and interest in finance or markets. Thus, \( P(E|H) = 0.2 \).
+   - **P(E|¬H)** (probability of the evidence given not in the field): Again, this would be around the average of other fields, so \( P(E|¬H) = 0.3 \) for lack of more specific data.
+
+### Calculating Posterior Probabilities
+
+Given our proportionality approach and rough estimates, we calculate \( P(H|E) \) for each field:
+
+1. **Computer Science**:
+\[ P(H|E) \propto P(E|H) \times P(H) \]
+\[ P(H|E) \propto 0.4 \times 0.2 = 0.08 \]
+
+2. **Business Administration**:
+\[ P(H|E) \propto P(E|H) \times P(H) \]
+\[ P(H|E) \propto 0.2 \times 0.15 = 0.03 \]
+
+### Normalizing (relative probabilities):
+
+To compare these fields directly, we can look at the proportional results:
+
+\[ \text{Total} = 0.08 + 0.03 = 0.11 \]
+
+Normalize each field:
+- Computer Science:
+\[ P(\text{Computer Science}|E) = \frac{0.08}{0.11} \approx 0.727 \]
+
+- Business Administration:
+\[ P(\text{Business Administration}|E) = \frac{0.03}{0.11} \approx 0.273 \]
+
+Finally, representing these values in a JSON-like format:
+
+```json
+{
+  "computer science": 0.727,
+  "business administration": 0.273
+}
+```

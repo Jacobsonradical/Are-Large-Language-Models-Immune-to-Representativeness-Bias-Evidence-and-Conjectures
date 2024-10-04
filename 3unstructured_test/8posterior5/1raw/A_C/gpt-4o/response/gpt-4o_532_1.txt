@@ -1,0 +1,72 @@
+To use Bayes' Rule to calculate \( P(H|E) \) for each field, we need to assess several probabilities:
+
+1. \( P(H) \) - The prior probability that Adam is enrolled in each field.
+2. \( P(E|H) \) - The probability of observing Adam's personality sketch E given that he is enrolled in each field.
+3. \( P(E | \neg H) \) - The probability of observing Adam's personality sketch E given that he is not enrolled in each field.
+
+For simplicity, let's assume some realistic prior probabilities based on the distribution of graduate students in these fields. 
+
+### Assumptions:
+- The distribution of graduate students among various fields. For example, let's assume:
+  - \( P(H_{CS}) \approx 0.20 \) for computer science
+  - \( P(H_{AVS}) \approx 0.05 \) for agricultural and veterinary science based on typical enrollment numbers.
+  
+### Estimations:
+- \( P(E | H_{CS}) \) - How likely Adam’s personality fits someone in computer science:
+  - Interests and abilities such as high intelligence, good at abstract concepts, solving puzzles are reasonable fits. However, some aspects like a deep love for nature/plants and animals might be less common.
+  - Estimation: \( P(E | H_{CS}) \approx 0.3 \)
+- \( P(E | H_{AVS}) \) - How likely Adam’s personality fits someone in agricultural and veterinary science:
+  - Strong fit with deep love for nature/plants and animals. Good empathy aligns well with veterinary science.
+  - Estimation: \( P(E | H_{AVS}) \approx 0.7 \)
+
+- \( P(E | \neg H_{CS}) \) - Probability of the personality sketch if not in computer science. Given the number of non-CS fields, some will align well:
+  - Estimation: \( P(E | \neg H_{CS}) \approx 0.2 \)
+- \( P(E | \neg H_{AVS}) \) - Probability of the personality sketch if not in agricultural and veterinary science:
+  - Estimation: \( P(E | \neg H_{AVS}) \approx 0.3 \)
+
+### Computations:
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be approximated based on the given distributions and diversity of academic fields.
+
+#### For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \approx \frac{0.3 \times 0.2}{P(E)} \]
+
+#### For Agricultural and Veterinary Science:
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \approx \frac{0.7 \times 0.05}{P(E)} \]
+
+Since \( P(E) \) is the normalization factor:
+
+\[ P(E) \approx P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{AVS}) \cdot P(H_{AVS}) + \text{other factors}\]
+
+Let’s denote the simplification:
+
+Taking the relative proportions for an approximate comparison only:
+
+- For CS: \( 0.3 \times 0.2 = 0.06 \)
+- For AVS: \( 0.7 \times 0.05 = 0.035 \)
+
+Normalizing so that \( P(E) \approx 0.06 + 0.035 + \text{rest contributions} \approx 0.195 \)
+
+These probabilities give us a simplified comparative logic.
+
+### Result:
+Using these simplified assumptions and estimates:
+
+```json
+{
+  "computer science": 0.06 / 0.195,  # approximately 0.31
+  "agricultural and veterinary science": 0.035 / 0.195  # approximately 0.18
+}
+```
+
+```json
+{
+  "computer science": 0.31,
+  "agricultural and veterinary science": 0.18
+}
+``` 
+
+These values suggest that given Adam's personality, he is relatively more likely to be in computer science than in agricultural and veterinary science according to the given prior probabilities and observational likelihoods.

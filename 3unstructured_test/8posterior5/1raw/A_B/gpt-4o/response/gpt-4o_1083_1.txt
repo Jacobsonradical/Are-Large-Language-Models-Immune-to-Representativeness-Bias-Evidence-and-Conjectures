@@ -1,0 +1,57 @@
+To estimate the probabilities, let's break down each term:
+
+1. **P(H)**: The prior probability of Adam being enrolled in a given field. This is an estimate based on how common each field is for graduate students.
+2. **P(E|H)**: The probability of observing the evidence given that Adam is enrolled in that field. Essentially, how well the personality sketch fits someone in that field.
+3. **P(E|¬H)**: The probability of observing the evidence given that Adam is not enrolled in that field. This needs to consider how characteristic the evidence is of graduate students in other fields.
+
+Let's denote our two fields as follows:
+
+- H1: Adam is enrolled in Business Administration.
+- H2: Adam is enrolled in Agricultural and Veterinary Science.
+
+### Business Administration
+- **P(H1)**: Business Administration is a very common field, so we'll estimate a relatively high prior probability compared to other specific fields. Let's estimate: 0.3
+- **P(E|H1)**: Given Adam's interest in nature, empathy, and love for animals, this doesn't align well with typical business administration traits. Let's estimate: 0.1
+- **P(E|¬H1)**: There are numerous other fields that could explain Adam's traits better. Thus, the probability of this evidence across all non-business administration fields might be higher. Let's estimate: 0.6
+
+### Agricultural and Veterinary Science
+- **P(H2)**: Agricultural and Veterinary Science is less common among all possible graduate fields than business. Let's estimate: 0.05
+- **P(E|H2)**: Given Adam's interest in nature, animals, and strong empathy, this aligns closely with traits typical of this field. Let's estimate: 0.7
+- **P(E|¬H2)**: There are numerous other fields that could explain his traits, but less so than agricultural and veterinary science. Might be similar to the previous case. Let's estimate: 0.6
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For simplicity, we use \( P(E) \) (the total probability of evidence) using the sum of the probabilities for \( E \) across hypotheses and complementary contexts. Since we only need relative probabilities:
+
+### Business Administration
+
+\[ P(H1|E) = \frac{P(E|H1)P(H1)}{P(E|H1)P(H1) + P(E|H2)P(H2) + \text{other terms}} \]
+
+Approximate \( P(E) \) using the significant terms:
+
+\[ P(H1|E) = \frac{0.1 * 0.3}{0.1 * 0.3 + 0.7 * 0.05} \]
+\[ P(H1|E) \approx \frac{0.03}{0.03 + 0.035} \]
+\[ P(H1|E) \approx \frac{0.03}{0.065} \approx 0.46 \]
+
+### Agricultural and Veterinary Science
+
+\[ P(H2|E) = \frac{P(E|H2)P(H2)}{P(E|H1)P(H1) + P(E|H2)P(H2) + \text{other terms}} \]
+
+Approximate \( P(E) \) using the significant terms:
+
+\[ P(H2|E) = \frac{0.7 * 0.05}{0.1 * 0.3 + 0.7 * 0.05} \]
+\[ P(H2|E) \approx \frac{0.035}{0.03 + 0.035} \]
+\[ P(H2|E) \approx \frac{0.035}{0.065} \approx 0.54 \]
+
+### Summary:
+
+So the posterior probabilities are:
+
+{
+  "business administration": "0.46",
+  "agricultural and veterinary science": "0.54"
+}
+
+Note that these values are rough estimates used to demonstrate the process rather than exact probabilities.

@@ -1,0 +1,45 @@
+To apply Bayes' Rule to determine the probability of Adam being enrolled in a specific field (H) given his personality sketch (E), we need to use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Unfortunately, without exact values for these probabilities, we need to use reasonable estimations based on the given description to derive our answers.
+
+1. **Prior Probability, \( P(H) \)**:
+   - For computer science: This field generally sees a relatively high enrollment among graduate students, so let's assume \( P(H_{cs}) \) is moderately high.
+     - \( P(H_{cs}) \approx 0.3 \)
+   - For agricultural and veterinary science: The enrollment might be less compared to computer science.
+     - \( P(H_{av}) \approx 0.1 \)
+
+2. **Likelihood, \( P(E|H) \)**:
+   - For computer science: Some attributes like high intelligence and interest in abstract concepts fit well, but warmth, empathy, and love for animals aren’t typical.
+     - \( P(E|H_{cs}) \approx 0.1 \)
+   - For agricultural and veterinary science: The entire personality sketch aligns well with this field.
+     - \( P(E|H_{av}) \approx 0.8 \)
+
+3. **Evidence, \( P(E) \)**:
+   The probability of the entire personality sketch E occurring in general, which is a combination of both fields and other possible fields. This is harder to estimate, but we'll consider the values given for likelihoods and priors.
+   - For simplicity, we will assume \( P(E) \approx 0.2 \).
+
+4. **Complementary Likelihood, \( P(E|\neg H) \)**:
+   Considering the likelihood of E given other fields:
+   - For fields other than computer science, which are not necessarily associated with Adam’s described personality.
+     - \( P(E|\neg H_{cs}) \approx 0.5 \) (reflecting mixed fit for similar but non-CS fields)
+   - For fields other than agricultural and veterinary science, might be equally unlikely as computer science.
+     - \( P(E|\neg H_{av}) \approx 0.3 \)
+
+Now using Bayes' Theorem to calculate the posterior probability:
+
+- For computer science (\(H_{cs}\)):
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.1 \cdot 0.3}{0.2} = 0.15 \]
+
+- For agricultural and veterinary science (\(H_{av}\)):
+\[ P(H_{av}|E) = \frac{P(E|H_{av}) \cdot P(H_{av})}{P(E)} = \frac{0.8 \cdot 0.1}{0.2} = 0.4 \]
+
+Thus, our predictions for the relevant fields are as follows:
+
+```json
+{
+  "computer science": 0.15,
+  "agricultural and veterinary science": 0.4
+}
+```

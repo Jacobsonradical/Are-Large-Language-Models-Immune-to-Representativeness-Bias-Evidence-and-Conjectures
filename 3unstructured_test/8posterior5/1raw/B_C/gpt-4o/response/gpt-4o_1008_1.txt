@@ -1,0 +1,51 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' Rule, we need to consider the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the likelihood \( P(E|\neg H) \).
+
+1. **Prior Probability \( P(H) \)**:
+   This represents the general likelihood that a random graduate student is enrolled in a given field. I'll assign moderate priors, considering many fields are popular.
+
+2. **Likelihood \( P(E|H) \)**:
+   This represents the likelihood that someone in a given field has a personality sketch like Adam's. We'll use the information in the sketch to estimate these likelihoods.
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   This represents the likelihood that a someone **not** in the given field has a personality sketch like Adam's. We'll assume this is moderately likely as Adam's personality traits (empathy, love for nature, intelligence) are not highly exclusive to a single field.
+
+Let's assign hypothetical but reasonable values based on the personality sketch:
+
+1. **Computer Science**:
+   - \( P(H) \): Assumed as 0.2 (CS is a common graduate field but not overwhelming majority)
+   - \( P(E|H) \): Assumed as 0.4 (Many people in CS are likely to have high intelligence and curiosity for abstract concepts, but not all might have strong empathy and love for nature)
+   - \( P(E|\neg H) \): Assumed as 0.3 (Moderately likely since many other fields could fit Adam's personality traits as well)
+
+   Calculating \( P(H|E) \) using Bayes' Rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+   = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.3 \cdot 0.8}
+   = \frac{0.08}{0.08 + 0.24}
+   = \frac{0.08}{0.32}
+   = 0.25
+   \]
+
+2. **Business Administration**:
+   - \( P(H) \): Assumed as 0.15 (Business Admin is also a significant but not majority)
+   - \( P(E|H) \): Assumed as 0.2 (Business folks may not necessarily be known for the traits Adam shows, less common)
+   - \( P(E|\neg H) \): Assumed as 0.3 (Similar to above, as others could fit the personality traits)
+
+   Calculating \( P(H|E) \) using Bayes' Rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+   = \frac{0.2 \cdot 0.15}{0.2 \cdot 0.15 + 0.3 \cdot 0.85}
+   = \frac{0.03}{0.03 + 0.255}
+   = \frac{0.03}{0.285}
+   \approx 0.105
+   \]
+
+Finally, here are the conditional probabilities \( P(H|E) \):
+
+```json
+{
+  "computer science": 0.25,
+  "business administration": 0.105
+}
+```
+
+Note that these numbers are rough estimates based on the provided description. More precise probabilities would require detailed data on the prevalence of Adam's personality traits within each field.

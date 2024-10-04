@@ -1,0 +1,72 @@
+Let's denote:
+
+- \(E\): The personality sketch of Adam
+- \(H\): The hypothesis that Adam was enrolled in a specific field
+- \(\neg H\): The hypothesis that Adam was not enrolled in that specific field
+
+According to Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+To compute \(P(H|E)\), we need the following probabilities:
+1. \(P(H)\): The prior probability that Adam was enrolled in the field.
+2. \(P(E|H)\): The probability of observing Adam's personality sketch if he was enrolled in the field.
+3. \(P(E|\neg H)\): The probability of observing Adam's personality sketch if he was not enrolled in the field.
+
+Since \(P(E)\) can be scaled out as it is the same for both fields, we will focus on relative values.
+
+### Agricultural and Veterinary Science
+
+**Prior Probability, P(H):**
+Let's assume the field of agricultural and veterinary science is reasonably popular but less so than fields like computer science.
+\[ P(H_{\text{ag/vet}}) = 0.1 \]
+
+**Likelihood, P(E|H):**
+Given Adam's strong empathy, love for animals, and appreciation for hard work, agricultural and veterinary science aligns well with his personality.
+\[ P(E|H_{\text{ag/vet}}) = 0.8 \]
+
+**Likelihood, P(E|\neg H):**
+To find this, we can approximate the likelihood of his personality sketch if he were in another field. Let's consider an average value accounting for various other fields.
+\[ P(E|\neg H_{\text{ag/vet}}) = 0.4 \]
+
+### Computer Science
+
+**Prior Probability, P(H):**
+Computer science is a highly popular field with many students. 
+\[ P(H_{\text{cs}}) = 0.3 \]
+
+**Likelihood, P(E|H):**
+While Adam's intelligence and enjoyment of solving puzzles fit, his strong empathy and love for animals may not be as directly relevant to computer science.
+\[ P(E|H_{\text{cs}}) = 0.3 \]
+
+**Likelihood, P(E|\neg H):**
+As before, we'll use an average value.
+\[ P(E|\neg H_{\text{cs}}) = 0.4 \]
+
+### Bayes Rule Calculations
+
+1. **Agricultural and Veterinary Science:**
+\[ P(H_{\text{ag/vet}}|E) = \frac{P(E|H_{\text{ag/vet}}) P(H_{\text{ag/vet}})}{P(E)} = \frac{0.8 \times 0.1}{P(E)} \]
+
+2. **Computer Science:**
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) P(H_{\text{cs}})}{P(E)} = \frac{0.3 \times 0.3}{P(E)} \]
+
+Since \(P(E)\) can be the same in both cases, we only compare the numerators:
+
+\[ P(H_{\text{ag/vet}}|E) \propto 0.8 \times 0.1 = 0.08 \]
+\[ P(H_{\text{cs}}|E) \propto 0.3 \times 0.3 = 0.09 \]
+
+Normalizing these to sum up to 1 for comparison:
+
+\[ Total = 0.08 + 0.09 = 0.17 \]
+
+\[ P(H_{\text{ag/vet}}|E) = \frac{0.08}{0.17} \approx 0.47 \]
+\[ P(H_{\text{cs}}|E) = \frac{0.09}{0.17} \approx 0.53 \]
+
+### Conclusion:
+
+```json
+{
+  "agricultural and veterinary science": 0.47,
+  "computer science": 0.53
+}
+```

@@ -1,0 +1,73 @@
+To compute the posterior probabilities \( P(H|E) \) for each field given Adam's personality sketch \( E \), we can use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We start by estimating the values \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Note that \( P(E) \) can be found using the law of total probability if we account for all possible fields, but since we're only comparing two fields, we will simply use it as normalization later.
+
+### Computer Science (CS)
+#### Prior Probability \((P(\text{CS}))\)
+Graduate students in computer science are common, so let's assume a moderate prior probability \( P(\text{CS}) \).
+
+#### Likelihoods \((P(E|\text{CS}))\)
+- Genuine curiosity about nature and plants: Likely lower
+- Quiet boy who enjoys solving puzzles: High likelihood
+- Warm heart, strong empathy, love for animals: Lower likelihood
+- High intelligence, abstract concepts: High likelihood
+- Understanding and appreciation for hard work: Moderate likelihood
+
+Combining these, we provide a moderate \( P(E|\text{CS}) \).
+
+#### \( P(E|\neg \text{CS}) \)
+For fields other than CS, let's assume a slightly lower likelihood based on the above personality traits.
+
+### Business Administration (BA)
+#### Prior Probability \((P(\text{BA}))\)
+Graduate students in Business Administration are also common, similar to CS, so let's assume a moderate prior probability \( P(\text{BA}) \).
+
+#### Likelihoods \((P(E|\text{BA}))\)
+- Genuine curiosity about nature and plants: Likely lower
+- Quiet boy who enjoys solving puzzles: Medium likelihood
+- Warm heart, strong empathy, love for animals: Higher likelihood
+- High intelligence, abstract concepts: Moderate likelihood
+- Understanding and appreciation for hard work: High likelihood
+
+Combining these, we provide a moderate \( P(E|\text{BA}) \).
+
+#### \( P(E|\neg \text{BA}) \)
+For fields other than BA, let's assume a slightly lower likelihood based on the above personality traits.
+
+### Putting It All Together
+#### Computer Science
+- \( P(\text{CS}) = 0.2 \)
+- \( P(E|\text{CS}) = 0.5 \)
+- \( P(E|\neg \text{CS}) = 0.4 \)
+
+\[ P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E)} = \frac{0.5 \cdot 0.2}{P(E)} = 0.1 / P(E) \]
+
+#### Business Administration
+- \( P(\text{BA}) = 0.2 \)
+- \( P(E|\text{BA}) = 0.6 \)
+- \( P(E|\neg \text{BA}) = 0.4 \)
+
+\[ P(\text{BA}|E) = \frac{P(E|\text{BA}) \cdot P(\text{BA})}{P(E)} = \frac{0.6 \cdot 0.2}{P(E)} = 0.12 / P(E) \]
+
+Now normalizing these probabilities:
+
+\[ P(E) = P(E|\text{CS}) \cdot P(\text{CS}) + P(E|\text{BA}) \cdot P(\text{BA}) + \ldots \]
+
+Given that we are not computing \( P(E) \) exactly, we'll look at relative proportions:
+
+\[
+\frac{P(\text{CS}|E)}{P(\text{BA}|E)} = \frac{0.1 / P(E)}{0.12 / P(E)} = \frac{0.1}{0.12} = \frac{5}{6}
+\]
+
+Therefore:
+
+\[ P(\text{CS}|E) \approx 0.45 \]
+\[ P(\text{BA}|E) \approx 0.55 \]
+
+### Final Answer
+{
+  "computer science": 0.45,
+  "business administration": 0.55
+}

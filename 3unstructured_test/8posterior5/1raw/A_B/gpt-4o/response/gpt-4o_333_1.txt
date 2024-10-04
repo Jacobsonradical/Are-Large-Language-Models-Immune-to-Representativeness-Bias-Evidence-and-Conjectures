@@ -1,0 +1,65 @@
+To determine the probability \( P(H|E) \) using Bayes' rule, where \( H \) is the hypothesis that Adam was enrolled in a particular field and \( E \) is the personality sketch of Adam, we need three probabilities:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in the field.
+2. \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam was enrolled in the field.
+3. \( P(E|\neg H) \): The probability of observing the evidence \( E \) given that Adam was not enrolled in the field.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) can be derived from the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since we are only concerned with a comparison between two fields (business administration and agricultural and veterinary science), we need to leverage the proportionality that Bayes' rule offers when comparing probabilities:
+
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+
+### Business Administration
+
+**Assumptions and Estimates:**
+
+- \( P(H_{\text{BA}}) \): Moderate to low, as business administration programs are quite common but may not heavily emphasize nature and animals. Let's estimate it as \( 0.05 \).
+- \( P(E|H_{\text{BA}}) \): Low, as the personality traits of curiosity about nature, love for animals, and empathy are less central to business administration. Let's estimate it as \( 0.1 \).
+- \( P(E|\neg H_{\text{BA}}) \): Higher, considering the same reasons, let's estimate it as \( 0.5 \).
+
+### Agricultural and Veterinary Science
+
+**Assumptions and Estimates:**
+
+- \( P(H_{\text{AgVet}}) \): Higher than business administration, as these fields align more closely with Adam's personality. Let's estimate it as \( 0.15 \).
+- \( P(E|H_{\text{AgVet}}) \): High, since the personality sketch strongly aligns with interests in nature, empathy, and animals. Let's estimate it as \( 0.8 \).
+- \( P(E|\neg H_{\text{AgVet}}) \): Lower, as not enrolling in this field means having fewer of those specific interests. Let's estimate it as \( 0.3 \).
+
+### Calculation Using Bayes' Rule
+
+For Business Administration:
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+\[ \propto 0.1 \cdot 0.05 \]
+\[ \propto 0.005 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{\text{AgVet}}|E) \propto P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) \]
+\[ \propto 0.8 \cdot 0.15 \]
+\[ \propto 0.12 \]
+
+### Normalizing
+
+To provide a normalized comparison, sum those proportional probabilities and divide each by the total:
+
+\[ \text{Sum} = 0.005 + 0.12 = 0.125 \]
+
+Normalized probabilities:
+\[ P(H_{\text{BA}}|E) = \frac{0.005}{0.125} = 0.04 \]
+\[ P(H_{\text{AgVet}}|E) = \frac{0.12}{0.125} = 0.96 \]
+
+### Results:
+
+```json
+{
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.96
+}
+```

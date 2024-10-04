@@ -1,0 +1,50 @@
+To estimate the probabilities that Adam was enrolled in either business administration or computer science given his personality sketch, we use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality sketch if he is enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of observing Adam's personality sketch if he is not enrolled in that field.
+
+Let's denote:
+- \( H_1 \) as the hypothesis that Adam was enrolled in business administration.
+- \( H_2 \) as the hypothesis that Adam was enrolled in computer science.
+
+Since we do not have specific prior data, we might assume equal priors for both fields. However, if we have domain knowledge suggesting different priors, we should use that. For simplicity, assume:
+
+\[ P(H_1) = P(H_2) = 0.5 \]
+
+Now let's estimate the likelihoods:
+
+### Business Administration
+
+- **Prior Probability \(P(H_1)\)**: Generally, this field involves management, leadership, and communication skills. Let's assume many students might equally consider this.
+- **Likelihood \(P(E|H_1)\)**: Given his curiosity about nature, love for animals (not typically associated with business), and analytical mind for puzzles, it seems less likely but not impossible. Let's estimate \(P(E|H_1)\) as 0.2.
+- **Non-conditioning probability \(P(E|\neg H_1)\)**: This likelihood would be determined from the rest fields that sum to 1 minus business, assume 0.5 here for non-specific other fields.
+
+### Computer Science
+
+- **Prior Probability \(P(H_2)\)**: Given Adam’s high intelligence, capability to understand abstract concepts, and affinity for solving puzzles, computer science seems more likely.
+- **Likelihood \(P(E|H_2)\)**: Adam's traits align more closely with computer science interests and skills. Thus, let’s estimate \(P(E|H_2)\) as 0.7.
+- **Non-conditioning probability \(P(E|\neg H_2)\)**: Similar to above, 0.45 for not being in cs, not exact as it's not specified strictly about the relevance.
+
+### Computing Posterior Probabilities
+
+Using Bayes' theorem:
+
+For \( H_1 \):
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E|H_1) \cdot P(H_1) + P(E|\neg H_1 \cdot (1 - P(H_1))} \]
+\[ P(H_1|E) = \frac{0.2 \cdot 0.5}{0.2 \cdot 0.5 + 0.7 \cdot 0.5} = \frac{0.1}{0.1 + 0.35} = \frac{0.1}{0.45} \approx 0.222 \]
+
+For \( H_2 \):
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E|H_2) \cdot P(H_2) + P(E|\neg H_2 \cdot (1 - P(H_2))} \]
+\[ P(H_2|E) = \frac{0.7 \cdot 0.5}{0.7 \cdot 0.5 + 0.2 \cdot 0.5} = \frac{0.35}{0.35 + 0.1} = \frac{0.35}{0.45} \approx 0.778 \]
+
+Thus:
+```json
+{
+  "business administration": 0.222,
+  "computer science": 0.778
+}
+```

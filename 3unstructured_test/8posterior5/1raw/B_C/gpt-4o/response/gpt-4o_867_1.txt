@@ -1,0 +1,60 @@
+To apply Bayesian inference, we need to consider:
+
+- \( P(H) \): The initial probability or prior probability that Adam was enrolled in a given field.
+- \( P(E | H) \): The probability of observing the evidence \( E \) (Adam's personality traits) given that he was enrolled in the field.
+- \( P(E | \neg H) \): The probability of observing the evidence \( E \) given that he was *not* enrolled in the field.
+- \( P(H | E) \): The posterior probability that Adam was enrolled in the field given the evidence \( E \).
+
+Let's start with assumptions for priors. The default priors \( P(H) \) can be conservatively assumed to be equal for the fields, as we don't have any additional information suggesting otherwise. For simplicity, let's assume:
+- \( P(\text{computer science}) = P(\text{business administration}) = 0.5 \)
+
+Now, let's estimate \( P(E|H) \) for each field:
+
+1. **Computer Science**:
+
+   - Adam is of high intelligence and good at understanding abstract concepts, which might be highly compatible with computer science.
+   - However, the love for nature, plants, and animals may be less directly correlated with a computer science graduate student.
+
+   Therefore, let's estimate:
+   - \( P(E|\text{computer science}) = 0.3 \)
+
+2. **Business Administration**:
+
+   - Adam has strong empathy and appreciation for hard work and dedication, which are valuable traits in business administration.
+   - However, his love for nature, plants, and animals might be less common in this field.
+
+   Therefore, let's estimate:
+   - \( P(E|\text{business administration}) = 0.1 \)
+
+Next, let's estimate \( P(E|\neg H) \), the probability of observing Adam's traits if he is not enrolled in the fields mentioned.
+
+Given that the traits are quite specific and not necessarily aligned with either field, we might assume:
+- \( P(E|\neg \text{computer science}) = 0.1 \)
+- \( P(E|\neg \text{business administration}) = 0.2 \)
+
+Now, compute the posterior probabilities using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+1. **Computer Science**:
+
+\[ P(E) = 0.3 \cdot 0.5 + 0.1 \cdot 0.5 = 0.15 + 0.05 = 0.2 \]
+\[ P(\text{computer science}|E) = \frac{0.3 \cdot 0.5}{0.2} = \frac{0.15}{0.2} = 0.75 \]
+
+2. **Business Administration**:
+
+\[ P(E) = 0.1 \cdot 0.5 + 0.2 \cdot 0.5 = 0.05 + 0.1 = 0.15 \]
+\[ P(\text{business administration}|E) = \frac{0.1 \cdot 0.5}{0.15} = \frac{0.05}{0.15} = 0.33 \]
+
+Therefore, the results are:
+
+```json
+{
+  "computer science": 0.75,
+  "business administration": 0.33
+}
+```
+
+These values do not necessarily sum to 1 because there are other potential fields Adam could be studying which are not considered in this analysis.

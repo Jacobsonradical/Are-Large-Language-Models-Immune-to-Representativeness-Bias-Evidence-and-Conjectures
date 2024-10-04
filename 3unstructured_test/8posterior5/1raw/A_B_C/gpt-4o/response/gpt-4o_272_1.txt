@@ -1,0 +1,68 @@
+To compute the posterior probability \( P(H|E) \) of Adam being enrolled in each field given the personality sketch (E), we need to apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+However, since we don't have information about \( P(E) \) directly, we will compare the relative probabilities based on our given evidence. We do have to make some assumptions for \( P(H) \) (the prior probabilities), \( P(E|H) \) (the likelihood of Adam's personality given he is in a particular field), and \( P(E|\neg H) \) (the likelihood of Adam's personality given he is not in that field).
+
+### Step-by-step considerations:
+
+1. **Computer Science**:
+   - **P(H)**: Assume the probability that a random graduate student is enrolled in computer science is moderate (around 0.2).
+   - **P(E|H)**: The likelihood of Adam having his personality traits if he is in computer science seems moderate, as curiosity and solving puzzles align (around 0.5).
+   - **P(E|\neg H)**: Given the versatility of his traits, the likelihood is also moderate (around 0.4).
+
+2. **Agricultural and Veterinary Science**:
+   - **P(H)**: Less common, assume a lower probability for a random student (around 0.1).
+   - **P(E|H)**: Very high, as Adam’s empathy, love for animals, and appreciation for nature directly align (around 0.9).
+   - **P(E|\neg H)**: Lower, as these traits are less common outside this field (around 0.3).
+
+3. **Business Administration**:
+   - **P(H)**: Moderately common, so assume (around 0.2).
+   - **P(E|H)**: Lower likelihood as there is less direct alignment of Adam’s traits with this field (around 0.2).
+   - **P(E|\neg H)**: Adam’s traits do not particularly suggest Business; assume low (around 0.3).
+
+### Applying Bayes' Rule:
+
+\[
+P(H|E) \propto P(E|H) P(H)
+\]
+
+\[
+P(H|E) = \frac{P(E|H) P(H)}{\sum P(E|H_i) P(H_i)} \quad \text{for each field} \ H_i
+\]
+
+### Calculations (relative probabilities):
+
+- **Computer Science**:
+  - \( P(H|E) \propto 0.5 * 0.2 \)
+  - Relative probability = 0.1
+
+- **Agricultural and Veterinary Science**:
+  - \( P(H|E) \propto 0.9 * 0.1 \)
+  - Relative probability = 0.09
+
+- **Business Administration**:
+  - \( P(H|E) \propto 0.2 * 0.2 \)
+  - Relative probability = 0.04
+
+### Normalizing:
+
+Total relative probability = 0.1 + 0.09 + 0.04 = 0.23
+
+\[
+{
+  "computer science": 0.1 / 0.23 \approx 0.435,
+  "agricultural and veterinary science": 0.09 / 0.23 \approx 0.391,
+  "business administration": 0.04 / 0.23 \approx 0.174
+}
+\]
+
+### Final Results:
+
+```json
+{
+  "computer science": 0.435,
+  "agricultural and veterinary science": 0.391,
+  "business administration": 0.174
+}
+```

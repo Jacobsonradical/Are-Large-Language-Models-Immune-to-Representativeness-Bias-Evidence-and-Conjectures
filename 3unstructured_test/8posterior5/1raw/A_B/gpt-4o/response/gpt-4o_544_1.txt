@@ -1,0 +1,49 @@
+To compute the probability that Adam is enrolled in a given field based on his personality sketch, we'll use Bayes' Rule. Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in the given field given the evidence (his personality sketch).
+- \( P(E|H) \) is the probability of observing the evidence given that Adam is enrolled in the given field.
+- \( P(H) \) is the prior probability that Adam is enrolled in the given field.
+- \( P(E) \) is the overall probability of observing the evidence.
+
+We proceed by estimating the probabilities for each field based on the evidence provided.
+
+### Business Administration:
+
+1. **P(H)**: This is the prior probability of being enrolled in Business Administration. For simplicity, let's assume this to be 0.1 (10%), as business programs are fairly common but not overly dominating among graduate students.
+2. **P(E|H)**: This is the probability that the personality sketch matches a student in Business Administration. Given Adam's curiosity about nature, empathy, love for animals, and interest in abstract concepts, it seems less likely he would be in a field like Business Administration. Therefore, we might estimate this to be low, around 0.05 (5%).
+3. **P(E|\(\neg\) H)**: This is the probability that the personality sketch matches students in fields other than Business Administration. Given that the personality traits described are more aligned with science or humanities, this might be higher, around 0.95 (95%).
+
+### Agricultural and Veterinary Science:
+
+1. **P(H)**: This is the prior probability of being enrolled in Agricultural and Veterinary Science. Let's assume this is lower due to fewer students enrolling in such specialized fields. We can estimate this as 0.05 (5%).
+2. **P(E|H)**: This is the probability that the personality sketch matches a student in Agricultural and Veterinary Science. Given Adam's empathy for animals and interest in nature, this fits well, so we might estimate this to be higher, around 0.7 (70%).
+3. **P(E|\(\neg\) H)**: This is the probability that the personality sketch matches students in fields other than Agricultural and Veterinary Science. This would include a wide range of fields, so we estimate it to be lower, around 0.3 (30%).
+
+To compute \( P(H|E) \) using these values:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, without the exact value of \( P(E) \), we can still compare the relative likelihoods by focusing on the numerator \( P(E|H) \cdot P(H) \).
+
+For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.05 \times 0.1 = 0.005 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \times 0.05 = 0.035 \]
+
+Now we normalize these to get a rough estimate of the probabilities:
+
+\[ P(H|E)_{\text{business administration}} = \frac{0.005}{0.005 + 0.035} = \frac{0.005}{0.04} \approx 0.125 \]
+\[ P(H|E)_{\text{agricultural and veterinary science}} = \frac{0.035}{0.005 + 0.035} = \frac{0.035}{0.04} \approx 0.875 \]
+
+Thus, the relative probabilities, approximately, are:
+
+```json
+{
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.875
+}
+```

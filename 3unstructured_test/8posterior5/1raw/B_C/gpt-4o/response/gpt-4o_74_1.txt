@@ -1,0 +1,55 @@
+To apply Bayes' Rule, follow these steps:
+
+1. **P(H)**: The prior probability that a student was enrolled in a given field. 
+2. **P(E|H)**: The probability of observing Adam's personality sketch given that he was enrolled in a specific field.
+3. **P(E|\neg H)**: The probability of observing Adam's personality sketch given that he was not enrolled in a specific field.
+
+We will then use Bayes' rule to compute \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Let's denote the fields briefly as follows:
+- BA: Business Administration
+- CS: Computer Science
+
+### Assumptions:
+1. Assume a rough estimate for \( P(H) \) (the base rates for students enrolling in those fields).
+2. Estimate \( P(E|H) \) based on how well the personality sketch aligns with each field.
+3. Estimate \( P(E|\neg H) \) based on how likely students in *any other* field might exhibit the given personality sketch.
+
+#### 1. Prior probabilities \( P(H) \):
+- For simplification purposes, let's assume:
+  - \( P(BA) = 0.2 \)
+  - \( P(CS) = 0.2 \)
+
+#### 2. Likelihood \( P(E|H) \):
+- Business Administration:
+  - Generally, BA students have strong people skills and may not necessarily possess strong empathy for animals or enjoy puzzles to the same degree.
+  - Therefore, \( P(E|BA) \) might be relatively low: let's say 0.1.
+  
+- Computer Science:
+  - Given Adam's interest in nature, puzzles, and abstract concepts, this personality aligns well with a typical CS student who often enjoys abstract thinking and solving complex problems.
+  - Thus \( P(E|CS) \) might be relatively high: let's say 0.6.
+
+#### 3. Probability of the evidence \( P(E) \):
+This is \( \sum\limits_{H}(P(E|H) \times P(H)) + \sum\limits_{\neg H}(P(E|\neg H) \times P(\neg H)) \).
+  - For simplicity, assume remaining fields collectively have \( P(E|\neg H) \) relatively uniform at 0.2 with total collective base rate 0.6
+  - Thus, \( P(E) \approx  0.1 \times 0.2 + 0.6 \times 0.2 + 0.2 \times 0.6 = 0.02 + 0.12 + 0.12 = 0.26 \) 
+
+### Calculate \( P(H|E) \) for each field:
+- **Business Administration**:
+  \[
+  P(BA|E) = \frac{P(E|BA) \times P(BA)}{P(E)} = \frac{0.1 \times 0.2}{0.26} \approx 0.077
+  \]
+
+- **Computer Science**:
+  \[
+  P(CS|E) = \frac{P(E|CS) \times P(CS)}{P(E)} = \frac{ 0.6 \times 0.2}{0.26} \approx 0.462
+  \]
+
+So the final result in the specified format is:
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.462
+}
+```

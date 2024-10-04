@@ -1,0 +1,39 @@
+To calculate \( P(H|E) \) for each field, we need to apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we are comparing between two fields, we don't need explicit values for \( P(E) \) as we are interested in the relative probabilities. Let's begin by estimating the following probability components for each field:
+
+### Computer Science
+1. **\( P(H_{CS}) \)**: The probability that a random graduate student is enrolled in computer science. Given the high popularity of computer science, let's assume \( P(H_{CS}) \approx 0.3 \) (30%).
+2. **\( P(E|H_{CS}) \)**: The likelihood that a computer science student would fit Adam's personality sketch. While intelligence and understanding abstract concepts fit, empathy and a deep love for animals might be less common. Let's estimate \( P(E|H_{CS}) \approx 0.2 \).
+3. **\( P(E|\neg H_{CS}) \)**: The likelihood that someone not in computer science would fit Adam's sketch. Given that other fields might better align with Adam's characteristics, let's estimate \( P(E|\neg H_{CS}) \approx 0.35 \).
+
+### Agricultural and Veterinary Science
+1. **\( P(H_{AVS}) \)**: The probability that a random graduate student is enrolled in agricultural and veterinary science. This is less common than computer science, but not negligible, so let’s assume \( P(H_{AVS}) \approx 0.1 \) (10%).
+2. **\( P(E|H_{AVS}) \)**: The likelihood that an agricultural and veterinary science student would fit Adam's personality sketch. This fits very well with Adam’s attributes, so let's estimate \( P(E|H_{AVS}) \approx 0.7 \).
+3. **\( P(E|\neg H_{AVS}) \)**: The likelihood that someone not in agricultural and veterinary science would fit Adam's sketch. Given that other fields might not fit as well, let's estimate \( P(E|\neg H_{AVS}) \approx 0.25 \).
+
+### Applying Bayes' Rule:
+For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+
+Since \( P(E) \) is the same for both and we are interested in the relative probabilities:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.2 \cdot 0.3 = 0.06 \]
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.7 \cdot 0.1 = 0.07 \]
+
+### Normalizing the probabilities:
+The sum of both proportional values is \( 0.06 + 0.07 = 0.13 \). We can normalize by dividing each by 0.13:
+
+\[ P(H_{CS}|E) = \frac{0.06}{0.13} \approx 0.4615 \]
+\[ P(H_{AVS}|E) = \frac{0.07}{0.13} \approx 0.5385 \]
+
+So, our final answer in the requested format is:
+
+{
+  "computer science": 0.4615,
+  "agricultural and veterinary science": 0.5385
+}

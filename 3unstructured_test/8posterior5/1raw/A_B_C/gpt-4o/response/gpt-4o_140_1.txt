@@ -1,0 +1,54 @@
+Given the information, we can make some educated guesses about the probabilities.
+
+1. **Prior Probability \(P(H)\)**: This is the initial probability of Adam being in each of these fields before considering his personality sketch. Since this can be quite varied, I will assume a generic distribution of students in each field among graduate students. These values are somewhat arbitrary but should reflect realistic proportions.
+   - \(P(\text{agricultural and veterinary science}) = 0.1\)
+   - \(P(\text{computer science}) = 0.3\)
+   - \(P(\text{business administration}) = 0.2\)
+
+2. **Likelihood \(P(E|H)\)**: This is the probability of observing Adam's personality sketch if he were in each specific field.
+   - Given his genuine curiosity about nature and love for animals, \(P(E|\text{agricultural and veterinary science})\) would be high.
+   - His good understanding of abstract concepts and puzzle-solving skills fit well with \(P(E|\text{computer science})\).
+   - While business administration students can have a warm heart and appreciation for hard work, the described traits are less common in this field compared to the others.
+
+Thus, we could estimate:
+   - \(P(E|\text{agricultural and veterinary science}) = 0.8\)
+   - \(P(E|\text{computer science}) = 0.6\)
+   - \(P(E|\text{business administration}) = 0.2\)
+
+3. **Marginal Likelihood \(P(E|\neg H)\)**: This is a bit tricky, as it involves the likelihood of the personality sketch given that Adam is not in a specific field. We'll approximate this by considering the overall probability among all fields outside the given ones.
+   - \(P(E|\neg \text{agricultural and veterinary science}) ≈ 0.4\)
+   - \(P(E|\neg \text{computer science}) ≈ 0.5\)
+   - \(P(E|\neg \text{business administration}) ≈ 0.7\)
+
+Using Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+But since we need to normalize the values such that they all compare relatively, we'll compute them as:
+\[ P(H_i|E) \propto P(E|H_i) \cdot P(H_i) \]
+
+#### Calculations
+For **agricultural and veterinary science**:
+\[ P(\text{agricultural and veterinary science}|E) \propto 0.8 \times 0.1 = 0.08 \]
+
+For **computer science**:
+\[ P(\text{computer science}|E) \propto 0.6 \times 0.3 = 0.18 \]
+
+For **business administration**:
+\[ P(\text{business administration}|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+Finally, these need to be normalized:
+\[ \text{Normalization factor} = 0.08 + 0.18 + 0.04 = 0.3 \]
+
+So:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.08}{0.3} ≈ 0.267 \]
+\[ P(\text{computer science}|E) = \frac{0.18}{0.3} = 0.6 \]
+\[ P(\text{business administration}|E) = \frac{0.04}{0.3} ≈ 0.133 \]
+
+Thus, the final computed values are:
+```json
+{
+  "agricultural and veterinary science": 0.267,
+  "computer science": 0.6,
+  "business administration": 0.133
+}
+```

@@ -1,0 +1,72 @@
+To calculate \( P(H|E) \) (the probability that Adam was enrolled in a particular field given his personality sketch), we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote:
+- \( P(CS) \) as \( P(H) \) for computer science
+- \( P(BA) \) as \( P(H) \) for business administration
+- \( P(E|CS) \) as \( P(E|H) \) for computer science
+- \( P(E|BA) \) as \( P(E|H) \) for business administration
+- \( P(E|\neg CS) \) as \( P(E|\neg H) \) for computer science
+- \( P(E|\neg BA) \) as \( P(E|\neg H) \) for business administration
+
+Our goal is to compute:
+\[ P(CS|E) \]
+\[ P(BA|E) \]
+
+First, let's estimate these probabilities:
+
+### Computer Science
+
+**Prior Probability, \( P(CS) \):**
+Graduate programs in computer science are quite common compared to other fields.
+\[ P(CS) = 0.2 \]
+    
+**Probability of E given H (\( P(E|CS) \)):**
+Given that Adam has a strong understanding of abstract concepts and high intelligence, it is somewhat likely he would fit into a computer science program, which bridges abstract problem-solving and technical skills.
+\[ P(E|CS) = 0.3 \]
+
+**Probability of E given not H (\( P(E|\neg CS) \)):**
+If Adam is not in computer science, he still might possess these traits depending on another field that values intelligence and abstract thinking.
+\[ P(E|\neg CS) = 0.2 \]
+
+### Business Administration
+
+**Prior Probability, \( P(BA) \):**
+Graduate programs in business administration are also quite common, but possibly slightly less among people with Adam's described traits.
+\[ P(BA) = 0.1 \]
+
+**Probability of E given H (\( P(E|BA) \)):**
+Business administration generally values different traits than those highlighted in Adam's sketch, such as leadership and business acumen.
+\[ P(E|BA) = 0.05 \]
+
+**Probability of E given not H (\( P(E|\neg BA) \)):**
+If Adam is not in business administration, the likelihood of fitting the personality description might be expected in other fields.
+\[ P(E|\neg BA) = 0.3 \]
+
+To apply Bayes' rule, we also need \( P(E) \). However, because we are comparing relative probabilities, we can leverage:
+\[ P(E) = P(E|CS) \cdot P(CS) + P(E|\neg CS) \cdot P(\neg CS) = P(E|BA) \cdot P(BA) + P(E|\neg BA) \cdot P(\neg BA) \]
+
+Calculations for \( P(CS|E) \):
+
+\[ P(CS|E) = \frac{P(E|CS) \cdot P(CS)}{P(E)} \]
+\[ P(CS|E) = \frac{0.3 \cdot 0.2}{P(E)} = \frac{0.06}{P(E)} \]
+
+Calculations for \( P(BA|E) \):
+
+\[ P(BA|E) = \frac{P(E|BA) \cdot P(BA)}{P(E)} \]
+\[ P(BA|E) = \frac{0.05 \cdot 0.1}{P(E)} = \frac{0.005}{P(E)} \]
+
+Since we are looking at relative probabilities, the actual value of \( P(E) \) is not essential. Therefore, we can compare:
+\[ \frac{ P(CS|E) }{ P(BA|E) } = \frac{0.06}{0.005} = 12 \]
+
+So, in relative probability terms:
+
+```json
+{
+  "computer science": 0.12,
+  "business administration": 0.01
+}
+```
+
+To sum up, it is more likely that Adam was enrolled in a computer science program compared to a business administration program, given his personality sketch.

@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) (the probability that Adam was enrolled in a specific field given the personality sketch \( E \)), we need to use Bayes' Rule, which states:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Given that \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \), we can compute the individual probabilities for each field.
+
+### 1. Computer Science
+
+**P(H)**: The general probability that a graduate student is enrolled in computer science. Given the popularity of this field, let's assume \( P(H_{cs}) \) is relatively high. For simplicity, let's assume \( P(H_{cs}) = 0.3 \).
+
+**P(E|H)**: The probability of the personality sketch \( E \) being consistent with someone in computer science. Adam's traits include a curiosity about nature, a love for animals, and a strong appreciation for hard work and dedication. These are not typically associated with computer science but can be present. Let's assume a moderate likelihood: \( P(E|H_{cs}) = 0.2 \).
+
+**P(E|\neg H)**: The probability of the personality sketch \( E \) being consistent with someone not in computer science. Given that Adam's traits are more aligned with other fields like agricultural science or veterinary science, let's assume a higher probability: \( P(E|\neg H_{cs}) = 0.5 \).
+
+Now, we use these to compute \( P(H_{cs}|E) \):
+
+\[
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot (1 - P(H_{cs}))}
+\]
+
+\[
+P(H_{cs}|E) = \frac{0.2 \cdot 0.3}{0.2 \cdot 0.3 + 0.5 \cdot 0.7}
+\]
+
+\[
+P(H_{cs}|E) = \frac{0.06}{0.06 + 0.35} = \frac{0.06}{0.41} \approx 0.146
+\]
+
+### 2. Agricultural and Veterinary Science
+
+**P(H)**: The general probability that a graduate student is enrolled in agricultural and veterinary science. This field is less common than computer science but aligns well with Adam's personality traits. Let's assume \( P(H_{ag}) = 0.1 \).
+
+**P(E|H)**: The probability of the personality sketch \( E \) being consistent with someone in agricultural and veterinary science. Given Adam’s strong empathy, love for animals, and curiosity about plants, this is very high. Let's assume \( P(E|H_{ag}) = 0.9 \).
+
+**P(E|\neg H)**: The probability of the personality sketch \( E \) being consistent with someone not in agricultural and veterinary science. As above, many of Adam’s traits are less likely to be seen in other fields. Let’s assume a moderate probability: \( P(E|\neg H_{ag}) = 0.4 \).
+
+Now, we use these to compute \( P(H_{ag}|E) \):
+
+\[
+P(H_{ag}|E) = \frac{P(E|H_{ag}) \cdot P(H_{ag})}{P(E|H_{ag}) \cdot P(H_{ag}) + P(E|\neg H_{ag}) \cdot (1 - P(H_{ag}))}
+\]
+
+\[
+P(H_{ag}|E) = \frac{0.9 \cdot 0.1}{0.9 \cdot 0.1 + 0.4 \cdot 0.9}
+\]
+
+\[
+P(H_{ag}|E) = \frac{0.09}{0.09 + 0.36} = \frac{0.09}{0.45} = 0.2
+\]
+
+Here are the calculated probabilities:
+
+```json
+{
+  "computer science": 0.146,
+  "agricultural and veterinary science": 0.2
+}
+```

@@ -1,0 +1,51 @@
+To apply Bayes' rule to compute \( P(H|E) \), we need the following probabilities for each field:
+- \( P(H) \): Prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \): Likelihood of the personality sketch given that Adam is enrolled in that field.
+- \( P(E|\neg H) \): Likelihood of the personality sketch given that Adam is not enrolled in that field.
+
+Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Here \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \), but for simplicity, we'll estimate \( P(H|E) \) relative to each option, assuming similar values for unrelated fields.
+
+### Calculation for Business Administration:
+1. **Prior \( P(H) \)**:
+   - This is generally low because the field typically attracts students interested in leadership, management, and economics, rather than those with strong interests in nature and animals.
+   - Let's estimate \( P(H) \) at around 0.05.
+
+2. **Likelihood \( P(E|H) \)**:
+   - The personality sketch is not highly indicative of someone likely to pursue Business Administration.
+   - Let's estimate \( P(E|H) \) at around 0.1.
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - Given Adam's traits, it's much more likely that someone not enrolled in Business Administration would have these characteristics.
+   - Let's estimate \( P(E|\neg H) \) at around 0.5.
+
+4. **Posterior \( P(H|E) \)** using Bayes' rule approximation:
+\[ P(H|E) \propto P(E|H)P(H) = 0.1 \times 0.05 = 0.005 \]
+
+### Calculation for Computer Science:
+1. **Prior \( P(H) \)**:
+   - This field generally attracts individuals with high intelligence and an interest in solving puzzles.
+   - Let's estimate \( P(H) \) at around 0.2.
+
+2. **Likelihood \( P(E|H) \)**:
+   - Adam's traits align with those typical of students in Computer Science, particularly the interest in puzzles and understanding abstract concepts.
+   - Let's estimate \( P(E|H) \) at around 0.6.
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - It's less likely for someone not in Computer Science to share these specific traits.
+   - For simplicity, let’s assume \( P(E|\neg H) \) similar across unrelated fields as 0.5.
+
+4. **Posterior \( P(H|E) \)**:
+\[ P(H|E) \propto P(E|H)P(H) = 0.6 \times 0.2 = 0.12 \]
+
+Now, we collect our results:
+
+```json
+{
+  "business administration": 0.005,
+  "computer science": 0.12
+}
+```
+
+It's important to reiterate that these are only estimated probabilities, and \( P(H|E) \) values aren't normalized to sum to 1 since there are other graduate fields that Adam could be enrolled in.

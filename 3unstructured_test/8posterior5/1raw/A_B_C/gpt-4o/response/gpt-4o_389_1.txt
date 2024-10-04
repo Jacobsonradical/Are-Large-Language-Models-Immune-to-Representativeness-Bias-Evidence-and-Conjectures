@@ -1,0 +1,68 @@
+To compute \(P(H|E)\) using Bayes' rule, we need to evaluate the prior probabilities \(P(H)\) for each field and the conditional probabilities \(P(E|H)\) and \(P(E|\neg H)\). Here's the step-by-step estimation:
+
+### 1. Prior Probabilities, \(P(H)\)
+These are the probabilities that Adam is enrolled in the fields without any additional information from the personality sketch:
+- **Computer Science:** Let’s assume it is relatively common; estimate \(P(H) = 0.2\)
+- **Agricultural and Veterinary Science:** Less common but relevant; estimate \(P(H) = 0.1\)
+- **Business Administration:** Quite common since it's a popular field; estimate \(P(H) = 0.2\)
+
+### 2. Conditional Probabilities, \(P(E|H)\) and \(P(E|\neg H)\)
+Next, we evaluate how well Adam's personality sketch fits each field:
+
+- **Computer Science:**
+  - \(P(E|H):\) Adam has high intelligence and enjoys solving puzzles which fits well, but there’s no direct mention of nature or animals.
+    - Let's estimate \(P(E|H) = 0.3\)
+  - \(P(E|\neg H):\) The probability of Adam having these characteristics if he’s not in computer science.
+    - Let's estimate \(P(E|\neg H) = 0.6\)
+
+- **Agricultural and Veterinary Science:**
+  - \(P(E|H):\) Fits very well given Adam’s love for nature, plants, and animals.
+    - Let's estimate \(P(E|H) = 0.8\)
+  - \(P(E|\neg H):\) The probability of Adam having these characteristics if he’s not in agricultural/veterinary science.
+    - Let's estimate \(P(E|\neg H) = 0.5\)
+
+- **Business Administration:**
+  - \(P(E|H):\) Some attributes like high intelligence and understanding hard work match but lack direct relevance to nature and animals.
+    - Let's estimate \(P(E|H) = 0.2\)
+  - \(P(E|\neg H):\) The probability of Adam having these characteristics if he’s not in business administration.
+    - Let's estimate \(P(E|\neg H) = 0.7\)
+
+### 3. Using Bayes’ Rule to Compute \(P(H|E)\)
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) is the same for all hypotheses and mainly normalizes the probabilities, we can focus on the numerator for comparative purposes:
+
+- **Computer Science:**
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.3 \cdot 0.2 = 0.06 \]
+
+- **Agricultural and Veterinary Science:**
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.1 = 0.08 \]
+
+- **Business Administration:**
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.2 = 0.04 \]
+
+Now we normalize these values so they sum to 1 to get the final posterior probabilities:
+
+\[
+\text{Total} = 0.06 + 0.08 + 0.04 = 0.18
+\]
+
+- **Computer Science:**
+  \[ P(H|E) = \frac{0.06}{0.18} = 0.333 \]
+
+- **Agricultural and Veterinary Science:**
+  \[ P(H|E) = \frac{0.08}{0.18} = 0.444 \]
+
+- **Business Administration:**
+  \[ P(H|E) = \frac{0.04}{0.18} = 0.222 \]
+
+### Final Posterior Probabilities
+Here are the probabilities that Adam is in each field of study given his personality sketch:
+
+```json
+{
+  "computer science": 0.333,
+  "agricultural and veterinary science": 0.444,
+  "business administration": 0.222
+}
+```

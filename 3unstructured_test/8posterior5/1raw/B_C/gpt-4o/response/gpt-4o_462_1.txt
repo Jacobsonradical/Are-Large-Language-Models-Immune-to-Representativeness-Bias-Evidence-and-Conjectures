@@ -1,0 +1,50 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' Rule, we need three components for each hypothesis \( H \):
+
+1. \( P(H) \): The prior probability of the hypothesis.
+2. \( P(E|H) \): The likelihood of the evidence given the hypothesis.
+3. \( P(E|\neg H) \): The likelihood of the evidence given not the hypothesis.
+
+Additionally, Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) can be derived from the law of total probability, but we aren't given all fields or their priors, we will focus on the relative likelihoods.
+
+Let's hypothesize values for \( P(H) \) for computer science and business administration based on general knowledge about the popularity of these fields among graduate students. 
+
+1. **Computer Science**
+    - Given general popularity: \( P(H) = 0.15 \)
+    - Likelihood given the attributes (abstract concepts, puzzles): \( P(E|H) = 0.8 \)
+    - Likelihood of evidence assuming not computer science: \( P(E|\neg H) = 0.2 \)
+
+2. **Business Administration**
+    - Given general popularity: \( P(H) = 0.10 \)
+    - Likelihood given the attributes (empathy, appreciation for hard work): \( P(E|H) = 0.4 \)
+    - Likelihood of evidence assuming not business administration: \( P(E|\neg H) = 0.25 \)
+
+The task involves computing \( P(H|E) \) for each field:
+
+### Computer Science
+\[ P(H|E)_{cs} = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Given:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) \approx (0.8 \times 0.15) + (0.2 \times (1 - 0.15)) \]
+\[ P(E) \approx 0.12 + (0.2 \times 0.85) = 0.12 + 0.17 = 0.29 \]
+\[ P(H|E)_{cs} = \frac{0.8 \times 0.15}{0.29} = \frac{0.12}{0.29} \approx 0.41 \]
+
+### Business Administration
+\[ P(H|E)_{ba} = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Given:
+\[ P(E) \approx (0.4 \times 0.10) + (0.25 \times (1 - 0.10)) \]
+\[ P(E) \approx 0.04 + (0.25 \times 0.9) = 0.04 + 0.225 = 0.265 \]
+\[ P(H|E)_{ba} = \frac{0.4 \times 0.10}{0.265} = \frac{0.04}{0.265} \approx 0.15 \]
+
+So, the results are estimated as:
+
+```json
+{
+  "computer science": 0.41,
+  "business administration": 0.15
+}
+```
+
+These values inform us that given the personality sketch, Adam is more likely to be enrolled in computer science than in business administration, although the probabilities do not sum to 1 because other fields are not considered.

@@ -1,0 +1,50 @@
+To compute the probabilities \( P(H|E) \) for each field given the personality sketch \( E \), we need to evaluate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) and then use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \), let's assess each term for the fields of **business administration** and **computer science**.
+
+### Business Administration
+
+**1. Prior Probability \( P(H_{\text{BA}}) \):**
+- Let's assume a rough prior distribution where the likelihood of a graduate student choosing business administration is about average.
+- \( P(H_{\text{BA}}) \approx 0.1 \)
+
+**2. Likelihood \( P(E|H_{\text{BA}}) \):**
+- Curiosity about nature, empathy, love for animals, and high intelligence might be less related to the field of business administration.
+- Let's assume \( P(E|H_{\text{BA}}) \approx 0.2 \)
+
+**3. Likelihood \( P(E|\neg H_{\text{BA}}) \):**
+- More suited to some other fields, specifically those involving understanding of nature, intelligence, and empathy.
+- Let's assume \( P(E|\neg H_{\text{BA}}) \approx 0.7 \)
+
+Using Bayes' rule for **business administration**:
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \approx \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.7 \cdot 0.9} = \frac{0.02}{0.02 + 0.63} \approx 0.031 \]
+
+### Computer Science
+
+**1. Prior Probability \( P(H_{\text{CS}}) \):**
+- The field of computer science is popular and attracts many intelligent individuals.
+- \( P(H_{\text{CS}}) \approx 0.15 \)
+
+**2. Likelihood \( P(E|H_{\text{CS}}) \):**
+- High intelligence and solving puzzles fit well with computer science, although curiosity about nature is more neutral.
+- Let's assume \( P(E|H_{\text{CS}}) \approx 0.7 \)
+
+**3. Likelihood \( P(E|\neg H_{\text{CS}}) \):**
+- The traits listed may be better suited to fields like biology, environmental science, or veterinary studies.
+- Let's assume \( P(E|\neg H_{\text{CS}}) \approx 0.5 \)
+
+Using Bayes' rule for **computer science**:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \approx \frac{0.7 \cdot 0.15}{0.7 \cdot 0.15 + 0.5 \cdot 0.85} = \frac{0.105}{0.105 + 0.425} \approx 0.198 \]
+
+Here are the final posterior probabilities for the given fields:
+
+```json
+{
+  "business administration": 0.031,
+  "computer science": 0.198
+}
+```

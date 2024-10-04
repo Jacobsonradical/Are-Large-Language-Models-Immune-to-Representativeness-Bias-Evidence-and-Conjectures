@@ -1,0 +1,44 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we'll need the prior probabilities \( P(H) \) of being enrolled in each field, the likelihood \( P(E|H) \) which is the probability that the personality sketch \( E \) fits someone in that field, and the likelihood \( P(E|\neg H) \) which is the probability that the personality sketch fits someone not in that field.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since the exact values for \( P(E) \) (the overall probability of the personality sketch) and specific priors \( P(H) \) are not given, we'll approximate based on common-sense assumptions for graduate fields of study.
+
+### Business Administration
+
+- **P(H):** The probability that a randomly chosen graduate student is in business administration. Assume that it is moderately common, say \( 0.2 \).
+- **P(E|H):** The probability of the personality sketch \( E \) given that the student is in business administration. Business students might enjoy solving puzzles and have an interest in hard work, but nature and animals are less typical, say \( 0.2 \).
+- **P(E|\neg H):** The probability of the personality sketch \( E \) for students not in business administration. This includes fields more in line with his interests, so let's assume \( 0.8 \).
+
+### Computer Science
+
+- **P(H):** The probability that a randomly chosen graduate student is in computer science. Assume that it is fairly common, say \( 0.3 \).
+- **P(E|H):** The probability of the personality sketch \( E \) given that the student is in computer science. High intelligence, abstract concepts, puzzles align closely, say \( 0.6 \).
+- **P(E|\neg H):** The probability of the personality sketch \( E \) for students not in computer science. Again, includes a wide range of fields but we'll assume this is reasonably descriptive, say \( 0.4 \).
+
+Using the numbers to calculate \( P(H|E) \):
+
+For Business Administration:
+\[ P(H|E) = \frac{0.2 \cdot 0.2}{P(E)} \]
+With \( P(E) \) accounting for the overall likelihood of \( E \):
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.2 \cdot 0.2 + 0.8 \cdot (1 - 0.2) \]
+\[ P(E) = 0.04 + 0.64 = 0.68 \]
+\[ P(H|E) = \frac{0.04}{0.68} \approx 0.06 \]
+
+For Computer Science:
+\[ P(H|E) = \frac{0.6 \cdot 0.3}{P(E)} \]
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.6 \cdot 0.3 + 0.4 \cdot (1 - 0.3) \]
+\[ P(E) = 0.18 + 0.28 = 0.46 \]
+\[ P(H|E) = \frac{0.18}{0.46} \approx 0.39 \]
+
+Here is the final result:
+
+```json
+{
+  "business administration": 0.06,
+  "computer science": 0.39
+}
+```

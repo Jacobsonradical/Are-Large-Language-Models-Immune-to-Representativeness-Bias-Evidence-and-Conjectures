@@ -61,7 +61,7 @@ if __name__ == "__main__":
     exp_norm_fp = "../2analysis/normalize_answer.csv"
     exp_analysis_dir = "../2analysis"
     os.makedirs(exp_analysis_dir, exist_ok=True)
-    exp_list_names = ["A", "B", "C", "A_B", "A_C", "B_C", "A_B_C"]
+    exp_list_names = ["A", "C", "B", "A_C", "A_B", "B_C", "A_B_C"]
 
     exp_alpha = 0.01
     exp_tolerance = 0.05

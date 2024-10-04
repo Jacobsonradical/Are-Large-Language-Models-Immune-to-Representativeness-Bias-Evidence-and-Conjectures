@@ -1,0 +1,66 @@
+To estimate the probability that Adam was enrolled in a particular field given the personality sketch, let's make some educated guesses regarding the probabilities involved. We'll use the following steps for each field:
+
+1. \( P(H) \): Prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): Probability of the personality sketch given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): Probability of the personality sketch given that Adam was not enrolled in that field.
+
+We then use Bayes' rule to compute \( P(H|E) \).
+
+### Fields
+
+#### 1. Computer Science
+- Prior \( P(H) \): The probability that any given graduate student is in computer science. Let's assume \( P(H) = 0.2 \) (since computer science is quite a common field).
+- Likelihood \( P(E|H) \): Given the personality sketch, the probability that Adam is in computer science. Adam's empathy, love for nature and animals, and appreciation for hard work might not indicate this field strongly. Let's assign \( P(E|H) = 0.1 \).
+- \( P(E|\neg H) \): The probability of the personality sketch given Adam is not in computer science. Let's assume \( P(E|\neg H) = 0.9 \).
+
+Applying Bayes’ rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we have no actual value for \( P(E) \), we'll compare relative values:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+#### 2. Business Administration
+- Prior \( P(H) \): Assume \( P(H) = 0.15 \) (business administration is also common, but not as much as CS).
+- Likelihood \( P(E|H) \): The personality sketch suggests a less direct match to business administration. Let's assign \( P(E|H) = 0.05 \).
+- \( P(E|\neg H) \): Assume \( P(E|\neg H) = 0.9 \).
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.05 \times 0.15 = 0.0075 \]
+
+#### 3. Agricultural and Veterinary Science
+- Prior \( P(H) \): Assume \( P(H) = 0.05 \) (less common compared to the other fields).
+- Likelihood \( P(E|H) \): The personality sketch strongly suggests a match. Let's assign \( P(E|H) = 0.6 \).
+- \( P(E|\neg H) \): Assume \( P(E|\neg H) = 0.3 \).
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.6 \times 0.05 = 0.03 \]
+
+### Summary
+
+Normalizing these values to reflect their relative magnitudes:
+
+- For computer science: 0.02
+- For business administration: 0.0075
+- For agricultural and veterinary science: 0.03
+
+Normalization (sum = 0.02 + 0.0075 + 0.03 = 0.0575):
+
+\[ \frac{0.02}{0.0575}, \frac{0.0075}{0.0575}, \frac{0.03}{0.0575} \]
+
+Resulting probabilities are:
+
+{
+  "computer science": \( \frac{0.02}{0.0575} \approx 0.3478 \),
+  "business administration": \( \frac{0.0075}{0.0575} \approx 0.1304 \),
+  "agricultural and veterinary science": \( \frac{0.03}{0.0575} \approx 0.5217 \)
+}
+
+Thus, normalizing these proportions:
+
+{
+  "computer science": "0.3478",
+  "business administration": "0.1304",
+  "agricultural and veterinary science": "0.5217"
+}

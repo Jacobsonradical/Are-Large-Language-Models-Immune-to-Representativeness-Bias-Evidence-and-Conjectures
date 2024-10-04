@@ -1,0 +1,67 @@
+Let's denote:
+
+- H₁: Hypothesis that Adam was enrolled in agricultural and veterinary science
+- H₂: Hypothesis that Adam was enrolled in computer science
+- H₃: Hypothesis that Adam was enrolled in business administration
+
+Given:
+
+- E is the personality sketch of Adam.
+- P(H) is the prior probability.
+- P(E|H) is the likelihood.
+- P(E|\neg H) is the likelihood of observing E if not enrolled in the specific field.
+
+### Prior Probabilities (P(H))
+These probabilities reflect the general likelihood of being in each field as a graduate student. For simplicity, we might use general proportions or make educated guesses based on common enrollment statistics:
+
+- P(H₁) (agricultural and veterinary science): 0.1
+- P(H₂) (computer science): 0.4
+- P(H₃) (business administration): 0.3
+
+### Likelihoods (P(E|H))
+Based on the personality sketch, we can estimate how well the field matches Adam's characteristics.
+
+- P(E|H₁): Adam’s love for nature, animals, and empathy strongly fit this field. Let's set this high.
+  - P(E|H₁) ≈ 0.9
+- P(E|H₂): Adam’s intelligence and abstract thinking align well with this field, but lack of direct interest in technology might lower the fit.
+  - P(E|H₂) ≈ 0.6
+- P(E|H₃): While intelligence and understanding of hard work align well, the direct interest in plants and animals does not align strongly with business.
+  - P(E|H₃) ≈ 0.3
+
+### Complement Likelihoods (P(E|¬H))
+These are the probabilities of observing the personality sketch if Adam was not in that particular field, which we assume to be quite general.
+
+- P(E|¬H₁) ≈ 0.4 (since some characteristics like empathy and intelligence are common)
+- P(E|¬H₂) ≈ 0.6 (as interest in nature and animals somewhat contrasts with computer science)
+- P(E|¬H₃) ≈ 0.7 (better alignment outside business administration, given direct nature and animal interest)
+
+### Bayes Rule Application
+Bayes' rule is defined as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) can be approximated using the law of total probability:
+\[ P(E) = P(E|H₁)P(H₁) + P(E|H₂)P(H₂) + P(E|H₃)P(H₃) + ... \]
+
+However, since we're focusing on the relative probabilities, we can skip the calculation of the total probability:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Combining Terms:
+
+- Agricultural and Veterinary Science:
+  \[ P(H₁|E) \approx \frac{0.9 \cdot 0.1}{0.9 \cdot 0.1 + 0.6 \cdot 0.4 + 0.3 \cdot 0.3} \approx \frac{0.09}{0.09 + 0.24 + 0.09} \approx \frac{0.09}{0.42} \approx 0.214 \]
+
+- Computer Science:
+  \[ P(H₂|E) \approx \frac{0.6 \cdot 0.4}{0.9 \cdot 0.1 + 0.6 \cdot 0.4 + 0.3 \cdot 0.3} \approx \frac{0.24}{0.09 + 0.24 + 0.09} \approx \frac{0.24}{0.42} \approx 0.571 \]
+
+- Business Administration:
+  \[ P(H₃|E) \approx \frac{0.3 \cdot 0.3}{0.9 \cdot 0.1 + 0.6 \cdot 0.4 + 0.3 \cdot 0.3} \approx \frac{0.09}{0.09 + 0.24 + 0.09} \approx \frac{0.09}{0.42} \approx 0.214 \]
+
+Thus, the computed probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.214,
+  "computer science": 0.571,
+  "business administration": 0.214
+}
+```

@@ -1,0 +1,54 @@
+To estimate the probabilities \( P(H|E) \) for Adam being enrolled in either computer science or business administration given his personality sketch, we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to evaluate each component for both fields:
+
+1. **Prior Probability, \( P(H) \)**:
+    - **Computer Science**: Since computer science is a popular field, we assume a moderate prior. Let's set \( P(H) = 0.1 \).
+    - **Business Administration**: Business administration is also quite popular, but does not align much with the personality sketch. We'll set \( P(H) = 0.05 \).
+
+2. **Likelihood, \( P(E|H) \)**:
+    - **Computer Science**: Curiosity about nature, interest in solving puzzles, intelligence, and abstract thinking align well with computer science. So, we may set \( P(E|H) = 0.7 \).
+    - **Business Administration**: While his empathy and appreciation for hard work align somewhat with business administration, the other traits do not. Let's set \( P(E|H) = 0.2 \).
+
+3. **Likelihood of \( E \) given not \( H \), \( P(E|\neg H) \)**:
+    - This depends on analyzing how compatible the personality sketch is with all other fields of study. Suppose the traits are well-matched with natural sciences or environmental studies, etc. We set a value like \( P(E|\neg H) = 0.1 \).
+
+Finally, applying Bayes' rule:
+
+### Computer Science
+
+\[ P(\text{comp. sci.}|E) = \frac{P(E|\text{comp. sci.}) \cdot P(\text{comp. sci.})}{P(E)} \]
+
+Assuming \( P(E) \) can be approximated by factoring in both hypotheses:
+
+\[ P(E) \approx P(E|\text{comp. sci.}) \cdot P(\text{comp. sci.}) + P(E|\text{biz. admin.}) \cdot P(\text{biz. admin.}) + P(E|\neg H) \cdot (1 - P(\text{comp. sci.}) - P(\text{biz. admin.})) \]
+
+Substituting the values:
+
+\[ 
+P(E) \approx 0.7 \times 0.1 + 0.2 \times 0.05 + 0.1 \times (1 - 0.1 - 0.05)
+\approx 0.07 + 0.01 + 0.1 \times 0.85
+\approx 0.07 + 0.01 + 0.085
+\approx 0.165
+\]
+
+Now,
+
+\[ P(\text{comp. sci.}|E) = \frac{0.7 \times 0.1}{0.165} \approx \frac{0.07}{0.165} \approx 0.424 \]
+
+### Business Administration
+
+\[ P(\text{biz. admin.}|E) = \frac{P(E|\text{biz. admin.}) \cdot P(\text{biz. admin.})}{P(E)} = \frac{0.2 \times 0.05}{0.165} \approx \frac{0.01}{0.165} \approx 0.061 \]
+
+### Final Values
+
+```json
+{
+  "computer science": 0.424,
+  "business administration": 0.061
+}
+```
+
+So, Adam is more likely to be enrolled in computer science than business administration based on the given personality sketch.

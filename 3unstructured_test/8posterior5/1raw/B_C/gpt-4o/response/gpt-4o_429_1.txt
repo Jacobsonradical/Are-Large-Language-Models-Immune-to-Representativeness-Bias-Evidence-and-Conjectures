@@ -1,0 +1,68 @@
+To apply Bayes' Rule, we need to use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the information, we need to estimate:
+
+- \( P(H) \): The prior probability that a graduate student is enrolled in a given field (computer science or business administration).
+- \( P(E|H) \): The probability of Adam having the described personality sketch given that he is enrolled in a specific field.
+- \( P(E|\neg H) \): The probability of Adam having the described personality sketch given that he is not enrolled in the specific field.
+- \( P(E) \): The total probability of the evidence, which can be computed using the law of total probability, but since we are only comparing two fields, we won't necessarily need this value as it cancels out in the ratio.
+
+Let's start with some rough estimations based on the personality sketch provided:
+
+1. **Computer Science**:
+   - \( P(H) \): Let's assume the prior probability for a graduate student being in computer science: \( P(H_{CS}) = 0.2 \).
+   - \( P(E|H_{CS}) \): The likelihood of Adam having his personality sketch if he is in computer science:
+      - Interest in solving puzzles: High
+      - High intelligence and understanding abstract concepts: High
+      - Curiosity about nature and animals: Can be medium
+      - Empathy and warm heart: Can be medium
+      So, let's assume \( P(E|H_{CS}) = 0.4 \).
+   - \( P(E|\neg H_{CS}) \): The probability of Adam having his personality sketch if he is not in computer science (considering he might be in some other field):
+      - Let's assume this probability is 0.3.
+
+So, for Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+2. **Business Administration**:
+   - \( P(H) \): Let's assume the prior probability for a graduate student being in business administration: \( P(H_{BA}) = 0.1 \).
+   - \( P(E|H_{BA}) \): The likelihood of Adam having his personality sketch if he is in business administration:
+      - Curiosity about nature and animals: Can be low
+      - High empathy and warm heart: Can be medium
+      - High intelligence and understanding abstract concepts: Medium to low
+      - Enjoying solving puzzles: Low
+      So, let's assume \( P(E|H_{BA}) = 0.2 \).
+   - \( P(E|\neg H_{BA}) \): The probability of Adam having his personality sketch if he is not in business administration (considering he might be in some other field):
+      - Let's assume this probability is 0.25.
+
+So, for Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Now let's compute the ratios:
+
+For Computer Science:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.4 \cdot 0.2 = 0.08 \]
+
+For Business Administration:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.2 \cdot 0.1 = 0.02 \]
+
+To normalize (we'll make these probabilities add up to 1 for simplicity):
+
+Sum = 0.08 + 0.02 = 0.10
+
+Normalized probabilities:
+
+\[ P(H_{CS}|E) = \frac{0.08}{0.10} = 0.8 \]
+\[ P(H_{BA}|E) = \frac{0.02}{0.10} = 0.2 \]
+
+Thus, the final answer would be:
+
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```
+
+This implies that, given the personality sketch, it is more likely that Adam was enrolled in computer science rather than business administration.

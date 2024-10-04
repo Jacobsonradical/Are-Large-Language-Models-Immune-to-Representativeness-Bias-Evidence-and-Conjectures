@@ -1,0 +1,49 @@
+To determine \( P(H|E) \), we'll use Bayes' rule, which is formulated as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we don't have the exact values for \( P(H) \) (the prior probability of each field of study), \( P(E|H) \) (the likelihood of Adam's personality sketch given he was in that field), and \( P(E|\neg H) \) (the likelihood of Adam's personality sketch given he was not in that field), we will make reasonable assumptions for these probabilities based on the given personality sketch.
+
+### Assumptions:
+
+Let's denote our fields:
+- \( H_{CS} \): Computer Science
+- \( H_{BA} \): Business Administration
+
+**Priors, \( P(H) \)**:
+1. \( P(H_{CS}) \): This is the prior probability that Adam was in Computer Science. Let's assume 0.2, considering a variety of possible fields.
+2. \( P(H_{BA}) \): This is the prior probability that Adam was in Business Administration. Let's assume it is lower around 0.1 due to fewer relevant traits.
+
+We assume these priors based on the assumption that there are various other graduate fields he could be enrolled in, adjusting for the likely distribution of graduate students among different fields.
+
+**Likelihoods, \( P(E|H) \)**:
+1. \( P(E|H_{CS}) \): The likelihood of having Adam's personality sketch given he was in Computer Science. Let's assume this to be 0.4 given that analytical skills and understanding abstract concepts align with the field.
+2. \( P(E|H_{BA}) \): The likelihood of having Adam's personality sketch given he was in Business Administration. We place this at 0.2, since there are fewer direct matches with the traits described.
+
+**Complementary Likelihoods, \( P(E|\neg H) \)**:
+For non-CS and non-BA majors, let's average the likelihood:
+1. Other subject fields may or may not align with Adam's personality traits. Let's assume an average likelihood, \( P(E|\neg H_{CS}) \), to be 0.2.
+2. For non-BA fields, \( P(E|\neg H_{BA}) \), assume again 0.3 due to a broad possibility of match with empathic and intelligent traits.
+
+### Calculations for Posterior Probabilities:
+
+**Posterior for Computer Science, \( P(H_{CS}|E) \)**:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(E) \approx P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E) \approx (0.4 \cdot 0.2) + (0.2 \cdot 0.8) = 0.08 + 0.16 = 0.24 \]
+\[ P(H_{CS}|E) \approx \frac{0.4 \cdot 0.2}{0.24} \approx \frac{0.08}{0.24} = 0.333 \]
+
+**Posterior for Business Administration, \( P(H_{BA}|E) \)**:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(E) \approx P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) \approx (0.2 \cdot 0.1) + (0.3 \cdot 0.9) = 0.02 + 0.27 = 0.29 \]
+\[ P(H_{BA}|E) \approx \frac{0.2 \cdot 0.1}{0.29} \approx \frac{0.02}{0.29} = 0.069 \]
+
+Thus, our estimates for \( P(H|E) \) for the given fields are as follows:
+
+```json
+{
+  "computer science": 0.333,
+  "business administration": 0.069
+}
+```

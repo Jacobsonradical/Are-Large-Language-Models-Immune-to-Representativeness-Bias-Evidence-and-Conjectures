@@ -1,0 +1,65 @@
+To estimate the probabilities, we first need to make some assumptions about the prior probabilities \(P(H)\) for each field. These assumptions will be quite rough and heuristic, so the conclusions should be taken as educated guesses rather than precise calculations.
+
+### Assumptions
+
+**Prior probabilities \(P(H)\):**
+We assume a general distribution of graduate students across fields:
+- Business Administration: 25%
+- Computer Science: 25%
+- Agricultural and Veterinary Science: 5%
+
+This implies \(P(\text{business administration}) = 0.25\), \(P(\text{computer science}) = 0.25\), and \(P(\text{agricultural and veterinary science}) = 0.05\).
+
+**Likelihoods \(P(E|H)\):**
+- **Business Administration:** It is less likely for someone with Adam’s personality to be in business administration, given his quiet nature and love for animals. So we might assign \(P(E|\text{business administration}) = 0.1\).
+- **Computer Science:** Given his intelligence, love for puzzles, and understanding of abstract concepts, this field is more likely, so we could estimate \(P(E|\text{computer science}) = 0.6\).
+- **Agricultural and Veterinary Science:** This field seems highly consistent with Adam's personality sketch, so we assign \(P(E|\text{agricultural and veterinary science}) = 0.8\).
+
+**Complementary likelihoods \(P(E|\neg H)\):**
+- **Business Administration:** If Adam is not in business administration, the probability of his personality sketch matching another field is higher due to his specific traits, so we estimate \(P(E|\neg \text{business administration}) = 0.5\).
+- **Computer Science:** If Adam is not in computer science, the probability of his personality sketch fitting another field is relatively high due to his specific interest in nature, so we estimate \(P(E|\neg \text{computer science}) = 0.5\).
+- **Agricultural and Veterinary Science:** If Adam is not in agricultural and veterinary science, the probability of his personality matching another field is lower, so we might estimate \(P(E|\neg \text{agricultural and veterinary science}) = 0.3\).
+
+### Calculation Using Bayes' Rule
+
+Bayes' Rule: \(P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\)
+
+Since \(P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\), we can calculate:
+
+- For **Business Administration**:
+  \[
+  P(E) = 0.1 \cdot 0.25 + 0.5 \cdot 0.75 = 0.025 + 0.375 = 0.4
+  \]
+  \[
+  P(\text{business administration}|E) = \frac{0.1 \cdot 0.25}{0.4} = 0.0625
+  \]
+
+- For **Computer Science**:
+  \[
+  P(E) = 0.6 \cdot 0.25 + 0.5 \cdot 0.75 = 0.15 + 0.375 = 0.525
+  \]
+  \[
+  P(\text{computer science}|E) = \frac{0.6 \cdot 0.25}{0.525} \approx 0.2857
+  \]
+
+- For **Agricultural and Veterinary Science**:
+  \[
+  P(E) = 0.8 \cdot 0.05 + 0.3 \cdot 0.95 = 0.04 + 0.285 = 0.325
+  \]
+  \[
+  P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.05}{0.325} \approx 0.1231
+  \]
+
+### Results
+
+Based on these estimates, our probabilities are:
+
+```json
+{
+  "business administration": 0.0625,
+  "computer science": 0.2857,
+  "agricultural and veterinary science": 0.1231
+}
+```
+
+These probabilities reflect the relative likelihood given Adam's personality sketch but should be interpreted as approximations given the simplifying assumptions made.

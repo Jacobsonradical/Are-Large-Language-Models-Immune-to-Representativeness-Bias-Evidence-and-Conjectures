@@ -1,0 +1,64 @@
+To use Bayesian inference to determine the posterior probability \( P(H|E) \) that Adam was enrolled in a particular field given his personality sketch \( E \), we need to evaluate some prior and conditional probabilities.
+
+Let's break this down:
+
+1. **Prior probability \( P(H) \)**: This is the probability that Adam is enrolled in a particular field, based on general data about graduate students.
+
+2. **Likelihood \( P(E|H) \)**: This is the probability of observing Adam's personality sketch given that he is enrolled in that field.
+
+3. **Complementary likelihood \( P(E|\neg H) \)**: This is the probability of observing Adam's personality sketch given that he is not enrolled in that field.
+
+4. **Posterior probability \( P(H|E) \)**: This is what we want to compute using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+Given the personality sketch, let's make reasonable approximations and compute these probabilities:
+
+### Business Administration
+- **P(H):** Assuming equal enrollment probabilities across many fields, though business administration might be more common.
+  Let's say \( P(H) \approx 0.15 \).
+
+- **P(E|H):** The personality traits described (curiosity about nature, empathy, love for animals) are not typically associated with business administration.
+  Let's say \( P(E|H) \approx 0.05 \).
+
+- **P(E|\neg H):** Probability that someone with this sketch is not in business administration could be relatively higher.
+  Assuming equal distribution among other fields, \( P(E|\neg H) \approx 0.02 \).
+
+### Agricultural and Veterinary Science
+- **P(H):** This field directly aligns with the traits mentioned – curiosity about nature, love for animals, empathy.
+  Let's say \( P(H) \approx 0.05 \).
+
+- **P(E|H):** Given the alignment, this would be quite high.
+  Let's say \( P(E|H) \approx 0.80 \).
+
+- **P(E|\neg H):** Since the sketch is specialized, fewer other fields would likely have these traits.
+  Let's say \( P(E|\neg H) \approx 0.01 \).
+
+Now, applying Bayes' rule:
+
+### For Business Administration:
+\[
+P(H|E) = \frac{0.05 \cdot 0.15}{0.05 \cdot 0.15 + 0.02 \cdot (1 - 0.15)}
+\]
+\[
+P(H|E) = \frac{0.0075}{0.0075 + 0.017} \approx \frac{0.0075}{0.0245} \approx 0.31
+\]
+
+### For Agricultural and Veterinary Science:
+\[
+P(H|E) = \frac{0.80 \cdot 0.05}{0.80 \cdot 0.05 + 0.01 \cdot (1 - 0.05)}
+\]
+\[
+P(H|E) = \frac{0.04}{0.04 + 0.0095} \approx \frac{0.04}{0.0495} \approx 0.81
+\]
+
+Finally, summarizing this in the required format:
+
+```json
+{
+  "business administration": 0.31,
+  "agricultural and veterinary science": 0.81
+}
+```
+
+These probabilities suggest that, given Adam's personality sketch, it's much more likely that he was enrolled in Agricultural and Veterinary Science than in Business Administration in 2021.

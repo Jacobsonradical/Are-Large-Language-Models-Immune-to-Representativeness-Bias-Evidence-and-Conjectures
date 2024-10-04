@@ -1,0 +1,40 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to estimate the following probabilities for each field:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a given field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch \( E \) given that he was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch \( E \) given that he was not enrolled in that field.
+
+Using these, Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+Since \( P(E) \) (the overall probability of observing the personality sketch \( E \)) will be the same for both hypotheses, it cancels out in the relative comparison. We can compare the two hypotheses by looking at the numerators \( P(E|H) P(H) \).
+
+For "agricultural and veterinary science":
+- \( P(H) \): Let's assume the prior probability of enrolling in agricultural and veterinary science as \( 0.1 \) based on general prevalence.
+- \( P(E|H) \): Given Adam's traits (curiosity about nature, love for animals, empathy), this is quite high. Let's assume \( 0.9 \).
+- \( P(E|\neg H) \): The probability of someone with Adam's traits appearing, not in this field might still be not too low given his empathy and intelligence. Let's assume \( 0.2 \).
+
+For "computer science":
+- \( P(H) \): Let's assume the prior probability of enrolling in computer science as \( 0.2 \) based on general prevalence.
+- \( P(E|H) \): Given Adam's traits (love for puzzles and intelligence), this is reasonably high. Let's assume \( 0.5 \).
+- \( P(E|\neg H) \): The probability of someone with Adam's specific blend of traits appearing, not in this field might be higher. Let's assume \( 0.7 \).
+
+Now, we calculate the numerators \( P(E|H) P(H) \) for each field:
+
+1. For "agricultural and veterinary science":
+   - \( P(E|H) P(H) = 0.9 \times 0.1 = 0.09 \)
+
+2. For "computer science":
+   - \( P(E|H) P(H) = 0.5 \times 0.2 = 0.10 \)
+
+Given these calculations, we can see that, relatively speaking:
+- \( P(H|E) \) for "agricultural and veterinary science" is \( \frac{0.09}{0.09+0.10} = \frac{0.09}{0.19} \approx 0.47 \)
+- \( P(H|E) \) for "computer science" is \( \frac{0.10}{0.09+0.10} = \frac{0.10}{0.19} \approx 0.53 \)
+
+Therefore, the final values for \( P(H|E) \) are:
+```json
+{
+  "agricultural and veterinary science": 0.47,
+  "computer science": 0.53
+}
+```

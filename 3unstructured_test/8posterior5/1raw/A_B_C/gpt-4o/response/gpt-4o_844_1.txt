@@ -1,0 +1,59 @@
+To perform Bayesian analysis, we'll need to evaluate several probabilities. We will use the following notations:
+- P(H) = Prior probability of Adam being enrolled in a specific field
+- P(E|H) = Probability of the personality sketch E given that Adam is enrolled in the specific field
+- P(E|¬H) = Probability of the personality sketch E given that Adam is not enrolled in the specific field
+- P(H|E) = Posterior probability that Adam is enrolled in the specific field given the personality sketch
+
+For the sake of simplicity, let's assume prior probabilities (P(H)) are equal for each field since no prior information is given.
+So, P(H) for each field = 1/3.
+
+Let's make educated guesses for P(E|H) and P(E|¬H) based on the information provided in the personality sketch E:
+
+### Business Administration
+P(E|H) for Business Administration can be low because the personality traits (interest in nature, love for animals, empathy) don't strongly align with typical traits associated with business administration.
+P(E|¬H) for Business Administration could be relatively higher.
+
+→ P(E|H) ≈ 0.1
+→ P(E|¬H) ≈ 0.5
+
+### Agricultural and Veterinary Science
+P(E|H) for Agricultural and Veterinary Science can be high because traits like a love for animals and interest in nature align well with this field.
+P(E|¬H) for Agricultural and Veterinary Science could be relatively lower.
+
+→ P(E|H) ≈ 0.8
+→ P(E|¬H) ≈ 0.2
+
+### Computer Science
+P(E|H) for Computer Science can be moderate due to Adam's high intelligence and interest in solving puzzles, but other traits (like love for animals) are not typically associated with this field.
+P(E|¬H) for Computer Science could be higher.
+
+→ P(E|H) ≈ 0.4
+→ P(E|¬H) ≈ 0.3
+
+Now we use Bayes' Rule: \(P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\)
+
+We assume P(E) is the sum of all possible conditional probabilities, weighted by their prior probabilities:
+\[P(E) = P(E | H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E | H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) + P(E | H_{\text{CS}}) \cdot P(H_{\text{CS}})\]
+\[P(E) = 0.1 \cdot \frac{1}{3} + 0.8 \cdot \frac{1}{3} + 0.4 \cdot \frac{1}{3}\]
+\[P(E) = \frac{0.1 + 0.8 + 0.4}{3} = \frac{1.3}{3} = 0.4333\]
+
+Compute the posterior probabilities P(H|E):
+
+### Business Administration
+\[P(H_{\text{BA}}|E) = \frac{0.1 \cdot \frac{1}{3}}{0.4333} = \frac{0.1}{1.3} \approx 0.077\]
+
+### Agricultural and Veterinary Science
+\[P(H_{\text{AgVet}}|E) = \frac{0.8 \cdot \frac{1}{3}}{0.4333} = \frac{0.8}{1.3} \approx 0.615\]
+
+### Computer Science
+\[P(H_{\text{CS}}|E) = \frac{0.4 \cdot \frac{1}{3}}{0.4333} = \frac{0.4}{1.3} \approx 0.308\]
+
+So the results we get are:
+
+```json
+{
+  "business administration": 0.077,
+  "agricultural and veterinary science": 0.615,
+  "computer science": 0.308
+}
+```

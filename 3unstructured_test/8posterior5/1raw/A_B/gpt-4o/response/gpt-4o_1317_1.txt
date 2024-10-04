@@ -1,0 +1,55 @@
+To compute the posterior probabilities \( P(H|E) \) for the hypotheses that Adam was enrolled in either "business administration" or "agricultural and veterinary science," we need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's define the prior and likelihood probabilities for each field based on the given personality sketch \( E \), and then use these to compute the posterior probabilities.
+
+### Steps:
+1. Define the priors \( P(H) \) for each field.
+2. Define the likelihoods \( P(E|H) \) for each field.
+3. Define the likelihoods \( P(E|\neg H) \) for each field.
+4. Compute \( P(E) \) using the law of total probability.
+5. Compute \( P(H|E) \) using Bayes' rule.
+
+### Definitions:
+Assume priors as follows (these are educated guesses since exact priors are not given):
+
+- \( P(\text{business administration}) = 0.1 \)
+- \( P(\text{agricultural and veterinary science}) = 0.1 \)
+
+The likelihoods \( P(E|H) \) and \( P(E|\neg H) \):
+
+- \( P(E|\text{business administration}) \) is lower because the characteristics described (curiosity about nature, empathy, love for animals) are not typically associated with business administration students.
+- \( P(E|\text{agricultural and veterinary science}) \) is higher because the traits described are strongly associated with students in this field.
+
+Estimated values:
+- \( P(E|\text{business administration}) = 0.1 \)
+- \( P(E|\neg \text{business administration}) = 0.2 \)
+- \( P(E|\text{agricultural and veterinary science}) = 0.6 \)
+- \( P(E|\neg \text{agricultural and veterinary science}) = 0.3 \)
+
+Let's calculate the probability of evidence \( P(E) \):
+
+\[ P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration}) \]
+\[ P(E) = 0.1 \cdot 0.1 + 0.2 \cdot 0.9 = 0.01 + 0.18 = 0.19 \]
+
+\[ P(E) = P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\neg \text{agricultural and veterinary science}) \cdot P(\neg \text{agricultural and veterinary science}) \]
+\[ P(E) = 0.6 \cdot 0.1 + 0.3 \cdot 0.9 = 0.06 + 0.27 = 0.33 \]
+
+Now apply Bayes' rule:
+
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{0.1 \cdot 0.1}{0.19} = \frac{0.01}{0.19} \approx 0.053 \]
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.6 \cdot 0.1}{0.33} = \frac{0.06}{0.33} \approx 0.182 \]
+
+### Final Results in JSON Format:
+```json
+{
+  "business administration": 0.053,
+  "agricultural and veterinary science": 0.182
+}
+```
+
+These results suggest that based on the personality sketch, Adam is more likely to have been enrolled in agricultural and veterinary science than in business administration.

@@ -1,0 +1,75 @@
+To estimate \( P(H|E) \), we will apply Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to assess the probabilities for each field:
+
+1. \( P(H) \) - The prior probability that Adam is enrolled in that field.
+2. \( P(E|H) \) - The likelihood of Adam having the described personality if he is enrolled in that field.
+3. \( P(E|\neg H) \) - The likelihood of Adam having the described personality if he is not enrolled in that field.
+
+Assumptions:
+- \( P(H) \) will be dependent on how common each field is for graduate students.
+- We'll generalize \( P(E) \) as the overall likelihood of Adam having the described personality.
+
+### Computer Science
+
+1. Prior \( P(H) \): Computer science is a fairly common field for graduate students.
+2. Likelihood \( P(E|H) \): Curiosity, intelligence, puzzle-solving can be associated with computer science, though not the empathy and love for animals and nature.
+3. \( P(E \neg H)\): Given the personality traits (empathy, nature), the likelihood might be lower for non-technical fields alone.
+
+### Agricultural and Veterinary Science
+
+1. Prior \( P(H) \): This field is less common than computer science but fits better with the personality sketch.
+2. Likelihood \( P(E|H) \): Strongly fits with curiosity about nature, empathy, and love for animals.
+3. \( P(E \neg H)\): Less likely to match other fields as well as this one.
+
+Numerical estimation of probabilities is subjective and challenging, but let's assign plausible values:
+
+### Numerical Estimation
+
+1. **Computer Science**:
+   - \(P(H)\): 0.20 (20% of students might be in this field)
+   - \(P(E|H)\): 0.10 (Personality fits somewhat, especially curiosity and intelligence)
+   - \(P(E|\neg H)\): 0.05 (Personality less likely fits other non-technical fields)
+
+   \[
+   P(H|E) = \frac{0.10 \times 0.20}{P(E)} = \frac{0.02}{P(E)}
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   - \(P(H)\): 0.05 (5% of students might be in this field)
+   - \(P(E|H)\): 0.50 (Fits the personality much better: nature, empathy, animals)
+   - \(P(E|\neg H)\): 0.10 (Somewhat fits other natural sciences)
+
+   \[
+   P(H|E) = \frac{0.50 \times 0.05}{P(E)} = \frac{0.025}{P(E)}
+   \]
+
+### Comparison and Output
+
+Given \( P(H|E) \propto P(E|H) \cdot P(H) \):
+
+\[
+P(H|E_{cs}) = 0.02 / P(E)
+\]
+\[
+P(H|E_{avs}) = 0.025 / P(E)
+\]
+
+Obviously, \(P(E)\) cancels out from relative comparison, but for final interpretation:
+
+\[
+{
+  "computer science": \frac{0.02}{0.02+0.025},
+  "agricultural and veterinary science": \frac{0.025}{0.02+0.025}
+}
+\]
+
+Here:
+\[
+{
+  "computer science": 0.444,
+  "agricultural and veterinary science": 0.556
+}
+\]

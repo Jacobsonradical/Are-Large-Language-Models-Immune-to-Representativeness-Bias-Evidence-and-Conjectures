@@ -1,0 +1,88 @@
+Let's break down the process of estimating the probabilities using Bayes' theorem. Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a specific field given the personality sketch \( E \).
+- \( P(E|H) \) is the probability of the personality sketch given that Adam was enrolled in a specific field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the overall probability of the personality sketch.
+
+We'll need to make educated guesses about these values:
+
+1. **P(H)**: The prior probability that any given graduate student is enrolled in a specific field. This can be roughly based on common enrollments in each field.
+2. **P(E|H)**: The likelihood that Adam's personality sketch fits a student in that field.
+3. **P(E|\neg H)**: The likelihood that Adam's personality sketch fits a student in any other field.
+
+Now let's assess:
+
+1. **Agricultural and Veterinary Science**:
+   - **P(H)**: This is a less common field compared to business or computer science, but still significant in certain institutions. Let's estimate \( P(H) = 0.1 \).
+   - **P(E|H)**: Adam's love for nature, empathy, and love for animals highly align with this field. Let's estimate \( P(E|H) = 0.8 \).
+   - **P(E|\neg H)**: This would be the likelihood of Adam's personality sketch fitting students in other fields. Since the sketch somewhat specifically aligns with Agricultural and Veterinary Science, we'll estimate \( P(E|\neg H) = 0.3 \).
+
+2. **Business Administration**:
+   - **P(H)**: This is a common field among graduate students. Let's estimate \( P(H) = 0.25 \).
+   - **P(E|H)**: The personality sketch, particularly the love for animals and nature, does not strongly align with characteristics typically associated with business students. Let's estimate \( P(E|H) = 0.2 \).
+   - **P(E|\neg H)**: Consistent with the previous assessment, we'll also estimate \( P(E|\neg H) = 0.3 \).
+
+3. **Computer Science**:
+   - **P(H)**: This is a very common field among graduate students. Let's estimate \( P(H) = 0.25 \).
+   - **P(E|H)**: Adam enjoys solving puzzles and is good at understanding abstract concepts, which aligns with computer science. However, the natural and empathetic aspects are less aligned. Let's estimate \( P(E|H) = 0.5 \).
+   - **P(E|\neg H)**: Once again, we'll use \( P(E|\neg H) = 0.3 \).
+
+### Calculations:
+For each field \( X \):
+
+\[ P(H_X|E) = \frac{P(E|H_X) \cdot P(H_X)}{P(E)} \]
+
+Since \( P(E) \) is generally complex to determine exactly, we'll compute relative probabilities to compare them.
+
+#### Agricultural and Veterinary Science:
+\[ P(H_{\text{Agri/Vert}}|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+#### Business Administration:
+\[ P(H_{\text{Business}}|E) = \frac{0.2 \cdot 0.25}{P(E)} \]
+
+#### Computer Science:
+\[ P(H_{\text{CS}}|E) = \frac{0.5 \cdot 0.25}{P(E)} \]
+
+### Simplified Results (ignoring \( P(E) \) since it is consistent):
+
+#### Agricultural and Veterinary Science:
+\[ P(H_{\text{Agri/Vert}}|E) = 0.8 \cdot 0.1 = 0.08 \]
+
+#### Business Administration:
+\[ P(H_{\text{Business}}|E) = 0.2 \cdot 0.25 = 0.05 \]
+
+#### Computer Science:
+\[ P(H_{\text{CS}}|E) = 0.5 \cdot 0.25 = 0.125 \]
+
+### Final Probability Estimates (normalized to be on the same scale):
+
+{
+  "agricultural and veterinary science": "0.08 (normalized approximately to 1)",
+  "business administration": "0.05 (normalized approximately to 0.625)",
+  "computer science": "0.125 (normalized approximately to 1.5625)"
+}
+
+Given that these values do not sum to 1 and are relatively scaled, we can normalize the values:
+
+\[ \text{Sum} = 0.08 + 0.05 + 0.125 = 0.255 \]
+
+Normalized:
+{
+  "agricultural and veterinary science": \( \frac{0.08}{0.255} = 0.314 \),
+  "business administration": \( \frac{0.05}{0.255} = 0.196 \),
+  "computer science": \( \frac{0.125}{0.255} = 0.490 \)
+}
+
+So, a more precise and appropriately scaled response might be:
+
+{
+  "agricultural and veterinary science": "0.314",
+  "business administration": "0.196",
+  "computer science": "0.490"
+}
+
+These normalized probabilities indicate that, given the personality sketch, Adam is most likely to be in computer science, followed by agricultural and veterinary science, and least likely in business administration.

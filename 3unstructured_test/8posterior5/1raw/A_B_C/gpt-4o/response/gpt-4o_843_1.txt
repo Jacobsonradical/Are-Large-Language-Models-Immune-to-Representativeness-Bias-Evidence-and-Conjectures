@@ -1,0 +1,71 @@
+To compute the probabilities \( P(H|E) \) for each of the fields using Bayes' Rule, we'll follow the format \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \). This will require some estimation for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+### Probabilities estimation:
+- \( P(H) \) is the prior probability that Adam was enrolled in each specific field. We’ll assume them to be roughly equal for simplicity (since we are not given specific prior information).
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \), given that Adam was enrolled in the field \( H \).
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch \( E \), given that Adam was **not** enrolled in the field \( H \).
+- \( P(E) \) can be considered constant across all hypotheses for the purpose of comparing them.
+
+### Estimations for each field:
+
+1. **Business Administration:**
+   - \( P(H) \approx 0.1 \) (assuming roughly equal distribution among different fields).
+   - \( P(E|H) \approx 0.1 \) (traits like a love for animals and nature are not highly correlated with Business Administration, though abstract thinking can be).
+   - \( P(E|\neg H) \approx 0.3 \) (traits among the rest of the disciplines fairly evenly).
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \approx 0.1 \)
+   - \( P(E|H) \approx 0.8 \) (high correlation with a love for nature and animals and recognizing the hard work associated with these fields).
+   - \( P(E|\neg H) \approx 0.2 \)
+
+3. **Computer Science:**
+   - \( P(H) \approx 0.1 \)
+   - \( P(E|H) \approx 0.5 \) (abstract concepts and puzzles fit well, though the empathy and love for nature are less directly correlated).
+   - \( P(E|\neg H) \approx 0.5 \)
+
+### Calculating \( P(H|E) \):
+
+For each field:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all fields, we can use the ratio \( P(E|H)P(H) \):
+
+1. **Business Administration:**
+   \[
+   P(H|E) \approx \frac{0.1 \times 0.1}{P(E)} \approx 0.01 / P(E)
+   \]
+
+2. **Agricultural and Veterinary Science:**
+   \[
+   P(H|E) \approx \frac{0.8 \times 0.1}{P(E)} \approx 0.08 / P(E)
+   \]
+
+3. **Computer Science:**
+   \[
+   P(H|E) \approx \frac{0.5 \times 0.1}{P(E)} \approx 0.05 / P(E)
+   \]
+
+To compare realistically, we will normalize these values:
+
+\[
+\text{Normalization factor} = 0.01 + 0.08 + 0.05 = 0.14
+\]
+\[
+P(H|E \text{ for Business Administration}) \approx \frac{0.01}{0.14} \approx 0.071
+\]
+\[
+P(H|E \text{ for Agricultural and Veterinary Science}) \approx \frac{0.08}{0.14} \approx 0.571
+\]
+\[
+P(H|E \text{ for Computer Science}) \approx \frac{0.05}{0.14} \approx 0.357
+\]
+
+Thus, our probabilities are:
+
+```json
+{
+  "business administration": 0.071,
+  "agricultural and veterinary science": 0.571,
+  "computer science": 0.357
+}
+```

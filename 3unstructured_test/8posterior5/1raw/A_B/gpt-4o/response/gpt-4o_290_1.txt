@@ -1,0 +1,60 @@
+To apply Bayes' rule, we need to use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since there are other possible fields of specialization, we don't have to compute \( P(E) \), as it would cancel out when comparing the relative probabilities.
+
+Let's denote and assume the following:
+1. \(P(H_{\text{BA}})\): Prior probability that Adam is studying business administration.
+2. \(P(H_{\text{AG}})\): Prior probability that Adam is studying agricultural and veterinary science.
+3. \(P(E|H_{\text{BA}})\): Probability that Adam's personality aligns with business administration.
+4. \(P(E|H_{\text{AG}})\): Probability that Adam’s personality aligns with agricultural and veterinary science.
+5. \(P(E|\neg H_{\text{BA}})\) and \(P(E|\neg H_{\text{AG}})\): Probabilities that Adam's personality doesn’t align with the specific field when considering the opposite field.
+
+### Assumptions and Prior Probabilities:
+1. **Prior probabilities**: Without specific data, assume priors are influenced by the general distribution of graduate students. Let's assume a balanced but not equal prior for simplicity.
+   - \( P(H_{\text{BA}}) = 0.05 \): Small probability due to Adam’s personality.
+   - \( P(H_{\text{AG}}) = 0.2 \): Higher probability given Adam's interest in nature and love for animals.
+
+### Likelihoods:
+2. **Likelihoods based on personality**:
+   - \( P(E|H_{\text{BA}}) = 0.05 \): Personality fit is low for business administration.
+   - \( P(E|H_{\text{AG}}) = 0.7 \): Good personality fit for agricultural and veterinary science.
+
+3. **\( P(E|\neg H) \)**:
+   - Considering that \(\neg H_{\text{BA}}\) includes students not in business administration, we estimate high as it's more aligned with other fields.
+     - \( P(E|\neg H_{\text{BA}}) = 0.5 \)
+   - Considering that \(\neg H_{\text{AG}}\) includes all other fields, we estimate lower compared to H_AG.
+     - \( P(E|\neg H_{\text{AG}}) = 0.1 \)
+
+### Posterior Calculations:
+Following the formulas,
+
+1. For **Business Administration**:
+   \[
+   P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) P(H_{\text{BA}})}{P(E)}
+   \]
+   - Estimation for P(E): Assuming normalization is not needed:
+   \[
+   P(H_{\text{BA}}|E) \approx \frac{0.05 \times 0.05}{0.5} = \frac{0.0025}{0.5} = 0.005
+   \]
+
+2. For **Agricultural and Veterinary Science**:
+   \[
+   P(H_{\text{AG}}|E) = \frac{P(E|H_{\text{AG}}) P(H_{\text{AG}})}{P(E)}
+   \]
+   - Estimation for P(E): Assuming normalization is not needed:
+   \[
+   P(H_{\text{AG}}|E) \approx \frac{0.7 \times 0.2}{0.1} = \frac{0.14}{0.1} = 1.4
+   \]
+
+**Adjusted Scale**: Likelihood for AG must be capped to realistic level. Normalize to sum probabilities < 1.
+
+### Final Answer:
+```json
+{
+  "business administration": 0.005,
+  "agricultural and veterinary science": 0.7
+}
+```
+With the normalization consideration, AG has a dominant probability of alignment to Adam’s traits among options.

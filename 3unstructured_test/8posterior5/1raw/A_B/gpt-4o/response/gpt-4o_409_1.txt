@@ -1,0 +1,63 @@
+To apply Bayes' Rule to compute the probabilities of Adam being enrolled in "business administration" and "agricultural and veterinary science," we need to evaluate the following:
+
+- \( P(H) \): The prior probability that Adam is enrolled in a given field.
+- \( P(E|H) \): The probability of Adam's personality sketch given that he is enrolled in a specific field.
+- \( P(E|\neg H) \): The probability of Adam's personality sketch given that he is not enrolled in that specific field.
+- \( P(H|E) \): The posterior probability that Adam is enrolled in a particular field given his personality sketch.
+
+Assuming we have no information that would make any field inherently more probable, we can use uniform priors. However, given his personality sketch, we can make some judgments about the likelihoods involved.
+
+### Business Administration
+
+- \( P(H) = 0.1 \): Let's assume a 10% chance, representing a reasonable estimate.
+- \( P(E|H) \): Given Adam’s characteristics, it’s less likely he is in business administration, so let’s say \( P(E|H) = 0.05 \).
+- \( P(E|\neg H) \): This is less straightforward to estimate, so we'll leave this as a complement within the equation.
+
+### Agricultural and Veterinary Science
+
+- \( P(H) = 0.1 \): Let’s assume a 10% chance here as well for a reasonable estimate.
+- \( P(E|H) \): Given Adam’s characteristics, it’s quite likely he is in this field, so let’s say \( P(E|H) = 0.6 \).
+- \( P(E|\neg H) \): Again, this is less straightforward, but given a general population distribution with less specific ties to Adam's interest areas, let's assume a baseline value for other cases.
+
+Without specific data, we'll operate on these assumptions:
+
+### Bayes Rule Calculations
+
+1. **Business Administration**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+2. **Agricultural and Veterinary Science**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \) is constant for both calculations, we can simplify to a relative comparison.
+
+\[
+\begin{aligned}
+& P(business\ administration|E) \\
+& = \frac{P(E|business\ administration) \cdot P(business\ administration)}{P(E|business\ administration) \cdot P(business\ administration) + P(E|agricultural\ science) \cdot P(agricultural\ science)} \\
+& = \frac{0.05 \cdot 0.1}{0.05 \cdot 0.1 + 0.6 \cdot 0.1} \\
+& = \frac{0.005}{0.005 + 0.06} \\
+& \approx 0.08
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+& P(agricultural\ and\ veterinary\ science|E) \\
+& = \frac{P(E|agricultural\ and\ veterinary\ science) \cdot P(agricultural\ and\ veterinary\ science)}{P(E|business\ administration) \cdot P(business\ administration) + P(E|agricultural\ science) \cdot P(agricultural\ science)} \\
+& = \frac{0.6 \cdot 0.1}{0.05 \cdot 0.1 + 0.6 \cdot 0.1} \\
+& = \frac{0.06}{0.005 + 0.06} \\
+& \approx 0.92
+\end{aligned}
+\]
+
+Now this yields:
+
+```json
+{
+  "business administration": 0.08,
+  "agricultural and veterinary science": 0.92
+}
+```
+
+Note: These results are highly dependent on the estimated values provided, which could change with more accurate data.

@@ -1,0 +1,63 @@
+To evaluate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), and subsequently calculate \( P(H|E) \) using Bayes' rule, we need to consider the information given in Adam's personality sketch and how it might correlate with the likelihood of him being enrolled in different graduate fields. Here are my estimates for each of the probabilities:
+
+### Business Administration
+
+#### Prior Probability, \( P(H_{business}) \)
+Let's assume a reasonable prior that Adam could be studying business administration. Business Administration is a common graduate field, but knowing Adam's traits, it may be less likely compared to some other fields given his strong curiosity about nature and animals. I'll estimate:
+\[ P(H_{business}) = 0.1 \]
+
+#### Likelihood, \( P(E|H_{business}) \)
+Adam's traits (curiosity about nature, empathy, love for animals, and abstract thinking) don't strongly align with the typical characteristics of business administration students who might be more focused on interpersonal skills, leadership, and economic concepts, making this likelihood:
+\[ P(E|H_{business}) = 0.05 \]
+
+#### Complement Likelihood, \( P(E|\neg H_{business}) \)
+Given that there are many fields other than business administration that might better match Adam's personality, let's assume:
+\[ P(E|\neg H_{business}) = 0.1 \]
+
+### Computer Science
+
+#### Prior Probability, \( P(H_{cs}) \)
+Considering how common Computer Science is as a graduate field and Adam's intelligence and problem-solving skills, let's estimate:
+\[ P(H_{cs}) = 0.2 \]
+
+#### Likelihood, \( P(E|H_{cs}) \)
+Computer Science could align well with Adam’s intelligence, problem-solving abilities, and interest in abstract concepts, but it doesn't necessarily align with his love for animals and nature. So, let’s say:
+\[ P(E|H_{cs}) = 0.15 \]
+
+#### Complement Likelihood, \( P(E|\neg H_{cs}) \)
+We again assume a variety of other fields fitting Adam well, say:
+\[ P(E|\neg H_{cs}) = 0.1 \]
+
+### Bayes’ Rule Application
+
+Using Bayes’ rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let’s calculate the posteriors:
+
+1. **For Business Administration**:
+\[ P(E) = P(E|H_{business}) \cdot P(H_{business}) + P(E|\neg H_{business}) \cdot P(\neg H_{business}) \]
+\[ P(E) = (0.05 \cdot 0.1) + (0.1 \cdot 0.9) \]
+\[ P(E) = 0.005 + 0.09 = 0.095 \]
+
+\[ P(H_{business}|E) = \frac{0.05 \cdot 0.1}{0.095} \]
+\[ P(H_{business}|E) = \frac{0.005}{0.095} \approx 0.0526 \]
+
+2. **For Computer Science**:
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot P(\neg H_{cs}) \]
+\[ P(E) = (0.15 \cdot 0.2) + (0.1 \cdot 0.8) \]
+\[ P(E) = 0.03 + 0.08 = 0.11 \]
+
+\[ P(H_{cs}|E) = \frac{0.15 \cdot 0.2}{0.11} \]
+\[ P(H_{cs}|E) = \frac{0.03}{0.11} \approx 0.2727 \]
+
+### Results
+
+```json
+{
+  "business administration": 0.0526,
+  "computer science": 0.2727
+}
+```
+
+These values indicate that based on the given personality sketch, Adam is relatively more likely to be studying Computer Science than Business Administration.

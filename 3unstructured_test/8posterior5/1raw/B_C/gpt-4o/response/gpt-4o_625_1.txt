@@ -1,0 +1,62 @@
+To calculate the probabilities \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+1. **Assign prior probabilities** \( P(H) \) for each field.
+2. **Estimate \( P(E|H) \)**, which is the likelihood of observing the personality sketch given that Adam is enrolled in the field.
+3. **Estimate \( P(E|\neg H) \)**, which is the likelihood of observing the personality sketch given that Adam is *not* enrolled in the field.
+4. Use Bayes' rule to calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) is the same for all fields and can be considered as a normalizing constant.
+
+Since the actual values are not given, we'll make some reasonable assumptions for these probabilities.
+
+### Business Administration
+1. **Prior Probability (\( P(H) \))**:
+   - Let's assume a prior probability of 0.1 for this field because Business Administration is fairly common, but considering Adam’s personality sketch, it seems less directly related to his interests.
+
+2. **Likelihood (\( P(E|H) \))**:
+   - Given Adam's personality (interest in nature, solving puzzles, empathy, love for animals), it seems less likely he’d be in this field. Let’s assume \( P(E|H) = 0.2 \).
+
+3. **Likelihood of Not Enrolled (\( P(E|\neg H) \))**:
+   - This is the likelihood of Adam's personality sketch being observed given he is not in Business Administration. Assuming all other fields, let's set \( P(E|\neg H) = 0.8 \).
+
+### Computer Science
+1. **Prior Probability (\( P(H) \))**:
+   - Let's assume a prior probability of 0.2 for this field as Computer Science is also quite common among graduate programs, and Adam's high intelligence and affinity for solving puzzles fit this field well.
+
+2. **Likelihood (\( P(E|H) \))**:
+   - Given his love for abstract concepts and problem-solving, this seems more aligned with Computer Science. Let’s assume \( P(E|H) = 0.6 \).
+
+3. **Likelihood of Not Enrolled (\( P(E|\neg H) \))**:
+   - This reflects the likelihood of Adam's personality if he’s not in Computer Science. Assuming all other fields, let’s set \( P(E|\neg H) = 0.6 \).
+
+### Bayes' Rule Calculation
+Now, let's calculate \( P(H|E) \):
+
+For Business Administration:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \times 0.1}{P(E)} = \frac{0.02}{P(E)} \]
+
+For Computer Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.6 \times 0.2}{P(E)} = \frac{0.12}{P(E)} \]
+
+Combining these probabilities:
+\[ P(E) = \sum (P(E|H) \cdot P(H)) \]
+\[ P(E) = (0.2 \times 0.1 + 0.6 \times 0.2) + \text{other fields} \]
+\[ P(E) \approx 0.02 + 0.12 = 0.14 \]
+
+### Final Probabilities
+For Business Administration:
+\[ P(H|E) = \frac{0.02}{0.14} \approx 0.143 \]
+
+For Computer Science:
+\[ P(H|E) = \frac{0.12}{0.14} \approx 0.857 \]
+
+Thus, the probabilities are:
+```json
+{
+  "business administration": 0.143,
+  "computer science": 0.857
+}
+```
+
+These numbers suggest it's significantly more likely, given his personality sketch, that Adam is in a Computer Science program rather than Business Administration.

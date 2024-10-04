@@ -1,0 +1,72 @@
+Let's first break down the given components for estimating the conditional probabilities:
+
+1. **Understanding Base Rates (P(H)):**
+   - For the fields of business administration and computer science, the base rates of students enrolled in these fields in graduate programs will be used as rough estimates. These are not precise but help establish a baseline.
+   
+   - Business Administration (MBA programs): Let's assume P(business administration) ≈ 0.15 (15%)
+   - Computer Science: Let's assume P(computer science) ≈ 0.2 (20%)
+
+2. **Evaluating P(E|H) (likelihood of sketch given the hypothesis):**
+
+   - **Business Administration:**
+     - Curiosity about nature and plants: Less common.
+     - Quiet and enjoys puzzles: May be less aligned with typical business-oriented traits.
+     - Warm heart, empathy, and love for animals: Not typical for business profile.
+     - High intelligence, understanding abstract concepts: Neutral to positive.
+     - Appreciation for hard work: Positive.
+     - Overall, P(E|H for business administration): Estimated lower, around 0.1 (10%)
+
+   - **Computer Science:**
+     - Genuine curiosity about nature: Possible for someone who enjoys exploring and systems thinking.
+     - Quiet demeanor, enjoys solving puzzles: Highly relevant.
+     - Empathy and love for animals: Not typically defining, but not out of place.
+     - High intelligence and understanding abstract concepts: Strong match.
+     - Appreciation for hard work: Positive.
+     - Overall, P(E|H for computer science): Estimated higher, around 0.4 (40%)
+
+3. **Evaluating P(E|\neg H) (likelihood of sketch given other fields):**
+
+   - Assuming the complementary fields cover a diverse range of studies (e.g., social sciences, humanities, other STEM fields), the sketch might fairly represent a broad swath of students.
+   - We assume some generality for the personality sketch fitting other fields to a moderate degree.
+   - Let's estimate P(E|\neg H for business administration) ≈ 0.3 (30%) and P(E|\neg H for computer science) ≈ 0.25 (25%)
+
+Applying Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where \( P(E) \) normalizes and adjusts likelihoods so we compute:
+
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+For business administration:
+
+\[
+P(E) = 0.1 \cdot 0.15 + 0.3 \cdot 0.85 = 0.015 + 0.255 = 0.27
+\]
+\[
+P(business administration|E) = \frac{0.1 \cdot 0.15}{0.27} = \frac{0.015}{0.27} \approx 0.056 (5.6\%)
+\]
+
+For computer science:
+
+\[
+P(E) = 0.4 \cdot 0.2 + 0.25 \cdot 0.8 = 0.08 + 0.2 = 0.28
+\]
+\[
+P(computer science|E) = \frac{0.4 \cdot 0.2}{0.28} = \frac{0.08}{0.28} \approx 0.286 (28.6\%)
+\]
+
+Results:
+
+```json
+{
+  "business administration": 0.056,
+  "computer science": 0.286
+}
+```
+
+These values suggest that given Adam's personality sketch, he is more likely to be enrolled in a computer science program compared to a business administration program.

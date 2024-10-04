@@ -1,0 +1,78 @@
+To compute \(\text{P}(H|E)\) using Bayes' Rule, we use the formula:
+
+\[
+\text{P}(H|E) = \frac{\text{P}(E|H) \cdot \text{P}(H)}{\text{P}(E)}
+\]
+
+where:
+- \(\text{P}(H|E)\) is the posterior probability, i.e., the probability that Adam was enrolled in the field given the evidence.
+- \(\text{P}(E|H)\) is the likelihood, i.e., the probability of the evidence given the hypothesis.
+- \(\text{P}(H)\) is the prior probability of the hypothesis.
+- \(\text{P}(E)\) is the marginal likelihood, which is the total probability of the evidence under all possible hypotheses.
+
+Since we only have hypotheses for two fields (computer science and business administration) and no specific data for prior probabilities or likelihoods, we assume all other likeliness constants are equally likely. For simplicity, we will assume priors and normalize the results so that we focus on relative changes based on the evidence provided in the personality sketch.
+
+**Assumptions:**
+- \(\text{P(H)}\) for both fields might initially be considered equal, say 0.5 each, due to lack of any other prior knowledge.
+- \(\text{P(E|H)}\) differs based on the provided sketch's compatibility with each field.
+- \(\text{P(E|\neg H)}\) might remain constant across fields for simplicity.
+
+Given that Adam's interests and traits point towards curiosity about nature, plants, quiet demeanor, love for animals, high intelligence and abstract thinking abilities, we can infer:
+
+- \(\text{For Computer Science (CS)}: \text{P(E|CS)}\) 
+  - Curiosity about nature and puzzles work quite well.
+  - Abstract thinking helps in CS.
+  - Some love for animals and warmth may spill to fields like AI and robotics.
+
+- \(\text{For Business Administration}\): \text{P(E|BA)}
+  - Doesn’t perfectly match his interests in nature and plants.
+  - Not much alignment with love for animals.
+
+Applying this and assuming \(\text{P(E|\neg H)}\) is not vastly biased towards another specific unknown field:
+
+### Calculations:
+
+#### Computer Science (CS):
+- \(\text{P(CS)}\): 0.5
+- \(\text{P(E|CS)}\): 0.7 (relatively high, given abstract and puzzle-solving traits)
+- \(\text{P(E|\neg CS)}\): assumed 0.5 for other fields combined.
+
+Using these:
+\[
+\text{P(CS|E)} = \frac{0.7 \times 0.5}{\text{P(E)}} = \frac{0.35}{\text{P(E)}}
+\]
+
+#### Business Administration (BA):
+- \(\text{P(BA)}\): 0.5 
+- \(\text{P(E|BA)}\): 0.2 (low due to lack of alignment with nature, animals)
+
+Using these:
+\[
+\text{P(BA|E)} = \frac{0.2 \times 0.5}{\text{P(E)}} = \frac{0.1}{\text{P(E)}}
+\]
+
+Normalizing:
+\[
+\text{P(E)} = \sum \text{Pair-wise Products}
+\]
+\[
+\text{P(E)} = 0.35 + 0.1 = 0.45
+\]
+
+Hence:
+\[
+\text{P(CS|E)} = \frac{0.35}{0.45} \approx 0.78
+\]
+
+\[
+\text{P(BA|E)} = \frac{0.1}{0.45} \approx 0.22
+\]
+
+Given that, the final posteriors:
+
+```json
+{
+  "computer science": 0.78,
+  "business administration": 0.22
+}
+```

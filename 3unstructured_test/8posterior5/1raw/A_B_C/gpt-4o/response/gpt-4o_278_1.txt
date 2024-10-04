@@ -1,0 +1,48 @@
+Let's use Bayes' rule to find the probabilities \( P(H|E) \), the probabilities that Adam is enrolled in each field given his personality sketch \(E\).
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to make some assumptions about the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihoods \( P(E|\neg H) \). Note that \( P(E) \) is a normalizing constant and can be computed as \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Here are the steps based on the provided information and general assumptions about the fields:
+
+### Assumptions:
+1. **Prior Probabilities \( P(H) \)**:
+    - \( P(\text{computer science}) \approx 0.25 \): Assume computer science is quite popular.
+    - \( P(\text{business administration}) \approx 0.3 \): Assume business administration is also popular.
+    - \( P(\text{agricultural and veterinary science}) \approx 0.1 \): This field is less common than the above two.
+
+2. **Likelihoods \( P(E|H) \)**:
+    - \( P(E|\text{computer science}) \approx 0.1 \): Curiosity about nature, love for animals, and empathy might not be very common in computer science.
+    - \( P(E|\text{business administration}) \approx 0.05 \): The given traits appear less aligned with business administration.
+    - \( P(E|\text{agricultural and veterinary science}) \approx 0.7 \): These traits align very well with agricultural and veterinary science.
+
+3. **Likelihoods \( P(E|\neg H) \)**:
+    - \( P(E|\neg \text{computer science}) \approx 0.2 \)
+    - \( P(E|\neg \text{business administration}) \approx 0.3 \)
+    - \( P(E|\neg \text{agricultural and veterinary science}) \approx 0.2 \)
+
+Now we can compute \( P(H|E) \):
+
+### Calculation:
+For **computer science**:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+\[ P(\text{computer science}|E) = \frac{0.1 \cdot 0.25}{(0.1 \cdot 0.25 + 0.05 \cdot 0.3 + 0.7 \cdot 0.1)} \approx \frac{0.025}{0.095} \approx 0.263 \]
+
+For **business administration**:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{0.05 \cdot 0.3}{0.095} \approx \frac{0.015}{0.095} \approx 0.158 \]
+
+For **agricultural and veterinary science**:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.7 \cdot 0.1}{0.095} \approx \frac{0.07}{0.095} \approx 0.737 \]
+
+### Results:
+```json
+{
+  "computer science": 0.263,
+  "business administration": 0.158,
+  "agricultural and veterinary science": 0.737
+}
+```

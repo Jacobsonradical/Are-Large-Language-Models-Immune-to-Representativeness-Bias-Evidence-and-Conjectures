@@ -1,0 +1,69 @@
+To calculate the posterior probabilities \( P(H|E) \) for Adam being enrolled in business administration or computer science based on the personality sketch \( E \), we need the following parameters for each hypothesis \( H \):
+
+1. \( P(H) \): The prior probability of each hypothesis \( H \).
+2. \( P(E|H) \): The likelihood of the evidence \( E \) given that hypothesis \( H \) is true.
+3. \( P(E|\neg H) \): The likelihood of the evidence \( E \) given that hypothesis \( H \) is false.
+
+Let's denote:
+
+- \(H_{\text{BA}}\): Hypothesis that Adam was enrolled in business administration.
+- \(H_{\text{CS}}\): Hypothesis that Adam was enrolled in computer science.
+
+### Business Administration
+
+1. **Prior Probability \( P(H_{\text{BA}}) \)**:
+   Let's assume business administration is a common graduate field, so \( P(H_{\text{BA}}) \) could be moderately probable. 
+   \( P(H_{\text{BA}}) = 0.2 \).
+
+2. **Likelihood \( P(E|H_{\text{BA}}) \)**:
+   The personality sketch (curiosity about nature, love for animals, solving puzzles) is not highly indicative of business administration. 
+   \( P(E|H_{\text{BA}}) = 0.1 \).
+
+3. **Likelihood \( P(E|\neg H_{\text{BA}}) \)**:
+   Given that \( E \) seems more aligned with other fields (such as sciences), assume a higher likelihood if \( H_{\text{BA}} \) is false: 
+   \( P(E|\neg H_{\text{BA}}) = 0.5 \).
+
+### Computer Science
+
+1. **Prior Probability \( P(H_{\text{CS}}) \)**:
+   Given the increasing popularity of computer science, let's denote the prior higher:
+   \( P(H_{\text{CS}}) = 0.3 \).
+
+2. **Likelihood \( P(E|H_{\text{CS}}) \)**:
+   The traits (solving puzzles, abstract concepts, and high intelligence) are quite consistent with computer science.
+   \( P(E|H_{\text{CS}}) = 0.7 \).
+
+3. **Likelihood \( P(E|\neg H_{\text{CS}}) \)**:
+   If \( H_{\text{CS}} \) is false, it’s slightly less likely for someone with those traits to be in another field:
+   \( P(E|\neg H_{\text{CS}}) = 0.2 \).
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) (the total probability of the evidence) is common to all hypotheses and will normalize the posterior probabilities, it is sufficient for comparative purposes to compute the numerator \( P(E|H)P(H) \) for each hypothesis.
+
+### Posterior Probability Calculations
+
+1. **Business Administration**:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}})P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}})P(H_{\text{BA}}) \]
+\[ P(H_{\text{BA}}|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+2. **Computer Science**:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}})P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}})P(H_{\text{CS}}) \]
+\[ P(H_{\text{CS}}|E) \propto 0.7 \times 0.3 = 0.21 \]
+
+Normalized probabilities:
+\[ P(H_{\text{BA}}|E) = \frac{0.02}{0.02 + 0.21} = \frac{0.02}{0.23} \approx 0.087 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.21}{0.02 + 0.21} = \frac{0.21}{0.23} \approx 0.913 \]
+
+Therefore, the results are:
+
+```json
+{
+  "business administration": 0.087,
+  "computer science": 0.913
+}
+```

@@ -1,0 +1,64 @@
+To determine the likelihood that Adam was enrolled in a particular graduate field based on his personality sketch \(E\), we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \(P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\), we can focus on the relative probabilities since we are only comparing two specific fields.
+
+### Assumptions for Initial Probabilities (\(P(H)\))
+
+- \(P(\text{business administration})\) might be relatively high compared to agricultural and veterinary science, due to high enrollment numbers.
+- \(P(\text{agricultural and veterinary science})\) might be lower due to fewer students in this field.
+
+For simplicity, let's assume:
+
+- \(P(\text{business administration}) = 0.3\)
+- \(P(\text{agricultural and veterinary science}) = 0.1\)
+
+### Likelihoods \( P(E|H) \) and \( P(E|\neg H) \)
+
+- **For Business Administration:**
+  - \(P(E|\text{business administration})\) might be low, as curiosity about nature, love for animals, and enjoying puzzles align less with typical expectations for business students.
+  - Assume \(P(E|\text{business administration}) = 0.1\)
+
+- **For Agricultural and Veterinary Science:**
+  - \(P(E|\text{agricultural and veterinary science})\) is expected to be high given Adam's interest in nature, plants, and animals.
+  - Assume \(P(E|\text{agricultural and veterinary science}) = 0.8\)
+
+- **Complement Probabilities \(P(E|\neg H)\)**:
+  - For fields other than business administration: \(P(E|\neg \text{business administration}) = 0.6\) 
+  - For fields other than agricultural and veterinary science: \(P(E|\neg \text{agricultural and veterinary science}) = 0.4\)
+
+### Calculations:
+
+1. **Business Administration:**
+
+   \[
+   P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration})
+   \]
+   \[
+   P(E) = 0.1 \cdot 0.3 + 0.6 \cdot 0.7 = 0.03 + 0.42 = 0.45
+   \]
+   \[
+   P(\text{business administration}|E) = \frac{0.1 \cdot 0.3}{0.45} = \frac{0.03}{0.45} \approx 0.067
+   \]
+
+2. **Agricultural and Veterinary Science:**
+
+   \[
+   P(E) = P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\neg \text{agricultural and veterinary science}) \cdot P(\neg \text{agricultural and veterinary science})
+   \]
+   \[
+   P(E) = 0.8 \cdot 0.1 + 0.4 \cdot 0.9 = 0.08 + 0.36 = 0.44
+   \]
+   \[
+   P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.1}{0.44} = \frac{0.08}{0.44} \approx 0.182
+   \]
+
+Overall, the probabilities are:
+
+```json
+{
+  "business administration": 0.067,
+  "agricultural and veterinary science": 0.182
+}
+```

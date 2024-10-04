@@ -1,0 +1,53 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we need to evaluate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complement likelihoods \( P(E|\neg H) \). 
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is constant across hypotheses for comparison purposes, we can focus on the numerator \( P(E|H) \cdot P(H) \) to compare relative probabilities.
+
+Let's denote:
+- \( H_1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \): Adam was enrolled in business administration.
+
+We know that \( P(E|\neg H) \) will come from the general population of graduate students not in the respective fields, which we'll assume is relatively lower for agriculture or veterinary sciences compared to business administration.
+
+### Estimations:
+- **Prior probabilities \( P(H) \)**:
+  - \( P(H_1) \): Given that agricultural and veterinary science fields are less common than business administration, we might assign a lower prior, for example \( 0.1 \).
+  - \( P(H_2) \): Business administration is a more common graduate field, so we might assign a higher prior, for example \( 0.3 \).
+
+- **Likelihoods \( P(E|H) \)**:
+  - \( P(E|H_1) \): Considering the traits described in Adam, there is a very high likelihood that someone in agricultural and veterinary science would share these interests and personality characteristics, perhaps \( 0.8 \).
+  - \( P(E|H_2) \): While a person in business administration could have these traits, it's less likely compared to the agricultural and veterinary science field, maybe \( 0.2 \).
+
+- **Complement likelihoods \( P(E|\neg H) \)**:
+  - \( P(E|\neg H_1) \): This would be the probability that someone not in agricultural and veterinary science has these characteristics. Given that these traits are uncommon in most graduate fields excluding agricultural and veterinary science, let's say \( 0.3 \).
+  - \( P(E|\neg H_2) \): This would be the probability that someone not in business administration has these traits. Given that business administration is broader and these traits are less typical, let's say \( 0.5 \).
+
+### Calculation with Normalizing constant:
+Since \( P(E) \) can be computed from the total probability:
+\[ P(E) = P(E|H_1)P(H_1) + P(E|\neg H_1)P(\neg H_1) \]
+
+However, for the purpose of comparing relative probabilities, we can use:
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+
+Let's compute:
+- For \( H_1 \) (agricultural and veterinary science):
+\[ P(H_1|E) \propto 0.8 \cdot 0.1 = 0.08 \]
+
+- For \( H_2 \) (business administration):
+\[ P(H_2|E) \propto 0.2 \cdot 0.3 = 0.06 \]
+
+### Normalization:
+To normalize these, we divide by the sum of proportional values:
+\[ P(H_1|E) = \frac{0.08}{0.08 + 0.06} = \frac{0.08}{0.14} \approx 0.571 \]
+\[ P(H_2|E) = \frac{0.06}{0.08 + 0.06} = \frac{0.06}{0.14} \approx 0.429 \]
+
+### Result:
+```json
+{
+  "agricultural and veterinary science": 0.571,
+  "business administration": 0.429
+}
+```

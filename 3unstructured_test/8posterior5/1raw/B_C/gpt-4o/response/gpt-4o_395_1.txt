@@ -1,0 +1,85 @@
+Let's break down the calculations step by step using Bayes' Rule. Initially, a good way to approach this is by subjective estimation based on what we know about Adam and the fields in question.
+
+### 1. Prior Probabilities \(P(H)\)
+
+#### Computer Science
+Given that Computer Science is a popular field among high-intelligence individuals and having an interest in puzzles, we can estimate:
+\[ P(H_{\text{CS}}) \approx 0.20 \]
+
+#### Business Administration
+Given that Business Administration is also quite common among graduate students but considering that Adam's personality sketch doesn't strongly align with typical business traits, we estimate:
+\[ P(H_{\text{BA}}) \approx 0.10 \]
+
+### 2. Likelihoods \(P(E|H)\)
+
+#### Computer Science
+- Genuine curiosity about nature and plants: 0.4
+- Quiet and enjoys solving puzzles: 0.8
+- Warm heart, strong empathy, deep love for animals: 0.4
+- High intelligence and understanding abstract concepts: 0.8
+- Appreciation for hard work and dedication: 0.7
+
+Assuming these features are somewhat independent, we can approximate \( P(E|H_{\text{CS}}) \approx 0.4 * 0.8 * 0.4 * 0.8 * 0.7 = 0.07168 \). Since these are contributing factors, and the fields may slightly deflate this perfect independence model, we adjust to:
+\[ P(E|H_{\text{CS}}) \approx 0.08 \]
+
+#### Business Administration
+- Genuine curiosity about nature and plants: 0.2
+- Quiet and enjoys solving puzzles: 0.4
+- Warm heart, strong empathy, deep love for animals: 0.6
+- High intelligence and understanding abstract concepts: 0.5
+- Appreciation for hard work and dedication: 0.7
+
+Assuming similar independence and slight adjustments, we approximate:
+\[ P(E|H_{\text{BA}}) \approx 0.2 * 0.4 * 0.6 * 0.5 * 0.7 = 0.0168 \approx 0.02 \]
+
+### 3. Non-Hypothesis Likelihood \(P(E|\neg H)\)
+Is the probability of the personality sketch given that Adam is not in the specified fields. Given the diverse nature of other fields:
+\[ P(E|\neg H_{\text{CS}}) \approx 0.1 \]
+\[ P(E|\neg H_{\text{BA}}) \approx 0.15 \]
+
+### 4. Applying Bayes' Rule
+
+#### Computer Science
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)}
+\]
+Where
+\[
+P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}}))
+\]
+Approximately,
+\[
+P(E) \approx (0.08 \cdot 0.20) + (0.1 \cdot 0.80) = 0.016 + 0.08 = 0.096 
+\]
+
+So,
+\[
+P(H_{\text{CS}}|E) \approx \frac{0.08 \cdot 0.20}{0.096} \approx \frac{0.016}{0.096} \approx 0.167 
+\]
+
+#### Business Administration
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)}
+\]
+Where
+\[
+P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot (1 - P(H_{\text{BA}}))
+\]
+Approximately,
+\[
+P(E) \approx (0.02 \cdot 0.10) + (0.15 \cdot 0.90) = 0.002 + 0.135 = 0.137 
+\]
+
+So,
+\[
+P(H_{\text{BA}}|E) \approx \frac{0.02 \cdot 0.10}{0.137} \approx \frac{0.002}{0.137} \approx 0.0146 
+\]
+
+### Final Results
+
+```json
+{
+  "computer science": 0.167,
+  "business administration": 0.0146
+}
+```

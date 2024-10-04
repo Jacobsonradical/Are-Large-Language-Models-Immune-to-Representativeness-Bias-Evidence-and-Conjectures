@@ -1,0 +1,72 @@
+To compute the probabilities, we will apply Bayes' theorem: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is common across all hypotheses, it can be treated as a normalizing constant. Therefore, \( P(H|E) \) is proportional to \( P(E|H) \cdot P(H) \). This allows us to focus on estimating \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+Given Adam’s traits, the prior probabilities \( P(H) \) might be distributed according to general enrollment numbers, but we can make educated guesses about them:
+
+- For **computer science (CS)**: Probability \( P(H_{CS}) \) is relatively high due to the large number of students in this field but might not align perfectly with Adam's personality sketch.
+- For **business administration (BA)**: Probability \( P(H_{BA}) \) is medium, considering it's a popular field but less likely given Adam's described personality traits.
+- For **agricultural and veterinary science (AVS)**: Probability \( P(H_{AVS}) \) is lower in general compared to CS but higher given Adam's affinity with nature and animals.
+
+### Assumptions
+1. **Computer Science (CS)**
+   - \( P(H_{CS}) \approx 0.3 \)
+   - \( P(E|H_{CS}) \): Adam's traits partly fit, giving \( P(E|H_{CS}) \approx 0.1 \)
+   - \( P(E|\neg H_{CS}) \): Still reasonable because of general alignment, maybe \( P(E|\neg H_{CS}) \approx 0.2 \)
+
+2. **Business Administration (BA)**
+   - \( P(H_{BA}) \approx 0.2 \)
+   - \( P(E|H_{BA}) \): Low fit, giving \( P(E|H_{BA}) \approx 0.05 \)
+   - \( P(E|\neg H_{BA}) \): Higher than \( P(E|H_{BA}) \) due to mismatch, maybe \( P(E|\neg H_{BA}) \approx 0.3 \)
+
+3. **Agricultural and Veterinary Science (AVS)**
+   - \( P(H_{AVS}) \approx 0.1 \)
+   - \( P(E|H_{AVS}) \): Very good fit, giving \( P(E|H_{AVS}) \approx 0.6 \)
+   - \( P(E|\neg H_{AVS}) \): Lower because it fits well, maybe \( P(E|\neg H_{AVS}) \approx 0.1 \)
+
+### Estimation of \( P(H|E) \)
+Let’s normalize the probabilities as we final calculations.
+
+1. **Computer science (CS)**
+   \[
+   P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.1 \times 0.3 = 0.03
+   \]
+
+2. **Business administration (BA)**
+   \[
+   P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.05 \times 0.2 = 0.01
+   \]
+
+3. **Agricultural and veterinary science (AVS)**
+   \[
+   P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.6 \times 0.1 = 0.06
+   \]
+
+### Normalizing
+Total = \(0.03 + 0.01 + 0.06 = 0.1\)
+
+Normalized:
+1. **Computer science (CS)**
+   \[
+   \frac{0.03}{0.1} = 0.3
+   \]
+
+2. **Business administration (BA)**
+   \[
+   \frac{0.01}{0.1} = 0.1
+   \]
+
+3. **Agricultural and veterinary science (AVS)**
+   \[
+   \frac{0.06}{0.1} = 0.6
+   \]
+
+Final probabilities:
+```json
+{
+  "computer science": 0.3,
+  "business administration": 0.1,
+  "agricultural and veterinary science": 0.6
+}
+```

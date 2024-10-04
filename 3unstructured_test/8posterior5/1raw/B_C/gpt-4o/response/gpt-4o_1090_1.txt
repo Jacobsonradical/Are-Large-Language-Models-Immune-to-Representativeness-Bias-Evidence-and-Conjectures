@@ -1,0 +1,85 @@
+To apply Bayes' theorem and compute the posterior probability \(P(H|E)\) for Adam being enrolled in either business administration or computer science, we need estimates for the following probabilities:
+
+1. \(P(H)\): The prior probability that Adam was enrolled in the given field.
+2. \(P(E|H)\): The probability that the personality sketch fits someone enrolled in the given field.
+3. \(P(E|\neg H)\): The probability that the personality sketch fits someone who is not enrolled in the given field.
+
+### Business Administration
+
+1. **\(P(H_{BA})\)**: Let's assume a general prior probability for a graduate student being enrolled in business administration. This might be around 1/10.
+   \[
+   P(H_{BA}) = 0.10
+   \]
+
+2. **\(P(E|H_{BA})\)**: Given Adam's personality sketch emphasizing curiosity about nature, love for animals, and solving puzzles, it seems less typical for someone enrolled in business administration compared to other fields. Let's estimate this probability lower, say:
+   \[
+   P(E|H_{BA}) = 0.05
+   \]
+
+3. **\(P(E|\neg H_{BA})\)**: This represents all other fields that are not business administration. We expect this to be relatively high, as curiosity about nature, love for animals, and solving puzzles fit other science-oriented disciplines quite well.
+   \[
+   P(E|\neg H_{BA}) = 0.30
+   \]
+
+Using Bayes' Rule:
+\[
+P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)}
+\]
+where \(P(E)\) can be estimated as a normalization factor but we'll approximate using the available values.
+
+### Computer Science
+
+1. **\(P(H_{CS})\)**: Let's assume a slightly higher prior probability for a graduate student being enrolled in computer science, given its popularity. This might be around 1/5.
+   \[
+   P(H_{CS}) = 0.20
+   \]
+
+2. **\(P(E|H_{CS})\)**: Given Adam's personality sketch, although he's inclined more towards nature and animals, he does enjoy solving puzzles and has high intelligence, so this fits decently with a computer science background.
+   \[
+   P(E|H_{CS}) = 0.15
+   \]
+
+3. **\(P(E|\neg H_{CS})\)**: This includes all other fields except computer science. Similar to before, this is relatively high, as other fields might fit his description better.
+   \[
+   P(E|\neg H_{CS}) = 0.25
+   \]
+
+Using Bayes' Rule:
+\[
+P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)}
+\]
+where \(P(E)\) can be approximated to help normalize.
+
+### Calculations
+
+For Business Administration:
+\[
+P(E) \approx P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot (1 - P(H_{BA}))
+\]
+\[
+P(E) \approx 0.05 \cdot 0.10 + 0.30 \cdot 0.90 = 0.005 + 0.27 = 0.275
+\]
+\[
+P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.05 \cdot 0.10}{0.275} \approx 0.018
+\]
+
+For Computer Science:
+\[
+P(E) \approx P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot (1 - P(H_{CS}))
+\]
+\[
+P(E) \approx 0.15 \cdot 0.20 + 0.25 \cdot 0.80 = 0.03 + 0.20 = 0.23
+\]
+\[
+P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.15 \cdot 0.20}{0.23} \approx 0.13
+\]
+
+### Summary
+
+```json
+{
+  "business administration": 0.018,
+  "computer science": 0.13
+}
+```
+These estimates suggest that given Adam's personality sketch, it is more probable that he was enrolled in computer science rather than business administration.

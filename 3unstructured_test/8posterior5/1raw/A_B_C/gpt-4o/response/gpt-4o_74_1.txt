@@ -1,0 +1,63 @@
+To compute the probabilities \( P(H|E) \), we use Bayes' Theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( E \) is the personality sketch of Adam, and \( H \) represents the hypotheses about the fields he might be enrolled in. We need to estimate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \) and \( P(E|\neg H) \), and ultimately compute the posterior probabilities \( P(H|E) \). We'll treat \( P(E) \) as a normalizing constant and focus on the relative likelihoods.
+
+We'll begin by making reasonable estimates for these values.
+
+### Evaluating Hypotheses
+
+1. **Computer Science**
+    - \( P(H) \) (prior probability): Moderate, as computer science is a popular field.
+    - \( P(E|H) \): Low to moderate. Curiosity, intelligence, and abstract thinking fit, but empathy and love for animals are less typical.
+    - \( P(E|\neg H) \): High, as curiosity about nature and empathy are very common in other fields.
+
+2. **Agricultural and Veterinary Science**
+    - \( P(H) \): Low, as fewer students enroll in this compared to other fields.
+    - \( P(E|H) \): High. Love for nature, plants, animals, and empathy are strong indicators.
+    - \( P(E|\neg H) \): Lower compared to within this field, since these traits are quite specific.
+
+3. **Business Administration**
+    - \( P(H) \): Moderate to high, this is another very common field.
+    - \( P(E|H) \): Low. While intelligence fits, curiosity about nature and empathy towards animals are less aligned.
+    - \( P(E|\neg H) \): High, numerous other fields align better with Adam's personality sketch.
+
+### Estimating Likelihoods 
+We can make rough estimates based on these considerations:
+
+- \( P(E|H_{\text{cs}}) = 0.2 \)
+- \( P(E|H_{\text{ag}}) = 0.8 \)
+- \( P(E|H_{\text{ba}}) = 0.1 \)
+
+And for priors:
+
+- \( P(H_{\text{cs}}) = 0.3 \) 
+- \( P(H_{\text{ag}}) = 0.1 \)
+- \( P(H_{\text{ba}}) = 0.3 \)
+
+For \( P(E) \), assuming relative probabilities, we ignore it as a common factor for normalization.
+
+Now, compute relative \( P(H|E) \):
+
+\[ P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}}) \times P(H_{\text{cs}}) = 0.2 \times 0.3 = 0.06 \]
+\[ P(H_{\text{ag}}|E) \propto P(E|H_{\text{ag}}) \times P(H_{\text{ag}}) = 0.8 \times 0.1 = 0.08 \]
+\[ P(H_{\text{ba}}|E) \propto P(E|H_{\text{ba}}) \times P(H_{\text{ba}}) = 0.1 \times 0.3 = 0.03 \]
+
+Normalize these to form a probability distribution (normalize these values by their sum):
+
+Sum = \( 0.06 + 0.08 + 0.03 = 0.17 \)
+
+\[ P(H_{\text{cs}}|E) = \frac{0.06}{0.17} \approx 0.35 \]
+\[ P(H_{\text{ag}}|E) = \frac{0.08}{0.17} \approx 0.47 \]
+\[ P(H_{\text{ba}}|E) = \frac{0.03}{0.17} \approx 0.18 \]
+
+So, the final result is:
+
+```json
+{
+  "computer science": 0.35,
+  "agricultural and veterinary science": 0.47,
+  "business administration": 0.18
+}
+```

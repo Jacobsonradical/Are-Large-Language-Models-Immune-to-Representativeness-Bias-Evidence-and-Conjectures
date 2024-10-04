@@ -1,0 +1,56 @@
+To apply Bayes' theorem, we need to evaluate the prior probability \( P(H) \), the likelihoods \( P(E|H) \) and \( P(E|\neg H) \), and then compute the posterior probability \( P(H|E) \) for each hypothesis. 
+
+### Step-by-Step Calculation
+
+**Step 1: Define the probabilities**
+
+1. **Prior probability \( P(H) \)**: This is the general probability of being enrolled in the given field without any additional information.
+
+2. **Likelihood \( P(E|H) \)**: This is the probability of observing the personality sketch given that Adam was enrolled in the given field.
+
+3. **Likelihood \( P(E|\neg H) \)**: This is the probability of observing the personality sketch given that Adam was enrolled in any other field.
+
+**Business Administration:**
+- \( P(H_{\text{BA}}) \): Assuming a low prior probability, since Adam's interests and attributes do not strongly align with business administration.
+    Let's estimate it at 0.10.
+- \( P(E|H_{\text{BA}}) \): The likelihood that Adam’s personality fits with business administration is low, say 0.05.
+- \( P(E|\neg H_{\text{BA}}) \): Likelihood that Adam’s personality is seen in fields other than business administration is relatively higher. Assume it is 0.90.
+
+Using Bayes' theorem:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+
+**Agricultural and Veterinary Science:**
+- \( P(H_{\text{AVS}}) \): Given Adam's interests, it is more likely he's enrolled in this field. Assume 0.20.
+- \( P(E|H_{\text{AVS}}) \): Adam’s personality aligns strongly with this field. Assume 0.70.
+- \( P(E|\neg H_{\text{AVS}}) \): Probability that Adam’s personality is in a field other than agricultural and veterinary science. Assume 0.30.
+
+Using Bayes' theorem:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+
+### Step 2: Compute Posterior Probabilities
+
+Assume \( P(E) \) is the same for both cases for normalization purposes. We don’t need an exact number for this, just the correct proportional calculations will do.
+
+**Business Administration:**
+\[ P(H_{\text{BA}}|E) = \frac{0.05 \cdot 0.10}{P(E)} \approx 0.005 \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H_{\text{AVS}}|E) = \frac{0.70 \cdot 0.20}{P(E)} \approx 0.14 \]
+
+### Step 3: Normalizing
+Given that we're only calculating relative probabilities for comparison and assuming the sum of all probabilities is normalized within this context:
+
+- Normalize to sum to 1:
+\[ \text{Total} = P(H_{\text{BA}}|E) + P(H_{\text{AVS}}|E) \]
+\[ \text{Total} = 0.005 + 0.14 = 0.145 \]
+
+\[ \frac{P(H_{\text{BA}}|E)}{\text{Total}} = \frac{0.005}{0.145} \approx 0.034 \]
+\[ \frac{P(H_{\text{AVS}}|E)}{\text{Total}} = \frac{0.14}{0.145} \approx 0.966 \]
+
+### Answer:
+```json
+{
+  "business administration": 0.034,
+  "agricultural and veterinary science": 0.966
+}
+```

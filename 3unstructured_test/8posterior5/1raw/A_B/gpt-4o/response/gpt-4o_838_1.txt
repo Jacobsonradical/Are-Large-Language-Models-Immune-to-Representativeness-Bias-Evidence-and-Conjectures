@@ -1,0 +1,63 @@
+To determine the probability that Adam was enrolled in a specific field given his personality sketch, we'll utilize Bayes' Rule. Specifically, we use:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a specific field given his personality sketch.
+- \( P(E|H) \) is the probability of observing Adam's characteristics if he were enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the overall probability of observing Adam's characteristics, regardless of the field.
+
+### Hypotheses:
+1. \( H_{BA} \): Adam was enrolled in business administration.
+2. \( H_{AVS} \): Adam was enrolled in agricultural and veterinary science.
+
+### Prior Probabilities:
+- \( P(H_{BA}) \): The prior probability, in general, of a graduate student being in business administration.
+- \( P(H_{AVS}) \): The prior probability, in general, of a graduate student being in agricultural and veterinary science.
+- Assume these values are based on general statistics of the distribution of graduate programs.
+
+For simplicity, let's assume:
+- \( P(H_{BA}) = 0.2 \) (20% of graduate students in business administration)
+- \( P(H_{AVS}) = 0.05 \) (5% of graduate students in agricultural and veterinary science)
+
+### Likelihoods:
+- \( P(E|H_{BA}) \): The likelihood of Adam's characteristics given he is in business administration.
+- \( P(E|H_{AVS}) \): The likelihood of Adam's characteristics given he is in agricultural and veterinary science.
+
+Given Adam's personality:
+- \( P(E|H_{BA}) \): Low, as Adam's traits (love for nature, empathy, love for animals, solving puzzles) don't strongly correlate with business administration.
+- \( P(E|H_{AVS}) \): High, as his traits strongly align with agricultural and veterinary science.
+
+Assume:
+- \( P(E|H_{BA}) = 0.1 \)
+- \( P(E|H_{AVS}) = 0.8 \)
+
+### Overall Probability:
+- \( P(E) \): The overall probability of Adam having such characteristics. This can be approximated by considering all possible fields but simplifying to the two fields of interest:
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{AVS}) \cdot P(H_{AVS}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) + P(E|\neg H_{AVS}) \cdot P(\neg H_{AVS}) \]
+
+For simplicity, let's aggregate the last two terms (other fields) and assume they sum to 1.2 on average for P(E):
+
+### Calculation:
+- \( P(E) \approx 0.1 \times 0.2 + 0.8 \times 0.05 \)
+
+Now let's apply Bayes' Rule for each hypothesis:
+
+1. **Business Administration:**
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.8 \cdot 0.05} \approx \frac{0.02}{0.06} = \frac{0.02}{0.06} \approx 0.333 \]
+
+2. **Agricultural and Veterinary Science:**
+
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} = \frac{0.8 \cdot 0.05}{0.1 \cdot 0.2 + 0.8 \cdot 0.05} \approx \frac{0.04}{0.06} = \frac{0.04}{0.06} \approx 0.667 \]
+
+Thus, our results are as follows:
+
+```json
+{
+  "business administration": 0.333,
+  "agricultural and veterinary science": 0.667
+}
+```

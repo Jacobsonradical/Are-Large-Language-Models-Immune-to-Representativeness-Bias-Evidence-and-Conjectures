@@ -1,0 +1,39 @@
+To apply Bayes' rule and determine the posterior probability \( P(H|E) \) that Adam was enrolled in a particular field given the personality sketch \( E \), we must first estimate the prior probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+For a rough estimation:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a particular field before taking his personality into account.
+2. \( P(E|H) \): The likelihood of observing the personality sketch given that Adam was enrolled in the field.
+3. \( P(E|\neg H) \): The likelihood of the personality sketch given that Adam was not enrolled in the field.
+
+Given the information, I will make some assumptions to estimate these probabilities qualitatively.
+
+### Computer Science
+
+- **P(H_CS):** Graduate programs in computer science are popular, especially in the U.S., but let's assume a prior of around 15%.
+- **P(E|H_CS):** Computer science students might not typically have strong emphases on empathy or a deep love for nature (more focused on technology), which makes the description less likely. So, let's have this as 5%.
+- **P(E|\neg H_CS):** The chance of finding someone like Adam who is not in computer science but with this personality can be reasonably higher, say 25%.
+
+### Business Administration
+
+- **P(H_BA):** Business administration is also a common graduate choice, so let's say 15%.
+- **P(E|H_BA):** This field is usually associated with more outgoing, less quiet personalities who are focused on leadership and management, so let's estimate this at 2%.
+- **P(E|\neg H_BA):** Like before, the chance of finding someone with these traits outside business admin could be higher, approximately 30%.
+
+Now, using Bayes' rule to calculate \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+### Computer Science
+\[ P(H_{CS}|E) \approx \frac{0.05 \cdot 0.15}{0.05 \cdot 0.15 + 0.25 \cdot 0.85} \approx \frac{0.0075}{0.0075 + 0.2125} \approx \frac{0.0075}{0.22} \approx 0.034 \]
+
+### Business Administration
+\[ P(H_{BA}|E) \approx \frac{0.02 \cdot 0.15}{0.02 \cdot 0.15 + 0.30 \cdot 0.85} \approx \frac{0.0030}{0.0030 + 0.255} \approx \frac{0.0030}{0.258} \approx 0.012 \]
+
+So based on these estimations using Bayes' Rule, we can summarize as follows:
+
+```json
+{
+  "computer science": 0.034,
+  "business administration": 0.012
+}
+```

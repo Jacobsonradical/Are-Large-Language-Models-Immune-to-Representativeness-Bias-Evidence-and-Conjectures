@@ -1,0 +1,56 @@
+To apply Bayes' Rule and compute the posterior probability \( P(H|E) \), we need to follow these steps:
+
+1. **P(H)**: The prior probability that Adam was enrolled in a particular field without any additional information.
+2. **P(E|H)**: The likelihood that Adam has the described personality given that he was enrolled in that field.
+3. **P(E|\neg H)**: The likelihood that Adam has the described personality given that he was NOT enrolled in that field.
+
+Since we will apply Bayes' Rule, let's denote:
+
+- \( H_{\text{agriculture}} \): Hypothesis that Adam was enrolled in agricultural and veterinary science.
+- \( H_{\text{business}} \): Hypothesis that Adam was enrolled in business administration.
+
+Let's make some educated guesses about the probabilities based on the information provided:
+
+### For agricultural and veterinary science:
+1. **P(H_{\text{agriculture}})**: 
+   We assume a relatively low prior probability because there are many fields of graduate study. Let's assign 0.05 (5%).
+
+2. **P(E|H_{\text{agriculture}})**: 
+   Adam's personality sketch aligns well with agricultural and veterinary science. His appreciation for nature, plants, and animals is a strong indicator. Let's assign this a high probability, say 0.8 (80%).
+
+3. **P(E|\neg H_{\text{agriculture}})**: 
+   The probability that Adam's personality sketch fits if he wasn't in agricultural and veterinary science would be lower but not zero, since some elements of his personality could apply to other fields. Let's assign 0.2 (20%).
+
+### For business administration:
+1. **P(H_{\text{business}})**: 
+   Given that business administration is a commonly chosen field, we can assign a slightly higher prior probability, say 0.1 (10%).
+
+2. **P(E|H_{\text{business}})**: 
+   Adam's personality sketch doesn’t strongly align with the typical traits associated with business administration. Thus, we assign a lower likelihood, say 0.1 (10%).
+
+3. **P(E|\neg H_{\text{business}})**: 
+   The probability that Adam's personality sketch fits if he wasn't in business administration would be higher, given his personality traits are more aligned with other fields. Let’s assign 0.4 (40%).
+
+Now, we apply Bayes' Rule for each hypothesis to calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))} \]
+
+### For agricultural and veterinary science:
+\[ P(H_{\text{agriculture}}|E) = \frac{0.8 \cdot 0.05}{0.8 \cdot 0.05 + 0.2 \cdot 0.95} \]
+\[ P(H_{\text{agriculture}}|E) = \frac{0.04}{0.04 + 0.19} \]
+\[ P(H_{\text{agriculture}}|E) = \frac{0.04}{0.23} \]
+\[ P(H_{\text{agriculture}}|E) \approx 0.1739 \]
+
+### For business administration:
+\[ P(H_{\text{business}}|E) = \frac{0.1 \cdot 0.1}{0.1 \cdot 0.1 + 0.4 \cdot 0.9} \]
+\[ P(H_{\text{business}}|E) = \frac{0.01}{0.01 + 0.36} \]
+\[ P(H_{\text{business}}|E) = \frac{0.01}{0.37} \]
+\[ P(H_{\text{business}}|E) \approx 0.0270 \]
+
+Therefore, here are the posterior probabilities:
+```json
+{
+  "agricultural and veterinary science": 0.1739,
+  "business administration": 0.0270
+}
+```

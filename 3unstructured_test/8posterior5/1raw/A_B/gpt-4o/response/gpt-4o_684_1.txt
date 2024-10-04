@@ -1,0 +1,61 @@
+To compute the probabilities \( P(H|E) \) for Adam being enrolled in either business administration or agricultural and veterinary science, we need to follow the steps of Bayesian inference. Starting with Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here is a step-by-step approach:
+
+1. **Define the priors \( P(H) \):**
+   - For **business administration**, let’s assume that the base rate \( P(H) = 0.15 \). Graduate programs in business administration are relatively common.
+   - For **agricultural and veterinary science**, let’s assume that the base rate \( P(H) = 0.05 \). This is less common compared to business administration.
+
+2. **Assess \( P(E|H) \) and \( P(E|\neg H) \):**
+   - **Business Administration:**
+     - \( P(E|H) \): The personality traits described in E (curiosity about nature, love for animals, etc.) are less typical in business students. Let's approximate \( P(E|H) = 0.05 \).
+     - \( P(E|\neg H) \): Given that most non-business students might display a wider variety of traits, let's estimate a relative fit \( P(E|\neg H) = 0.20 \).
+   - **Agricultural and Veterinary Science:**
+     - \( P(E|H) \): These traits align well with this field. Let's approximate \( P(E|H) = 0.60 \).
+     - \( P(E|\neg H) \): Not being in agricultural and veterinary science might make one less likely to exhibit these traits in such congruence; let's keep it at \( P(E|\neg H) = 0.20 \).
+
+3. **Normalize using \( P(E) \):**
+   - \( P(E) \) is the probability of observing E overall, which can be complex to calculate exactly, but \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \). For simplicity, we will weight it proportionally when computing the ratios to avoid overcomplication.
+
+Now, let's compute \( P(H|E) \) for each field:
+
+1. **Business Administration:**
+   \[
+   P(\text{Business Admin}|E) = \frac{P(E|\text{Business Admin}) \cdot P(\text{Business Admin})}{P(E)} = \frac{0.05 \cdot 0.15}{P(E)}
+   \]
+
+2. **Agricultural and Veterinary Science:**
+   \[
+   P(\text{Agri & Vet Science}|E) = \frac{P(E|\text{Agri & Vet Science}) \cdot P(\text{Agri & Vet Science})}{P(E)} = \frac{0.60 \cdot 0.05}{P(E)}
+   \]
+
+Because we do not know \( P(E) \), we will compare ratios:
+
+- **Business Administration:**
+  \[
+  \frac{0.05 \cdot 0.15}{P(E)} = 0.0075
+  \]
+
+- **Agricultural and Veterinary Science:**
+  \[
+  \frac{0.60 \cdot 0.05}{P(E)} = 0.03
+  \]
+
+We notice that \( P(E) \) is constant and thus cancels out in a relative comparison of posteriors.
+
+**Posterior Probabilities:**
+
+So, normalizing these values, we get:
+
+- Business Administration: \( 0.0075 / (0.0075 + 0.03) = 0.2 \)
+- Agricultural and Veterinary Science: \( 0.03 / (0.0075 + 0.03) = 0.8 \)
+
+Thus, the Bayesian probability estimates are:
+
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}
+```

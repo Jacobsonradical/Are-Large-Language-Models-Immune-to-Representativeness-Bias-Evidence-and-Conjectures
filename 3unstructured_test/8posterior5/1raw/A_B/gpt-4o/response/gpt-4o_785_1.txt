@@ -1,0 +1,61 @@
+To compute the posterior probabilities \( P(H|E) \) for whether Adam was enrolled in agricultural and veterinary science or business administration, we need to follow Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we'll need to estimate the following:
+
+1. **\( P(H) \)**: The prior probability that Adam was enrolled in the given field.
+2. **\( P(E|H) \)**: The probability of observing the personality traits \( E \) given that Adam was enrolled in the given field.
+3. **\( P(E|\neg H) \)**: The probability of observing the personality traits \( E \) given that Adam was **not** enrolled in the given field.
+
+However, we will not explicitly calculate \( P(E) \) as it will be a normalizing constant common to both fields and will cancel out when computing relative probabilities.
+
+Let's make reasoned estimates:
+
+### Agricultural and Veterinary Science
+1. **\( P(H) \)**: Given Adam's strong interest in nature, plants, and animals, the prior probability that he was enrolled in this field is relatively high. For simplicity, let’s assume \( P(H) = 0.2 \).
+2. **\( P(E|H) \)**: His curiosity about nature, love for animals, and warm heart make it highly likely he would exhibit these traits if enrolled in this field. Let's estimate \( P(E|H) = 0.9 \).
+3. **\( P(E|\neg H) \)**: The probability that Adam exhibits these traits if he is **not** in this field is lower. Assume \( P(E|\neg H) = 0.3 \).
+
+### Business Administration
+1. **\( P(H) \)**: Given Adam’s personality, the likelihood he chose business administration seems lower. Let's assume \( P(H) = 0.05 \).
+2. **\( P(E|H) \)**: If he were in business administration, the probability of his personality traits is lower because his traits do not strongly align with this field. Estimate \( P(E|H) = 0.2 \).
+3. **\( P(E|\neg H) \)**: If Adam is **not** in business administration, the probability of his traits is closer to that in other fields better aligned with his personality. Let's estimate \( P(E|\neg H) = 0.4 \).
+
+Now, apply Bayes’ rule:
+
+For Agricultural and Veterinary Science:
+\[ 
+P(H_{\text{agriculture}}|E) = \frac{0.9 \times 0.2}{P(E)} = \frac{0.18}{P(E)} 
+\]
+
+For Business Administration:
+\[
+P(H_{\text{business}}|E) = \frac{0.2 \times 0.05}{P(E)} = \frac{0.01}{P(E)} 
+\]
+
+### Normalizing
+To compare the relative posterior probabilities, we normalize them via their total sum:
+
+\[
+P(H_{\text{agriculture}}|E) + P(H_{\text{business}}|E) = \frac{0.18}{P(E)} + \frac{0.01}{P(E)} = \frac{0.19}{P(E)} 
+\]
+
+\[
+P(H_{\text{agriculture}}|E) = \frac{0.18}{0.19} \approx 0.947
+\]
+
+\[
+P(H_{\text{business}}|E) = \frac{0.01}{0.19} \approx 0.053
+\]
+
+So, we have:
+
+```json
+{
+  "agricultural and veterinary science": 0.947,
+  "business administration": 0.053
+}
+```
+
+These values reflect the relative likelihoods given Adam’s personality traits \( E \).

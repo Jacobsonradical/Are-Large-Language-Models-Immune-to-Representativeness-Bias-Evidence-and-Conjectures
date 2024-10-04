@@ -1,0 +1,56 @@
+To apply Bayes' rule, we need to use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, in order to simplify the problem, we will assume \( P(E) \) is the same for all fields and compare the ratios. The actual calculation of \( P(E) \) is complex and depends on how we normalize across all possible fields, but here we'll focus on relative probabilities.
+
+Let's evaluate each field:
+
+1. **Computer Science**:
+   - \( P(H) \): A moderate-to-high number of graduate students are in computer science, say \( P(H) = 0.25 \).
+   - \( P(E|H) \): Possible but less likely given the personality traits described, especially his deep love for animals and nature, say \( P(E|H) = 0.1 \).
+   - \( P(E|\neg H) \): The likelihood of E if Adam is not in computer science could be moderately high, finally normalized it but generally lower relative to the many fields, let's assume \( P(E|\neg H) = 0.3 \).
+
+2. **Business Administration**:
+   - \( P(H) \): A good number of students pursue this field, say \( P(H) = 0.2 \).
+   - \( P(E|H) \): Less likely given Adam's traits, say \( P(E|H) = 0.05 \).
+   - \( P(E|\neg H) \): Similar reasoning, but normalized lower, \( P(E|\neg H) = 0.3 \).
+
+3. **Agricultural and Veterinary Science**:
+   - \( P(H) \): Fewer students comparatively, let's say \( P(H) = 0.1 \).
+   - \( P(E|H) \): Highly likely given his characteristics, say \( P(E|H) = 0.8 \).
+   - \( P(E|\neg H) \): Less likely than average, because target group of traits fitting into fewer fields, \( P(E|\neg H) = 0.2 \).
+
+Now, applying Bayes' rule proportionally (ignoring the normalization term):
+
+- Computer Science: 
+  \[ \text{Unnormalized } P(H|E) = P(E|H) \cdot P(H) \]
+  \[ = 0.1 \cdot 0.25 = 0.025 \]
+
+- Business Administration:
+  \[ \text{Unnormalized } P(H|E) = 0.05 \cdot 0.2 = 0.01 \]
+
+- Agricultural and Veterinary Science:
+  \[ \text{Unnormalized } P(H|E) = 0.8 \cdot 0.1 = 0.08 \]
+
+Normalizing these (considering only these three fields) would give:
+
+\[
+P(H|E)_{\text{agricultural and veterinary}} = \frac{0.08}{0.025 + 0.01 + 0.08} = \frac{0.08}{0.115} \approx 0.696
+\]
+
+\[
+P(H|E)_{\text{computer science}} = \frac{0.025}{0.115} \approx 0.217
+\]
+
+\[
+P(H|E)_{\text{business administration}} = \frac{0.01}{0.115} \approx 0.087
+\]
+
+Therefore, we get:
+
+{
+  "computer science": 0.217,
+  "business administration": 0.087,
+  "agricultural and veterinary science": 0.696
+}

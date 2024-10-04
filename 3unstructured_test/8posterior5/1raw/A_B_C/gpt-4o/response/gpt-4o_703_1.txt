@@ -1,0 +1,71 @@
+Let's follow the Bayesian approach step-by-step.
+
+Given:
+- E: Personality sketch of Adam
+- H: Hypothesis that Adam was enrolled in a specific field
+
+We need to estimate:
+1. \( P(H) \): The prior probability that Adam was enrolled in that specific field.
+2. \( P(E|H) \): The probability of observing Adam's personality traits given that he was enrolled in that specific field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality traits given that he was not enrolled in that specific field.
+4. \( P(H|E) \): The probability that Adam was enrolled in that specific field given his personality traits.
+
+Assumptions:
+1. \( P(H) \): Let's assume that prior probabilities are roughly equal for simplicity but take some logical assumptions regarding popularity and enrollment statistics.
+2. \( P(E|H) \) and \( P(E|\neg H) \) will be estimated based on how well Adam's personality sketch fits the profile typical of each field.
+
+### Fields:
+#### Agricultural and Veterinary Science
+1. **\( P(H) \)**: Assume agricultural and veterinary science fields are less popular compared to computer science, but relevant to his love of nature and animals.
+   \( P(H_{AgrVet}) = 0.2 \)
+2. **\( P(E|H) \)**: The personality traits fit quite well with this field. 
+   \( P(E|H_{AgrVet}) = 0.8 \)
+3. **\( P(E|\neg H) \)**: The likelihood of these traits for those not enrolled in this field.
+   \( P(E|\neg H_{AgrVet}) = 0.3 \)
+
+Using Bayes' theorem:
+\[ P(H_{AgrVet}|E) = \frac{P(E|H_{AgrVet}) \cdot P(H_{AgrVet})}{P(E|H_{AgrVet}) \cdot P(H_{AgrVet}) + P(E|\neg H_{AgrVet}) \cdot P(\neg H_{AgrVet})} \]
+\[ = \frac{0.8 \cdot 0.2}{0.8 \cdot 0.2 + 0.3 \cdot 0.8} \]
+\[ = \frac{0.16}{0.16 + 0.24} \]
+\[ = \frac{0.16}{0.4} \]
+\[ = 0.4 \]
+
+#### Computer Science
+1. **\( P(H) \)**: Assume computer science is the most popular of these fields.
+   \( P(H_{CS}) = 0.5 \)
+2. **\( P(E|H) \)**: The traits fit well to someone who enjoys puzzles and abstract concepts, but less of an overlap with love for nature and animals.
+   \( P(E|H_{CS}) = 0.4 \)
+3. **\( P(E|\neg H) \)**: Considering the large population not in this field, it's lower.
+   \( P(E|\neg H_{CS}) = 0.3 \)
+
+Using Bayes' theorem:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS})} \]
+\[ = \frac{0.4 \cdot 0.5}{0.4 \cdot 0.5 + 0.3 \cdot 0.5} \]
+\[ = \frac{0.2}{0.2 + 0.15} \]
+\[ = \frac{0.2}{0.35} \]
+\[ = \frac{20}{35} \]
+\[ = \frac{4}{7} \]
+\[ \approx 0.57 \]
+
+#### Business Administration
+1. **\( P(H) \)**: Assume business administration is comparatively less popular.
+   \( P(H_{BA}) = 0.3 \)
+2. **\( P(E|H) \)**: The personality traits do not align well with business administration.
+   \( P(E|H_{BA}) = 0.2 \)
+3. **\( P(E|\neg H) \)**: Given its lower alignment, it's less likely to see Adam's traits here.
+   \( P(E|\neg H_{BA}) = 0.4 \)
+
+Using Bayes' theorem:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA})} \]
+\[ = \frac{0.2 \cdot 0.3}{0.2 \cdot 0.3 + 0.4 \cdot 0.7} \]
+\[ = \frac{0.06}{0.06 + 0.28} \]
+\[ = \frac{0.06}{0.34} \]
+\[ = \frac{6}{34} \]
+\[ \approx 0.18 \]
+
+### Summary
+{
+  "agricultural and veterinary science": 0.4,
+  "computer science": 0.57,
+  "business administration": 0.18
+}

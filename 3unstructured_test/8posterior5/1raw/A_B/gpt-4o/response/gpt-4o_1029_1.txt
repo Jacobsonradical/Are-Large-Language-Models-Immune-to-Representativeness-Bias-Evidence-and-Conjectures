@@ -1,0 +1,54 @@
+To compute the probabilities using Bayes' rule, we follow these steps:
+
+1. **P(H)** - The prior probability that Adam was enrolled in a certain field.
+2. **P(E|H)** - The probability of observing E (Adam's personality sketch) given that Adam was enrolled in that specific field.
+3. **P(E|\neg H)** - The probability of observing E given that Adam was not enrolled in that specific field.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be derived from the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+However, our calculation simplifies to a relative comparison as we don't need the absolute values.
+
+Here are the values based on the given sketch:
+
+1. **Business Administration**
+   - **P(H)**: We would expect this to be relatively low given Adam's non-business oriented traits, perhaps 0.05 (5%).
+   - **P(E|H)**: This would be quite low. The traits described don't align traditionally with business administration interests. 0.01 (1%).
+   - **P(E|\neg H)**: Many non-business students could have similar traits, so this is relatively high. Suppose 0.3 (30%).
+
+   Using Bayes' Rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} 
+           = \frac{0.01 \cdot 0.05}{0.01 \cdot 0.05 + 0.3 \cdot 0.95} 
+           = \frac{0.0005}{0.0005 + 0.285} 
+           = \frac{0.0005}{0.2855} 
+           \approx 0.00175
+   \]
+   So, P(H|E) for business administration is approximately 0.00175.
+
+2. **Agricultural and Veterinary Science**
+   - **P(H)**: We would expect this to be higher given Adam's traits, perhaps 0.2 (20%).
+   - **P(E|H)**: This would be relatively high because the traits strongly align with interests in this field, say 0.8 (80%).
+   - **P(E|\neg H)**: Slightly lower because fewer non-Agri/Vet students would fit this profile. Suppose 0.1 (10%).
+
+   Using Bayes' Rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} 
+           = \frac{0.8 \cdot 0.2}{0.8 \cdot 0.2 + 0.1 \cdot 0.8} 
+           = \frac{0.16}{0.16 + 0.08} 
+           = \frac{0.16}{0.24} 
+           \approx 0.6667
+   \]
+   So, P(H|E) for agricultural and veterinary science is approximately 0.6667.
+
+Therefore, considering the personality sketch provided:
+
+```json
+{
+  "business administration": 0.00175,
+  "agricultural and veterinary science": 0.6667
+}
+```

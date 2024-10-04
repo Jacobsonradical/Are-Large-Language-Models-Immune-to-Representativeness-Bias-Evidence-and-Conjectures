@@ -1,0 +1,79 @@
+To apply Bayes' rule, we need to compute the posterior probability \( P(H|E) \) for each of the given fields. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+However, since \( P(H) \) and \( P(E) \) are constant across hypotheses, we focus on the relative likelihoods for simplicity. We will estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+Given:
+
+- \( P(H) \): Prior probability that Adam was enrolled in each field.
+- \( P(E|H) \): Probability of observing Adam's personality sketch if he was enrolled in each field.
+- \( P(E|\neg H) \): Probability of observing Adam's personality sketch if he was not enrolled in each specific field.
+
+Let’s assess the values for the three fields:
+
+1. **Business Administration**
+   - \( P(H) \) may be relatively moderate given the popularity of the field.
+   - \( P(E|H) \) is likely to be low because Adam's traits (curiosity about nature, love for animals) do not strongly align with typical characteristics needed for business administration that often centers around management and finance.
+   - \( P(E|\neg H) \) would generally be higher because the majority of graduate students are not in business administration, making the observation of Adam's traits among non-business students more common.
+   
+2. **Computer Science**
+   - \( P(H) \) could be higher given the large number of students in this field.
+   - \( P(E|H) \) might be moderate as Adam’s intelligence and puzzle-solving skills align, but his love for nature and animals may not be as relevant.
+   - \( P(E|\neg H) \) is also high given the variety of disciplines which may have students with such traits.
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H) \) is likely lower compared to computer science but higher than niche fields.
+   - \( P(E|H) \) is very high because Adam's curiosity about nature, love for animals, and appreciation for hard work fit perfectly.
+   - \( P(E|\neg H) \) is a bit lower here because such strong alignment of traits is less common outside this field.
+
+Based on these considerations, here are the computations:
+
+\[ \text{Let } P(E) \text{ be constant and normalized out.} \]
+
+\[ \text{Likely estimates:} \]
+
+\[
+\begin{cases}
+  P(H)_{\text{business administration}} = 0.2 \\
+  P(E|H)_{\text{business administration}} = 0.1 \\
+  P(E|\neg H)_{\text{business administration}} = 0.9 \\
+  
+  P(H)_{\text{computer science}} = 0.3 \\
+  P(E|H)_{\text{computer science}} = 0.5 \\
+  P(E|\neg H)_{\text{computer science}} = 0.7 \\
+  
+  P(H)_{\text{agricultural and veterinary science}} = 0.1 \\
+  P(E|H)_{\text{agricultural and veterinary science}} = 0.9 \\
+  P(E|\neg H)_{\text{agricultural and veterinary science}} = 0.4 \\
+\end{cases}
+\]
+
+Compute \( P(H|E) \) (without normalization):
+
+- For **Business Administration**:
+  \[
+  P(H|E) \propto P(E|H) \cdot P(H) = 0.1 * 0.2 = 0.02
+  \]
+
+- For **Computer Science**:
+  \[
+  P(H|E) \propto P(E|H) \cdot P(H) = 0.5 * 0.3 = 0.15
+  \]
+
+- For **Agricultural and Veterinary Science**:
+  \[
+  P(H|E) \propto P(E|H) \cdot P(H) = 0.9 * 0.1 = 0.09
+  \]
+
+Normalizing these values (optional for proportional logic):
+
+Here are the results:
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.15,
+  "agricultural and veterinary science": 0.09
+}
+```

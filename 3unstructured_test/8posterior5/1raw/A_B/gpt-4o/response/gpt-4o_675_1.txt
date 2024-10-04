@@ -1,0 +1,71 @@
+Firstly, let's summarize what we know:
+
+### Prior Probability, P(H)
+We do not have specific information about the distributions of graduate students in various fields in the U.S., but we can reasonably assume that the field of "agricultural and veterinary science" has fewer students compared to "business administration," given the higher popularity of business-related programs.
+
+So let's assign some plausible initial values:
+
+- P(H₁): The probability that Adam was enrolled in agricultural and veterinary science
+- P(H₂): The probability that Adam was enrolled in business administration
+
+A rough estimate might be:
+- P(H₁) = 0.15
+- P(H₂) = 0.35
+
+### Likelihoods, P(E|H) and P(E|¬H)
+These likelihoods are determined by how well the personality sketch (E) aligns with each field.
+
+- P(E|H₁): Probability of observing Adam's traits given he was in agricultural and veterinary science.
+  Based on Adam's described interests and traits (curiosity about nature, love for animals, empathy, and dedication), it is very likely that he would be in this field.
+
+Let's assign a high value:
+- P(E|H₁) = 0.9
+
+- P(E|H₂): Probability of observing Adam's traits given he was in business administration.
+  Since business administration typically focuses on analytics, strategy, and leadership, it might not align as naturally with Adam's interests.
+
+Let's assign a lower value:
+- P(E|H₂) = 0.2
+
+The prior probabilities P(E|¬H) will be different for each hypothesis. For simplicity, let’s denote it as the complement probability of being in that particular field:
+
+- P(E|¬H₁): The probability of observing Adam's traits given he was in any field except agricultural and veterinary science.
+  This is hard to estimate precisely, but we might guess that fields other than agricultural and veterinary science would share certain characteristics, making this value lower:
+
+- P(E|¬H₁) = 0.2
+
+- P(E|¬H₂): The probability of observing Adam's traits given he was in any field except business administration.
+  Since business administration is broader and Adam's traits less likely to fit, let's assign a slightly higher value for this complement:
+
+- P(E|¬H₂) = 0.7
+
+### Posterior Probability, P(H|E) Calculation Using Bayes' Rule
+
+Bayes' Rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \).
+
+Let’s calculate for each field.
+
+#### Agricultural and Veterinary Science:
+\[ P(E) \text{ (for agricultural and veterinary science)} = (0.9 \times 0.15) + (0.2 \times 0.85) = 0.135 + 0.17 = 0.305 \]
+
+Thus, for agricultural and veterinary science:
+\[ P(H|E) = \frac{0.9 \times 0.15}{0.305} = \frac{0.135}{0.305} \approx 0.442 \]
+
+#### Business Administration:
+\[ P(E) \text{ (for business administration)} = (0.2 \times 0.35) + (0.7 \times 0.65) = 0.07 + 0.455 = 0.525 \]
+
+Thus, for business administration:
+\[ P(H|E) = \frac{0.2 \times 0.35}{0.525} = \frac{0.07}{0.525} \approx 0.133 \]
+
+Here's the final output:
+
+```json
+{
+  "agricultural and veterinary science": 0.442,
+  "business administration": 0.133
+}
+```

@@ -1,0 +1,67 @@
+To solve this problem using Bayes' rule, we need to judge the different probabilities involved:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a given field.
+- \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam was enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing the evidence \( E \) given that Adam was not enrolled in that field.
+- \( P(H|E) \): The posterior probability that Adam was enrolled in that field given the evidence \( E \).
+
+Let's break this down for each field.
+
+### Agricultural and Veterinary Science
+
+#### Prior \( P(H) \)
+This is the probability that any given graduate student is in the field of agricultural and veterinary science. Let's assume that this field has a moderate popularity among graduate students, so we set:
+\( P(H)_{agri} = 0.15 \)
+
+#### Likelihood \( P(E|H) \)
+Adam's personality sketch fits well with agricultural and veterinary science, given his love for nature, animals, and his empathy. So, we can assume this likelihood to be relatively high:
+\( P(E|H)_{agri} = 0.8 \)
+
+#### Likelihood \( P(E|\neg H) \)
+This is the probability that Adam's personality sketch fits the description of someone **not** in agricultural and veterinary science. Since his interests are quite aligned with this field, the probability of the sketch fitting a different field would be somewhat lower:
+\( P(E|\neg H)_{agri} = 0.2 \)
+
+Now, let's compute the posterior probability using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.8 \cdot 0.15 + 0.2 \cdot 0.85 = 0.12 + 0.17 = 0.29 \]
+
+Thus,
+\[ P(H|E)_{agri} = \frac{0.8 \cdot 0.15}{0.29} = \frac{0.12}{0.29} \approx 0.41 \]
+
+### Business Administration
+
+#### Prior \( P(H) \)
+The probability that any given graduate student is in the field of business administration. Let's assume this field has a high popularity among graduate students:
+\( P(H)_{biz} = 0.25 \)
+
+#### Likelihood \( P(E|H) \)
+Adam's personality sketch does not strongly align with the typical business administration interests. So, we assume:
+\( P(E|H)_{biz} = 0.2 \)
+
+#### Likelihood \( P(E|\neg H) \)
+This is the probability that Adam's personality sketch fits the description of someone **not** in business administration. So, we assume this to be relatively high:
+\( P(E|\neg H)_{biz} = 0.8 \)
+
+Now, let's compute the posterior probability using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.2 \cdot 0.25 + 0.8 \cdot 0.75 = 0.05 + 0.6 = 0.65 \]
+
+Thus,
+\[ P(H|E)_{biz} = \frac{0.2 \cdot 0.25}{0.65} = \frac{0.05}{0.65} \approx 0.077 \]
+
+Finally, the results are:
+
+```json
+{
+  "agricultural and veterinary science": 0.41,
+  "business administration": 0.077
+}
+```
+
+These values represent the posterior probabilities \( P(H|E) \) that Adam was enrolled in each of the specified fields given his personality sketch.

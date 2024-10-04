@@ -1,0 +1,55 @@
+To compute \( P(H|E) \) using Bayes' rule, we can use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we don't have \( P(E) \), we can use the fact that we are comparing only computer science (CS) and agricultural and veterinary science (AVS). Therefore, we can focus on the relative values rather than absolute probabilities. 
+
+For each field, we need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \):
+
+1. **Computer Science**
+   - \( P(H_{\text{CS}}) \): Computer Science is a common field for graduate students.
+   - \( P(E|H_{\text{CS}}) \): Attributes in E don't strongly suggest computer science specifically.
+   - \( P(E|\neg H_{\text{CS}}) \): Since E suggests nature, animals, and agriculture more than tech and algorithms, this should be lower than P(E|H_{AVS}).
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H_{\text{AVS}}) \): This is a less common field in comparison to CS.
+   - \( P(E|H_{\text{AVS}}) \): Attributes in E align well with this field.
+   - \( P(E|\neg H_{\text{AVS}}) \): Since E suggests nature, animals, and agriculture, this should be higher than P(E|\neg H_{\text{CS}}).
+
+Let's arbitrarily set fair estimations knowing these coarse assessments.
+
+For **computer science**:
+- \( P(H_{\text{CS}}) = 0.3 \)
+- \( P(E|H_{\text{CS}}) = 0.05 \)
+- \( P(E|\neg H_{\text{CS}}) = 0.2 \)
+
+For **agricultural and veterinary science**:
+- \( P(H_{\text{AVS}}) = 0.1 \)
+- \( P(E|H_{\text{AVS}}) = 0.8 \)
+- \( P(E|\neg H_{\text{AVS}}) = 0.1 \)
+
+Using Bayes' Rule for each field:
+- For computer science:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.05 \cdot 0.3}{P(E)} \]
+
+- For agricultural and veterinary science:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+Since we are comparing relative posterior probabilities:
+\[ P(H_{\text{CS}}|E) = \frac{0.05 \cdot 0.3}{P(E)} = 0.015/P(E) \]
+\[ P(H_{\text{AVS}}|E) = \frac{0.8 \cdot 0.1}{P(E)} = 0.08/P(E) \]
+
+The relative likelihoods:
+- For computer science = 0.015
+- For agricultural and veterinary science = 0.08
+
+Normalizing (summing to 1 for these two to get relative posteriors):
+\[ P(H_{\text{CS}}|E) = \frac{0.015}{0.015 + 0.08} = \frac{0.015}{0.095} \approx 0.158 \]
+\[ P(H_{\text{AVS}}|E) = \frac{0.08}{0.015 + 0.08} = \frac{0.08}{0.095} \approx 0.842 \]
+
+Thus:
+
+{
+  "computer science": 0.158,
+  "agricultural and veterinary science": 0.842
+}

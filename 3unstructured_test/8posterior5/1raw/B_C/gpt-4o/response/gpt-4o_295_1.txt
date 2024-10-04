@@ -1,0 +1,71 @@
+To estimate the probabilities, we'll begin by assigning subjective probabilities based on Adam's personality traits and how they align with each field. Here's the step-by-step process:
+
+1. **Prior Probability (P(H))**: 
+   - This is our belief about the likelihood of Adam enrolling in each field before considering his personality sketch.
+
+2. **Likelihood (P(E|H))**: 
+   - This is the probability of observing Adam's personality traits given that he is in a particular field.
+
+3. **Marginal Likelihood (P(E|\neg H))**:
+   - This is the probability of observing Adam's personality traits given that he is in any other field.
+
+4. **Posterior Probability (P(H|E))**: 
+   - Using Bayes' Rule: \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+   - Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+Let's assume some subjective probabilities for these calculations.
+
+### Computer Science
+
+1. **P(H_CS)**: Prior probability that any student is enrolled in Computer Science.
+   - Since Computer Science is a popular field, let's assume P(H_CS) = 0.2
+
+2. **P(E|H_CS)**: Likelihood that Adam's specific traits would be observed given that he studies Computer Science.
+   - Adam is high in intelligence and good at abstract concepts, traits that align well with Computer Science: P(E|H_CS) = 0.6
+
+3. **P(E|\neg H_CS)**: Likelihood of observing these traits in someone not in Computer Science.
+   - These can be general traits, but not as specialized, so let’s assume P(E|\neg H_CS) = 0.2
+
+### Business Administration
+
+1. **P(H_BA)**: Prior probability that any student is enrolled in Business Administration.
+   - Business Administration is also a common field, so let's assume P(H_BA) = 0.15
+
+2. **P(E|H_BA)**: Likelihood that Adam's traits would be observed in someone studying Business Administration.
+   - While traits like empathy and understanding hard work align, his love for nature and animals less so: P(E|H_BA) = 0.3
+
+3. **P(E|\neg H_BA)**: Likelihood of observing these traits in someone not in Business Administration.
+   - Relatively agnostic, but a bit higher than for general non-computer science: P(E|\neg H_BA) = 0.25
+
+Based on these assumptions, we can calculate the probabilities using Bayes' rule.
+
+### Posterior Probability Calculations
+
+#### Computer Science (CS)
+
+1. **P(E_CS)** = P(E|H_CS) * P(H_CS) + P(E|\neg H_CS) * (1 - P(H_CS))
+   - P(E_CS) = 0.6 * 0.2 + 0.2 * (1 - 0.2)
+   - P(E_CS) = 0.12 + 0.16 = 0.28
+
+2. **P(H_CS|E)** = P(E|H_CS) * P(H_CS) / P(E_CS)
+   - P(H_CS|E) = 0.6 * 0.2 / 0.28
+   - P(H_CS|E) ≈ 0.4286
+
+#### Business Administration (BA)
+
+1. **P(E_BA)** = P(E|H_BA) * P(H_BA) + P(E|\neg H_BA) * (1 - P(H_BA))
+   - P(E_BA) = 0.3 * 0.15 + 0.25 * (1 - 0.15)
+   - P(E_BA) = 0.045 + 0.2125 = 0.2575
+
+2. **P(H_BA|E)** = P(E|H_BA) * P(H_BA) / P(E_BA)
+   - P(H_BA|E) = 0.3 * 0.15 / 0.2575
+   - P(H_BA|E) ≈ 0.1748
+
+Final summary:
+
+```json
+{
+  "computer science": 0.4286,
+  "business administration": 0.1748
+}
+```

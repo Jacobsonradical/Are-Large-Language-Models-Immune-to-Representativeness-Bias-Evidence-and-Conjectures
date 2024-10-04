@@ -1,0 +1,36 @@
+Firstly, we have to assess the prior probability \( P(H) \) for each field, as well as the likelihoods \( P(E|H) \) and \( P(E|\neg H) \). Let’s calculate each field one by one:
+
+### Business Administration
+- **Prior Probability \( P(H) \)**: Given the general distribution of graduate students, we can assume a moderate prior probability for business administration. Let's use \( P(H) = 0.2 \).
+- **Likelihood \( P(E|H) \)**: The description of Adam's personality—his curiosity about nature, love for animals, and empathy—doesn't strongly suggest business administration. Business administration typically attracts people with more interest in management, economics, and less nature-focused. So, \( P(E|H) \) might be relatively low. Let’s say \( P(E|H) = 0.1 \).
+- **Likelihood \( P(E|\neg H) \)**: Since there are many other fields Adam could be enrolled in that match his interests better, \( P(E|\neg H) \) could be higher. Let’s say \( P(E|\neg H) = 0.4 \).
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \)**: Given the distribution of graduate students, this field is less common than business, but it matches Adam’s profile well. Let’s use \( P(H) = 0.1 \).
+- **Likelihood \( P(E|H) \)**: Adam’s personality sketch strongly aligns with someone studying Agricultural and Veterinary Science. His interests in nature, animals, empathy, and dedication align well. So, \( P(E|H) \) might be high. Let’s say \( P(E|H) = 0.8 \).
+- **Likelihood \( P(E|\neg H) \)**: For other professions, the likelihood of them matching Adam’s profile might be moderate. Let’s use \( P(E|\neg H) = 0.4 \).
+
+Now, let’s use Bayes' Rule to compute the posterior probabilities \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+### Business Administration
+\[ P(H|E) = \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.4 \times 0.8} \]
+\[ P(H|E) = \frac{0.02}{0.02 + 0.32} \]
+\[ P(H|E) = \frac{0.02}{0.34} \]
+\[ P(H|E) \approx 0.0588 \]
+
+### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.4 \times 0.9} \]
+\[ P(H|E) = \frac{0.08}{0.08 + 0.36} \]
+\[ P(H|E) = \frac{0.08}{0.44} \]
+\[ P(H|E) \approx 0.1818 \]
+
+So the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0588,
+  "agricultural and veterinary science": 0.1818
+}
+```

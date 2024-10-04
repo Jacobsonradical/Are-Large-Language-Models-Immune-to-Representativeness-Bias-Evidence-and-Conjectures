@@ -1,0 +1,44 @@
+To solve this problem using Bayes' rule, we need to consider the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihoods \( P(E|\neg H) \). Here, \( E \) is the personality sketch of Adam, and \( H \) represents the hypothesis that Adam is enrolled in a specific field. 
+
+First, let's make reasonable assumptions about the priors and likelihoods.
+
+#### Business Administration
+- **\( P(H) \)**: The prior probability of Adam being enrolled in Business Administration. Given that this is a common field, let's assume \( P(H) = 0.2 \).
+- **\( P(E|H) \)**: The probability of observing Adam's personality sketch given that he is in Business Administration. Given the emphasis on nature, puzzles, animals, and abstract concepts, this seems relatively low. Let’s assume \( P(E|H) = 0.05 \).
+- **\( P(E|\neg H) \)**: The probability of observing Adam's personality sketch given that he is not in Business Administration. This would be higher because other fields might better match his personality traits. Let’s assume \( P(E|\neg H) = 0.15 \).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Let's make an estimate that there’s a high probability for fields outside Business Administration due to the personality traits (so giving 0.8) to \( P(\neg H) \).
+
+\[ P(E) = 0.05 \cdot 0.2 + 0.15 \cdot 0.8 \]
+\[ P(E) = 0.01 + 0.12 = 0.13 \]
+
+Then:
+\[ P(H|E) = \frac{0.05 \cdot 0.2}{0.13} \]
+\[ P(H|E) = \frac{0.01}{0.13} \approx 0.077 \]
+
+#### Computer Science
+- **\( P(H) \)**: The prior probability of Adam being enrolled in Computer Science. Given the popularity of this field, let’s assume \( P(H) = 0.2 \).
+- **\( P(E|H) \)**: The probability of observing Adam's personality sketch given that he is in Computer Science. This seems higher because of the interest in puzzles and abstract concepts. Let’s assume \( P(E|H) = 0.4 \).
+- **\( P(E|\neg H) \)**: The probability of observing Adam's personality sketch given that he is not in Computer Science. This might be the same or slightly less than Business Administration. Let’s assume \( P(E|\neg H) = 0.1 \).
+
+Using Bayes' rule again:
+\[ P(E) = 0.4 \cdot 0.2 + 0.1 \cdot 0.8 \]
+\[ P(E) = 0.08 + 0.08 = 0.16 \]
+
+Then:
+\[ P(H|E) = \frac{0.4 \cdot 0.2}{0.16} \]
+\[ P(H|E) = \frac{0.08}{0.16} = 0.5 \]
+
+Compiling these values into the requested format:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.5
+}
+```

@@ -1,0 +1,88 @@
+Let's break down the information step-by-step to calculate \( P(H|E) \) for each hypothesis (business administration and computer science) using Bayes' Theorem. Bayes' Theorem states that:
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+\]
+
+We need to estimate three probabilities for each field:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch given that he was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he was not enrolled in that field.
+
+### 1. Business Administration
+#### Estimating Probabilities:
+
+- \( P(H_{\text{BA}}) \): Let's assume 10% (0.1) of graduate students are in Business Administration.
+- \( P(E|H_{\text{BA}}) \): How well the personality sketch fits a Business Administration student. Given Adam's qualities like solving puzzles, empathy, and appreciation for hard work, we can somewhat loosely fit it to Business Administration (for example, empathy and hard work might be common, but curiosity about nature and animals may not be). Let's estimate it as 0.2.
+- \( P(E|\neg H_{\text{BA}}) \): Considering that \( \neg H_{\text{BA}} \) includes all other fields, and given Adam’s specific traits, let’s estimate this as 0.4.
+
+Using Bayes' Theorem:
+\[ 
+P(H_{\text{BA}}|E) = \frac{0.2 \times 0.1}{P(E)} 
+\]
+
+### 2. Computer Science
+#### Estimating Probabilities:
+
+- \( P(H_{\text{CS}}) \): Let's assume 15% (0.15) of graduate students are in Computer Science.
+- \( P(E|H_{\text{CS}}) \): Adam's traits such as solving puzzles, high intelligence, understanding abstract concepts seem very fitting for Computer Science. Empathy and curiosity for nature might be less but still relevant given multidisciplinary research. Let's estimate it as 0.5.
+- \( P(E|\neg H_{\text{CS}}) \): Since this includes many other fields, let's estimate this as 0.3.
+
+Using Bayes' Theorem:
+\[ 
+P(H_{\text{CS}}|E) = \frac{0.5 \times 0.15}{P(E)} 
+\]
+
+### Normalization Factor \( P(E) \):
+\[ 
+P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + ... 
+\]
+
+For simplicity, let's assume the other fields and their cumulative contribution to not be calculated explicitly, as this is a relative comparison. \( P(E) \) will act as a normalizer.
+
+### Final Calculation:
+
+Given we are mostly interested in relative probabilities:
+
+For Business Administration:
+\[ 
+P(H_{\text{BA}}|E) = \frac{0.2 \times 0.1}{P(E)} = \frac{0.02}{P(E)}
+\]
+
+For Computer Science:
+\[ 
+P(H_{\text{CS}}|E) = \frac{0.5 \times 0.15}{P(E)} = \frac{0.075}{P(E)}
+\]
+
+### Relative Probabilities:
+The factor \( P(E) \) will be common and cancels out in a relative comparison, so we compare:
+
+\[ 
+P(H_{\text{BA}}|E) \approx 0.02 
+\]
+\[ 
+P(H_{\text{CS}}|E) \approx 0.075 
+\]
+
+Normalizing these for comparison:
+
+\[ 
+\text{Normalization Factor} = 0.02 + 0.075 = 0.095
+\]
+
+\[ 
+P(H_{\text{BA}}|E) \approx \frac{0.02}{0.095} \approx 0.21
+\]
+\[ 
+P(H_{\text{CS}}|E) \approx \frac{0.075}{0.095} \approx 0.79
+\]
+
+Hence, the approximate posterior probabilities are:
+
+```json
+{
+  "business administration": 0.21,
+  "computer science": 0.79
+}
+```

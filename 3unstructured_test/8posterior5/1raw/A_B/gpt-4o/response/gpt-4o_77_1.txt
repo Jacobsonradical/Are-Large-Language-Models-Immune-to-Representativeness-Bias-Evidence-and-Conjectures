@@ -1,0 +1,38 @@
+To compute the probabilities requested, we will need to make reasonable assumptions for P(H), P(E|H), and P(E|¬H) based on the personality sketch provided. 
+
+Let's assume some initial probabilities:
+- P(H_business): Probability that Adam was enrolled in business administration
+- P(H_agri_vet): Probability that Adam was enrolled in agricultural and veterinary science
+
+We will apply Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, because we don't have the exact value of P(E) (the total probability of the evidence), we'll reason through the problem.
+
+### Business Administration
+- **P(H_business):** Assume that business administration is a common field, P(H_business) ≈ 0.10 (10%).
+- **P(E|H_business):** The probability that Adam's personality fits business administration is likely low. Adam's curiosity about nature, love for animals, and empathy are not typically primary traits seen in business administration students. P(E|H_business) ≈ 0.05 (5%).
+- **P(E|¬H_business):** The probability that Adam's personality sketch fits other fields is higher. Given a multitude of other fields fitting his personality sketch, P(E|¬H_business) ≈ 0.95 (95%).
+
+Applying Bayes' theorem:
+\[ P(H|E)_{business} = \frac{0.05 \cdot 0.10}{0.05 \cdot 0.10 + 0.95 \cdot 0.90} \]
+\[ P(H|E)_{business} = \frac{0.005}{0.005 + 0.855} \]
+\[ P(H|E)_{business} ≈ 0.0058 \ (0.58\%) \]
+
+### Agricultural and Veterinary Science
+- **P(H_agri_vet):** Assume that agricultural and veterinary science is less common than business administration but still reasonably chosen. P(H_agri_vet) ≈ 0.05 (5%).
+- **P(E|H_agri_vet):** The probability that Adam's personality fits agricultural and veterinary sciences is very high as his traits align well with the field. P(E|H_agri_vet) ≈ 0.90 (90%).
+- **P(E|¬H_agri_vet):** The probability that Adam's personality sketch fits other fields (excluding agricultural and veterinary science) is lower as his traits are a strong match for this field. Still, many other fields remain. P(E|¬H_agri_vet) ≈ 0.50 (50%).
+
+Applying Bayes' theorem:
+\[ P(H|E)_{agri_vet} = \frac{0.90 \cdot 0.05}{0.90 \cdot 0.05 + 0.50 \cdot 0.95} \]
+\[ P(H|E)_{agri_vet} = \frac{0.045}{0.045 + 0.475} \]
+\[ P(H|E)_{agri_vet} ≈ 0.0861 \ (8.61\%) \]
+
+Here's the summary:
+```json
+{
+  "business administration": 0.0058,
+  "agricultural and veterinary science": 0.0861
+}
+```

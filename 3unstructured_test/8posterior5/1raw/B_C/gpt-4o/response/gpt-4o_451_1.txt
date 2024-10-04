@@ -1,0 +1,52 @@
+To compute the posterior probabilities \( P(H|E) \) for the hypotheses that Adam was enrolled in either business administration or computer science in 2021, we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability that Adam was enrolled in a given field,
+- \( P(E|H) \) is the likelihood of observing the evidence given that Adam was enrolled in a given field,
+- \( P(E|\neg H) \) is the probability of observing the evidence given that Adam was not enrolled in the given field,
+- \( P(E) \) is the overall probability of observing the evidence.
+
+Assuming we have little to no prior information about the distribution of students across different fields, we can assign a uniform prior probability \( P(H) \) to each field for simplicity. Let’s take \( P(H) = 0.5 \) for both business administration and computer science as a starting point.
+
+Next, let's consider \( P(E|H) \) for each field by assessing how well Adam's personality sketch matches with typical students in these fields.
+
+### Business Administration
+
+- \( P(E|H) \): Business administration may not strongly align with a love for nature, puzzles, and animals. Empathy and intelligence are relevant but perhaps less definitive. Let's assume a moderate-low likelihood.
+- \( P(E|\neg H) \): This represents the probability of observing the evidence if Adam were not in business administration, which we assume is higher than the likelihood in business administration because the profile seems to fit less with a business setting. Again, we'll assume a moderate-high likelihood.
+
+### Computer Science
+
+- \( P(E|H) \): Computer science students often enjoy solving puzzles and understanding abstract concepts. Although the evidence of a strong empathy and love for nature and animals is not typical, it’s not contradictory either. Assume a moderate-high likelihood.
+- \( P(E|\neg H) \): This represents the probability of observing the evidence if Adam were not in computer science. We assume a moderate likelihood since his skills and personality traits could fit in non-CS fields.
+
+Let’s assign arbitrary likelihood values to illustrate the process:
+
+### Business Administration
+- \( P(E|H_{\text{BA}}) = 0.3 \)
+- \( P(E|\neg H_{\text{BA}}) = 0.6 \)
+
+### Computer Science
+- \( P(E|H_{\text{CS}}) = 0.7 \)
+- \( P(E|\neg H_{\text{CS}}) = 0.5 \)
+
+Using Bayes’ theorem:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+We must normalize these probabilities because \( P(E) \) remains constant for all hypotheses. For actual numerical computation:
+\[ P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.3 \times 0.5 + 0.7 \times 0.5 = 0.15 + 0.35 = 0.5 \]
+
+Thus:
+\[ P(H_{\text{BA}}|E) = \frac{0.3 \times 0.5}{0.5} = 0.3 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.7 \times 0.5}{0.5} = 0.7 \]
+
+So the resulting probabilities are:
+```json
+{
+  "business administration": 0.3,
+  "computer science": 0.7
+}
+```

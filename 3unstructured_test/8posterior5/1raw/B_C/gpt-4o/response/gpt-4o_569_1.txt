@@ -1,0 +1,60 @@
+To determine \( P(H|E) \) for each field, we ultimately need to assess the likelihood of Adam’s personality sketch given enrollment in each respective field, as well as without enrollment in each. Let's consider the factors given in the personality sketch to guide our estimates.
+
+### Reasoning:
+1. **Computer Science:**
+   - **P(H), the prior probability that Adam was enrolled in computer science**:
+     - Generally, computer science is a popular graduate field, making P(H) relatively moderate. Let's assume \( P(H) = 0.20 \).
+
+   - **P(E|H), the probability of observing the personality sketch given that Adam is enrolled in computer science**:
+     - Adam's high intelligence and abstract thinking fit well with computer science. Being introverted and good at puzzles also aligns. Thus, \( P(E|H) \) is notably high. Let's assume \( P(E|H) = 0.50 \).
+
+   - **P(E| \neg H), the probability of observing the personality sketch given that Adam is not in computer science**:
+     - The personality sketch details could fit various fields. Give this a relatively moderate probability. Let's assume \( P(E| \neg H) = 0.25 \).
+
+   - **P(H|E), using Bayes' Rule**:
+     \[
+     P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+     \]
+     \[
+     P(E) = P(E|H) \cdot P(H) + P(E| \neg H) \cdot P(\neg H)
+     \]
+     \[
+     P(E) = 0.50 \cdot 0.20 + 0.25 \cdot 0.80 = 0.10 + 0.20 = 0.30
+     \]
+     \[
+     P(H|E) = \frac{0.50 \cdot 0.20}{0.30} \approx 0.33
+     \]
+
+2. **Business Administration:**
+   - **P(H), the prior probability that Adam was enrolled in business administration**:
+     - Business administration is also a common graduate field, but typically people in this field might not strongly align with the given personality traits. Let's assume \( P(H) = 0.10 \).
+
+   - **P(E|H), the probability of observing the personality sketch given that Adam is enrolled in business administration**:
+     - Adam's traits (e.g., quiet, appreciation for hard work, empathy, not typically inclined toward business administration). Thus, \( P(E|H) \) is lower. Let's assume \( P(E|H) = 0.10 \).
+
+   - **P(E| \neg H), the probability of observing the personality sketch given that Adam is not in business administration**:
+     - Again, the traits apply across other fields similarly, so this stays moderate. Let’s assume \( P(E| \neg H) = 0.25 \).
+
+   - **P(H|E), using Bayes' Rule**:
+     \[
+     P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+     \]
+     \[
+     P(E) = P(E|H) \cdot P(H) + P(E| \neg H) \cdot P(\neg H)
+     \]
+     \[
+     P(E) = 0.10 \cdot 0.10 + 0.25 \cdot 0.90 = 0.01 + 0.225 = 0.235
+     \]
+     \[
+     P(H|E) = \frac{0.10 \cdot 0.10}{0.235} \approx 0.043
+     \]
+
+### Final Probabilities:
+Given these calculations, here are the posterior probabilities:
+
+```json
+{
+  "computer science": 0.33,
+  "business administration": 0.043
+}
+```

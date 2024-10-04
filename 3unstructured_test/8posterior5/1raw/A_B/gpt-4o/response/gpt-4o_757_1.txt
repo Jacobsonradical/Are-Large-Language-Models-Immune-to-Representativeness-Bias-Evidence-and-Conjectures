@@ -1,0 +1,53 @@
+First, let's establish the relevant probabilities. 
+
+For **business administration (H1)**:
+- \( P(H1) \): the general probability that a graduate student is in business administration.
+- \( P(E|H1) \): the probability of Adam's personality sketch given he is in business administration.
+- \( P(E|\neg H1) \): the probability of Adam's personality sketch given he is not in business administration.
+- \( P(H1|E) \): the posterior probability that Adam is in business administration given his personality sketch (which we will calculate using Bayes' rule).
+
+For **agricultural and veterinary science (H2)**:
+- \( P(H2) \): the general probability that a graduate student is in agricultural and veterinary science.
+- \( P(E|H2) \): the probability of Adam's personality sketch given he is in agricultural and veterinary science.
+- \( P(E|\neg H2) \): the probability of Adam's personality sketch given he is not in agricultural and veterinary science.
+- \( P(H2|E) \): the posterior probability that Adam is in agricultural and veterinary science given his personality sketch (which we will calculate using Bayes' rule).
+
+### Assigning Probabilities
+
+#### Business Administration (H1)
+- \( P(H1) \): Business administration is a common graduate field. Let's assume this probability to be 0.15.
+- \( P(E|H1) \): Given Adam’s traits (love for nature, animals, and puzzles), these traits don't strongly align with business administration. We might estimate this probability to be low, around 0.02.
+- \( P(E|\neg H1) \): The given personality sketch is somewhat rare for business administration but more common outside of it. Let's assume this to be higher, around 0.1.
+
+Bayes' Rule: 
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \]
+
+Since \( P(E) = P(E|H1) \cdot P(H1) + P(E|\neg H1) \cdot P(\neg H1) \), this needs to be computed. We know:
+- \( P(\neg H1) = 1 - P(H1) = 0.85 \)
+- \( P(E) = (0.02 \cdot 0.15) + (0.1 \cdot 0.85) = 0.003 + 0.085 = 0.088 \)
+
+So:
+\[ P(H1|E) = \frac{0.02 \cdot 0.15}{0.088} \approx 0.034 \]
+
+#### Agricultural and Veterinary Science (H2)
+- \( P(H2) \): Agricultural and veterinary science is less common but relevant. Let's assume this probability to be 0.05.
+- \( P(E|H2) \): Adam’s traits strongly align with agricultural and veterinary interests. We might estimate this probability to be high, around 0.5.
+- \( P(E|\neg H2) \): These traits for someone not in agricultural and veterinary science reduce, let this be around 0.05.
+
+Bayes' Rule:
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \]
+
+Using similar approach as before:
+- \( P(\neg H2) = 1 - P(H2) = 0.95 \)
+- \( P(E) = (0.5 \cdot 0.05) + (0.05 \cdot 0.95) = 0.025 + 0.0475 = 0.0725 \)
+
+So:
+\[ P(H2|E) = \frac{0.5 \cdot 0.05}{0.0725} \approx 0.345 \]
+
+### Final Answer:
+```json
+{
+  "business administration": 0.034,
+  "agricultural and veterinary science": 0.345
+}
+```

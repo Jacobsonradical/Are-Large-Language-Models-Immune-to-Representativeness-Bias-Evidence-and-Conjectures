@@ -1,0 +1,60 @@
+To solve this, we need to assign reasonable values to the probabilities and then use Bayes' theorem to compute \( P(H|E) \), the probability that Adam was enrolled in a given field given his personality sketch.
+
+Bayes' theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) \) is constant across both hypotheses, we can simplify our calculations by just comparing the numerators for each field.
+
+### Computer Science
+#### Initial Probabilities
+- \( P(H) = P(\text{Adam was enrolled in Computer Science}) \)
+  - Let’s assume \( P(H) \approx 0.15 \) (computer science is a common field but not the most common among graduate students).
+
+- \( P(E|H) = P(\text{Adam has such a personality given he's in computer science}) \)
+  - Adam’s traits such as quietness, high intelligence, and good understanding of abstract concepts fit well with a typical computer science student. Thus, \( P(E|H) \approx 0.6 \).
+
+- \( P(E|\neg H) = P(\text{Adam has such a personality given he's not in computer science}) \)
+  - Adam's traits could also fit other fields, so we’ll assume \( P(E|\neg H) \approx 0.3 \) (though it's less likely compared to computer science specifically).
+
+#### Calculation
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.6 \cdot 0.15 = 0.09 \]
+
+### Business Administration
+#### Initial Probabilities
+- \( P(H) = P(\text{Adam was enrolled in Business Administration}) \)
+  - Let’s assume \( P(H) \approx 0.10 \) (business administration is fairly common among graduate programs).
+
+- \( P(E|H) = P(\text{Adam has such a personality given he's in business administration}) \)
+  - Traits like solving puzzles and love for animals don’t align very well with typical business administration students. Thus, \( P(E|H) \approx 0.2 \).
+
+- \( P(E|\neg H) = P(\text{Adam has such a personality given he's not in business administration}) \)
+  - Since business administration can fit broadly skilled individuals, \( P(E|\neg H) \approx 0.4 - more moderate compared to other non-CS fields\).
+
+#### Calculation
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.10 = 0.02 \]
+
+### Summary
+The normalized ratios for the two fields:
+- **Computer Science**: \( 0.09 \)
+- **Business Administration**: \( 0.02 \)
+
+Thus, using reasonable approximations for probability values and given Adam's personality sketch, we expect the following Bayesian inference:
+
+```json
+{
+  "computer science": "0.75",
+  "business administration": "0.25"
+}
+```
+
+Please note, these values are relative to each other and not necessarily between 0 and 1, since there exist other fields. If we are considering only these two fields and normalize such that their sum is 1, we get:
+
+- Computer Science: \( \frac{0.09}{0.09 + 0.02} \approx 0.82 \)
+- Business Administration: \( \frac{0.02}{0.09 + 0.02} \approx 0.18 \)
+
+```json
+{
+  "computer science": "0.82",
+  "business administration": "0.18"
+}
+```

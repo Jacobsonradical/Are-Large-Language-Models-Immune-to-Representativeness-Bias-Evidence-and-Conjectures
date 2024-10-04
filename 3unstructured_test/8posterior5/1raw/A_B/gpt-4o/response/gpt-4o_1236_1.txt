@@ -1,0 +1,50 @@
+To compute the probabilities, we need to use Bayes' rule, which is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a given field given his personality sketch.
+- \( P(E|H) \) is the probability of the personality sketch given that Adam was enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the overall probability of the personality sketch.
+
+For simplicity, I'll assume the prior probabilities \( P(H) \) are the same for both fields (though in reality they might not be). Let's assume \( P(H) = 0.1 \) for both fields as a rough approximation since there are many possible fields.
+
+### Agricultural and Veterinary Science
+- \( P(E|H) \): Adam's personality traits align well with this field. He has a genuine curiosity about nature and plants, a love for animals, and empathy. These traits would be highly relevant.
+  - Let's approximate \( P(E|H) = 0.7 \).
+
+- \( P(E|\neg H) \): Assuming there are many fields and thus a variety of personalities, the probability of Adam having this set of traits if he were in another field besides agricultural and veterinary science might be lower.
+  - Let's approximate \( P(E|\neg H) = 0.2 \).
+
+### Business Administration
+- \( P(E|H) \): While Adam's problem-solving skills and high intelligence might be relevant, his other traits (curiosity about nature, love for animals, empathy) are less directly aligned with business administration.
+  - Let's approximate \( P(E|H) = 0.2 \).
+
+- \( P(E|\neg H) \): Similar reasoning as before but considering fields outside business administration, where empathy, love for animals, and curiosity about nature are less common.
+  - Let's approximate \( P(E|\neg H) = 0.5 \).
+
+Now, let's compute \( P(H|E) \) for each field using Bayes' rule:
+- The marginal probability \( P(E) \) can be computed by the law of total probability:
+  \[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity, assume \( P(\neg H) = 0.9 \) for both fields (since \( P(H) = 0.1 \)).
+
+1. **Agricultural and Veterinary Science:**
+  - \( P(E) = 0.7 \cdot 0.1 + 0.2 \cdot 0.9 = 0.07 + 0.18 = 0.25 \)
+  - \( P(H|E) = \frac{0.7 \cdot 0.1}{0.25} = 0.28 \)
+
+2. **Business Administration:**
+  - \( P(E) = 0.2 \cdot 0.1 + 0.5 \cdot 0.9 = 0.02 + 0.45 = 0.47 \)
+  - \( P(H|E) = \frac{0.2 \cdot 0.1}{0.47} \approx 0.04 \)
+
+Putting this all together:
+
+```json
+{
+  "agricultural and veterinary science": 0.28,
+  "business administration": 0.04
+}
+```
+
+These numbers suggest that, given Adam's personality sketch, it is more likely that he was enrolled in agricultural and veterinary science than business administration in 2021.

@@ -1,0 +1,65 @@
+Sure, let’s go through the Bayesian inference process for each hypothesis.
+
+### Computer Science
+
+#### P(H) – Prior Probability
+The probability of being enrolled in Computer Science (CS) without any other information. Given it’s a very common field, let’s assign it a moderate probability: 
+\[ P(\text{CS}) = 0.3 \]
+
+#### P(E|H) – Likelihood
+The probability of Adam’s personality sketch E given that he is in CS.
+- Genuine curiosity about nature and plants: This is not highly typical for CS students but not impossible either.
+- Quiet, enjoys solving puzzles: Fits well with a CS profile.
+- Warm heart, empathy, love for animals and appreciates hard work: Not much differentiation here for CS students.
+
+Since some aspects fit well and others do not, let’s assign it a moderate value: 
+\[ P(E|\text{CS}) = 0.5 \]
+
+#### P(E|¬H) – Likelihood of personality sketch given not in CS
+We need to consider the likelihood of Adam’s characteristics for non-CS fields, which is quite broad. Likelihood might be slightly higher given the range of fields matches his profile more closely:
+
+\[ P(E|\neg \text{CS}) = 0.6 \]
+
+### Agricultural and Veterinary Science
+
+#### P(H) – Prior Probability
+The probability of being enrolled in Agricultural and Veterinary Science (AVS) is presumably lower than CS due to fewer students typically enrolling. Let’s reasonably assume:
+\[ P(\text{AVS}) = 0.1 \]
+
+#### P(E|H) – Likelihood
+The probability of Adam’s personality sketch given that he is in AVS:
+- Genuine curiosity about nature and plants: Fits very well.
+- Quiet, enjoys solving puzzles: Fairly neutral but possible.
+- Warm heart, empathy, love for animals and appreciates hard work: Fits very well.
+
+So, this likelihood is higher:
+\[ P(E|\text{AVS}) = 0.8 \]
+
+#### P(E|¬H) – Likelihood of personality sketch given not in AVS
+Since being in AVS is specific and his profile fits quite well with it, the likelihood P(E|¬H_avs) might be slightly lower:
+
+\[ P(E|\neg \text{AVS}) = 0.5 \]
+
+### Applying Bayes Rule
+
+#### For Computer Science:
+\[ P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E|\text{CS}) \cdot P(\text{CS}) + P(E|\neg \text{CS}) \cdot P(\neg \text{CS})} \]
+\[ P(\text{CS}|E) = \frac{0.5 \cdot 0.3}{0.5 \cdot 0.3 + 0.6 \cdot 0.7} \]
+\[ P(\text{CS}|E) = \frac{0.15}{0.15 + 0.42} \]
+\[ P(\text{CS}|E) = \frac{0.15}{0.57} \]
+\[ P(\text{CS}|E) \approx 0.263 \]
+
+#### For Agricultural and Veterinary Science:
+\[ P(\text{AVS}|E) = \frac{P(E|\text{AVS}) \cdot P(\text{AVS})}{P(E|\text{AVS}) \cdot P(\text{AVS}) + P(E|\neg \text{AVS}) \cdot P(\neg \text{AVS})} \]
+\[ P(\text{AVS}|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.5 \cdot 0.9} \]
+\[ P(\text{AVS}|E) = \frac{0.08}{0.08 + 0.45} \]
+\[ P(\text{AVS}|E) = \frac{0.08}{0.53} \]
+\[ P(\text{AVS}|E) \approx 0.151 \]
+
+### Answer
+```json
+{
+  "computer science": 0.263,
+  "agricultural and veterinary science": 0.151
+}
+```

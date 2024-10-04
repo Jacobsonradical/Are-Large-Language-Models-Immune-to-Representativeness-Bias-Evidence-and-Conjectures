@@ -1,0 +1,52 @@
+To solve this problem, we need to use Bayes' rule, which is formulated as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is enrolled in a certain field.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch given that he is in that field.
+- \( P(E|\neg H) \) is the probability of observing Adam's personality sketch given that he is not in that field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch.
+
+Since we're comparing two hypotheses, we can simplify the problem by ignoring \( P(E) \) (it will cancel out when all probabilities are normalized). We will estimate the relevant probabilities for each field.
+
+### for Computer Science:
+- **P(H_CS):** The prior probability of Adam being in computer science. Let's assume a typical value given the general distribution of graduate fields.
+\[ P(H_{CS}) \approx 0.2 \]
+
+- **P(E|H_CS):** Given Adam's personality sketch, is it probable he fits into computer science? While computer science students may be good at solving puzzles and have high intelligence, they typically do not have strong ties to nature and animals.
+\[ P(E|H_{CS}) \approx 0.1 \]
+
+- **P(E|\neg H_CS):** Probability of observing Adam's personality sketch given he is not in computer science. Given that his traits align well with nature-related fields, we consider this to be relative:
+\[ P(E|\neg H_{CS}) \approx 0.9 \]
+
+- **Bayes Calculation for Computer Science:**
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Since we ignore \( P(E) \), the value can be approximated as:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ \approx 0.1 \cdot 0.2 = 0.02 \]
+
+### for Agricultural and Veterinary Science:
+- **P(H_AVS):** The prior probability of Adam being in agricultural and veterinary science. Let's assume it has a moderate likelihood.
+\[ P(H_{AVS}) \approx 0.1 \]
+
+- **P(E|H_AVS):** Given Adam's curiosity about nature, animals, and empathy, it seems a strong fit.
+\[ P(E|H_{AVS}) \approx 0.9 \]
+
+- **P(E|\neg H_AVS):** Probability of observing Adam's personality sketch given he is not in agricultural and veterinary science. Given that his traits do not align well with non-nature related fields, this probability is lower.
+\[ P(E|\neg H_{AVS}) \approx 0.2 \]
+
+- **Bayes Calculation for Agricultural and Veterinary Science:**
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+Since we ignore \( P(E) \), the value can be approximated as:
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+\[ \approx 0.9 \cdot 0.1 = 0.09 \]
+
+Thus, we have:
+
+```json
+{
+  "computer science": 0.02,
+  "agricultural and veterinary science": 0.09
+}
+```

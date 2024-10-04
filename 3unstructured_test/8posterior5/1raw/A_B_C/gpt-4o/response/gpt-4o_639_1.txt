@@ -1,0 +1,80 @@
+To apply Bayes' Theorem, we need to break down our problem by considering the following:
+
+- \( P(H) \): The prior probability of Adam being enrolled in each of the fields.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in that field.
+- \( P(H|E) \): The posterior probability of Adam being enrolled in that field given the personality sketch.
+
+Bayes' Theorem is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) (the total probability of observing E) is the same for all three fields, it will cancel out when we calculate normalized values for \( P(H|E) \).
+
+**Assumptions and Rough Estimates:**
+
+1. **Agricultural and Veterinary Science**:
+   - \( P(H) \): Assume a moderate prior since this field is not very common among graduate students.
+   - \( P(E|H) \): High, as Adam's curiosity about nature, love for animals, and empathy strongly align with this field.
+   - \( P(E|\neg H) \): Lower, as not all fields emphasize these traits.
+
+2. **Computer Science**:
+   - \( P(H) \): High, given the popularity of this field among graduate students.
+   - \( P(E|H) \): Moderate to low, as curiosity and abstract thinking fit, but love for nature and animals is less relevant.
+   - \( P(E|\neg H) \): Higher, as these traits are less distinguishing in the context of computer science.
+
+3. **Business Administration**:
+   - \( P(H) \): Moderate, as this is a common field but not as popular as computer science.
+   - \( P(E|H) \): Low; empathy might fit, but the love for nature, animals, and abstract thinking is less relevant.
+   - \( P(E|\neg H) \): Higher, as these traits are less distinguishing.
+
+Based on these rough estimates:
+
+- For **Agricultural and Veterinary Science**:
+  - \( P(H) \approx 0.2 \)
+  - \( P(E|H) \approx 0.8 \)
+  - \( P(E|\neg H) \approx 0.1 \)
+  
+- For **Computer Science**:
+  - \( P(H) \approx 0.4 \)
+  - \( P(E|H) \approx 0.3 \)
+  - \( P(E|\neg H) \approx 0.5 \)
+
+- For **Business Administration**:
+  - \( P(H) \approx 0.3 \)
+  - \( P(E|H) \approx 0.1 \)
+  - \( P(E|\neg H) \approx 0.6 \)
+
+Using these rough estimates, let's calculate \( P(H|E) \) for normalization purposes.
+
+**Bayes Rule Calculation:**
+
+Assuming the normalization factor \( P(E) \) is the summation of the weighted \( P(E|H) \cdot P(H) \):
+
+\[ P(E) \approx (0.8 \times 0.2) + (0.3 \times 0.4) + (0.1 \times 0.3) = 0.16 + 0.12 + 0.03 = 0.31 \]
+
+**Posterior Calculations:**
+
+- Agricultural and Veterinary Science:
+  \[
+  P(H|E) = \frac{0.8 \cdot 0.2}{0.31} \approx \frac{0.16}{0.31} \approx 0.516
+  \]
+
+- Computer Science:
+  \[
+  P(H|E) = \frac{0.3 \cdot 0.4}{0.31} \approx \frac{0.12}{0.31} \approx 0.387
+  \]
+
+- Business Administration:
+  \[
+  P(H|E) = \frac{0.1 \cdot 0.3}{0.31} \approx \frac{0.03}{0.31} \approx 0.097
+  \]
+
+Thus, the outputs in the specified format would be:
+
+```json
+{
+  "agricultural and veterinary science": 0.516,
+  "computer science": 0.387,
+  "business administration": 0.097
+}
+```

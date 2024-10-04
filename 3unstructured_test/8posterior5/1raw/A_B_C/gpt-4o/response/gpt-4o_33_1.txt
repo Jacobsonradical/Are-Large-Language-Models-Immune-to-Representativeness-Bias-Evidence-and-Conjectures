@@ -1,0 +1,46 @@
+To apply Bayes' Theorem to determine the likelihood that Adam was enrolled in a particular field of study based on his personality sketch, we use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the probability of Adam's personality sketch given that he was enrolled in that particular field.
+- \( P(H) \) is the prior probability that a graduate student is enrolled in that field.
+- \( P(E) \) is the overall probability of Adam's personality sketch.
+
+We need to estimate these probabilities for each field. However, since we don't have exact data, we'll use reasonable assumptions and estimates:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field. This can vary based on the popularity of each field of study among graduate students in the U.S. Let's assume the following priors:
+   - Computer Science: 0.2 (20% of graduate students)
+   - Business Administration: 0.25 (25% of graduate students)
+   - Agricultural and Veterinary Science: 0.1 (10% of graduate students)
+
+2. \( P(E|H) \): The probability of the personality sketch given that Adam was enrolled in each field. This reflects how well Adam's interests and traits align with each field:
+   - Computer Science: 0.3 (Moderate fit, as problem-solving and intelligence may correlate, but less so for nature and animals)
+   - Business Administration: 0.1 (Lower fit, as the sketch doesn't particularly align with business traits)
+   - Agricultural and Veterinary Science: 0.8 (Strong fit due to curiosity about nature, love for animals, and appreciation for hard work)
+
+3. \( P(E|\neg H) \): This is less straightforward but let's roughly normalize it to account for these fields and others:
+   - Computer Science: 0.2
+   - Business Administration: 0.3
+   - Agricultural and Veterinary Science: 0.6
+
+Finally, \( P(E) \) is the same for all fields, so we can compare the relative likelihoods:
+
+Now we calculate \( P(H|E) \) for each field:
+
+{
+  "computer science": \(\frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.1 \cdot 0.25 + 0.8 \cdot 0.1}\) = \(\frac{0.06}{0.06 + 0.025 + 0.08}\)=\(\frac{0.06}{0.165}\)\approx 0.36,
+  "business administration": \(\frac{0.1 \cdot 0.25}{0.3 \cdot 0.2 + 0.1 \cdot 0.25 + 0.8 \cdot 0.1}\) = \(\frac{0.025}{0.06 + 0.025 + 0.08}\)=\(\frac{0.025}{0.165}\)\approx 0.15,
+  "agricultural and veterinary science": \(\frac{0.8 \cdot 0.1}{0.3 \cdot 0.2 + 0.1 \cdot 0.25 + 0.8 \cdot 0.1}\) = \(\frac{0.08}{0.06 + 0.025 + 0.08}\)=\(\frac{0.08}{0.165}\)\approx 0.48
+}
+
+Summarizing:
+
+{
+  "computer science": "0.36",
+  "business administration": "0.15",
+  "agricultural and veterinary science": "0.48"
+}
+
+These approximate calculations suggest that the most likely field based on Adam's personality sketch is Agricultural and Veterinary Science, followed by Computer Science, and then Business Administration.

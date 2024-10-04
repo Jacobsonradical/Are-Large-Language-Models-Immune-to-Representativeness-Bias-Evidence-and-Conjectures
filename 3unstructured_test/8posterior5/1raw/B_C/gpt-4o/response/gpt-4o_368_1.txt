@@ -1,0 +1,46 @@
+To use Bayes' rule in this context, we need to estimate the following probabilities for each field:
+
+- **P(H)**: The prior probability that Adam was enrolled in a particular field without any other information (the base rate).
+- **P(E | H)**: The probability that the personality sketch E fits Adam if he was in that particular field.
+- **P(E | ¬H)**: The probability that the personality sketch E fits Adam if he was not in that particular field.
+- **P(H | E)**: The posterior probability that Adam was enrolled in the particular field given his personality sketch E, calculated using Bayes' rule.
+
+Bayes’ theorem is given by:
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+However, for our relative comparison purposes, we can simplify it to proportional comparison since P(E) is a normalizing constant for both hypotheses.
+
+### Business Administration
+- **P(H)**: Graduate students primarily choose fields based on their interests and strengths. Business administration might have a lower base rate for someone with Adam's characteristics: \( P(H) = 0.1 \).
+- **P(E | H)**: Adam's personality sketch (interest in nature, solving puzzles, empathy, love for animals) is less typical of someone studying business administration: \( P(E | H) = 0.1 \).
+- **P(E | ¬H)**: The probability that another field fits his personality (since other fields might be more aligned with empathy, nature) is higher: \( P(E | ¬H) = 0.9 \).
+
+### Computer Science
+- **P(H)**: Computer science is a common field for someone good at solving puzzles and understanding abstract concepts: \( P(H) = 0.2 \).
+- **P(E | H)**: While not directly related to a love for animals, the analytical and puzzle-solving skills could relate well: \( P(E | H) = 0.4 \).
+- **P(E | ¬H)**: Again, other fields could also match well, lowering this relative probability: \( P(E | ¬H) = 0.7 \).
+
+Using these estimates for simplicity's proportional comparison:
+
+
+**Business Administration**:
+\[ P(H | E) \propto P(E | H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01 \]
+
+**Computer Science**:
+\[ P(H | E) \propto P(E | H) \cdot P(H) = 0.4 \cdot 0.2 = 0.08 \]
+
+Now, we normalize to get the relative strength represented as a proportion of the total (since we aren't comparing against the full set of possibilities):
+
+Based on these calculations:
+- Relative strength for Business Administration: \( \frac{0.01}{0.01 + 0.08} \approx 0.111 \)
+- Relative strength for Computer Science: \( \frac{0.08}{0.01 + 0.08} \approx 0.889 \)
+
+Therefore, the posterior probabilities are approximately:
+
+```json
+{
+  "business administration": 0.111,
+  "computer science": 0.889
+}
+```

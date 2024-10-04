@@ -1,0 +1,59 @@
+To compute \( P(H|E) \) for each field, we need to consider:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in that specific field.
+2. \( P(E|H) \): The likelihood of the given personality sketch if Adam is in that field.
+3. \( P(E|\neg H) \): The likelihood of the given personality sketch if Adam is not in that field.
+
+Let's go through the reasoning for both fields:
+
+### Computer Science:
+- **Prior Probability for Computer Science (P(H))**: Computer science is a very popular field, especially in the U.S., but it still only represents a fraction of all possible graduate fields. For simplicity, let's use a rough estimate.
+  \[ P(H) \approx 0.2 \]
+
+- **Likelihood of E given H (P(E|H))**: Adam's intelligence, understanding of abstract concepts, and problem-solving capability align well with the typical traits of a computer science student. However, his strong empathy, love for animals, and curiosity about nature are not specific indicators of a computer science student.
+  \[ P(E|H) \approx 0.6 \]
+
+- **Likelihood of E given not H (P(E|\neg H))**: These traits can be seen in many other fields as well, although not as common.
+  \[ P(E|\neg H) \approx 0.3 \]
+
+### Business Administration:
+- **Prior Probability for Business Administration (P(H))**: Business Administration is another common field but still represents only a fraction of all possible fields.
+  \[ P(H) \approx 0.1 \]
+
+- **Likelihood of E given H (P(E|H))**: Empathy, intelligence, and a warm heart can be useful in business administration. However, Adam’s deep love for animals and curiosity about plants do not typically align with this field.
+  \[ P(E|H) \approx 0.3 \]
+
+- **Likelihood of E given not H (P(E|\neg H))**: The given personality sketch can still be seen in many other fields.
+  \[ P(E|\neg H) \approx 0.3 \]
+
+Now, we apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing between two fields and not interested in the total probability sum, \( P(E) \) is a normalization factor that can be ignored for the comparison.
+
+### Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E)_{CS} \approx 0.6 \cdot 0.2 = 0.12 \]
+
+### Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E)_{BA} \approx 0.3 \cdot 0.1 = 0.03 \]
+
+Finally, normalizing these values to get the posterior probabilities:
+\[ Total = 0.12 + 0.03 = 0.15 \]
+
+For Computer Science:
+\[ P(H|E)_{CS} = \frac{0.12}{0.15} = 0.8 \]
+
+For Business Administration:
+\[ P(H|E)_{BA} = \frac{0.03}{0.15} = 0.2 \]
+
+The output would look like this:
+
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```

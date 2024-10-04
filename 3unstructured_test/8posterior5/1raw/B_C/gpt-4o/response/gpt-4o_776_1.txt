@@ -1,0 +1,56 @@
+To solve this, we will use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to estimate and assign probabilities for \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\). Given the personality sketch of Adam, it is important to use this information to estimate these probabilities.
+
+### Computer Science
+1. **\(P(H_{CS})\) (Prior for Computer Science)**:
+   - Let’s assume a moderate prior probability that Adam, being a highly intelligent graduate student in the U.S, is in the field of Computer Science: \( P(H_{CS}) = 0.3 \).
+
+2. **\(P(E|H_{CS})\) (Likelihood of Personality Sketch given Computer Science)**:
+   - Computer Science students can have a strong understanding and appreciation for hard work and dedication, and abstract concept skills align well. However, his love for nature, plants, and animals seems less directly aligned. Let's estimate \( P(E|H_{CS}) = 0.2 \).
+
+3. **\(P(E|\neg H_{CS})\)** (Likelihood of Personality Sketch given any field other than Computer Science):
+   - This encompasses a wide range of other fields. Because we have a specific set of interests and traits for Adam, we might assume there is a reasonably lower chance across most other fields that align exactly with all these traits but many could somewhat align. Let’s estimate \( P(E|\neg H_{CS}) = 0.1 \).
+
+### Business Administration
+4. **\(P(H_{BA})\) (Prior for Business Administration)**:
+   - Considering the U.S. context and the broad range of graduate programs, we might assume a slightly lower base rate: \( P(H_{BA}) = 0.1 \).
+
+5. **\(P(E|H_{BA})\)** (Likelihood of Personality Sketch given Business Administration):
+   - The interest in business administration might not strongly align with Adam’s attributes like empathy, love for nature and animals. Solving puzzles might align with strategic business decisions but is much less directly relevant: \( P(E|H_{BA}) = 0.05 \).
+
+6. **\(P(E|\neg H_{BA})\)** (Likelihood of Personality Sketch given any field other than Business Administration):
+   - Likely higher due to various other fields that might be more closely aligned (like environmental science, veterinary studies, etc.): \( P(E|\neg H_{BA}) = 0.15 \).
+
+Now, applying Bayes' theorem:
+
+### Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+### Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and is the same for both fields, we don't actually need to calculate it to compare relative probabilities.
+
+\[ P(H_{CS}|E) ∝ P(E|H_{CS}) \cdot P(H_{CS}) = 0.2 \times 0.3 = 0.06 \]
+
+\[ P(H_{BA}|E) ∝ P(E|H_{BA}) \cdot P(H_{BA}) = 0.05 \times 0.1 = 0.005 \]
+
+Normalizing these values (though it’s just for completion as we only care about their ratios relative to each other):
+
+\[ Total = 0.06 + 0.005 = 0.065 \]
+
+\[ P(H_{CS}|E) = \frac{0.06}{0.065} \approx 0.923 \]
+
+\[ P(H_{BA}|E) = \frac{0.005}{0.065} \approx 0.077 \]
+
+Thus, the computed conditional probabilities are:
+
+\[ 
+{
+  "computer science": 0.923,
+  "business administration": 0.077
+} 
+\]

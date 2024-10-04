@@ -1,0 +1,58 @@
+To calculate the posterior probabilities \( P(H|E) \) for the given hypotheses (H: specific field of study), we need to apply Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Let's break down each step:
+
+1. **Prior Probability \( P(H) \):**
+   - For business administration, we'll assume a certain prior probability.
+   - For agricultural and veterinary science, we'll assume a certain prior probability as well.
+
+2. **Likelihood \( P(E|H) \):** 
+   - How likely E (Adam's personality sketch) is given H (he is studying the specified field).
+   
+3. **Marginal Likelihood \( P(E) \):**
+   - This is the overall probability of E occurring across all fields. For our purposes, we consider it as a normalizing constant which we don't need to compute individually as it won't affect the relative values.
+
+4. **Complement Likelihood \( P(E|\neg H) \):**
+   - The likelihood of E given NOT H (Adam is in any field other than the one specified).
+
+### Assumptions
+We'll make some reasonable assumptions about these probabilities based on Adam's personality sketch:
+
+- For business administration:
+  - \( P(H) \): Let's assume the prior probability for this field is around 0.2 (20%).
+  - \( P(E|H) \): Adam's personality sketch doesn't strongly match the typical traits required for business administration (more analytical, data-driven, less focus on nature or animals). Let's assume this to be about 0.1 (10%).
+  - \( P(E|\neg H) \): Assume the likelihood of having Adam's personality in other fields is around 0.7 (70%).
+
+- For agricultural and veterinary science:
+  - \( P(H) \): Let's assume the prior probability for this field is around 0.1 (10%) as it's more specialized.
+  - \( P(E|H) \): Adam's personality sketch strongly matches this field due to his empathy, love for animals, and understanding of hard work. Assume this to be about 0.8 (80%).
+  - \( P(E|\neg H) \): Assume the likelihood of having Adam's personality in other fields is around 0.4 (40%).
+
+Now, let's compute the values:
+
+### Business Administration
+\[ P(\text{BA}|E) = \frac{P(E|\text{BA}) \cdot P(\text{BA})}{P(E)} \]
+
+\[ P(\text{BA}|E) = \frac{0.1 \cdot 0.2}{P(E)} = \frac{0.02}{P(E)} \]
+
+### Agricultural and Veterinary Science
+\[ P(\text{AgriVet}|E) = \frac{P(E|\text{AgriVet}) \cdot P(\text{AgriVet})}{P(E)} \]
+
+\[ P(\text{AgriVet}|E) = \frac{0.8 \cdot 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+Both probabilities need to be normalized by the same \( P(E) \). Nevertheless, we are interested in relative values, so we get:
+
+### Normalized Probabilities
+\[ P(\text{BA}|E) = \frac{0.02}{0.02 + 0.08} = \frac{0.02}{0.10} = 0.2 \]
+\[ P(\text{AgriVet}|E) = \frac{0.08}{0.02 + 0.08} = \frac{0.08}{0.10} = 0.8 \]
+
+So the final normalized probabilities are:
+
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}
+```

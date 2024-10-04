@@ -1,0 +1,66 @@
+To compute the probability of Adam being enrolled in either business administration or computer science based on his personality sketch and using Bayes' Rule, we'll need to estimate the following probabilities for each field:
+
+1. **P(H):** The prior probability that Adam was enrolled in that field.
+2. **P(E|H):** The likelihood of observing Adam's personality given that he was enrolled in that field.
+3. **P(E|\neg H):** The likelihood of observing Adam's personality given that he was not enrolled in that field.
+
+Using these, we can then apply Bayes' Rule to find **P(H|E):** the posterior probability that Adam was enrolled in the given field, given his personality sketch.
+
+### Business Administration
+
+**P(H):** The prior probability that a random graduate student is in business administration. Let's assume it's around 0.1 (10%).
+
+**P(E|H):** The likelihood of Adam having this personality if he were in business administration. Since the traits described (curiosity about nature, quiet, solving puzzles, empathy, love for animals, understanding abstract concepts) don't strongly align with typical business administration traits, this might be relatively low. Let's estimate this at 0.2 (20%).
+
+**P(E|\neg H):** The likelihood of Adam having this personality if he were not in business administration. Given that many fields could align with these traits more closely (e.g., environmental science, psychology, biology), let's estimate this at 0.7 (70%).
+
+### Computer Science
+
+**P(H):** The prior probability that a random graduate student is in computer science. Let's assume it's around 0.15 (15%).
+
+**P(E|H):** The likelihood of Adam having this personality if he were in computer science. Quietness, enjoyment of puzzles, high intelligence, and understanding abstract concepts align well with computer science. We might estimate this at 0.5 (50%).
+
+**P(E|\neg H):** The likelihood of Adam having this personality if he were not in computer science. Again, this would include other fields that align well with these traits, so let's estimate this at 0.6 (60%).
+
+### Bayes' Rule Calculation
+
+Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) is the total probability of observing the evidence (personality sketch), which is a weighted sum of the likelihoods:
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H) \cdot P(\neg H) \]
+
+Where \( H_{BA} \) is business administration and \( H_{CS} \) is computer science.
+
+Given these assumptions, let's simplify the comparison.
+
+### Calculations for Business Administration
+
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.5 \cdot 0.15 + 0.7 \cdot (1 - 0.1 - 0.15)} \]
+
+\[ P(H_{BA}|E) = \frac{0.02}{0.02 + 0.075 + 0.485} \]
+
+\[ P(H_{BA}|E) = \frac{0.02}{0.58} \]
+
+\[ P(H_{BA}|E) \approx 0.0345 \]
+
+### Calculations for Computer Science
+
+\[ P(H_{CS}|E) = \frac{0.5 \cdot 0.15}{0.2 \cdot 0.1 + 0.5 \cdot 0.15 + 0.7 \cdot (1 - 0.1 - 0.15)} \]
+
+\[ P(H_{CS}|E) = \frac{0.075}{0.02 + 0.075 + 0.485} \]
+
+\[ P(H_{CS}|E) = \frac{0.075}{0.58} \]
+
+\[ P(H_{CS}|E) \approx 0.1293 \]
+
+So, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0345,
+  "computer science": 0.1293
+}
+```
+
+These numbers suggest that, based on the personality sketch provided, it is more likely that Adam would have been a graduate student in computer science than in business administration in 2021.

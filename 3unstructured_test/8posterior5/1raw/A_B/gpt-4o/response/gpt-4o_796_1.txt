@@ -1,0 +1,74 @@
+Let's break down the problem using Bayes' theorem. We need to compute \( P(H|E) \), the probability that Adam was enrolled in a specific field given his personality sketch \( E \).
+
+Bayes' theorem states:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \) is the likelihood that Adam's personality sketch matches a student enrolled in that field.
+- \( P(E) \) is the overall probability of Adam having the given personality characteristics.
+
+Given:
+
+- \( P(E|\neg H) \) is the probability of observing Adam's personality sketch if he was not in the specified field.
+
+To proceed with the values:
+
+1. **Business Administration**:
+   - \( P(H) \): The prior probability that a random graduate student is in Business Administration. Let's assume it's a moderate chance, e.g., 0.1 (10%).
+   - \( P(E|H) \): The probability that Adam's personality sketch matches someone in Business Administration. Given the traits (love for nature, animals, solving puzzles), this is probably quite low, e.g., 0.05 (5%).
+   - \( P(E|\neg H) \): The probability that Adam’s personality sketch matches someone not in Business Administration. Given the traits, this could be higher given other fields like natural sciences and veterinary sciences, so let's assume 0.2 (20%).
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): The prior probability that a random graduate student is in Agricultural and Veterinary Science. Given Adam's sketch fits, let's assume it's reasonably higher, e.g., 0.05 (5%).
+   - \( P(E|H) \): The probability that Adam's personality sketch matches a student enrolled in Agricultural and Veterinary Science. Given the traits, this is likely high, e.g., 0.7 (70%).
+   - \( P(E|\neg H) \): The probability that Adam’s personality sketch matches someone not in Agricultural and Veterinary Science. This would be lower given the specific alignment of traits, e.g., 0.1 (10%).
+
+Using Bayes' theorem:
+
+### Business Administration
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.05 \times 0.1}{P(E)}
+\]
+
+### Agricultural and Veterinary Science
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.7 \times 0.05}{P(E)}
+\]
+
+Since we are only comparing these two fields and \( P(E) \) is constant between the two computations, we can focus on the numerators for comparison, normalized if needed.
+
+\[
+P(H|E)_{business\, administration} \approx 0.005
+\]
+\[
+P(H|E)_{agricultural\, and\, veterinary\, science} \approx 0.035
+\]
+
+To convert these to a fraction of the total (excluding other fields):
+
+\[
+Total = 0.005 + 0.035 = 0.04
+\]
+
+\[
+P(H|E)_{business\, administration} \approx \frac{0.005}{0.04} = 0.125
+\]
+
+\[
+P(H|E)_{agricultural\, and\, veterinary\, science} \approx \frac{0.035}{0.04} = 0.875
+\]
+
+Therefore, our results are approximately:
+
+```json
+{
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.875
+}
+```

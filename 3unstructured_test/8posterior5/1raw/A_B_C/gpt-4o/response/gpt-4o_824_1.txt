@@ -1,0 +1,69 @@
+Let's apply Bayes' Theorem to compute the probability that Adam is enrolled in each field given his personality sketch. Bayes' Theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam is enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the likelihood of Adam having the personality sketch given he is enrolled in a specific field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the overall probability of Adam having the personality sketch E.
+
+### Assumptions
+
+Since we don't have specific prior probabilities, let's assume that \( P(H) \) is uniform across fields for simplicity.
+
+### Estimations
+
+Let's estimate how well Adam's personality sketch matches the typical student profile in each of these fields:
+
+- **Business Administration**:
+  - \( P(E|H) \): Moderate. Traits like curiosity, intelligence, and understanding abstract concepts could be useful in business administration, but empathy and a deep love for animals are less relevant.
+  - Estimated \( P(E|H_{BA}) \approx 0.4 \)
+  
+- **Agricultural and Veterinary Science**:
+  - \( P(E|H) \): High. Curiosity about nature, empathy, and a love for animals are highly relevant to this field.
+  - Estimated \( P(E|H_{AV}) \approx 0.8 \)
+  
+- **Computer Science**:
+  - \( P(E|H) \): Moderate to High. Intelligence, problem-solving skills, and understanding abstract concepts are very relevant, but the other traits are less specific to this field.
+  - Estimated \( P(E|H_{CS}) \approx 0.6 \)
+
+### Calculating Posteriors
+Assume:
+- \( P(H_{BA}) = P(H_{AV}) = P(H_{CS}) = \frac{1}{3} \)
+- For simplicity, assume \( P(E) \) is the same across all fields and thus cancels out in the relative comparison of posteriors.
+
+Let's calculate the posterior probabilities (up to a common factor):
+
+1. **Business Administration**:
+   \[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.4 \cdot \frac{1}{3} = 0.133 \]
+
+2. **Agricultural and Veterinary Science**:
+   \[ P(H_{AV}|E) \propto P(E|H_{AV}) \cdot P(H_{AV}) = 0.8 \cdot \frac{1}{3} = 0.267 \]
+
+3. **Computer Science**:
+   \[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.6 \cdot \frac{1}{3} = 0.200 \]
+
+### Normalizing
+
+To provide final values:
+
+\[ P(H_{TOTAL}) = 0.133 + 0.267 + 0.200 = 0.6 \]
+
+\[ P(H_{BA}|E) = \frac{0.133}{0.6} \approx 0.22 \]
+
+\[ P(H_{AV}|E) = \frac{0.267}{0.6} \approx 0.45 \]
+
+\[ P(H_{CS}|E) = \frac{0.200}{0.6} \approx 0.33 \]
+
+### Final Answer
+
+```json
+{
+  "business administration": 0.22,
+  "agricultural and veterinary science": 0.45,
+  "computer science": 0.33
+}
+```
+
+These values indicate the relative likelihood that Adam was in each field given his personality sketch, based on the assumptions and estimations made.

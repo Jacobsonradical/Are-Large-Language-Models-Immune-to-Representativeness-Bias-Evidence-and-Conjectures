@@ -1,0 +1,66 @@
+To compute the probabilities \(P(H|E)\) using Bayes' rule, we need to evaluate several terms for each hypothesis.
+
+**Bayes' rule formula**:
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+For simplicity, we'll determine values based on the personality sketch provided and make reasonable assumptions.
+
+Let’s start with the hypotheses:
+- \(H_1\): Adam was enrolled in business administration.
+- \(H_2\): Adam was enrolled in agricultural and veterinary science.
+
+We need to evaluate:
+1. \(P(H_1)\) and \(P(H_2)\): The prior probabilities of Adam being enrolled in business administration and agricultural and veterinary science, respectively.
+2. \(P(E|H_1)\) and \(P(E|H_2)\): The probability of observing the evidence (personality sketch) given Adam is enrolled in each field.
+3. \(P(E|\neg H_1)\) and \(P(E|\neg H_2)\): The probability of observing the evidence given Adam is not enrolled in each field.
+4. Combine these to compute \(P(H_1|E)\) and \(P(H_2|E)\) using Bayes' rule.
+
+Assumptions (simplified):
+- Since we do not have explicit data on enrollment probabilities, let's assume \(P(H_1)\) and \(P(H_2)\) are roughly equal for simplicity.
+- Given Adam's personality sketch, it's much more likely that he is in a field that aligns with nature, empathy, and animals, such as agricultural and veterinary science, than business administration.
+
+### Evaluations:
+
+#### Business Administration:
+1. **Prior \(P(H_1)\)**: Let’s assume a prior probability of 0.2 for being enrolled in business administration. \(P(H_1) = 0.2\)
+2. **Likelihood \(P(E|H_1)\)**: Given the sketch, this field is less likely to align with Adam’s personality traits. Assume \(P(E|H_1) = 0.1\)
+3. **Complementary likelihood \(P(E|\neg H_1)\)**: Assuming equal probabilities among other fields combined, excluding business administration; assume an average \(P(E|\neg H_1) = 0.15\)
+
+#### Agricultural and Veterinary Science:
+1. **Prior \(P(H_2)\)**: Similarly, we assume a prior probability of 0.2 for being enrolled in agricultural and veterinary science. \(P(H_2) = 0.2\)
+2. **Likelihood \(P(E|H_2)\)**: Given the sketch, this field is highly consistent with Adam’s personality traits. Assume \(P(E|H_2) = 0.8\)
+3. **Complementary likelihood \(P(E|\neg H_2)\)**: Again assuming equal probabilities among other fields combined, excluding agricultural and veterinary science; assume an average \(P(E|\neg H_2) = 0.1\)
+
+### Bayesian Computation:
+
+- \(P(E)\) can be viewed as a normalizing constant based on all fields combined, here ignored for comparative purposes only.
+
+**For Business Administration:**
+\[P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \approx \frac{0.1 \cdot 0.2}{P(E)}\]
+
+**For Agricultural and Veterinary Science:**
+\[P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \approx \frac{0.8 \cdot 0.2}{P(E)}\]
+
+To yield comparable values:
+
+1. Business Administration:
+\[P(H_1|E) = \frac{0.02}{P(E)}\]
+
+2. Agricultural and Veterinary Science:
+\[P(H_2|E) = \frac{0.16}{P(E)}\]
+
+Since we are comparing these proportions, ignoring the normalizing constant \(P(E)\):
+
+{
+  "business administration": \( \frac{0.02}{0.02 + 0.16} \approx 0.11 \),
+  "agricultural and veterinary science": \( \frac{0.16}{0.02 + 0.16} \approx 0.89 \)
+}
+
+Therefore, Adam's personality sketch suggests he is far more likely to have been enrolled in agricultural and veterinary science than in business administration.
+
+```json
+{
+  "business administration": 0.11,
+  "agricultural and veterinary science": 0.89
+}
+```

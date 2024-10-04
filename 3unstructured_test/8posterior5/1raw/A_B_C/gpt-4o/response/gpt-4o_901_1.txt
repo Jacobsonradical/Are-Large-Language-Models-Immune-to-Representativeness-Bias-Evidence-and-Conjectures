@@ -1,0 +1,70 @@
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+However, we often don't have \( P(E) \) directly. Instead, we understand that:
+
+\[ P(H|E) \propto P(E|H)P(H) \]
+
+We will need to estimate:
+
+- \( P(H) \): Prior probability of Adam being enrolled in each field, before considering the personality sketch.
+- \( P(E|H) \): Probability of the personality sketch given that Adam is enrolled in each field.
+- \( P(E|\neg H) \): Probability of the personality sketch given that Adam is *not* enrolled in each field.
+  
+Let's estimate these probabilities.
+
+1. **Business Administration**:
+   - \( P(H_{\text{BA}}) \): Business administration is a common field, but not necessarily the top pick considering his personality. Let's assume a moderate prior.
+     - Estimate: 0.2
+   - \( P(E|H_{\text{BA}}) \): The personality traits do not strongly align with business administration. Business students might be less known for having strong empathy and a deep love for animals.
+     - Estimate: 0.1
+   - \( P(E|\neg H_{\text{BA}}) \): Based on the background, Adam seems more aligned with fields that involve nature or abstract concepts.
+     - Estimate: 0.9
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AVS}}) \): Given Adam's love for nature, plants, and animals, this is a highly likely field for him. Let's assume a higher prior probability.
+     - Estimate: 0.3
+   - \( P(E|H_{\text{AVS}}) \): The personality traits are a strong fit for this field.
+     - Estimate: 0.8
+   - \( P(E|\neg H_{\text{AVS}}) \): This case suggests a different field with lesser alignment to these traits.
+     - Estimate: 0.2
+  
+3. **Computer Science**:
+   - \( P(H_{\text{CS}}) \): This is a common field for someone who enjoys solving puzzles and abstract concepts, though less so for someone with strong empathy and a love for nature and animals.
+     - Estimate: 0.4
+   - \( P(E|H_{\text{CS}}) \): While his intelligence and puzzle-solving skills are a fit, his empathy and love for nature don't align as strongly.
+     - Estimate: 0.3
+   - \( P(E|\neg H_{\text{CS}}) \): This could be a different scientific field or another fundamentally different field.
+     - Estimate: 0.7
+
+Using the values we estimated:
+
+- **Business Administration**:
+  \[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \times 0.2 = 0.02 \]
+
+- **Agricultural and Veterinary Science**:
+  \[ P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 0.8 \times 0.3 = 0.24 \]
+
+- **Computer Science**:
+  \[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.3 \times 0.4 = 0.12 \]
+
+Normalizing these values (to make the probabilities sum to 1):
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.02}{0.02 + 0.24 + 0.12} = \frac{0.02}{0.38} \approx 0.053
+\]
+\[
+P(H_{\text{AVS}}|E) = \frac{0.24}{0.02 + 0.24 + 0.12} = \frac{0.24}{0.38} \approx 0.632
+\]
+\[
+P(H_{\text{CS}}|E) = \frac{0.12}{0.02 + 0.24 + 0.12} = \frac{0.12}{0.38} \approx 0.316
+\]
+
+So the estimated posterior probabilities are:
+
+{
+  "business administration": 0.053,
+  "agricultural and veterinary science": 0.632,
+  "computer science": 0.316
+}

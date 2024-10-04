@@ -1,0 +1,76 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we will use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) \) can be computed using the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+But since we are providing probabilities related to specific hypotheses and not all possible fields, we can focus on comparing the relative likelihoods.
+
+Let's denote:
+- H₁: Adam was enrolled in business administration.
+- H₂: Adam was enrolled in computer science.
+
+### Assumptions and Probability Assignments
+
+1. **P(H₁)**: Prior probability that Adam was enrolled in business administration.
+2. **P(H₂)**: Prior probability that Adam was enrolled in computer science.
+3. **P(E|H₁)**: Probability of observing the evidence given that Adam was enrolled in business administration.
+4. **P(E|H₂)**: Probability of observing the evidence given that Adam was enrolled in computer science.
+5. **P(E|\neg H₁)**: Probability of observing evidence if Adam was not in business administration.
+6. **P(E|\neg H₂)**: Probability of observing evidence if Adam was not in computer science.
+
+### Prior Probabilities
+Without specific prior information, we might assume uniform priors for simplicity.
+
+\[ P(H₁) \approx 0.1 \]
+\[ P(H₂) \approx 0.2 \]
+
+These are arbitrary choices and can vary depending on the dataset or typical enrollment distribution.
+
+### Likelihood
+Considering Adam's personality sketch:
+
+- **Business Administration (H₁)**
+  - P(E|H₁): Low to moderate since business administration might not typically align with his deep interest in nature and animals but might somewhat fit his intelligence and problem-solving skills. 
+  - Assigning value: 0.1
+  
+- **Computer Science (H₂)**
+  - P(E|H₂): Higher likelihood since many aspects of computer science could involve solving puzzles and understanding abstract concepts, which align better with his traits.
+  - Assigning value: 0.5
+  
+### Complementary Evidence
+For simplicity, let us make the following assumptions for \(\neg H₁\) and \(\neg H₂\):
+
+- P(E|\neg H₁): Probability of evidence given not-business administration might be relatively higher.
+- Assigning value: 0.3
+
+- P(E|\neg H₂): Probability of evidence given not-computer science might be relatively lower.
+- Assigning value: 0.2
+
+### Posterior Probabilities
+Using Bayes' rule and normalizing, we can compute relative posterior probabilities:
+
+For business administration (H₁):
+
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \]
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+\[ P(H_1|E) \approx 0.1 \cdot 0.1 = 0.01 \]
+
+For computer science (H₂):
+
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \]
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+\[ P(H_2|E) \approx 0.5 \cdot 0.2 = 0.1 \]
+
+Summarizing and normalizing:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.1
+}
+```
+
+It is clear from these calculations that, based on the evidence provided, Adam is more likely to be enrolled in computer science than in business administration. However, these probabilities need not sum to 1 since they're relative and the domain might involve other possibilities.

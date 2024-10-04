@@ -1,0 +1,40 @@
+To compute the posterior probabilities \( P(H|E) \) for each field given the personality sketch \( E \), we need to evaluate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each hypothesis \( H \), which represents a specific field of study.
+
+Let's start by assessing these probabilities for both fields and then applying Bayes' rule:
+
+**1. Computer Science:**
+- **\( P(H_{cs}) \)**: The probability that Adam is in Computer Science without any other information. Let's assume it's fairly common, so \( P(H_{cs}) = 0.3 \).
+- **\( P(E|H_{cs}) \)**: The likelihood of E (Adam's personality sketch) given that Adam is in Computer Science. Considering that computer science involves solving puzzles and high intelligence, but less directly related to nature and animals, let's estimate this as \( P(E|H_{cs}) = 0.4 \).
+- **\( P(E|\neg H_{cs}) \)**: The likelihood of E given that Adam is not in Computer Science. This includes all fields other than computer science. Since this is broad, we must consider how much these fields align with Adam's personality. Let's assume \( P(E|\neg H_{cs}) = 0.2 \).
+
+**2. Business Administration:**
+- **\( P(H_{ba}) \)**: The probability that Adam is in Business Administration without any other information. This is probably less likely than a technical field, so let's estimate \( P(H_{ba}) = 0.1 \).
+- **\( P(E|H_{ba}) \)**: The likelihood of E given that Adam is in Business Administration. This field doesn’t align well with most of Adam's interests and traits, so let's set \( P(E|H_{ba}) = 0.1 \).
+- **\( P(E|\neg H_{ba}) \)**: The likelihood of E given that Adam is not in Business Administration. Since Adam's interests align with more scientific fields, we can set this higher at \( P(E|\neg H_{ba}) = 0.3 \).
+
+Now we can compute \( P(H|E) \) using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+where
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+For Computer Science:
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs})P(H_{cs})}{P(E|H_{cs})P(H_{cs}) + P(E|\neg H_{cs})P(\neg H_{cs})} \]
+\[ P(H_{cs}|E) = \frac{0.4 \times 0.3}{0.4 \times 0.3 + 0.2 \times 0.7} \]
+\[ P(H_{cs}|E) = \frac{0.12}{0.12 + 0.14} \]
+\[ P(H_{cs}|E) = \frac{0.12}{0.26} \approx 0.46 \]
+
+For Business Administration:
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba})P(H_{ba})}{P(E|H_{ba})P(H_{ba}) + P(E|\neg H_{ba})P(\neg H_{ba})} \]
+\[ P(H_{ba}|E) = \frac{0.1 \times 0.1}{0.1 \times 0.1 + 0.3 \times 0.9} \]
+\[ P(H_{ba}|E) = \frac{0.01}{0.01 + 0.27} \]
+\[ P(H_{ba}|E) = \frac{0.01}{0.28} \approx 0.036 \]
+
+So the probabilities are:
+
+{
+  "computer science": 0.46,
+  "business administration": 0.036
+}
+
+These values represent the likelihood of Adam being enrolled in these fields given his personality traits.

@@ -1,0 +1,59 @@
+To compute the posterior probability \( P(H|E) \) for each field, we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(H) \) is the prior probability of the hypothesis (i.e., the field of study), \( P(E|H) \) is the probability of the evidence given the hypothesis, and \( P(E) \) is the probability of the evidence overall. \( P(E|\neg H) \) is the probability of the evidence given the negation of the hypothesis.
+
+Important to note:
+
+- We don't have exact statistics for \( P(H) \) (the likelihood of a graduate student in the U.S. being in each of these fields), so we'll assume they have equal prior probabilities unless otherwise suggested by general knowledge. 
+- We need to estimate \( P(E|H) \) based on how well Adam's personality sketch fits each field.
+- \( P(E|\neg H) \) can be considered as the average probability of the sketch given any other field, which we simplify by noting relative fit.
+
+Let's assume equal priors for simplicity: \( P(H) = \frac{1}{N} \) where \( N \) is the number of fields considered, and in this specific scenario, ignore normalization since we're comparing relative probabilities.
+
+Now, let's estimate:
+
+1. **\( P(E|H) \) for Agricultural and Veterinary Science:**
+   - Adam loves nature, has empathy, and an appreciation for hard work, which aligns well with this field.
+   - Let's assign \( P(E|H) \approx 0.8 \).
+
+2. **\( P(E|H) \) for Business Administration:**
+   - Adam's empathy and appreciation for hard work are relevant, but the love for nature and animals is less pertinent. 
+   - Let's assign \( P(E|H) \approx 0.2 \).
+
+3. **\( P(E|H) \) for Computer Science:**
+   - His intelligence and puzzle-solving are relevant, but nature and animals are less so.
+   - Let's assign \( P(E|H) \approx 0.4 \).
+
+Assuming \( P(E|\neg H) \) as the average probability for these indicators across fields other than the one specified, and given these values:
+
+- \( P(E|\neg H) \) for Agricultural and Veterinary Science might be lower, say \( 0.3 \) given specificity.
+- \( P(E|\neg H) \) for Business Administration might be higher, given broader appeal of hard work and empathy, say \( 0.6 \).
+- \( P(E|\neg H) \) for Computer Science might be moderate, say \( 0.5 \).
+
+Using this in the Bayes' formula:
+
+1. **Agricultural and Veterinary Science**:
+
+\[ P(H|E) \approx \frac{0.8 \cdot \frac{1}{3}}{P(E)} = 0.267/P(E) \]
+
+2. **Business Administration**:
+
+\[ P(H|E) \approx \frac{0.2 \cdot \frac{1}{3}}{P(E)} = 0.067/P(E) \]
+
+3. **Computer Science**:
+
+\[ P(H|E) \approx \frac{0.4 \cdot \frac{1}{3}}{P(E)} = 0.133/P(E) \]
+
+As P(E) is common for normalization, we consider relative probabilities only.
+
+```json
+{
+  "agricultural and veterinary science": 0.267,
+  "business administration": 0.067,
+  "computer science": 0.133
+}
+```
+
+Do note these are indicative values for relative comparisons along these fields and not absolute probabilities.

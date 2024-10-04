@@ -1,0 +1,76 @@
+To calculate the posterior probability \( P(H|E) \) using Bayes' Rule, we start with the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the normalizing constant (total probability of the evidence).
+
+For simplicity, let's assume the following approximations for prior probabilities \( P(H) \) based on typical graduate enrollment distributions in the U.S.:
+
+- Business administration (usually a large enrollment) \( P(H) = 0.25 \)
+- Agricultural and veterinary science (typically smaller enrollment) \( P(H) = 0.10 \)
+- Computer science (moderately large enrollment) \( P(H) = 0.20 \)
+
+Next, we need to estimate \( P(E|H) \) and \( P(E|\neg H) \):
+- \( P(E|H) \) is the probability of Adam's personality sketch being consistent with enrollment in the field.
+- \( P(E|\neg H) \) is the complement for the evidence across all other fields.
+
+Given the personality sketch:
+- Strong appreciation for nature and animals suggests high \( P(E|H) \) for agricultural and veterinary science.
+- Business administration might be less likely given the focus on nature and animals.
+- Computer science could be plausible given the intelligence and abstract thinking but less so given the love for nature and animals.
+
+\[
+\begin{aligned}
+P(E|H_{\text{business administration}}) &= 0.1 \\
+P(E|\neg H_{\text{business administration}}) &= 0.2 \\
+\\
+P(E|H_{\text{agricultural and veterinary science}}) &= 0.9 \\
+P(E|\neg H_{\text{agricultural and veterinary science}}) &= 0.1 \\
+\\
+P(E|H_{\text{computer science}}) &= 0.3 \\
+P(E|\neg H_{\text{computer science}}) &= 0.2 \\
+\end{aligned}
+\]
+
+Now applying Bayes' Rule:
+
+\[
+\begin{aligned}
+P(H_{\text{business administration}}|E) &= \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \\
+&= \frac{0.1 \cdot 0.25}{P(E)} = \frac{0.025}{P(E)} \\
+\\
+P(H_{\text{agricultural and veterinary science}}|E) &= \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}{P(E)} \\
+&= \frac{0.9 \cdot 0.10}{P(E)} = \frac{0.09}{P(E)} \\
+\\
+P(H_{\text{computer science}}|E) &= \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \\
+&= \frac{0.3 \cdot 0.20}{P(E)} = \frac{0.06}{P(E)} \\
+\end{aligned}
+\]
+
+To get these into a normalized form, we find the total probability \( P(E) \), which is the sum of the probabilities across all hypotheses:
+
+\[
+P(E) = 0.025 + 0.09 + 0.06 = 0.175
+\]
+
+Therefore:
+
+\[
+\begin{aligned}
+P(H_{\text{business administration}}|E) &= \frac{0.025}{0.175} \approx 0.143 \\
+P(H_{\text{agricultural and veterinary science}}|E) &= \frac{0.09}{0.175} \approx 0.514 \\
+P(H_{\text{computer science}}|E) &= \frac{0.06}{0.175} \approx 0.343 \\
+\end{aligned}
+\]
+
+Formatted in JSON:
+
+{
+  "business administration": 0.143,
+  "agricultural and veterinary science": 0.514,
+  "computer science": 0.343
+}

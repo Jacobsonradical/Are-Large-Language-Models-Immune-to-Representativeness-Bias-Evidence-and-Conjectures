@@ -1,0 +1,49 @@
+To calculate the probability \( P(H|E) \) using Bayes' rule, we need to evaluate \( P(H) \) (the prior probability of H), \( P(E|H) \) (the likelihood of observing E given H), and \( P(E|\neg H) \) (the likelihood of observing E given not H). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To simplify, since we're comparing two hypotheses, we can use the ratio form of Bayes' rule and normalize after:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's evaluate each hypothesis:
+
+1. **Business Administration**
+
+- **P(H)**: The prior probability that a graduate student is enrolled in Business Administration. Suppose we assign a general prior based on the popularity of the field.
+  - Assume \( P(\text{Business Administration}) = 0.2 \) (arbitrary estimate)
+
+- **P(E|H)**: The probability that a student with Adam's characteristics is enrolled in Business Administration. Given Adam's traits (interest in nature, animals, empathy, etc.), it is less likely, but not impossible.
+  - Assume \( P(E|\text{Business Administration}) = 0.1 \)
+
+- **P(E|\neg H)**: The probability that a student with Adam's characteristics is not enrolled in Business Administration. Given the diversity of other fields, it is high.
+  - Assume \( P(E|\neg \text{Business Administration}) = 0.9 \)
+
+2. **Agricultural and Veterinary Science**
+
+- **P(H)**: The prior probability that a graduate student is enrolled in Agricultural and Veterinary Science. Suppose we assign a general prior based on the popularity of the field.
+  - Assume \( P(\text{Agricultural and Veterinary Science}) = 0.05 \) (arbitrary estimate)
+
+- **P(E|H)**: The probability that a student with Adam's characteristics is enrolled in Agricultural and Veterinary Science. Adam's interests closely align with this field.
+  - Assume \( P(E|\text{Agricultural and Veterinary Science}) = 0.9 \)
+
+- **P(E|\neg H)**: The probability that a student with Adam's characteristics is not enrolled in Agricultural and Veterinary Science. Given the diversity of other fields, but many other fields do not align with Adam's characteristics as closely.
+  - Assume \( P(E|\neg \text{Agricultural and Veterinary Science}) = 0.1 \)
+
+Now, we compute \( P(H|E) \) for each field, and then normalize:
+
+For Business Administration:
+\[ P(\text{Business Administration}|E) \propto P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) = 0.1 \cdot 0.2 = 0.02 \]
+
+For Agricultural and Veterinary Science:
+\[ P(\text{Agricultural and Veterinary Science}|E) \propto P(E|\text{Agricultural and Veterinary Science}) \cdot P(\text{Agricultural and Veterinary Science}) = 0.9 \cdot 0.05 = 0.045 \]
+
+Normalization:
+\[ P(\text{Business Administration}|E) = \frac{0.02}{0.02 + 0.045} \approx 0.307 \]
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.045}{0.02 + 0.045} \approx 0.693 \]
+
+Results:
+{
+  "business administration": 0.307,
+  "agricultural and veterinary science": 0.693
+}

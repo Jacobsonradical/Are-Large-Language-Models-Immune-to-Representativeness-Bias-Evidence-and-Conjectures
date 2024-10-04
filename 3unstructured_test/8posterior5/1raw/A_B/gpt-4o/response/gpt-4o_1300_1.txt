@@ -1,0 +1,51 @@
+To compute the probability that Adam was enrolled in each field given his personality sketch E, we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \) is the likelihood of the personality sketch given Adam is enrolled in the field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch given Adam is not enrolled in the field.
+- \( P(E) \) is the overall probability of the personality sketch (this could be decomposed further based on all possibilities, but we’ll just focus on the relative values).
+
+Let’s estimate the probabilities:
+
+1. **Business Administration**:
+   - \( P(H) \): The probability that Adam was enrolled in a business administration program might be moderate given the general population of graduate students.
+   - \( P(E|H) \): It seems less likely that a student in business administration would exhibit a deep love for animals, nature, and the specific traits highlighted in the personality sketch.
+   - \( P(E|\neg H) \): The likelihood of someone not in business administration having this personality sketch would be higher, especially if they are in a field related to nature and animals.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): The probability of Adam being enrolled in agricultural and veterinary science could be higher given his interest and love for nature, plants, and animals.
+   - \( P(E|H) \): Much higher likelihood that someone in this field would match Adam's personality sketch.
+   - \( P(E|\neg H) \): Lower compared to \( P(E|H) \) since his traits align well with this field.
+
+Now we compute \( P(H|E) \) for each field using our estimates:
+
+### Business Administration
+- \( P(H) \approx 0.1 \) (assuming a smaller proportion of graduate students are in business administration)
+- \( P(E|H) \approx 0.1 \) (the traits are less typical for business administration students)
+- \( P(E|\neg H) \approx 0.2 \) (traits more typical for non-business students but not entirely exclusive)
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \approx 0.1 \times 0.1 = 0.01 \]
+
+### Agricultural and Veterinary Science
+- \( P(H) \approx 0.05 \) (assuming a smaller but significant proportion of graduate students in agricultural and veterinary science)
+- \( P(E|H) \approx 0.7 \) (traits very typical for this field)
+- \( P(E|\neg H) \approx 0.1 \) (traits not typical for non-agriculture/veterinary students)
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \approx 0.7 \times 0.05 = 0.035 \]
+
+Finally, normalizing these to sum to 1 within the considered hypotheses:
+
+\[ P(H|E \text{ for business administration}) = \frac{0.01}{0.01 + 0.035} \approx 0.222 \]
+\[ P(H|E \text{ for agricultural and veterinary science}) = \frac{0.035}{0.01 + 0.035} \approx 0.778 \]
+
+Thus, our approximate results are:
+
+```json
+{
+  "business administration": 0.222,
+  "agricultural and veterinary science": 0.778
+}
+```

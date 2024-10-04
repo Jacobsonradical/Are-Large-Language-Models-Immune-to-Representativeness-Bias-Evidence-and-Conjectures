@@ -1,0 +1,76 @@
+To compute the posterior probability \( P(H|E) \), we need to first determine the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood \( P(E|\neg H) \). Then, we can use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We can simplify as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+To apply this, we need to make reasonable assumptions based on the provided personality sketch and the nature of the fields of study.
+
+### Computer Science
+- **Prior Probability (\(P(H)\)):** Let's approximate \( P(\text{Computer Science}) \) for a graduate student to be moderately high, given the popularity of the field.
+  \( P(\text{CS}) = 0.2 \)
+
+- **Likelihood (\(P(E|H)\)):** Adam's empathy, curiosity about nature, and love for animals might not strongly align with typical motivations for pursuing computer science, although his intelligence and puzzle-solving skills do.
+  \( P(E|\text{CS}) = 0.3 \)
+
+- **Likelihood (\(P(E|\neg H)\)):** The probability that Adam has the described personality traits given that he is not in computer science could be relatively high, as these traits align more with other fields.
+  \( P(E|\neg \text{CS}) = 0.7 \)
+
+### Agricultural and Veterinary Science
+- **Prior Probability (\(P(H)\)):** Let's estimate \( P(\text{Agricultural and Veterinary Science}) \) to be lower due to fewer students typically enrolled in these fields compared to computer science.
+  \( P(\text{AgVet}) = 0.05 \)
+
+- **Likelihood (\(P(E|H)\)):** Adam's traits strongly align with those usually found in fields related to nature, animals, and empathy.
+  \( P(E|\text{AgVet}) = 0.8 \)
+
+- **Likelihood (\(P(E|\neg H)\)):** The probability of having Adam's traits in other fields (excluding those directly tied with nature) would still be there but lower.
+  \( P(E|\neg \text{AgVet}) = 0.5 \)
+
+Given these assumptions, we can now use Bayes' rule to compute the posterior probabilities.
+
+For \( \text{Computer Science} \):
+
+\[
+P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E|\text{CS}) \cdot P(\text{CS}) + P(E|\neg \text{CS}) \cdot P(\neg \text{CS})}
+\]
+
+\[
+P(\text{CS}|E) = \frac{0.3 \cdot 0.2}{(0.3 \cdot 0.2) + (0.7 \cdot 0.8)}
+\]
+
+\[
+P(\text{CS}|E) = \frac{0.06}{0.06 + 0.56}
+\]
+
+\[
+P(\text{CS}|E) = \frac{0.06}{0.62} \approx 0.097
+\]
+
+For \( \text{Agricultural and Veterinary Science} \):
+
+\[
+P(\text{AgVet}|E) = \frac{P(E|\text{AgVet}) \cdot P(\text{AgVet})}{P(E|\text{AgVet}) \cdot P(\text{AgVet}) + P(E|\neg \text{AgVet}) \cdot P(\neg \text{AgVet})}
+\]
+
+\[
+P(\text{AgVet}|E) = \frac{0.8 \cdot 0.05}{(0.8 \cdot 0.05) + (0.5 \cdot 0.95)}
+\]
+
+\[
+P(\text{AgVet}|E) = \frac{0.04}{0.04 + 0.475}
+\]
+
+\[
+P(\text{AgVet}|E) = \frac{0.04}{0.515} \approx 0.078
+\]
+
+Thus, the posterior probabilities are:
+
+\[
+{
+  "computer science": 0.097,
+  "agricultural and veterinary science": 0.078
+}
+\]

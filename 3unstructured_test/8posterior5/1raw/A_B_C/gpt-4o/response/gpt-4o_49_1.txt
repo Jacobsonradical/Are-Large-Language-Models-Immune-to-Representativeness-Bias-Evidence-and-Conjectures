@@ -1,0 +1,76 @@
+To apply Bayes' rule, let's start by defining the following probabilities:
+
+- \( P(H) \): The prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given Adam is in field \( H \).
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given Adam is not in the field \( H \).
+
+Using Bayes' rule, we calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is the total probability of observing \( E \), computed as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Given the personality sketch \( E \), let's estimate the relevant probabilities for each field.
+
+### Probabilities Estimation
+
+1. **Business Administration**
+   - \( P(H) \): Moderate prior probability since many students enroll in business administration.
+   - \( P(E|H) \): Likely low, because the personality sketch is not strongly aligned with business traits.
+   - \( P(E|\neg H) \): Considerable, as the traits are more common outside business administration.
+
+2. **Computer Science**
+   - \( P(H) \): High prior probability, many students enroll.
+   - \( P(E|H) \): Moderate, as curiosity, high intelligence, and puzzle-solving align with CS, but less so empathy and nature.
+   - \( P(E|\neg H) \): High, as empathy and nature focus are less typical of CS.
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H) \): Lower prior probability relative to Business Administration and Computer Science, fewer enrollments.
+   - \( P(E|H) \): High, as empathy, love for animals, and appreciation of hard work align well.
+   - \( P(E|\neg H) \): Moderate, considered less typical outside these fields.
+
+Now we need to assign numeric values to these probabilities and perform the calculation.
+
+### Numeric Probabilities & Bayes Calculation
+
+For simplicity:
+- \( P(H) \) values: Business (0.2), CS (0.4), Agriculture (0.1)
+- \( P(E|H) \) values: Business (0.05), CS (0.3), Agriculture (0.7)
+- \( P(E|\neg H) \) approx: (not closely aligned fields average at 0.15 for Business, 0.2 for CS, and 0.4 for Agriculture)
+
+Using Bayes' rule:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For normalization, \( P(E) \) can be calculated but isn't mandatory for proportional comparisons directly.
+
+### Calculations:
+
+- **Business Administration**:
+  \[ P(H|E) \approx 0.05 \times 0.2 = 0.01 \]
+
+- **Computer Science**:
+  \[ P(H|E) \approx 0.3 \times 0.4 = 0.12 \]
+
+- **Agricultural and Veterinary Science**:
+  \[ P(H|E) \approx 0.7 \times 0.1 = 0.07 \]
+
+Final steps involve normalizing. Summing up the non-normalized probabilities:
+
+\[ 0.01 + 0.12 + 0.07 = 0.20 \]
+
+Normalized probabilities:
+
+\[ P(Business|E) = \frac{0.01}{0.20} = 0.05 \]
+\[ P(CS|E) = \frac{0.12}{0.20} = 0.60 \]
+\[ P(Agriculture|E) = \frac{0.07}{0.20} = 0.35 \]
+
+Thus:
+
+{
+  "business administration": "0.05",
+  "computer science": "0.60",
+  "agricultural and veterinary science": "0.35"
+}

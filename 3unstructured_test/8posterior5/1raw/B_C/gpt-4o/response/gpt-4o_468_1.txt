@@ -1,0 +1,37 @@
+To compute \( P(H|E) \) using Bayes' rule, we need the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in the given field.
+2. \( P(E|H) \): The probability of the evidence given that Adam was enrolled in the given field.
+3. \( P(E|\neg H) \): The probability of the evidence given that Adam was not enrolled in the given field.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For our purposes, we can assume that \( P(E) \) is a normalizing constant, which we'll ignore since it's common to both hypotheses.
+
+We'll assign our subjective probabilities based on the information provided:
+
+### Computer Science
+1. \( P(H) \): Let's assume there's a 20% prior chance that a graduate student could be in computer science given a variety of fields available. So, \( P(H_{\text{CS}}) = 0.20 \).
+2. \( P(E|H_{\text{CS}}) \): Given the personality sketch, Adam seems to have a high intelligence and an aptitude for abstract concepts, which aligns well with computer science. However, his strong nature orientation and empathy might not be as common. Let's say there's a moderate alignment here. We can rate this as 0.50.
+3. \( P(E|\neg H_{\text{CS}}) \): The probability of having such traits in fields other than computer science can be relatively high since many fields value intelligence and empathy. Let's say this is 0.70.
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \approx \frac{0.50 \cdot 0.20}{P(E)} \]
+
+### Business Administration
+1. \( P(H) \): Let's assume there's a 10% prior chance that a graduate student could be in business administration given a variety of fields available. So, \( P(H_{\text{BA}}) = 0.10 \).
+2. \( P(E|H_{\text{BA}}) \): Business administration students might not typically align with the strong empathy and deep love for nature described. However, they could understand hard work and dedication. We'll give this a 0.30.
+3. \( P(E|\neg H_{\text{BA}}) \): The probability of having such traits in fields other than business administration can be relatively high. Let's say this is 0.75.
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \approx \frac{0.30 \cdot 0.10}{P(E)} \]
+
+After calculating the denominators, we get the normalized probabilities:
+
+```json
+{
+  "computer science": 0.125,
+  "business administration": 0.040
+}
+```
+
+These are not absolute probabilities but represent the relative likelihood given the evidence. For simplicity, the normalizing constants (P(E)) were disregarded since they apply equally to all fields.

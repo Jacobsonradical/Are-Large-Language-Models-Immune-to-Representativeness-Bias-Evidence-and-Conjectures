@@ -1,0 +1,52 @@
+To calculate the probability that Adam was enrolled in either computer science or business administration, given his personality sketch \(E\), we'll use Bayes' rule. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we only need to compare the relative probabilities and \(P(E)\) is constant for both fields, we can focus on the numerator \(P(E|H) \cdot P(H)\).
+
+1. **P(H)**: Prior probability of enrolling in each field. Without additional context, we can assume equal prior probabilities.
+2. **P(E|H)**: Probability of Adam's personality sketch \(E\) given each field.
+3. **P(E|\neg H)**: Probability of Adam's personality sketch \(E\) given that he is not in that field. 
+
+---
+
+### Computer Science
+**P(H)**: Assumed to be equally likely between computer science and business administration, so let's assign 0.5 to each.
+
+**P(E|H)**: Personality traits like high intelligence, enjoyment of solving puzzles, and understanding abstract concepts are strong indicators for computer science. Curiosity about nature and empathy are less typical but not exclusive.
+\[ P(E|H_1) \approx 0.7\]
+
+**P(E|\neg H)**: Since these traits are not exclusive to computer science, it should be somewhat lower.
+\[ P(E|\neg H_1) \approx 0.4\]
+
+### Business Administration
+**P(H)**: As above, prior assumed to be 0.5.
+
+**P(E|H)**: Traits like strong empathy and appreciation for dedication fit well, but high intelligence and abstract problem-solving are less specific to this field compared to computer science.
+\[ P(E|H_2) \approx 0.4\]
+
+**P(E|\neg H)**: Like with computer science, these traits do not fit as strongly but are not exclusive.
+\[ P(E|\neg H_2) \approx 0.5\]
+
+---
+
+Using Bayes' rule proportionally:
+
+For computer science:
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) = 0.7 \times 0.5 = 0.35 \]
+
+For business administration:
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) = 0.4 \times 0.5 = 0.2 \]
+
+Normalizing these values between the two hypotheses:
+
+\[ P(H_1|E) = \frac{0.35}{0.35 + 0.2} = \frac{0.35}{0.55} \approx 0.636 \]
+\[ P(H_2|E) = \frac{0.2}{0.35 + 0.2} = \frac{0.2}{0.55} \approx 0.364 \]
+
+### Final answer:
+```json
+{
+  "computer science": 0.636,
+  "business administration": 0.364
+}
+```

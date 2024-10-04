@@ -1,0 +1,53 @@
+To address the problem, we need to estimate the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field. 
+
+Let's start by breaking down the probabilities for each field.
+
+1. **Business Administration**
+
+   **P(H):** Estimate the prior probability that Adam is enrolled in a business administration program. Business administration is a common field, but given Adam's interests and characteristics, it seems less probable compared to fields that directly relate to his sketch. Let's assign a lower prior here. 
+   - \( P(H)_{\text{business administration}} \approx 0.1 \)
+
+   **P(E|H):** The probability of observing Adam's personality sketch given that he is in a business administration program. Adam’s interests and attributes do not strongly align with the stereotypical business administration student.
+   - \( P(E|H)_{\text{business administration}} \approx 0.1 \)
+
+   **P(E|\neg H):** The probability of observing Adam's personality sketch given that he is *not* in a business administration program. Since Adam's interests are more aligned with other fields, this should be higher.
+   - \( P(E|\neg H)_{\text{business administration}} \approx 0.9 \)
+
+   Using Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))}
+   \]
+
+   \[
+   P(H|E)_{\text{business administration}} = \frac{0.1 \times 0.1}{0.1 \times 0.1 + 0.9 \times 0.9} = \frac{0.01}{0.01 + 0.81} \approx 0.012
+   \]
+
+2. **Agricultural and Veterinary Science**
+
+   **P(H):** Estimate the prior probability that Adam is enrolled in agricultural and veterinary science. This field strongly matches Adam's interests and characteristics. 
+   - \( P(H)_{\text{agricultural and veterinary science}} \approx 0.2 \)
+
+   **P(E|H):** The probability of observing Adam’s personality sketch given that he is in agricultural and veterinary science. Given his curiosity about nature, plants, animals, and empathy, this is a very high probability.
+   - \( P(E|H)_{\text{agricultural and veterinary science}} \approx 0.8 \)
+
+   **P(E|\neg H):** The probability of observing Adam’s personality sketch given that he is *not* in agricultural and veterinary science. This should be lower since his interests fit well with this field.
+   - \( P(E|\neg H)_{\text{agricultural and veterinary science}} \approx 0.3 \)
+
+   Using Bayes' rule:
+
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))}
+   \]
+
+   \[
+   P(H|E)_{\text{agricultural and veterinary science}} = \frac{0.8 \times 0.2}{0.8 \times 0.2 + 0.3 \times 0.8} = \frac{0.16}{0.16 + 0.24} = \frac{0.16}{0.40} = 0.4
+   \]
+
+Using the computations above, we have:
+
+```json
+{
+  "business administration": 0.012,
+  "agricultural and veterinary science": 0.4
+}
+```

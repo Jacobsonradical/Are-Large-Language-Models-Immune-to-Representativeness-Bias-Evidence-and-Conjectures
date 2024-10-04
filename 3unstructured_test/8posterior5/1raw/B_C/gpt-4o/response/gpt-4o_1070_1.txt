@@ -1,0 +1,56 @@
+To compute the probabilities \( P(H|E) \) (the probability that Adam was enrolled in a particular field given the personality sketch) for both business administration and computer science, we will need to estimate:
+
+1. \( P(H) \) - The prior probability that Adam was enrolled in a given field.
+2. \( P(E|H) \) - The probability of observing the personality sketch given that Adam was enrolled in a particular field.
+3. \( P(E|\neg H) \) - The probability of observing the personality sketch given that Adam was not enrolled in that particular field.
+
+We use Bayes' Rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both hypotheses, we can simplify the comparison by computing the non-normalized posterior and then normalizing:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For estimation purposes:
+
+### For Business Administration
+- \( P(H) \) (prior probability that Adam was in business administration): Let's assume \( P(H) = 0.1 \) (10%).
+- \( P(E|H) \) (probability of observing the personality profile given business administration): Considering the traits like empathy, understanding hard work, and dedication, let's estimate \( P(E|H) = 0.2 \).
+
+### For Computer Science
+- \( P(H) \) (prior probability that Adam was in computer science): Since Computer Science is quite popular among graduate students, let's assume \( P(H) = 0.3 \) (30%).
+- \( P(E|H) \) (probability of observing the personality profile given computer science): Considering high intelligence, appreciation for abstract concepts, and puzzle-solving ability, let's estimate \( P(E|H) = 0.6 \).
+
+- \( P(E|\neg H) \) (probability of observing the personality profile given that Adam is not in the field):
+  - Business Administration: Since 90% are not in business administration, let's estimate \( P(E|\neg H) = 0.05 \) considering the commonality of empathy-oriented professionals.
+  - Computer Science: Since 70% are not in computer science, let's estimate \( P(E|\neg H) = 0.2 \) as abstract thinking is less common in other fields.
+
+Now, using Bayes' Rule:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+#### For Business Administration:
+\[ P(H|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+#### For Computer Science:
+\[ P(H|E) \propto 0.6 \cdot 0.3 = 0.18 \]
+
+Finally, we normalize these to get the actual probabilities (within our simplified comparison):
+
+\[ \text{Total} = 0.02 + 0.18 = 0.20 \]
+
+So,
+
+\[ P(H=Business \, Administration|E) = \frac{0.02}{0.20} = 0.1 \]
+
+\[ P(H=Computer \, Science|E) = \frac{0.18}{0.20} = 0.9 \]
+
+The final values would be:
+
+```json
+{
+  "business administration": 0.1,
+  "computer science": 0.9
+}
+```

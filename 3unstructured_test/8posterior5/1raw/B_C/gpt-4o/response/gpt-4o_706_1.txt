@@ -1,0 +1,53 @@
+To compute \( P(H|E) \) for each hypothesis \( H \), we can use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis.
+- \( P(E) \) is the total probability of observing the evidence.
+
+Since \( P(E) \) is a normalizing constant that ensures the probabilities sum to 1, we can calculate the values up to a proportional constant and then normalize at the end if needed.
+
+Let's break it down for both fields:
+
+### Business Administration
+
+1. **P(H)**: Prior probability of Adam being in business administration. Since business administration is a common graduate field, let's assume \( P(H) = 0.20 \).
+
+2. **P(E|H)**: Likelihood of observing the personality sketch if Adam is in business administration. The sketch mentions a strong interest in nature, plants, animals, and abstract concepts. This seems less aligned with typical business administration traits. So, let's assume \( P(E|H) = 0.10 \).
+
+3. **P(E|\neg H)**: Likelihood of the evidence given Adam is not in business administration. Given the sketch's traits, other fields like environmental science, biology, or even computer science might seem more probable. Let's assume \( P(E|\neg H) = 0.80 \).
+
+### Computer Science
+
+1. **P(H)**: Prior probability of Adam being in computer science. Computer science is a popular field, and Adam's intelligence and interest in abstract concepts might fit. Let's assume \( P(H) = 0.15 \).
+
+2. **P(E|H)**: Likelihood of observing the personality sketch if Adam is in computer science. Interest in puzzles, abstract concepts, and high intelligence fit well with a computer science background. Let's assume \( P(E|H) = 0.70 \).
+
+3. **P(E|\neg H)**: Likelihood of the evidence given Adam is not in computer science. Given that this could include various other fields, let's assume \( P(E|\neg H) = 0.40 \).
+
+Now, we use Bayes' rule to compute \( P(H|E) \):
+
+### Business Administration
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.10 \times 0.20 = 0.02 \]
+
+### Computer Science
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.70 \times 0.15 = 0.105 \]
+
+To compare these probabilities properly, we normalize them:
+
+\[ P(H|E)_{\text{business administration}} = \frac{0.02}{0.02 + 0.105} = \frac{0.02}{0.125} = 0.16 \]
+
+\[ P(H|E)_{\text{computer science}} = \frac{0.105}{0.02 + 0.105} = \frac{0.105}{0.125} = 0.84 \]
+
+So the final results for both fields are as follows:
+
+```json
+{
+  "business administration": 0.16,
+  "computer science": 0.84
+}
+```

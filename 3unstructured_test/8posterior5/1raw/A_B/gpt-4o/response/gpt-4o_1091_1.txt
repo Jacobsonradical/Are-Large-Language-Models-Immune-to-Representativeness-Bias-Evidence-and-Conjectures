@@ -1,0 +1,53 @@
+To estimate the probabilities using Bayes' rule, we'll need some assumed values for the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Let's arbitrarily set some values to illustrate this:
+
+- \( P(H) \) is the prior probability that Adam is enrolled in a particular graduate field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch if Adam is enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch if Adam is not enrolled in that field.
+- \( P(H|E) \) is the posterior probability that Adam is enrolled in the field given the personality sketch \(E\).
+
+Given the personality sketch of Adam, he has a strong fit for agricultural and veterinary science, while business administration does not align well with his interests and personality traits.
+
+Let's assume:
+
+For **Business Administration**:
+- \( P(H_{\text{business}}) \): Given that business administration is a common field of graduate study, let's assume \( P(H_{\text{business}}) = 0.2 \).
+- \( P(E|H_{\text{business}}) \): Given that Adam's personality does not highly align with typical business administration traits, let's assume \( P(E|H_{\text{business}}) = 0.05 \).
+- \( P(E|\neg H_{\text{business}}) \): Given the broad reasonableness of Adam's personality sketch across many fields, let's assume \( P(E|\neg H_{\text{business}}) = 0.5 \).
+
+For **Agricultural and Veterinary Science**:
+- \( P(H_{\text{agriVet}}) \): Let's initially assume \( P(H_{\text{agriVet}}) = 0.1 \) as it is less common than business administration.
+- \( P(E|H_{\text{agriVet}}) \): Given that Adam's traits align very well with this field, let's assume \( P(E|H_{\text{agriVet}}) = 0.8 \).
+- \( P(E|\neg H_{\text{agriVet}}) \): Again assuming broad applicability of Adam's traits, let's assume \( P(E|\neg H_{\text{agriVet}}) = 0.5 \).
+
+Now, using Bayes' rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+For **Business Administration**:
+
+\[ 
+P(H_{\text{business}}|E) = \frac{0.05 \cdot 0.2}{0.05 \cdot 0.2 + 0.5 \cdot (1 - 0.2)} \\
+= \frac{0.01}{0.01 + 0.4} \\
+= \frac{0.01}{0.41} \\
+= 0.0244
+\]
+
+For **Agricultural and Veterinary Science**:
+
+\[ 
+P(H_{\text{agriVet}}|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.5 \cdot (1 - 0.1)} \\
+= \frac{0.08}{0.08 + 0.45} \\
+= \frac{0.08}{0.53} \\
+= 0.1509
+\]
+
+Therefore, the probabilities are:
+
+```json
+{
+  "business administration": 0.0244,
+  "agricultural and veterinary science": 0.1509
+}
+```
+
+These values indicate that, given Adam's personality sketch, he is more likely to be enrolled in agricultural and veterinary science than in business administration.

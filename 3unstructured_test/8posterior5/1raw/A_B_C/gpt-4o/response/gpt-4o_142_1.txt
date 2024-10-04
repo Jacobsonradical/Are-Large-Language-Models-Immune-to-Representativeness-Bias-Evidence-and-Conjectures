@@ -1,0 +1,54 @@
+To calculate the probability for each field using Bayes' Rule, we need to consider the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complement likelihoods \( P(E|\neg H) \). 
+
+For simplicity, I'll assume some reasonable values for these probabilities based on general knowledge about the fields:
+
+1. **Computer Science:**
+   - \( P(H_{CS}) \): The prior probability that a random graduate student is in computer science. Given the high number of students in this field, let's say 0.3.
+   - \( P(E|H_{CS}) \): The likelihood of Adam’s personality traits given that he is in computer science. Since Adam seems more suited to natural sciences, we'll rate this low, say 0.1.
+   - \( P(E|\neg H_{CS}) \): The likelihood of Adam’s personality traits given that he is not in computer science. Given the broader pool of all other fields, this could be 0.9.
+
+Using Bayes’ Rule: 
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Where \( P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot (1 - P(H_{CS})) \)
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H_{AV}) \): The prior probability that a graduate student is in agricultural and veterinary science. This field is less common, say 0.1.
+   - \( P(E|H_{AV}) \): Likelihood of Adam’s personality traits given that he is in this field. Highly likely, say 0.8.
+   - \( P(E|\neg H_{AV}) \): The likelihood of Adam’s personality traits given he is not in agricultural and veterinary science. Perhaps 0.4.
+
+Using Bayes’ Rule: 
+\[ P(H_{AV}|E) = \frac{P(E|H_{AV}) \cdot P(H_{AV})}{P(E)} \]
+Where \( P(E) = P(E|H_{AV}) \cdot P(H_{AV}) + P(E|\neg H_{AV}) \cdot (1 - P(H_{AV})) \)
+
+3. **Business Administration:**
+   - \( P(H_{BA}) \): The prior probability a random graduate student is in business administration. Pretty common, let's say 0.2.
+   - \( P(E|H_{BA}) \): The likelihood of Adam’s personality traits given he is in business administration. Unlikely, say 0.2.
+   - \( P(E|\neg H_{BA}) \): The likelihood of Adam’s personality traits given he is not in business administration. Assume 0.8.
+
+Using Bayes’ Rule: 
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+Where \( P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot (1 - P(H_{BA})) \)
+
+Now, for approximate values of posterior probabilities \( P(H|E) \):
+
+1. **Computer Science:**
+\[ P(E) = 0.1 \times 0.3 + 0.9 \times 0.7 = 0.03 + 0.63 = 0.66 \]
+\[ P(H_{CS}|E) = \frac{0.1 \times 0.3}{0.66} \approx 0.045 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(E) = 0.8 \times 0.1 + 0.4 \times 0.9 = 0.08 + 0.36 = 0.44 \]
+\[ P(H_{AV}|E) = \frac{0.8 \times 0.1}{0.44} \approx 0.182 \]
+
+3. **Business Administration:**
+\[ P(E) = 0.2 \times 0.2 + 0.8 \times 0.8 = 0.04 + 0.64 = 0.68 \]
+\[ P(H_{BA}|E) = \frac{0.2 \times 0.2}{0.68} \approx 0.059 \]
+
+So, the approximate results are as follows:
+
+```json
+{
+  "computer science": 0.045,
+  "agricultural and veterinary science": 0.182,
+  "business administration": 0.059
+}
+```

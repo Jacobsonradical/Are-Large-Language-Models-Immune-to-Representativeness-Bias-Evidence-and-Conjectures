@@ -1,0 +1,46 @@
+Let's use the following notation:
+
+- \( P(H_{cs}) \): The prior probability that Adam is a graduate student in computer science.
+- \( P(E|H_{cs}) \): The probability of Adam's personality traits given that he is a graduate student in computer science.
+- \( P(E|\neg H_{cs}) \): The probability of Adam's personality traits given that he is not a graduate student in computer science.
+- \( P(H_{ba}) \): The prior probability that Adam is a graduate student in business administration.
+- \( P(E|H_{ba}) \): The probability of Adam's personality traits given that he is a graduate student in business administration.
+- \( P(E|\neg H_{ba}) \): The probability of Adam's personality traits given that he is not a graduate student in business administration.
+
+### Computer Science
+1. **Prior Probability \( P(H_{cs}) \)**: Suppose the probability that a graduate student is in computer science is fairly common. Let's estimate it around 0.2.
+2. **Probability \( P(E|H_{cs}) \)**: A person with an appreciation for solving puzzles and high intelligence might fit well in computer science. Let's estimate this around 0.4.
+3. **Probability \( P(E|\neg H_{cs}) \)**: The traits could also apply to other fields but maybe less so. Let's take this as 0.2.
+
+Using Bayes' theorem:
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+
+Where \( P(E) \) can be expressed as:
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot P(\neg H_{cs}) \]
+\[ P(E) = 0.4 \cdot 0.2 + 0.2 \cdot 0.8 = 0.08 + 0.16 = 0.24 \]
+
+Thus:
+\[ P(H_{cs}|E) = \frac{0.4 \cdot 0.2}{0.24} \approx 0.33 \]
+
+### Business Administration
+1. **Prior Probability \( P(H_{ba}) \)**: Suppose the probability that a graduate student is in business administration is less common compared to computer science. Let's estimate it around 0.1.
+2. **Probability \( P(E|H_{ba}) \)**: A person with a warm heart, strong empathy, and appreciation for hard work and dedication could fit in business administration. Let's estimate this around 0.3.
+3. **Probability \( P(E|\neg H_{ba}) \)**: As before, these traits could apply to other fields but maybe less so. Let's take this as 0.2.
+
+Using Bayes' theorem:
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+
+Where \( P(E) \) (combined for all fields) stays the same:
+\[ P(E) = 0.24 \]
+
+Thus:
+\[ P(H_{ba}|E) = \frac{0.3 \cdot 0.1}{0.24} \approx 0.125 \]
+
+Finally, the results are:
+
+```
+{
+  "computer science": 0.33,
+  "business administration": 0.125
+}
+```

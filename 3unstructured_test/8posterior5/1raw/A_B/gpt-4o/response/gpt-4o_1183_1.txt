@@ -1,0 +1,70 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to define the probabilities and then apply Bayes' formula. Bayes' rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here:
+- \( P(H) \) is the prior probability that Adam is enrolled in the given field.
+- \( P(E|H) \) is the probability of observing the personality sketch E given that Adam is in the given field.
+- \( P(E|\neg H) \) is the probability of observing the personality sketch E given that Adam is not in the given field.
+- \( P(E) \) is the overall probability of observing the personality sketch E, which can be calculated as:
+  \[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For the sake of this task, we can make reasonable estimates of these probabilities. Let's assume some reasonable prior distribution and conditional probabilities for simplicity:
+
+### Hypotheses:
+- \( H_1 \): Adam is enrolled in agricultural and veterinary science
+- \( H_2 \): Adam is enrolled in business administration
+
+### Estimations:
+1. **P(H_1)**: Probability that Adam is enrolled in agricultural and veterinary science
+2. **P(H_2)**: Probability that Adam is enrolled in business administration
+
+Based on the personality sketch, it is reasonable to attribute stronger priors to fields that align well with Adam's interests and characteristics:
+
+- **P(H_1)**: Agricultural and veterinary science seems a strong match given Adam's curiosity about nature, plants, animals, and empathy.
+- **P(H_2)**: Business administration seems less likely given Adam's interests, but not impossible.
+
+### Conditional Probabilities:
+- **P(E|H_1)**: High, as the personality sketch fits well with the field of agricultural and veterinary science.
+- **P(E|H_2)**: Low, as the personality sketch is less associated with interests typically found in business administration.
+- **P(E|\neg H_1)**: Would mainly include E given H2 and other potential fields.
+- **P(E|\neg H_2)**: Would mainly include E given H1 and other potential fields.
+
+### Calculation:
+
+1. **Agricultural and Veterinary Science**:
+    - \( P(H_1) \approx 0.2 \)
+    - \( P(E|H_1) \approx 0.8 \)
+    - \( P(E|\neg H_1) \approx 0.2 \)
+
+2. **Business Administration**:
+    - \( P(H_2) \approx 0.1 \)
+    - \( P(E|H_2) \approx 0.1 \)
+    - \( P(E|\neg H_2) \approx 0.6 \)
+
+Given these estimates, we can calculate \( P(E) \) for use in both posterior probabilities:
+
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1) \]
+
+### P(E)
+\[ P(E) \approx (0.8 \cdot 0.2) + (0.2 \cdot 0.8) + (0.1 \cdot 0.1) \]
+\[ P(E) \approx 0.16 + 0.16 + 0.01 = 0.33 \]
+
+Now we apply Bayes' rule for each field:
+
+1. **For Agricultural and Veterinary Science**:
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \]
+\[ P(H_1|E) = \frac{0.8 \cdot 0.2}{0.33} \approx 0.484 \]
+
+2. **For Business Administration**:
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \]
+\[ P(H_2|E) = \frac{0.1 \cdot 0.1}{0.33} \approx 0.03 \]
+
+So, the final posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.484,
+  "business administration": 0.03
+}
+```

@@ -1,0 +1,74 @@
+To apply Bayes' rule, we need to compute the posterior probability \( P(H|E) \) for each field given the evidence \( E \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( P(H) \): The prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \): The probability of the evidence given the hypothesis.
+- \( P(E|\neg H) \): The probability of the evidence given the negation of the hypothesis (for all other fields).
+
+Assumptions:
+
+1. \( P(H) \): We'll assume equal priors for simplicity (though in real life, we'd adjust these based on statistics of enrollment).
+2. \( P(E|H) \) and \( P(E|\neg H) \): These evaluate how consistent Adam's personality is with each field.
+
+### Here is an assessment:
+
+#### Agricultural and Veterinary Science
+- **P(H):** High, as Adam’s love for nature, animals, and appreciation for hard work closely align with this field.
+- **P(E|H):** High, the traits highly correspond to the skills and interests required in this field.
+- **P(E|\neg H):** Lower compared to \( P(E|H) \).
+
+#### Business Administration
+- **P(H):** Moderate, since business administration is not as closely related to Adam's interests but doesn't completely rule them out.
+- **P(E|H):** Low, as the interests in nature and puzzles fit less with common skill sets in business.
+- **P(E|\neg H):** Higher compared to \( P(E|H) \).
+
+#### Computer Science
+- **P(H):** Moderate, since Adam’s interest in puzzles and abstract concepts aligns well with this field.
+- **P(E|H):** Moderate, as these aspects do align, but it's not a perfect match considering his empathy and love for nature.
+- **P(E|\neg H):** Comparable to \( P(E|H) \).
+
+### Numerical Estimations:
+
+\( P(H) = 0.33 \) (assuming equal priors for each of the three fields, though in practice this could be different)  
+\( P(E) \) is a normalizing constant we don't need to calculate as it will stay the same for comparison.
+
+#### Estimates:
+- For **Agricultural and Veterinary Science**:
+  \( P(E|H) = 0.8 \)  
+  \( P(E|\neg H) = 0.5 \)  
+
+- For **Business Administration**:
+  \( P(E|H) = 0.2 \)  
+  \( P(E|\neg H) = 0.6 \)  
+
+- For **Computer Science**:
+  \( P(E|H) = 0.6 \)  
+  \( P(E|\neg H) = 0.5 \)  
+
+### Calculations:
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{0.8 \cdot 0.33}{0.8 \cdot 0.33 + 0.5 \cdot (1 - 0.33)} \approx 0.43 \]
+
+#### Business Administration:
+\[ P(H|E) = \frac{0.2 \cdot 0.33}{0.2 \cdot 0.33 + 0.6 \cdot (1 - 0.33)} \approx 0.11 \]
+
+#### Computer Science:
+\[ P(H|E) = \frac{0.6 \cdot 0.33}{0.6 \cdot 0.33 + 0.5 \cdot (1 - 0.33)} \approx 0.30 \]
+
+### Final Results:
+
+```json
+{
+  "agricultural and veterinary science": 0.43,
+  "business administration": 0.11,
+  "computer science": 0.30
+}
+```
+
+These values are indicative and would be adjusted further based on more accurate priors and context-specific knowledge.

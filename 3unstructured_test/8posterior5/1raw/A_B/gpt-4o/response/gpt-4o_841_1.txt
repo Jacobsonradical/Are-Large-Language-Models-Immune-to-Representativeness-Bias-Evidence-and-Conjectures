@@ -1,0 +1,66 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in either "business administration" or "agricultural and veterinary science," we must apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we do not have the exact values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), we will use reasonable assumptions based on the description of E (Adam's personality sketch) and the general nature of these fields.
+
+### Business Administration
+
+**Step 1: Assume Priors \( P(H) \):**
+- \( P(H) \) for business administration: This is typically a common field; let's assume \( P(H) \approx 0.3 \) as a reasonable guess.
+- \( P(E|\neg H) \): Since other fields are possible, let's suppose \( P(E|\neg H) = 0.7 \).
+
+**Step 2: Assess Likelihood \( P(E|H) \):**
+- \( P(E|H) \) for business administration: Given that Adam has strong curiosity about nature, empathy, and a love for animals, these traits are less typical for a business administration student. Let's assume \( P(E|H) \approx 0.1 \).
+
+**Step 3: Compute Posterior \( P(H|E) \):**
+\[ P(H|E) = \frac{0.1 \cdot 0.3}{P(E)} \]
+\( P(E) \) should be the same for all fields discussed here. For simplicity, we'll normalize later.
+
+### Agricultural and Veterinary Science
+
+**Step 1: Assume Priors \( P(H) \):**
+- \( P(H) \) for agricultural and veterinary science: Still a specific field, but fitting Adam's profile more closely. Let's assume \( P(H) \approx 0.1 \).
+- \( P(E|\neg H) \): Remains the same at \( 0.7 \).
+
+**Step 2: Assess Likelihood \( P(E|H) \):**
+- \( P(E|H) \) for agricultural and veterinary science: Given Adam's empathy, love for nature, plants, and animals, let's assume \( P(E|H) \approx 0.8 \).
+
+**Step 3: Compute Posterior \( P(H|E) \):**
+\[ P(H|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+### Normalization
+Since \( P(E) \) is not given (the probability of observing E across all possible fields), to compare the two \( P(H|E) \) values relative to each other, we normalize them:
+
+\( P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) + \sum P(E|H_{\text{other}}) \cdot P(H_{\text{other}}) \)
+
+Given the values above:
+\[ P(E) \approx 0.1 \cdot 0.3 + 0.8 \cdot 0.1 + \text{other terms} \]
+
+Let's denote other terms as marginal probability:
+\[ P(E) \approx 0.03 + 0.08 + \text{other terms} = 0.11 + \text{other terms} \]
+\[
+\frac{0.1 \cdot 0.3}{P(E)} \implies \frac{0.03}{0.11 + \text{other terms}} \]
+\[
+= \text{normalized probability for business administration}
+\]
+
+\[
+\frac{0.8 \cdot 0.1}{P(E)} \implies \frac{0.08}{0.11 + \text{other terms}} \]
+\[
+= \text{normalized probability for agricultural and veterinary science}
+\]
+
+The normalization process ensures these probabilities are relative and comparable. Since we're only interested in two fields, let’s assume the others terms cancel out for simplification:
+
+\[ P(H|E)_{\text{BA}} \approx \frac{0.03}{0.11} = 0.273 \]
+\[ P(H|E)_{\text{AgVet}} \approx \frac{0.08}{0.11} = 0.727 \]
+
+Thus, the approximate relative probabilities are:
+
+```json
+{
+  "business administration": 0.273,
+  "agricultural and veterinary science": 0.727
+}
+```

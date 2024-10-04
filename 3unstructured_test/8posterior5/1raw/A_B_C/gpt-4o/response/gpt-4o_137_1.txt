@@ -1,0 +1,98 @@
+To compute the posterior probability \( P(H|E) \) for each given field using Bayes' rule, we need to estimate the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field.
+2. \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given that Adam was enrolled in each field.
+3. \( P(E|\neg H) \): The likelihood of observing the personality sketch \( E \) given that Adam was not enrolled in each field.
+
+Let's assess and estimate these probabilities for each field:
+
+### Agricultural and Veterinary Science
+- **Prior probability, \( P(H) \)**: Let's assume an average graduate program distribution and give a higher prior probability for fields that seem more relevant to Adam's sketch. For Agricultural and Veterinary Science we estimate:
+  \[
+  P(H) = 0.1
+  \]
+  
+- **Likelihood, \( P(E|H) \)**: Given the strong alignment of the personality sketch with this field (curiosity about nature, love for animals), this is expected to be high:
+  \[
+  P(E|H) = 0.7
+  \]
+  
+- **Likelihood given not \( H \), \( P(E|\neg H) \)**: The probability of the personality sketch occurring outside this field is lower but not negligible:
+  \[
+  P(E|\neg H) = 0.2
+  \]
+
+### Computer Science
+- **Prior probability, \( P(H) \)**: Given the popularity of this field among graduate students, we'll set a moderate prior:
+  \[
+  P(H) = 0.2
+  \]
+  
+- **Likelihood, \( P(E|H) \)**: Given Adam's quiet nature and intelligence, but no specific mention of computer science interest, the alignment is modest:
+  \[
+  P(E|H) = 0.3
+  \]
+  
+- **Likelihood given not \( H \), \( P(E|\neg H) \)**: The probability of the personality sketch for students not in computer science is fairly common:
+  \[
+  P(E|\neg H) = 0.3
+  \]
+
+### Business Administration
+- **Prior probability, \( P(H) \)**: Business administration is also an average choice among graduate students, so we'll use a moderate prior:
+  \[
+  P(H) = 0.2
+  \]
+  
+- **Likelihood, \( P(E|H) \)**: Adam's personality does not strongly align with typical traits for this field (e.g., interest in nature vs. business). Also, no mention of business interests:
+  \[
+  P(E|H) = 0.1
+  \]
+  
+- **Likelihood given not \( H \), \( P(E|\neg H) \)**: Traits described in the sketch might often be seen outside business field:
+  \[
+  P(E|\neg H) = 0.3
+  \]
+
+### Applying Bayes' Rule
+Using Bayes' rule:
+\[
+P(H|E) = \frac{P(E|H) \times P(H)}{P(E)}
+\]
+Where \( P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \).
+
+Calculate \( P(E) \) for each field before finding \( P(H|E) \).
+
+1. **Agricultural and Veterinary Science**:
+\[
+P(E) = (0.7 \times 0.1) + (0.2 \times 0.9) = 0.07 + 0.18 = 0.25
+\]
+\[
+P(H|E) = \frac{0.7 \times 0.1}{0.25} = 0.28
+\]
+
+2. **Computer Science**:
+\[
+P(E) = (0.3 \times 0.2) + (0.3 \times 0.8) = 0.06 + 0.24 = 0.3
+\]
+\[
+P(H|E) = \frac{0.3 \times 0.2}{0.3} = 0.2
+\]
+
+3. **Business Administration**:
+\[
+P(E) = (0.1 \times 0.2) + (0.3 \times 0.8) = 0.02 + 0.24 = 0.26
+\]
+\[
+P(H|E) = \frac{0.1 \times 0.2}{0.26} = \approx 0.077
+\]
+
+### Final Results
+
+```json
+{
+  "agricultural and veterinary science": 0.28,
+  "computer science": 0.2,
+  "business administration": 0.077
+}
+```

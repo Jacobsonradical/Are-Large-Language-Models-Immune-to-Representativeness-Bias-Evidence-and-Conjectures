@@ -1,0 +1,50 @@
+Given the information in the personality sketch of Adam (E) and the hypotheses (H) related to the fields of study, we can use Bayes' Rule to estimate the probability that Adam was enrolled in each field (P(H|E)).
+
+Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### 1. Computer Science (CS)
+- \( P(H) \): The prior probability that a graduate student is in computer science. Assuming a moderate number of students are enrolled in CS.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in CS. Given that Adam is highly intelligent and good at abstract concepts, these traits are quite consistent with CS. However, his empathy, love for animals, and appreciation for hard work might also fit more with a field like biology or environmental science.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in CS. Given his traits, it might be reasonable to assume he could fit well in other fields that require high intelligence and empathy, like biology or psychology.
+
+### 2. Business Administration (BA)
+- \( P(H) \): The prior probability that a graduate student is in business administration. This probability is likely somewhat lower than CS or biology, as not all students with Adam's traits would typically choose business administration.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in BA. While business administration requires intelligence and understanding abstract concepts, the specific traits of empathy, love for animals, and nature might be less aligned.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in BA. The same logic as before applies here, considering fields that align better with his interests and personality.
+
+### Assigning Probabilities for Prior and Conditionals:
+To compute the exact probabilities, we would traditionally require detailed statistics, but we can make educated estimations based on the provided information.
+
+Let's assume:
+- \( P(H_{CS}) = 0.25 \) (25% chance a graduate student is in CS)
+- \( P(E|H_{CS}) = 0.7 \) (70% chance Adam's sketch fits CS)
+- \( P(E|\neg H_{CS}) = 0.3 \) (30% chance his sketch fits if not in CS)
+
+- \( P(H_{BA}) = 0.15 \) (15% chance a graduate student is in BA)
+- \( P(E|H_{BA}) = 0.3 \) (30% chance Adam's sketch fits BA)
+- \( P(E|\neg H_{BA}) = 0.6 \) (60% chance his sketch fits if not in BA)
+
+Now we can apply Bayes' Rule:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.7 \times 0.25}{P(E)} = \frac{0.175}{P(E)} \]
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.3 \times 0.15}{P(E)} = \frac{0.045}{P(E)} \]
+
+Since \( P(E) \) is common and ensures normalization over all possible hypotheses, we don't need to compute it explicitly for relative comparisons here.
+
+Now we convert these relative proportions to a typical probability range (0 to 1):
+
+\[ P(H_{CS}|E) \propto \frac{0.175}{0.175 + 0.045} \approx 0.795 \]
+
+\[ P(H_{BA}|E) \propto \frac{0.045}{0.175 + 0.045} \approx 0.205 \]
+
+So the resulting probabilities are approximately:
+
+```json
+{
+  "computer science": "0.795",
+  "business administration": "0.205"
+}
+```

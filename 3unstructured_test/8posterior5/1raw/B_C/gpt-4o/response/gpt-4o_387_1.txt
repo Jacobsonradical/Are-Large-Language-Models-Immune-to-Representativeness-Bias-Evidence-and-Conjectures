@@ -1,0 +1,76 @@
+To apply Bayes' rule and compute \(P(H|E)\) for Adam's likelihood of being enrolled in business administration or computer science, we need to estimate three probabilities for each field:
+
+1. \(P(H)\): The prior probability of Adam being enrolled in the given field.
+2. \(P(E|H)\): The probability of E (the personality sketch) given that Adam is in the specified field.
+3. \(P(E|\neg H)\): The probability of E given that Adam is not in the specified field.
+
+And then, we use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, \(P(E)\) can be considered as a normalizing constant since we are only comparing the relative probabilities.
+
+### Business Administration
+
+1. \(P(H)\) for business administration: Generally, business administration is a common graduate program, so let's assume a prior of 0.1 (or 10%).
+2. \(P(E|H)\) for business administration:
+   - Curiosity about nature: Low
+   - Quiet and enjoys solving puzzles: Neutral
+   - Warm heart, empathy, love for animals: Low to Moderate
+   - High intelligence and understanding abstract concepts: Moderate
+   - Appreciation for hard work: High
+   
+   Overall, Adam's personality does not strongly align with typical traits needed in business administration. Let's estimate this at 0.2.
+
+3. \(P(E|\neg H)\) for business administration:
+   - Considering other graduate fields (science, engineering, humanities), Adam's personality might be more common. Let's estimate it at 0.5.
+
+So, 
+\[P(H|E) _{\text{business admin}} \approx \frac{0.2 \times 0.1}{P(E)}\]
+
+### Computer Science
+
+1. \(P(H)\) for computer science: Computer science is also a common graduate program. Assume a prior of 0.1 (or 10%).
+2. \(P(E|H)\) for computer science:
+   - Curiosity about nature: Moderate
+   - Quiet and enjoys solving puzzles: High
+   - Warm heart, empathy, love for animals: Moderate to High
+   - High intelligence and understanding abstract concepts: High
+   - Appreciation for hard work: High
+
+   Adam's personality seems to align fairly well with computer science traits (problem-solving, abstract thinking, dedication). Let's estimate this at 0.6.
+
+3. \(P(E|\neg H)\) for computer science:
+   - Considering the rest of the fields, Adam’s personality might still be moderate to high in alignment. Let's estimate this at 0.4.
+
+So, 
+\[P(H|E) _{\text{computer science}} \approx \frac{0.6 \times 0.1}{P(E)}\]
+
+Since the normalizing constant \(P(E)\) is the same for both fields:
+
+\[P(H|E) _{\text{business admin}} \approx \frac{0.2 \times 0.1}{P(E)}\]
+
+\[P(H|E) _{\text{computer science}} \approx \frac{0.6 \times 0.1}{P(E)}\]
+
+Finally, normalize the values:
+\[ w_\text{business admin} = 0.2 \times 0.1 = 0.02 \]
+
+\[ w_\text{computer science} = 0.6 \times 0.1 = 0.06 \]
+
+Now the probabilities are proportional to these weights:
+
+\[
+P(H|E)_{\text{business administration}} = \frac{0.02}{0.02 + 0.06} = \frac{0.02}{0.08} = 0.25
+\]
+
+\[
+P(H|E)_{\text{computer science}} = \frac{0.06}{0.02 + 0.06} = \frac{0.06}{0.08} = 0.75
+\]
+
+Therefore, the computed relative probabilities are:
+
+```json
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+```

@@ -1,0 +1,49 @@
+To determine the likelihood \(P(H|E)\) for each field of study that Adam might have been enrolled in, we need to use Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam was enrolled in the given field given his personality sketch.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam was enrolled in the field.
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E) \) is the overall probability of the personality sketch, which can be simplified using \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Given that there are other possible graduate fields, \( P(\neg H) \) will involve considering the other fields collectively. Here are the steps to estimate each component:
+
+### Computer Science
+1. **\( P(H)_{CS} \)**: Assume the prior probability \((P(H)_{CS})\) for Adam being in Computer Science is roughly the same for any random student, which we can estimate to be relatively standard, say around 0.15.
+2. **\( P(E|H)_{CS} \)**: Considering Adam's skills in solving puzzles and understanding abstract concepts, the likelihood of these traits if he were a Computer Science student is high, roughly 0.7.
+3. **\( P(E|\neg H)_{CS} \)**: The likelihood of these traits if Adam were not a Computer Science student might be lower at around 0.4.
+
+\[ P(H|E)_{CS} = \frac{P(E|H)_{CS} \cdot P(H)_{CS}}{P(E)} \]
+
+### Business Administration
+1. **\( P(H)_{BA} \)**: Assume the prior probability \((P(H)_{BA})\) for Adam being in Business Administration is also relatively standard for any random student, which might be around 0.1.
+2. **\( P(E|H)_{BA} \)**: Considering Adam's empathy, warm heart, and appreciation for hard work and dedication, the likelihood if he were a Business Administration student might be around 0.6.
+3. **\( P(E|\neg H)_{BA} \)**: Given the similarities in traits desirable in other fields, this likelihood might be around 0.5.
+
+\[ P(H|E)_{BA} = \frac{P(E|H)_{BA} \cdot P(H)_{BA}}{P(E)} \]
+
+#### Overall Probability \( P(E) \):
+\[ P(E) = P(E|H)_{CS} \cdot P(H)_{CS} + P(E|H)_{BA} \cdot P(H)_{BA} + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplification purposes, we will consider that \(\neg H\) includes all other possible fields, and this will have an approximate value combining all potentials not being listed.
+
+### Calculation:
+Given \(P(E) \approx 0.7 \cdot 0.15 + 0.6 \cdot 0.1 + 0.4 \cdot 0.75 \approx 0.105 + 0.06 + 0.3 = 0.465\).
+
+For Computer Science:
+
+\[ P(H|E)_{CS} = \frac{0.7 \cdot 0.15}{0.465} \approx 0.225 \]
+
+For Business Administration:
+\[ P(H|E)_{BA} = \frac{0.6 \cdot 0.1}{0.465} \approx 0.129 \]
+
+So the final likelihoods would be:
+
+```json
+{
+  "computer science": 0.225,
+  "business administration": 0.129
+}
+```

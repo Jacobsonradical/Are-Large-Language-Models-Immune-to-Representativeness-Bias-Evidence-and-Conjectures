@@ -1,0 +1,58 @@
+To compute the posterior probability \( P(H|E) \) for each hypothesis given the personality sketch \( E \), we need to consider:
+
+1. The prior probability of the hypothesis \( P(H) \): The likelihood that Adam is enrolled in a particular field without knowing his personality sketch.
+2. The likelihood \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam is enrolled in that field.
+3. The likelihood \( P(E|\neg H) \): The probability of the personality sketch \( E \) given that Adam is not enrolled in that field.
+
+Assuming uniform priors to keep calculations simple and given the nature of personality sketch provided:
+
+### Business Administration
+
+- **P(H)**: The prior probability of Adam being in business administration. Let's assume business administration is a common field among graduate students, but not necessarily the most likely for someone with his interests.
+  \( P(H) = 0.1 \)
+  
+- **P(E|H)**: Given Adam's interest in nature, animals, empathy, and abstract thinking, these traits do not strongly align with the typical personality traits most associated with business administration.
+  \( P(E|H) = 0.01 \)
+  
+- **P(E|\neg H)**: Given there are many other fields he could be in, the probability of having such a personality sketch if he is not in business administration should be higher.
+  \( P(E|\neg H) = 0.09 \)
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+\[ P(\neg H) = 1 - P(H) = 0.9 \]
+
+\[ P(H|E) = \frac{0.01 \cdot 0.1}{0.01 \cdot 0.1 + 0.09 \cdot 0.9} \]
+\[ P(H|E) = \frac{0.001}{0.001 + 0.081} \]
+\[ P(H|E) = \frac{0.001}{0.082} \approx 0.012 \]
+
+### Computer Science
+
+- **P(H)**: The prior probability of Adam being in computer science, given it's a common and popular field for high intelligence and abstract thinking students.
+  \( P(H) = 0.2 \)
+  
+- **P(E|H)**: Given Adam’s intelligence, abstract thinking, and love for solving puzzles, these align well with typical computer science traits.
+  \( P(E|H) = 0.4 \)
+  
+- **P(E|\neg H)**: Adjusting this slightly down from business admin, as the probability of having such a personality sketch might be relatively lower if he is not in computer science.
+  \( P(E|\neg H) = 0.05 \)
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+\[ P(\neg H) = 1 - P(H) = 0.8 \]
+
+\[ P(H|E) = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.05 \cdot 0.8} \]
+\[ P(H|E) = \frac{0.08}{0.08 + 0.04} \]
+\[ P(H|E) = \frac{0.08}{0.12} \approx 0.667 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.012,
+  "computer science": 0.667
+}
+```

@@ -1,0 +1,88 @@
+Let's work through the problem using Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Given that we're considering two fields:
+1. Computer Science
+2. Agricultural and Veterinary Science
+
+Here's the evaluation:
+
+1. **Computer Science (H = Adam was enrolled in Computer Science)**
+
+### Bayesian Components:
+- **P(H):** What is the prior probability that Adam is enrolled in Computer Science? 
+  Graduate programs in Computer Science are quite common and have a high enrollment rate. For simplicity, let's assume a reasonable value: 
+  \[
+  P(H_{\text{CS}}) \approx 0.2
+  \]
+
+- **P(E|H):** What is the probability of observing the given personality sketch if Adam is in Computer Science? 
+  Considering Adam's quiet nature and high intelligence, as well as his skill in abstract concepts and solving puzzles, these traits match reasonably well with a Computer Science profile:
+  \[
+  P(E|H_{\text{CS}}) \approx 0.6
+  \]
+
+- **P(E|\neg H):** What is the probability of observing the personality sketch if Adam is not in Computer Science? 
+  Adam's appreciation for nature and empathy may not be strongly associated with typical Computer Science students, so:
+  \[
+  P(E|\neg H_{\text{CS}}) \approx 0.3
+  \]
+
+2. **Agricultural and Veterinary Science (H = Adam was enrolled in Agricultural and Veterinary Science)**
+
+### Bayesian Components:
+- **P(H):** What is the prior probability that Adam is enrolled in Agricultural and Veterinary Science? 
+  This field is less common than Computer Science but matches particularly well with Adam's interests:
+  \[
+  P(H_{\text{AgVet}}) \approx 0.1
+  \]
+
+- **P(E|H):** What is the probability of observing the given personality sketch if Adam is in Agricultural and Veterinary Science? 
+  The personality sketch strongly aligns with someone interested in Agricultural and Veterinary Science:
+  \[
+  P(E|H_{\text{AgVet}}) \approx 0.8
+  \]
+
+- **P(E|\neg H):** What is the probability of observing the personality sketch if Adam is not in Agricultural and Veterinary Science? 
+  Given that there are numerous fields, and Adam’s personality traits may match other fields as well:
+  \[
+  P(E|\neg H_{\text{AgVet}}) \approx 0.3
+  \]
+
+### Bayesian Calculations:
+Let's compute \(P(E)\) as:
+
+\[
+P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) + P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}}) - P(H_{\text{AgVet}}))
+\]
+
+\[
+P(E) = (0.6 \cdot 0.2) + (0.8 \cdot 0.1) + (0.3 \cdot (1 - 0.2 - 0.1))
+\]
+
+\[
+P(E) = 0.12 + 0.08 + 0.3 \cdot 0.7 = 0.12 + 0.08 + 0.21 = 0.41
+\]
+
+Now, compute \(P(H_{\text{CS}} | E)\):
+
+\[
+P(H_{\text{CS}} | E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.6 \cdot 0.2}{0.41} \approx 0.29
+\]
+
+And \(P(H_{\text{AgVet}} | E)\):
+
+\[
+P(H_{\text{AgVet}} | E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E)} = \frac{0.8 \cdot 0.1}{0.41} \approx 0.20
+\]
+
+Final Answer:
+\[
+{
+  "computer science": 0.29,
+  "agricultural and veterinary science": 0.20
+}
+\]

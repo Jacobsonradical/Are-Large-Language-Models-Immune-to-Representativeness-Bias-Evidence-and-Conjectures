@@ -1,0 +1,49 @@
+To evaluate the probability that Adam was enrolled in "business administration" or "computer science" given his personality sketch, we follow Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to assign values to the probabilities and compute accordingly. Here's the step-by-step process for both fields:
+
+### 1. Business Administration
+- **P(H):** The prior probability that a random graduate student is studying business administration. Let's assume about 20% (0.2) of graduate students might be in business administration.
+- **P(E|H):** The probability of observing Adam's personality traits if he were a business administration student. Business administration students typically are outgoing, interested in human interactions, etc. Adam’s traits (love for nature, empathy, intelligence, etc.) might fit less here; let's assume 0.1.
+- **P(E|\neg H):** The probability of observing Adam's traits if he were not a business administration student. Let's assume a general student population shares similar characteristics 0.25 of the time.
+
+\[ P(H|E) = \frac{0.1 \times 0.2}{P(E)} \]
+
+We leave out the normalization \( P(E) \), which needs to sum over all possible hypotheses (fields). 
+
+### 2. Computer Science
+- **P(H):** The prior probability that a random graduate student is studying computer science. Let's assume about 25% (0.25) of graduate students might be in CS.
+- **P(E|H):** Computer science students often exhibit high intelligence, good understanding of abstract concepts, and puzzle-solving skills. Adam’s traits fit well; let's assume 0.5.
+- **P(E|\neg H):** As before, assume the probability is 0.25 when considering non-CS students.
+
+\[ P(H|E) = \frac{0.5 \times 0.25}{P(E)} \]
+
+### Final Calculation (unscaled)
+Ignoring \( P(E) \):
+
+- **Business Administration:**
+  \[ P(H|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+- **Computer Science:**
+  \[ P(H|E) \propto 0.5 \times 0.25 = 0.125 \]
+
+### Result:
+Now, we convert these proportional values to probabilities by normalizing them:
+
+Total = 0.02 + 0.125 = 0.145
+
+- **Business Administration:**
+  \[ P(H|E) = \frac{0.02}{0.145} \approx 0.138 \]
+
+- **Computer Science:**
+  \[ P(H|E) = \frac{0.125}{0.145} \approx 0.862 \]
+
+### Answer:
+```json
+{
+  "business administration": 0.138,
+  "computer science": 0.862
+}
+```

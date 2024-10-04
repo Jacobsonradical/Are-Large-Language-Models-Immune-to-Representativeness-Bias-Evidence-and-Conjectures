@@ -1,0 +1,63 @@
+To determine the probability that Adam was enrolled in each of the specified fields given the personality sketch (E), we need to assess the prior probability of being in each field (P(H)), the likelihood of the personality sketch given each field (P(E|H)), and the likelihood of the personality sketch given that Adam is not in that field (P(E|\neg H)).
+
+1. **P(H)**: Initial probability of Adam being enrolled in a particular field.
+2. **P(E|H)**: Probability of the personality sketch given Adam is enrolled in that field.
+3. **P(E|\neg H)**: Probability of the personality sketch given Adam is *not* enrolled in that field.
+
+We'll use Bayes' theorem to find P(H|E):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since P(E) is the same for all fields and we are only comparing relative probabilities, we don't need to compute it explicitly.
+
+**Prior Probabilities (P(H)):**
+- Let's assume a relatively equal distribution across fields, but keep in mind the number of students may vary by program.
+  - Business administration: 0.3
+  - Computer science: 0.4
+  - Agricultural and veterinary science: 0.3
+
+**Likelihoods (P(E|H)):**
+
+Given the personality sketch, we can estimate how likely each field is to match the characteristics of Adam:
+- Business administration: This field typically values leadership, strategy, and social interaction over natural curiosity and empathy for animals. P(E|H) is relatively low.
+- Computer science: This field values intelligence and abstract thinking, aligning with solving puzzles. However, it might not strongly align with love for nature and animals. P(E|H) is moderate.
+- Agricultural and veterinary science: This field aligns well with curiosity about nature, empathy for animals, and appreciation for hard work and dedication. P(E|H) is high.
+
+**Complement Likelihoods (P(E|\neg H)):**
+
+We need to assess how likely the traits in the sketch are given Adam is *not* in each of the fields. As the details are sparse, we use an average estimation:
+- P(E|\neg H) would be roughly similar but inverse to P(E|H).
+
+Calculations:
+Since P(E) cancels out, let's use the values directly for comparison purposes:
+
+1. **Business administration:** 
+   - P(H) = 0.3
+   - P(E|H) ≈ 0.1
+   - P(E|\neg H) ≈ 0.45 (average across remaining two)
+
+\[ P(H|E) = \frac{0.1 \cdot 0.3}{0.1 \cdot 0.3 + 0.8 \cdot 0.35} = \frac{0.03}{0.03 + 0.28} \approx \frac{0.03}{0.31} \approx 0.097 \]
+
+2. **Computer science:** 
+   - P(H) = 0.4
+   - P(E|H) ≈ 0.5
+   - P(E|\neg H) ≈ 0.15 (an average estimation since he's less typical here)
+
+\[ P(H|E) = \frac{0.5 \cdot 0.4}{0.5 \cdot 0.4 + 0.5 \cdot 0.3} = \frac{0.2}{0.2 + 0.15} = \frac{0.2}{0.35} \approx 0.571 \]
+
+3. **Agricultural and veterinary science: **
+   - P(H) = 0.3
+   - P(E|H) ≈ 0.9
+   - P(E|\neg H) ≈ 0.1 (because traits are strongly indicative of this field)
+
+\[ P(H|E) = \frac{0.9 \cdot 0.3}{0.9 \cdot 0.3 + 0.2 \cdot 0.7} = \frac{0.27}{0.27 + 0.14} = \frac{0.27}{0.41} \approx 0.659 \]
+
+Now, let's format these results:
+
+```json
+{
+  "business administration": 0.097,
+  "computer science": 0.571,
+  "agricultural and veterinary science": 0.659
+}
+```
+These probabilities indicate the relative likelihoods that Adam was enrolled in each field given his personality sketch.

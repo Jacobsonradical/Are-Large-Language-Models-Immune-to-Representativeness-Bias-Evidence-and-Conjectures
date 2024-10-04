@@ -1,0 +1,72 @@
+Let's use Bayesian inference to estimate the probability that Adam is enrolled in the fields of computer science and agricultural and veterinary science, given his personality sketch.
+
+Bayes Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Before we proceed, let's define our variables:
+- \( P(H) \): Prior probability that Adam is enrolled in a particular field.
+- \( P(E|H) \): Probability of observing the personality sketch given that Adam is enrolled in a particular field.
+- \( P(E|\neg H) \): Probability of observing the personality sketch given that Adam is not enrolled in a particular field.
+- \( P(E) \): Total probability of observing the personality sketch.
+
+### Computer Science (<code>CS</code>)
+
+#### Prior probability, \( P(H_{CS}) \):
+Let's assume the prior probability of Adam being enrolled in any particular field is evenly distributed. However, computer science is a popular field for graduate studies in the U.S., so we might adjust the prior upward slightly. Let's assume:
+\[ P(H_{CS}) \approx 0.15 \]
+
+#### Probability of the sketch given he is in computer science, \( P(E|H_{CS}) \):
+Adam has some traits that are not typically aligned with stereotypes of computer science students (e.g., a strong love for nature and animals), and some that are (e.g., high intelligence, enjoys solving puzzles). We might assume:
+\[ P(E|H_{CS}) \approx 0.4 \]
+
+#### Probability of the sketch given he is *not* in computer science, \( P(E|\neg H_{CS}) \):
+This would be the averaged-out probability over all other fields. Given that this sketch doesn't strongly align with a specific field more than others (outside of computer science), we could estimate:
+\[ P(E|\neg H_{CS}) \approx 0.25 \]
+
+### Agricultural and Veterinary Science (<code>A&VS</code>)
+
+#### Prior probability, \( P(H_{A&VS}) \):
+Given agricultural and veterinary science may be less common than computer science:
+\[ P(H_{A&VS}) \approx 0.05 \]
+
+#### Probability of the sketch given he is in agricultural and veterinary science, \( P(E|H_{A&VS}) \):
+Adam's traits are quite aligned with this field--curiosity about nature, empathy, love for animals:
+\[ P(E|H_{A&VS}) \approx 0.8 \]
+
+#### Probability of the sketch given he is *not* in agricultural and veterinary science, \( P(E|\neg H_{A&VS}) \):
+This would, again, be an averaged-out probability over all other fields:
+\[ P(E|\neg H_{A&VS}) \approx 0.2 \]
+
+### Normalizing Factor, \( P(E) \):
+We can approximate \( P(E) \) using a weighted sum of the two hypotheses and their complements:
+\[ P(E) \approx P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{A&VS}) \cdot P(H_{A&VS}) + P(E|\neg H_{CS}) \cdot (1 - P(H_{CS})) + P(E|\neg H_{A&VS}) \cdot (1 - P(H_{A&VS})) \]
+
+Since the priors are small and the hypotheses are not mutually exclusive, it may best be approximated based on E's alignment with each hypothesis.
+
+### Posterior Probability, \( P(H|E) \):
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{A&VS}|E) = \frac{P(E|H_{A&VS}) \cdot P(H_{A&VS})}{P(E)} \]
+
+Plugging in values and simplifying:
+
+1. For Computer Science:
+\[ P(H_{CS}|E) = \frac{0.4 \cdot 0.15}{0.4 \cdot 0.15 + 0.8 \cdot 0.05 + \ldots (other fields)} \]
+\[ P(H|E)_{CS} = \frac{0.06}{0.06 + 0.04 + \ldots} \]
+
+Approximating for influence:
+\[ P(H_{CS}|E) \approx 0.2 \]
+
+2. For Agricultural and Veterinary Science:
+\[ P(H_{A&VS}|E) = \frac{0.8 \cdot 0.05}{0.4 \cdot 0.15 + 0.8 \cdot 0.05 + \ldots} \]
+\[ P(H|E)_{A&VS} = \frac{0.04}{0.06 + 0.04 + \ldots} \]
+
+Approximating for influence:
+\[ P(H_{A&VS}|E) \approx 0.2 \]
+
+While each proportion isn't perfect due to simplification, the comparative Bayes rule quantifications suggest both possibilities reasonably:
+
+{
+  "computer science": 0.2,
+  "agricultural and veterinary science": 0.2
+}

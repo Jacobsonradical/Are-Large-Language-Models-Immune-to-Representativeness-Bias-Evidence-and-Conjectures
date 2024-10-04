@@ -1,0 +1,53 @@
+To find the probabilities we need, let's use Bayes' rule. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) is the total probability of the evidence, which can be calculated as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+We need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field. 
+
+Let's start with the "agricultural and veterinary science" field.
+
+### Agricultural and Veterinary Science
+
+1. **P(H)** (probability that Adam is enrolled in agricultural and veterinary science, without any knowledge of his personality sketch): Given the personality traits, we can assume that the probability is somewhat higher than average because of his love for nature, plants, and animals. Let's take \( P(H) \) to be around 0.10 (10%).
+2. **P(E|H)** (probability of Adam having the personality sketch E, given that he's in agricultural and veterinary science): Adam's traits match well with this field. Hence, let's assume a high probability, around 0.80 (80%).
+3. **P(E|\neg H)** (probability of Adam having the personality sketch E, given that he's not in agricultural and veterinary science): Since the traits could align with multiple other sciences but less so with non-related fields, let's assume this to be around 0.10 (10%).
+
+### Business Administration
+
+1. **P(H)** (probability that Adam is enrolled in business administration, without any knowledge of his personality sketch): Given Adam's characteristics, it's less likely he is in business administration, so let's take \( P(H) \) to be around 0.05 (5%).
+2. **P(E|H)** (probability of Adam having the personality sketch E, given that he's in business administration): His traits don't match well with the typical traits for this field. So, let's assume a low probability, around 0.05 (5%).
+3. **P(E|\neg H)** (probability of Adam having the personality sketch E, given that he's not in business administration): This would be around 0.11 (11%) considering the broader scope of other fields that might match better.
+
+### Calculations using Bayes rule
+
+Let's denote \( P(E) \) as the total probability of Adam having the personality sketch E:
+\[ P(E) = P(E|H_{agr}) \cdot P(H_{agr}) + P(E|\neg H_{agr}) \cdot P(\neg H_{agr}) \]
+Where \( H_{agr} \) is the hypothesis that Adam is in agricultural and veterinary science.
+
+\[ P(E) = 0.80 \cdot 0.10 + 0.10 \cdot 0.90 \]
+\[ P(E) = 0.08 + 0.09 = 0.17 \]
+
+Then for agricultural and veterinary science:
+\[ P(H_{agr}|E) = \frac{P(E|H_{agr}) \cdot P(H_{agr})}{P(E)} = \frac{0.80 \cdot 0.10}{0.17} = \frac{0.08}{0.17} \approx 0.47 \]
+
+Now, for business administration, denote \( H_{bus} \) as the hypothesis that Adam is in business administration:
+\[ P(E) = P(E|H_{bus}) \cdot P(H_{bus}) + P(E|\neg H_{bus}) \cdot P(\neg H_{bus}) \]
+
+\[ P(E) = 0.05 \cdot 0.05 + 0.11 \cdot 0.95 \]
+\[ P(E) = 0.0025 + 0.1045 = 0.107 \]
+
+Then for business administration:
+\[ P(H_{bus}|E) = \frac{P(E|H_{bus}) \cdot P(H_{bus})}{P(E)} = \frac{0.05 \cdot 0.05}{0.107} = \frac{0.0025}{0.107} \approx 0.02 \]
+
+So the probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.47,
+  "business administration": 0.02
+}
+```

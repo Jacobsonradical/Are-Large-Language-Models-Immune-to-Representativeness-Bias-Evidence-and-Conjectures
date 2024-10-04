@@ -1,0 +1,59 @@
+To compute the posterior probability \( P(H|E) \) of Adam being enrolled in either computer science or business administration given his personality traits, we can use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Though \( P(E) \) (the overall probability of E) isn’t needed for relative comparisons between fields (just the numerators \( P(E|H) \cdot P(H) \)), let’s assess the individual components qualitatively and then quantitatively to achieve this. We will assume \( P(E|\neg H) \) to derive relative probabilities.
+
+### Assessment:
+
+1. **Computer Science:**
+   - **P(E|H)**: Probability of description E, given H (Adam is studying computer science). Computer science students can often have strong intelligence, enjoy puzzles, and understand abstract concepts. Curiosity about nature is less common, but not unheard of.
+   - **P(H)**: Prior probability of Adam being in computer science. Computer science is a widely chosen field, so it has a decent base rate among grad students.
+   - **P(E|\neg H)**: Probability of description E given Adam is not in computer science. Given Adam’s love for nature and animals, other fields like biology or environmental science might fit better than computer science.
+
+2. **Business Administration:**
+   - **P(E|H)**: Probability of description E, given H (Adam is studying business administration). The traits described (empathy, understanding, appreciation for hard work) can fit business administration but not as specific as they might for other fields.
+   - **P(H)**: Prior probability of Adam being in business administration. It’s also a common field but more detached from some specific traits like solving puzzles and curiosity about nature.
+   - **P(E|\neg H)**: Probability of description E given Adam is not in business administration. Similar to above; many other fields might fit Adam's profile better than business administration.
+
+### Quantitative Estimations:
+
+Let’s hypothesize these values based on qualitative assessments:
+
+1. **Computer Science:**
+   - \( P(H) \): Say 0.15 (15%) — a reasonable prior given its popularity.
+   - \( P(E|H) \): Say 0.30 (30%) — fits intelligence and puzzle-solving but not exactly empathy and nature.
+   - \( P(E|\neg H) \): Say 0.10 (10%) — accounting for how many of these traits fit other fields better.
+
+2. **Business Administration:**
+   - \( P(H) \): Say 0.10 (10%) — less common compared to technical fields.
+   - \( P(E|H) \): Say 0.10 (10%) — fits empathy and understanding facets less directly tied to problem-solving and specific intelligence traits.
+   - \( P(E|\neg H) \): Say 0.15 (15%) — accounting for empathy and appreciation, more soft-skill based fields.
+
+### Calculations:
+Assume \( P(E) \) is the same for both for relative comparison:
+- For Computer Science:
+  \[ P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E)} = \frac{0.30 \cdot 0.15}{P(E)} \]
+
+- For Business Administration:
+  \[ P(\text{BA}|E) = \frac{P(E|\text{BA}) \cdot P(\text{BA})}{P(E)} = \frac{0.10 \cdot 0.10}{P(E)} \]
+
+Since we only need relative probabilities, we discard \( P(E) \).
+
+### Final Relative Probabilities:
+- \[ P(\text{CS}|E) \propto 0.30 \cdot 0.15 = 0.045 \]
+- \[ P(\text{BA}|E) \propto 0.10 \cdot 0.10 = 0.01 \]
+
+Normalized probabilities would help us compare:
+
+Given the relative magnitudes:
+\[ P(\text{CS}|E) = \frac{0.045}{0.055} \approx 0.818 \]
+\[ P(\text{BA}|E) = \frac{0.01}{0.055} \approx 0.182 \]
+
+### Output:
+```json
+{
+  "computer science": 0.818,
+  "business administration": 0.182
+}
+```

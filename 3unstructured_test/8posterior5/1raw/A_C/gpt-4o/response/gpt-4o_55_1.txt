@@ -1,0 +1,40 @@
+To determine \(P(H | E)\) for each field using Bayes' rule, we need to evaluate several components, including the prior probability \(P(H)\), the likelihood \(P(E | H)\), and the marginal likelihood \(P(E)\).
+
+Bayes' rule states:
+\[ P(H | E) = \frac{P(E | H) P(H)}{P(E)} \]
+
+Since \(P(E)\) is a common factor for both hypotheses, we can focus on the terms \(P(E | H) P(H)\).
+
+### For Computer Science:
+1. **Prior Probability \(P(H_{\text{CS}})\)**: Let's estimate the general probability of a graduate student being in computer science. It's a common field, but not overwhelmingly so. Estimating it could be around 0.2.
+2. **Likelihood \(P(E | H_{\text{CS}})\)**: Given Adam's personality traits (curiosity, intelligence, problem-solving skills), these align fairly well with typical attributes of a computer science student. Let's estimate this as 0.4.
+3. **Likelihood \(P(E | \neg H_{\text{CS}})\)**: The probability of Adam's personality traits occurring in some other field is generally high because these traits are not exceptionally rare. Estimating this could be around 0.2.
+
+### For Agricultural & Veterinary Science:
+1. **Prior Probability \(P(H_{\text{AVS}})\)**: This field is less common among graduate students. Let's estimate this around 0.05.
+2. **Likelihood \(P(E | H_{\text{AVS}})\)**: Given Adam's strong empathy, love for animals, and appreciation for hard work, these traits align very well with a student in this field. Estimating this could be around 0.8.
+3. **Likelihood \(P(E | \neg H_{\text{AVS}})\)**: The probability of Adam's personality traits occurring in any other field is again generally high but slightly less aligned. Estimating this could be around 0.3.
+
+### Calculations using Bayes' Rule:
+We calculate \( P(H | E) \) for each field up to a constant of proportionality since we don't have \(P(E)\).
+
+#### Computer Science:
+\[ P(H_{\text{CS}} | E) \propto P(E | H_{\text{CS}}) P(H_{\text{CS}}) \]
+\[ P(H_{\text{CS}} | E) \propto 0.4 \times 0.2 = 0.08 \]
+
+#### Agricultural & Veterinary Science:
+\[ P(H_{\text{AVS}} | E) \propto P(E | H_{\text{AVS}}) P(H_{\text{AVS}}) \]
+\[ P(H_{\text{AVS}} | E) \propto 0.8 \times 0.05 = 0.04 \]
+
+Normalizing these to make them a probability distribution:
+\[ P(H_{\text{CS}} | E) = \frac{0.08}{0.08 + 0.04} = \frac{0.08}{0.12} = \frac{2}{3} = 0.67 \]
+\[ P(H_{\text{AVS}} | E) = \frac{0.04}{0.08 + 0.04} = \frac{0.04}{0.12} = \frac{1}{3} = 0.33 \]
+
+The final probabilities are:
+
+```json
+{
+  "computer science": 0.67,
+  "agricultural and veterinary science": 0.33
+}
+```

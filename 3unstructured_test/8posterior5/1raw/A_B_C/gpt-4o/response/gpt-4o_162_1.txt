@@ -1,0 +1,58 @@
+Certainly! Let's go through the steps for each field and compute the posterior probability \( P(H|E) \) using Bayes' Rule.
+
+Given:
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The probability of observing Adam's personality traits if he was enrolled in the specific field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality traits if he was not enrolled in the specific field.
+
+We are interested in calculating \( P(H|E) \) using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and the calculation would be relative, for simplicity we can directly use the adjusted proportions:
+
+1. **Computer Science**
+   - \( P(H) \): Let’s assume the prior probability of enrolling in computer science is moderate (e.g., typical for U.S. graduates) around 0.2.
+   - \( P(E|H) \): Given the information, curiosity, solving puzzles, and high intelligence align, but the strong empathy and love for animals may be less typical. Let's assign \( P(E|H) \) = 0.4.
+   - \( P(E|\neg H) \): Considering other fields, the match might be lower. Let's say 0.3.
+
+   Using Bayes' Rule:
+   \[ P(H|E) = \frac{0.4 \cdot 0.2}{P(E)} = \frac{0.08}{P(E)} \]
+
+2. **Business Administration**
+   - \( P(H) \): Prior probability might be lower for the given personality (e.g., 0.1).
+   - \( P(E|H) \): Less likely to exhibit strong empathy for animals in this field, so \( P(E|H) \) = 0.2.
+   - \( P(E|\neg H) \): If not in business administration, traits more likely. Let's say 0.4.
+
+   Using Bayes' Rule:
+   \[ P(H|E) = \frac{0.2 \cdot 0.1}{P(E)} = \frac{0.02}{P(E)} \]
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H) \): Higher prior probability given interests and traits, let’s assume around 0.3.
+   - \( P(E|H) \): Aligns well with curiosity about nature, empathy, and love for animals. \( P(E|H) \) = 0.7.
+   - \( P(E|\neg H) \): Less likely outside this field. Let's say 0.2.
+
+   Using Bayes' Rule:
+   \[ P(H|E) = \frac{0.7 \cdot 0.3}{P(E)} = \frac{0.21}{P(E)} \]
+
+Given that \(P(E)\) is the same across all fields, the relative posteriors can be simplified to just the numerators.
+
+Here are the relative posterior probabilities (before normalization):
+\[P(computer\ science|E) = 0.08\]
+\[P(business\ administration|E) = 0.02\]
+\[P(agricultural\ and\ veterinary\ science|E) = 0.21\]
+
+Approximated and normalized (the total sums to 1 for simplicity):
+{
+  "computer science": 0.08/(0.08 + 0.02 + 0.21) ≈ 0.24,
+  "business administration": 0.02/(0.08 + 0.02 + 0.21) ≈ 0.06,
+  "agricultural and veterinary science": 0.21/(0.08 + 0.02 + 0.21) ≈ 0.70
+}
+
+Thus,
+{
+  "computer science": 0.24,
+  "business administration": 0.06,
+  "agricultural and veterinary science": 0.70
+}
+
+These approximations suggest Adam is most likely enrolled in Agricultural and Veterinary Science based on the provided traits.

@@ -1,0 +1,53 @@
+To compute the probabilities, we need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a specific field given the personality sketch.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field (before considering the personality sketch).
+- \( P(E|H) \) is the probability of the evidence (personality sketch) assuming Adam was enrolled in that field.
+- \( P(E) \) is the overall probability of the evidence (personality sketch).
+
+Since we are comparing fields directly, \( P(E) \) can be treated as a normalizing factor that will be the same for both fields, which means we don't need to precisely calculate it for comparison purposes. Instead, we will focus on the relative values of \( P(H) \) and \( P(E|H) \).
+
+Let's assign plausible values for these probabilities:
+
+### Business Administration
+
+**Prior Probability \( P(H) \):**
+- Business administration is a common graduate field, so prior we could assume a moderate value.
+- Let's assume \( P(H_{\text{business}}) = 0.2 \).
+
+**Likelihood \( P(E|H) \):**
+- The personality traits described are somewhat less typical for business administration.
+- Given the evidence, let's assume \( P(E|H_{\text{business}}) = 0.2 \).
+
+So, we have:
+\[ P(H|E)_{\text{business}} = \frac{0.2 \times 0.2}{P(E)} = 0.04 / P(E) \]
+
+### Computer Science
+
+**Prior Probability \( P(H) \):**
+- Computer science is also a common graduate field, and considering Adam's interest in puzzles and high intelligence, this could be more likely.
+- Let's assume \( P(H_{\text{cs}}) = 0.2 \).
+
+**Likelihood \( P(E|H) \):**
+- The personality traits fit well with someone in computer science.
+- Given the evidence, let's assume \( P(E|H_{\text{cs}}) = 0.6 \).
+
+So, we have:
+\[ P(H|E)_{\text{cs}} = \frac{0.6 \times 0.2}{P(E)} = 0.12 / P(E) \]
+
+Since we are only computing relative probabilities for comparison, we can ignore the common denominator \( P(E) \). Comparing the two:
+
+- \( P(H|E)_{\text{business}} = 0.04 / P(E) \)
+- \( P(H|E)_{\text{cs}} = 0.12 / P(E) \)
+
+We can infer that Adam is more likely to be enrolled in computer science given the personality sketch \( E \).
+
+```json
+{
+  "business administration": 0.04,
+  "computer science": 0.12
+}
+```

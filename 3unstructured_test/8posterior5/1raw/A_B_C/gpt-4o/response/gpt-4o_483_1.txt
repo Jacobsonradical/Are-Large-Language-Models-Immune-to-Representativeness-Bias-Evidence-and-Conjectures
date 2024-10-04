@@ -1,0 +1,61 @@
+To compute \(P(H|E)\) for each field using Bayes' rule, we start with the following definitions:
+- \(P(H)\): Prior probability of Adam being in a specific field.
+- \(P(E|H)\): Probability of the personality sketch \(E\) given that Adam is in that field.
+- \(P(E|\neg H)\): Probability of the personality sketch \(E\) given that Adam is not in that field.
+
+We use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) (total probability of E) is a constant factor across all fields, we can compare the numerator \(P(E|H) \cdot P(H)\) for each hypothesis.
+
+Let's make reasonable assumptions for each probability as follows:
+1. **Business Administration**:
+   - \(P(H_{\text{BA}})\): Assume 10% of graduate students are in business administration.
+   - \(P(E|H_{\text{BA}})\): Unlikely given his profile; estimate 0.1.
+   - \(P(E|\neg H_{\text{BA}})\): Assume average likelihood of being in some other field; estimate 0.5.
+   
+2. **Computer Science**:
+   - \(P(H_{\text{CS}})\): Assume 25% of graduate students are in computer science.
+   - \(P(E|H_{\text{CS}})\): Possible, but not highly suggested by his empathy and love for animals; estimate 0.2.
+   - \(P(E|\neg H_{\text{CS}})\): Assume average likelihood of being in some other field; estimate 0.5.
+
+3. **Agricultural and Veterinary Science**:
+   - \(P(H_{\text{AV}})\): Assume 5% of graduate students are in agricultural and veterinary science.
+   - \(P(E|H_{\text{AV}})\): Very likely given his love for nature, plants, and animals; estimate 0.9.
+   - \(P(E|\neg H_{\text{AV}})\): Assume average likelihood of being in some other field; estimate 0.5.
+
+Using these assumptions:
+
+**Business Administration:**
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \cdot 0.1 = 0.01 \]
+
+**Computer Science:**
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.2 \cdot 0.25 = 0.05 \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H_{\text{AV}}|E) \propto P(E|H_{\text{AV}}) \cdot P(H_{\text{AV}}) = 0.9 \cdot 0.05 = 0.045 \]
+
+Now, normalize these to compare:
+
+Sum of normalized probabilities:
+\[ 0.01 + 0.05 + 0.045 = 0.105 \]
+
+Normalized:
+- Business Administration:
+\[ P(H_{\text{BA}}|E) = \frac{0.01}{0.105} \approx 0.095 \]
+  
+- Computer Science:
+\[ P(H_{\text{CS}}|E) = \frac{0.05}{0.105} \approx 0.476 \]
+  
+- Agricultural and Veterinary Science:
+\[ P(H_{\text{AV}}|E) = \frac{0.045}{0.105} \approx 0.429 \]
+
+Therefore, we have the following probabilities:
+
+```json
+{
+  "business administration": 0.095,
+  "computer science": 0.476,
+  "agricultural and veterinary science": 0.429
+}
+```

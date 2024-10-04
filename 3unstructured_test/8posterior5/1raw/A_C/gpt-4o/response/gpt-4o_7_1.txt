@@ -1,0 +1,58 @@
+Given the personality sketch of Adam (E) and the potential fields of study, we need to evaluate and calculate the probability that Adam was enrolled in each field using Bayes' rule. 
+
+### Fields of Study
+1. Computer Science (H1)
+2. Agricultural and Veterinary Science (H2)
+
+### Steps to Applying Bayes' Rule:
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Assumptions & Estimations
+
+1. **Prior Probability, \( P(H) \)**:
+   - \( P(H1 \text{ (Computer Science)}) \): Graduate programs in the U.S. have a high number of students in Computer Science.
+   - \( P(H2 \text{ (Agricultural and Veterinary Science)}) \): Less popular compared to computer science but significant interest.
+
+2. **Likelihood, \( P(E|H) \)**: The probability of the personality sketch (E) given each field.
+   - \( P(E | H1) \): While computing requires intelligence and problem-solving, strong empathy and love for animals don’t strongly correlate with typical Computer Science traits.
+   - \( P(E | H2) \): Strong match due to interest in nature, plants, animals, and appreciation for hard work.
+
+3. **Complement Likelihood, \( P(E|\neg H) \)**: Considering an average field other than H1 or H2.
+   - \( P(E|\neg H) \) is estimated generally lower as the personality traits may not fit other fields well.
+
+Without exact numbers, we can make reasonable estimates for the prior and conditional probabilities.
+
+### Estimations
+- **Priors:**
+  - \( P(H1) \approx 0.3 \)
+  - \( P(H2) \approx 0.2 \)
+
+- **Likelihoods:**
+  - \( P(E | H1) \approx 0.2 \)
+  - \( P(E | H2) \approx 0.8 \)
+
+- **Complement Likelihoods:**
+  - \( P(E |\neg H1) \approx 0.4 \)
+  - \( P(E |\neg H2) \approx 0.3 \)
+
+### Applying Bayes' Rule
+
+1. **Computer Science:**
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} = \frac{0.2 \cdot 0.3}{P(E)} \]
+\[ P(E) \approx P(E | H1) \cdot P(H1) + P(E | H2) \cdot P(H2) + P(E | \neg H1, \neg H2) \cdot P(\neg H1, \neg H2) \]
+\[ P(E) \approx 0.2 \cdot 0.3 + 0.8 \cdot 0.2 + 0.4 \cdot 0.5 \approx 0.06 + 0.16 + 0.2 = 0.42 \]
+\[ P(H1|E) \approx \frac{0.06}{0.42} \approx 0.143 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} = \frac{0.8 \cdot 0.2}{P(E)} \]
+\[ P(H2|E) \approx \frac{0.16}{0.42} \approx 0.381 \]
+
+### Results
+```json
+{
+  "computer science": 0.143,
+  "agricultural and veterinary science": 0.381
+}
+```
+These probabilities suggest that Adam is more likely to be enrolled in Agricultural and Veterinary Science given his personality traits.

@@ -1,0 +1,56 @@
+To apply Bayes' rule and make the computations, we need the following probabilities:
+
+- P(H): The prior probability that Adam was enrolled in field H.
+- P(E|H): The probability of observing Adam's personality sketch given that he was enrolled in field H.
+- P(E|¬H): The probability of observing Adam's personality sketch given that he was not enrolled in field H.
+
+Bayes' rule states:
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+However, since we're comparing two hypotheses using the same evidence (E), we can compare the likelihood ratios. We don't need to compute \(P(E)\) directly because it cancels out in the normalized ratio.
+
+### Business Administration
+- **P(H)**: Assuming graduate students are equally likely to enroll in any field, let's assume P(H) (prior) = 0.1 (as there's a broad range of fields).
+- **P(E|H)**: Business administration might not perfectly align with Adam's curiosity about nature, solving puzzles, and love for animals. Let's assume this is relatively low, around 0.1.
+- **P(E|¬H)**: .We might consider the likelihood of Adam having his personality sketch even if he is not in business administration. Given the broader context of all other fields, this might be somewhat higher, let's estimate around 0.4.
+
+### Agricultural and Veterinary Science
+- **P(H)**: Given Adam's personality sketch closely aligns with this field, let's assume a prior higher than average, around 0.2.
+- **P(E|H)**: This field matches quite well with Adam's interests and personality traits. Let's assume 0.8.
+- **P(E|¬H)**: If he wasn’t enrolled in this field, it's less consistent with the previous P(E|¬H), but still relatively consistent since other nature-focused fields could exist; let's estimate around 0.4.
+
+Let's normalize and compute \( P(H | E) \):
+
+1. Compute \( P(H | E) \) for business administration:
+    \[
+    P(H | E) \propto P(E | H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01
+    \]
+
+2. Compute \( P(H | E) \) for agricultural and veterinary science:
+    \[
+    P(H | E) \propto P(E | H) \cdot P(H) = 0.8 \cdot 0.2 = 0.16
+    \]
+
+### Normalize:
+To find normalized probabilities, you then divide each by the sum of both computed posteriors. Let's denote:
+
+Total = 0.01 + 0.16 = 0.17
+
+Now, normalize each:
+- **Business administration**:
+    \[
+    P(H | E) = \frac{0.01}{0.17} \approx 0.059
+    \]
+
+- **Agricultural and veterinary science**:
+    \[
+    P(H | E) = \frac{0.16}{0.17} \approx 0.941
+    \]
+
+Hence the probabilities are:
+```json
+{
+  "business administration": 0.059,
+  "agricultural and veterinary science": 0.941
+}
+```

@@ -1,0 +1,32 @@
+To calculate \(P(H|E)\), we need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) is the same for all fields when comparing relative probabilities, we can ignore it for comparative purposes. Let's denote \(P(\text{CS})\) and \(P(\text{BA})\) as the prior probabilities that Adam was enrolled in computer science and business administration, respectively. We'll denote the given information and our assumptions about each field with \(P(E|\text{CS})\) and \(P(E|\text{BA})\).
+
+### Computer Science:
+- **P(H)**: The general probability that a random graduate student is enrolled in computer science. Let’s assume it is relatively high due to the popularity of the field. We'll estimate \(P(H)_{\text{CS}} \approx 0.3\).
+- **P(E|H)**: Given the traits in E, a background in computer science is somewhat likely because intelligence and puzzle-solving skills align well with this field. However, the strong empathy and deep love for animals might not be as closely related. Therefore, let's estimate \(P(E|\text{CS}) \approx 0.5\).
+- **P(E|\neg H_{\text{CS}})**: The likelihood of observing E in someone not in computer science is broader, considering that empathy and love for animals might be higher in other fields. We'll approximate \(P(E|\neg \text{CS}) \approx 0.7\).
+
+### Business Administration:
+- **P(H)**: The general probability that a random graduate student is enrolled in business administration. Let’s assume it is significant but less than computer science. We'll estimate \(P(H)_{\text{BA}} \approx 0.2\).
+- **P(E|H)**: Given the traits in E, a background in business administration seems less likely because the attributes more closely align with empathy, animals, and nature rather than business-related skills. So, let's estimate \(P(E|\text{BA}) \approx 0.2\).
+- **P(E|\neg H_{\text{BA}})**: Similarly, \(P(E|\neg \text{BA}) \approx 0.8\), as E seems less likely in business administration.
+
+Now, applying Bayes' Rule for each hypothesis:
+
+\[ P(\text{CS}|E) \propto P(E|\text{CS}) \cdot P(\text{CS}) = 0.5 \times 0.3 = 0.15 \]
+
+\[ P(\text{BA}|E) \propto P(E|\text{BA}) \cdot P(\text{BA}) = 0.2 \times 0.2 = 0.04 \]
+
+So, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.15,
+  "business administration": 0.04
+}
+```
+
+These values reflect the relative likelihoods given the personality sketch of Adam.

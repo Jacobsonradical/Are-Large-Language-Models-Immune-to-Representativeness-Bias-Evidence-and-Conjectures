@@ -1,0 +1,96 @@
+To use Bayes' rule to calculate \( P(H|E) \) for each field, we need the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the evidence \( P(E) \). However, we can simplify by calculating \( P(H|E) \) using proportional values because our model only compares two fields.
+
+Let’s assess each field:
+
+### Computer Science (CS)
+- **P(H) (Prior Probability):**
+  Based on the information provided, a prior probability could be assumed, let’s say average.
+  \[
+  P(H_{\text{CS}}) \approx 0.2
+  \]
+
+- **P(E|H) (Likelihood):**
+  Adam’s traits fit well with the field of computer science. Strong problem-solving skills, high intelligence, understanding abstract concepts, and the appreciation for hard work and dedication align well with a CS major.
+  \[
+  P(E|H_{\text{CS}}) \approx 0.7
+  \]
+
+- **P(E|\neg H) (Likelihood of E given he is not in CS):**
+  For fields other than CS, Adam's traits fit reasonably but less so.
+  \[
+  P(E|\neg H_{\text{CS}}) \approx 0.3
+  \]
+
+### Business Administration (BA)
+- **P(H) (Prior Probability):**
+  Similarly, prior probability is assumed average for BA.
+  \[
+  P(H_{\text{BA}}) \approx 0.2
+  \]
+
+- **P(E|H) (Likelihood):**
+  Adam’s traits do not align as well with business administration, which often emphasizes social interaction, leadership, and management skills over appreciation of nature and strong empathy for animals.
+  \[
+  P(E|H_{\text{BA}}) \approx 0.2
+  \]
+
+- **P(E|\neg H) (Likelihood of E given he is not in BA):**
+  Given the traits, other fields may fit better.
+  \[
+  P(E|\neg H_{\text{BA}}) \approx 0.5
+  \]
+
+### Bayes' Rule
+Bayes' rule says:
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+However, since we compare two fields proportionally:
+\[
+P(H|E)_{\text{CS}} \propto P(E|H_{\text{CS}})P(H_{\text{CS}})
+\]
+
+\[
+P(H|E)_{\text{BA}} \propto P(E|H_{\text{BA}})P(H_{\text{BA}})
+\]
+
+By comparing proportional values:
+
+\[
+P(H|E)_{\text{CS}} = \frac{P(E|H_{\text{CS}})P(H_{\text{CS}})}{ P(E|H_{\text{CS}})P(H_{\text{CS}}) + P(E|H_{\text{BA}})P(H_{\text{BA}}) }
+\]
+
+\[
+P(H|E)_{\text{BA}} = \frac{P(E|H_{\text{BA}})P(H_{\text{BA}})}{ P(E|H_{\text{CS}})P(H_{\text{CS}}) + P(E|H_{\text{BA}})P(H_{\text{BA}}) }
+\]
+
+Using approximate values for relative comparison:
+
+\[
+P(H_{\text{CS}}|E) \propto 0.7 \times 0.2 = 0.14
+\]
+
+\[
+P(H_{\text{BA}}|E) \propto 0.2 \times 0.2 = 0.04
+\]
+
+By normalizing these:
+
+\[
+P(H_{\text{CS}}|E) = \frac{0.14}{0.14+0.04} \approx 0.78
+\]
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.04}{0.14+0.04} \approx 0.22
+\]
+
+### Final Output
+
+```json
+{
+  "computer science": 0.78,
+  "business administration": 0.22
+}
+```
+These values indicate the probabilities that Adam was enrolled in each field, given his personality traits.

@@ -1,0 +1,76 @@
+Let's use Bayes' rule to determine the probability that Adam was enrolled in each field, given his personality sketch.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field (business administration, agricultural and veterinary science), we need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Business Administration
+
+- **P(H)**: The prior probability that a random graduate student is in business administration. Suppose that 15% of graduate students are in business administration:
+  \[
+  P(H) = 0.15
+  \]
+
+- **P(E|H)**: The probability that a student in business administration has Adam's personality traits (genuine curiosity about nature, solving puzzles, empathy, love for animals, high intelligence). It seems less likely for someone in business administration to exhibit these traits:
+  \[
+  P(E|H) = 0.1
+  \]
+
+- **P(E|\neg H)**: The probability that a student not in business administration has Adam's personality traits. These traits are more common in other fields, so:
+  \[
+  P(E|\neg H) = 0.4
+  \]
+
+Using Bayes' rule:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+Since we lack the exact value of \( P(E) \) (the overall probability of Adam's traits), we can use the relative comparison:
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.15 = 0.015
+\]
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: The prior probability that a random graduate student is in agricultural and veterinary science. Suppose that 10% of graduate students are in agricultural and veterinary science:
+  \[
+  P(H) = 0.1
+  \]
+
+- **P(E|H)**: The probability that a student in agricultural and veterinary science has Adam's personality traits (curiosity about nature, solving puzzles, empathy, love for animals, high intelligence). It seems highly likely:
+  \[
+  P(E|H) = 0.8
+  \]
+
+- **P(E|\neg H)**: The probability that a student not in agricultural and veterinary science has Adam's personality traits:
+  \[
+  P(E|\neg H) = 0.35
+  \]
+
+Using Bayes' rule:
+\[
+P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.1 = 0.08
+\]
+
+### Normalizing Probabilities
+
+To normalize these probabilities:
+
+\[
+P(H|E \text{ business}) = \frac{0.015}{0.015 + 0.08} = \frac{0.015}{0.095} \approx 0.158
+\]
+
+\[
+P(H|E \text{ agricultural and veterinary}) = \frac{0.08}{0.015 + 0.08} = \frac{0.08}{0.095} \approx 0.842
+\]
+
+Therefore, the conditional probabilities are:
+
+```json
+{
+  "business administration": 0.158,
+  "agricultural and veterinary science": 0.842
+}
+```

@@ -1,0 +1,64 @@
+To calculate the probabilities, we use Bayes' theorem which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the nature of the prompt, we can assign probabilities based on the provided personality sketch and some general knowledge about what kind of characteristics might match different fields. 
+
+Let's break it down for each field:
+
+1. **Computer Science:**
+   - \( P(H) \): Let's assume this is relatively high, say 0.2, as computer science is a common field for high-intelligence students in the U.S.
+   - \( P(E|H) \): A high-intelligent person who enjoys solving puzzles fits well into computer science, but the love for animals and nature is not highly relevant, so we might assign a moderate probability, say 0.5.
+   - \( P(E|\neg H) \): For any field other than computer science, the personality traits seem to equally likely or even more likely (especially for nature and animals), so let's give it a higher value, say 0.7.
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): This field is less common than computer science, but given Adam's love for animals and nature, it might be higher for him. We can give it a value of 0.1.
+   - \( P(E|H) \): The personality sketch fits very well with this field: love for animals and nature, empathy, etc. Let's assign it a value of 0.9.
+   - \( P(E|\neg H) \): Fields other than agricultural and veterinary science might accommodate some of the traits but not as strongly. So, let's assign it a value of 0.4.
+
+3. **Business Administration:**
+   - \( P(H) \): Business administration is also a common graduate field and could attract high-intelligence students. Let's assume a value of 0.15.
+   - \( P(E|H) \): The traits do not strongly align with business administration, except for perhaps high intelligence and appreciation for hard work. Let's give it a value of 0.3.
+   - \( P(E|\neg H) \): Other fields would likely reflect Adam's traits more closely, so let’s assign it a higher value, say 0.6.
+
+Now, let's use Bayes' theorem for each field:
+
+For simplicity, we assume \( P(E) \) to be the denominator is the same across all fields and can be normalized later if needed.
+
+- Computer Science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.5 \cdot 0.2}{P(E)} = \frac{0.1}{P(E)} \]
+
+- Agricultural and Veterinary Science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.9 \cdot 0.1}{P(E)} = \frac{0.09}{P(E)} \]
+
+- Business Administration:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.3 \cdot 0.15}{P(E)} = \frac{0.045}{P(E)} \]
+
+The relative probabilities (without normalization) are:
+
+{
+  "computer science": 0.1,
+  "agricultural and veterinary science": 0.09,
+  "business administration": 0.045
+}
+
+Now we can normalize these probabilities. The sum of these values is 0.235.
+
+Normalized probabilities:
+
+{
+  "computer science": 0.1 / 0.235 ≈ 0.426,
+  "agricultural and veterinary science": 0.09 / 0.235 ≈ 0.383,
+  "business administration": 0.045 / 0.235 ≈ 0.191
+}
+
+Thus, the outputs are:
+
+{
+  "computer science": 0.426,
+  "agricultural and veterinary science": 0.383,
+  "business administration": 0.191
+}

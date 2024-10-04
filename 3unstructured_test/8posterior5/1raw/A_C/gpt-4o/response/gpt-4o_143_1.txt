@@ -1,0 +1,55 @@
+To proceed with the Bayesian inference, we'll need some estimates. Here are the steps we will follow:
+
+1. **P(H)**: The prior probability that Adam was enrolled in each field without any other information.
+2. **P(E|H)**: The probability that Adam shows the personality traits given he is in that field.
+3. **P(E|¬H)**: The probability that Adam shows the personality traits given he is not in the field.
+
+**Prior Probability (P(H))**:
+- Let's assume that we have no reason to favor one field over the other initially. So, we assign equal prior probabilities for simplicity.
+- However, in reality, the proportion of students in each field should be taken into account. For simplicity, let's assume:
+  - P(H for agricultural and veterinary science) = 0.1 (as it's a less common field)
+  - P(H for computer science) = 0.15 (more students are generally enrolled in this field)
+
+**Probability of E given H (P(E|H))**:
+- We need to consider the fit between Adam's personality sketch and the typical graduate student in each field.
+
+1. **Agricultural and veterinary science**:
+   - A genuine curiosity about nature and plants, a love for animals, strong empathy, appreciation for hard work: High
+   - High intelligence, abstract concepts: Relevant but not as exclusive
+   - We'll estimate P(E|H) for this field as high, say 0.75.
+
+2. **Computer science**:
+   - Enjoys solving puzzles, high intelligence, understanding abstract concepts: Very high
+   - Warm heart, empathy, love for animals: Not as relevant, but not contrary to the field
+   - We'll estimate P(E|H) for this field as moderate, say 0.50.
+
+**Probability of E given Not H (P(E|¬H))**:
+- This is the probability of Adam showing these traits if he is not in the given field.
+- We consider the variety in all other fields and assume a generic fit since we don't have specifics.
+
+Let's assume:
+- P(E|¬H for agricultural and veterinary science) = 0.30
+- P(E|¬H for computer science) = 0.40
+
+**Using Bayes' Rule**:
+
+P(H|E) = [P(E|H) * P(H)] / [P(E|H) * P(H) + P(E|¬H) * P(¬H)]
+
+1. **Agricultural and veterinary science**:
+   - P(H|E) = [0.75 * 0.1] / [0.75 * 0.1 + 0.30 * 0.9] 
+   - P(H|E) = 0.075 / (0.075 + 0.27)
+   - P(H|E) = 0.075 / 0.345 ≈ 0.217
+
+2. **Computer science**:
+   - P(H|E) = [0.50 * 0.15] / [0.50 * 0.15 + 0.40 * 0.85]
+   - P(H|E) = 0.075 / (0.075 + 0.34)
+   - P(H|E) = 0.075 / 0.415 ≈ 0.181
+
+Therefore, we have:
+
+```json
+{
+  "agricultural and veterinary science": 0.217,
+  "computer science": 0.181
+}
+```

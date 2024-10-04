@@ -1,0 +1,60 @@
+To solve the problem using Bayes' rule, we need to estimate the probabilities as follows:
+
+1. **P(H) - The prior probability that Adam is enrolled in the field.** 
+   This is the general probability that a random graduate student might be in a given field. For simplicity, we'll assume the priors are equal for each field and set them both to the same value.
+
+2. **P(E|H) - The likelihood of observing Adam's personality sketch given he is in that field.** 
+   This measures how well Adam's personality sketch fits each field.
+
+3. **P(E|\neg H) - The likelihood of observing Adam's personality sketch given he is not in that field.** 
+   This measures how well the personality sketch fits other fields, not including the one in question.
+
+4. **P(H|E) - The posterior probability of Adam being in that field given his personality sketch.** 
+   This is what we are trying to compute using Bayes' rule: P(H|E) = [P(E|H) * P(H)] / P(E) 
+   Here, P(E) is the normalizing constant, and we can write it in terms of our two hypotheses and their complements.
+
+Let's go through the details:
+
+### Computation
+
+#### Computer Science:
+1. P(H): Prior probability Adam is in Computer Science. 
+   - Set to 0.1 (assuming a very general distribution where each field has equal prior probabilities).
+
+2. P(E|H): Likelihood of Adam's personality given he studies Computer Science.
+   - Given Adam's traits such as intelligence, problem-solving, and abstract thinking, he could fit. Let's assign this a high value, say 0.6.
+
+3. P(E|\neg H): Likelihood of Adam's personality given he studies any other field except Computer Science.
+   - This is quite broad, but considering Adam's traits, he could also fit moderately in many other fields. So let's assign this a lower value, say 0.2.
+
+Using these values, we can now calculate the posterior using Bayes' rule:
+
+P(H|E)_CS = [P(E|H)_CS * P(H)_CS] / [P(E)]
+          = (0.6 * 0.1) / [(0.6 * 0.1) + (0.2 * 0.9)]
+          = 0.06 / (0.06 + 0.18)
+          = 0.06 / 0.24
+          = 0.25
+
+#### Agricultural and Veterinary Science:
+1. P(H): Prior probability Adam is in Agricultural and Veterinary Science. 
+   - Set to 0.1 for simplicity.
+
+2. P(E|H): Likelihood of Adam's personality given he studies Agricultural and Veterinary Science.
+   - Given Adam's traits such as empathy, love for animals, and understanding of hard work, he could fit very well. Let's assign this a high value, say 0.8.
+
+3. P(E|\neg H): Likelihood of Adam's personality given he studies any other field except Agricultural and Veterinary Science.
+   - The same reasoning as above, assign it a value of 0.2.
+
+Using these values, we can now calculate the posterior using Bayes' rule:
+
+P(H|E)_AVS = [P(E|H)_AVS * P(H)_AVS] / [P(E)]
+           = (0.8 * 0.1) / [(0.8 * 0.1) + (0.2 * 0.9)]
+           = 0.08 / (0.08 + 0.18)
+           = 0.08 / 0.26
+           = 0.3077
+
+### Summary
+{
+  "computer science": 0.25,
+  "agricultural and veterinary science": 0.3077
+}

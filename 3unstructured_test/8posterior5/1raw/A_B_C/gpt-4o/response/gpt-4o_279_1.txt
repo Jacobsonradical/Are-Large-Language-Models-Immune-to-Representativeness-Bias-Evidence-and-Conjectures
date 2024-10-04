@@ -1,0 +1,61 @@
+Let's first calculate the probabilities using Bayes' theorem. We will denote:
+
+- \( P(H) \) as the prior probability that Adam was enrolled in each specific field.
+- \( P(E|H) \) as the probability of the evidence given the hypothesis \( H \).
+- \( P(E|\neg H) \) as the probability of the evidence given the negation of the hypothesis \( H \).
+- \( P(H|E) \) as the posterior probability of the hypothesis given the evidence, which we are aiming to calculate.
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) \) is a constant normalization factor that will be the same for all hypotheses, we only need to calculate the numerator \( P(E|H) \cdot P(H) \) for each field and then normalize the results.
+
+### Agricultural and Veterinary Science
+- **\( P(H) \)** (Assuming a fairly common enrollment in this field in U.S. graduate studies, though not exceedingly common)
+  - Let's assume \( P(H) = 0.1 \)
+- **\( P(E|H) \)** (Adam's personality aligns very closely with interests in nature, empathy, and animals)
+  - Let's assume \( P(E|H) = 0.9 \)
+- **\( P(E|\neg H) \)** (Considering that other fields may not align so well with his personality)
+  - Let's assume \( P(E|\neg H) = 0.3 \)
+
+### Business Administration
+- **\( P(H) \)** (A very common field in U.S. graduate studies)
+  - Let's assume \( P(H) = 0.2 \)
+- **\( P(E|H) \)** (Adam's personality does not strongly align with typical interests in business)
+  - Let's assume \( P(E|H) = 0.2 \)
+- **\( P(E|\neg H) \)**  
+  - Let's assume \( P(E|\neg H) = 0.6 \)
+
+### Computer Science
+- **\( P(H) \)** (A very common and growing field)
+  - Let's assume \( P(H) = 0.2 \)
+- **\( P(E|H) \)** (Adam's intelligence and problem-solving abilities match, but nature orientation is less relevant)
+  - Let's assume \( P(E|H) = 0.5 \)
+- **\( P(E|\neg H) \)**  
+  - Let's assume \( P(E|\neg H) = 0.5 \)
+  
+We can now compute \( P(H|E) \) for each field by the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{\sum_{\text{fields}} P(E|H) \cdot P(H)} \]
+
+Normalizing these values (so they sum to 1):
+
+- **Agricultural and Veterinary Science**
+  \[ P(H|E) = \frac{0.9 \cdot 0.1}{(0.9 \cdot 0.1) + (0.2 \cdot 0.2) + (0.5 \cdot 0.2)} \approx \frac{0.09}{0.27} = 0.333 \]
+
+- **Business Administration**
+  \[ P(H|E) = \frac{0.2 \cdot 0.2}{(0.9 \cdot 0.1) + (0.2 \cdot 0.2) + (0.5 \cdot 0.2)} \approx \frac{0.04}{0.27} = 0.148 \]
+
+- **Computer Science**
+  \[ P(H|E) = \frac{0.5 \cdot 0.2}{(0.9 \cdot 0.1) + (0.2 \cdot 0.2) + (0.5 \cdot 0.2)} \approx \frac{0.10}{0.27} = 0.370 \]
+
+Therefore, the final probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.333,
+  "business administration": 0.148,
+  "computer science": 0.370
+}
+```

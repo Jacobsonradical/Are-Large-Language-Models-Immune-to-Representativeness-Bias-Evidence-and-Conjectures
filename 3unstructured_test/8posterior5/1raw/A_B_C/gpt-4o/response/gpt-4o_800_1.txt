@@ -1,0 +1,78 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we need estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each hypothesis \( H \):
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the information, let's make reasonable estimates to plug into Bayes' rule.
+
+### Business Administration
+1. **Prior Probability \( P(H_{\text{BA}}) \)**
+   - Let's assume the relative probability of Adam enrolling in Business Administration is moderately low compared to other graduate fields. 
+   - Estimate: \( P(H_{\text{BA}}) = 0.1 \)
+
+2. **Likelihood \( P(E|H_{\text{BA}}) \)**
+   - Business Administration typically doesn't match well with Adam's described personality (curiosity about nature, love for animals, etc.).
+   - Estimate: \( P(E|H_{\text{BA}}) = 0.05 \)
+
+3. **Complement Likelihood \( P(E|\neg H_{\text{BA}}) \)**
+   - Given Adam's personality, many other fields fit better, implying the likelihood of observing \( E \) when not enrolled in BA is higher.
+   - Estimate: \( P(E|\neg H_{\text{BA}}) = 0.4 \)
+
+### Agricultural and Veterinary Science
+1. **Prior Probability \( P(H_{\text{AgVet}}) \)**
+   - Given Adam's characteristics, this field has a high fit.
+   - Estimate: \( P(H_{\text{AgVet}}) = 0.3 \)
+
+2. **Likelihood \( P(E|H_{\text{AgVet}}) \)**
+   - This field fits Adam's curiosity about nature, love for animals, warm heart, and empathy very well.
+   - Estimate: \( P(E|H_{\text{AgVet}}) = 0.9 \)
+
+3. **Complement Likelihood \( P(E|\neg H_{\text{AgVet}}) \)**
+   - Many non-AgVet fields are less consistent with Adam’s personality traits.
+   - Estimate: \( P(E|\neg H_{\text{AgVet}}) = 0.2 \)
+
+### Computer Science
+1. **Prior Probability \( P(H_{\text{CS}}) \)**
+   - Computer Science can suit Adam's high intelligence and puzzle-solving ability.
+   - Estimate: \( P(H_{\text{CS}}) = 0.2 \)
+
+2. **Likelihood \( P(E|H_{\text{CS}}) \)**
+   - It fits some of Adam's traits, but less emphasis on nature and animals.
+   - Estimate: \( P(E|H_{\text{CS}}) = 0.5 \)
+
+3. **Complement Likelihood \( P(E|\neg H_{\text{CS}}) \)**
+   - Many fields other than CS may not fit the overall personality as well.
+   - Estimate: \( P(E|\neg H_{\text{CS}}) = 0.3 \)
+
+### Bayesian Computation
+Now compute the posterior probabilities using:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) can be seen as the normalizing constant.
+
+We simplify comparing posterior probabilities without computing \( P(E) \):
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+{
+  "business administration": \(\frac{0.05 \times 0.1}{P(E)} \approx 0.005 \),
+  "agricultural and veterinary science": \(\frac{0.9 \times 0.3}{P(E)} \approx 0.27 \),
+  "computer science": \(\frac{0.5 \times 0.2}{P(E)} \approx 0.10 \)
+}
+
+Normalizing:
+\[
+P(E) = 0.005 + 0.27 + 0.10 = 0.375
+\]
+Thus,
+{
+  "business administration": \( \frac{0.005}{0.375} \approx 0.013 \),
+  "agricultural and veterinary science": \( \frac{0.27}{0.375} \approx 0.72 \),
+  "computer science": \( \frac{0.10}{0.375} \approx 0.27 \)
+}
+
+Final probabilities:
+
+{
+  "business administration": 0.013,
+  "agricultural and veterinary science": 0.72,
+  "computer science": 0.27
+}

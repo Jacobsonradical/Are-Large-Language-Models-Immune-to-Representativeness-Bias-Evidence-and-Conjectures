@@ -1,0 +1,73 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need the following probabilities:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a particular field \( H \).
+- \( P(E | H) \): The probability of Adam having the personality sketch \( E \) given that he was enrolled in field \( H \).
+- \( P(E | \neg H) \): The probability of Adam having the personality sketch \( E \) given that he was not enrolled in field \( H \).
+
+Since exact values are not provided, we'll make reasonable estimates based on typical characteristics associated with each field and the given personality sketch.
+
+Bayes' rule is expressed as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll assess \( P(E|H) \) based on how well the personality sketch aligns with typical characteristics of graduates in those fields.
+
+1. **Computer Science**
+
+   - \( P(H = \text{computer science}) \): Estimate around 0.15 (typical undergraduate majors distribution).
+   - \( P(E | H = \text{computer science}) \): Given Adam's high intelligence and ability to understand abstract concepts, along with problem-solving skills, we'll estimate this at around 0.6.
+   - \( P(E | \neg H = \text{computer science}) \): Since the personality sketch might fit other fields as well, estimate this around 0.2.
+
+   Using Bayes' rule:
+   \[
+   P(H = \text{computer science} | E) = \frac{P(E | H = \text{computer science}) \cdot P(H = \text{computer science})}{P(E)}
+   \]
+
+2. **Business Administration**
+
+   - \( P(H = \text{business administration}) \): Estimate around 0.10 (typical undergraduate majors distribution).
+   - \( P(E | H = \text{business administration}) \): Given Adam’s empathy and understanding of hard work, we'll estimate this at around 0.3.
+   - \( P(E | \neg H = \text{business administration}) \): Since the personality sketch matches less commonly with business administration, we'll estimate this around 0.25.
+
+   Using Bayes' rule:
+   \[
+   P(H = \text{business administration} | E) = \frac{P(E | H = \text{business administration}) \cdot P(H = \text{business administration})}{P(E)}
+   \]
+
+To simplify calculations, we'll assume \( P(E) \) is a normalizing constant.
+
+Calculations:
+1. For computer science:
+\[ 
+P(\text{computer science}|E) = \frac{0.6 \times 0.15}{P(E)}
+\]
+\[ 
+P(\text{computer science}|E) = \frac{0.09}{P(E)}
+\]
+
+2. For business administration:
+\[ 
+P(\text{business administration}|E) = \frac{0.3 \times 0.10}{P(E)}
+\]
+\[ 
+P(\text{business administration}|E) = \frac{0.03}{P(E)}
+\]
+
+Since \( P(E) \) is the same for both and acts as a normalizer, we only need the ratios.
+
+Final probabilities:
+\[
+P(\text{computer science} | E) = \frac{0.09}{0.09 + 0.03} = \frac{0.09}{0.12} = 0.75
+\]
+
+\[
+P(\text{business administration} | E) = \frac{0.03}{0.09 + 0.03} = \frac{0.03}{0.12} = 0.25
+\]
+
+Thus,
+
+```json
+{
+  "computer science": 0.75,
+  "business administration": 0.25
+}
+```

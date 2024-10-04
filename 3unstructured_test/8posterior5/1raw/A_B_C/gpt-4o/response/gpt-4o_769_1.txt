@@ -1,0 +1,58 @@
+To compute the probabilities \(P(H|E)\) for each field using Bayes' Theorem, we must consider the following:
+
+1. **\(P(H)\)**: The prior probability that Adam was enrolled in each field.
+2. **\(P(E|H)\)**: The likelihood that Adam exhibits his described personality traits given that he was enrolled in each respective field.
+3. **\(P(E|\neg H)\)**: The likelihood that Adam exhibits his personality traits given that he was not enrolled in each respective field, essentially an average likelihood over all other fields.
+4. **Bayes' Theorem**: \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+For simplicity, we'll assume \(P(E)\) is a normalizing constant that does not affect the relative values we are comparing here.
+
+Let's make educated estimates:
+
+1. **Agricultural and Veterinary Science:**
+   - **\(P(H)\)**: Priors for graduate fields can vary, but agricultural and veterinary science is a specialized field. Let's assume \(P(H) = 0.1\).
+   - **\(P(E|H)\)**: Given Adam's love for animals, nature, and plants, it is highly likely he would fit well in this field. I'll estimate \(P(E|H) = 0.9\).
+   - **\(P(E|\neg H)\)**: This is harder to estimate precisely without knowing all possible fields; however, let's assume an average fit for these traits across other fields. Let's say \(P(E|\neg H) = 0.4\).
+
+2. **Computer Science:**
+   - **\(P(H)\)**: Computer science is a very common graduate field. For our purposes, let’s give it \(P(H) = 0.3\).
+   - **\(P(E|H)\)**: While Adam is intelligent and enjoys solving puzzles, his deep love for animals and nature does not strongly indicate computer science. I'll estimate \(P(E|H) = 0.3\).
+   - **\(P(E|\neg H)\)**: Assuming an average fit as before, \(P(E|\neg H) = 0.4\).
+
+3. **Business Administration:**
+   - **\(P(H)\)**: A fairly common graduate field, let’s assume \(P(H) = 0.2\).
+   - **\(P(E|H)\)**: Adam’s traits aren't a strong match for business administration. Let's estimate \(P(E|H) = 0.2\).
+   - **\(P(E|\neg H)\)**: Again, assuming an average fit, \(P(E|\neg H) = 0.4\).
+
+Now, applying Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) is a constant:
+\[ P(H|E) \text{ proportional to } P(E|H) \cdot P(H) \]
+
+We can calculate the proportional values:
+
+- **Agricultural and Veterinary Science**: 
+  \[ P(H|E) \propto 0.9 \times 0.1 = 0.09 \]
+  
+- **Computer Science**:
+  \[ P(H|E) \propto 0.3 \times 0.3 = 0.09 \]
+  
+- **Business Administration**:
+  \[ P(H|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+To normalize these (so they sum to 1):
+- Sum of unnormalized values: \(0.09 + 0.09 + 0.04 = 0.22\)
+  
+- **Normalized Values**:
+  - **Agricultural and Veterinary Science**: \( \frac{0.09}{0.22} \approx 0.41 \)
+  - **Computer Science**: \( \frac{0.09}{0.22} \approx 0.41 \)
+  - **Business Administration**: \( \frac{0.04}{0.22} \approx 0.18 \)
+
+Thus, the conditional probabilities are:
+
+{
+  "agricultural and veterinary science": 0.41,
+  "computer science": 0.41,
+  "business administration": 0.18
+}

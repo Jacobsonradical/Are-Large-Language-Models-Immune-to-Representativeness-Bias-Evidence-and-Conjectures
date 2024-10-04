@@ -1,0 +1,71 @@
+To use Bayes' rule to compute the posterior probability \( P(H|E) \) for each field, we need to consider the following:
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E|\neg H) \) is the likelihood of the evidence given that the hypothesis is not true.
+- \( P(E) \) is the total probability of the evidence.
+
+Since we are only comparing two specific fields and not computing absolute probabilities, we can work with relative probabilities and focus on the ratios. 
+
+For simplicity, I'll assume uniform priors for \( P(H) \), meaning the initial probability of Adam being in either field without any evidence is equal, and I'll compare the likelihoods \( P(E|H) \) for each field.
+
+### Prior Probabilities \( P(H) \)
+Given no additional information, we will assume \( P(H) \) is the same for both fields for comparative purposes.
+\[ P(H_{CS}) = P(H_{BA}) = 0.5 \]
+
+### Likelihoods \( P(E|H) \) and \( P(E|\neg H) \)
+Let's evaluate how well the personality sketch of Adam (E) fits each field.
+
+#### Computer Science
+- High intelligence and understanding of abstract concepts are strongly aligned with computer science.
+- Problem-solving skills and enjoyment of puzzles are also aligned with this field.
+- However, the strong empathy and love for animals are not strongly related to the typical characteristics of computer science students but do not entirely contradict them either.
+- Appreciation for hard work and dedication aligns moderately.
+
+Let's estimate:
+\[ P(E|H_{CS}) \approx 0.7 \]
+
+#### Business Administration
+- High empathy and understanding of hard work and dedication align well with business administration.
+- Problem-solving skills may be relevant but less central.
+- Love for animals and curiosity about nature is less commonly related to business administration fields.
+- Intelligence and understanding of abstract concepts are moderately relevant.
+
+Let's estimate:
+\[ P(E|H_{BA}) \approx 0.4 \]
+
+### Complement Likelihoods
+For simplicity, let's use an estimated average likelihood for \(\neg H\):
+\[ P(E|\neg H_{CS}) = 0.4 \]
+\[ P(E|\neg H_{BA}) = 0.6 \]
+
+### Posterior Probabilities \( P(H|E) \)
+Now we apply Bayes' rule relatively:
+
+For Computer Science:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.7 \times 0.5 = 0.35 \]
+
+For Business Administration:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.4 \times 0.5 = 0.2 \]
+
+Since these are relative measures, let's normalize them:
+
+#### Normalizing
+\[ P(H_{CS}|E)_{normalized} = \frac{0.35}{0.35 + 0.2} = \frac{0.35}{0.55} \approx 0.636 \]
+\[ P(H_{BA}|E)_{normalized} = \frac{0.2}{0.35 + 0.2} = \frac{0.2}{0.55} \approx 0.364 \]
+
+### Final Answers
+Both probabilities should add up to 1, but since we are asked for individual comparisons, here are the results:
+
+```json
+{
+  "computer science": 0.636,
+  "business administration": 0.364
+}
+```
+
+These are the relative posterior probabilities for each field based on the given personality sketch and assumed uniform priors.

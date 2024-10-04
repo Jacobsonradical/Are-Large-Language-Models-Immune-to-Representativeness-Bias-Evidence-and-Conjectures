@@ -1,0 +1,51 @@
+To estimate the probabilities, we'll need to make some reasonable assumptions based on the information provided and the nature of the fields in question. Here's how we can think about it:
+
+1. **Determine P(H) for each field:**
+   - For **agricultural and veterinary science**, let's assume Adam has a higher likelihood to be in this field given his love for nature, plants, and animals. Let's say P(H) = 0.3.
+   - For **computer science**, given his high intelligence and enjoyment of solving puzzles, there's a good fit, but not as strong as agriculture. Let's say P(H) = 0.2.
+
+2. **Determine P(E|H) for each field:**
+   - For **agricultural and veterinary science**, P(E|H) is high because Adam’s personality features match well: love for nature and animals. Let's set P(E|H) = 0.9.
+   - For **computer science**, P(E|H) is moderate to high due to his intelligence and interest in solving puzzles, but the empathy and love for animals don't directly match. Let's set P(E|H) = 0.7.
+
+3. **Determine P(E|¬H) for each field:**
+   - For **agricultural and veterinary science**, among students in all other fields, let's estimate P(E|¬H) = 0.1 because the described personality is quite specialized.
+   - For **computer science**, among students in all other fields, let's estimate P(E|¬H) = 0.3 because the intelligence and puzzle-solving matches can be more common.
+
+4. **Apply Bayes rule:**
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+However, we need an estimate of P(E), the overall probability of the personality sketch, which we can approximate.
+
+\[
+P(E) \approx P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H)
+\]
+
+Given the complexity, let’s simplify and assume \( P(E) \) for these purposes:
+- For **agricultural and veterinary science**: 
+\[
+P(E) \approx 0.9 \cdot 0.3 + 0.1 \cdot (1 - 0.3) = 0.27 + 0.07 = 0.34
+\]
+\[
+P(H|E) = \frac{0.9 \cdot 0.3}{0.34} \approx 0.794
+\]
+
+- For **computer science**:
+\[
+P(E) \approx 0.7 \cdot 0.2 + 0.3 \cdot (1 - 0.2) = 0.14 + 0.24 = 0.38
+\]
+\[
+P(H|E) = \frac{0.7 \cdot 0.2}{0.38} \approx 0.368
+\]
+
+So,
+
+```json
+{
+  "agricultural and veterinary science": 0.794,
+  "computer science": 0.368
+}
+```

@@ -1,0 +1,54 @@
+To apply Bayes' rule, we need to estimate the prior probability \(P(H)\), the likelihood \(P(E|H)\), and the likelihood of the evidence given the negation of the hypothesis \(P(E|\neg H)\). 
+
+Let's start with some rough estimations for each field:
+
+### Computer Science:
+**P(H)** - The prior probability that Adam is enrolled in computer science. Due to the popularity of the field among graduate students, we might guess a moderate prior.
+  - For estimation, let's assume \(P(H)_{cs} = 0.20\).
+
+**P(E|H)** - The likelihood that the given personality sketch matches someone in computer science.
+  - Given Adam's interests in nature, plants, animals, and his empathy, we might find it less likely compared to other fields, but his interest in solving puzzles and high intelligence fits well.
+  - Let's estimate \(P(E|H)_{cs} = 0.40\).
+
+**P(E|\neg H)** - The likelihood that the given personality sketch matches anyone not in computer science.
+  - Considering there are many fields where empathy, nature, and animal interests are more common, this likelihood might be higher.
+  - Let's estimate \(P(E|\neg H)_{cs} = 0.60\).
+
+By Bayes' rule:
+\[
+P(H|E)_{cs} = \frac{P(E|H)_{cs} \cdot P(H)_{cs}}{P(E|H)_{cs} \cdot P(H)_{cs} + P(E|\neg H)_{cs} \cdot P(\neg H)_{cs}}
+= \frac{0.40 \cdot 0.20}{0.40 \cdot 0.20 + 0.60 \cdot 0.80}
+= \frac{0.08}{0.08 + 0.48}
+= \frac{0.08}{0.56}
+= 0.14
+\]
+
+### Business Administration:
+**P(H)** - The prior probability that Adam is enrolled in business administration. Given its popularity, it might be moderate as well.
+  - For estimation, let's assume \(P(H)_{ba} = 0.20\).
+
+**P(E|H)** - The likelihood that the given personality sketch matches someone in business administration.
+  - Adam's personality sketch, emphasizing empathy and understanding for hard work, somewhat fits business scenarios, although not as strongly as some other fields.
+  - Let's estimate \(P(E|H)_{ba} = 0.30\).
+
+**P(E|\neg H)** - The likelihood that the given personality sketch matches anyone not in business administration.
+  - Given the broad range of fields outside business, similar to the above case.
+  - Let's estimate \(P(E|\neg H)_{ba} = 0.60\).
+
+By Bayes' rule:
+\[
+P(H|E)_{ba} = \frac{P(E|H)_{ba} \cdot P(H)_{ba}}{P(E|H)_{ba} \cdot P(H)_{ba} + P(E|\neg H)_{ba} \cdot P(\neg H)_{ba}}
+= \frac{0.30 \cdot 0.20}{0.30 \cdot 0.20 + 0.60 \cdot 0.80}
+= \frac{0.06}{0.06 + 0.48}
+= \frac{0.06}{0.54}
+= 0.11
+\]
+
+Thus, the results can be summarized as:
+
+```json
+{
+  "computer science": 0.14,
+  "business administration": 0.11
+}
+```

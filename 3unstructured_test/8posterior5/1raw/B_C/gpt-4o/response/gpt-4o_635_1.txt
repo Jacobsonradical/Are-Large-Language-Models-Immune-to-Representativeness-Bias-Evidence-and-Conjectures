@@ -1,0 +1,53 @@
+To calculate the probabilities \( P(H|E) \), we need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+where \( P(H) \) is the prior probability of Adam being enrolled in a given field, \( P(E|H) \) is the probability of observing the personality traits given that Adam is enrolled in the field, and \( P(E|\neg H) \) is the probability of observing the personality traits given that Adam is not enrolled in the field.
+
+However, since we are not given concrete values for these probabilities, I'll make reasoned estimates based on the provided personality sketch. 
+
+### Assumptions
+1. **Prior ( \( P(H) \) )**: This typically represents general enrollment rates in various fields for graduate students in the U.S. 
+   - Let's assume that enrollment rates for business administration and computer science are somewhat comparable in the U.S. for simplicity, but slightly wise towards computer science due to its popularity. So, for the sake of this problem, we estimate:
+   - \( P(\text{Business Administration}) = 0.4 \)
+   - \( P(\text{Computer Science}) = 0.6 \)
+
+2. **Likelihood ( \( P(E|H) \) )**: This represents the probability of observing Adam's personality traits given that he is in a specific field.
+   - For Business Administration: Generally, business students can be extroverted and have interests in areas beyond nature and puzzles. Let's estimate this as:
+     - \( P(E|\text{Business Administration}) = 0.1 \)
+   - For Computer Science: Computer science students often have an appreciation for puzzles and abstract concepts, though the traits about nature might not align as perfectly.
+     - \( P(E|\text{Computer Science}) = 0.3 \)
+
+3. **Normalizing Factor ( \( P(E) \) )**: It's not needed directly since we only care about the relative probabilities here.
+
+### Estimation
+Let's plug these values into Bayes' rule:
+
+- For Business Administration:
+\[ P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)} \]
+\[ P(\text{Business Administration}|E) \approx \frac{0.1 \cdot 0.4}{P(E)} \]
+\[ P(\text{Business Administration}|E) \approx \frac{0.04}{P(E)} \]
+
+- For Computer Science:
+\[ P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)} \]
+\[ P(\text{Computer Science}|E) \approx \frac{0.3 \cdot 0.6}{P(E)} \]
+\[ P(\text{Computer Science}|E) \approx \frac{0.18}{P(E)} \]
+
+Without the normalizing factor \( P(E) \), we can't get exact values but we can compare their relative likelihoods.
+
+### Normalized Comparison
+Let’s normalize these values to find the relative probabilities:
+
+\[ P(\text{Business Administration}|E) \approx \frac{0.04}{0.04 + 0.18} = \frac{0.04}{0.22} \approx 0.18 \]
+\[ P(\text{Computer Science}|E) \approx \frac{0.18}{0.04 + 0.18} = \frac{0.18}{0.22} \approx 0.82 \]
+
+So, the estimated probabilities are:
+
+```json
+{
+  "business administration": 0.18,
+  "computer science": 0.82
+}
+```
+
+This suggests that it is much more likely that Adam was enrolled in Computer Science given his personality traits.

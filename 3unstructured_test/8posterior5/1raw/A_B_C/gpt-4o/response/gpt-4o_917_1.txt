@@ -1,0 +1,61 @@
+To apply Bayes' Rule for each field of study, we need to evaluate the following probabilities:
+
+1. P(H): The prior probability that Adam was enrolled in a particular field.
+2. P(E|H): The likelihood of the personality sketch E given that Adam is in that field.
+3. P(E|¬H): The likelihood of the personality sketch E given that Adam is NOT in that field.
+
+Bayes' Rule states that:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, we can assume that P(H) is roughly equal for all three fields as a starting point, and P(E) remains constant and can be normalized across the fields.
+
+Here is how we might assign values:
+
+### Computer Science:
+- **P(H)**: Let's assign a reasonable prior for grad students in CS, say 0.2 (20%).
+- **P(E|H)**: Given the description, the fit isn’t perfect but acceptable due to the intelligence and abstract thinking traits. Say 0.4 (40%).
+- **P(E|¬H)**: The general likelihood of someone fitting this personality sketch not in CS could be lower. Say 0.3 (30%).
+
+### Agricultural and Veterinary Science:
+- **P(H)**: Assume a lower prior than CS, say 0.1 (10%).
+- **P(E|H)**: This seems like a perfect fit given Adam's interests, empathy, and love for animals. Say 0.8 (80%).
+- **P(E|¬H)**: The description shares traits with other fields but not as much. Say 0.3 (30%).
+
+### Business Administration:
+- **P(H)**: Assume a lower prior considering typical backgrounds for this type, say 0.15 (15%).
+- **P(E|H)**: The fit is not particularly strong since the traits do not align closely with typical MBA students. Say 0.2 (20%).
+- **P(E|¬H)**: Similarly, the description does not fit well with non-MBA fields generally. Say 0.3 (30%).
+
+Now apply Bayes' Rule:
+
+- **Computer Science:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.4 \cdot 0.2}{P(E)} = \frac{0.08}{P(E)} \]
+
+- **Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+- **Business Administration:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.15}{P(E)} = \frac{0.03}{P(E)} \]
+
+Normalizing these, the total probability gotta sum up:
+\[ P(E) = 0.08 + 0.08 + 0.03 = 0.19\]
+
+Therefore:
+
+- **Computer Science:**
+\[ P(H|E) = \frac{0.08}{0.19} = 0.421 \]
+
+- **Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{0.08}{0.19} = 0.421 \]
+
+- **Business Administration:**
+\[ P(H|E) = \frac{0.03}{0.19} = 0.158 \]
+
+So, finally the results are:
+```
+{
+  "computer science": "0.421",
+  "agricultural and veterinary science": "0.421",
+  "business administration": "0.158"
+}
+```

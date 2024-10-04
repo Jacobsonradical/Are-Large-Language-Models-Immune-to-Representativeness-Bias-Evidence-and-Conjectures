@@ -1,0 +1,58 @@
+To determine \(P(H|E)\) for each field, we need to apply Bayes' Rule, which can be written as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \(P(H|E)\) is the probability that Adam was enrolled in the field given his personality sketch.
+- \(P(E|H)\) is the probability of Adam exhibiting the personality traits given that he was in a specific field.
+- \(P(H)\) is the prior probability of Adam being enrolled in a specific field.
+- \(P(E)\) is the overall probability of Adam exhibiting these personality traits.
+
+Let's denote:
+- \(H_{cs}\) as the hypothesis that Adam was enrolled in computer science.
+- \(H_{ba}\) as the hypothesis that Adam was enrolled in business administration.
+
+### Estimations
+1. **Prior Probability \(P(H)\)**:
+   - We will assume a generic university where \(H_{cs}\) could have slightly higher prior probability since computer science is a common field.
+   - Let's say \(P(H_{cs}) = 0.2\) and \(P(H_{ba}) = 0.1\).
+
+2. **Conditional Probability \(P(E|H)\)**:
+   Considering Adam's traits:
+   - **Computer Science**: High intelligence, understanding of abstract concepts, love for puzzles align well.
+     - \(P(E|H_{cs}) = 0.7\)
+   - **Business Administration**: Requires understanding hard work and dedication, but less direct connection to empathy for animals and nature.
+     - \(P(E|H_{ba}) = 0.4\)
+
+3. **Complement Conditional Probability \(P(E|\neg H)\)**:
+   - This is the probability of seeing the personality traits \(E\) in graduate students not in the specified field.
+   - We will set generic values based on the assumption that these traits are more common in computer science and less common in business administration.
+   - For computer science:
+     - \(P(E|\neg H_{cs}) = 0.3\)
+   - For business administration:
+     - \(P(E|\neg H_{ba}) = 0.5\)
+
+4. **Overall Probability \(P(E)\)**: We need this to complete Bayes' Rule. However, it cancels out in the ratio, so we don't need an exact value but estimate proportions.
+
+### Bayes Rule Calculation:
+Since \(P(E)\) is common and cancels out:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+1. **Computer Science**:
+\[ P(H_{cs}|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.7 \times 0.2 = 0.14 \]
+
+2. **Business Administration**:
+\[ P(H_{ba}|E) \propto P(E|H_{ba}) \cdot P(H_{ba}) = 0.4 \times 0.1 = 0.04 \]
+
+### Normalizing:
+\[ P(H_{cs}|E) = \frac{0.14}{0.14 + 0.04} = \frac{0.14}{0.18} \approx 0.78 \]
+\[ P(H_{ba}|E) = \frac{0.04}{0.14 + 0.04} = \frac{0.04}{0.18} \approx 0.22 \]
+
+So, the final results for \(P(H|E)\) are approximately:
+
+```json
+{
+  "computer science": 0.78,
+  "business administration": 0.22
+}
+```

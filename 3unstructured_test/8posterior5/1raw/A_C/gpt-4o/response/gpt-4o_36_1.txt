@@ -1,0 +1,38 @@
+To compute \( P(H|E) \) using Bayes' rule, we need the prior \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence given that it's not \( H \), which is \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) is common to both fields, we can compute the unnormalized posterior probabilities and then normalize among them if necessary. Here, we do not need to normalize since we are not asked to ensure the sum is 1.
+
+Let's consider the prior probabilities \( P(H) \) for each field. Generally, certain fields might have higher enrollment rates than others, but without specific data, let's assume a non-informative prior (i.e., \( P(H) = 0.5 \)) for simplicity.
+
+Now for the likelihoods:
+
+1. **Computer Science:**
+   - \( P(E|H) \): Considering Adam's profile, someone in computer science might have strong intelligence and an appreciation for abstract concepts, but a deep love for nature and animals would be less common.
+     - Estimate: \( 0.2 \)
+   - \( P(E|\neg H) \): If Adam is not in computer science, the likelihood of his profile fits other fields more strongly, like agricultural science.
+     - Estimate: \( 0.8 \)
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(E|H) \): Adam's personality aligns well with this field due to his love for nature, plants, animals, and empathy.
+     - Estimate: \( 0.8 \)
+   - \( P(E|\neg H) \): If Adam is not in agricultural science, the personality traits might still partially fit other fields, but not as strongly (e.g., environmental science).
+     - Estimate: \( 0.6 \)
+
+Using the numbers above, we can calculate \( P(H|E) \) using an unnormalized form:
+
+For **computer science**:
+\[ P(H|E) \propto P(E|H) P(H) = 0.2 \times 0.5 = 0.1 \]
+
+For **agricultural and veterinary science**:
+\[ P(H|E) \propto P(E|H) P(H) = 0.8 \times 0.5 = 0.4 \]
+
+So, our final outputs would be:
+
+{
+  "computer science": "0.1",
+  "agricultural and veterinary science": "0.4"
+}
+
+These values indicate that given Adam's personality sketch, it is more likely that he was enrolled in agricultural and veterinary science rather than computer science.

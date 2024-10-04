@@ -1,0 +1,97 @@
+To apply Bayes' rule to compute the posterior probabilities \( P(H|E) \) for the given hypotheses, we need to use the following formula:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where:
+
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis.
+- \( P(E|\neg H) \) is the likelihood of observing the evidence given the negation of the hypothesis.
+
+The values \( P(E) \) can be derived using the law of total probability:
+
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+Let's make some reasonable assumptions based on the personality sketch of Adam:
+
+### Business Administration
+
+1. **Prior Probability \( P(H) \):**
+   - Business Administration is a common field for graduate students, but Adam's described personality and interests (nature, puzzles, empathy, animals, abstract concepts) might not align perfectly with typical Business Administration students.
+   - Let's assign a lower prior value: \( P(\text{Business Administration}) = 0.1 \).
+
+2. **Likelihood \( P(E|H) \):**
+   - The description of Adam’s personality doesn't strongly suggest that he would be in Business Administration.
+   - Let's assign a lower likelihood: \( P(E|\text{Business Administration}) = 0.2 \).
+
+3. **Likelihood of Evidence Given Not That Field \( P(E|\neg H) \):**
+   - Since Adam's field could be anything else, this probability should support a wide range of considered fields like natural sciences, psychology, or computer science.
+   - We'll estimate this higher because Business Administration is not our only specific alternative: \( P(E|\neg \text{Business Administration}) = 0.5 \).
+
+### Computer Science
+
+1. **Prior Probability \( P(H) \):**
+   - Computer Science is a popular field among graduate students, and Adam’s interest in puzzles, high intelligence, and understanding abstract concepts align well with this field.
+   - Let's give a reasonable prior probability: \( P(\text{Computer Science}) = 0.3 \).
+
+2. **Likelihood \( P(E|H) \):**
+   - Adam’s attributes such as high intelligence, curiosity about abstract concepts, and puzzle-solving skills align closely with typical Computer Science profiles.
+   - Let's assign a high likelihood: \( P(E|\text{Computer Science}) = 0.7 \).
+
+3. **Likelihood of Evidence Given Not That Field \( P(E|\neg H) \):**
+   - The likelihood that these personality traits fit another field which isn't Computer Science but may also align well with Adam’s description.
+   - We would assign this a reasonable value: \( P(E|\neg \text{Computer Science}) = 0.5 \).
+
+### Calculation
+
+Using the above values, we can now apply Bayes' Rule for both hypotheses.
+
+For Business Administration:
+\[
+P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)}
+\]
+\[
+P(E) \text{ is a normalizing constant that ensures probabilities sum to 1, but since we only need relative proportions it can be omitted in this step.}
+\]
+
+For Computer Science:
+\[
+P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)}
+\]
+
+\[
+\text{Normalize both probabilities for output.}
+\]
+
+### Result
+
+The relative probabilities (values provided are illustrative):
+
+```json
+{
+  "business administration": "0.2 * 0.1 = 0.02",
+  "computer science": "0.7 * 0.3 = 0.21"
+}
+```
+
+After normalization:
+
+```json
+{
+  "business administration": "0.02 / (0.02 + 0.21) = 0.086",
+  "computer science": "0.21 / (0.02 + 0.21) = 0.913"
+}
+```
+
+Thus the revised and normalized outputs are:
+
+```json
+{
+  "business administration": "0.086",
+  "computer science": "0.913"
+}
+```

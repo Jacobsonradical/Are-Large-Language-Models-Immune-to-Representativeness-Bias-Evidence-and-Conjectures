@@ -1,0 +1,56 @@
+To calculate \( P(H|E) \) for each field using Bayes' Rule, we need to make some assumptions about the prior probabilities \( P(H) \), and the likelihoods \( P(E|H) \) and \( P(E|\neg H) \). Here’s how we can approach it qualitatively for the two fields based on Adam's personality sketch:
+
+### Prior Probabilities \( P(H) \)
+- \( P(H) \) for different fields could be influenced by the overall popularity of the fields among graduate students. Let’s assume:
+  - \( P(\text{computer science}) \): moderate popularity.
+  - \( P(\text{agricultural and veterinary science}) \): less popular compared to computer science.
+
+### Likelihoods \( P(E|H) \) and \( P(E|\neg H) \)
+- \( P(E|H) \) describes how likely Adam’s qualities are given that he is in that field.
+  - For **computer science**:
+    - High intelligence and understanding abstract concepts fit well.
+    - Curiosity about nature and love for animals don't strongly fit.
+    - Empathy and appreciation for hard work may or may not fit.
+    - Thus, we might assign a moderate likelihood \( P(E|\text{computer science}) \).
+
+  - For **agricultural and veterinary science**:
+    - Genuine curiosity about nature, love for animals, empathy, and appreciation for hard work align well.
+    - His intelligence and affinity for solving puzzles are not exclusive to this field but still relevant.
+    - Thus, we might assign a high likelihood \( P(E|\text{agricultural and veterinary science}) \).
+
+- \( P(E|\neg H) \) is the likelihood of the personality traits given that Adam is not in a specific field. This is an average over all other possible fields, which could be tricky. We might assume:
+  - Moderate likelihood for \( P(E|\neg \text{computer science}) \) based on general applicability.
+  - Lower likelihood for \( P(E|\neg \text{agricultural and veterinary science}) \) since those traits might be less common in other fields.
+
+With these qualitative assessments, let’s assume some reasonable numbers:
+
+### Assumptions
+- For computer science:
+  - \( P(\text{computer science}) = 0.3 \)
+  - \( P(E|\text{computer science}) = 0.5 \)
+  - \( P(E|\neg \text{computer science}) = 0.3 \)
+
+- For agricultural and veterinary science:
+  - \( P(\text{agricultural and veterinary science}) = 0.1 \)
+  - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+  - \( P(E|\neg \text{agricultural and veterinary science}) = 0.4 \)
+
+### Bayes' Rule Computation
+Using the formula \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \) and estimating \( P(E) \approx P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+
+#### For Computer Science
+\[ P(E) \approx (0.5 \times 0.3) + (0.3 \times 0.7) = 0.15 + 0.21 = 0.36 \]
+\[ P(\text{computer science}|E) = \frac{0.5 \times 0.3}{0.36} = \frac{0.15}{0.36} \approx 0.4167 \]
+
+#### For Agricultural and Veterinary Science
+\[ P(E) \approx (0.8 \times 0.1) + (0.4 \times 0.9) = 0.08 + 0.36 = 0.44 \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.8 \times 0.1}{0.44} = \frac{0.08}{0.44} \approx 0.1818 \]
+
+Based on these computations:
+
+```json
+{
+  "computer science": 0.4167,
+  "agricultural and veterinary science": 0.1818
+}
+```

@@ -1,0 +1,61 @@
+To compute \(P(H|E)\), we use Bayes' theorem: 
+
+\[P(H|E) = \frac{P(E|H)P(H)}{P(E)}\]
+
+We'll consider the following fields: business administration, computer science, and agricultural and veterinary science. 
+
+Step 1: Assigning Prior Probabilities (\(P(H)\)):
+Let's assign some reasonable prior probabilities for the hypotheses.
+- \(P(H_{business})\) = 0.2 (There's a moderate chance Adam might be studying business administration)
+- \(P(H_{CS})\) = 0.4 (There's a higher chance Adam might be studying computer science)
+- \(P(H_{Agri-Vet})\) = 0.4 (There's a higher chance Adam might be studying agricultural and veterinary science)
+
+Step 2: Assigning Conditional Probabilities (\(P(E|H)\)):
+Based on the personality sketch \(E\), we consider the following: 
+- Business Admin: The curiosity about nature and love for animals doesn't strongly align with business administration, so \(P(E|H_{business})\) will be relatively low.
+- Computer Science: Abstract concepts and puzzle-solving align well with computer science, so \(P(E|H_{CS})\) will be moderate.
+- Agricultural and Veterinary Science: Strong empathy, love for animals, curiosity about nature and plants align very well, so \(P(E|H_{Agri-Vet})\) will be high.
+
+Let's specify some values for these:
+- \(P(E|H_{business})\) = 0.1
+- \(P(E|H_{CS})\) = 0.5
+- \(P(E|H_{Agri-Vet})\) = 0.9
+
+Now for the complement \(\neg H\) which includes all other fields. Assigning a combined probability (for all other fields) might be tricky absent specific info, but let's approximate:
+- \(P(E|\neg H_{business})\) = 0.75
+- \(P(E|\neg H_{CS})\) = 0.65
+- \(P(E|\neg H_{Agri-Vet})\) = 0.5
+
+Let's calculate \(P(E)\) (the probability of \(E\) across all hypotheses). Given the priors and the conditional probabilities:
+
+\[ P(E) = P(E|H_{business})P(H_{business}) + P(E|H_{CS})P(H_{CS}) + P(E|H_{Agri-Vet})P(H_{Agri-Vet}) + P(E|\neg H)P(\neg H) \]
+
+Since we are considering our hypotheses:
+\[ P(E) = 0.1 \times 0.2 + 0.5 \times 0.4 + 0.9 \times 0.4 \]
+\[ P(E) = 0.02 + 0.2 + 0.36 \]
+\[ P(E) = 0.58 \]
+
+Finally, compute \(P(H|E)\):
+
+- For business administration:
+\[ P(H_{business}|E) = \frac{P(E|H_{business}) \cdot P(H_{business})}{P(E)} \]
+\[ P(H_{business}|E) = \frac{0.1 \times 0.2}{0.58} \]
+\[ P(H_{business}|E) \approx 0.034 \]
+
+- For computer science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.5 \times 0.4}{0.58} \]
+\[ P(H_{CS}|E) \approx 0.345 \]
+
+- For agricultural and veterinary science:
+\[ P(H_{Agri-Vet}|E) = \frac{P(E|H_{Agri-Vet}) \cdot P(H_{Agri-Vet})}{P(E)} \]
+\[ P(H_{Agri-Vet}|E) = \frac{0.9 \times 0.4}{0.58} \]
+\[ P(H_{Agri-Vet}|E) \approx 0.621 \]
+
+Therefore, we summarize:
+
+{
+  "business administration": 0.034,
+  "computer science": 0.345,
+  "agricultural and veterinary science": 0.621
+}

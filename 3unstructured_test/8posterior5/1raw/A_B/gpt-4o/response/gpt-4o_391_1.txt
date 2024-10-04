@@ -1,0 +1,64 @@
+To compute the probabilities, we'll use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the data, we need to make reasonable assumptions for the probabilities. Let's start by approximating each term (in a simplified way) for both fields:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field. Let's consider these fields to have roughly equal popularity among graduate students. 
+   - \( P(H_{BA}) \): Prior for Business Administration.
+   - \( P(H_{AG}) \): Prior for Agricultural and Veterinary Science.
+
+2. \( P(E|H) \): The probability of the personality sketch \( E \) given Adam was enrolled in each field.
+   - \( P(E | H_{BA}) \)
+   - \( P(E | H_{AG}) \)
+
+3. \( P(E | \neg H) \): The probability of the personality sketch \( E \) given Adam was not enrolled in the respective field.
+
+Given Adam's keen interest in nature, plants, animals, and empathy, it's more likely that \( P(E|H_{AG}) \) is higher than \( P(E|H_{BA}) \).
+
+### Assumptions:
+- \( P(H_{BA}) = 0.3 \)
+- \( P(H_{AG}) = 0.3 \) (Assuming the rest 0.4 is split between other fields)
+
+### Expected \( P(E|H) \):
+- \( P(E | H_{BA}) = 0.2 \) (Lower probability because the personality description fits less with business-related fields)
+- \( P(E | H_{AG}) = 0.7 \) (Higher fit with agricultural and vet science)
+
+### Expected \( P(E | \neg H) \):
+We simplify this by assuming an average probability of the personality sketch appearing in non-specified fields.
+- \( P(E | \neg H_{BA}) = 0.5 \)
+- \( P(E | \neg H_{AG}) = 0.5 \)
+
+Using Bayes' theorem:
+
+### For Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Where \( P(E) \) can be considered as a normalization constant.
+
+### For Agricultural and Veterinary Science:
+\[ P(H_{AG}|E) = \frac{P(E|H_{AG}) \cdot P(H_{AG})}{P(E)} \]
+
+Since \( P(E) \) is common for both fields and we are comparing, it cancels out in proportional terms:
+
+### Results:
+1. Business Administration: 
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.3}{P(E)} = \frac{0.06}{P(E)} \]
+
+2. Agricultural and Veterinary Science: 
+\[ P(H_{AG}|E) = \frac{0.7 \cdot 0.3}{P(E)} = \frac{0.21}{P(E)} \]
+
+Comparing \( P(H|E) \) values for normalization:
+
+\[ P(H_{BA}|E) \approx \frac{0.06}{0.06 + 0.21} = \frac{0.06}{0.27} \approx 0.222 \]
+
+\[ P(H_{AG}|E) \approx \frac{0.21}{0.06 + 0.21} = \frac{0.21}{0.27} \approx 0.778 \]
+
+Final answers:
+
+```json
+{
+  "business administration": "0.222",
+  "agricultural and veterinary science": "0.778"
+}
+```

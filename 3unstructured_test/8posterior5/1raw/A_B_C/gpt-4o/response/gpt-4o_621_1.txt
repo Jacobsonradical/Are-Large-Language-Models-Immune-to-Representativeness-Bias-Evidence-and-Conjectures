@@ -1,0 +1,84 @@
+To compute \( P(H|E) \) for each of the fields of study using Bayes' theorem, we need estimates or reasonable guesses for the following probabilities:
+
+1. \( P(H) \): The prior probability of a student being enrolled in a particular field.
+2. \( P(E|H) \): The likelihood of Adam's personality sketch given that he is enrolled in this field.
+3. \( P(E|\neg H) \): The likelihood of Adam's personality sketch given that he is not enrolled in this field.
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Given we are not provided with explicit probabilities, we'll make reasonable approximations based on common sense and general knowledge.
+
+### Prior Probabilities
+
+1. **Estimation** for \( P(H) \) (assuming all fields are equally probable if no other information were available):
+   - \( P(H_{\text{business administration}}) \approx 0.1 \)
+   - \( P(H_{\text{computer science}}) \approx 0.1 \)
+   - \( P(H_{\text{agricultural and veterinary science}}) \approx 0.1 \)
+
+2. **Estimation** for \( P(E|H) \):
+   - Given Adam's genuine curiosity about nature, strong empathy, and love for animals, the likelihood \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.8 \)
+   - Given Adam's intelligence and interest in solving puzzles, the likelihood \( P(E|H_{\text{computer science}}) \approx 0.6 \)
+   - Given Adam's appreciation for hard work but lesser direct fit, the likelihood \( P(E|H_{\text{business administration}}) \approx 0.2 \)
+
+3. **Estimation** for \( P(E|\neg H) \):
+   - Considering the personality characteristics are more unique to specific fields, the likelihood is roughly:
+     - \( P(E|\neg H_{\text{business administration}}) \approx 0.3 \)
+     - \( P(E|\neg H_{\text{computer science}}) \approx 0.4 \)
+     - \( P(E|\neg H_{\text{agricultural and veterinary science}}) \approx 0.2 \)
+
+Let's calculate the normalized posterior probabilities using Bayes' theorem for each field.
+
+### Bayesian Posterior Calculation
+
+To simplify, let's denote each prior likelihood \( P(E) \) collectively affecting our normalization as \( K \). Bayes' rule gives us:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+The calculations for each field then are:
+
+1. **Business Administration**
+   \[
+   P(H_{\text{business administration}}|E) = \frac{0.2 \times 0.1}{K}
+   \]
+2. **Computer Science**
+   \[
+   P(H_{\text{computer science}}|E) = \frac{0.6 \times 0.1}{K}
+   \]
+3. **Agricultural and Veterinary Science**
+   \[
+   P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \times 0.1}{K}
+   \]
+
+Now let's normalize these probabilities to ensure they sum up to a reasonable ratio reflecting all considered fields:
+
+- Compute raw scores (before normalization):
+    - Business Administration: \( 0.02 \)
+    - Computer Science: \( 0.06 \)
+    - Agricultural and Veterinary Science: \( 0.08 \)
+
+- Sum of raw scores: \( K = 0.02 + 0.06 + 0.08 = 0.16 \)
+
+- Normalize:
+  \[
+   \text{Business Administration} = \frac{0.02}{0.16} = 0.125
+   \]
+   \[
+   \text{Computer Science} = \frac{0.06}{0.16} = 0.375
+   \]
+   \[
+   \text{Agricultural and Veterinary Science} = \frac{0.08}{0.16} = 0.5
+   \]
+
+The results are:
+
+```json
+{
+  "business administration": 0.125,
+  "computer science": 0.375,
+  "agricultural and veterinary science": 0.5
+}
+```
+
+These values indicate the relative probabilities given Adam's personality sketch, with agricultural and veterinary science being the most likely field.

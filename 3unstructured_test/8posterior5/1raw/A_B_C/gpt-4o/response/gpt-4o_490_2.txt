@@ -1,0 +1,77 @@
+To compute the posterior probability \( P(H|E) \) for each field of study, we'll need to estimate the following probabilities:
+
+- \( P(H) \): The prior probability that Adam is enrolled in the given field.
+- \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam is enrolled in that field.
+- \( P(E|\neg H) \): The probability of the personality sketch \( E \) given that Adam is not enrolled in that field.
+
+For \( P(H) \), we'll assume a reasonably sane distribution across these fields considering the number of graduate students typically enrolled in each field.
+
+For \( P(E|H) \), we’ll consider how well Adam’s personality fits each field.
+
+For \( P(E|\neg H) \), we'll assume the general likelihood of anyone having this personality sketch given they're not in the considered field.
+
+### 1. Agricultural and Veterinary Science
+
+- \( P(H) \): Moderate, maybe \( 0.1 \)
+- \( P(E|H) \): High, since his interests and empathy align strongly with this field \( \approx 0.7 \)
+- \( P(E|\neg H) \): Lower than \( P(E|H) \), since this personality does not align as strongly with fields other than this one \( \approx 0.2 \)
+
+### 2. Business Administration
+
+- \( P(H) \): Moderate, maybe \( 0.2 \)
+- \( P(E|H) \): Low, since Business Administration typically attracts personality types less focused on nature and animals \( \approx 0.1 \)
+- \( P(E|\neg H) \): Relatively unchanged for the general grad population \( \approx 0.4 \)
+
+### 3. Computer Science
+
+- \( P(H) \): High, maybe \( 0.35 \)
+- \( P(E|H) \): Moderate, since problem-solving and abstract thinking are a good fit, but his other interests are less aligned \( \approx 0.5 \)
+- \( P(E|\neg H) \): Given that a smaller percentage fits exactly this profile \( \approx 0.3 \)
+
+Using Bayes’ rule \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \) and simplifications given the limited fields:
+
+```json
+{
+  "agricultural and veterinary science": 0.7 * 0.1 / P(E-renormalized),
+  "business administration": 0.1 * 0.2 / P(E-renormalized),
+  "computer science": 0.5 * 0.35 / P(E-renormalized)
+}
+```
+
+Since I need to ensure consistency without \( P(E)\):
+
+### Normalization
+
+\[ P(E) = \sum_{fields} P(E|H) \cdot P(H) = (0.7 * 0.1) + (0.1 * 0.2) + (0.5 * 0.35) = 0.07 + 0.02 + 0.175 = 0.265 \]
+
+Here are the final normalized probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.7 * 0.1 / 0.265,
+  "business administration": 0.1 * 0.2 / 0.265,
+  "computer science": 0.5 * 0.35 / 0.265
+}
+```
+
+Calculating:
+
+```json
+{
+  "agricultural and veterinary science": 0.26,
+  "business administration": 0.075,
+  "computer science": 0.66
+}
+```
+
+Thus, the final probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.26,
+  "business administration": 0.075,
+  "computer science": 0.66
+}
+```
+
+These probabilities indicate the likelihood that Adam is enrolled in a particular field based on his personality sketch.

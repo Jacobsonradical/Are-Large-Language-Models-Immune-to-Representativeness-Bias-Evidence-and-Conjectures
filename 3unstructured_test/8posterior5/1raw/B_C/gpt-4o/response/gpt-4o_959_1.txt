@@ -1,0 +1,41 @@
+To compute the posterior probability \( P(H|E) \) for each field given Adam's personality sketch \( E \), we need to use Bayes' theorem, which is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are comparing different fields and focusing on the relative probabilities, we can simplify to:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+We need to judge the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihoods \( P(E|\neg H) \).
+
+1. **Business Administration:**
+   - **P(H):** The prior probability that a random graduate student is studying business administration. Let's assume it is 15%.
+   - **P(E|H):** The likelihood of Adam's personality given he studies business administration. Since his traits align more with a scientific or empathetic field rather than a corporate or organizational focus, let's estimate this to be relatively low, say 0.1.
+   - **P(E|\neg H):** The likelihood of Adam's personality given he does not study business administration. Assuming the number of fields where his traits fit better is relatively high, let's say it's 0.3.
+
+2. **Computer Science:**
+   - **P(H):** The prior probability that a random graduate student is studying computer science. Let's assume it is 20%.
+   - **P(E|H):** The likelihood of Adam's personality given he studies computer science. His curiosity, intelligence, and interest in puzzles fit well here. Let's assign a higher value, say 0.5.
+   - **P(E|\neg H):** The likelihood of Adam's personality given he does not study computer science. Using the same reasoning as above, let's say it's again 0.3.
+
+Given these estimations, we can compute the proportional values for \( P(H|E) \):
+
+For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.15 = 0.015 \]
+
+For Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.5 \cdot 0.20 = 0.10 \]
+
+Now we normalize these values by summing them and dividing each by the total:
+
+\[ P(H|E)_{BA} = \frac{0.015}{0.015 + 0.10} = \frac{0.015}{0.115} \approx 0.130 \]
+\[ P(H|E)_{CS} = \frac{0.10}{0.015 + 0.10} = \frac{0.10}{0.115} \approx 0.870 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.130,
+  "computer science": 0.870
+}
+```

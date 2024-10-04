@@ -1,0 +1,58 @@
+To estimate the posterior probability \( P(H|E) \) for Adam being in each field given the personality sketch (E), we use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's the step-by-step reasoning for each field:
+
+1. **Business Administration:**
+   - **P(H):** The prior probability that any given graduate student is studying business administration. For simplicity and without concrete data, let's assume it's 0.15.
+   - **P(E|H):** The probability of observing the personality sketch \( E \) given that Adam is studying business administration. Business administration programs may attract students with strong social skills and leadership qualities, but Adam's attributes like curiosity about nature, animal love, and solving puzzles seem less correlated. Let's assign a value of 0.10.
+   - **P(E|\neg H):** The probability of observing the personality sketch \( E \) given that Adam is not studying business administration. Since we have no concrete field in mind, let's assume this is the average of accounting for all other fields. Given that Adam's description aligns more with science, let's assign 0.20.
+
+   Using Bayes' rule:
+
+   \[
+   P(H|E) = \frac{0.10 \times 0.15}{P(E)}
+   \]
+
+2. **Computer Science:**
+   - **P(H):** The prior probability that any given graduate student is studying computer science. For simplicity, let's assume it's 0.20, as computer science is a popular field.
+   - **P(E|H):** The probability of observing the personality sketch \( E \) given that Adam is studying computer science. Computer science aligns well with solving puzzles and understanding abstract concepts. Let's assign a value of 0.30.
+   - **P(E|\neg H):** The same as above, 0.20.
+
+   Using Bayes' rule:
+
+   \[
+   P(H|E) = \frac{0.30 \times 0.20}{P(E)}
+   \]
+
+**Note:** \( P(E) \) is constant for both hypotheses so it can be ignored in the final ratio comparison.
+
+Let's compute the non-normalized posteriors:
+
+1. **Business Administration:**
+
+   \(
+   P(H|E) \propto 0.10 \times 0.15 = 0.015
+   \)
+
+2. **Computer Science:**
+
+   \(
+   P(H|E) \propto 0.30 \times 0.20 = 0.060
+   \)
+
+Finally, normalize these values such that they sum to 1 for interpretability:
+
+- Total: \( 0.015 + 0.060 = 0.075 \)
+- Normalized for Business Administration: \( \frac{0.015}{0.075} = 0.20 \)
+- Normalized for Computer Science: \( \frac{0.060}{0.075} = 0.80 \)
+
+So, our answer is:
+
+```json
+{
+  "business administration": 0.20,
+  "computer science": 0.80
+}
+```

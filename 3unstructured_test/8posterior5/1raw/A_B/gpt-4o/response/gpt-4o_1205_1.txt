@@ -1,0 +1,38 @@
+To compute the posterior probabilities \( P(H|E) \), which is the probability that Adam was enrolled in a particular field given his personality sketch, we will use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both fields, we can compare the values proportional to \( P(H|E) \). 
+
+Let's define the terms for each field:
+
+1. **Business Administration**
+   - **P(H)**: The prior probability that a graduate student is enrolled in Business Administration. Let's assume a base rate of 15%.
+   - **P(E|H)**: The likelihood of Adam having his personality sketch given that he is in Business Administration. Given that Adam is curious about nature, enjoys solving puzzles, and has empathy and love for animals, the fit seems quite low. Let's estimate it at 0.05.
+   - **P(E|\neg H)**: The likelihood of Adam having his personality sketch if he is not in Business Administration. This is harder to estimate, but given other fields that are not related to nature or animals might show this personality less frequently. Let's assume 0.3 for other fields in general.
+   
+2. **Agricultural and Veterinary Science**
+   - **P(H)**: The prior probability that a graduate student is enrolled in Agricultural and Veterinary Science. Let's assume a base rate of 5%.
+   - **P(E|H)**: The likelihood of Adam having his personality traits given that he is in Agricultural and Veterinary Science. This fits well given his curiosity about nature, love for animals, and empathy, let's estimate it at 0.8.
+   - **P(E|\neg H)**: The likelihood of Adam having his personality sketch if he is not in Agricultural and Veterinary Science. This can be estimated the same way, so 0.3.
+
+Now we'll apply these into Bayes' theorem:
+
+For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.05 \cdot 0.15 = 0.0075 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.05 = 0.04 \]
+
+Since these proportional values do not provide direct probabilities, they are used to compare which field is more likely. We normalize them:
+
+\[ \text{sum of the values} = 0.0075 + 0.04 = 0.0475 \]
+
+Normalized values:
+\[ P(\text{Business Administration}|E) = \frac{0.0075}{0.0475} \approx 0.158 \]
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.04}{0.0475} \approx 0.842 \]
+
+{
+  "business administration": 0.158,
+  "agricultural and veterinary science": 0.842
+}

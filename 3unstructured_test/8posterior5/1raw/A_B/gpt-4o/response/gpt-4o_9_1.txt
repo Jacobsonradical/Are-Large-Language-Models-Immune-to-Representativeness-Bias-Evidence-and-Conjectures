@@ -1,0 +1,35 @@
+
+Firstly, let's assign some probabilities for each parameter, where \(P(H)\) is the prior probability of Adam being enrolled in a given field, \(P(E|H)\) is the likelihood of observing the personality sketch if Adam is enrolled in that field, and \(P(E|\neg H)\) is the likelihood of observing the personality sketch if Adam is not in that field.
+
+For **Business Administration**:
+- \(P(H_{BA})\): Business administration is a relatively common graduate field, so let's assign a prior probability of 0.2 (assuming many possible fields).
+- \(P(E|H_{BA})\): Given Adam’s personality sketch which emphasizes nature, animals, empathy, and abstract concepts, this is less likely to align with the typical interests of Business Administration. Let's assign a low value, such as 0.1.
+- \(P(E|\neg H_{BA})\): The overall probability of seeing someone with Adam's personality traits across all other possible fields might be higher since there are other compatible fields related to nature and animals. Let's assign this a value of 0.6.
+
+For **Agricultural and Veterinary Science**:
+- \(P(H_{AVS})\): Agricultural and veterinary science is a more specialized field, so let's assign a prior probability of 0.05.
+- \(P(E|H_{AVS})\): Adam’s personality sketch aligns very well with the interests typically seen in Agricultural and Veterinary Science, such as a love for animals and nature. Let's assign a high value of 0.9.
+- \(P(E|\neg H_{AVS})\): The likelihood of these traits in all other fields combined might still be quite common. Let's assign this a value of 0.5.
+
+Using Bayes Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be computed using the law of total probability:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+**Business Administration**:
+\[ P(E) = (0.1 \cdot 0.2) + (0.6 \cdot 0.8) = 0.02 + 0.48 = 0.5 \]
+\[ P(H_{BA}|E) = \frac{0.1 \cdot 0.2}{0.5} = \frac{0.02}{0.5} = 0.04 \]
+
+**Agricultural and Veterinary Science**:
+\[ P(E) = (0.9 \cdot 0.05) + (0.5 \cdot 0.95) = 0.045 + 0.475 = 0.52 \]
+\[ P(H_{AVS}|E) = \frac{0.9 \cdot 0.05}{0.52} = \frac{0.045}{0.52} \approx 0.087 \]
+
+Thus, the probabilities that Adam was enrolled in each field given his personality sketch are:
+
+{
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.087
+}

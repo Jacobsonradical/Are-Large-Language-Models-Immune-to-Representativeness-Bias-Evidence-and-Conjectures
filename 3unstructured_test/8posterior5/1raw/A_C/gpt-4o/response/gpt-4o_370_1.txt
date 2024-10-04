@@ -1,0 +1,63 @@
+To solve this using Bayes' Theorem, we need to estimate the prior probability \(P(H)\), the likelihood \(P(E|H)\), and the evidence against the hypothesis \(P(E|\neg H)\).
+
+Bayes' Theorem is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be expressed using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity, we can focus on the relative probabilities rather than computing the exact values of \( P(E) \), because we are comparing two fields. Let's denote:
+- \( P(H_{AG}) \) as the prior probability that Adam is enrolled in Agricultural and Veterinary Science.
+- \( P(H_{CS}) \) as the prior probability that Adam is enrolled in Computer Science.
+
+Now let's define the estimations based on Adam's personality sketch.
+
+### Agricultural and Veterinary Science
+**P(H_{AG})**:
+We'll assume that Adam's interests and traits such as a love for nature, plants, animals, empathy, and understanding of hard work increase the prior probability of him being in Agricultural and Veterinary Science. So let's assign a prior probability:
+\[ P(H_{AG}) = 0.2 \]
+
+**P(E|H_{AG})**:
+Given that Adam is in Agricultural and Veterinary Science, the probability of having those traits and interests is high:
+\[ P(E|H_{AG}) = 0.9 \]
+
+**P(E|\neg H_{AG})**:
+Given that Adam is not in Agricultural and Veterinary Science, the probability of still having those traits would be lower but possible since it’s not exclusive:
+\[ P(E|\neg H_{AG}) = 0.4 \]
+
+### Computer Science
+**P(H_{CS})**:
+Even though Adam has high intelligence and is good at abstract thinking, his love for nature and animals might slightly decrease the prior probability of him choosing Computer Science. Thus:
+\[ P(H_{CS}) = 0.1 \]
+
+**P(E|H_{CS})**:
+Given that Adam is in Computer Science, the probability of having the traits and interests might be lower:
+\[ P(E|H_{CS}) = 0.3 \]
+
+**P(E|\neg H_{CS})**:
+Given that Adam is not in Computer Science, the probability of having those traits might be slightly higher since his traits might attract him to other fields:
+\[ P(E|\neg H_{CS}) = 0.6 \]
+
+Using these values, we now compute the posterior probabilities \( P(H|E) \).
+
+For Agricultural and Veterinary Science:
+\[ P(H_{AG}|E) = \frac{P(E|H_{AG}) \cdot P(H_{AG})}{P(E)} = \frac{0.9 \cdot 0.2}{P(E)} \]
+
+For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.3 \cdot 0.1}{P(E)} \]
+
+We can ignore \(P(E)\) for comparison purposes:
+\[ P(H_{AG}|E) \propto 0.9 \cdot 0.2 = 0.18 \]
+\[ P(H_{CS}|E) \propto 0.3 \cdot 0.1 = 0.03 \]
+
+Normalizing:
+\[ P(H_{AG}|E) = \frac{0.18}{0.18 + 0.03} = \frac{0.18}{0.21} \approx 0.857 \]
+\[ P(H_{CS}|E) = \frac{0.03}{0.18 + 0.03} = \frac{0.03}{0.21} \approx 0.143 \]
+
+So, the updated probabilities are:
+```json
+{
+  "agricultural and veterinary science": 0.857,
+  "computer science": 0.143
+}
+```

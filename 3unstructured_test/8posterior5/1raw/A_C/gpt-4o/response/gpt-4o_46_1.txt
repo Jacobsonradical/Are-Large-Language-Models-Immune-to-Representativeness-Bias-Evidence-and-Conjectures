@@ -1,0 +1,47 @@
+Firstly, let's break down what we need to compute: \( P(H|E) \), the posterior probability of Adam being enrolled in a particular field given his personality sketch. By Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a given field.
+- \( P(E|H) \) is the likelihood of E given Adam is in field H.
+- \( P(E) \) is the overall probability of E, which acts as a normalizing constant.
+
+We'll estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field before calculating \( P(H|E) \).
+
+### Computer Science
+
+- **P(H):** This is the prior probability of Adam being a graduate student in computer science. Given the popularity of this field, let’s assume \( P(H) = 0.25 \).
+- **P(E|H):** Given E's traits (curiosity about nature, puzzles, high intelligence), there is some alignment, though not perfect. Let's assume \( P(E|H) = 0.4 \).
+- **P(E|\neg H):** The likelihood of E given Adam is NOT in computer science would be smaller but not negligible. Let’s assume \( P(E|\neg H) = 0.2 \).
+
+Now we can use Bayes' Rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Given \( P(E) = P(E|H)P(H) + P(E|\neg H)(1 - P(H)) \):
+
+\[ P(E) = 0.4 \cdot 0.25 + 0.2 \cdot 0.75 = 0.1 + 0.15 = 0.25 \]
+
+\[ P(H|E) = \frac{0.4 \cdot 0.25}{0.25} = \frac{0.1}{0.25} = 0.4 \]
+
+### Agricultural and Veterinary Science
+
+- **P(H):** This is the prior probability of Adam being a graduate student in agricultural and veterinary science. Considering this field might be less common than computer science but more aligned with Adam's traits, let’s assume \( P(H) = 0.15 \).
+- **P(E|H):** Given the strong alignment of E’s traits with this field (curiosity about nature, love for animals, empathy), let’s assume \( P(E|H) = 0.7 \).
+- **P(E|\neg H):** The likelihood of E given Adam is NOT in agricultural and veterinary science would be larger than computer science because other nature/animal-related fields also fit E’s traits. Let’s assume \( P(E|\neg H) = 0.3 \).
+
+Now we can use Bayes' Rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Given \( P(E) = P(E|H)P(H) + P(E|\neg H)(1 - P(H)) \):
+
+\[ P(E) = 0.7 \cdot 0.15 + 0.3 \cdot 0.85 = 0.105 + 0.255 = 0.36 \]
+
+\[ P(H|E) = \frac{0.7 \cdot 0.15}{0.36} = \frac{0.105}{0.36} \approx 0.292 \]
+
+### Final Results
+
+{
+  "computer science": "0.4",
+  "agricultural and veterinary science": "0.292"
+}

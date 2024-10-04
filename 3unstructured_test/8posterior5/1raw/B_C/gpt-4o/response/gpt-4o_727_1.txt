@@ -1,0 +1,54 @@
+To calculate \( P(H|E) \), or the probability that Adam was enrolled in a specific field given his personality sketch, we'll use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll need to make some assumptions and estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). 
+
+Let's break it down for each field:
+
+### Business Administration
+- **\( P(H) \)**: The prior probability that a graduate student is in the field of business administration. We'll assume it's a relatively common field. Let's assume \( P(H) = 0.2 \) (20%).
+
+- **\( P(E|H) \)**: The probability that Adam has the personality characteristics given that he is in business administration. Given Adam's profile (curiosity about nature, love for animals, solving puzzles, high empathy), it doesn't strongly align with business administration traits. Let's assume \( P(E|H) = 0.1 \) (10%).
+
+- **\( P(E|\neg H) \)**: The probability that Adam has the personality characteristics given he is not in business administration. This would include all other fields, many of which may align better with Adam's interests. Let's assume \( P(E|\neg H) = 0.3 \) (30%).
+
+### Computer Science
+- **\( P(H) \)**: The prior probability that a graduate student is in the field of computer science. This is also a relatively common field. We'll assume \( P(H) = 0.2 \) (20%).
+
+- **\( P(E|H) \)**: The probability that Adam has the personality characteristics given that he is in computer science. Given Adam's interest in solving puzzles and understanding abstract concepts, this aligns well with computer science. Let's assume \( P(E|H) = 0.5 \) (50%).
+
+- **\( P(E|\neg H) \)**: The probability that Adam has the personality characteristics given he is not in computer science. This scenario still includes possibilities more aligned with his interests, such as biology or environmental sciences, but less than computer science. We'll use \( P(E|\neg H) = 0.25 \) (25%).
+
+Now, applying Bayes' theorem:
+
+### Business Administration
+\[ P(\text{business administration} | E) = \frac{P(E | \text{business administration}) \cdot P(\text{business administration})}{P(E | \text{business administration}) \cdot P(\text{business administration}) + P(E | \neg \text{business administration}) \cdot P(\neg \text{business administration})} \]
+
+\[ P(\text{business administration} | E) = \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.3 \times 0.8} \]
+
+\[ P(\text{business administration} | E) = \frac{0.02}{0.02 + 0.24} \]
+
+\[ P(\text{business administration} | E) = \frac{0.02}{0.26} \]
+
+\[ P(\text{business administration} | E) \approx 0.077 \]
+
+### Computer Science
+\[ P(\text{computer science} | E) = \frac{P(E | \text{computer science}) \cdot P(\text{computer science})}{P(E | \text{computer science}) \cdot P(\text{computer science}) + P(E | \neg \text{computer science}) \cdot P(\neg \text{computer science})} \]
+
+\[ P(\text{computer science} | E) = \frac{0.5 \times 0.2}{0.5 \times 0.2 + 0.25 \times 0.8} \]
+
+\[ P(\text{computer science} | E) = \frac{0.1}{0.1 + 0.2} \]
+
+\[ P(\text{computer science} | E) = \frac{0.1}{0.3} \]
+
+\[ P(\text{computer science} | E) \approx 0.333 \]
+
+So, the probabilities are approximately:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.333
+}
+```

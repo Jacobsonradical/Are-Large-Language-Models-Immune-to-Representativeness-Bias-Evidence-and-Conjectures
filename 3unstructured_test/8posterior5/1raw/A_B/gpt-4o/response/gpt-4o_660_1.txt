@@ -1,0 +1,40 @@
+To compute the probabilities, we need to start with some reasonable estimates for prior probabilities \( P(H) \) and the conditional probabilities \( P(E|H) \) and \( P(E|\neg H) \). For simplicity, let's assume the following estimates:
+
+1. **Prior Probability \( P(H) \):**
+   - \( P(\text{business administration}) \): Let’s assume there is a relatively high number of students in this field, so we might set an initial prior \( P(\text{business administration}) = 0.3 \).
+   - \( P(\text{agricultural and veterinary science}) \): This field might be less common, so let's set \( P(\text{agricultural and veterinary science}) = 0.1 \).
+
+2. **Conditional Probability \( P(E|H) \):**
+   - Given the description, Adam's characteristics align strongly with someone interested in agriculture or veterinary science, but not as clearly with business administration.
+   - \( P(E|\text{business administration}) \): A student in business administration might still have some of these traits, but it’s less likely, so let's set \( P(E|\text{business administration}) = 0.15 \).
+   - \( P(E|\text{agricultural and veterinary science}) \): This aligns very well, so \( P(E|\text{agricultural and veterinary science}) = 0.8 \).
+
+3. **Conditional Probability \( P(E|\neg H) \):**
+   - If \( H \) is not true, the complement will include a substantial number of other fields, and the probability of \( E \) occurring in any of those fields can be more evenly spread.
+   - \( P(E|\neg \text{business administration}) \): This includes all non-business administration fields, so let's estimate \( P(E|\neg \text{business administration}) = 0.4 \).
+   - \( P(E|\neg \text{agricultural and veterinary science}) \): This includes all non-agricultural and veterinary science fields, so let's estimate \( P(E|\neg \text{agricultural and veterinary science}) = 0.2 \).
+
+Now, we can use Bayes' Rule to compute the posterior probabilities \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+For 'business administration':
+
+\[ P(E) = (0.15 \times 0.3) + (0.4 \times 0.7) = 0.045 + 0.28 = 0.325 \]
+
+\[ P(\text{business administration}|E) = \frac{0.15 \times 0.3}{0.325} \approx 0.138 \]
+
+For 'agricultural and veterinary science':
+
+\[ P(E) = (0.8 \times 0.1) + (0.2 \times 0.9) = 0.08 + 0.18 = 0.26 \]
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.8 \times 0.1}{0.26} \approx 0.308 \]
+
+Putting these values together, we get:
+
+{
+  "business administration": 0.138,
+  "agricultural and veterinary science": 0.308
+}

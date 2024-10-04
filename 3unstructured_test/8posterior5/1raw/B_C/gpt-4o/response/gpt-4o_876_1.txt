@@ -1,0 +1,61 @@
+To apply Bayes' Rule and estimate the probabilities \( P(H|E) \) for each field given the personality sketch \( E \), we need to consider the following probabilities:
+
+- \( P(H) \): The prior probability of Adam being enrolled in the field.
+- \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given Adam is enrolled in the field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch \( E \) given Adam is not enrolled in the field.
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, instead of calculating \( P(E) \) directly, we can normalize our results across the specific hypotheses since we are only considering two fields. We assume \( P(E) \) is the same for both fields when normalizing our final result.
+
+### Hypothesis 1: Business Administration (BA)
+- \( P(H_{\text{BA}}) \): The prior probability of graduate students enrolled in Business Administration. Let's assume this is a moderate probability, e.g., 0.2.
+- \( P(E|H_{\text{BA}}) \): The likelihood that someone with Adam's characteristics is in BA:
+  - Curiosity about nature and plants: low fit.
+  - Enjoys solving puzzles: medium fit (could relate to problem-solving in business contexts).
+  - Warm heart, strong empathy, love for animals: low-medium fit.
+  - High intelligence and understanding abstract concepts: medium fit.
+  - Appreciation for hard work: high fit.
+ 
+Overall, the fit is moderate to low for BA. Let's approximate this as \( P(E|H_{\text{BA}}) = 0.3 \).
+
+- \( P(E|\neg H_{\text{BA}}) \): This would be the complement, considering many fields unrelated to Business Administration might still fit Adam better. Let's assume \( P(E|\neg H_{\text{BA}}) = 0.7 \).
+
+### Hypothesis 2: Computer Science (CS)
+- \( P(H_{\text{CS}}) \): The prior probability of graduate students enrolled in Computer Science. Let's assume this is a moderate probability, e.g., 0.2.
+- \( P(E|H_{\text{CS}}) \): The likelihood that someone with Adam's characteristics is in CS:
+  - Curiosity about nature and plants: low to medium fit (bioinformatics or computational biology, perhaps).
+  - Enjoys solving puzzles: high fit.
+  - Warm heart, strong empathy, love for animals: low-medium fit (not typically associated, but not exclusive).
+  - High intelligence and understanding abstract concepts: high fit.
+  - Appreciation for hard work: high fit.
+ 
+Overall, the fit is higher for CS. Let's approximate this as \( P(E|H_{\text{CS}}) = 0.6 \).
+
+- \( P(E|\neg H_{\text{CS}}) \): This would be the complement, considering many fields unrelated to Computer Science might less ideally fit Adam. Let's assume \( P(E|\neg H_{\text{CS}}) = 0.4 \).
+
+Now, applying Bayes’ Rule:
+
+### Business Administration
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+
+Since \( P(E) \) is the same for both and will be normalized:
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.3 \times 0.2 = 0.06 \]
+
+### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.6 \times 0.2 = 0.12 \]
+
+Normalize the results so they sum to 1:
+\[ P(H_{\text{BA}}|E) = \frac{0.06}{0.06 + 0.12} = \frac{0.06}{0.18} = \frac{1}{3} \approx 0.33 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.12}{0.06 + 0.12} = \frac{0.12}{0.18} = \frac{2}{3} \approx 0.67 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.33,
+  "computer science": 0.67
+}
+```

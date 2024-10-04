@@ -1,0 +1,62 @@
+To determine the probabilities, we can use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to consider three main probabilities for each field:
+
+1. **P(H)**: The prior probability of Adam being enrolled in each field.
+2. **P(E|H)**: The probability that Adam has the personality sketch \( E \) given that he is enrolled in that field.
+3. **P(E|\neg H)**: The probability that Adam has the personality sketch \( E \) given that he is not enrolled in that field.
+
+We don't have explicit numerical values, so we will make reasonable assumptions based on the personality sketch provided.
+
+### Business Administration
+
+1. **P(H)**: Let’s assume business administration is a common grad field but not the most common, so we set this at a moderate value, e.g., 0.2.
+2. **P(E|H)**: Adam's personality sketch emphasizes empathy, curiosity, nature, and abstract thinking. Business administration might value intelligence but may not strongly emphasize curiosity about nature or deep love for animals. Let’s assume this probability is low, e.g., 0.1.
+3. **P(E|\neg H)**: Considering that Adam's interests and personality might fit better in other fields, this should be relatively high, e.g., 0.8.
+
+Using Bayes' rule, assuming \( P(E) \) as a normalization constant:
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} 
+\]
+
+### Computer Science
+
+1. **P(H)**: Computer science is a popular field, especially given Adam's intelligence and love for solving puzzles, so this can be higher, e.g., 0.3.
+2. **P(E|H)**: Adam's skills at understanding abstract concepts and solving puzzles fit well. His love for nature might not directly relate, but empathy and a warm heart can still be relevant for teamwork and user-focused design. Let’s use a moderate value, e.g., 0.4.
+3. **P(E|\neg H)**: Again, considering Adam’s broader interests in nature and animals, his profile might fit other fields more strongly than computer science alone, though less than business, e.g., 0.6.
+
+Using Bayes' rule, again assuming \( P(E) \):
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.4 \cdot 0.3}{P(E)} 
+\]
+
+### Normalizing
+
+We need a common denominator to compute the exact comparative probabilities, but since this is proportional, this would only scale the results. Hence, evaluating relative strengths of the numerators should suffice:
+
+For business administration:
+
+\[ 
+P(H|E) \propto 0.1 \cdot 0.2 = 0.02 
+\]
+
+For computer science:
+
+\[ 
+P(H|E) \propto 0.4 \cdot 0.3 = 0.12 
+\]
+
+Thus, relatively:
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.12
+}
+```
+
+Note: These values are not true probabilities but provide a proportional sense of likelihood, indicating computer science is relatively more likely than business administration for Adam given his personality sketch.

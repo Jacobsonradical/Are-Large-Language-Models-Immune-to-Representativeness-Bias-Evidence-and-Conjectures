@@ -1,0 +1,66 @@
+To apply Bayes' theorem and compute the posterior probabilities given the personality sketch \( E \) of Adam, we need to assess the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the complement likelihood \( P(E|\neg H) \) for each field:
+
+1. **Prior Probabilities \( P(H) \)**:
+    - \( P(H_{CS}) \): This is the prior belief that Adam was enrolled in computer science.
+    - \( P(H_{BA}) \): This is the prior belief that Adam was enrolled in business administration.
+
+2. **Likelihoods \( P(E|H) \)**:
+    - \( P(E|H_{CS}) \): The probability of observing Adam’s personality traits if he is a computer science student.
+    - \( P(E|H_{BA}) \): The probability of observing Adam’s personality traits if he is a business administration student.
+  
+3. **Complement Likelihood \( P(E|\neg H) \)**:
+    - \( P(E|\neg H_{CS}) \): The probability of observing Adam’s personality traits if he is not a computer science student.
+    - \( P(E|\neg H_{BA}) \): The probability of observing Adam’s personality traits if he is not a business administration student.
+
+### Assessments of Probabilities
+Given the typical characteristics of students in these fields, we can make the following qualitative assessments:
+
+- **Computer Science**:
+  - \( P(H_{CS}) \): Prior could be moderate, considering computer science is a common graduate field.
+  - \( P(E|H_{CS}) \): Likelihood could be high because the traits match well: high intelligence, curiosity, puzzles.
+  - \( P(E|\neg H_{CS}) \): Complement likelihood could be lower because not all non-CS fields match well with these traits.
+
+- **Business Administration**:
+  - \( P(H_{BA}) \): Prior could be moderate to lower compared to fields that heavily involve nature and abstract concepts.
+  - \( P(E|H_{BA}) \): Likelihood might be lower because the traits don’t strongly match business administration (less emphasis on nature, animals, puzzles).
+  - \( P(E|\neg H_{BA}) \): Complement likelihood would be higher because many non-business fields could have these traits.
+
+### Quantitative Assumptions
+For simplicity, let's assign the following rough values based on these assessments:
+
+#### Computer Science:
+- \( P(H_{CS}) = 0.2 \)
+- \( P(E|H_{CS}) = 0.8 \)
+- \( P(E|\neg H_{CS}) = 0.3 \)
+
+#### Business Administration:
+- \( P(H_{BA}) = 0.1 \)
+- \( P(E|H_{BA}) = 0.2 \)
+- \( P(E|\neg H_{BA}) = 0.7 \)
+
+### Applying Bayes' Theorem
+Bayes' theorem: \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+Where \( P(E) \) can be computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+#### For Computer Science:
+\[ P(E)_{CS} = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot (1 - P(H_{CS})) \]
+\[ P(E)_{CS} = 0.8 \cdot 0.2 + 0.3 \cdot 0.8 = 0.16 + 0.24 = 0.40 \]
+
+\[ P(H_{CS}|E) = \frac{0.8 \cdot 0.2}{0.40} = \frac{0.16}{0.40} = 0.4 \]
+
+#### For Business Administration:
+\[ P(E)_{BA} = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot (1 - P(H_{BA})) \]
+\[ P(E)_{BA} = 0.2 \cdot 0.1 + 0.7 \cdot 0.9 = 0.02 + 0.63 = 0.65 \]
+
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.1}{0.65} = \frac{0.02}{0.65} = \approx 0.03 \]
+
+### Result
+```json
+{
+  "computer science": 0.4,
+  "business administration": 0.03
+}
+```
+
+These values indicate that based on the given personality sketch \( E \) of Adam, it is more likely that Adam was enrolled in computer science rather than business administration.

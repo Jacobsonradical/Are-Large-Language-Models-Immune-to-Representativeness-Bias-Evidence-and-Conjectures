@@ -1,0 +1,79 @@
+To apply Bayes' theorem, we'll first make judgments about the probabilities involved. We'll use the following notations:
+- \( P(H) \): Prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): Probability that Adam's personality sketch fits given he was enrolled in that field.
+- \( P(E|\neg H) \): Probability that Adam's personality sketch fits given he was not enrolled in that field.
+- \( P(H|E) \): Posterior probability that Adam was enrolled in that field given his personality sketch.
+
+We use Bayes' rule: 
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Since we are comparing across multiple hypotheses (fields of study), \( P(E) \) would serve as a normalizing constant. However, as we are only interested in comparing the probabilities rather than the exact values, we will work with the numerators of Bayes' rule for simplicity.
+
+### Judgments on Probabilities:
+1. **Computer Science**
+   - \( P(H_{\text{CS}}) \): Let's assume prior probability of 0.25.
+   - \( P(E|H_{\text{CS}}) \): Given Adam's traits (high intelligence, good at abstract concepts, solving puzzles), might be relatively high, let's assume 0.5.
+   - \( P(E|\neg H_{\text{CS}}) \): For someone not in computer science but fitting Adam's description, medium likelihood, let's assume 0.3.
+
+2. **Business Administration**
+   - \( P(H_{\text{BA}}) \): Let's assume lower prior probability of 0.15.
+   - \( P(E|H_{\text{BA}}) \): Given Adam's traits, less likely to fit perfectly but not impossible, let's assume 0.2.
+   - \( P(E|\neg H_{\text{BA}}) \): Medium likelihood, let's assume 0.3.
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H_{\text{AVS}}) \): Let's assume a higher prior probability of 0.3.
+   - \( P(E|H_{\text{AVS}}) \): Given Adam's love for nature, plants, animals, high likelihood, let's assume 0.8.
+   - \( P(E|\neg H_{\text{AVS}}) \): Similar to business admin, medium likelihood, let's assume 0.3.
+
+Now we compute the unnormalized \( P(H|E) \):
+
+\[
+P(H|E) \propto P(E|H) \times P(H)
+\]
+
+### Calculation of Unnormalized Probabilities:
+1. **Computer Science**
+   \[
+   P(H_{\text{CS}}|E) \propto 0.5 \times 0.25 = 0.125
+   \]
+
+2. **Business Administration**
+   \[
+   P(H_{\text{BA}}|E) \propto 0.2 \times 0.15 = 0.03
+   \]
+
+3. **Agricultural and Veterinary Science**
+   \[
+   P(H_{\text{AVS}}|E) \propto 0.8 \times 0.3 = 0.24
+   \]
+
+### Normalizing:
+To get the final probabilities, we normalize these values by dividing each by the sum of all values:
+
+\[
+\text{Sum} = 0.125 + 0.03 + 0.24 = 0.395
+\]
+
+\[
+P(H_{\text{CS}}|E) = \frac{0.125}{0.395} \approx 0.316
+\]
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.03}{0.395} \approx 0.076
+\]
+
+\[
+P(H_{\text{AVS}}|E) = \frac{0.24}{0.395} \approx 0.608
+\]
+
+### Final Answer:
+```json
+{
+  "computer science": 0.316,
+  "business administration": 0.076,
+  "agricultural and veterinary science": 0.608
+}
+```
+
+These values represent the posterior probabilities that Adam was enrolled in the listed fields given his personality traits.

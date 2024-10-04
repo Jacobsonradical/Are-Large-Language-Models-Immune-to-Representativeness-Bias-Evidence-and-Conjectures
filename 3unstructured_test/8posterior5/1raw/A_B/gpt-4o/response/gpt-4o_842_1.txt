@@ -1,0 +1,70 @@
+Sure, let’s use Bayesian inference to calculate \( P(H|E) \) for Adam being enrolled in either agricultural and veterinary science or business administration, given his personality sketch \( E \).
+
+Firstly, let's define the prior probabilities \( P(H) \) for each field, as well as the likelihoods \( P(E|H) \) and \( P(E|\neg H) \).
+
+### Agricultural and Veterinary Science
+
+**1. Prior Probability \( P(H) \):**
+The prior probability that a given graduate student is in the field of agricultural and veterinary science is generally lower compared to more common fields like business administration. Let's assume:
+
+\[ P(H_{\text{agri\_vet}}) = 0.1 \]
+
+**2. Likelihood \( P(E|H) \):**
+Adam's traits match very closely with the characteristics beneficial for a career in agricultural and veterinary science. Hence:
+
+\[ P(E|H_{\text{agri\_vet}}) = 0.8 \]
+
+**3. Likelihood \( P(E|\neg H) \):**
+This is the probability that Adam has these personality traits given that he is not in the agricultural and veterinary science field. Given the alignment of his interests with this field, it’s likely lower:
+
+\[ P(E|\neg H_{\text{agri\_vet}}) = 0.3 \]
+
+### Business Administration
+
+**1. Prior Probability \( P(H) \):**
+The prior probability that a given graduate student is in the field of business administration is relatively higher. Let's assume:
+
+\[ P(H_{\text{bus\_admin}}) = 0.2 \]
+
+**2. Likelihood \( P(E|H) \):**
+Adam's traits do not align as closely with typical characteristics beneficial for business administration compared to agricultural and veterinary science. Hence:
+
+\[ P(E|H_{\text{bus\_admin}}) = 0.2 \]
+
+**3. Likelihood \( P(E|\neg H) \):**
+This is the probability that Adam has these personality traits given that he is not in the business administration field. Given the mismatch, this is higher:
+
+\[ P(E|\neg H_{\text{bus\_admin}}) = 0.6 \]
+
+Now, we apply Bayes' Rule \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \), where 
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+For each of the two fields:
+
+### Agricultural and Veterinary Science
+\[ P(E_{\text{agri\_vet}}) = P(E|H_{\text{agri\_vet}})P(H_{\text{agri\_vet}}) + P(E|\neg H_{\text{agri\_vet}})P(\neg H_{\text{agri\_vet}}) \]
+\[ P(E_{\text{agri\_vet}}) = (0.8 \times 0.1) + (0.3 \times 0.9) \]
+\[ P(E_{\text{agri\_vet}}) = 0.08 + 0.27 = 0.35 \]
+
+\[ P(H_{\text{agri\_vet}}|E) = \frac{P(E|H_{\text{agri\_vet}})P(H_{\text{agri\_vet}})}{P(E_{\text{agri\_vet}})} \]
+\[ P(H_{\text{agri\_vet}}|E) = \frac{0.8 \times 0.1}{0.35} \]
+\[ P(H_{\text{agri\_vet}}|E) = \frac{0.08}{0.35} \approx 0.229 \]
+
+### Business Administration
+\[ P(E_{\text{bus\_admin}}) = P(E|H_{\text{bus\_admin}})P(H_{\text{bus\_admin}}) + P(E|\neg H_{\text{bus\_admin}})P(\neg H_{\text{bus\_admin}}) \]
+\[ P(E_{\text{bus\_admin}}) = (0.2 \times 0.2) + (0.6 \times 0.8) \]
+\[ P(E_{\text{bus\_admin}}) = 0.04 + 0.48 = 0.52 \]
+
+\[ P(H_{\text{bus\_admin}}|E) = \frac{P(E|H_{\text{bus\_admin}})P(H_{\text{bus\_admin}})}{P(E_{\text{bus\_admin}})} \]
+\[ P(H_{\text{bus\_admin}}|E) = \frac{0.2 \times 0.2}{0.52} \]
+\[ P(H_{\text{bus\_admin}}|E) = \frac{0.04}{0.52} \approx 0.077 \]
+
+So the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.229,
+  "business administration": 0.077
+}
+```

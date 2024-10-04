@@ -1,0 +1,53 @@
+To compute the posterior probability \( P(H|E) \) for each field using Bayes' rule, we need to start with some reasonable values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Keep in mind that we are not required to sum our probabilities to 1, as these are not the only possible fields of specialization.
+
+Let's assume the following initial probabilities based on general knowledge about the popularity of these fields and how likely they are to align with Adam's personality sketch \( E \).
+
+**Field: Agricultural and Veterinary Science**
+- \( P(H) \): This is the prior probability that any random graduate student is in this field. Let's assume this probability is relatively low because agricultural and veterinary sciences are specialized. Let's set \( P(H) = 0.05 \).
+- \( P(E|H) \): This is the probability of Adam's personality sketch given that he is in agricultural and veterinary science. Given his love for nature, animals, and dedication, this matches very well. Let's set \( P(E|H) = 0.90 \).
+- \( P(E|\neg H) \): This is the probability of Adam's personality sketch given that he is not in this field. It would likely be lower but not negligible, let's set \( P(E|\neg H) = 0.10 \).
+
+Now, compute \( P(E) \):
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.90 \cdot 0.05 + 0.10 \cdot 0.95 \]
+\[ P(E) = 0.045 + 0.095 \]
+\[ P(E) = 0.14 \]
+
+Now compute \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.90 \cdot 0.05}{0.14} \]
+\[ P(H|E) = \frac{0.045}{0.14} \]
+\[ P(H|E) \approx 0.321 \]
+
+**Field: Business Administration**
+- \( P(H) \): Let's assume this field has a higher prior probability because business administration is a common field of study. Let's set \( P(H) = 0.15 \).
+- \( P(E|H) \): This field does not align well with Adam's personality sketch, given his love for nature and animals. Let's set \( P(E|H) = 0.20 \).
+- \( P(E|\neg H) \): Similar to the previous computation, let's use \( P(E|\neg H) = 0.10 \).
+
+Now, compute \( P(E) \):
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.20 \cdot 0.15 + 0.10 \cdot 0.85 \]
+\[ P(E) = 0.03 + 0.085 \]
+\[ P(E) = 0.115 \]
+
+Now compute \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.20 \cdot 0.15}{0.115} \]
+\[ P(H|E) = \frac{0.03}{0.115} \]
+\[ P(H|E) \approx 0.261 \]
+
+Thus, the final result is:
+
+```json
+{
+  "agricultural and veterinary science": 0.321,
+  "business administration": 0.261
+}
+```

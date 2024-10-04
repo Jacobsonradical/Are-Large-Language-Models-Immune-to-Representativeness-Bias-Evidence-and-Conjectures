@@ -1,0 +1,38 @@
+To compute \( P(H|E) \) using Bayes' rule, we need values for prior probabilities \( P(H) \), likelihoods \( P(E|H) \), and false positives \( P(E|\neg H) \). Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+Given the information about Adam's personality sketch, we can make some educated guesses about these values.
+
+### Assessing the fields:
+
+1. **Business Administration**
+    - **P(H)**: This field typically enrolls a broad mix of students, so we might estimate it as moderately likely. Let's suppose \( P(H) = 0.2 \).
+    - **P(E|H)**: The personality traits described do not closely align with typical attributes one might expect from a business administration student. Therefore, assign a lower probability such as \( P(E|H) = 0.1 \).
+    - **P(E|\neg H)**: The probability of having Adam's specific personality traits if he’s not in business administration. Given many fields exist, we could estimate \( P(E|\neg H) = 0.8 \).
+
+2. **Agricultural and Veterinary Science**
+    - **P(H)**: This field is less common but plausible based on Adam's personality. Estimate \( P(H) = 0.05 \).
+    - **P(E|H)**: The traits fit well with this field (love for animals, curiosity about nature), so give this a high probability, say \( P(E|H) = 0.9 \).
+    - **P(E|\neg H)**: The probability of Adam’s traits if he’s not in agricultural and veterinary science is moderately high as his traits are still common in various fields. Use \( P(E|\neg H) = 0.7 \).
+
+### Bayes’ rule calculations:
+1. **Business Administration**
+   \[
+   P(H|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.8 \cdot 0.8} = \frac{0.02}{0.02 + 0.64} = \frac{0.02}{0.66} \approx 0.0303
+   \]
+
+2. **Agricultural and Veterinary Science**
+   \[
+   P(H|E) = \frac{0.9 \cdot 0.05}{0.9 \cdot 0.05 + 0.7 \cdot 0.95} = \frac{0.045}{0.045 + 0.665} = \frac{0.045}{0.71} \approx 0.0634
+   \]
+
+### Final results:
+```json
+{
+  "business administration": 0.0303,
+  "agricultural and veterinary science": 0.0634
+}
+```
+
+Note: These are rough approximations based on the provided personality sketch and assumptions about the distribution of students in each field. Exact probabilities would require more precise data.

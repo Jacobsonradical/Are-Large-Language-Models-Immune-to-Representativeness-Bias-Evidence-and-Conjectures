@@ -1,0 +1,51 @@
+To compute \(P(H|E)\) using Bayes' rule, we need to follow the formula:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where \(P(E)\) can be computed as:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+We will need to make some assumptions for \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) for each field.
+
+### Business Administration
+- \(P(H_{BA})\): Fairly low, consider 0.1 (10%)
+- \(P(E|H_{BA})\): Low, consider 0.1 (10%) since Adam's traits don't strongly align with business administration.
+- \(P(E|\neg H_{BA})\): This needs to represent the likelihood of Adam's traits given he is in some other field, consider 0.5 (50%).
+
+### Agricultural and Veterinary Science
+- \(P(H_{AgVet})\): Low-to-moderate, consider 0.2 (20%)
+- \(P(E|H_{AgVet})\): High, consider 0.7 (70%) since Adam's interests and traits strongly align with this field.
+- \(P(E|\neg H_{AgVet})\): Moderate, consider 0.4 (40%) as there might be other fields that match his interests.
+
+### Computer Science
+- \(P(H_{CS})\): Moderate, consider 0.3 (30%)
+- \(P(E|H_{CS})\): Fairly low, consider 0.2 (20%) since Adam's traits don’t perfectly align with typical computer science traits.
+- \(P(E|\neg H_{CS})\): Moderate, consider 0.5 (50%).
+
+Let's now compute \(P(H|E)\) for each field.
+
+1. **Business Administration:**
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA})P(H_{BA})}{P(E)} \]
+\[ P(E_{BA}) = P(E|H_{BA})P(H_{BA}) + P(E|\neg H_{BA})P(\neg H_{BA}) = 0.1 \cdot 0.1 + 0.5 \cdot 0.9 = 0.01 + 0.45 = 0.46 \]
+\[ P(H_{BA}|E) = \frac{0.1 \cdot 0.1}{0.46} \approx 0.022 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H_{AgVet}|E) = \frac{P(E|H_{AgVet})P(H_{AgVet})}{P(E)} \]
+\[ P(E_{AgVet}) = P(E|H_{AgVet})P(H_{AgVet}) + P(E|\neg H_{AgVet})P(\neg H_{AgVet}) = 0.7 \cdot 0.2 + 0.4 \cdot 0.8 = 0.14 + 0.32 = 0.46 \]
+\[ P(H_{AgVet}|E) = \frac{0.7 \cdot 0.2}{0.46} \approx 0.304 \]
+
+3. **Computer Science:**
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS})P(H_{CS})}{P(E)} \]
+\[ P(E_{CS}) = P(E|H_{CS})P(H_{CS}) + P(E|\neg H_{CS})P(\neg H_{CS}) = 0.2 \cdot 0.3 + 0.5 \cdot 0.7 = 0.06 + 0.35 = 0.41 \]
+\[ P(H_{CS}|E) = \frac{0.2 \cdot 0.3}{0.41} \approx 0.146 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.022,
+  "agricultural and veterinary science": 0.304,
+  "computer science": 0.146
+}
+```

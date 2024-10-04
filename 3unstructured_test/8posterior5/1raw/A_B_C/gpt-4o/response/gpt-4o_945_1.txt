@@ -1,0 +1,65 @@
+To compute \( P(H|E) \), we need to apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Given fields of study, let's estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each.
+
+### Computer Science
+#### \( P(H_{cs}) \)
+Let's assume that the prior probability \( P(H_{cs}) \) of Adam being enrolled in a computer science program among all possible fields of graduate study is relatively moderate, say \( P(H_{cs}) = 0.2 \).
+
+#### \( P(E|H_{cs}) \)
+While Adam's traits do include high intelligence and an affinity for solving puzzles which are conducive to studying computer science, his deep love for nature and animals may not perfectly align with a hypothesis of enrollment in computer science. Thus, we might estimate \( P(E|H_{cs}) \) to be moderate: \( P(E|H_{cs}) = 0.4 \).
+
+### Agricultural and Veterinary Science
+#### \( P(H_{avs}) \)
+Assume the prior probability \( P(H_{avs}) \) of Adam being enrolled in agricultural and veterinary science is fairly low because the number of students in this field is generally fewer compared to more common fields like computer science or business administration. Let's set \( P(H_{avs}) = 0.05 \).
+
+#### \( P(E|H_{avs}) \)
+Considering Adam's love for nature, plants, animals, and empathy, this field seems like a strong match. Thus, \( P(E|H_{avs}) \) is high: \( P(E|H_{avs}) = 0.8 \).
+
+### Business Administration
+#### \( P(H_{ba}) \)
+The prior probability \( P(H_{ba}) \) of Adam being enrolled in business administration is somewhat common, so we'll set \( P(H_{ba}) = 0.15 \).
+
+#### \( P(E|H_{ba}) \)
+Adam’s traits do not closely align with the characteristics typically associated with business administration such as an interest in corporate operations or management. Therefore, let's set \( P(E|H_{ba}) = 0.1 \).
+
+### \( P(E|\neg H) \)
+This represents the likelihood of seeing Adam's personality sketch if he is not in the specified field for each case. We can approximate it by considering the general plausibility of Adam’s traits across a broad spectrum of fields:
+
+Let's estimate:
+- \( P(E|\neg H_{cs}) = 0.6 \) 
+- \( P(E|\neg H_{avs}) = 0.3 \)
+- \( P(E|\neg H_{ba}) = 0.7 \)
+
+### Bayes' Rule Calculation
+Now, applying Bayes' Rule:
+
+\[ P(H_{cs}|E) \]
+\[ = \frac{P(E|H_{cs})P(H_{cs})}{P(E|H_{cs})P(H_{cs}) + P(E|\neg H_{cs})(1 - P(H_{cs}))} \]
+\[ = \frac{0.4 \times 0.2}{0.4 \times 0.2 + 0.6 \times (1 - 0.2)} \]
+\[ = \frac{0.08}{0.08 + 0.48} \]
+\[ = \frac{0.08}{0.56} \approx 0.143 \]
+
+\[ P(H_{avs}|E) \]
+\[ = \frac{P(E|H_{avs})P(H_{avs})}{P(E|H_{avs})P(H_{avs}) + P(E|\neg H_{avs})(1 - P(H_{avs}))} \]
+\[ = \frac{0.8 \times 0.05}{0.8 \times 0.05 + 0.3 \times (1 - 0.05)} \]
+\[ = \frac{0.04}{0.04 + 0.285} \]
+\[ = \frac{0.04}{0.325} \approx 0.123 \]
+
+\[ P(H_{ba}|E) \]
+\[ = \frac{P(E|H_{ba})P(H_{ba})}{P(E|H_{ba})P(H_{ba}) + P(E|\neg H_{ba})(1 - P(H_{ba}))} \]
+\[ = \frac{0.1 \times 0.15}{0.1 \times 0.15 + 0.7 \times (1 - 0.15)} \]
+\[ = \frac{0.015}{0.015 + 0.595} \]
+\[ = \frac{0.015}{0.61} \approx 0.025 \]
+
+Therefore, our final estimates are:
+
+```json
+{
+  "computer science": 0.143,
+  "agricultural and veterinary science": 0.123,
+  "business administration": 0.025
+}
+```

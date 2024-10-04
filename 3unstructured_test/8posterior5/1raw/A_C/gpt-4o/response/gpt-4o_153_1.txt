@@ -1,0 +1,50 @@
+To use Bayes' rule to calculate \( P(H|E) \), the posterior probability that Adam was enrolled in a specific field given his personality sketch, we need to know the following components:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in the given field without any additional information.
+2. \( P(E|H) \): The likelihood of observing Adam's personality sketch given that he was enrolled in that specific field.
+3. \( P(E|\neg H) \): The likelihood of observing Adam's personality sketch given that he was not enrolled in that specific field.
+
+We will assume some reasonable values for these probabilities based on common sense. 
+
+### Computer Science
+1. **Prior Probability (\(P(H)\)):**
+   - The popularity of computer science as a field means that more students might be enrolled in it, so let’s assume a moderate prior probability.
+   - \( P(H) = 0.20 \) (since it's a popular field but not the most common field).
+
+2. **Likelihood (\(P(E|H)\)):**
+   - Adam has a genuine curiosity about nature, which is less common in computer science students, and empathy and love for animals are not strongly correlated with computer science.
+   - \( P(E|H) = 0.10 \)
+
+3. **Normalizing Factor (\(P(E|\neg H)\)):**
+   - To calculate \( P(E|\neg H) \), we need an understanding of how likely Adam’s traits are in other fields. Assuming they are more common in fields related to nature and less common in others,
+   - \( P(E|\neg H) = 0.05 \)
+
+Using Bayes' rule:
+
+\[ P(H|E)= \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} = \frac{0.10 \cdot 0.20}{0.10 \cdot 0.20 + 0.05 \cdot 0.80} = \frac{0.02}{0.02 + 0.04} = \frac{0.02}{0.06} ≈ 0.33 \]
+
+### Agricultural and Veterinary Science
+1. **Prior Probability (\(P(H)\)):**
+   - This field is less popular than computer science but specifically related to Adam’s interest in nature and animals. Let’s assume a moderate to lower prior probability.
+   - \( P(H) = 0.05 \)
+
+2. **Likelihood (\(P(E|H)\)):**
+   - Adam’s personality sketch fits very well with someone in this field.
+   - \( P(E|H) = 0.80 \)
+
+3. **Normalizing Factor (\(P(E|\neg H)\)):**
+   - This is a bit higher in comparison to computer science since other related fields might also attract nature-loving individuals.
+   - \( P(E|\neg H) = 0.05 \)
+
+Using Bayes' rule:
+
+\[ P(H|E)= \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} = \frac{0.80 \cdot 0.05}{0.80 \cdot 0.05 + 0.05 \cdot 0.95} = \frac{0.04}{0.04 + 0.0475} = \frac{0.04}{0.0875} ≈ 0.46 \]
+
+So the final results are:
+
+```json
+{
+  "computer science": 0.33,
+  "agricultural and veterinary science": 0.46
+}
+```

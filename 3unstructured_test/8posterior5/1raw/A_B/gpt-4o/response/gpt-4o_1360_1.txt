@@ -1,0 +1,47 @@
+To assess the probabilities, we'll start by assigning values to \( P(H) \), \( P(E | H) \), and \( P(E | \neg H) \) for each of the given fields based on the personality sketch \( E \).
+
+Let's denote \( H_1 \) as the hypothesis that Adam was enrolled in agricultural and veterinary science and \( H_2 \) as the hypothesis that Adam was enrolled in business administration.
+
+First, initialize the prior probabilities \( P(H_1) \) and \( P(H_2) \) based on the general distribution of graduate students among various fields, assuming equal probability for simplicity because specifics aren't given.
+
+\( P(H_1) = 0.5 \) (agricultural and veterinary science)
+\( P(H_2) = 0.5 \) (business administration)
+
+### Agricultural and Veterinary Science
+- **\( P(E | H_1) \):** Given Adam's traits like a love for nature, plants, animals, solving puzzles, and warm empathy, it is highly likely he'd be enrolled in agricultural and veterinary science. Thus, a high value is appropriate.
+  - **Value:** 0.8
+- **\( P(E | \neg H_1) \):** If Adam is not in agricultural and veterinary science, the probability that he exhibits the described traits can be lower but not insignificant since other fields might also have empathetic individuals with high intelligence and curiosity.
+  - **Value:** 0.3
+
+Using these values, apply Bayes' rule to find \( P(H_1 | E) \):
+\[ P(H_1 | E) = \frac{P(E | H_1) \cdot P(H_1)}{P(E)} \]
+Where:
+\[ P(E) = P(E | H_1) \cdot P(H_1) + P(E | \neg H_1) \cdot P(\neg H_1) \]
+\[ P(E) = 0.8 \cdot 0.5 + 0.3 \cdot 0.5 = 0.4 + 0.15 = 0.55 \]
+
+Now,
+\[ P(H_1 | E) = \frac{0.8 \cdot 0.5}{0.55} = \frac{0.4}{0.55} \approx 0.727 \]
+
+### Business Administration
+- **\( P(E | H_2) \):** Given Adam's description, it is quite unlikely he would choose business administration, as his interests and traits align more with nature and empathy than a field typically focused on corporate strategies and economics.
+  - **Value:** 0.1
+- **\( P(E | \neg H_2) \):** If Adam is not in business administration, there still remains a larger probability he shows the traits described in the sketch since many fields align better with them.
+  - **Value:** 0.6
+
+Using these values, apply Bayes' rule to find \( P(H_2 | E) \):
+\[ P(H_2 | E) = \frac{P(E | H_2) \cdot P(H_2)}{P(E)} \]
+Where:
+\[ P(E) = P(E | H_2) \cdot P(H_2) + P(E | \neg H_2) \cdot P(\neg H_2) \]
+\[ P(E) = 0.1 \cdot 0.5 + 0.6 \cdot 0.5 = 0.05 + 0.3 = 0.35 \]
+
+Now,
+\[ P(H_2 | E) = \frac{0.1 \cdot 0.5}{0.35} = \frac{0.05}{0.35} \approx 0.143 \]
+
+Thus, the probabilities \( P(H | E) \) are:
+
+```json
+{
+  "agricultural and veterinary science": 0.727,
+  "business administration": 0.143
+}
+```
