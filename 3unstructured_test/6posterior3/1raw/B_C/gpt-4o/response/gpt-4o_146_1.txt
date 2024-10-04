@@ -1,0 +1,71 @@
+To compute the posterior conditional probabilities, we need to utilize Bayes' Theorem. Bayes' Theorem is given by:
+
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+Where:
+- \( A \) is the event that Adam is in a specific field (e.g., business administration or computer science).
+- \( B \) is the event that Adam has the given personality sketch.
+- \( P(A|B) \) is the probability that Adam is in the field given the personality sketch.
+- \( P(B|A) \) is the probability of the personality sketch given that Adam is in the field.
+- \( P(A) \) is the prior probability of the field.
+- \( P(B) \) is the overall probability of the personality sketch.
+
+The likelihood \( P(B|A) \) should be influenced by how characteristic the personality sketch is for students in each of the given fields.
+
+Let's make some reasonable assumptions based on the typical characteristics often found among students in business administration and computer science, considering Adam's personality traits:
+
+For business administration:
+- Curiosity about nature and plants: Low relevance
+- Enjoys solving puzzles: Moderate relevance
+- Warm heart and empathy: Some relevance
+- Deep love for animals: Low relevance
+- High intelligence and understanding abstract concepts: Some relevance
+- Appreciation for hard work and dedication: High relevance
+
+For computer science:
+- Curiosity about nature and plants: Low relevance
+- Enjoys solving puzzles: High relevance
+- Warm heart and empathy: Low to moderate relevance
+- Deep love for animals: Low relevance
+- High intelligence and understanding abstract concepts: High relevance
+- Appreciation for hard work and dedication: High relevance
+
+Given these qualitative assessments, we can quantify our likelihoods:
+
+For business administration (BA):
+\[ P(B|BA) = 0.1 \times 0.5 \times 0.2 \times 0.1 \times 0.3 \times 0.7 \approx 0.0021 \]
+
+For computer science (CS):
+\[ P(B|CS) = 0.1 \times 0.9 \times 0.2 \times 0.1 \times 0.8 \times 0.7 \approx 0.0101 \]
+
+Next, we need to determine the prior probabilities \( P(A) \). Let's assume:
+\[ P(BA) = 0.2 \] (20%, reflecting a general, moderate interest in this field among graduates)
+\[ P(CS) = 0.3 \] (30%, due to the high demand and interest)
+
+Now, \( P(B) \) is essentially a normalizing constant, summing across fields. But since we are dealing with only two fields here and normalizing is unnecessary in presenting conditional probabilities, we use the above priors directly.
+
+Now we need the posterior probabilities:
+
+For business administration:
+\[ P(BA|B) = \frac{P(B|BA) \cdot P(BA)}{P(B)} \]
+Ignoring the denominator for comparison, we get:
+\[ P(BA|B) \propto P(B|BA) \cdot P(BA) = 0.0021 \times 0.2 = 0.00042 \]
+
+For computer science:
+\[ P(CS|B) = \frac{P(B|CS) \cdot P(CS)}{P(B)} \]
+Ignoring the denominator for comparison, we get:
+\[ P(CS|B) \propto P(B|CS) \cdot P(CS) = 0.0101 \times 0.3 = 0.00303 \]
+
+Since we're ignoring the common denominator and just focusing on comparative results:
+
+\[ P(BA) \approx 0.00042 / (0.00042 + 0.00303) \approx 0.12 \]
+\[ P(CS) \approx 0.00303 / (0.00042 + 0.00303) \approx 0.88 \]
+
+Thus, the posterior probabilities are approximately:
+
+\[ \{
+  "business administration": 0.12,
+  "computer science": 0.88
+\} \]
+
+These values indicate a much higher likelihood that Adam is in computer science compared to business administration given his personality sketch.

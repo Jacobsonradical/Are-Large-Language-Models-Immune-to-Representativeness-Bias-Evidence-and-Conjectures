@@ -1,0 +1,50 @@
+To compute the posterior conditional probabilities, we need to combine our prior knowledge about the likelihood of students enrolling in particular fields with the likelihood that someone with Adam's personality sketch would enroll in these fields. This involves the use of Bayes' theorem:
+
+\( P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \)
+
+Where:
+- \( P(A|B) \) is the posterior probability (the probability that Adam is in a specific field given his personality sketch).
+- \( P(B|A) \) is the likelihood (the probability of observing Adam's personality sketch given that he is in a specific field).
+- \( P(A) \) is the prior probability (the general probability of a graduate student being in a specific field).
+- \( P(B) \) is the normalizing constant (the probability of observing Adam's personality sketch).
+
+We don't have exact numerical values for prior probabilities; hence, we'll make reasonable assumptions based on common knowledge about these fields and personality traits.
+
+### Prior Probabilities (P(A)):
+- Let's assume, in general, there is a higher enrollment in computer science compared to agricultural and veterinary science due to broader applications and higher demand. For simplicity, let us assign:
+  - \( P(computer \ science) = 0.3 \)
+  - \( P(agricultural \ and \ veterinary \ science) = 0.1 \)
+
+### Likelihoods (P(B|A)):
+- Given Adam's personality traits:
+  - High intelligence and good at understanding abstract concepts: These traits are relevant to both fields but highly relevant to computer science.
+  - Genuine curiosity about nature and love for animals: These traits are very strongly aligned with agricultural and veterinary science.
+  - Enjoys solving puzzles: Strongly aligned with computer science.
+  - Warm heart, strong empathy, and appreciation for hard work: Relevant to both fields, but slightly more emphasized in human-centric fields like agricultural and veterinary science.
+
+Assume:
+- \( P(personality \ sketch|computer \ science) = 0.4 \)
+- \( P(personality \ sketch|agricultural \ and \ veterinary \ science) = 0.6 \)
+
+### Normalizing Constant (P(B)):
+- As we're considering that Adam might be in either of the two fields:
+  - \( P(personality \ sketch) = P(personality \ sketch|computer \ science) \cdot P(computer \ science) + P(personality \ sketch|agricultural \ and \ veterinary \ science) \cdot P(agricultural \ and \ veterinary \ science) \)
+  - \( P(personality \ sketch) = 0.4 \cdot 0.3 + 0.6 \cdot 0.1 = 0.12 + 0.06 = 0.18 \)
+
+### Posterior Probabilities (P(A|B)):
+- For computer science:
+  - \( P(computer \ science|personality \ sketch) = \frac{P(personality \ sketch|computer \ science) \cdot P(computer \ science)}{P(personality \ sketch)} \)
+  - \( P(computer \ science|personality \ sketch) = \frac{0.4 \cdot 0.3}{0.18} = 0.6667 \)
+
+- For agricultural and veterinary science:
+  - \( P(agricultural \ and \ veterinary \ science|personality \ sketch) = \frac{P(personality \ sketch|agricultural \ and \ veterinary \ science) \cdot P(agricultural \ and \ veterinary \ science)}{P(personality \ sketch)} \)
+  - \( P(agricultural \ and \ veterinary \ science|personality \ sketch) = \frac{0.6 \cdot 0.1}{0.18} = 0.3333 \)
+
+Therefore, the posterior conditional probabilities are:
+
+```json
+{
+  "computer science": 0.6667,
+  "agricultural and veterinary science": 0.3333
+}
+```

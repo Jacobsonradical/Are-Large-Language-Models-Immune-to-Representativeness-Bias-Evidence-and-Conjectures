@@ -1,0 +1,49 @@
+To compute the posterior conditional probabilities, we can use Bayesian inference. To do this, we need to consider the prior probabilities of each field and the likelihood of Adam's personality sketch given each field. 
+
+Let's assume the following prior probabilities (P(Field)):
+- Business Administration: P(B) = 0.2
+- Computer Science: P(CS) = 0.3
+- Agricultural and Veterinary Science: P(AV) = 0.1
+
+These priors are assumed based on general distribution of graduate students across various fields but can change based on more accurate data.
+
+Next, let's estimate the likelihood of Adam's personality sketch given each field:
+
+- P(Personality Sketch | Business Administration): This would be lower given that Adam's traits do not strongly align with typical business administration interests like management, finance, etc.
+- P(Personality Sketch | Computer Science): This would be moderate given Adam's interest in solving puzzles and high intelligence, though his strong empathy and love for nature and animals do not directly align.
+- P(Personality Sketch | Agricultural and Veterinary Science): This would be high given Adam's genuine curiosity about nature, deep love for animals, and appreciation for hard work and dedication.
+
+Qualitatively, we can assign the likelihood ratings (P(Personality Sketch | Field)) as:
+- P(Personality Sketch | Business Administration): 0.1
+- P(Personality Sketch | Computer Science): 0.5
+- P(Personality Sketch | Agricultural and Veterinary Science): 0.9
+
+We use Bayes' theorem to compute the posterior probabilities:
+
+Posterior(Field) = [P(Personality Sketch | Field) * P(Field)] / P(Personality Sketch)
+
+However, we don’t need to compute the exact value for P(Personality Sketch) since we are only comparing the three fields. Instead, we use the normalized values.
+
+Let's calculate the unnormalized posteriors:
+
+- Business Administration = 0.1 * 0.2 = 0.02
+- Computer Science = 0.5 * 0.3 = 0.15
+- Agricultural and Veterinary Science = 0.9 * 0.1 = 0.09
+
+Total = 0.02 + 0.15 + 0.09 = 0.26
+
+Next, we normalize:
+
+- P(Business Administration) = 0.02 / 0.26 ≈ 0.077
+- P(Computer Science) = 0.15 / 0.26 ≈ 0.577
+- P(Agricultural and Veterinary Science) = 0.09 / 0.26 ≈ 0.346
+
+So the posterior probabilities are approximately:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.577,
+  "agricultural and veterinary science": 0.346
+}
+```

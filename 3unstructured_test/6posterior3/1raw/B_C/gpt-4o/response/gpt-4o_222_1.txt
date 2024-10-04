@@ -1,0 +1,54 @@
+To compute the posterior conditional probabilities that Adam was enrolled in computer science or business administration given his personality sketch, we need to use Bayes' theorem. Here's the process:
+
+1. **Prior probabilities (P(Computer Science) and P(Business Administration)):**
+   - These represent the likelihood of a graduate student being in each field, assuming no knowledge of Adam's personality. We'll approximate these with some general data.
+   - Let’s assume from general admissions data that the proportion of graduate students in computer science is around 20%, and for business administration, it's around 10%.
+
+   So, \( P(\text{Computer Science}) \approx 0.2 \)
+   and \( P(\text{Business Administration}) \approx 0.1 \).
+
+2. **Likelihoods (P(Personality | Computer Science) and P(Personality | Business Administration)):**
+   - We assess how likely it is that a person with the given personality traits would be in each field:
+
+   - For computer science:
+     - High intelligence: common in CS
+     - Good at understanding abstract concepts: common in CS
+     - Enjoys solving puzzles: common in CS
+     - Strong understanding and appreciation for hard work: common in CS
+   - For business administration:
+     - Strong empathy: useful but not field-specific
+     - Warm heart: useful but not field-specific
+     - Strong understanding and appreciation for hard work: common in both fields
+
+   Based on these assessments, we estimate:
+   \( P(\text{Personality} | \text{Computer Science}) \approx 0.6 \)
+   \( P(\text{Personality} | \text{Business Administration}) \approx 0.3 \)
+
+3. **Normalization (Evidence):**
+   - To compare these, we need to normalize by the total probability of observing the personality across all fields.
+   - This is difficult without more precise data, so we'll simply be comparing the relative likelihood ratios.
+
+Using Bayes' theorem:
+
+\[ P(\text{Computer Science} | \text{Personality}) = \frac{P(\text{Personality} | \text{Computer Science}) \cdot P(\text{Computer Science})}{P(\text{Personality})} \]
+
+\[ P(\text{Business Administration} | \text{Personality}) = \frac{P(\text{Personality} | \text{Business Administration}) \cdot P(\text{Business Administration})}{P(\text{Personality})} \]
+
+Since \( P(\text{Personality}) \) is common in the denominator for both:
+
+\[ \text{Relative probabilities} = \frac{0.6 \cdot 0.2}{P(\text{Personality})} \text{ and } \frac{0.3 \cdot 0.1}{P(\text{Personality})} \]
+
+\[ \frac{P(\text{Computer Science} | \text{Personality})}{P(\text{Business Administration} | \text{Personality})} = \frac{0.12}{0.03} = 4 \]
+
+This means Adam is four times more likely to be in computer science than in business administration.
+
+Putting this into a normalized form (keeping the sum of these normalized conditional probabilities somewhat proportional):
+
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```
+
+These values indicate a higher likelihood for computer science given the traits described. Note that these are rough estimates based on qualitative assessments and assumed prior probabilities.

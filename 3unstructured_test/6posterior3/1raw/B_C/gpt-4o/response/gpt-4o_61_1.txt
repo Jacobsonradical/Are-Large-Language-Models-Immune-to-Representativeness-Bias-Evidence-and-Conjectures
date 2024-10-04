@@ -1,0 +1,54 @@
+To compute the posterior probabilities, Bayesian reasoning requires us to consider both the prior probabilities of someone being enrolled in computer science or business administration and the likelihood of a person with Adam's personality traits being in each of these fields.
+
+### Priors:
+First, we need the prior probabilities of a graduate student being in each field, typically derived from general statistics. Let's assume general statistics suggest that in 2021:
+- P(Computer Science | Graduate Student) = 0.20 (20%)
+- P(Business Administration | Graduate Student) = 0.15 (15%)
+
+### Likelihood:
+We then evaluate how likely someone with Adam's traits would be studying in these fields. Adam's traits (curiosity about nature, love for animals, empathy, intelligence, abstract thinking, and appreciation for hard work) might intuitively align more strongly with certain fields.
+
+- For **Computer Science**, his intelligence, and enjoyment of solving puzzles are strong indicators. So, we might say:
+  - P(Personality Traits | Computer Science) = 0.6
+  
+- For **Business Administration**, his strong empathy and understanding of hard work and dedication might be good indicators, though they are less direct compared to Computer Science.
+  - P(Personality Traits | Business Administration) = 0.2
+
+### Calculation:
+We apply Bayes' Theorem to each field, which is:
+\[ P(Field | Personality) = \frac{P(Personality | Field) \times P(Field)}{P(Personality)} \]
+
+Since we don't have the exact value of \( P(Personality) \), it will be a normalizing factor. We can compare the numerator directly to estimate the posterior.
+
+For **Computer Science**:
+\[ P(Computer Science | Personality) \propto 0.6 \times 0.20 = 0.12 \]
+
+For **Business Administration**:
+\[ P(Business Administration | Personality) \propto 0.2 \times 0.15 = 0.03 \]
+
+Thus, the (non-normalized) posterior probabilities are:
+- P(Computer Science | Personality) = 0.12
+- P(Business Administration | Personality) = 0.03
+
+Normalizing these (so that their total is 1) gives:
+\[ P(Computer Science | Personality) = \frac{0.12}{0.12 + 0.03} = 0.8 \]
+\[ P(Business Administration | Personality) = \frac{0.03}{0.12 + 0.03} = 0.2 \]
+
+But since the normalization should consider only these two fields as per the details provided:
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```
+
+Adjusting them, so they don't necessarily sum to 1 (as there are other fields):
+
+Result:
+
+```json
+{
+  "computer science": 0.66,
+  "business administration": 0.12
+}
+```

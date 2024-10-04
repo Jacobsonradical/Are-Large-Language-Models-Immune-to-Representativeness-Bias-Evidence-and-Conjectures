@@ -1,0 +1,53 @@
+To compute the posterior conditional probabilities, we will use Bayes' Theorem, which in its generic form is given by:
+
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+However, given the limited information, I'll make some reasonable assumptions based on Adam's personality sketch and common trends in graduate studies. 
+
+Let's denote:
+
+- \( P(\text{business administration}) \): The prior probability of a graduate student being enrolled in business administration
+- \( P(\text{agricultural and veterinary science}) \): The prior probability of a graduate student being enrolled in agricultural and veterinary science
+- \( P(\text{personality sketch} | \text{business administration}) \): The likelihood of Adam's personality sketch given that he is in business administration
+- \( P(\text{personality sketch} | \text{agricultural and veterinary science}) \): The likelihood of Adam's personality sketch given that he is in agricultural and veterinary science
+- \( P(\text{personality sketch}) \): The probability of Adam's personality sketch
+
+Adam's personality sketch strongly aligns with traits that are more common in fields like agricultural and veterinary science. Here, we assume:
+
+- \( P(\text{business administration}) = 0.20 \) (20% of grad students in business)
+- \( P(\text{agricultural and veterinary science}) = 0.05 \) (5% of grad students in agri/vet science)
+
+Let's consider likelihoods based on how well Adam's traits fit each field:
+
+- \( P(\text{personality sketch} | \text{business administration}) = 0.10 \)
+- \( P(\text{personality sketch} | \text{agricultural and veterinary science}) = 0.70 \)
+
+The probability of Adam's personality sketch, \( P(\text{personality sketch}) \), can be considered the normalizing constant and isn’t needed to compare these two probabilities relatively.
+
+Applying Bayes' theorem for each field:
+
+1. **Business Administration**:
+\[ P(\text{business administration} | \text{personality sketch}) \propto P(\text{personality sketch} | \text{business administration}) \cdot P(\text{business administration}) \]
+\[ P(\text{business administration} | \text{personality sketch}) \propto 0.10 \cdot 0.20 = 0.02 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(\text{agricultural and veterinary science} | \text{personality sketch}) \propto P(\text{personality sketch} | \text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) \]
+\[ P(\text{agricultural and veterinary science} | \text{personality sketch}) \propto 0.70 \cdot 0.05 = 0.035 \]
+
+To find relative probabilities, we normalize these:
+
+Total = \( 0.02 + 0.035 = 0.055 \)
+
+So, the normalized probabilities are:
+
+\[ P(\text{business administration} | \text{personality sketch}) = \frac{0.02}{0.055} \approx 0.36 \]
+\[ P(\text{agricultural and veterinary science} | \text{personality sketch}) = \frac{0.035}{0.055} \approx 0.64 \]
+
+Thus, the posterior conditional probabilities are:
+
+```json
+{
+  "business administration": 0.36,
+  "agricultural and veterinary science": 0.64
+}
+```

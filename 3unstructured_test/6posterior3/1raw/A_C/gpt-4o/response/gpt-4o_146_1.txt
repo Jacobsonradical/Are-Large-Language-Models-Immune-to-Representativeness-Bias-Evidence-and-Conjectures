@@ -1,0 +1,61 @@
+To compute the posterior conditional probability that Adam was enrolled in agricultural and veterinary science or computer science, given his personality sketch, we use Bayesian inference. We need to consider the likelihood of Adam's traits given each field and the prior probabilities of a graduate student being in each field.
+
+Assume the following prior probabilities based on some general data for graduate students in the U.S.:
+
+- \( P(\text{Agricultural and Veterinary Science}) = 0.05 \)
+- \( P(\text{Computer Science}) = 0.10 \)
+
+Next, evaluate the likelihoods \( P(\text{Traits}|\text{Field}) \):
+
+### Likelihoods for Agricultural and Veterinary Science
+Given Adam's traits: curiosity about nature and plants, empathy, love for animals, appreciation for hard work — these align well with Agricultural and Veterinary Science.
+
+- \( P(\text{Curiosity about nature}|\text{Agricultural and Veterinary Science}) \approx 0.8 \)
+- \( P(\text{Empathy and love for animals}|\text{Agricultural and Veterinary Science}) \approx 0.9 \)
+- \( P(\text{Appreciation for hard work}|\text{Agricultural and Veterinary Science}) \approx 0.7 \)
+
+These are estimates, but they highlight the relevance of Adam's traits to Agricultural and Veterinary Science. Combining these:
+
+\[ P(\text{Traits}|\text{Agricultural and Veterinary Science}) \approx 0.8 \times 0.9 \times 0.7 = 0.504 \]
+
+### Likelihoods for Computer Science
+Adam's intelligence and ability to understand abstract concepts relate to Computer Science. However, his other traits (curiosity about nature, empathy, love for animals) are less relevant:
+
+- \( P(\text{Curiosity about nature}|\text{Computer Science}) \approx 0.2 \)
+- \( P(\text{Empathy and love for animals}|\text{Computer Science}) \approx 0.3 \)
+- \( P(\text{Appreciation for hard work and intelligence}|\text{Computer Science}) \approx 0.8 \)
+
+These traits offer a mixed likelihood:
+
+\[ P(\text{Traits}|\text{Computer Science}) \approx 0.2 \times 0.3 \times 0.8 = 0.048 \]
+
+### Posterior Probabilities
+
+Using Bayes' theorem:
+
+\[ P(\text{Agricultural and Veterinary Science}|\text{Traits}) = \frac{P(\text{Traits}|\text{Agricultural and Veterinary Science})P(\text{Agricultural and Veterinary Science})}{P(\text{Traits})} \]
+
+\[ P(\text{Computer Science}|\text{Traits}) = \frac{P(\text{Traits}|\text{Computer Science})P(\text{Computer Science})}{P(\text{Traits})} \]
+
+Assuming:
+
+\[ P(\text{Traits}) = P(\text{Traits}|\text{Agricultural and Veterinary Science}) \times P(\text{Agricultural and Veterinary Science}) + P(\text{Traits}|\text{Computer Science}) \times P(\text{Computer Science}) + \text{Other Fields} \]
+
+We approximate \( P(\text{Traits}) \) as the sum of these two:
+
+\[ P(\text{Traits}) \approx 0.504 \times 0.05 + 0.048 \times 0.10 = 0.0252 + 0.0048 = 0.03 \]
+
+Thus,
+
+\[ P(\text{Agricultural and Veterinary Science}|\text{Traits}) = \frac{0.504 \times 0.05}{0.03} = 0.84 \]
+
+\[ P(\text{Computer Science}|\text{Traits}) = \frac{0.048 \times 0.10}{0.03} = 0.16 \]
+
+So, based on the personality sketch, the posterior conditional probabilities are as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.84,
+  "computer science": 0.16
+}
+```

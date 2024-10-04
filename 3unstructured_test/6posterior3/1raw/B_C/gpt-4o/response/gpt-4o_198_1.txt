@@ -1,0 +1,54 @@
+To compute the posterior conditional probability, we can use Bayesian reasoning. The likelihood that Adam, with his described personality, would be enrolled in each field depends on how common those personality traits are within those fields.
+
+We use the Bayes' theorem:
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+Let's denote:
+- \( P(A_{BA}) \): The prior probability that a random graduate student is in Business Administration.
+- \( P(A_{CS}) \): The prior probability that a random graduate student is in Computer Science.
+- \( P(B|A_{BA}) \): The probability that someone in Business Administration has Adam's personality traits.
+- \( P(B|A_{CS}) \): The probability that someone in Computer Science has Adam's personality traits.
+
+While we don't have specific quantitative data for these probabilities, we can make some reasonable qualitative judgments:
+
+1. **Business Administration**:
+   - Business Administration students are typically not characterized as having a primary focus on nature, animals, or high empathy, though there could be some.
+   - Adam's love for animals, empathy, and curiosity about nature is less aligned with the stereotypical traits of Business Administration students.
+
+2. **Computer Science**:
+   - Computer Science students are often characterized by high intelligence and enjoyment in solving puzzles, and some may have an interest in abstract concepts.
+   - While not necessarily nature-focused, Computer Science students could have a wide range of personal interests.
+
+Given these qualitative insights, we'll use educated judgment to assign higher posterior probabilities to fields more characteristic of Adam's traits.
+
+Let's assign:
+- \( P(B|A_{BA}) \approx 0.1 \): It’s less likely for a Business Administration student to have Adam’s specific set of traits.
+- \( P(B|A_{CS}) \approx 0.4 \): It’s more probable for a Computer Science student to have traits similar to Adam's.
+- Assuming \( P(A_{BA}) = P(A_{CS}) = 0.2 \): This assumption gives equal prior probability which simplifies our calculations.
+
+Finally, normalizing this with respect to the individual fields to make sure our probabilities are comparable, we get:
+
+\[
+  \begin{aligned}
+  P(A_{BA}|B) &\propto 0.1 \cdot 0.2 = 0.02, \\
+  P(A_{CS}|B) &\propto 0.4 \cdot 0.2 = 0.08.
+  \end{aligned}
+\]
+
+Since these are proportions, in normalized form:
+
+\[
+  \begin{aligned}
+  P(A_{BA}|B) &\approx \frac{0.02}{0.02+0.08} \approx 0.2, \\
+  P(A_{CS}|B) &\approx \frac{0.08}{0.02+0.08} \approx 0.8.
+  \end{aligned}
+\]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

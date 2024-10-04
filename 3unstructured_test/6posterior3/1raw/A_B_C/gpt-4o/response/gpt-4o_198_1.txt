@@ -1,0 +1,59 @@
+To compute the posterior conditional probabilities for each of the fields given Adam's personality sketch, we must utilize Bayes' theorem. Bayes' theorem states:
+
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+where:
+- \( P(A|B) \) is the posterior probability of event \(A\) given evidence \(B\).
+- \( P(B|A) \) is the likelihood of evidence \(B\) given event \(A\).
+- \( P(A) \) is the prior probability of event \(A\).
+- \( P(B) \) is the marginal likelihood of evidence \(B\).
+
+To proceed, we need to make some assumptions regarding the likelihood of Adam's personality fitting each field, the prior probabilities of being enrolled in each field, and the overall marginal likelihood. For simplicity, let's assume the following:
+
+1. Likelihood estimates based on personality fit:
+   - Agricultural and veterinary science: 0.7
+   - Computer science: 0.5
+   - Business administration: 0.2
+
+2. Prior probabilities reflecting general enrollment in graduate programs:
+   - Agricultural and veterinary science: 0.1
+   - Computer science: 0.4
+   - Business administration: 0.3
+
+3. We need to normalize these values to ensure they are probabilities:
+   - \(P(B)\) can be computed as a weighted sum
+     \[
+     P(B) = (0.7 \cdot 0.1) + (0.5 \cdot 0.4) + (0.2 \cdot 0.3)
+     \]
+
+Now we compute the marginal likelihood \(P(B)\):
+\[ P(B) = (0.7 \cdot 0.1) + (0.5 \cdot 0.4) + (0.2 \cdot 0.3) \]
+\[ P(B) = 0.07 + 0.20 + 0.06 \]
+\[ P(B) = 0.33 \]
+
+Next, compute the posterior for each field:
+
+1. **Agricultural and veterinary science**:
+\[ P(A|B) = \frac{0.7 \cdot 0.1}{0.33} \]
+\[ P(A|B) = \frac{0.07}{0.33} \]
+\[ P(A|B) \approx 0.212 \]
+
+2. **Computer science**:
+\[ P(C|B) = \frac{0.5 \cdot 0.4}{0.33} \]
+\[ P(C|B) = \frac{0.20}{0.33} \]
+\[ P(C|B) \approx 0.606 \]
+
+3. **Business administration**:
+\[ P(B|B) = \frac{0.2 \cdot 0.3}{0.33} \]
+\[ P(B|B) = \frac{0.06}{0.33} \]
+\[ P(B|B) \approx 0.182 \]
+
+Putting it all together:
+
+```json
+{
+  "agricultural and veterinary science": 0.212,
+  "computer science": 0.606,
+  "business administration": 0.182
+}
+```

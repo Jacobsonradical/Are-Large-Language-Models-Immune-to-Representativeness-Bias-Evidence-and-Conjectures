@@ -1,0 +1,76 @@
+To compute the posterior probabilities, we need to apply Bayes' Theorem, which states:
+
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+Where:
+- \( P(A|B) \) is the probability of A given B.
+- \( P(B|A) \) is the probability of B given A.
+- \( P(A) \) is the prior probability of A.
+- \( P(B) \) is the probability of B.
+
+Let's denote:
+- \( A_1 \) as Adam being enrolled in "computer science."
+- \( A_2 \) as Adam being enrolled in "agricultural and veterinary science."
+
+To compute \( P(A_1|\text{personality}) \) and \( P(A_2|\text{personality}) \), we need prior probabilities and likelihoods based on the personality sketch.
+
+We can start with some simplifying assumptions based on the context and personality alignment:
+
+### Assumptions:
+
+#### Priors:
+1. \( P(\text{computer science}) \): The prior probability that any random graduate student is in computer science.
+2. \( P(\text{agricultural and veterinary science}) \): The prior probability that any random graduate student is in agricultural and veterinary science.
+
+For simplification:
+- Let's assume \( P(\text{computer science}) = 0.20 \).
+- Let's assume \( P(\text{agricultural and veterinary science}) = 0.05 \).
+
+#### Likelihoods:
+1. \( P(\text{personality}|\text{computer science}) \): The probability of Adam's personality given that he is in computer science.
+2. \( P(\text{personality}|\text{agricultural and veterinary science}) \): The probability of Adam's personality given that he is in agricultural and veterinary science.
+
+Based on the personality sketch:
+- Adam’s traits, such as love for animals and nature, strong empathy, quiet demeanor, high intelligence, and enjoyment of abstract concepts, seem to align more with agricultural and veterinary science. Let's assume:
+  - \( P(\text{personality}|\text{computer science}) = 0.20 \)
+  - \( P(\text{personality}|\text{agricultural and veterinary science}) = 0.70 \)
+
+### Calculation:
+
+We need a normalization constant \( P(\text{personality}) \), which can be computed as follows:
+
+\[ P(\text{personality}) = P(\text{personality}|\text{computer science}) \cdot P(\text{computer science}) + P(\text{personality}|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) \]
+
+\[ P(\text{personality}) = (0.20 \times 0.20) + (0.70 \times 0.05) \]
+
+\[ P(\text{personality}) = 0.04 + 0.035 \]
+
+\[ P(\text{personality}) = 0.075 \]
+
+Now, using Bayes' Theorem:
+
+\[ P(\text{computer science}|\text{personality}) = \frac{P(\text{personality}|\text{computer science}) \cdot P(\text{computer science})}{P(\text{personality})} \]
+
+\[ P(\text{computer science}|\text{personality}) = \frac{0.20 \times 0.20}{0.075} \]
+
+\[ P(\text{computer science}|\text{personality}) = \frac{0.04}{0.075} \]
+
+\[ P(\text{computer science}|\text{personality}) \approx 0.533 \]
+
+And for agricultural and veterinary science:
+
+\[ P(\text{agricultural and veterinary science}|\text{personality}) = \frac{P(\text{personality}|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(\text{personality})} \]
+
+\[ P(\text{agricultural and veterinary science}|\text{personality}) = \frac{0.70 \times 0.05}{0.075} \]
+
+\[ P(\text{agricultural and veterinary science}|\text{personality}) = \frac{0.035}{0.075} \]
+
+\[ P(\text{agricultural and veterinary science}|\text{personality}) \approx 0.467 \]
+
+### Result:
+```json
+{
+  "computer science": 0.533,
+  "agricultural and veterinary science": 0.467
+}
+```

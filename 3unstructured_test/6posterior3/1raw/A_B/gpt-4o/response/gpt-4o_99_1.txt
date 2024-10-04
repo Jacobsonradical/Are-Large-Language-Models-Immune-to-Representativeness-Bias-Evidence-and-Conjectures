@@ -1,0 +1,35 @@
+To compute the posterior probabilities, it's helpful to use Bayesian reasoning. This requires some assumptions about the likelihood of Adam's characteristics fitting each field and the prior probabilities of students enrolling in each field.
+
+1. **Business Administration (B)**
+   - Prior \( P(B) \): Let's assume a rough prior probability, say 20% (\( 0.2 \)). Note that business is a common field.
+   - Likelihood \( P(S | B) \): Considering Adam's personality traits such as empathy, love for animals, curiosity about nature, and solving puzzles, it feels like a low likelihood fit for Business Administration. Let's estimate \( 0.1 \).
+
+2. **Agricultural and Veterinary Science (A)**
+   - Prior \( P(A) \): Let's assume a rough prior probability, perhaps 5% (\( 0.05 \)), as it's a more specialized field.
+   - Likelihood \( P(S | A) \): Given Adam's traits such as curiosity about nature, love for animals, and appreciation for hard work, this field seems like a high fit. Let's estimate \( 0.9 \).
+
+We'll normalize these to ensure they are meaningful comparisons.
+
+**Calculation:**
+  - Posterior for Business Administration: \( P(B | S) \propto P(B) \cdot P(S | B) = 0.2 \times 0.1 = 0.02 \)
+  - Posterior for Agricultural and Veterinary Science: \( P(A | S) \propto P(A) \cdot P(S | A) = 0.05 \times 0.9 = 0.045 \)
+
+We now normalize these values to compare them directly (though the results don't need to sum to 1 as mentioned).
+
+Normalization constant \( Z \):
+\[ Z = 0.02 + 0.045 = 0.065 \]
+
+**Normalized Posteriors:**
+  - \( P(B | S) = \frac{0.02}{0.065} \approx 0.3077 \)
+  - \( P(A | S) = \frac{0.045}{0.065} \approx 0.6923 \)
+
+So, the results are:
+
+```json
+{
+  "business administration": 0.3077,
+  "agricultural and veterinary science": 0.6923
+}
+```
+
+This suggests that, given the personality sketch, it's more likely Adam was enrolled in Agricultural and Veterinary Science than Business Administration.

@@ -1,0 +1,62 @@
+To compute the posterior conditional probabilities, we need to engage in Bayesian reasoning. This requires some assumptions about the prior probabilities and how likely Adam's personality traits would manifest in the given fields of study.
+
+Let's denote:
+
+- \( P(A | E) \) as the posterior probability that Adam is studying agricultural and veterinary science given his personality sketch.
+- \( P(C | E) \) as the posterior probability that Adam is studying computer science given his personality sketch.
+- \( P(E | A) \) as the likelihood of Adam having his personality traits given he's in agricultural and veterinary science.
+- \( P(E | C) \) as the likelihood of Adam having his personality traits given he's in computer science.
+- \( P(A) \) as the prior probability of a graduate student being in agricultural and veterinary science.
+- \( P(C) \) as the prior probability of a graduate student being in computer science.
+- \( P(E) \) as the overall probability of Adam having his personality traits. 
+
+### Reasoning and Assumptions
+
+1. **Priors (P(A) and P(C))**:
+   - Let's assume a rough estimate that in a typical university setting, a smaller proportion of students would be in agricultural and veterinary science vs. computer science because computer science programs generally have larger enrollment numbers. For example:
+     - \( P(A) = 0.05 \)
+     - \( P(C) = 0.15 \)
+
+2. **Likelihoods (P(E | A) and P(E | C))**:
+   - Adam's personality traits align very well with agricultural and veterinary science due to his genuine curiosity about nature, love for animals, empathy, and appreciation for hard work. Let's assign a high likelihood here.
+     - \( P(E | A) = 0.9 \)
+   - In computer science, while some traits like high intelligence and problem-solving skills fit well, others like a deep love for animals and curiosity about nature are less directly related. Let's assign a lower likelihood here.
+     - \( P(E | C) = 0.3 \)
+
+3. **Marginal Likelihood (P(E))**:
+   - \( P(E) \) is the weighted sum of the likelihoods across all fields, but since we are focusing on these two fields, we will use normalization after calculating the unnormalized posteriors.
+
+### Bayesian Update
+
+Using Bayes' theorem, we can compute the unnormalized posteriors \( P'(A | E) \) and \( P'(C | E) \):
+
+\[ P'(A | E) = P(E | A) \cdot P(A) \]
+\[ P'(C | E) = P(E | C) \cdot P(C) \]
+
+Let's calculate:
+
+\[ P'(A | E) = 0.9 \cdot 0.05 = 0.045 \]
+\[ P'(C | E) = 0.3 \cdot 0.15 = 0.045 \]
+
+### Normalizing
+
+Since these are the only two probabilities we are considering, we can normalize them by their sum:
+
+\[ P(A | E) = \frac{P'(A | E)}{P'(A | E) + P'(C | E)} \]
+\[ P(C | E) = \frac{P'(C | E)}{P'(A | E) + P'(C | E)} \]
+
+\[ P(A | E) = \frac{0.045}{0.045 + 0.045} = \frac{0.045}{0.09} = 0.5 \]
+\[ P(C | E) = \frac{0.045}{0.045 + 0.045} = \frac{0.045}{0.09} = 0.5 \]
+
+### Conclusion
+
+Given the assumptions and rough calculations, the posterior probabilities would be as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.5,
+  "computer science": 0.5
+}
+```
+
+Note that these values are quite rough and based on many assumptions. In a real scenario, a more detailed analysis with actual data and more refined prior probabilities would yield more accurate results.

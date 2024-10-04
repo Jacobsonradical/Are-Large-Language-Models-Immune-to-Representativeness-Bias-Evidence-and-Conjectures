@@ -1,0 +1,52 @@
+To compute the posterior conditional probabilities, we use the principles of Bayesian inference which involves considering the likelihood of the observed traits given the field, the prior probabilities of the fields, and normalizing the probabilities.
+
+Let's consider the likelihood of Adam being in each of these fields given his personality traits:
+
+1. **Business Administration:** This field typically values traits like leadership, communication, strategic thinking, and financial acumen. While Adam's intelligence and appreciation for hard work might fit, his deep love for nature, animals, and quiet demeanor doesn't strongly align.
+
+2. **Computer Science:** This field values problem-solving skills, abstract thinking, and intelligence, which align well with Adam's enjoyment of puzzles and understanding of abstract concepts. However, his empathy and love for nature are less relevant to this field.
+
+3. **Agricultural and Veterinary Science:** This field aligns strongly with Adam's love for nature, plants, and animals, as well as his empathy and appreciation for hard work. 
+
+Given these subjective assessments, let's assign likelihoods:
+
+- **Business Administration:**
+  - Likelihood given personality traits (P(Traits|BA)): Low
+  - Prior (P(BA)): Assume moderate, around 0.2
+- **Computer Science:**
+  - Likelihood given personality traits (P(Traits|CS)): Moderate
+  - Prior (P(CS)): Assume high, around 0.3
+- **Agricultural and Veterinary Science:**
+  - Likelihood given personality traits (P(Traits|AgVet)): High
+  - Prior (P(AgVet)): Assume lower due to less common field, around 0.1
+
+Now we normalize these probabilities:
+
+Let P(Traits) be the normalizing constant.
+
+P(BA|Traits) = P(Traits|BA) * P(BA)
+P(CS|Traits) = P(Traits|CS) * P(CS)
+P(AgVet|Traits) = P(Traits|AgVet) * P(AgVet)
+
+Assuming rough likelihoods as follows:
+- P(Traits|BA) ≈ 0.1
+- P(Traits|CS) ≈ 0.4
+- P(Traits|AgVet) ≈ 0.8
+
+Normalization constant P(Traits) = (0.1*0.2) + (0.4*0.3) + (0.8*0.1)
+
+P(Traits) = 0.02 + 0.12 + 0.08 = 0.22
+
+Then,
+
+P(BA|Traits) = (0.1 * 0.2) / 0.22 ≈ 0.09
+P(CS|Traits) = (0.4 * 0.3) / 0.22 ≈ 0.55
+P(AgVet|Traits) = (0.8 * 0.1) / 0.22 ≈ 0.36
+
+Thus, the posterior probabilities are:
+
+{
+  "business administration": 0.09,
+  "computer science": 0.55,
+  "agricultural and veterinary science": 0.36
+}

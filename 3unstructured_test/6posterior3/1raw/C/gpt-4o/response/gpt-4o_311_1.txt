@@ -1,0 +1,58 @@
+To compute the posterior probability that Adam was enrolled in computer science given his personality sketch, we can use Bayes' theorem. Bayes' theorem allows us to update our beliefs about the likelihood of a hypothesis given some evidence.
+
+Bayes' theorem is given by:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) if the hypothesis \( H \) is true.
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of evidence \( E \), which can be computed by summing over all possible hypotheses:
+
+\[
+P(E) = \sum_j P(E|H_j) \cdot P(H_j)
+\]
+
+We need to make some reasonable assumptions here:
+
+1. **Hypothesis \( H_{\text{CS}} \)** (Adam is enrolled in computer science): 
+   - Prior probability \( P(H_{\text{CS}}) \) can be estimated based on general enrollment rates in graduate programs across all fields. Let's assume it's \( 0.15 \) or 15%, which is a reasonable estimate.
+
+2. **Likelihood \( P(E|H_{\text{CS}}) \)**:
+   - We need to assess how likely Adam's given traits (enjoys solving puzzles, high intelligence, good at abstract concepts) match a typical computer science student. Given the nature of computer science, we might estimate this as reasonably high. Let's conservatively estimate this to be \( 0.6 \).
+
+3. **Marginal likelihood \( P(E) \)** (the probability of observing Adam's characteristics across all fields) needs to consider the summed likelihoods across all possible fields. Let’s assume there are 10 equally plausible fields and each has its own likelihood:
+
+\[
+P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{non-CS}}) \cdot P(H_{\text{non-CS}})
+\]
+
+Assuming \( P(E|H_{\text{non-CS}}) \) for the other fields averages to 0.4 and each field has a prior of 0.085 (dividing the remaining probability equally):
+
+\[
+P(E) = 0.6 \cdot 0.15 + 0.4 \cdot 0.85
+\]
+\[
+P(E) = 0.09 + 0.34 = 0.43
+\]
+
+Now we can plug these values back into Bayes' theorem:
+
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} 
+\]
+\[
+P(H_{\text{CS}}|E) = \frac{0.6 \cdot 0.15}{0.43} 
+\]
+\[
+P(H_{\text{CS}}|E) \approx 0.2093 
+\]
+
+Therefore, the posterior conditional probability that Adam was enrolled in computer science given his personality sketch is approximately:
+
+{
+  "computer science": "0.21"
+}
