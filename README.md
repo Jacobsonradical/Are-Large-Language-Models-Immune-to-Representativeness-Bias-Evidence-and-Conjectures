@@ -1,5 +1,5 @@
 # LLMs' Likelihood Judgment by Representativeness
-**This is the official repository of code and data for the paper "Are Large Language Models Immune to Representativeness Bias? Evidence and Conjectures"
+**This is the official repository of code and data for the paper "Are Large Language Models Immune to Representativeness Bias? Evidence and Conjectures"**
 
-[Paper]([https://arxiv.org/abs/2310.05130](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4976447)) 
+[Paper](https://arxiv.org/abs/2310.05130](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4976447)
 
