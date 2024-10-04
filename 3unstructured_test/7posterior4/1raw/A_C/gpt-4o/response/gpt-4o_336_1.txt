@@ -1,0 +1,60 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need the following information:
+
+1. The prior probability of each hypothesis, \( P(H) \).
+2. The likelihood of the evidence given the hypothesis, \( P(E|H) \).
+3. The overall likelihood of the evidence, \( P(E) \).
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we do not have exact numerical values for these probabilities, we'll proceed qualitatively to estimate them.
+
+### Prior Probability \( P(H) \)
+
+Given no other information, we'll assume a uniform distribution for simplicity. However, in reality, prior probabilities would be based on the proportion of graduate students in each field.
+
+### Likelihood \( P(E|H) \)
+
+We'll consider the qualitative matches based on the personality sketch:
+
+#### Agricultural and Veterinary Science:
+- Genuine curiosity about nature and plants: High
+- Love for animals: High
+- Warm heart and strong empathy: High (important traits for working with animals)
+- Understanding and appreciation for hard work and dedication: Balanced fit
+- Solving puzzles and high intelligence: Moderate fit (may or may not be a primary trait for this field, but can be beneficial)
+
+#### Computer Science:
+- Enjoys solving puzzles: High
+- High intelligence and understanding abstract concepts: High
+- Curiosity about nature and plants: Moderate fit (less directly relevant)
+- Empathy and love for animals: Low fit (not typically required)
+- Understanding and appreciation for hard work and dedication: Balanced fit
+
+### Overall Likelihood \( P(E) \)
+Given that we have qualitative information, we assume \( P(E) \) to be the same normalization factor for both fields.
+
+### Posterior Conditional Probability \( P(H|E) \)
+
+Let's assign some qualitative scores to the likelihoods:
+- Agricultural and Veterinary Science: \( P(E|H_{\text{Agri}}) \approx 0.8 \) (good fit)
+- Computer Science: \( P(E|H_{\text{CS}}) \approx 0.6 \) (moderate fit)
+
+Given a uniform prior \( P(H_{\text{Agri}}) = P(H_{\text{CS}}) \), let's assume \( P(H) \approx 0.5 \) for simplicity.
+
+\[ P(H_{\text{Agri}}|E) \approx \frac{0.8 \cdot 0.5}{P(E)} = \frac{0.4}{P(E)} \]
+\[ P(H_{\text{CS}}|E) \approx \frac{0.6 \cdot 0.5}{P(E)} = \frac{0.3}{P(E)} \]
+
+Normalizing factors are assumed equal, and thus likely values become their relative magnitudes:
+
+Output values between 0 and 1:
+
+```json
+{
+  "agricultural and veterinary science": 0.57,  // approximately 0.4 / (0.4 + 0.3)
+  "computer science": 0.43   // approximately 0.3 / (0.4 + 0.3)
+}
+```
+
+This suggests Adam is slightly more likely to be in Agricultural and Veterinary Science based on the provided personality sketch.

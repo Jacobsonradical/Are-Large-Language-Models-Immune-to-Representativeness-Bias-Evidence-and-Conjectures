@@ -1,0 +1,57 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need the following:
+
+1. **Prior Probability** \( P(H) \): The probability that Adam is enrolled in a particular field before considering his personality sketch.
+2. **Likelihood** \( P(E|H) \): The probability of observing the personality sketch given that Adam is enrolled in a particular field.
+3. **Evidence** \( P(E) \): The total probability of observing the personality sketch across all fields.
+
+The formula for Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we lack specific numerical values for the prior probabilities and likelihoods, we need to make educated estimates based on the provided sketch and the context of each field.
+
+### Estimation of Prior Probabilities \( P(H) \):
+Without specific data, let's assume that the distribution of graduate students across various fields in the U.S. is approximately uniform, but typically, computer science has a higher enrollment compared to business administration. Therefore, we might assign:
+* \( P(H_{\text{business administration}}) = 0.2 \)
+* \( P(H_{\text{computer science}}) = 0.3 \)
+
+### Estimation of Likelihoods \( P(E|H) \):
+Based on Adam's personality sketch:
+- **Business Administration**: This field usually values interpersonal skills, teamwork, and leadership qualities. Adam's empathy and appreciation for hard work might support this, but his scientific curiosity and love for nature are less aligned.
+  * \( P(E|H_{\text{business administration}}) \approx 0.1 \)
+  
+- **Computer Science**: This field often values problem-solving abilities, high intelligence, and understanding abstract concepts, aligning well with Adam's puzzle-solving interest and intelligence.
+  * \( P(E|H_{\text{computer science}}) \approx 0.7 \)
+
+Since the absolute values are less important than the comparative values, we proceed with these:
+
+### Computation of Evidence \( P(E) \):
+\( P(E) \) is the normalization factor but we can proceed with comparative analysis.
+
+### Posterior Probabilities:
+- **Business Administration**:
+  \[ P(H|E)_{\text{business administration}} = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+  
+- **Computer Science**:
+  \[ P(H|E)_{\text{computer science}} = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} = \frac{0.7 \cdot 0.3}{P(E)} \]
+
+Since \( P(E) \) is the same for both, these comparative values suffice:
+
+**Normalizing Factor**:
+\[ P(E) = \sum P(E|H) \cdot P(H) = (0.1 \cdot 0.2) + (0.7 \cdot 0.3) = 0.02 + 0.21 = 0.23 \]
+
+Therefore:
+- **Business Administration**:
+  \[ P(H|E)_{\text{business administration}} = \frac{0.02}{0.23} \approx 0.087 \]
+
+- **Computer Science**:
+  \[ P(H|E)_{\text{computer science}} = \frac{0.21}{0.23} \approx 0.913 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.087,
+  "computer science": 0.913
+}
+```

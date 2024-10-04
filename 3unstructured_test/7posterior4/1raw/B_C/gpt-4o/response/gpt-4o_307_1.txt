@@ -1,0 +1,54 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to first understand and quantify our prior beliefs about the likelihoods of Adam being enrolled in business administration and computer science (\( P(H) \)) and the likelihood of Adam having the described personality traits (\( E \)) given that he is in each field (\( P(E|H) \)).
+
+Bayes' rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume the prior probabilities \( P(H) \) for business administration and computer science are equal, contingent on them being among other numerous graduate fields. Without exact data, we might assume a uniform prior:
+
+\[ P(H_{\text{business admin}}) = P(H_{\text{computer science}}) = 0.1 \]
+
+Next, we estimate \( P(E|H) \), the probability of the personality sketch \( E \) given either field.
+
+**Business Administration**:
+Adam's nature-oriented curiosity, empathy, and love for animals are less likely to align strongly with this field. Let's assign a lower likelihood:
+
+\[ P(E|H_{\text{business admin}}) = 0.05 \]
+
+**Computer Science**:
+Here, Adam's intelligence and aptitude for solving puzzles and understanding abstract concepts make this more likely, though empathy and love for nature are less direct fits. Let's assign a moderate likelihood:
+
+\[ P(E|H_{\text{computer science}}) = 0.3 \]
+
+Since we don't know other possible fields, \( P(E) \) is not directly calculated but assumed as a normalization factor over all possible fields. We only care here about relative posteriors.
+
+With these assumptions, we now compute:
+
+\[ P(H_{\text{business admin}}|E) = \frac{P(E|H_{\text{business admin}}) \cdot P(H_{\text{business admin}})}{P(E)} \]
+
+\[ P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \]
+
+Since \( P(E) \) is the same for both:
+
+\[ P(H_{\text{business admin}}|E) = \frac{0.05 \cdot 0.1}{P(E)} \]
+
+\[ P(H_{\text{computer science}}|E) = \frac{0.3 \cdot 0.1}{P(E)} \]
+
+Ignoring \( P(E) \) as it is a consistent factor, ratios are:
+
+For business administration:
+\[ P(H_{\text{business admin}}|E) = 0.05 \times 0.1 = 0.005 \]
+
+For computer science:
+\[ P(H_{\text{computer science}}|E) = 0.3 \times 0.1 = 0.03 \]
+
+Thus, in a simplified form:
+
+```json
+{
+  "business administration": 0.005,
+  "computer science": 0.03
+}
+```
+
+These values show relative likelihood based on our assumptions, indicating Adam is more likely to be in computer science given his personality traits.

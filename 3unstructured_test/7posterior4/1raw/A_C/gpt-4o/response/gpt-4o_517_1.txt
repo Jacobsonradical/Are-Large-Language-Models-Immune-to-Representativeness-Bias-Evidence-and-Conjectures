@@ -1,0 +1,63 @@
+Bayes' Rule states that \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \), where:
+
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the overall probability of the evidence.
+
+Given:
+- \( E \): Personality sketch of Adam indicating a curiosity about nature and plants, enjoying solving puzzles, empathy, love for animals, high intelligence, and appreciation for hard work.
+- \( H_c \): Hypothesis that Adam was enrolled in computer science.
+- \( H_a \): Hypothesis that Adam was enrolled in agricultural and veterinary science.
+
+To compute \( P(H|E) \) for each field, we need to make some reasonable assumptions about the probabilities involved.
+
+### Assumptions and Reasoning
+1. **Likelihood \( P(E|H) \):**
+   - For computer science \( P(E|H_c) \):
+     - High intelligence and solving puzzles are strong indicators.
+     - Warm heart and empathy do not strongly align with typical computer science traits, but do not heavily contradict them either.
+     - Nature curiosity and love for animals are less indicative.
+     - Assign \( P(E|H_c) = 0.3 \) (on a scale normalized to 1 for simplicity).
+
+   - For agricultural and veterinary science \( P(E|H_a) \):
+     - Curiosity about nature and plants is highly indicative.
+     - Strong empathy and love for animals are highly indicative.
+     - High intelligence and puzzle solving can also be relevant in scientific research.
+     - Assign \( P(E|H_a) = 0.7 \).
+
+2. **Prior \( P(H) \):**
+   - Assume the prior probability for each field is equally likely due to lack of additional information.
+   - Let's say there are \( N \) possible fields. For simplicity, assume \( N = 10 \).
+   - Thus, \( P(H_c) = 1/N \) and \( P(H_a) = 1/N \).
+
+### Calculations
+Given \( N = 10 \):
+- \( P(H_c) = P(H_a) = 1/10 = 0.1 \).
+
+The denominator \( P(E) \) is a normalizing constant to ensure total probability sums to 1. For simplicity, we can compare the numerators directly as \( P(E) \) is the same for both hypotheses.
+
+### Posterior Probabilities:
+- For computer science:
+  \[
+  P(H_c|E) = \frac{P(E|H_c)P(H_c)}{P(E)} = \frac{0.3 \times 0.1}{P(E)} = \frac{0.03}{P(E)}
+  \]
+
+- For agricultural and veterinary science:
+  \[
+  P(H_a|E) = \frac{P(E|H_a)P(H_a)}{P(E)} = \frac{0.7 \times 0.1}{P(E)} = \frac{0.07}{P(E)}
+  \]
+
+Since we are comparing values directly without calculating \( P(E) \), we get:
+
+\[
+P(H_c|E) \approx 0.03, \quad P(H_a|E) \approx 0.07
+\]
+
+### Final Answer
+```json
+{
+  "computer science": 0.03,
+  "agricultural and veterinary science": 0.07
+}
+```

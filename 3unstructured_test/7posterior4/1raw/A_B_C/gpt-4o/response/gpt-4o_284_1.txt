@@ -1,0 +1,68 @@
+Applying Bayes' rule requires knowing or estimating the prior probabilities of Adam being in each field and understanding how well each field explains the personality sketch \(E\). While we may not have exact numbers, we can make educated estimates based on the provided personality traits.
+
+Let's denote:
+- \( P(H_c) \) as the prior probability of being in computer science.
+- \( P(H_b) \) as the prior probability of being in business administration.
+- \( P(H_a) \) as the prior probability of being in agricultural and veterinary science.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(E|H) \) is the likelihood of observing the personality sketch given the field \(H\).
+- \( P(E) \) is the marginal probability of observing the personality sketch, which serves as a normalizing factor.
+
+Since \( P(E) \) is the same for all fields and we are comparing relative probabilities, it effectively cancels out in our comparisons.
+
+We'll estimate \( P(E|H) \) based on how well the personality traits match each field. 
+
+### Likelihood Estimates:
+
+1. **Computer Science**:
+   - High intelligence and good at understanding abstract concepts are a good fit.
+   - Curiosity about nature and plants, strong empathy, and a deep love for animals are less aligned.
+   - Likelihood (rough estimate): Moderate (0.3)
+
+2. **Business Administration**:
+   - Personality traits such as empathy and appreciation for hard work somewhat fit, especially in leadership and management roles.
+   - Curiosity about nature and plants, and love for animals are not aligned.
+   - Likelihood (rough estimate): Low (0.1)
+
+3. **Agricultural and Veterinary Science**:
+   - Curiosity about nature and plants, love for animals, strong empathy, and appreciation for hard work strongly align.
+   - High intelligence and abstract thinking are also useful in scientific aspects.
+   - Likelihood (rough estimate): High (0.6)
+
+### Prior Estimates:
+
+Based on the distribution of graduate students and general interest areas, let's assume:
+- \( P(H_c) \approx 0.3 \) for computer science.
+- \( P(H_b) \approx 0.2 \) for business administration.
+- \( P(H_a) \approx 0.1 \) for agricultural and veterinary science.
+  
+(The actual values can vary depending on the specific context, these are illustrative.)
+
+### Computing Posterior Probabilities:
+\[ P(H_c|E) \approx 0.3 \times 0.3 = 0.09 \]
+\[ P(H_b|E) \approx 0.1 \times 0.2 = 0.02 \]
+\[ P(H_a|E) \approx 0.6 \times 0.1 = 0.06 \]
+
+Normalize them to sum to 1 for a better comparison:
+Total = \( 0.09 + 0.02 + 0.06 = 0.17 \)
+
+Normalized:
+\[ P(H_c|E) \approx \frac{0.09}{0.17} \approx 0.529 \]
+\[ P(H_b|E) \approx \frac{0.02}{0.17} \approx 0.118 \]
+\[ P(H_a|E) \approx \frac{0.06}{0.17} \approx 0.353 \]
+
+So the posterior probabilities are approximately:
+
+```json
+{
+  "computer science": 0.529,
+  "business administration": 0.118,
+  "agricultural and veterinary science": 0.353
+}
+```
+
+These estimates indicate that based on the given personality sketch, Adam is most likely to be enrolled in Computer Science, followed by Agricultural and Veterinary Science, and least likely in Business Administration.

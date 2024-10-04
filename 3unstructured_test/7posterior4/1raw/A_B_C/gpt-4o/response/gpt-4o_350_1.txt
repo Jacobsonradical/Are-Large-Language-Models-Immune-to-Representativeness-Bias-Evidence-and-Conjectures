@@ -1,0 +1,62 @@
+To compute the posterior conditional probability P(H|E) for each field given Adam's personality sketch, we use Bayes' rule. Bayes' rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis H given evidence E.
+- \( P(E|H) \) is the likelihood of evidence E given hypothesis H.
+- \( P(H) \) is the prior probability of hypothesis H.
+- \( P(E) \) is the marginal likelihood of evidence E.
+
+To provide estimates for P(H|E) for each field, we need some assumptions about the likelihoods \( P(E|H) \) and priors \( P(H) \). Since we don't have concrete data, we'll make reasonable assumptions based on Adam's personality traits and common characteristics of students in each field.
+
+### Assumptions:
+1. **P(E|H) estimates**:
+   - For **computer science**: A quiet boy interested in puzzles and high intelligence aligns well with computer science.
+     \[ P(E|H_{CS}) \approx 0.4 \]
+   - For **agricultural and veterinary science**: Strong empathy, love for nature, plants, and animals align well with this field.
+     \[ P(E|H_{AVS}) \approx 0.7 \]
+   - For **business administration**: Adam's traits of empathy and understanding of hard work align moderately well, but less directly than the above fields.
+     \[ P(E|H_{BA}) \approx 0.3 \]
+
+2. **P(H) estimates**, based on typical graduate enrollment distribution:
+   - For **computer science**:
+     \[ P(H_{CS}) \approx 0.4 \]
+   - For **agricultural and veterinary science**:
+     \[ P(H_{AVS}) \approx 0.2 \]
+   - For **business administration**:
+     \[ P(H_{BA}) \approx 0.3 \]
+
+3. **P(E)**: We don't have the exact prior on the evidence, but we can use it as a normalizing constant. Since we only need relative probabilities, we'll estimate it proportionally.
+
+### Calculation:
+We'll calculate the unnormalized posterior probability and then normalize them to get relative probabilities.
+
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.4 \cdot 0.4 = 0.16 \]
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.7 \cdot 0.2 = 0.14 \]
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.3 \cdot 0.3 = 0.09 \]
+
+### Normalization:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{\sum_h P(E|H_h) \cdot P(H_h)} \\
+\sum_h P(E|H_h) \cdot P(H_h) = 0.16 + 0.14 + 0.09 = 0.39
+\]
+
+### Posterior Probabilities:
+\[
+P(H_{CS}|E) = \frac{0.16}{0.39} \approx 0.41 \\
+P(H_{AVS}|E) = \frac{0.14}{0.39} \approx 0.36 \\
+P(H_{BA}|E) = \frac{0.09}{0.39} \approx 0.23
+\]
+
+Given these calculations, the probabilities are:
+
+```json
+{
+  "computer science": 0.41,
+  "agricultural and veterinary science": 0.36,
+  "business administration": 0.23
+}
+```
+
+These values reflect the relative likelihood, given our assumptions and the provided personality sketch E.

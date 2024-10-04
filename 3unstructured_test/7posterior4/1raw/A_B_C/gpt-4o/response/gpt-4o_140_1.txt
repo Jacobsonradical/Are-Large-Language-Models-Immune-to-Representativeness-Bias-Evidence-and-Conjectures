@@ -1,0 +1,39 @@
+To compute the posterior conditional probability using Bayes' rule, we need the prior probabilities of Adam being in each of the fields (P(H)) and the likelihood of each hypothesis given the evidence (P(E|H)). However, since we don't have the exact figures, let’s make reasonable assumptions based on the knowledge we have.
+
+Let's denote:
+
+- P(E|H_cs) as the likelihood of Adam having the described personality sketch if he is in Computer Science.
+- P(E|H_ba) as the likelihood of Adam having the described personality sketch if he is in Business Administration.
+- P(E|H_avs) as the likelihood of Adam having the described personality sketch if he is in Agricultural and Veterinary Science.
+
+Given Adam’s strong affinity for nature, plants, animals, and abstract concepts, we might assign the likelihoods as follows:
+- P(E|H_cs) = 0.2 (low likelihood, as nature and animals are not directly related to Computer Science, but abstract concepts might be)
+- P(E|H_ba) = 0.1 (even lower likelihood, as Business Administration typically doesn't directly engage with nature and animals)
+- P(E|H_avs) = 0.7 (high likelihood, most aligned with his curiosity for nature, plants, and animals)
+
+Let’s assume prior probabilities based on general distribution of graduate fields:
+- P(H_cs) = 0.4 (Computer Science is quite a common choice for graduate students)
+- P(H_ba) = 0.3 (Business Administration is also common)
+- P(H_avs) = 0.3 (Agricultural and Veterinary Science is less common but relevant here)
+
+By Bayes’ rule, the posterior probability is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) is the marginal likelihood, computed as:
+\[ P(E) = P(E|H_cs) \cdot P(H_cs) + P(E|H_ba) \cdot P(H_ba) + P(E|H_avs) \cdot P(H_avs) \]
+
+Let's compute \( P(E) \):
+\[ P(E) = (0.2 \cdot 0.4) + (0.1 \cdot 0.3) + (0.7 \cdot 0.3) = 0.08 + 0.03 + 0.21 = 0.32 \]
+
+Now, compute the posterior probabilities:
+\[ P(H_cs|E) = \frac{0.2 \cdot 0.4}{0.32} = \frac{0.08}{0.32} = 0.25 \]
+\[ P(H_ba|E) = \frac{0.1 \cdot 0.3}{0.32} = \frac{0.03}{0.32} = 0.09375 \]
+\[ P(H_avs|E) = \frac{0.7 \cdot 0.3}{0.32} = \frac{0.21}{0.32} = 0.65625 \]
+
+So, the posterior conditional probabilities are:
+{
+  "computer science": 0.25,
+  "business administration": 0.09375,
+  "agricultural and veterinary science": 0.65625
+}
+
+These values reflect the likelihood that Adam, given his personality sketch, was enrolled in each of these fields during 2021.

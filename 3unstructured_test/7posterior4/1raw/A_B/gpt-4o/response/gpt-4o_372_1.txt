@@ -1,0 +1,60 @@
+To compute the posterior probabilities \( P(H|E) \) for the given fields (business administration and agricultural and veterinary science) using Bayes' rule, we need the following components:
+
+1. **Prior Probability \( P(H) \)**: This is the prior probability of being enrolled in each graduate field before considering the personality sketch.
+2. **Likelihood \( P(E|H) \)**: The probability of observing the personality sketch given that the student is enrolled in a specific field.
+3. **Normalizing Constant \( P(E) \)**: The overall probability of observing the personality sketch, which can be considered as a sum of the products of priors and likelihoods across all possible fields. Since we are only considering two fields here, this value won't be precisely calculated. However, for the relative comparison, we can ignore this for now.
+
+Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+
+We can consider the following approximate assessments:
+
+### Assessing Prior Probabilities
+- The prior probabilities \( P(H) \) are subjective and could vary, but for simplicity, let's assume that the prior probabilities for both fields are relatively balanced. Let’s assign:
+  
+  - \( P(H_{\text{business administration}}) \approx 0.2 \)
+  - \( P(H_{\text{agricultural and veterinary science}}) \approx 0.05 \)
+  
+  (Note: These priors assume that fewer people pursue agricultural and veterinary sciences compared to business administration, as is typically the case in general student populations.)
+
+### Assessing Likelihoods
+Next, we estimate the likelihood:
+
+- **For Business Administration**:
+  - Likelihood \( P(E|H_{\text{business administration}}) \): The personality traits described (curiosity about nature, empathy, love for animals, and understanding abstract concepts) are less aligned with business administration. Hence,
+  - \( P(E|H_{\text{business administration}}) \approx 0.1 \)
+
+- **For Agricultural and Veterinary Science**:
+  - Likelihood \( P(E|H_{\text{agricultural and veterinary science}}) \): The traits strongly fit (love for animals, nature curiosity, empathy, understanding hard work). Hence, 
+  - \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.8 \)
+
+### Applying Bayes' Rule
+
+Ignoring the normalizing constant \( P(E) \) for relative comparison (since we don't have exact values), we compute:
+
+\[ P(H_{\text{business administration}}|E) \approx \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{}
+   = \frac{0.1 \cdot 0.2}{\delta}
+   = 0.02 / \delta \]
+
+\[ P(H_{\text{agricultural and veterinary science}}|E) \approx \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}
+   = \frac{0.8 \cdot 0.05}{\delta}
+   = 0.04 / \delta \]
+
+Where \( \delta \) is the normalizing constant.
+
+### Relative Comparison
+
+- For Business Administration: 0.02
+- For Agricultural and Veterinary Science: 0.04
+
+Thus, in relative terms:
+
+```json
+{
+  "business administration": 0.33,  // approx 0.02 / (0.02 + 0.04)
+  "agricultural and veterinary science": 0.67  // approx 0.04 / (0.02 + 0.04)
+}
+```
+
+The probabilities are used for relative comparison; they indicate that Adam is roughly twice as likely to be enrolled in agricultural and veterinary sciences compared to business administration based on the provided personality sketch.

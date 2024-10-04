@@ -1,0 +1,70 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to compare how well each field explains Adam's personality sketch versus the base rate probability of each field among all graduate students.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the marginal likelihood of the evidence.
+
+Given the qualitative nature of the information, we will make some assumptions and estimations based on how well the description fits each field.
+
+1. **Computer Science:**
+   - Adam shows high intelligence and an interest in solving puzzles, which could correlate with skills required in computer science.
+   - However, there's no strong evidence pointing directly to computer science-specific interests.
+
+   Therefore, let's assume:
+   \[ P(E|H_{\text{CS}}) \approx 0.4 \] (somewhat fitting)
+   \[ P(H_{\text{CS}}) \approx 0.2 \]
+   \[ P(E) \] (common across all fields, arbitrary normalization)
+
+2. **Agricultural and Veterinary Science:**
+   - Adam has a genuine curiosity about nature and plants, a warm heart, strong empathy, and a love for animals. These traits highly correlate with interests in agricultural and veterinary science.
+
+   Therefore, let's assume:
+   \[ P(E|H_{\text{AVS}}) \approx 0.8 \] (highly fitting)
+   \[ P(H_{\text{AVS}}) \approx 0.1 \]
+   \[ P(E) \]
+
+3. **Business Administration:**
+   - Adam's personality sketch lacks traits typically associated with business administration (like interest in management, finance, etc.).
+   - While Adam’s intelligence and understanding of dedication could be applicable, the tie is relatively weak.
+
+   Therefore, let's assume:
+   \[ P(E|H_{\text{BA}}) \approx 0.2 \] (weakly fitting)
+   \[ P(H_{\text{BA}}) \approx 0.25 \]
+   \[ P(E) \]
+
+However, \( P(E) \) cancels out when comparing probabilities since it is a common term. We then normalize the results to make the sum of the probabilities add up to 1.
+
+So, using \( P(E) \) to normalize,
+\[
+\begin{align*}
+P(H_{\text{CS}}|E) & \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.4 \cdot 0.2 = 0.08 \\
+P(H_{\text{AVS}}|E) & \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 0.8 \cdot 0.1 = 0.08 \\
+P(H_{\text{BA}}|E) & \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.2 \cdot 0.25 = 0.05
+\end{align*}
+\]
+
+Summing these values gives the normalization factor:
+\[ 0.08 + 0.08 + 0.05 = 0.21 \]
+
+Now, let's normalize these probabilities:
+\[
+\begin{align*}
+P(H_{\text{CS}}|E) & = \frac{0.08}{0.21} \approx 0.38 \\
+P(H_{\text{AVS}}|E) & = \frac{0.08}{0.21} \approx 0.38 \\
+P(H_{\text{BA}}|E) & = \frac{0.05}{0.21} \approx 0.24
+\end{align*}
+\]
+
+Therefore, the posterior probabilities are approximately:
+```json
+{
+  "computer science": 0.38,
+  "agricultural and veterinary science": 0.38,
+  "business administration": 0.24
+}
+```

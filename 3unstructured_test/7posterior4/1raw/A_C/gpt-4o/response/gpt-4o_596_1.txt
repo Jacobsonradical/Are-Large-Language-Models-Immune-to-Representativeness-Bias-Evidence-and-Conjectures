@@ -1,0 +1,59 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we'll need to evaluate each hypothesis \( H \) in light of the evidence \( E \). Bayes' rule states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we are not provided with prior probabilities or likelihoods, we'll need to make some educated assumptions based on the information from the personality sketch.
+
+**Hypotheses:**
+- \( H_{\text{CS}} \): Adam was enrolled in Computer Science.
+- \( H_{\text{AVS}} \): Adam was enrolled in Agricultural and Veterinary Science.
+
+**Evidence \( E \):**
+Adam has a genuine curiosity about nature and its various plants, enjoys solving puzzles, has empathy, a deep love for animals, high intelligence, and appreciation for hard work.
+
+### Prior Probabilities (\( P(H) \)):
+- \( P(H_{\text{CS}}) \): Assume some baseline probability of a student being in Computer Science.
+- \( P(H_{\text{AVS}}) \): Assume some baseline probability of a student being in Agricultural and Veterinary Science.
+
+### Likelihood (\( P(E|H) \)):
+- \( P(E|H_{\text{CS}}) \): Likelihood that someone in Computer Science has these personality traits.
+- \( P(E|H_{\text{AVS}}) \): Likelihood that someone in Agricultural and Veterinary Science has these personality traits.
+
+### Calculation:
+
+Given the personality traits:
+- A love for nature and plants, strong empathy, and a deep love for animals directly support \( H_{\text{AVS}} \) more strongly than \( H_{\text{CS}} \).
+- Enjoyment of solving puzzles and high intelligence can be supportive of both fields, but especially common in \( H_{\text{CS}} \).
+
+Since exact prior probabilities and likelihoods are not provided, we'll need to make reasonable educated estimates as follows:
+
+Let's assume:
+- \( P(H_{\text{CS}}) = 0.4 \)
+- \( P(H_{\text{AVS}}) = 0.6 \)
+
+### Likelihoods:
+- \( P(E|H_{\text{CS}}) \approx 0.2 \): Not all CS students have a strong love for nature, empathy, and animals, but they do solve puzzles and are intelligent.
+- \( P(E|H_{\text{AVS}}) \approx 0.8 \): More in line with the personality traits described.
+
+We would normally need to compute the exact \( P(E) \), but we can make proportional estimates here.
+
+### Proportional Estimates:
+Since normalization (dividing by \( P(E) \)) is not required for comparing two hypotheses, we'll compare the unnormalized probabilities:
+
+For \( H_{\text{CS}} \):
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.2 \times 0.4 = 0.08 \]
+
+For \( H_{\text{AVS}} \):
+\[ P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 0.8 \times 0.6 = 0.48 \]
+
+### Normalizing (for comparison purposes):
+\[ P(H_{\text{CS}}|E) \approx \frac{0.08}{0.08+0.48} = \frac{0.08}{0.56} \approx 0.143 \]
+\[ P(H_{\text{AVS}}|E) \approx \frac{0.48}{0.08+0.48} = \frac{0.48}{0.56} \approx 0.857 \]
+
+Thus, our educated computed probabilities are:
+```json
+{
+  "computer science": 0.143,
+  "agricultural and veterinary science": 0.857
+}
+```

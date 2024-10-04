@@ -1,0 +1,69 @@
+First, we need to lay out the necessary components for Bayes' rule. Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to calculate this for each field of study. However, some values are not given explicitly, such as the prior probabilities \(P(H)\) and the likelihoods \(P(E|H)\), and the marginal probability \(P(E)\). 
+
+To make an educated guess for these components, we will consider the following:
+
+1. **Prior Probability \(P(H)\) (General likelihood of students enrolling in these fields):**
+   - For computer science, we assume a reasonably high enrollment due to its popularity.
+   - For business administration, we assume a moderate enrollment.
+   - For agricultural and veterinary science, we assume a lower enrollment.
+
+2. **Likelihood \(P(E|H)\) (Likelihood of Adam having the given characteristics within each field):**
+   - For computer science, some characteristics (intelligence, understanding abstract concepts, puzzles) fit well, but others (nature, animals) do not.
+   - For business administration, the characteristics do not align very well overall.
+   - For agricultural and veterinary science, the characteristics align very well with strong nature curiosity, empathy, and love for animals.
+
+3. **Marginal Probability \(P(E)\):**
+   - This value will be relatively stable across all fields in this context, serving as a normalizing factor.
+
+Given our qualitative assessments, we can make informed guesses:
+
+1. **Computer Science:**
+   - \(P(H_{\text{cs}}) \approx 0.30\)
+   - \(P(E|H_{\text{cs}}) \approx 0.4\)
+
+2. **Business Administration:**
+   - \(P(H_{\text{ba}}) \approx 0.20\)
+   - \(P(E|H_{\text{ba}}) \approx 0.2\)
+
+3. **Agricultural and Veterinary Science:**
+   - \(P(H_{\text{avs}}) \approx 0.10\)
+   - \(P(E|H_{\text{avs}}) \approx 0.8\)
+
+Now we can estimate \(P(E)\) using:
+\[ P(E) \approx P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) + P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}}) \]
+
+With the approximation:
+\[ P(E) \approx (0.4 \cdot 0.30) + (0.2 \cdot 0.20) + (0.8 \cdot 0.10) \]
+\[ P(E) \approx 0.12 + 0.04 + 0.08 \]
+\[ P(E) \approx 0.24 \]
+
+Finally, we can compute the posterior probabilities:
+
+1. **Computer Science:**
+   \[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} \]
+   \[ P(H_{\text{cs}}|E) = \frac{0.4 \cdot 0.30}{0.24} \]
+   \[ P(H_{\text{cs}}|E) \approx 0.50 \]
+
+2. **Business Administration:**
+   \[ P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E)} \]
+   \[ P(H_{\text{ba}}|E) = \frac{0.2 \cdot 0.20}{0.24} \]
+   \[ P(H_{\text{ba}}|E) \approx 0.167 \]
+
+3. **Agricultural and Veterinary Science:**
+   \[ P(H_{\text{avs}}|E) = \frac{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}})}{P(E)} \]
+   \[ P(H_{\text{avs}}|E) = \frac{0.8 \cdot 0.10}{0.24} \]
+   \[ P(H_{\text{avs}}|E) \approx 0.333 \]
+
+Therefore, we have:
+
+```json
+{
+  "computer science": 0.50,
+  "business administration": 0.167,
+  "agricultural and veterinary science": 0.333
+}
+```

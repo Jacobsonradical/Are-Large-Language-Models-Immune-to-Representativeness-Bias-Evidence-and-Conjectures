@@ -1,0 +1,60 @@
+To compute the posterior conditional probabilities \( P(H|E) \) for Adam being enrolled in specific fields given his personality sketch \( E \), we need to apply Bayes' rule. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the evidence's marginal probability, which can be calculated via summing up the probability of the evidence across all relevant hypotheses.
+
+To solve this, we need reasonable estimates for these probabilities based on the information given and typical characteristics of students in these fields.
+
+### Assumptions and Estimates
+1. **Priors \(P(H)\):** This might be based on general distribution of graduate students across various fields. Let’s assume:
+   - Prior probability for business administration (MBA) students: 0.20
+   - Prior probability for computer science students: 0.15
+
+2. **Likelihoods \(P(E|H)\):** Based on Adam’s personality sketch:
+   - Business Administration (MBA): Typically, this field is more about working with people, business strategies, and management. Adam's scientific curiosity and love for nature, empathy, intelligence, and puzzle-solving are less directly aligned. Thus, let's estimate:
+     - \( P(E|H_{MBA}) = 0.05 \)
+   - Computer Science: This field requires high intelligence, solving abstract problems, and patience, which fits Adam’s personality well. Therefore, let's estimate:
+     - \( P(E|H_{CS}) = 0.30 \)
+
+3. **Marginal \(P(E)\):** This is harder to estimate directly without all possible graduate fields, but we can simplify for comparative purposes as follows:
+
+\[ P(E) = P(E|H_{MBA})P(H_{MBA}) + P(E|H_{CS})P(H_{CS}) + \dots \]
+
+Where the dots represent other fields not explicitly defined here. For our context, we focus on normalizing for the two given fields:
+
+\[ P(E) \approx P(E|H_{MBA})P(H_{MBA}) + P(E|H_{CS})P(H_{CS}) \]
+
+Substituting the values:
+\[ P(E) \approx (0.05 \times 0.20) + (0.30 \times 0.15) \]
+\[ P(E) \approx 0.01 + 0.045 \]
+\[ P(E) \approx 0.055 \]
+
+### Calculation:
+Now we can compute:
+
+For Business Administration:
+\[ P(H_{MBA}|E) = \frac{P(E|H_{MBA})P(H_{MBA})}{P(E)} \]
+\[ P(H_{MBA}|E) = \frac{0.05 \times 0.20}{0.055} \]
+\[ P(H_{MBA}|E) \approx \frac{0.01}{0.055} \]
+\[ P(H_{MBA}|E) \approx 0.1818 \]
+
+For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS})P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.30 \times 0.15}{0.055} \]
+\[ P(H_{CS}|E) \approx \frac{0.045}{0.055} \]
+\[ P(H_{CS}|E) \approx 0.8182 \]
+
+### Answer:
+```json
+{
+  "business administration": 0.1818,
+  "computer science": 0.8182
+}
+```
+
+These estimates indicate that given Adam's personality sketch, he is significantly more likely to have been enrolled in a computer science graduate program than a business administration program.

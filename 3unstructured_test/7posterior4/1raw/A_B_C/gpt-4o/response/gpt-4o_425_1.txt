@@ -1,0 +1,54 @@
+Bayes' theorem states that:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( E \): Personality sketch of Adam.
+- \( H \): Hypothesis that Adam was enrolled in a specific graduate field.
+- Fields: computer science, agricultural and veterinary science, business administration.
+
+For each field, we need to compute \( P(E|H) \), the likelihood of Adam's characteristics given the hypothesis of him being enrolled in that field, and multiply it by \( P(H) \), the prior probability of Adam being enrolled in that field.
+
+Assumptions:
+1. Priors (\(P(H)\)) are distributed equally if no additional information is given.
+2. Likelihoods (\(P(E|H)\)) are based on the fit of personality characteristics with the field.
+
+Estimations for \(P(E|H)\):
+- Computer Science: 
+  - Good fit for high intelligence, abstract thinking, problem-solving, but less related to empathy and love for nature/animals.
+  - \( P(E|H_{cs}) = 0.5 \)
+- Agricultural and Veterinary Science:
+  - Strong fit for curiosity about nature, empathy, love for animals, and appreciation for hard work.
+  - \( P(E|H_{avs}) = 0.9 \)
+- Business Administration: 
+  - Moderate fit for problem-solving and intelligence, less fit for nature/animals and empathy.
+  - \( P(E|H_{ba}) = 0.3 \)
+
+Since prior probabilities \( P(H) \) are equally distributed across the fields and considering the likelihoods:
+
+\[ P(H_{cs}) = \frac{1}{3} \]
+\[ P(H_{avs}) = \frac{1}{3} \]
+\[ P(H_{ba}) = \frac{1}{3} \]
+
+Posterior probabilities:
+- Assuming \( P(E) \) remains constant across fields, we adjust based on \( P(E|H) \):
+
+For Computer Science:
+\[ P(H|E)_{cs} = P(E|H_{cs}) \cdot P(H_{cs}) = 0.5 \cdot \frac{1}{3} = 0.1667 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E)_{avs} = P(E|H_{avs}) \cdot P(H_{avs}) = 0.9 \cdot \frac{1}{3} = 0.3 \]
+
+For Business Administration:
+\[ P(H|E)_{ba} = P(E|H_{ba}) \cdot P(H_{ba}) = 0.3 \cdot \frac{1}{3} = 0.1 \]
+
+Given these assumptions, the conditional probabilities are:
+
+```json
+{
+  "computer science": 0.1667,
+  "agricultural and veterinary science": 0.3,
+  "business administration": 0.1
+}
+```
+
+Note: Values are rounded for simplicity. In practice, additional contextual knowledge or data could refine these estimates further.

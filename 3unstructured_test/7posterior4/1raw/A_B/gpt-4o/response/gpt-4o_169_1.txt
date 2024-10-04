@@ -1,0 +1,52 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need some additional information such as the prior probability of Adam choosing each field and the likelihood of Adam's personality sketch \( E \) being a match for each of those fields.
+
+Bayes' rule is formulated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of observing evidence \( E \).
+
+Given that we don't have the exact prior probabilities \( P(H) \) or the likelihoods \( P(E|H) \) for each field, we need to make some reasonable assumptions:
+
+1. Agricultural and Veterinary Science:
+   - Personality traits described, such as a deep love for animals and an appreciation for nature, align strongly with this field.
+   - High probability \( P(E|H_{agriculture and veterinary science}) \).
+
+2. Business Administration:
+   - While intelligence and understanding of abstract concepts are relevant to this field, the personality traits of empathy, love for animals, and curiosity about nature may not align as strongly.
+   - Moderately low probability \( P(E|H_{business administration}) \).
+
+Making reasonable assumptions based on these alignments, let's assign subjective likelihoods:
+
+- \( P(E|H_{agriculture and veterinary science}) = 0.8 \)
+- \( P(H_{agriculture and veterinary science}) = 0.2 \) (assuming graduate students are equally distributed across 5 broad fields on average)
+- \( P(E|H_{business administration}) = 0.2 \)
+- \( P(H_{business administration}) = 0.2 \)
+
+The marginal likelihood \( P(E) \) can be approximated as a normalization factor but is not necessary for relative posterior computations across hypotheses since the same normalization applies to all.
+
+Using these subjective likelihoods and priors:
+
+\[ P(H_{agriculture and veterinary science}|E) \propto P(E|H_{agriculture and veterinary science}) \cdot P(H_{agriculture and veterinary science}) = 0.8 \cdot 0.2 = 0.16 \]
+\[ P(H_{business administration}|E) \propto P(E|H_{business administration}) \cdot P(H_{business administration}) = 0.2 \cdot 0.2 = 0.04 \]
+
+Now we need to normalize these probabilities so that their sum represents a relative measure out of 1 for these two fields:
+
+Normalization factor \( N \) = \( 0.16 + 0.04 = 0.20 \)
+
+Normalized probabilities:
+\[ P(H_{agriculture and veterinary science}|E) = \frac{0.16}{0.20} = 0.8 \]
+\[ P(H_{business administration}|E) = \frac{0.04}{0.20} = 0.2 \]
+
+Therefore, the posterior probabilities are as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.8,
+  "business administration": 0.2
+}
+```

@@ -1,0 +1,45 @@
+To compute the posterior conditional probability \( P(H|E) \) for each field using Bayes' rule, we need a few pieces of information: the prior probability of being enrolled in each field, and the likelihood of the given personality sketch given the field. Due to the lack of concrete statistical data, I'll make reasonable assumptions based on typical characteristics of students in each field. 
+
+Let's denote:
+- \( P(H_{CS}) \) as the prior probability of being a computer science graduate student.
+- \( P(H_{BA}) \) as the prior probability of being a business administration graduate student.
+- \( P(E|H_{CS}) \) as the likelihood of Adam's personality sketch given he is a computer science student.
+- \( P(E|H_{BA}) \) as the likelihood of Adam's personality sketch given he is a business administration student.
+- \( P(E) \) as the overall probability of the personality sketch, which normalizes the probabilities.
+
+For computer science:
+- Prior: Let's assume \( P(H_{CS}) = 0.3 \) (30% of graduate students are in computer science).
+- Likelihood: Adam's attributes such as high intelligence, good understanding of abstract concepts, and enjoyment of solving puzzles align well with computer science, so let's assume \( P(E|H_{CS}) = 0.7 \).
+
+For business administration:
+- Prior: Let's assume \( P(H_{BA}) = 0.2 \) (20% of graduate students are in business administration).
+- Likelihood: Attributes such as a warm heart, strong empathy, and appreciation for hard work can also align somewhat with business administration, so let's assume \( P(E|H_{BA}) = 0.4 \).
+
+According to Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{BA}) \cdot P(H_{BA}) + \text{other terms} \]
+
+For simplicity, we will calculate only for the fields asked and assume they are representative:
+
+\[ P(E) \approx P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{BA}) \cdot P(H_{BA}) \]
+
+This approximation distributes \( P(E) \) based on the relative weights of \( P(H_{CS}) \) and \( P(H_{BA}) \):
+
+\[ P(E) \approx (0.7 \cdot 0.3) + (0.4 \cdot 0.2) = 0.21 + 0.08 = 0.29 \]
+
+Now we can compute the posterior probabilities:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.7 \cdot 0.3}{0.29} \approx 0.724 \]
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.4 \cdot 0.2}{0.29} \approx 0.276 \]
+
+Thus, the posterior conditional probabilities are:
+
+```json
+{
+  "computer science": 0.724,
+  "business administration": 0.276
+}
+```

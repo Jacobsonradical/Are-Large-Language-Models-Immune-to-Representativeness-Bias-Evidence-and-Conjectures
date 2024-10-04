@@ -1,0 +1,41 @@
+To compute the posterior conditional probabilities \( P(H|E) \) for each field using Bayes' rule, we need to express it in terms of prior probabilities and likelihoods:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of Adam being enrolled in a specific field given his personality sketch.
+- \( P(E|H) \) is the likelihood of Adam's personality sketch given that he is in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the marginal probability of Adam's personality sketch.
+
+Given that we lack specific data for the prior probabilities \( P(H) \) and the exact likelihoods \( P(E|H) \), we will consider general tendencies and informed estimates based on Adam's characteristics and the likelihood of people with such characteristics being in those fields.
+
+1. **Business Administration**: This field typically values social skills, leadership, and a business-oriented mindset, which are not prominently highlighted in Adam's personality sketch. Therefore, the likelihood \( P(E|H_{\text{BA}}) \) may be relatively low.
+
+2. **Computer Science**: This field matches well with several of Adam's traits such as enjoying solving puzzles, high intelligence, understanding abstract concepts, and possibly an affinity for the logical and structured nature of computer science. Therefore, the likelihood \( P(E|H_{\text{CS}}) \) may be higher.
+
+Let's assign estimated values (to be taken as an approximation due to lack of specific data):
+
+- \( P(E|H_{\text{BA}}) \approx 0.1 \)
+- \( P(H_{\text{BA}}) \approx 0.2 \)
+- \( P(E|H_{\text{CS}}) \approx 0.5 \)
+- \( P(H_{\text{CS}}) \approx 0.25 \)
+
+Assuming \( P(E) \) is normalized across possible fields, it can be treated as a constant for comparison purposes. Using Bayes’ rule:
+
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \cdot 0.2 = 0.02 \]
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.5 \cdot 0.25 = 0.125 \]
+
+Normalizing to get rough posterior probabilities:
+
+\[ P(H_{\text{BA}}|E) \approx \frac{0.02}{0.02 + 0.125} \approx \frac{0.02}{0.145} \approx 0.138 \]
+\[ P(H_{\text{CS}}|E) \approx \frac{0.125}{0.02 + 0.125} \approx \frac{0.125}{0.145} \approx 0.862 \]
+
+So the approximate posterior probabilities are:
+
+```json
+{
+  "business administration": 0.138,
+  "computer science": 0.862
+}
+```

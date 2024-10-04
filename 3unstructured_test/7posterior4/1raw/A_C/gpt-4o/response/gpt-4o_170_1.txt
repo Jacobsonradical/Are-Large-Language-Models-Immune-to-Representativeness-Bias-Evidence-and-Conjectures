@@ -1,0 +1,77 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we follow these steps:
+
+1. **Formulate the problem**:
+   - \( E \) is the evidence, which is the personality sketch of Adam.
+   - \( H \) represents the hypotheses about Adam's field of study.
+   
+2. **Bayes' rule**:
+   \[
+   P(H|E) = \frac{P(E|H) \times P(H)}{P(E)}
+   \]
+   - \( P(H|E) \) is the posterior probability of \( H \) given \( E \).
+   - \( P(E|H) \) is the likelihood of evidence \( E \) given the hypothesis \( H \).
+   - \( P(H) \) is the prior probability of hypothesis \( H \) being true.
+   - \( P(E) \) is the probability of the evidence \( E \).
+
+Without specific prior probabilities and likelihoods, we'll make educated estimations based on the given personality traits.
+
+### Assumptions:
+- **Agricultural and Veterinary Science (Agri-Vet Science)**:
+  - Adam has a genuine curiosity about nature and plants.
+  - He has a deep love for animals.
+  - These traits are quite pertinent to this field, leading to a higher likelihood \( P(E|H_{\text{Agri-Vet}}) \).
+
+- **Computer Science (CS)**:
+  - Adam enjoys solving puzzles and has high intelligence, good at understanding abstract concepts.
+  - These traits fit well into computer science, indicating a reasonable likelihood \( P(E|H_{\text{CS}}) \).
+
+For simplicity, I'll estimate the probabilities qualitatively:
+
+### Estimated Likelihoods and Priors:
+- Let:
+  - \( P(E|H_{\text{Agri-Vet}}) = 0.8 \): High likelihood since the traits match well.
+  - \( P(E|H_{\text{CS}}) = 0.6 \): Reasonable likelihood given his puzzle-solving and intelligence traits.
+
+### Estimated Priors:
+- \( P(H_{\text{Agri-Vet}}) = 0.1 \): Assuming a smaller proportion of grad students are in Agri-Vet.
+- \( P(H_{\text{CS}}) = 0.2 \): Assuming a larger proportion are in CS.
+
+### Normalizing Factor:
+\[ 
+P(E) = P(E|H_{\text{Agri-Vet}}) \times P(H_{\text{Agri-Vet}}) + P(E|H_{\text{CS}}) \times P(H_{\text{CS}}) + \text{(other fields probabilities)}
+\]
+
+For simplicity, I'll assume other fields have been considered similarly, but we do not need to evaluate them as the sum does not need to be 1 here.
+
+### Calculation:
+Using Bayes' rule:
+
+- For **Agricultural and Veterinary Science**:
+  \[
+  P(H_{\text{Agri-Vet}} | E) \approx \frac{0.8 \times 0.1}{P(E)}
+  \]
+
+- For **Computer Science**:
+  \[
+  P(H_{\text{CS}} | E) \approx \frac{0.6 \times 0.2}{P(E)}
+  \]
+
+Given the normalization factor cancels out in the ratio if we don't compare other fields:
+
+\[
+P(H_{\text{Agri-Vet}} | E) \approx 0.08
+\]
+\[
+P(H_{\text{CS}} | E) \approx 0.12
+\]
+
+### Final Approximation:
+
+```json
+{
+  "agricultural and veterinary science": "0.08",
+  "computer science": "0.12"
+}
+```
+
+This shows a roughly higher posterior probability for Adam being in **Computer Science** compared to **Agricultural and Veterinary Science**, given the traits described.

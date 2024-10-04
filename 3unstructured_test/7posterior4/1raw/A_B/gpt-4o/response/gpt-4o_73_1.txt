@@ -1,0 +1,44 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider not only the given personality sketch \( E \) but also the prior probability \( P(H) \) of someone being enrolled in each field, and the likelihood \( P(E|H) \) of having the given personality traits given enrollment in each field. 
+
+Bayes' rule can be written as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since the probability \( P(E) \) is the same for both hypotheses, it essentially acts as a normalizing constant and can be ignored for the purpose of comparing the two hypotheses. Thus, we can focus on the numerator: \( P(E|H) \cdot P(H) \).
+
+### Assessing the likelihoods and priors:
+
+1. **Agricultural and Veterinary Science:**
+   - Likelihood \( P(E|\text{Agricultural and Veterinary Science}) \): Adam's traits (curiosity about nature, love for animals, empathy) strongly match those typically found in this field. Let’s assign a high value such as \( 0.8 \).
+   - Prior \( P(\text{Agricultural and Veterinary Science}) \): The proportion of graduate students in this field is relatively moderate. Let's assume a prior value of \( 0.1 \).
+
+2. **Business Administration:**
+   - Likelihood \( P(E|\text{Business Administration}) \): Adam's traits don’t strongly align with typical traits for this field (business might better align with competitiveness, leadership, etc.). Let’s assign a lower value such as \( 0.2 \).
+   - Prior \( P(\text{Business Administration}) \): The proportion of graduate students in business administration is quite high. Let's assume a prior value of \( 0.3 \).
+
+### Posterior Calculation (without normalization):
+
+1. **Agricultural and Veterinary Science:**
+   - \( P(H|E) \propto P(E|\text{Agricultural and Veterinary Science}) \cdot P(\text{Agricultural and Veterinary Science}) \)
+   - \( P(H|E) \propto 0.8 \cdot 0.1 = 0.08 \)
+
+2. **Business Administration:**
+   - \( P(H|E) \propto P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) \)
+   - \( P(H|E) \propto 0.2 \cdot 0.3 = 0.06 \)
+
+### Normalization (to convert proportional values to probabilities):
+
+To find the normalized posterior probability, we add the proportional values and divide each by the total:
+
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.08}{0.08 + 0.06} = \frac{8}{14} \approx 0.57 \]
+
+\[ P(\text{Business Administration}|E) = \frac{0.06}{0.08 + 0.06} = \frac{6}{14} \approx 0.43 \]
+
+### Final Answer:
+
+```json
+{
+  "agricultural and veterinary science": 0.57,
+  "business administration": 0.43
+}
+```

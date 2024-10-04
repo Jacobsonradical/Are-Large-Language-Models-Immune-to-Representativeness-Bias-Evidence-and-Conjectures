@@ -1,0 +1,86 @@
+Bayes' rule states that the posterior probability \( P(H|E) \) is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of hypothesis \( H \) (i.e., the initial probability before considering the evidence).
+- \( P(E) \) is the total probability of the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given hypothesis \( H \).
+
+Given the personality sketch \( E \) of Adam, let's consider each of the fields:
+
+1. **Business Administration**: Generally, the attributes described (curiosity about nature, love for animals, quiet, enjoys puzzles, empathy) are not strongly aligned with a typical business administration profile.
+
+2. **Agricultural and Veterinary Science**: This field strongly aligns with Adam's curiosity about nature, love for animals, and appreciation for hard work and dedication.
+
+3. **Computer Science**: While Adam enjoys solving puzzles and has high intelligence, which can be related to computer science, the other traits (empathy, love for nature and animals) are less directly aligned.
+
+Assume:
+- \( P(\text{business administration}) = 0.2 \)
+- \( P(\text{agricultural and veterinary science}) = 0.3 \)
+- \( P(\text{computer science}) = 0.2 \)
+
+Given \( E \):
+- \( P(E|\text{business administration}) \approx 0.1 \)
+- \( P(E|\text{agricultural and veterinary science}) \approx 0.7 \)
+- \( P(E|\text{computer science}) \approx 0.4 \)
+
+\( P(E) \) is proportional to the sum of \( P(E|H) \cdot P(H) \) for all \( H \), but we don't need it for the comparison among fields since we're normalizing.
+
+Thus:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's compute these products:
+
+1. \( \text{Business Administration} \):
+   \[
+   P(\text{E}|\text{business administration}) \cdot P(\text{business administration}) \approx 0.1 \times 0.2 = 0.02
+   \]
+
+2. \( \text{Agricultural and Veterinary Science} \):
+   \[
+   P(\text{E}|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) \approx 0.7 \times 0.3 = 0.21
+   \]
+
+3. \( \text{Computer Science} \):
+   \[
+   P(\text{E}|\text{computer science}) \cdot P(\text{computer science}) \approx 0.4 \times 0.2 = 0.08
+   \]
+
+Now we normalize these values to obtain the posterior probabilities:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{\text{sum of all products}}
+\]
+
+\[
+\text{sum of all products} = 0.02 + 0.21 + 0.08 = 0.31
+\]
+
+Thus:
+
+1. \( \text{Business Administration} \):
+   \[
+   P(\text{business administration}|E) = \frac{0.02}{0.31} \approx 0.0645
+   \]
+
+2. \( \text{Agricultural and Veterinary Science} \):
+   \[
+   P(\text{agricultural and veterinary science}|E) = \frac{0.21}{0.31} \approx 0.677
+   \]
+
+3. \( \text{Computer Science} \):
+   \[
+   P(\text{computer science}|E) = \frac{0.08}{0.31} \approx 0.258
+   \]
+
+So the final probabilities are:
+
+```json
+{
+  "business administration": 0.0645,
+  "agricultural and veterinary science": 0.677,
+  "computer science": 0.258
+}
+```

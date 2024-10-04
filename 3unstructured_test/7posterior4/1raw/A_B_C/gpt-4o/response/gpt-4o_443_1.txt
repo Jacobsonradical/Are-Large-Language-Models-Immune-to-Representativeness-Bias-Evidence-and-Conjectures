@@ -1,0 +1,47 @@
+To compute the posterior probability \( P(H|E) \) for each field \( H \) given the personality sketch \( E \) using Bayes' Rule, we need the prior probabilities \( P(H) \) for each field and the likelihood \( P(E|H) \), which describes how likely the personality traits are given the specific field of study. Since these priors are not provided, I will make reasonable assumptions based on typical distributions and the given information.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since the denominator \( P(E) \) is the same for all fields and just serves as a normalization constant, we can consider the relative values of \( P(E|H) \cdot P(H) \) for each hypothesis H.
+
+### Assumptions:
+1. Prior probabilities \( P(H) \):
+   - \( P(\text{business administration}) \approx 0.3 \)
+   - \( P(\text{agricultural and veterinary science}) \approx 0.2 \)
+   - \( P(\text{computer science}) \approx 0.3 \)
+
+2. Likelihood \( P(E|H) \):
+   - For business administration, Adam's personality is less aligned with typical traits (low curiosity about nature, typically more focused on human interactions and business aspects).
+   - For agricultural and veterinary science, Adam's traits are highly aligned (curiosity about nature, love for animals, and appreciation for hard work).
+   - For computer science, Adam's intelligence and enjoyment of puzzles are well-aligned (good at understanding abstract concepts).
+
+### Likelihood Estimates:
+- \( P(E|\text{business administration}) \approx 0.1 \)
+- \( P(E|\text{agricultural and veterinary science}) \approx 0.7 \)
+- \( P(E|\text{computer science}) \approx 0.5 \)
+
+### Posterior Computation:
+Using these estimates, we compute the unnormalized posterior probabilities:
+- For business administration: \( 0.1 \cdot 0.3 = 0.03 \)
+- For agricultural and veterinary science: \( 0.7 \cdot 0.2 = 0.14 \)
+- For computer science: \( 0.5 \cdot 0.3 = 0.15 \)
+
+### Normalization (Optional for relative comparison):
+\[ P(E) \approx 0.03 + 0.14 + 0.15 = 0.32 \]
+
+Normalized posteriors:
+- \( P(\text{business administration}|E) \approx \frac{0.03}{0.32} \approx 0.094 \)
+- \( P(\text{agricultural and veterinary science}|E) \approx \frac{0.14}{0.32} \approx 0.438 \)
+- \( P(\text{computer science}|E) \approx \frac{0.15}{0.32} \approx 0.469 \)
+
+But for the sake of relative comparison without strict normalization, we consider the unnormalized values:
+
+```json
+{
+  "business administration": 0.03,
+  "agricultural and veterinary science": 0.14,
+  "computer science": 0.15
+}
+```
+These values indicate the relative likelihoods of Adam being enrolled in each respective field based on his personality sketch.

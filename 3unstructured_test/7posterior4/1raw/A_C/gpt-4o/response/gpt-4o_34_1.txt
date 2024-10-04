@@ -1,0 +1,56 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to understand the components of Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of observing the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of observing the evidence \( E \).
+
+For this exercise, we will need to make reasonable assumptions about these probabilities since we don't have specific data.
+
+### Assumptions:
+1. **Priors (\( P(H) \)):**
+   - The prior probability of Adam being enrolled in computer science (\( P(\text{CS}) \)) can be assumed based on general enrollment statistics for graduate studies (e.g., let’s assume 0.15).
+   - The prior probability of Adam being enrolled in agricultural and veterinary science (\( P(\text{AgVetSci}) \)) could also be assumed and might be lower due to less popularity as compared to CS (e.g., let’s assume 0.05).
+
+2. **Likelihoods (\( P(E|H) \)):**
+   - The likelihood of Adam having the described personality traits given that he is in computer science (\( P(E|\text{CS}) \)) might be moderate as some traits (e.g., high intelligence and understanding abstract concepts) fit well, but others (e.g., love for animals and nature) less so. Let’s assume 0.4.
+   - The likelihood of Adam having the described personality traits given that he is in agricultural and veterinary science (\( P(E|\text{AgVetSci}) \)) might be higher since more traits seem to align well (e.g., love for animals, empathy, nature). Let’s assume 0.7.
+
+3. **Marginal likelihood (\( P(E) \)):**
+   - This term is common for both scenarios and integrates over all possible fields Adam might be in. We don't need its exact value for relative comparison, but let’s denote it as \( P(E) \).
+
+### Computation:
+
+Given:
+- \( P(H = \text{CS}) = 0.15 \)
+- \( P(H = \text{AgVetSci}) = 0.05 \)
+- \( P(E|H = \text{CS}) = 0.4 \)
+- \( P(E|H = \text{AgVetSci}) = 0.7 \)
+
+Compute \( P(H|E) \):
+
+\[ P(H = \text{CS}|E) = \frac{P(E|H = \text{CS}) \cdot P(H = \text{CS})}{P(E)} = \frac{0.4 \times 0.15}{P(E)} \]
+
+\[ P(H = \text{AgVetSci}|E) = \frac{P(E|H = \text{AgVetSci}) \cdot P(H = \text{AgVetSci})}{P(E)} = \frac{0.7 \times 0.05}{P(E)} \]
+
+We can compare these probabilities relative to each other:
+
+Normalize these for relative comparison (the factor \( P(E) \) will cancel out):
+
+\[ P(H = \text{CS}|E) \approx 0.4 \times 0.15 = 0.06 \]
+
+\[ P(H = \text{AgVetSci}|E) \approx 0.7 \times 0.05 = 0.035 \]
+
+So, approximately:
+
+```json
+{
+  "computer science": 0.06,
+  "agricultural and veterinary science": 0.035
+}
+```
+
+These values indicate the relative probabilities based on the given assumptions.

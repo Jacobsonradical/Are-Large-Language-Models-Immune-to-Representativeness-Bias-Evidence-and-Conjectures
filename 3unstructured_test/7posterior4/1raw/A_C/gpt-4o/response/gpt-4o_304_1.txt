@@ -1,0 +1,58 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need the likelihood \( P(E|H) \), the prior \( P(H) \), and the evidence \( P(E) \). Bayes' rule is given by:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Let's break down the terms:
+
+- \( P(H) \) is the prior probability of Adam being enrolled in each field, which we assume to be equal if we don't have additional information. For simplicity, let's assume \( P(H) \) to be the same for each field we consider.
+- \( P(E|H) \) is the likelihood of observing Adam's personality sketch given he is in a particular field.
+- \( P(E) \) is the marginal probability of observing Adam's personality sketch.
+
+Given that we need reasonable estimates based on the provided personality sketch, let's provide some reasonable assumptions about the likelihood:
+
+1. **Computer Science:**
+   - Curiosity about nature and understanding abstract concepts fit well.
+   - Strong empathy and love for animals are somewhat less typical but not impossible.
+   - \( P(E|H_{cs}) \) can be moderate to low.
+
+2. **Agricultural and Veterinary Science:**
+   - Curiosity about nature and love for animals are a perfect fit.
+   - Solving puzzles and understanding abstract concepts are not uncommon but are less central.
+   - Strong empathy and warm heart are highly typical.
+   - \( P(E|H_{avs}) \) can be high.
+
+However, the actual probabilities need numerical values. Without precise empirical data, let's assume:
+
+- \( P(E|H_{cs}) \approx 0.2 \)
+- \( P(E|H_{avs}) \approx 0.8 \)
+- If prior probabilities \( P(H_{cs}) \) and \( P(H_{avs}) \) are assumed equal, say both are 0.5 for simplicity.
+
+Because \( P(E) \) is the same for both fields and cancels out, we don't need its exact value. We compute relative probabilities:
+
+For Computer Science:
+\[
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.2 \cdot 0.5}{P(E)} \propto 0.1
+\]
+
+For Agricultural and Veterinary Science:
+\[
+P(H_{avs}|E) = \frac{P(E|H_{avs}) \cdot P(H_{avs})}{P(E)} = \frac{0.8 \cdot 0.5}{P(E)} \propto 0.4
+\]
+
+So, comparing the relative weights:
+
+\[
+P(H_{cs}|E) = \frac{0.1}{0.1 + 0.4} = \frac{0.1}{0.5} = 0.2
+\]
+\[
+P(H_{avs}|E) = \frac{0.4}{0.1 + 0.4} = \frac{0.4}{0.5} = 0.8
+\]
+
+This gives us a rough estimation:
+
+{
+  "computer science": "0.2",
+  "agricultural and veterinary science": "0.8"
+}

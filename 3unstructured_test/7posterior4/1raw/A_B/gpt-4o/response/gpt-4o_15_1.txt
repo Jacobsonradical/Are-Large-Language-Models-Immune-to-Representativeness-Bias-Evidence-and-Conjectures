@@ -1,0 +1,49 @@
+To compute the posterior conditional probabilities \(P(H|E)\) for the hypotheses given the evidence (Adam's personality sketch), we'll use Bayes' rule, which is expressed as:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+However, we need some additional context to assign prior probabilities and the likelihoods. In actuality, without specific data about the distribution of graduate students in different fields and how likely each personality trait is within those fields, these probabilities cannot be computed precisely. For the sake of this exercise, I'll make some reasonable assumptions:
+
+1. **P(H)**: Prior probability of being enrolled in each field.
+2. **P(E|H)**: Likelihood of Adam's personality traits given he is in each field.
+
+Let's assume graduate students are roughly evenly distributed across many fields, giving a prior probability \(P(H)\). Let's assign subjective likelihoods \(P(E|H)\) based on the personality sketch provided:
+
+- **Business Administration**:
+  - Likely traits: High intelligence, understanding abstract concepts, appreciation for hard work.
+  - Less likely traits: Genuine curiosity about nature, love for animals, solving puzzles.
+
+- **Agricultural and Veterinary Science**:
+  - Likely traits: Genuine curiosity about nature, love for animals, strong empathy, appreciation for hard work.
+  - High intelligence applies to both fields but fits particularly well with understanding biological systems.
+
+Given these considerations, let's arbitrarily assign:
+
+- **Prior probabilities:**
+  - \(P(H_{\text{business}}) = 0.1\)
+  - \(P(H_{\text{ag-vet}}) = 0.1\)
+  
+- **Conditional probabilities:**
+  - \(P(E|H_{\text{business}}) = 0.2\)
+  - \(P(E|H_{\text{ag-vet}}) = 0.6\)
+
+For normalization, assume:
+- \(P(E) = P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) + P(E|H_{\text{ag-vet}}) \cdot P(H_{\text{ag-vet}}) + \ldots \) 
+- This simplifies given our focus to \(0.02 + 0.06 = 0.08\).
+
+Compute \(P(H|E)\) for each field:
+
+\[P(H_{\text{business}}|E) = \frac{0.2 \cdot 0.1}{0.08} = \frac{0.02}{0.08} = 0.25\]
+
+\[P(H_{\text{ag-vet}}|E) = \frac{0.6 \cdot 0.1}{0.08} = \frac{0.06}{0.08} = 0.75\]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.25,
+  "agricultural and veterinary science": 0.75
+}
+```
+
+These values reflect a higher likelihood that Adam, given his personality sketch, is enrolled in Agricultural and Veterinary Science rather than Business Administration.

@@ -1,0 +1,60 @@
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability of the hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+Given the nature of the personality sketch E, we assign values to \( P(E|H) \) based on how well the personality traits fit each field. To compute exact numerical values, we would ideally need more information about the distribution of students' personality traits across different fields and their enrollment rates. To move forward, we'll make educated assumptions.
+
+Assumptions:
+- \( P(E|H) \) is high for fields that align well with Adam's traits and lower for fields that do not.
+- We assume the prior probability \( P(H) \) is uniform across all graduate fields for simplicity since we don't have exact enrollment data.
+
+Given Adam's traits:
+- Genuine curiosity about nature and plants (fits well with agricultural and veterinary science).
+- Strong empathy and love for animals (fits very well with agricultural and veterinary science).
+- High intelligence and understanding of abstract concepts.
+- Warm heart and strong empathy.
+- Quiet and enjoys solving puzzles.
+
+### Likelihoods
+- \( P(E|H_{\text{agricultural and veterinary science}}) \) is high because Adam’s traits align well with this field.
+- \( P(E|H_{\text{business administration}}) \) is low because the traits described, except for intelligence, do not align as closely with stereotypical traits sought after in business administration.
+
+Given these considerations:
+
+- \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.9 \)
+- \( P(E|H_{\text{business administration}}) \approx 0.1 \)
+
+Assuming prior probabilities \( P(H) \) are equal:
+
+- \( P(H_{\text{agricultural and veterinary science}}) = P(H_{\text{business administration}}) = 0.5 \)
+
+### Posterior probabilities
+
+Since \( P(E) \) normalizes the probabilities and is constant across hypotheses, we can focus on the numerator of Bayes' rule for relative comparisons:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Therefore:
+
+\[ P(H_{\text{agricultural and veterinary science}}|E) \propto 0.9 \cdot 0.5 = 0.45 \]
+\[ P(H_{\text{business administration}}|E) \propto 0.1 \cdot 0.5 = 0.05 \]
+
+Since these are proportional, the actual \( P(H|E) \) values will be:
+
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.45}{0.45+0.05} = \frac{0.45}{0.5} = 0.9 \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.05}{0.45+0.05} = \frac{0.05}{0.5} = 0.1 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.9,
+  "business administration": 0.1
+}
+```

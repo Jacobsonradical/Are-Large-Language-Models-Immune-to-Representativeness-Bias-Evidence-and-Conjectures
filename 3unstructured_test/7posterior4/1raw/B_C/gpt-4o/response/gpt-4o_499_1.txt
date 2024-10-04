@@ -1,0 +1,65 @@
+To compute the posterior conditional probability \( P(H|E) \) of Adam being enrolled in business administration or computer science given his personality sketch using Bayes' rule, we'll need to make reasonable assumptions about the problem. Here's a simplified approach:
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal probability of evidence \( E \).
+
+We need to estimate the following:
+1. **Prior probabilities**, \( P(H) \), for each field.
+2. **Likelihood**, \( P(E|H) \), which is the probability of Adam's personality given he's in each field.
+
+Here are rational estimates:
+- Prior probabilities: Assume the prior probability \( P(H) \) is relatively uniform across various graduate fields since we don't have specific data.
+- Likelihood: Estimate how likely Adam's personality traits fit each field based on the sketch.
+
+Let's denote the fields we're considering (business administration and computer science) with their respective hypotheses \( H_{BA} \) and \( H_{CS} \). 
+
+Estimate prior probabilities \( P(H) \) assuming roughly uniform chances across different graduate fields (since exact priors are not available).
+
+Assuming 10 primary graduate fields equally likely, the prior for each:
+
+\[ P(H_{BA}) = \frac{1}{10} = 0.1 \]
+\[ P(H_{CS}) = \frac{1}{10} = 0.1 \]
+
+Estimate likelihoods \( P(E|H) \) given Adam's personality traits:
+
+- For **business administration**:
+  - Possible traits fit: Empathy, understanding of hard work.
+  - Unlikely traits: Curiosity about nature, strong appreciation for animals, solving puzzles.
+  
+  Rough likelihood: \( P(E|H_{BA}) \approx 0.2 \) (lower due to less fitting traits)
+
+- For **computer science**:
+  - Possible traits fit: Intelligence, solving puzzles, understanding abstract concepts.
+  - Less strongly fitting traits: Curiosity about nature and animals (though not strictly excluding).
+
+  Rough likelihood: \( P(E|H_{CS}) \approx 0.6 \) (higher due to better fitting traits)
+
+The marginal probability \( P(E) \):
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + ... \text{(similar terms for other fields)} \]
+
+For simplicity, consider just these two fields for marginal probability estimate (we normalize later):
+
+\[ P(E) \approx (0.2 \times 0.1) + (0.6 \times 0.1) = 0.02 + 0.06 = 0.08 \]
+
+Using Bayes' rule:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \times P(H_{BA})}{P(E)} \approx \frac{0.2 \times 0.1}{0.08} = \frac{0.02}{0.08} = 0.25 \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \times P(H_{CS})}{P(E)} \approx \frac{0.6 \times 0.1}{0.08} = \frac{0.06}{0.08} = 0.75 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+```

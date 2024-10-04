@@ -1,0 +1,63 @@
+To compute the posterior conditional probability \(P(H|E)\) using Bayes' rule, we will need to take into account the likelihood of the evidence given each hypothesis, as well as the prior probabilities of each hypothesis. Bayes' rule is given by:
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume the prior probabilities of Adam choosing each field are equal, i.e., \(P(H_{business}) = P(H_{computer}) = \frac{1}{n}\) where \(n\) is the total number of fields.
+
+The likelihood \(P(E | H)\) for each hypothesis (field of study) can differ based on how well the personality traits match the typical attributes needed for each field. Let's make some educated assumptions about these likelihoods:
+
+- For **business administration**:
+  - Nature curiosity and puzzles might not be strong indicators.
+  - Empathy, understanding of hard work, and high intelligence could be somewhat relevant.
+
+- For **computer science**:
+  - Curiosity about nature, love for puzzles, high intelligence, and understanding abstract concepts are strong indicators.
+  - Warm heart and empathy might be less relevant but not irrelevant.
+
+Given these subjective evaluations, let's assign \(P(E | H)\):
+
+- For business administration:
+  - Curiosity about nature: low relevance → assign 0.2
+  - Enjoys solving puzzles: medium relevance → assign 0.5
+  - Warm heart, strong empathy: medium-high relevance → assign 0.6
+  - High intelligence, understanding abstract concepts: medium relevance → assign 0.5
+  - Hard work appreciation: medium relevance → assign 0.5
+  - Average of these relevancies ≈ 0.46
+
+- For computer science:
+  - Curiosity about nature: medium relevance → assign 0.5
+  - Enjoys solving puzzles: high relevance → assign 0.9
+  - Warm heart, strong empathy: low-medium relevance → assign 0.3
+  - High intelligence, understanding abstract concepts: high relevance → assign 0.9
+  - Hard work appreciation: medium relevance → assign 0.5
+  - Average of these relevancies ≈ 0.62
+
+These likelihood values are subjective but can guide our computation.
+
+The total evidence \(P(E)\) for Adam's personality is comprised of all possible fields, so here, without exact numbers for prior probabilities for other fields, we'll place focus on likelihoods only.
+
+Putting all the pieces together using the given prior probabilities \(P(H)\), which we assume are equal:
+
+\[
+\begin{align*}
+P(H_{business} | E) &= \frac{P(E | H_{business}) \cdot P(H_{business})}{P(E)} \propto P(E | H_{business}) \\
+P(H_{computer} | E) &= \frac{P(E | H_{computer}) \cdot P(H_{computer})}{P(E)} \propto P(E | H_{computer})
+\end{align*}
+\]
+
+Given our assumptions and the probability values \(P(E | H_{business}) = 0.46\) and \(P(E | H_{computer}) = 0.62\):
+
+\(
+\frac{0.46}{0.46 + 0.62} \approx 0.43
+\)
+
+\(
+\frac{0.62}{0.46 + 0.62} \approx 0.57
+\)
+
+Thus, here are your probabilities for each field:
+
+{
+  "business administration": 0.43,
+  "computer science": 0.57
+}

@@ -1,0 +1,68 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' Rule, we need to consider the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the likelihood of the personality sketch given that Adam was enrolled in that field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the overall probability of observing the personality sketch.
+
+Since we don't have exact prior probabilities or likelihoods, we'll have to make some reasonable assumptions based on the personality traits and fields of study.
+
+### Assumptions
+1. **Agricultural and Veterinary Science**
+   - \( P(E|H) \): Given Adam's genuine curiosity about nature, love for animals, and empathy, it is highly likely that he would be a good fit for this field. Let's assume \( P(E|H_{\text{ag}}) \) is 0.9.
+   - \( P(H_{\text{ag}}) \): Prior probability of a student choosing Agricultural and Veterinary Science. Let's assume a moderate value of 0.1.
+
+2. **Computer Science**
+   - \( P(E|H) \): Given Adam's high intelligence and proficiency in solving puzzles and understanding abstract concepts, he would also fit well in this field. Let's assume \( P(E|H_{\text{cs}}) \) is 0.6.
+   - \( P(H_{\text{cs}}) \): Prior probability of a student choosing Computer Science. Given the popularity, let's assume a higher value of 0.3.
+
+For simplicity, let's assume \( P(E) \) is constant across fields.
+
+### Calculations
+1. **Agricultural and Veterinary Science**
+   \[
+   P(H_{\text{ag}}|E) = \frac{P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}})}{P(E)}
+                       = \frac{0.9 \cdot 0.1}{P(E)}
+                       = \frac{0.09}{P(E)}
+   \]
+
+2. **Computer Science**
+   \[
+   P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)}
+                       = \frac{0.6 \cdot 0.3}{P(E)}
+                       = \frac{0.18}{P(E)}
+   \]
+
+Although we don't have the value of \( P(E) \), we can infer relative values.
+
+Based on these calculations, the relative possibilities are:
+- Agricultural and Veterinary Science: 0.09
+- Computer Science: 0.18
+
+Given these values, Computer Science is twice as likely as Agricultural and Veterinary Science, but we normalize them for probabilistic interpretation.
+
+### Normalization
+\[
+\text{Total} = 0.09 + 0.18 = 0.27
+\]
+
+\[
+P(H_{\text{ag}}|E) = \frac{0.09}{0.27} \approx 0.33
+\]
+\[
+P(H_{\text{cs}}|E) = \frac{0.18}{0.27} \approx 0.67
+\]
+
+Thus, the normalized posterior probabilities would be:
+
+```json
+{
+  "agricultural and veterinary science": "0.33",
+  "computer science": "0.67"
+}
+```
+
+Keep in mind these values are based on assumed likelihoods and priors, which might vary in a real-world scenario.

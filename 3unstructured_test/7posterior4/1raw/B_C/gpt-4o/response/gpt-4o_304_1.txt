@@ -1,0 +1,55 @@
+To compute the posterior conditional probability \(P(H|E)\) using Bayes' rule, we need the prior probabilities of Adam being enrolled in each field and the likelihood of observing the personality sketch \(E\) given these fields. Without specific prior probabilities and likelihoods, we can make educated estimates based on the given information.
+
+Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \(P(H|E)\) is the posterior probability of hypothesis \(H\) given evidence \(E\).
+- \(P(E|H)\) is the likelihood of observing evidence \(E\) given hypothesis \(H\).
+- \(P(H)\) is the prior probability of hypothesis \(H\).
+- \(P(E)\) is the marginal likelihood of observing evidence \(E\).
+
+Given the personality sketch of Adam, we can reason about the likelihoods:
+
+- For "computer science," Adam's high intelligence, interest in solving puzzles, and understanding of abstract concepts align well with this field.
+- For "business administration," while intelligence is a match, the traits of empathy, a warm heart, and appreciation for hard work are not as strong indicators for this field as they are for others like social work or psychology.
+
+Let's assume the following (hypothetical) prior probabilities for each field, estimated from common distributions in graduate programs:
+
+- \(P(\text{computer science}) \approx 0.20\)
+- \(P(\text{business administration}) \approx 0.20\)
+
+We assume \(P(E| \text{computer science})\) and \(P(E| \text{business administration})\):
+
+- \(P(E| \text{computer science}) \approx 0.50\) (Adam's traits are a strong match)
+- \(P(E| \text{business administration}) \approx 0.10\) (Adam's traits are a weaker match)
+
+We don't have an exact \(P(E)\), but we can compare the relative likelihoods for the posterior.
+
+Using these priors and likelihoods:
+
+- For computer science:
+  
+  \[ P(\text{computer science} | E) \propto P(E| \text{computer science}) \cdot P(\text{computer science}) \]
+  \[ P(\text{computer science} | E) \approx 0.50 \cdot 0.20 = 0.10 \]
+
+- For business administration:
+  
+  \[ P(\text{business administration} | E) \propto P(E| \text{business administration}) \cdot P(\text{business administration}) \]
+  \[ P(\text{business administration} | E) \approx 0.10 \cdot 0.20 = 0.02 \]
+
+Comparing these probabilities, we can normalize within this context (i.e., without considering all other possible fields) to give an idea:
+
+\[ P(\text{computer science} | E) / (P(\text{computer science} | E) + P(\text{business administration} | E)) = 0.10 / (0.10 + 0.02) = 0.10 / 0.12 \approx 0.83 \]
+
+\[ P(\text{business administration} | E) / (P(\text{business administration} | E) + P(\text{computer science} | E)) = 0.02 / (0.10 + 0.02) = 0.02 / 0.12 \approx 0.17 \]
+
+Thus, the formatted probabilities will be:
+
+```json
+{
+  "computer science": 0.83,
+  "business administration": 0.17
+}
+```

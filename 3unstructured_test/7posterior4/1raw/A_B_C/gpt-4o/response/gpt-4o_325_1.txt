@@ -1,0 +1,84 @@
+To compute the posterior probability \(P(H|E)\) for each field using Bayes' Rule, we need to consider \(P(E|H)\), \(P(H)\), and the evidence \(P(E)\). The formula is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we don't have the exact numbers for these probabilities, we will use heuristic estimations based on the provided information. Here are the intuitive values we'll use for the calculations:
+
+1. **Computer Science (H1)**:
+   - \(P(H1)\): Prior probability of a student enrolling in CS is relatively high because it's a popular field.
+   - \(P(E|H1)\): Adam's personality matches somewhat with CS because problem-solving, intelligence, and abstract thinking are relevant.
+
+2. **Agricultural and Veterinary Science (H2)**:
+   - \(P(H2)\): Prior probability is lower compared to CS but higher than Business Administration, considering the curiosity about nature and love for animals.
+   - \(P(E|H2)\): Adam's personality strongly aligns with this field because it matches his love for nature, plants, and animals.
+
+3. **Business Administration (H3)**:
+   - \(P(H3)\): Prior probability might be reasonably high given it’s also a popular graduate field.
+   - \(P(E|H3)\): Adam's personality does not strongly match this field since there's no direct indication of interest in business, management, or related skills.
+
+Assuming \(P(E)\) remains constant across all domains, it cancels out in our comparison. We'll make intuitive estimates:
+
+- \(P(E|H1) = 0.3\)
+- \(P(E|H2) = 0.6\)
+- \(P(E|H3) = 0.1\)
+
+For simplicity, assume:
+- \(P(H1) = 0.4\)
+- \(P(H2) = 0.3\)
+- \(P(H3) = 0.3\)
+
+Now, let's compute:
+
+1. **Computer Science**:
+   \[
+   P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} = \frac{0.3 \cdot 0.4}{P(E)}
+   \]
+   Without normalized \(P(E)\), let's keep the numerator for comparison.
+
+2. **Agricultural and Veterinary Science**:
+   \[
+   P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} = \frac{0.6 \cdot 0.3}{P(E)}
+   \]
+
+3. **Business Administration**:
+   \[
+   P(H3|E) = \frac{P(E|H3) \cdot P(H3)}{P(E)} = \frac{0.1 \cdot 0.3}{P(E)}
+   \]
+
+Now distribute to get approximate unnormalized values:
+\[
+P(H1|E) \approx 0.12
+\]
+\[
+P(H2|E) \approx 0.18
+\]
+\[
+P(H3|E) \approx 0.03
+\]
+
+Normalize these to make it easier to interpret:
+
+\[
+\text{total} = 0.12 + 0.18 + 0.03 = 0.33
+\]
+
+So:
+\[
+P(H1|E) \approx \frac{0.12}{0.33} \approx 0.36
+\]
+\[
+P(H2|E) \approx \frac{0.18}{0.33} \approx 0.55
+\]
+\[
+P(H3|E) \approx \frac{0.03}{0.33} \approx 0.09
+\]
+
+Thus, our final estimates are:
+
+```json
+{
+  "computer science": 0.36,
+  "agricultural and veterinary science": 0.55,
+  "business administration": 0.09
+}
+```

@@ -1,0 +1,56 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' Rule, we must consider the following equation:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's a breakdown of the elements involved:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in a particular field.
+2. \( P(E|H) \): The likelihood of Adam showing the personality traits described if enrolled in a particular field.
+3. \( P(E) \): The marginal likelihood of Adam showing these personality traits, regardless of the field of enrollment.
+
+For simplicity, because we do not have actual statistics, we'll make educated guesses based on the general characteristics associated with graduate students in each field.
+
+**Hypotheses:**
+
+- \( H_{CS} \) = Adam was enrolled in computer science.
+- \( H_{BA} \) = Adam was enrolled in business administration.
+
+**Assumptions:**
+
+1. **Prior Probability (\( P(H) \)):** 
+   Given the vast number of fields, the prior distribution could be challenging to estimate accurately. We assume an equal prior probability for simplicity:
+   \[ P(H_{CS}) = P(H_{BA}) = \frac{1}{N} \]
+
+   Assuming \( N \) is the total number of possible graduate fields, but we don't need to know \( N \) as it will cancel out when comparing the fields.
+
+2. **Likelihood (\( P(E|H) \)):** 
+   Based on Adam's personality traits:
+   - **Computer Science (CS):** Generally, CS students are characterized by high intelligence and problem-solving skills. However, interest in nature and plants is less common in this field.
+     \[ P(E|H_{CS}) \approx 0.4 \]
+   
+   - **Business Administration (BA):** Business students might have empathy and appreciation for hard work, but their interest in nature and abstract thinking might be less pronounced.
+     \[ P(E|H_{BA}) \approx 0.2 \]
+
+3. **Marginal Likelihood (\( P(E) \)):** 
+   This is the same for both fields and thus can be disregarded for comparative purposes.
+
+Using these assumptions, applying Bayes' Rule for each field:
+
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(H_{CS}|E) \propto 0.4 \cdot \frac{1}{N} \]
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(H_{BA}|E) \propto 0.2 \cdot \frac{1}{N} \]
+
+Normalizing these to make them conditional probabilities (not exceeding 1 and comparing proportionally):
+
+\[ P(H_{CS}|E) \approx \frac{0.4}{0.4 + 0.2} = \frac{0.4}{0.6} = \frac{2}{3} = 0.67 \]
+\[ P(H_{BA}|E) \approx \frac{0.2}{0.4 + 0.2} = \frac{0.2}{0.6} = \frac{1}{3} = 0.33 \]
+
+Thus, the rough posterior probabilities are:
+
+{
+  "computer science": 0.67,
+  "business administration": 0.33
+}
+
+These values indicate that based on the provided traits, Adam is more likely to be enrolled in computer science than business administration.

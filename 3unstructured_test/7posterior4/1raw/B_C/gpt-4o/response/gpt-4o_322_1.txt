@@ -1,0 +1,46 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' rule, we need to take into account the prior probability of each field and the likelihood of Adam's personality sketch given each field. The formula for Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we don't have specific numerical values for the prior probabilities or the likelihoods, we will make reasonable assumptions based on the given personality sketch. 
+
+Let's assume the following priors based on common graduate enrollments in the U.S.:
+
+- Prior probability for computer science, \( P(H_{cs}) \): 0.15
+- Prior probability for business administration, \( P(H_{ba}) \): 0.10
+
+Next, we qualitatively estimate \( P(E|H_{cs}) \) and \( P(E|H_{ba}) \). 
+
+Given Adam’s traits:
+- Genuine curiosity about nature and plants
+- Quiet and enjoys solving puzzles
+- Warm-hearted, empathetic, deep love for animals
+- High intelligence and understanding of abstract concepts
+- Appreciation for hard work and dedication
+
+These traits are more closely aligned with fields like biology, environmental science, or psychology rather than business administration. Computer science is somewhat related due to the problem-solving and abstract thinking aspects, but not as closely as the other mentioned fields.
+
+For likelihoods:
+- Likelihood of personality sketch \( E \) given computer science, \( P(E|H_{cs}) \): 0.2
+- Likelihood of personality sketch \( E \) given business administration, \( P(E|H_{ba}) \): 0.05
+
+Without the exact value of \( P(E) \) (the normalizing constant), we'll just use the multiplicative rule to estimate relative probabilities.
+
+Thus, for computer science:
+\[ P(H_{cs}|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.2 \cdot 0.15 = 0.03 \]
+
+For business administration:
+\[ P(H_{ba}|E) \propto P(E|H_{ba}) \cdot P(H_{ba}) = 0.05 \cdot 0.10 = 0.005 \]
+
+Finally, normalizing these probabilities gives:
+\[ P(H_{cs}|E) = \frac{0.03}{0.03 + 0.005} = \frac{0.03}{0.035} \approx 0.857 \]
+\[ P(H_{ba}|E) = \frac{0.005}{0.03 + 0.005} = \frac{0.005}{0.035} \approx 0.143 \]
+
+Therefore, the relative posterior probabilities are:
+
+```json
+{
+  "computer science": 0.857,
+  "business administration": 0.143
+}
+```

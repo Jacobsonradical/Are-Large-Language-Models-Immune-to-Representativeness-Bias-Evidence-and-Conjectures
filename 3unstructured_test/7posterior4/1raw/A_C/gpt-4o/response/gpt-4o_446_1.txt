@@ -1,0 +1,50 @@
+To apply Bayes' rule, we need to calculate the posterior conditional probability \( P(H|E) \) for each field given the personality sketch \( E \) of Adam. Bayes' rule is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of \( H \) given \( E \).
+- \( P(E|H) \) is the likelihood of \( E \) given \( H \).
+- \( P(H) \) is the prior probability of \( H \).
+- \( P(E) \) is the marginal likelihood of \( E \).
+
+Since \( P(E) \) is constant for all hypotheses (it is the same irrespective of whether Adam is in agricultural and veterinary science or computer science), we only need to compare the value of \( P(E|H) \cdot P(H) \) for each field.
+
+We will now make reasonable assumptions about these probabilities:
+
+1. **Prior Probability \( P(H) \)**: 
+    - Let's assume there is a moderate likelihood that Adam, as a graduate student in the U.S., is in either of these fields. We can adjust these values based on their overall popularity:
+      - \( P(\text{agricultural and veterinary science}) = 0.05 \)
+      - \( P(\text{computer science}) = 0.15 \)
+
+2. **Likelihood \( P(E|H) \)**: 
+    - Adam's personality traits align more closely with agricultural and veterinary science due to his love for nature, plants, and animals. Let's assign these conditional probabilities:
+      - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+      - \( P(E|\text{computer science}) = 0.2 \)
+
+Now we can calculate \( P(H|E) \) for each field:
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+
+Since \( P(E) \) is constant and just normalizes the results, we can simplify our comparisons using \( P(E|H) \cdot P(H) \) directly:
+
+\[
+P(\text{agricultural and veterinary science}|E) \propto 0.8 \cdot 0.05 = 0.04
+\]
+
+\[
+P(\text{computer science}|E) \propto 0.2 \cdot 0.15 = 0.03
+\]
+
+Based on these calculations:
+
+```json
+{
+  "agricultural and veterinary science": 0.04,
+  "computer science": 0.03
+}
+```
+
+These values indicate that based on Adam's personality sketch, it is more likely he was enrolled in agricultural and veterinary science rather than computer science as of 2021. Note that these values are not normalized; they provide relative likelihoods.

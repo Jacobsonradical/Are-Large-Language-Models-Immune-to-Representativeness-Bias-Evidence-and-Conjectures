@@ -1,0 +1,64 @@
+Bayes' theorem states that:
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H | E) \) is the posterior probability of the hypothesis \( H \) given the evidence \( E \).
+- \( P(E | H) \) is the likelihood of the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the marginal probability of the evidence.
+
+Given the personality sketch of Adam (evidence \( E \)), we are tasked with finding the posterior probabilities for the hypotheses that Adam was enrolled in "computer science" and "agricultural and veterinary science".
+
+### Assumptions:
+1. **Prior Probabilities \( P(H) \)**:
+   Without specific data, we can assume that prior probabilities might be somewhat evenly distributed among various fields, but typically, fields like computer science have higher enrollment rates compared to more specialized fields like agricultural and veterinary science.
+
+   Let's assume:
+   - \( P(H_{\text{CS}}) = 0.3 \) (higher due to popularity and high enrollment)
+   - \( P(H_{\text{AVS}}) = 0.1 \) (lower due to specificity and lower enrollment)
+
+2. **Likelihoods \( P(E | H) \)**:
+   - For **computer science**, understanding abstract concepts is a key indicator (\( P(E | H_{\text{CS}}) \)), but a warm heart, empathy, deep love for animals, and curiosity about nature are less indicative.
+     Let's assume \( P(E | H_{\text{CS}}) = 0.2 \).
+
+   - For **agricultural and veterinary science**, a curiosity about nature, love for animals, and empathy are highly indicative (\( P(E | H_{\text{AVS}}) \)).
+     Let's assume \( P(E | H_{\text{AVS}}) = 0.8 \).
+
+3. **Marginal Probability \( P(E) \)**:
+   - This is a normalizing factor. For simplicity, we can essentially treat it as a constant when comparing two hypotheses, especially when the probabilities of other hypotheses are ignored. However, we'll treat it equally for both fields for comparison purposes.
+
+Given these assumptions, we compute:
+
+### For Computer Science:
+\[ P(H_{\text{CS}} | E) = \frac{P(E | H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)}\]
+
+\[ P(H_{\text{CS}} | E) = \frac{0.2 \cdot 0.3}{P(E)} = \frac{0.06}{P(E)} \]
+
+### For Agricultural and Veterinary Science:
+\[ P(H_{\text{AVS}} | E) = \frac{P(E | H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+
+\[ P(H_{\text{AVS}} | E) = \frac{0.8 \cdot 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+Here is the result:
+
+{
+  "computer science": 0.06 / P(E),
+  "agricultural and veterinary science": 0.08 / P(E)
+}
+
+To ensure both results sum up to the probability of \( E \), we normalize:
+
+\[ \text{Total for normalization} = \frac{0.06}{P(E)} + \frac{0.08}{P(E)} = \frac{0.14}{P(E)} \]
+
+So:
+
+\[ P(H_{\text{CS}} | E) = \frac{0.06 / P(E)}{\text{Total for normalization}} = \frac{0.06}{0.14} = \approx 0.43 \]
+\[ P(H_{\text{AVS}} | E) = \frac{0.08 / P(E)}{\text{Total for normalization}} = \frac{0.08}{0.14} = \approx 0.57 \]
+
+The final answer would then be normalized as follows:
+
+{
+  "computer science": 0.43,
+  "agricultural and veterinary science": 0.57
+}

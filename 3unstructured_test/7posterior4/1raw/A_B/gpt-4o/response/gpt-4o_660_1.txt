@@ -1,0 +1,57 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider the prior probabilities of Adam being enrolled in each field, as well as the likelihood of the given personality sketch \( E \) under each hypothesis \( H \).
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of evidence \( E \).
+
+Let's make some reasonable assumptions based on the personality sketch \( E \) and typical field distributions:
+
+### Assigning Prior Probabilities
+- \( P(\text{agricultural and veterinary science}) \): This field is less common among all graduate fields. Let's assume a prior probability of 0.05.
+- \( P(\text{business administration}) \): This field is quite common among graduate studies. Let's assume a prior probability of 0.15.
+
+### Likelihoods
+The likelihoods \( P(E|H) \) are based on how well the details in the personality sketch match what is typically expected in each field.
+- For "agricultural and veterinary science", Adam's curiosity about nature, love for animals, and high empathy strongly match this field. So, assign a high likelihood, say 0.8.
+- For "business administration", although Adam's intelligence and understanding of abstract concepts would help, his love for nature and animals, and empathy do not strongly align with typical traits for this field. Assign a lower likelihood, say 0.1.
+
+### Marginal Likelihood
+Calculating the marginal likelihood \( P(E) \) is complex because it requires integrating over all possible hypotheses. For simplicity, we'll consider the normalization factor via relative probabilities since we are only comparing a limited set of fields.
+
+Given these assumptions, the posterior probabilities are computed as follows:
+
+For "agricultural and veterinary science":
+\[ P(\text{agricultural and veterinary science} | E) = \frac{P(E | \text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\[ = \frac{0.8 \cdot 0.05}{P(E)} \]
+
+For "business administration":
+\[ P(\text{business administration} | E) = \frac{P(E | \text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ = \frac{0.1 \cdot 0.15}{P(E)} \]
+
+To determine \( P(E) \), we sum the numerators of all considered hypotheses:
+\[ P(E) = 0.8 \cdot 0.05 + 0.1 \cdot 0.15 \]
+\[ = 0.04 + 0.015 \]
+\[ = 0.055 \]
+
+Now, calculate \( P(H|E) \) for each field:
+
+For "agricultural and veterinary science":
+\[ P(\text{agricultural and veterinary science} | E) = \frac{0.04}{0.055} \approx 0.727 \]
+
+For "business administration":
+\[ P(\text{business administration} | E) = \frac{0.015}{0.055} \approx 0.273 \]
+
+So the posterior probabilities are:
+
+{
+  "agricultural and veterinary science": "0.727",
+  "business administration": "0.273"
+}
+
+Note that these values are subject to the assumptions made about the prior probabilities and likelihoods.

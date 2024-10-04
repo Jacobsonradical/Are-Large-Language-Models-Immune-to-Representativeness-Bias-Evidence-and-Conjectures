@@ -1,0 +1,61 @@
+To compute the posterior probabilities \( P(H|E) \) for Adam being enrolled in either business administration or computer science based on his personality sketch, we need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of Adam being enrolled in that specific field given his personality sketch.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam is enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the evidence, which is the total probability of observing the personality sketch.
+
+Since we do not have specific numerical priors and likelihoods, we'll need to make reasoned assumptions based on the information provided in the personality sketch.
+
+1. **Business Administration**:
+   - The personality sketch indicates a love for nature, animals, solving puzzles, empathy, and intelligence. These traits seem less directly related to business administration.
+   - It is less typical for a business administration student to have a strong focus on nature and animals.
+
+2. **Computer Science**:
+   - The traits of enjoying solving puzzles, high intelligence, and understanding abstract concepts align more closely with the typical personality of a computer science student.
+   - Empathy and love for nature and animals are not commonly highlighted traits for computer science but do not strictly oppose it.
+
+Based on these qualitative evaluations, we can make the following inferences:
+
+- \( P(E|H_{business}) \) is likely lower because the personality sketch is less typical for business administration.
+- \( P(E|H_{comp\_sci}) \) is likely higher because the personality traits partially align with computer science students.
+
+Let's assume:
+\[ P(E|H_{business}) = 0.1 \]
+\[ P(E|H_{comp\_sci}) = 0.4 \]
+
+Without specific information on \( P(H) \), let's assume a neutral prior probability distribution for simplicity:
+\[ P(H_{business}) \approx P(H_{comp\_sci}) \approx 0.5 \]
+
+Now, we compute the relative posterior probabilities.
+
+\[ P(H_{business}|E) = \frac{P(E|H_{business}) \cdot P(H_{business})}{P(E)} \]
+\[ P(H_{comp\_sci}|E) = \frac{P(E|H_{comp\_sci}) \cdot P(H_{comp\_sci})}{P(E)} \]
+
+While we don't have a value for \( P(E) \), we are only interested in the relative probabilities. Thus:
+\[
+P(H_{business}|E) \propto P(E|H_{business}) \cdot P(H_{business}) = 0.1 \cdot 0.5 = 0.05
+\]
+\[
+P(H_{comp\_sci}|E) \propto P(E|H_{comp\_sci}) \cdot P(H_{comp\_sci}) = 0.4 \cdot 0.5 = 0.2
+\]
+
+Normalizing these relative values, we get:
+\[
+P(H_{business}|E) = \frac{0.05}{0.05 + 0.2} = \frac{0.05}{0.25} = 0.2
+\]
+\[
+P(H_{comp\_sci}|E) = \frac{0.2}{0.05 + 0.2} = \frac{0.2}{0.25} = 0.8
+\]
+
+Therefore, our qualitative Bayesian inference yields:
+
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

@@ -1,0 +1,39 @@
+Bayes' Rule allows us to calculate the posterior probability \( P(H|E) \) by considering both the prior probability \( P(H) \) and the likelihood \( P(E|H) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To calculate posterior probabilities for Adam being in computer science (H\_cs) or business administration (H\_ba):
+
+1. **Prior Probability \( P(H) \):**
+   This is the initial probability for each hypothesis before considering personality traits. Let's assume general prior probabilities for the sake of computation, drawing from typical enrollment distribution in a U.S. graduate program:
+   - \( P(H\_cs) \approx 0.2 \) (20%)
+   - \( P(H\_ba) \approx 0.15 \) (15%)
+
+2. **Likelihood \( P(E|H) \):**
+   The likelihood that a student in each field has Adam's personality traits. Based on his love for nature, animals, abstract thinking, and empathy:
+   - For computer science: People in computer science have a varied range of personalities, but high intelligence and problem-solving skills are quite common. However, a deep love of nature, animals, and strong empathy might be less typical.
+     - Estimate \( P(E|H\_cs) \approx 0.2 \)
+   - For business administration: This field might emphasize leadership, strategic thinking, and interpersonal skills. Empathy and appreciation for hard work fit well, but a strong love for nature and animals might be less common.
+     - Estimate \( P(E|H\_ba) \approx 0.1 \)
+
+3. **Total Evidence \( P(E) \):**
+   The overall probability of observing Adam's personality traits regardless of the field. This is typically computed by summing over all possible fields, but for simplicity, let's assume \( P(E) \) is normalized to 1.
+
+Plugging values into Bayes' Rule:
+
+- For computer science:
+\[ P(H\_cs|E) = \frac{P(E|H\_cs) \cdot P(H\_cs)}{P(E)} = \frac{0.2 \cdot 0.2}{1} = 0.04 \]
+
+- For business administration:
+\[ P(H\_ba|E) = \frac{P(E|H\_ba) \cdot P(H\_ba)}{P(E)} = \frac{0.1 \cdot 0.15}{1} = 0.015 \]
+
+Given this, we can derive the conditional posterior probabilities:
+
+```json
+{
+  "computer science": 0.04,
+  "business administration": 0.015
+}
+```
+
+These are simplified estimates, and actual probabilities might differ with more detailed information.

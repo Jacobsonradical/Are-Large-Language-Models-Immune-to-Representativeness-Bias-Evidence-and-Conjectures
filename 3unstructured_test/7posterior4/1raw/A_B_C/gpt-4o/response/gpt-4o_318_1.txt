@@ -1,0 +1,62 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we first need to outline Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of a hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the probability of the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the probability of the evidence \( E \).
+
+We are given the evidence \( E \), which is the personality sketch of Adam. The fields are our hypotheses \( H \). To proceed, we need to make reasonable estimations for \( P(E|H) \), \( P(H) \), and \( P(E) \):
+
+### 1. Agricultural and Veterinary Science
+Adam's curiosity about nature and plants, love for animals, and empathy strongly suggest that he might be drawn to this field.
+- \( P(E|H_{\text{agricultural}}) \): High, let's say 0.8
+- \( P(H_{\text{agricultural}}) \): This field is not exceedingly common, let's assume the prior is moderate, say 0.1
+
+### 2. Business Administration
+Adam's skills like high intelligence and appreciation for hard work do align, but his curiosity about nature and love for animals don't strongly correlate with this field.
+- \( P(E|H_{\text{business}}) \): Low, let's say 0.1
+- \( P(H_{\text{business}}) \): Moderate prior, say 0.3
+
+### 3. Computer Science
+Adam's high intelligence and good understanding of abstract concepts align well, but his other characteristics like love for nature, empathy, and animals don't strongly align.
+- \( P(E|H_{\text{computer}}) \): Intermediate, let's say 0.4
+- \( P(H_{\text{computer}}) \): High prior since the field is very popular, say 0.4
+
+### Computing the Posteriors
+While we might not know \( P(E) \) precisely, we focus on the relative likelihoods:
+
+\[ P(H_{\text{agricultural}}|E) \approx \frac{0.8 \cdot 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+\[ P(H_{\text{business}}|E) \approx \frac{0.1 \cdot 0.3}{P(E)} = \frac{0.03}{P(E)} \]
+
+\[ P(H_{\text{computer}}|E) \approx \frac{0.4 \cdot 0.4}{P(E)} = \frac{0.16}{P(E)} \]
+
+Taking ratios:
+
+\[ P(H_{\text{agricultural}}|E) : P(H_{\text{business}}|E) : P(H_{\text{computer}}|E) = 0.08 : 0.03 : 0.16 \]
+
+Normalizing to get values between 0 and 1:
+
+- Sum of the ratios = \( 0.08 + 0.03 + 0.16 = 0.27 \)
+- Normalization factor for each:
+
+\[ P(H_{\text{agricultural}}|E) = \frac{0.08}{0.27} \approx 0.296 \]
+
+\[ P(H_{\text{business}}|E) = \frac{0.03}{0.27} \approx 0.111 \]
+
+\[ P(H_{\text{computer}}|E) = \frac{0.16}{0.27} \approx 0.593 \]
+
+Here are the results:
+
+```json
+{
+  "agricultural and veterinary science": 0.296,
+  "business administration": 0.111,
+  "computer science": 0.593
+}
+```
+
+These probabilities indicate that, based on the given personality sketch, Adam is most likely enrolled in Computer Science, followed by Agricultural and Veterinary Science, and least likely in Business Administration.

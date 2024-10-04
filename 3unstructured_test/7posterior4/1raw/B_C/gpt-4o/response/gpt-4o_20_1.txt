@@ -1,0 +1,41 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to have a prior understanding of the probabilities \( P(H) \) for each hypothesis (which in this context would ideally come from statistical data about the proportions of graduate students in each field). However, since we do not have explicit prior probabilities, I will assume them to be equally likely for the sake of this computation. This is a limitation and should be taken into account when interpreting the results.
+
+We also need to assess the likelihoods \( P(E|H) \) which describe how likely it is to observe the evidence \( E \) given the hypothesis \( H \).
+
+Given Adam's personality sketch, we can reasonably infer the following likelihoods:
+
+1. **Business Administration**: Given Adam's traits (curiosity about nature, love for animals, empathy, high intelligence, and appreciation for hard work), the likelihood he chose business administration might be relatively low compared to other fields because this sketch aligns better with fields involving nature, animals, or abstract problem solving.
+   
+2. **Computer Science**: Considering his high intelligence, strong aptitude for abstract concepts, and enjoyment in solving puzzles, it's plausible to assume a higher likelihood that he is in computer science.
+
+Now, let's assume equal priors \( P(H) = 0.5 \) for both fields, even though this is an oversimplification. Bayes' Rule can be simplified to consider the relative likelihoods \( P(E|H) \).
+
+### Likelihoods:
+- \( P(E|H_{\text{business}}) \):
+  - Adam's traits seem less aligned with business administration. Let's assign it a low value, say \( 0.1 \).
+
+- \( P(E|H_{\text{cs}}) \):
+  - Adam's traits fit very well with computer science. Let's assign it a higher value, say \( 0.7 \).
+
+Now, with equal priors \( P(H_{\text{business}}) = P(H_{\text{cs}}) = 0.5 \):
+
+\[ P(H_{\text{business}}|E) \propto P(E|H_{\text{business}})P(H_{\text{business}}) \]
+\[ = 0.1 \times 0.5 = 0.05 \]
+
+\[ P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}})P(H_{\text{cs}}) \]
+\[ = 0.7 \times 0.5 = 0.35 \]
+
+### Normalization:
+To ensure probabilities sum correctly (even though we are comparing just two hypotheses), we normalize:
+
+\[ P(H_{\text{business}}|E) = \frac{0.05}{0.05 + 0.35} = \frac{0.05}{0.4} = 0.125 \]
+\[ P(H_{\text{cs}}|E) = \frac{0.35}{0.05 + 0.35} = \frac{0.35}{0.4} = 0.875 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.125,
+  "computer science": 0.875
+}
+```

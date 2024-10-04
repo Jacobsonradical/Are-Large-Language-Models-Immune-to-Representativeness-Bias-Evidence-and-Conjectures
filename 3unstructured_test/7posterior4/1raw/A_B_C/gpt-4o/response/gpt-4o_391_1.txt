@@ -1,0 +1,61 @@
+To calculate the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+1. Define the prior probability \( P(H) \) for each field: this reflects how probable it is for a graduate student to be enrolled in that field without considering specific information about Adam.
+2. Define the likelihood \( P(E|H) \), which is the probability of observing Adam's personality sketch given he is in a particular field.
+3. Use Bayes' rule: \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \). Since \( P(E) \) is a normalizing constant, we can omit it and just compare the relative scores.
+
+Given the information available, we will make reasonable assumptions about the likelihoods based on the sketch provided:
+
+- Prior probabilities \( P(H) \): These can be informed by general knowledge about graduate enrollment across different fields but are assumed here based on trends.
+- \( P(E|H) \): Estimated based on how well the personality sketch matches the typical characteristics and interests associated with each field.
+
+Assumptions:
+- \( P(H_{\text{agricultural and veterinary science}}) = 0.10 \)
+- \( P(H_{\text{computer science}}) = 0.30 \)
+- \( P(H_{\text{business administration}}) = 0.15 \)
+  
+Given Adam's interests and attributes:
+- Likelihood for Agricultural and Veterinary Science, \( P(E|H_{\text{agricultural and veterinary science}}) \) is high considering his empathy, love for animals, and nature. Let's assume 0.8.
+- Likelihood for Computer Science, \( P(E|H_{\text{computer science}}) \) corresponds to his love for puzzles and high intelligence. However, it is neutral to his empathy and love for nature. So, let's assume 0.3.
+- Likelihood for Business Administration, \( P(E|H_{\text{business administration}}) \) is low, as there is little direct match with his personality traits. Let's assume 0.1.
+
+Using these estimated likelihoods and priors, we will calculate:
+
+\[
+P(H|E) \propto P(E|H)P(H)
+\]
+
+\[
+P(H_{\text{agricultural and veterinary science}}|E) \propto 0.8 \times 0.10 = 0.08
+\]
+\[
+P(H_{\text{computer science}}|E) \propto 0.3 \times 0.30 = 0.09
+\]
+\[
+P(H_{\text{business administration}}|E) \propto 0.1 \times 0.15 = 0.015
+\]
+
+Normalizing these (dividing each by the sum of the proportional values):
+
+\[
+\text{Sum of proportional values} = 0.08 + 0.09 + 0.015 = 0.185
+\]
+
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.08}{0.185} \approx 0.432
+\]
+\[
+P(H_{\text{computer science}}|E) = \frac{0.09}{0.185} \approx 0.486
+\]
+\[
+P(H_{\text{business administration}}|E) = \frac{0.015}{0.185} \approx 0.081
+\]
+
+So the posterior probabilities are approximately:
+
+```json
+{
+  "agricultural and veterinary science": 0.432,
+  "computer science": 0.486,
+  "business administration": 0.081
+}
+```

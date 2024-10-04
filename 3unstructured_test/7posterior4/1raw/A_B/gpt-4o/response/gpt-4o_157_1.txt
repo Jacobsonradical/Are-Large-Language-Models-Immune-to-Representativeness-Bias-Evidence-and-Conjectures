@@ -1,0 +1,55 @@
+To apply Bayes' Theorem and compute the posterior conditional probabilities \( P(H|E) \) for the specified fields, we should use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis H given evidence E.
+- \( P(E|H) \) is the likelihood of evidence E given hypothesis H.
+- \( P(H) \) is the prior probability of hypothesis H.
+- \( P(E) \) is the probability of evidence E.
+
+Given the subjective nature of the evidence provided (personality sketch), we need to make reasonable assumptions about the likelihoods.
+
+Let's first make some qualitative assessments:
+1. **Business Administration**: The personality traits such as genuine curiosity about nature, love for animals, and appreciation for hard work don’t strongly align with typical characteristics associated with Business Administration students.
+   
+2. **Agricultural and Veterinary Science**: The traits such as genuine curiosity about nature, love for animals, and empathy strongly align with the characteristics of students in Agricultural and Veterinary Science.
+
+Assumptions for the likelihoods and priors:
+
+1. \( P(H_{\text{business admin}}) \): Prior probability that any given graduate student is in Business Administration.
+2. \( P(H_{\text{agri-vet science}}) \): Prior probability that any given graduate student is in Agricultural and Veterinary Science.
+3. \( P(E|H_{\text{business admin}}) \): Likelihood that a Business Administration student shows the personality traits described.
+4. \( P(E|H_{\text{agri-vet science}}) \): Likelihood that an Agricultural and Veterinary Science student shows the personality traits described.
+5. \( P(E) \): Marginal likelihood of observing the evidence for any graduate student.
+
+Without precise numerical data, we estimate likelihoods qualitatively:
+
+- \( P(E|H_{\text{business admin}}) \approx 0.1 \) 
+- \( P(E|H_{\text{agri-vet science}}) \approx 0.7 \) 
+- Assume equal priors for simplicity since exact values are unknown: \( P(H_{\text{business admin}}) \approx 0.5 \) and \( P(H_{\text{agri-vet science}}) \approx 0.5 \)
+- \( P(E) \) will normalize the probabilities but isn't needed for relative comparison.
+
+Now let's compute the unnormalized posteriors:
+
+\[ P(H_{\text{business admin}}|E) \propto P(E|H_{\text{business admin}}) \cdot P(H_{\text{business admin}}) \]
+\[ P(H_{\text{agri-vet science}}|E) \propto P(E|H_{\text{agri-vet science}}) \cdot P(H_{\text{agri-vet science}}) \]
+
+Substituting the qualitative values:
+
+\[ P(H_{\text{business admin}}|E) \propto 0.1 \cdot 0.5 = 0.05 \]
+\[ P(H_{\text{agri-vet science}}|E) \propto 0.7 \cdot 0.5 = 0.35 \]
+
+Normalizing these values for relative comparison:
+
+\[ P(H_{\text{business admin}}|E) = \frac{0.05}{0.05 + 0.35} = \frac{0.05}{0.40} = 0.125 \]
+\[ P(H_{\text{agri-vet science}}|E) = \frac{0.35}{0.05 + 0.35} = \frac{0.35}{0.40} = 0.875 \]
+
+Therefore, the posterior probabilities are approximately:
+
+```json
+{
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.875
+}
+```

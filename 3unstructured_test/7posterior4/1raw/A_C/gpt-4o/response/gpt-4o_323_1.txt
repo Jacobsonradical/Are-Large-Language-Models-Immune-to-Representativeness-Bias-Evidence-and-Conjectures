@@ -1,0 +1,74 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+
+1. **Identify the terms needed for Bayes' rule**:
+   Bayes' rule states:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+
+   Where:
+   - \( P(H|E) \) is the posterior probability that Adam was enrolled in a certain field given his personality sketch.
+   - \( P(E|H) \) is the likelihood of Adam having that personality sketch given that he was enrolled in that field.
+   - \( P(H) \) is the prior probability that Adam was enrolled in that field.
+   - \( P(E) \) is the marginal likelihood of Adam having that personality sketch (a normalizing constant).
+
+2. **Assumptions for \( P(H) \)**:
+   Since specific data on the overall distribution of graduate students in these fields are not provided, we'll make a reasonable assumption based on general knowledge. Suppose there is a distribution of graduate fields among students in the U.S.:
+   - Probability \( P(H_{\text{agricultural and veterinary science}}) = 0.05 \) (assuming 5% of graduate students are in this field)
+   - Probability \( P(H_{\text{computer science}}) = 0.15 \) (assuming 15% of graduate students are in this field, considering the popularity of this field)
+
+3. **Estimating \( P(E|H) \) for each field**:
+   - \( H : \text{agricultural and veterinary science} \), given Adam's love for nature and animals, along with empathy and appreciation for hard work:
+     - \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.9 \)
+
+   - \( H : \text{computer science} \), given Adam's high intelligence, ability to understand abstract concepts, and affinity for solving puzzles:
+     - \( P(E|H_{\text{computer science}}) \approx 0.6 \)
+
+4. **Estimating \( P(E) \)**:
+   Since \( P(E) \) is the same for both fields and acts as a normalizing constant, we can neglect it in a relative comparison for each field.
+
+5. **Calculate \( P(H|E) \)**:
+   Using the assumed values:
+   \[
+   P(H|E) \propto P(E|H) \cdot P(H)
+   \]
+
+   For agricultural and veterinary science:
+   \[
+   P(H_{\text{agricultural and veterinary science}}|E) \propto 0.9 \times 0.05 = 0.045
+   \]
+
+   For computer science:
+   \[
+   P(H_{\text{computer science}}|E) \propto 0.6 \times 0.15 = 0.09
+   \]
+   
+   Normalize these values by dividing by their sum to get relative probabilities (although this exact normalization isn't necessary for this simple comparison):
+
+   Normalizing factor:
+   \[
+   0.045 + 0.09 = 0.135
+   \]
+
+   Normalized probabilities:
+
+   Agricultutal and veterinary science:
+   \[
+   P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.045}{0.135} \approx 0.333
+   \]
+
+   Computer science:
+   \[
+   P(H_{\text{computer science}}|E) = \frac{0.09}{0.135} \approx 0.667
+   \]
+
+However, in the specified format, it is satisfactory to give the initial unnormalized probabilities.
+
+```json
+{
+  "agricultural and veterinary science": 0.045,
+  "computer science": 0.09
+}
+```
+
+This reflects the relative likelihoods without needing to fully normalize them, knowing these don't sum to 1 because there are other fields not considered here.

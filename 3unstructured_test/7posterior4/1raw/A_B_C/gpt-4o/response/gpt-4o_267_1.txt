@@ -1,0 +1,75 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to consider the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of \( H \).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+Given the information in the personality sketch, let’s estimate each conditional probability. These are estimates based on intuition rather than empirical data, but they should provide a rationale for the problem.
+
+1. **Computer Science**:
+   - \( P(E|H) \): Adam's characteristics such as high intelligence, good understanding of abstract concepts, and enjoying puzzles are somewhat indicative of a computer science student. However, his deep love for nature and animals might not align as closely with typical computer science interests.
+     - Let's assign a moderate-to-low likelihood: \( 0.2 \).
+
+   - \( P(H) \): Computer science is a popular field among graduate students.
+     - Let's assign a moderate prior: \( 0.3 \).
+
+   - \( P(E) \): The overall evidence concerning Adam is consistent with students across various fields.
+     - Since this is common and P(E) would be structured similarly across calculations, we’ll leave this as summarily addressed.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(E|H) \): Adam's curiosity about nature, empathy, and love for animals are highly indicative of someone in this field.
+     - Let's assign a high likelihood: \( 0.7 \).
+
+   - \( P(H) \): Agricultural and veterinary science might not be as common as computer science but has a clearly defined subgroup.
+     - Let's assign it a moderate prior: \( 0.1 \).
+
+   - \( P(E) \): Consistent with general considerations like before.
+
+3. **Business Administration**:
+   - \( P(E|H) \): Adam’s characteristics do not strongly indicate an affinity for business administration, which often values different traits (e.g., leadership, communication skills, business acumen) though a broad range of personalities is possible.
+     - Let's assign a low likelihood: \( 0.05 \).
+
+   - \( P(H) \): Business administration is also a popular graduate field.
+     - Let's assign a moderate prior: \( 0.3 \).
+
+   - \( P(E) \): Consistent with above fields.
+
+Given these estimates and normalizing them relatively to each other:
+
+\[
+P(E) \approx (0.2 \times 0.3) + (0.7 \times 0.1) + (0.05 \times 0.3)
+\]
+
+\[
+P(E) = 0.06 + 0.07 + 0.015 = 0.145
+\]
+
+Now, calculating specific posterior probabilities:
+1. **Computer Science**:
+   \[
+   P(\text{CS}|E) = \frac{0.2 \times 0.3}{0.145} = \frac{0.06}{0.145} \approx 0.414
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   \[
+   P(\text{Agri}|E) = \frac{0.7 \times 0.1}{0.145} = \frac{0.07}{0.145} \approx 0.483
+   \]
+
+3. **Business Administration**:
+   \[
+   P(\text{BA}|E) = \frac{0.05 \times 0.3}{0.145} = \frac{0.015}{0.145} \approx 0.103
+   \]
+
+After computations, our results are:
+
+```json
+{
+  "computer science": 0.414,
+  "agricultural and veterinary science": 0.483,
+  "business administration": 0.103
+}
+```

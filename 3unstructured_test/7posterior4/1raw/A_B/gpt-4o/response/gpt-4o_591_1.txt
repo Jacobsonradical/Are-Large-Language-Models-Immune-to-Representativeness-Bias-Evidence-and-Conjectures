@@ -1,0 +1,44 @@
+To compute the posterior probabilities \( P(H|E) \) for the fields of study given Adam's personality sketch \( E \) using Bayes' rule, we need the following information:
+1. Prior probabilities for each hypothesis \( P(H) \).
+2. Likelihood \( P(E|H) \) for each hypothesis.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is constant for all hypotheses, we can compare the unnormalized \( P(E|H) \cdot P(H) \) values.
+
+Let's denote \( P(H_1) \) as the prior probability that Adam was enrolled in business administration and  \( P(H_2) \) as the prior probability that Adam was enrolled in agricultural and veterinary science. Let's also denote \( P(E|H_1) \) and \( P(E|H_2) \) as the likelihoods of Adam's personality given his field of study.
+
+1. **Business administration:**
+    - Prior probability \( P(H_1) \): This is generally the likelihood of a student being in business administration. Let's assume \( P(H_1) \approx 0.3 \).
+    - Likelihood \( P(E|H_1) \): Given Adam's strong traits towards nature, animals, and empathy, etc., the likelihood is low because these traits are not very common in business administration. Let's assume \( P(E|H_1) \approx 0.05 \).
+
+2. **Agricultural and veterinary science:**
+    - Prior probability \( P(H_2) \): This is generally the likelihood of a student being in agricultural and veterinary science. Let's assume \( P(H_2) \approx 0.15 \).
+    - Likelihood \( P(E|H_2) \): Given Adam's interest in nature, plants, animals, and empathy, etc., the likelihood is high because these traits align well with this field. Let's assume \( P(E|H_2) \approx 0.8 \).
+
+Now we compute the unnormalized posterior probabilities:
+
+For **business administration**:
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) = 0.05 \cdot 0.3 = 0.015 \]
+
+For **agricultural and veterinary science**:
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) = 0.8 \cdot 0.15 = 0.12 \]
+
+To give a value between 0 and 1, we can normalize these values by computing the sum of the unnormalized probabilities:
+
+Total sum for normalization:
+\[ 0.015 + 0.12 = 0.135 \]
+
+Normalized probabilities:
+\[ P(H_1|E) = \frac{0.015}{0.135} \approx 0.111 \]
+\[ P(H_2|E) = \frac{0.12}{0.135} \approx 0.889 \]
+
+Thus, the posterior probabilities are:
+```json
+{
+  "business administration": 0.111,
+  "agricultural and veterinary science": 0.889
+}
+```

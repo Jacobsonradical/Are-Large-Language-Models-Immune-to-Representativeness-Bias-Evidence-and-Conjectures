@@ -1,0 +1,82 @@
+To compute the posterior conditional probability \( P(H|E) \) for each hypothesis, we can apply Bayes' rule, which states:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+For our purposes, we can make some educated assumptions about the likelihood of Adam's personality traits given his field of study and assume some prior probabilities. However, it's important to note that without specific data, these estimates are based on reasonable assumptions rather than precise calculations.
+
+### Assumptions:
+1. **Prior Probabilities (\(P(H)\))**:
+   - Graduate students in computer science (\(H_{CS}\)): About 20% of graduate students.
+   - Graduate students in agricultural and veterinary science (\(H_{AV}\)): About 5% of graduate students.
+   - Graduate students in business administration (\(H_{BA}\)): About 10% of graduate students.
+
+2. **Likelihood of Observing Personality Traits Given the Field (\(P(E|H)\))**:
+   - Computer Science: Moderate for curiosity and intelligence but lower for empathy and love for animals.
+   - Agricultural and Veterinary Science: High for curiosity about nature, love for animals, empathy, and understanding hard work.
+   - Business Administration: Moderate for intelligence and understanding abstract concepts, lower for curiosity about nature and love for animals.
+
+### Calculations:
+- **Computer Science**:
+  - \(P(E|H_{CS})\): 0.3 (moderate match)
+  - \(P(H_{CS})\): 0.2
+  - \(P(H|E)\) estimate:
+    \[
+    P(H_{CS}|E) = \frac{0.3 \times 0.2}{P(E)}
+    \]
+  - Normalize considering \(P(E)\) as the same across fields for relative comparison.
+
+- **Agricultural and Veterinary Science**:
+  - \(P(E|H_{AV})\): 0.7 (strong match)
+  - \(P(H_{AV})\): 0.05
+  - \(P(H|E)\) estimate:
+    \[
+    P(H_{AV}|E) = \frac{0.7 \times 0.05}{P(E)}
+    \]
+
+- **Business Administration**:
+  - \(P(E|H_{BA})\): 0.2 (moderate match)
+  - \(P(H_{BA})\): 0.1
+  - \(P(H|E)\) estimate:
+    \[
+    P(H_{BA}|E) = \frac{0.2 \times 0.1}{P(E)}
+    \]
+
+### Estimates:
+Given \( P(E) \) is a constant for comparison, we only need the numerators for relative probabilities:
+
+\[
+P(H_{CS}|E) \approx 0.3 \times 0.2 = 0.06
+\]
+\[
+P(H_{AV}|E) \approx 0.7 \times 0.05 = 0.035
+\]
+\[
+P(H_{BA}|E) \approx 0.2 \times 0.1 = 0.02
+\]
+
+Normalize by total for relative comparison:
+\[
+\text{Sum of estimates} = 0.06 + 0.035 + 0.02 = 0.115
+\]
+\[
+P(H_{CS}|E) \approx \frac{0.06}{0.115} = 0.5217
+\]
+\[
+P(H_{AV}|E) \approx \frac{0.035}{0.115} = 0.3043
+\]
+\[
+P(H_{BA}|E) \approx \frac{0.02}{0.115} = 0.1739
+\]
+
+### Final Values:
+```json
+{
+  "computer science": 0.5217,
+  "agricultural and veterinary science": 0.3043,
+  "business administration": 0.1739
+}
+``` 
+
+These probabilities are approximate and based on educated assumptions.

@@ -1,0 +1,42 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we first need to outline Bayes' rule explicitly:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the probability of the evidence \( E \).
+
+Given the personality sketch E, we have to qualitatively assess the likelihoods and priors, since we do not have specific numerical data:
+
+1. **Computer Science**:
+   - **Prior \( P(H_{CS}) \)**: This should reflect the general likelihood of a graduate student being in computer science. Given the current trend, let's assume this field is quite popular and give it a moderate prior. Let’s assign a value of 0.15.
+   
+   - **Likelihood \( P(E|H_{CS}) \)**: Consider the traits. While high intelligence and problem-solving might suggest computer science, the strong empathy and love for animals are less typical for this field. Therefore, let's give this a lower likelihood, say 0.2.
+
+2. **Agricultural and Veterinary Science**:
+   - **Prior \( P(H_{AV}) \)**: This should reflect the general likelihood of a graduate student being in agricultural and veterinary science. We can consider this less common than computer science but still significant. Let's assign a value of 0.05.
+   
+   - **Likelihood \( P(E|H_{AV}) \)**: Given Adam's traits such as a genuine curiosity about nature, love for animals, and empathy, this field seems a high likely fit. Hence, we can assign this a high value, say 0.8.
+
+Since \( P(E) \) is the same for both hypotheses and will cancel out when comparing them, we only need to consider \( P(E|H) \cdot P(H) \) for each:
+
+- For **Computer Science**:
+  \[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.2 \cdot 0.15 = 0.03 \]
+
+- For **Agricultural and Veterinary Science**:
+  \[ P(H_{AV}|E) \propto P(E|H_{AV}) \cdot P(H_{AV}) = 0.8 \cdot 0.05 = 0.04 \]
+
+Now, normalizing these values by their sum to make them comparable:
+
+\[ P(H_{CS}|E) = \frac{0.03}{0.03 + 0.04} = \frac{0.03}{0.07} \approx 0.43 \]
+
+\[ P(H_{AV}|E) = \frac{0.04}{0.03 + 0.04} = \frac{0.04}{0.07} \approx 0.57 \]
+
+Hence, here are the probabilities:
+
+{
+  "computer science": 0.43,
+  "agricultural and veterinary science": 0.57
+}

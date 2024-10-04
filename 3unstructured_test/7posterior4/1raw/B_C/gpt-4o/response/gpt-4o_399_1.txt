@@ -1,0 +1,65 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to know more than just the personality sketch of Adam. Specifically, we would need:
+
+1. Prior probabilities \( P(H) \) for each hypothesis (before considering the personality sketch).
+2. Likelihood \( P(E|H) \), the probability of the evidence given the hypothesis.
+3. Evidence \( P(E) \), the overall probability of the evidence.
+
+Let's denote:
+- \( H_{CS} \) as the hypothesis that Adam was enrolled in computer science.
+- \( H_{BA} \) as the hypothesis that Adam was enrolled in business administration.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we do not have the actual probabilities, we need to rely on reasonable assumptions based on the given personality sketch and general knowledge.
+
+### Assumptions
+
+1. **Prior Probability \( P(H) \)**
+   - We assume that graduate students are evenly distributed among different fields, although in practice, some fields might have higher or lower enrollment. For simplicity, let's assume:
+     - \( P(H_{CS}) \approx 0.2 \) (Computer science is a popular field among graduate students)
+     - \( P(H_{BA}) \approx 0.15 \) (Business administration is also common but slightly less so)
+
+2. **Likelihood \( P(E|H) \)**
+   - Based on Adam's personality:
+     - He has a genuine curiosity about nature and its various plants, which might be less relevant to both computer science and business administration but suggests a potential interest in scientific disciplines.
+     - He enjoys solving puzzles, a trait strongly associated with computer science.
+     - His empathy, warm heart, and love for animals might suggest fields like biology or veterinary science more strongly than business administration.
+     - High intelligence and understanding abstract concepts also align well with computer science.
+
+     Let's assume these distributions:
+     - \( P(E|H_{CS}) \approx 0.4 \) (Given his puzzle-solving skills and intelligence, stronger fit with computer science)
+     - \( P(E|H_{BA}) \approx 0.1 \) (Given his traits are less related to business skills)
+
+3. **Evidence \( P(E) \)**
+   - This is the total probability of the evidence and can be computed by considering all possible fields, but for simplicity, we'll assume it normalizes the probabilities.
+
+### Approximate Posterior Probabilities
+
+Using Bayes' rule:
+\[ P(H_{CS}|E) \approx \frac{0.4 \cdot 0.2}{P(E)} \]
+\[ P(H_{BA}|E) \approx \frac{0.1 \cdot 0.15}{P(E)} \]
+
+Since \( P(E) \) is the same in both cases, it cancels out in the comparison:
+
+\[ P(H_{CS}|E) \approx \frac{0.08}{P(E)} \]
+\[ P(H_{BA}|E) \approx \frac{0.015}{P(E)} \]
+
+To normalize:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{\sum P(E|H_i) \cdot P(H_i)} \]
+
+Let's normalize the values:
+Total = \( 0.08 + 0.015 = 0.095 \)
+
+\[ P(H_{CS}|E) \approx \frac{0.08}{0.095} \approx 0.842 \]
+\[ P(H_{BA}|E) \approx \frac{0.015}{0.095} \approx 0.158 \]
+
+So, approximately:
+```json
+{
+  "computer science": 0.842,
+  "business administration": 0.158
+}
+```
+
+These values indicate that based on Adam's personality sketch, he is more likely to be enrolled in computer science than in business administration.

@@ -1,0 +1,51 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we use the formula:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For simplicity, we need to make some reasonable assumptions about the prior probabilities \( P(H) \) and the likelihoods \( P(E|H) \) based on the provided personality sketch.
+
+- Let’s assume \( P(E) \) is the same for both fields to simplify the calculations (it will cancel out in the ratio).
+- \( P(H_{CS}) \) is the prior probability of Adam being a computer science student.
+- \( P(H_{Ag}) \) is the prior probability of Adam being an agricultural and veterinary science student.
+
+Given that Adam has a genuine curiosity about nature, plants, and animals, and possesses a strong empathy and love for animals, it is more likely that the personality traits align better with agricultural and veterinary science than computer science.
+
+### Assumptions:
+- We assume \( P(H_{CS}) \) to be 1/6, since there are many graduate fields, and computer science is just one of them.
+- We assume \( P(H_{Ag}) \) also to be 1/6 for simplicity.
+- We assume the likelihoods, \( P(E|H_{CS}) = 0.1 \) given that curiosity about nature and animals is not that common in computer science.
+- We assume \( P(E|H_{Ag}) = 0.8 \) given that these traits are more common and relevant in agricultural and veterinary science.
+
+### Calculations:
+\[
+P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.1 \cdot \frac{1}{6}}{P(E)}
+\]
+\[
+P(H_{Ag}|E) = \frac{P(E|H_{Ag}) \cdot P(H_{Ag})}{P(E)} = \frac{0.8 \cdot \frac{1}{6}}{P(E)}
+\]
+
+Since \( P(E) \) is the same in each case, we can compare the likelihoods directly to get the relative probabilities:
+
+\[
+\frac{P(H_{Ag}|E)}{P(H_{CS}|E)} = \frac{0.8 \cdot \frac{1}{6}}{0.1 \cdot \frac{1}{6}} = \frac{0.8}{0.1} = 8
+\]
+
+Thus \( P(H_{Ag}|E) = 8 \cdot P(H_{CS}|E) \).
+
+We can normalize them considering that these are not the only fields, but we care about the ratio more:
+
+\[
+P(H_{CS}|E) = \frac{1}{1+8} = \frac{1}{9} \approx 0.11
+\]
+\[
+P(H_{Ag}|E) = \frac{8}{1+8} = \frac{8}{9} \approx 0.89
+\]
+
+So, the posterior probabilities would be approximately:
+
+```json
+{
+  "computer science": 0.11,
+  "agricultural and veterinary science": 0.89
+}
+```

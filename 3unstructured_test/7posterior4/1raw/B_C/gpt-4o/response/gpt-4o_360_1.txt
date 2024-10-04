@@ -1,0 +1,52 @@
+To compute the posterior conditional probability \( P(H|E) \), we need to use Bayes' theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the probability of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the probability of evidence \( E \), which serves as a normalizing constant.
+
+Let's define our terms for each field:
+
+**1. Business Administration (H₁):**
+- \( P(E|H₁) \): The probability that Adam's personality sketch \( E \) is true given he is enrolled in business administration.
+- \( P(H₁) \): The prior probability that a random graduate student is enrolled in business administration.
+
+**2. Computer Science (H₂):**
+- \( P(E|H₂) \): The probability that Adam's personality sketch \( E \) is true given he is enrolled in computer science.
+- \( P(H₂) \): The prior probability that a random graduate student is enrolled in computer science.
+
+Given Adam's personality traits, including curiosity about nature, solving puzzles, empathy, and high intelligence:
+- \( P(E|H₁) \): Graduate business students might be empathetic and intelligent, but traits like a deep love for animals and solving puzzles are less typical. Let's estimate this likelihood as relatively low.
+- \( P(E|H₂) \): Computer science students might better align with traits involving puzzles and abstract thinking, with some probability for empathy and a love for animals, but not necessarily a curiosity for nature. Let's estimate this likelihood as moderate.
+
+Given that we lack exact numeric priors, we'll use reasonable estimates:
+- \( P(H₁) \approx 0.2 \): Assuming 20% of graduate students are in business administration.
+- \( P(H₂) \approx 0.2 \): Assuming 20% of graduate students are in computer science (these are hypothetical prior probabilities).
+
+Let's make some reasonable assumptions for \( P(E|H₁) \) and \( P(E|H₂) \):
+- \( P(E|H₁) \approx 0.05 \): Lower likelihood due to mismatches.
+- \( P(E|H₂) \approx 0.15 \): Moderate likelihood due to better alignment.
+
+The normalizing constant \( P(E) \) can be complex to compute directly from this data without more fields but doesn't affect the ratios.
+
+Therefore, using these estimates, Bayes' rule simplifies computing relative posteriors:
+
+\[ P(H₁|E) \propto P(E|H₁) \cdot P(H₁) = 0.05 \cdot 0.2 = 0.01 \]
+
+\[ P(H₂|E) \propto P(E|H₂) \cdot P(H₂) = 0.15 \cdot 0.2 = 0.03 \]
+
+\[ \text{Ratio} = \frac{P(H₂|E)}{P(H₁|E)} = \frac{0.03}{0.01} = 3 \]
+
+Using the above, we get:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.03
+}
+```
+
+Note this doesn't sum to 1 because other fields aren't considered here explicitly. These numbers represent relative likelihoods given our assumptions and hypothetical priors.

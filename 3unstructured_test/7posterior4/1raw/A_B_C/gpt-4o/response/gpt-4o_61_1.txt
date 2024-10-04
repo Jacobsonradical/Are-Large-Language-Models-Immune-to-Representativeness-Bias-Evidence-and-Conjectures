@@ -1,0 +1,42 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need:
+
+1. The prior probability \( P(H) \) for each hypothesis (the probability that Adam was enrolled in a particular field before considering the personality sketch).
+2. The likelihood \( P(E|H) \) for each hypothesis (the probability of observing the personality traits given that Adam was enrolled in a particular field).
+3. The marginal likelihood \( P(E) \) (the overall probability of observing the personality traits).
+
+Bayes' rule formulation is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume the following priors, which represent a rough estimation of graduate school enrollments in the U.S.:
+- \( P(H_{\text{business administration}}) = 0.20 \)
+- \( P(H_{\text{computer science}}) = 0.20 \)
+- \( P(H_{\text{agricultural and veterinary science}}) = 0.10 \)
+- The sum of other fields, as a catch-all, \( P(H_{\text{other}}) = 0.50 \)
+
+Next, we estimate the likelihoods based on the personality sketch:
+- For business administration, considering the traits described, let's assume a low likelihood because they align less with business administration e.g., "strong appreciation for hard work" fits, but "genuine curiosity about nature and its various plants" does not. Therefore, \( P(E|H_{\text{business administration}}) \approx 0.1 \)
+- For computer science, "high intelligence," "good at understanding abstract concepts," and "enjoys solving puzzles" are well-aligned traits. Therefore, \( P(E|H_{\text{computer science}}) \approx 0.4 \)
+- For agricultural and veterinary science, traits like "genuine curiosity about nature," "love for animals," "appreciation for hard work" highly align. Therefore, \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.7 \)
+
+Lastly, the marginal likelihood \( P(E) \) can be approximated by summing the weighted likelihoods:
+\[ P(E) \approx (0.1 \times 0.20) + (0.4 \times 0.20) + (0.7 \times 0.10) + (\text{catch-all component}) \]
+
+To simplify the marginal likelihood, let’s state it as a normalization factor that ensures all \( P(H|E) \) values sum to 1 for the stated fields. Thus, for each field, the normalized posterior can be deduced directly from:
+\[ P(H|E) \approx \frac{P(E|H) \cdot P(H)}{\text{normalization factor}} \]
+
+{
+  "business administration": \( \frac{0.1 \times 0.20}{\text{normalization factor}} = \frac{0.02}{\text{normalization factor}} \),
+  "computer science": \( \frac{0.4 \times 0.20}{\text{normalization factor}} = \frac{0.08}{\text{normalization factor}} \),
+  "agricultural and veterinary science": \( \frac{0.7 \times 0.10}{\text{normalization factor}} = \frac{0.07}{\text{normalization factor}} \)
+}
+
+To derive the exact execution of this without the normalization factor could provide rough relative values:
+
+{
+  "business administration": \( 0.02 \),
+  "computer science": \( 0.08 \),
+  "agricultural and veterinary science": \( 0.07 \)
+}
+
+These relative values, when normalized, will more accurately reflect the probabilities given the different priors and likelihood estimates.
+```

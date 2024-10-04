@@ -1,0 +1,53 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to take into consideration several factors including the prior probability of Adam enrolling in each field, the likelihood of his personality sketch given each field, and the overall likelihood of his personality sketch.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplification, we'll make some reasonable estimates for the likelihoods and priors.
+
+### Assumptions:
+
+1. **Priors \( P(H) \):** 
+   - Graduate students are more likely to be in certain fields. Let's assume:
+     - The prior probability that any graduate student is in agricultural and veterinary science is 5%.
+     - The prior probability that any graduate student is in business administration is 20%.
+
+2. **Likelihood \( P(E|H) \)**:
+   - If Adam is in agricultural and veterinary science, it is quite likely that he has a personality sketch as described, say 70%.
+   - If Adam is in business administration, it is less likely, say 10%.
+
+3. **Overall Likelihood \( P(E) \)**:
+   - This is the normalization factor and is computed as:
+     \[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|H_2) \cdot P(H_2) + \ldots \]
+
+However, for simplicity, we can ignore this as it's the same for both fields when we are interested only in the relative probabilities.
+
+### Calculations:
+
+#### Agricultural and Veterinary Science:
+\[ P(E|H_{\text{agriculture}}) = 0.7 \]
+\[ P(H_{\text{agriculture}}) = 0.05 \]
+\[ \text{Numerator} = P(E|H_{\text{agriculture}}) \cdot P(H_{\text{agriculture}}) = 0.7 \cdot 0.05 = 0.035 \]
+
+#### Business Administration:
+\[ P(E|H_{\text{business}}) = 0.1 \]
+\[ P(H_{\text{business}}) = 0.2 \]
+\[ \text{Numerator} = P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) = 0.1 \cdot 0.2 = 0.02 \]
+
+### Normalization:
+\[ P(E) \approx 0.035 + 0.02 = 0.055 \]
+
+### Posterior Probabilities:
+\[ P(H_{\text{agriculture}}|E) = \frac{0.035}{0.055} \approx 0.636 \]
+\[ P(H_{\text{business}}|E) = \frac{0.02}{0.055} \approx 0.364 \]
+
+### Final Answer:
+```json
+{
+  "agricultural and veterinary science": 0.636,
+  "business administration": 0.364
+}
+```
+
+These values reflect the relative probabilities of Adam being in each field given his personality sketch.

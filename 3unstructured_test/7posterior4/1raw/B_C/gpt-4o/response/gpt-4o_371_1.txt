@@ -1,0 +1,62 @@
+To compute the posterior conditional probabilities \(P(H|E)\) using Bayes' rule, we need the following information:
+
+- Prior probabilities \(P(H)\) for each hypothesis (i.e., the likelihood that a random graduate student is enrolled in business administration or computer science).
+- The likelihood \(P(E|H)\) which is the probability of observing the personality traits E given the field of study H.
+- The total probability of observing the evidence \(P(E)\), which can be calculated as the sum of the likelihoods weighted by their prior probabilities across all fields.
+
+Given that we do not have specific numerical values for these probabilities, we will make reasoned assumptions based on the provided personality sketch to estimate the likelihoods.
+
+### Assumptions:
+
+1. **Prior Probabilities \(P(H)\):**
+   - Let’s assume graduate enrollment distribution:
+     - \(P(business administration)\): 0.2
+     - \(P(computer science)\): 0.2
+     - (Implicitly, the other fields cover the remaining 0.6)
+
+2. **Likelihood \(P(E|H)\):**
+   - For business administration, a field that typically involves leadership qualities, people skills, and interest in management and economics, the given personality traits E (curiosity about nature, love for animals, quietness, solving puzzles, etc.) do not strongly align. So, we assume a lower value, say 0.05.
+   - For computer science, given that this field often aligns with problem-solving, high intelligence, understanding abstract concepts, and sometimes quiet personalities, we assume a higher value, say 0.3.
+
+3. **Total Probability \(P(E)\):**
+   - This is the sum of the products of the priors and their corresponding likelihoods across all possible fields. Since we do not have complete data for all fields, we will compute based on our hypotheses of interest and normalize appropriately:
+     - \(P(E) = P(business administration) \cdot P(E|business administration) + P(computer science) \cdot P(E|computer science) + (Rest of Fields)\)
+
+Since we are only concerned with two fields, we will calculate the relative probabilities:
+
+### Calculations:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let’s consider \(P(E)\) as the normalization factor:
+
+\[
+P(E) \approx P(business administration) \cdot P(E|business administration) + P(computer science) \cdot P(E|computer science)
+\]
+
+\[
+P(E) \approx 0.2 \cdot 0.05 + 0.2 \cdot 0.3 = 0.01 + 0.06 = 0.07
+\]
+
+### Posterior Probabilities:
+
+1. **Business Administration:**
+
+\[
+P(business administration | E) = \frac{0.05 \cdot 0.2}{0.07} \approx \frac{0.01}{0.07} \approx 0.1429
+\]
+
+2. **Computer Science:**
+
+\[
+P(computer science | E) = \frac{0.3 \cdot 0.2}{0.07} \approx \frac{0.06}{0.07} \approx 0.8571
+\]
+
+Thus, based on the personality sketch and our assumptions:
+
+```json
+{
+  "business administration": 0.1429,
+  "computer science": 0.8571
+}
+```

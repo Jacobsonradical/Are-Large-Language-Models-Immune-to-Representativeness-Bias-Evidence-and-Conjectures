@@ -1,0 +1,57 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule for the fields given Adam's personality sketch, we need to follow a few steps. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's the breakdown:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood, or the probability of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the probability of the evidence.
+
+### Assumptions and Assignments
+1. \( P(H) \): Without specific prior probabilities for each field, we can assume a uniform distribution among graduate fields as a simplifying assumption. However, this will be the least realistic part of our model since different fields can have different base rates of enrollment.
+2. \( P(E|H) \): This is the probability that Adam's personality traits fit within each particular field. Given Adam’s attributes, we need to provide subjective estimates for how likely it is that someone with his traits would be in each field.
+
+### Estimation of \( P(E|H) \)
+Based on Adam's personality traits:
+- **Computer Science:** Good at solving puzzles and high intelligence partially fit this field.
+- **Business Administration:** Strong empathy and understanding of dedication could be relevant, but this field usually does not heavily emphasize natural curiosity and love for animals.
+- **Agricultural and Veterinary Science:** Matches very well with Adam's love for nature, plants, animals, and empathy.
+
+### Assignments for \( P(E|H) \)
+Given these considerations:
+- \( P(E|H) \) for **Computer Science**: Moderately low fit.
+- \( P(E|H) \) for **Business Administration**: Low fit.
+- \( P(E|H) \) for **Agricultural and Veterinary Science**: High fit.
+
+Let's assign:
+- \( P(E|H_{CS}) \approx 0.3 \)
+- \( P(E|H_{BA}) \approx 0.1 \)
+- \( P(E|H_{AVS}) \approx 0.8 \)
+
+### Calculation
+If we assume that the prior probabilities \( P(H) \) for each field are equal (simplified assumption), then the posterior \( P(H|E) \) is proportional to the likelihood \( P(E|H) \) since the priors cancel out. The most relevant comparison is the relative magnitude.
+
+Thus, the resulting probabilities can be normalized to share the same proportion:
+- \( P(H_{CS}|E) \propto 0.3 \)
+- \( P(H_{BA}|E) \propto 0.1 \)
+- \( P(H_{AVS}|E) \propto 0.8 \)
+
+Let's normalize these so that they provide a good comparative scale:
+
+Total = 0.3 + 0.1 + 0.8 = 1.2
+
+So,
+- \( P(H_{CS}|E) \approx \frac{0.3}{1.2} \approx 0.25 \)
+- \( P(H_{BA}|E) \approx \frac{0.1}{1.2} \approx 0.083 \)
+- \( P(H_{AVS}|E) \approx \frac{0.8}{1.2} \approx 0.667 \)
+
+### Final Posterior Probabilities:
+
+```json
+{
+  "computer science": 0.25,
+  "business administration": 0.083,
+  "agricultural and veterinary science": 0.667
+}
+```

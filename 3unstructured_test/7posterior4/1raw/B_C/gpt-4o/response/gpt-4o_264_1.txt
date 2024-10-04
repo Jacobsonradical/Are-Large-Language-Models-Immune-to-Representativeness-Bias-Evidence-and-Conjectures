@@ -1,0 +1,53 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to consider the prior probabilities of Adam enrolling in each field and how well the personality sketch \( E \) fits each field. Here's the structure of Bayes' rule as it pertains to this situation:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Without specific prior probabilities (which represent our initial beliefs before seeing Adam's personality sketch), I'll make a reasonable assumption:
+
+1. **Business Administration**: Often attracts individuals with strong leadership skills, interpersonal skills, an interest in organizational functions, and possibly an affinity for empirical data and economics. 
+
+2. **Computer Science**: Often attracts individuals with a strong analytical mindset, problem-solving skills, curiosity about technology, and an interest in abstract thinking and puzzles.
+
+Given Adam’s characteristics:
+- Genuine curiosity about nature and various plants
+- Enjoys solving puzzles
+- A quiet demeanor 
+- Warm heart and empathy
+- Deep love for animals
+- High intelligence and understanding of abstract concepts
+- Strong appreciation for hard work and dedication
+
+These traits seem more aligned with the profile of a computer science-oriented student, given his interest in solving puzzles, high intelligence, and understanding of abstract concepts.
+
+Let's denote our assumed priors and likelihoods:
+
+- \( P(H_{\text{business}}) = 0.3 \)
+- \( P(H_{\text{CS}}) = 0.5 \)
+
+These are arbitrary priors based on the broader context, assuming computer science might have a higher enrollment rate among students with Adam’s traits.
+
+- \( P(E|H_{\text{business}}) = 0.2 \)
+- \( P(E|H_{\text{CS}}) = 0.6 \)
+
+Again, these likelihoods indicate how well Adam's traits fit each field.
+
+Normalizing constant \( P(E) \):
+
+\[ P(E) = P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \]
+\[ P(E) = (0.2 \cdot 0.3) + (0.6 \cdot 0.5) \]
+\[ P(E) = 0.06 + 0.3 = 0.36 \]
+
+Now, applying Bayes' rule:
+
+\[ P(H_{\text{business}}|E) = \frac{P(E|H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E)} = \frac{0.2 \cdot 0.3}{0.36} = \frac{0.06}{0.36} = 0.167 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.6 \cdot 0.5}{0.36} = \frac{0.3}{0.36} = 0.833 \]
+
+Final probabilities:
+
+```json
+{
+  "business administration": 0.167,
+  "computer science": 0.833
+}
+```

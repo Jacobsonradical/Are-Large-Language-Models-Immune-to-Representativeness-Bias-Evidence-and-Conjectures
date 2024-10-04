@@ -1,0 +1,50 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the evidence \( P(E) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote:
+- \( H_{CS} \): Hypothesis that Adam was enrolled in computer science.
+- \( H_{AgVet} \): Hypothesis that Adam was enrolled in agricultural and veterinary science.
+
+We need to make educated assumptions about the prior probabilities and the likelihoods based on Adam's personality sketch \( E \).
+
+1. **Priors**: We assume general enrollment probabilities among graduate students:
+    - Assume the prior \( P(H_{CS}) \approx 0.3 \) (since computer science is a very common graduate field).
+    - Assume the prior \( P(H_{AgVet}) \approx 0.1 \) (since agricultural and veterinary science is less common).
+
+2. **Likelihoods**:
+    - The likelihood \( P(E|H_{CS}) \): The personality traits of Adam suggest he enjoys nature and animals and is good at understanding abstract concepts. While computer science requires understanding abstract concepts, the other traits are not heavily emphasized. Let's estimate \( P(E|H_{CS}) \approx 0.2 \).
+    
+    - The likelihood \( P(E|H_{AgVet}) \): The personality traits align well with agricultural and veterinary science, which often involves a love for animals and nature. Let's estimate \( P(E|H_{AgVet}) \approx 0.7 \).
+
+3. **Evidence**: Since we are only concerned with the relative probabilities for comparison:
+    - Calculate \( P(E) \) as needed for normalization. However, for relative comparisons, we can focus on the numerator of Bayes' rule.
+
+Plugging in the values:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.2 \cdot 0.3}{P(E)} \]
+
+\[ P(H_{AgVet}|E) = \frac{P(E|H_{AgVet}) \cdot P(H_{AgVet})}{P(E)} = \frac{0.7 \cdot 0.1}{P(E)} \]
+
+Since \( P(E) \) is common in the denominator for both computations, focusing on the numerators:
+
+\[ P(H_{CS}|E) \propto 0.2 \cdot 0.3 = 0.06 \]
+
+\[ P(H_{AgVet}|E) \propto 0.7 \cdot 0.1 = 0.07 \]
+
+Now, normalizing these values (so they are comparable in the same scale):
+
+\[ \text{Total} = 0.06 + 0.07 = 0.13 \]
+
+\[ P(H_{CS}|E) = \frac{0.06}{0.13} \approx 0.46 \]
+
+\[ P(H_{AgVet}|E) = \frac{0.07}{0.13} \approx 0.54 \]
+
+Therefore, the posterior probabilities are approximately:
+
+```json
+{
+  "computer science": 0.46,
+  "agricultural and veterinary science": 0.54
+}
+```

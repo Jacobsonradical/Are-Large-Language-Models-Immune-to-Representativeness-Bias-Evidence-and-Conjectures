@@ -1,0 +1,49 @@
+To use Bayes' rule to compute the posterior conditional probabilities \(P(H|E)\) for each field of study given Adam's personality sketch, we need to consider a few components:
+
+1. **Prior Probability \(P(H)\):** This is the initial probability of Adam being enrolled in a given field without considering the personality sketch. We denote these priors as \(P(H_{CS})\) for computer science and \(P(H_{AVS})\) for agricultural and veterinary science.
+2. **Likelihood \(P(E|H)\):** This is the probability of observing the evidence (Adam's personality sketch) given that he is enrolled in a specific field.
+3. **Evidence \(P(E)\):** This is the overall probability of observing the personality sketch, regardless of the field.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume:
+
+1. The priors are based on general enrollment percentages of graduate students in the U.S. in 2021:
+   - Computer science: \(P(H_{CS}) \approx 0.2\)
+   - Agricultural and veterinary science: \(P(H_{AVS}) \approx 0.05\)
+
+2. The likelihoods should reflect how well Adam's personality sketch fits typical students in each field:
+   - Given Adam's curiosity about nature, love for animals, and appreciation for hard work, it's reasonable to believe he is more likely to be found in agricultural and veterinary science.
+   - Adam's high intelligence and ability to understand abstract concepts also fit well with computer science, but his specific interest in nature and animals tilts the balance.
+
+So let's assign reasonable likelihoods:
+- \(P(E | H_{CS}) \approx 0.3\) 
+- \(P(E | H_{AVS}) \approx 0.7\) 
+
+Finally, let's compute \(P(E)\) which is combined for both:
+
+\[ P(E) = P(E | H_{CS}) \cdot P(H_{CS}) + P(E | H_{AVS}) \cdot P(H_{AVS}) \]
+\[ P(E) = 0.3 \cdot 0.2 + 0.7 \cdot 0.05 \]
+\[ P(E) = 0.06 + 0.035 \]
+\[ P(E) = 0.095 \]
+
+Now, applying Bayes' rule:
+
+For computer science:
+\[ P(H_{CS} | E) = \frac{0.3 \cdot 0.2}{0.095} \]
+\[ P(H_{CS} | E) \approx \frac{0.06}{0.095} \]
+\[ P(H_{CS} | E) \approx 0.63 \]
+
+For agricultural and veterinary science:
+\[ P(H_{AVS} | E) = \frac{0.7 \cdot 0.05}{0.095} \]
+\[ P(H_{AVS} | E) \approx \frac{0.035}{0.095} \]
+\[ P(H_{AVS} | E) \approx 0.37 \]
+
+Therefore, the posterior probabilities are approximately:
+```json
+{
+  "computer science": "0.63",
+  "agricultural and veterinary science": "0.37"
+}
+```

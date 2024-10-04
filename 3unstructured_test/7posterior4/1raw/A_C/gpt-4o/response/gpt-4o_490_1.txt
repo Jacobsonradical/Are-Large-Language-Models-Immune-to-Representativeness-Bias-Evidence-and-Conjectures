@@ -1,0 +1,66 @@
+To compute the posterior conditional probability \(P(H|E)\) using Bayes' rule, we need to consider the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+
+- \(P(H|E)\) is the posterior probability of hypothesis \(H\) given evidence \(E\).
+- \(P(E|H)\) is the likelihood of evidence \(E\) given hypothesis \(H\).
+- \(P(H)\) is the prior probability of hypothesis \(H\).
+- \(P(E)\) is the probability of evidence \(E\).
+
+Let's consider Adam's personality sketch to estimate \(P(E|H)\) for each field. 
+
+1. **Computer Science**:
+   - Personality traits such as high intelligence and being good at understanding abstract concepts align with computer science.
+   - Curiosity about nature and plants, empathy, and a love for animals are less directly related to computer science.
+   - Prior probability (\(P(H)\)) for a student being in computer science might be relatively high given the demand and number of students in this field.
+
+2. **Agricultural and Veterinary Science**:
+   - Curiosity about nature, love for animals, empathy, and appreciation for hard work align strongly with agricultural and veterinary science.
+   - High intelligence and solving puzzles are relevant but less specific compared to computer science.
+   - Prior probability (\(P(H)\)) for a student being in agricultural and veterinary science might be lower than computer science given the fewer number of students typically in this field.
+
+Given that we don't have exact values for each term, we'll make educated estimates:
+
+- Assume \(P(H)\) for computer science is relatively higher, say 0.2.
+- Assume \(P(H)\) for agricultural and veterinary science is relatively lower, say 0.05.
+- Assume \(P(E|H)\) for computer science is moderately high because of the abstract concepts and intelligence traits, say 0.4.
+- Assume \(P(E|H)\) for agricultural and veterinary science is quite high because of the strong alignment with nature curiosity, empathy, and love for animals, say 0.7.
+
+For simplicity, we assume \(P(E)\) is the same across hypotheses and normalizes the equation.
+
+Using Bayes' rule for each hypothesis:
+
+For computer science:
+\[ P(H_{\text{cs}}|E) \approx \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} \approx \frac{0.4 \cdot 0.2}{P(E)} \]
+
+For agricultural and veterinary science:
+\[ P(H_{\text{avs}}|E) \approx \frac{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}})}{P(E)} \approx \frac{0.7 \cdot 0.05}{P(E)} \]
+
+We can see that these give us a ratio rather than the exact probabilities, but since we're only comparing these two fields:
+
+\[
+P(H_{\text{cs}}|E) \approx \frac{0.08}{P(E)}
+\]
+\[
+P(H_{\text{avs}}|E) \approx \frac{0.035}{P(E)}
+\]
+
+We can then normalize these relative values to get a form of comparative posterior probabilities. Normalizing these:
+
+\[
+P(H_{\text{cs}}|E) \approx \frac{0.08}{0.08 + 0.035} \approx \frac{0.08}{0.115} \approx 0.6957
+\]
+\[
+P(H_{\text{avs}}|E) \approx \frac{0.035}{0.08 + 0.035} \approx \frac{0.035}{0.115} \approx 0.3043
+\]
+
+So the normalized posterior probabilities are:
+
+```json
+{
+  "computer science": 0.6957,
+  "agricultural and veterinary science": 0.3043
+}
+```

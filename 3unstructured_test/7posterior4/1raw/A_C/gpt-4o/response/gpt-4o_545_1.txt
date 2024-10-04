@@ -1,0 +1,55 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to update our beliefs about each hypothesis \( H \) given the evidence \( E \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field hypothesis, the process involves the following steps:
+
+1. **Estimate the prior probability \( P(H) \)**: This is the general likelihood that a graduate student is enrolled in a specific field.
+   
+2. **Estimate the likelihood \( P(E|H) \)**: This is the probability of observing Adam's personality sketch given that he is enrolled in that field.
+
+3. **Compute the marginal likelihood \( P(E) \)**: This involves summing up the probabilities across all possible fields. However, since we are only comparing two fields here, it will serve as a normalizing constant.
+
+Assumptions for simplicity:
+- Assume public data reveals that 15% of graduate students are in computer science and 5% are in agricultural and veterinary science. 
+- Assume that Adam's profile is 40% likely if he's in computer science and 90% if he's in agricultural and veterinary science.
+- Since we're only comparing these two fields, we can disregard the actual computation of \( P(E) \) as a normalizing constant.
+
+Given this information:
+
+### Computer Science
+- \( P(H_{CS}) \) = 0.15
+- \( P(E|H_{CS}) = 0.40 \)
+
+### Agricultural and Veterinary Science
+- \( P(H_{AVS}) \) = 0.05
+- \( P(E|H_{AVS}) = 0.90 \)
+
+Let's compute \( P(H|E) \) for these fields:
+
+### Posterior probability for Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Since \( P(E) \) is unknown and serves as a normalizing constant, denote the formula as follows:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(H_{CS}|E) \propto 0.40 \times 0.15 = 0.06 \]
+
+### Posterior probability for Agricultural and Veterinary Science:
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+\[ P(H_{AVS}|E) \propto 0.90 \times 0.05 = 0.045 \]
+
+After computing the raw values, we must normalize them:
+
+\[ P(H_{CS}|E) = \frac{0.06}{0.06 + 0.045} \approx 0.571 \]
+\[ P(H_{AVS}|E) = \frac{0.045}{0.06 + 0.045} \approx 0.429 \]
+
+So, the conditional probabilities based on the given evidence are:
+
+```json
+{
+  "computer science": 0.571,
+  "agricultural and veterinary science": 0.429
+}
+```
+
+These values suggest that given Adam's personality sketch, it is more likely he was enrolled in computer science, but there is still a significant probability for agricultural and veterinary science.

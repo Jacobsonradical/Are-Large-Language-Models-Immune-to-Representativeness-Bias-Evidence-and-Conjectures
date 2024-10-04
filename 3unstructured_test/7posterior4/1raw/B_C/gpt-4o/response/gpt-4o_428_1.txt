@@ -1,0 +1,42 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to know the prior probabilities \( P(H) \) for each hypothesis (fields of study), and the likelihood \( P(E|H) \), the probability of observing the personality sketch given the hypothesis.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Without specific prior probabilities \( P(H) \) and likelihoods \( P(E|H) \), we have to make educated guesses based on typical attributes of graduate students in each field. Here are some heuristic assumptions:
+
+1. **Business Administration**:
+   - Of graduates in Business Administration: Few are highly interested in nature and plants, solving puzzles, and animals.
+   - These qualities suggest a weaker alignment with the typical profile of a business graduate.
+
+2. **Computer Science**:
+   - Of graduates in Computer Science: Many are intelligent and good with abstract concepts.
+   - These qualities suggest a strong alignment, especially with interests in puzzles and high empathy (which can correlate with user-centric software design).
+
+Heuristic values for likeliness:
+- Assume students in computer science have a stronger fit with the described personality traits than business administration students.
+
+Given these assumptions:
+- Let \( P(E|BusinessAdministration) = 0.2 \) — moderate likelihood based on the qualities mismatch.
+- Let \( P(E|ComputerScience) = 0.8 \) — high likelihood due to strong alignment with the qualities.
+
+Prior probabilities (assumed evenly distributed for simplicity):
+- \( P(BusinessAdministration) = 0.5 \)
+- \( P(ComputerScience) = 0.5 \)
+
+Using Bayes' rule for normalization:
+- Total weighted probability: \( P(E) = P(E|BusinessAdministration) \cdot P(BusinessAdministration) + P(E|ComputerScience) \cdot P(ComputerScience) = 0.2 \cdot 0.5 + 0.8 \cdot 0.5 = 0.5 \).
+
+Now compute the posterior probabilities:
+\[ P(BusinessAdministration|E) = \frac{P(E|BusinessAdministration) \cdot P(BusinessAdministration)}{P(E)} = \frac{0.2 \cdot 0.5}{0.5} = 0.2 \]
+
+\[ P(ComputerScience|E) = \frac{P(E|ComputerScience) \cdot P(ComputerScience)}{P(E)} = \frac{0.8 \cdot 0.5}{0.5} = 0.8 \]
+
+The answers are:
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

@@ -1,0 +1,59 @@
+To compute the posterior conditional probability \( P(H|E) \) for each field using Bayes' rule, we would need to know several components:
+- The prior probability of Adam enrolling in each field, \( P(H) \)
+- The likelihood of observing Adam's personality sketch given that he is in each field, \( P(E|H) \)
+- The overall probability of observing Adam's personality sketch, \( P(E) \)
+
+For the sake of this exercise, let's make reasonable assumptions about the prior probabilities and the likelihoods based on Adam's personality sketch:
+
+1. **Computer Science**: Given Adam's high intelligence, good understanding of abstract concepts, and enjoyment of solving puzzles, the likelihood \( P(E|\text{Computer Science}) \) would be relatively high.
+
+2. **Business Administration**: While Adam's empathy and understanding of hard work could align with business administration, his specific curiosity about nature and love for animals might make this fit less likely compared to fields more directly dealing with nature or puzzles.
+
+We assume equal prior probabilities for simplicity, though in reality, these would depend on data about graduate enrollments by field.
+
+Assume:
+- \( P(\text{Computer Science}) = 0.3 \) (assumes a higher proportion of students may be in STEM fields)
+- \( P(\text{Business Administration}) = 0.2 \) (business is a common grad field but less so than STEM)
+
+Assume likelihoods:
+- \( P(E|\text{Computer Science}) = 0.6 \)
+- \( P(E|\text{Business Administration}) = 0.2 \)
+
+Now, assuming \( P(E) \) can be derived from the total (which doesn't affect proportional comparisons for this purpose):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We normalize so \( P(E) \) is effectively a scaling factor for comparison.
+
+For Computer Science:
+\[ P(\text{Computer Science}|E) = \frac{0.6 \cdot 0.3}{P(E)} \]
+
+For Business Administration:
+\[ P(\text{Business Administration}|E) = \frac{0.2 \cdot 0.2}{P(E)} \]
+
+
+We compute the values without \( P(E) \) for comparison:
+
+Computer Science:
+\[ P(\text{Computer Science}|E) \propto 0.18 \]
+
+Business Administration:
+\[ P(\text{Business Administration}|E) \propto 0.04 \]
+
+Now we normalize them to get conditional probabilities:
+\[ \text{Total} = 0.18 + 0.04 = 0.22 \]
+
+Normalized values:
+\[ P(\text{Computer Science}|E) = \frac{0.18}{0.22} \approx 0.82 \]
+\[ P(\text{Business Administration}|E) = \frac{0.04}{0.22} \approx 0.18 \]
+
+Thus, the resulting conditional probabilities would be:
+
+```json
+{
+  "computer science": 0.82,
+  "business administration": 0.18
+}
+```
+
+These probabilities indicate that, based on the given personality sketch, Adam is much more likely to be enrolled in computer science compared to business administration.

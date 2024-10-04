@@ -1,0 +1,47 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need the prior probabilities \( P(H) \) for each hypothesis (i.e., the probability that Adam was enrolled in each field before considering the personality sketch), and the likelihood \( P(E|H) \) (i.e., the probability of the personality sketch given that Adam was in each field). Without specific prior probabilities and likelihoods, we will make some reasonable assumptions based on the information given.
+
+1. **Agricultural and Veterinary Science:**
+   - **Prior Probability \( P(H) \):** Given Adam's strong interest in nature, plants, and animals, it seems reasonable that the prior probability of him being in this field is relatively high. Let's assume \( P(H) = 0.3 \).
+   - **Likelihood \( P(E|H) \):** The personality sketch strongly aligns with the characteristics of someone in this field. Thus, \( P(E|H) \) should be high; let's assume \( P(E|H) = 0.9 \).
+
+2. **Business Administration:**
+   - **Prior Probability \( P(H) \):** Adam’s personality sketch does not strongly suggest alignment with business administration, which often involves different sets of interests and skills. Let's assume \( P(H) = 0.1 \).
+   - **Likelihood \( P(E|H) \):** The personality sketch does not strongly support this field. Thus, \( P(E|H) \) is likely to be lower; let's assume \( P(E|H) = 0.2 \).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) (the overall probability of the evidence) is the same for both fields and we are interested in the relative values, we can focus on the numerator for now:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's calculate this unnormalized posterior:
+
+For **Agricultural and Veterinary Science**:
+\[ P(H|E) \propto 0.9 \cdot 0.3 = 0.27 \]
+
+For **Business Administration**:
+\[ P(H|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+Now, we normalize these results to place them on the same scale:
+
+\[ P(H|E)_{normalized} = \frac{P(H|E)}{P(H|E)_{total}} \]
+where 
+\[ P(H|E)_{total} = 0.27 + 0.02 = 0.29 \]
+
+So,
+
+For **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{0.27}{0.29} \approx 0.931 \]
+
+For **Business Administration**:
+\[ P(H|E) = \frac{0.02}{0.29} \approx 0.069 \]
+
+Therefore, the posterior conditional probabilities \( P(H|E) \) are:
+
+```json
+{
+  "agricultural and veterinary science": "0.931",
+  "business administration": "0.069"
+}
+```

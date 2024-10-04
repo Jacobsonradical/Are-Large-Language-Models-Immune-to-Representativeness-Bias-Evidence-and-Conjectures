@@ -1,0 +1,52 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' Rule, we need to have a prior probability \( P(H) \) for each field and a likelihood \( P(E|H) \) that the given personality sketch \( E \) fits someone enrolled in that field. We also need to know the normalizing constant \( P(E) \), which is the total probability of the evidence across all considered fields and more.
+
+Bayes' Rule:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Given the data, exact numerical priors and exact likelihoods are not given. Still, we can make qualitative assessments based on the provided information and general knowledge about these fields.
+
+Relative prior assessments:
+- \( P(H_{\text{CS}}) \): High, since many graduate students pursue computer science.
+- \( P(H_{\text{AVS}}) \): Moderate, given Adam's characteristics.
+- \( P(H_{\text{BA}}) \): Moderate, as business administration is also a popular field.
+
+Likelihood assessments:
+- \( P(E|H_{\text{CS}}) \): Moderate. High intelligence and understanding abstract concepts fit well, but less about strong empathy and love for animals.
+- \( P(E|H_{\text{AVS}}) \): High. Strong empathy, love for animals, and interest in nature and plants align well with this field.
+- \( P(E|H_{\text{BA}}) \): Low. While intelligence and problem-solving could fit, the love for animals and nature is less relevant.
+
+With these qualitative assessments:
+
+\[
+\begin{aligned}
+&\text{computer science}: \quad & P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \approx 0.3 \\
+&\text{agricultural and veterinary science}: \quad & P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) \approx 0.7 \\
+&\text{business administration}: \quad & P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \approx 0.1 \\
+\end{aligned}
+\]
+
+Normalized for better relative comparison:
+
+- Normalizing constant \( P(E) \approx 0.3 + 0.7 + 0.1 = 1.1 \)
+
+Thus:
+
+\[
+\begin{aligned}
+& P(H_{\text{CS}}|E) \approx \frac{0.3}{1.1} \approx 0.27 \\
+& P(H_{\text{AVS}}|E) \approx \frac{0.7}{1.1} \approx 0.64 \\
+& P(H_{\text{BA}}|E) \approx \frac{0.1}{1.1} \approx 0.09 \\
+\end{aligned}
+\]
+
+So, the final answers should be:
+
+```json
+{
+  "computer science": "0.27",
+  "agricultural and veterinary science": "0.64",
+  "business administration": "0.09"
+}
+```

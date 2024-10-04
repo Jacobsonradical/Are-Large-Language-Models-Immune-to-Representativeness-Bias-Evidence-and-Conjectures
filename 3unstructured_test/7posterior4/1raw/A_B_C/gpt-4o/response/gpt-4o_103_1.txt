@@ -1,0 +1,50 @@
+Bayes' rule states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(H|E) \) is the posterior probability, \( P(E|H) \) is the likelihood, \( P(H) \) is the prior probability of the hypothesis, and \( P(E) \) is the evidence.
+
+Given limited information, I'll make some reasonable assumptions regarding \( P(E|H) \) and \( P(H) \) that reflect typical stereotypes and typical distributions in a graduate setting. Note that \( P(E) \) will be the same for comparing all fields since it's the evidence supporting the same profile.
+
+1. **Business Administration**:
+   - Likelihood \( P(E|H_{business\_administration}) \): Low, because Adam's interests and personality traits suggest a preference for nature, animals, and puzzles, which are generally not strong focuses in business administration.
+   - Prior \( P(H_{business\_administration}) \): Let's assume an average prior probability of enrollment in business administration among graduates.
+
+2. **Agricultural and Veterinary Science**:
+   - Likelihood \( P(E|H_{agricultural\_and\_veterinary\_science}) \): High, as Adam's curiosity about nature, love for animals, and empathy align well with this field.
+   - Prior \( P(H_{agricultural\_and\_veterinary\_science}) \): Let's assume a lower prior as fewer students typically specialize in this compared to more generalized fields.
+
+3. **Computer Science**:
+   - Likelihood \( P(E|H_{computer\_science}) \): Medium, because Adam enjoys solving puzzles and is good at understanding abstract concepts, but it may not align as well with his love for nature and animals.
+   - Prior \( P(H_{computer\_science}) \): Higher prior relative to agricultural and veterinary science due to the growing popularity of CS among graduate students.
+
+Given these qualitative assessments, let’s use the following values as proxies for computation:
+- \( P(E|H_{business\_administration}) = 0.1 \)
+- \( P(E|H_{agricultural\_and\_veterinary\_science}) = 0.6 \)
+- \( P(E|H_{computer\_science}) = 0.3 \)
+- Assuming flat priors: \( P(H_{business\_administration}) = 0.3 \), \( P(H_{agricultural\_and\_veterinary\_science}) = 0.1 \), \( P(H_{computer\_science}) = 0.6 \)
+- \( P(E) \) will be a normalizing constant but is uniform across the hypotheses.
+
+We compute \( P(H|E) \) proportionally since we do not need the exact value for \( P(E) \).
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+- Business Administration: \( P(H_{business\_administration}|E) \propto 0.1 \cdot 0.3 = 0.03 \)
+- Agricultural and Veterinary Science: \( P(H_{agricultural\_and\_veterinary\_science}|E) \propto 0.6 \cdot 0.1 = 0.06 \)
+- Computer Science: \( P(H_{computer\_science}|E) \propto 0.3 \cdot 0.6 = 0.18 \)
+
+Normalized:
+
+{
+  "business administration": \( \frac{0.03}{0.03+0.06+0.18} \approx 0.107 \)
+  "agricultural and veterinary science": \( \frac{0.06}{0.03+0.06+0.18} \approx 0.214 \)
+  "computer science": \( \frac{0.18}{0.03+0.06+0.18} \approx 0.643 \)
+}
+
+Given these assumptions:
+
+{
+  "business administration": 0.107,
+  "agricultural and veterinary science": 0.214,
+  "computer science": 0.643
+}

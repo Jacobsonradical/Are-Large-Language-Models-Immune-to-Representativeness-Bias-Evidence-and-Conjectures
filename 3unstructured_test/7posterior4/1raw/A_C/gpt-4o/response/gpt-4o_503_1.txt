@@ -1,0 +1,49 @@
+Bayes' rule states that the posterior probability \( P(H|E) \) is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \) (i.e., the initial probability before considering the evidence).
+- \( P(E) \) is the marginal probability of observing the evidence \( E \).
+
+We need to estimate these quantities for each field.
+
+### Computer Science
+#### Prior Probability \( P(H_{CS}) \)
+Let’s assume that a significant but not overwhelming fraction of graduate students enroll in computer science. We might assign \( P(H_{CS}) \) a value of 0.2 (20% prior probability).
+
+#### Likelihood \( P(E|H_{CS}) \)
+Adam is described as having curiosity about nature, empathy, love for animals, and appreciation for hard work — traits that could make him slightly less typical for a computer science student, but not impossible. Hence, we will estimate the likelihood at 0.1.
+
+### Agricultural and Veterinary Science
+#### Prior Probability \( P(H_{AVS}) \)
+Let’s assume a smaller fraction of graduate students enroll in agricultural and veterinary science compared to computer science. We might assign \( P(H_{AVS}) \) a value of 0.05 (5% prior probability).
+
+#### Likelihood \( P(E|H_{AVS}) \)
+Adam’s traits are highly aligned with this field — curiosity about nature, love for animals, empathy, and appreciation for hard work. Hence, we will estimate the likelihood at 0.4.
+
+### Marginal Probability \( P(E) \)
+While we do not have enough information to calculate an exact \( P(E) \), we understand it to be a normalization factor. For comparative purposes, we can proceed with the calculations ignoring this factor, as it will cancel out when determining the ratio of posteriors.
+
+Let's compute these approximately:
+
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.1 \cdot 0.2 = 0.02 \]
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.4 \cdot 0.05 = 0.02 \]
+
+Thus the ratios:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+
+Given the normalization, we recognize that the raw scores show the same probability for both scenarios when the marginal likelihood is not explicitly given.
+
+Thus, we approximate as follows:
+```json
+{
+  "computer science": 0.02,
+  "agricultural and veterinary science": 0.02
+}
+```
+If finer granularity or more data on student distributions and likelihood knowledge were available, adjustments would follow.

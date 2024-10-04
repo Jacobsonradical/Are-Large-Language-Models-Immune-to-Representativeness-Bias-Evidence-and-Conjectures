@@ -1,0 +1,42 @@
+Bayes' rule states that \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \).
+
+In applying this to the given fields, we need to estimate the likelihood \( P(E|H) \) for each hypothesis \( H \) (i.e., the probability of observing the characteristics in Adam's personality sketch given each of the fields) and the prior \( P(H) \) (i.e., the general probability that a graduate student is enrolled in each field).
+
+Given Adam's personality traits, here are reasonable assumptions for \( P(E|H) \) for each field:
+- **Business Administration**: Lower likelihood since Adam's traits show less alignment with typical business administration interests.
+- **Agricultural and Veterinary Science**: Higher likelihood due to Adam's curiosity about nature, love for animals, and appreciation for hard work.
+- **Computer Science**: Medium likelihood due to Adam's intelligence and problem-solving skills.
+
+Estimating \( P(H) \) based on typical distribution of graduate students among these fields:
+- \( P(\text{business administration}) \approx 0.2 \)
+- \( P(\text{agricultural and veterinary science}) \approx 0.1 \)
+- \( P(\text{computer science}) \approx 0.2 \)
+
+The term \( P(E) \) is a normalizing constant, but as we are interested in relative probabilities, we can proceed with rough estimates:
+
+Now applying Bayes' Rule:
+
+1. **Business Administration**:
+   - \( P(E|\text{business administration}) \approx 0.1 \)
+   - \( P(H) = 0.2 \)
+   - \( P(\text{business administration}|E) \approx \frac{0.1 \cdot 0.2}{P(E)} \approx 0.02 \)
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(E|\text{agricultural and veterinary science}) \approx 0.8 \)
+   - \( P(H) = 0.1 \)
+   - \( P(\text{agricultural and veterinary science}|E) \approx \frac{0.8 \cdot 0.1}{P(E)} \approx 0.08 \)
+
+3. **Computer Science**:
+   - \( P(E|\text{computer science}) \approx 0.5 \)
+   - \( P(H) = 0.2 \)
+   - \( P(\text{computer science}|E) \approx \frac{0.5 \cdot 0.2}{P(E)} \approx 0.1 \)
+
+So in relative terms, the posterior conditional probabilities are estimated as:
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.08,
+  "computer science": 0.1
+}
+```

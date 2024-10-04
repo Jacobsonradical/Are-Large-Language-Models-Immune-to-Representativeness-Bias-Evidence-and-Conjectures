@@ -1,0 +1,60 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to have the prior probabilities \( P(H) \) for each field and the likelihoods \( P(E|H) \), which represent the probability of observing the personality characteristics \( E \) given that Adam is enrolled in each respective field. However, we don't have explicit values for these probabilities, so we need to make reasoned estimates based on the given information.
+
+### Step-by-Step Approach:
+1. **Prior Probability, \( P(H) \):**
+   Here's an educated guess for the popularity (prior) of each field among graduate students:
+   - Agricultural and Veterinary Science: \( P(\text{agricultural and veterinary science}) = 0.15 \)
+   - Business Administration: \( P(\text{business administration}) = 0.30 \)
+   - Computer Science: \( P(\text{computer science}) = 0.25 \)
+   
+   These priors do not need to add up to 1 since they're just used for relative comparison.
+
+2. **Likelihood, \( P(E|H) \):**
+   Assess how well Adam's personality traits align with each field:
+   - Agricultural and Veterinary Science: Given Adam's love for nature, plants, and animals, the likelihood for this field is high. \( P(E|\text{agricultural and veterinary science}) = 0.80 \)
+   - Business Administration: Adam's traits (quiet, loves puzzles, and empathy) seem less aligned with a typical business administration profile, although not impossible. \( P(E|\text{business administration}) = 0.10 \)
+   - Computer Science: Adam’s intelligence, love for puzzles, and understanding of abstract concepts make this field a plausible fit. \( P(E|\text{computer science}) = 0.50 \)
+   
+3. **Normalization and Posterior Calculation:**
+
+Using Bayes' rule \( P(H|E) \propto P(E|H) \cdot P(H) \):
+
+### Agricultural and Veterinary Science:
+\[
+P(\text{agricultural and veterinary science}|E) \propto 0.80 \cdot 0.15 = 0.12
+\]
+
+### Business Administration:
+\[
+P(\text{business administration}|E) \propto 0.10 \cdot 0.30 = 0.03
+\]
+
+### Computer Science:
+\[
+P(\text{computer science}|E) \propto 0.50 \cdot 0.25 = 0.125
+\]
+
+Normalize these values (optional since we only need relative comparisons):
+
+### Final Values:
+\[
+\text{agricultural and veterinary science} = \frac{0.12}{0.12 + 0.03 + 0.125} \approx 0.375
+\]
+\[
+\text{business administration} = \frac{0.03}{0.12 + 0.03 + 0.125} \approx 0.094
+\]
+\[
+\text{computer science} = \frac{0.125}{0.12 + 0.03 + 0.125} \approx 0.531
+\]
+
+Thus, our approximated posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.375,
+  "business administration": 0.094,
+  "computer science": 0.531
+}
+```
+
+These probabilities indicate that based on Adam's personality sketch and the given priors, it is most likely that he was enrolled in Computer Science, followed by Agricultural and Veterinary Science, and least likely Business Administration.

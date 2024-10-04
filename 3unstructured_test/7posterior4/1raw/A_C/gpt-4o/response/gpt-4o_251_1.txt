@@ -1,0 +1,72 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' rule, we need to consider the following:
+
+1. **Prior Probability \( P(H) \):** The initial probability of being enrolled in a particular field before considering the personality sketch.
+2. **Likelihood \( P(E|H) \):** The probability of the personality sketch given that someone is enrolled in that field.
+3. **Evidence \( P(E) \):** The total probability of the personality sketch across all fields.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we don't have specific prior probabilities or the overall distribution of students in each field, we'll rely on the qualitative fit between the personality sketch and the typical traits and activities associated with each field. 
+
+### Agricultural and Veterinary Science:
+1. **Prior \( P(H) \):** 
+   Moderate. Many students are in various fields, but some study agricultural and veterinary sciences.
+2. **Likelihood \( P(E|H) \):**
+   High, because the personality sketch aligns well with interests in nature, plants, animals, and empathy, which are crucial in these fields.
+
+### Computer Science:
+1. **Prior \( P(H) \):**
+   High. A significant number of graduate students are enrolled in computer science due to its broad applications and popularity.
+2. **Likelihood \( P(E|H) \):**
+   Moderate to Low, because while high intelligence and problem-solving skills are a strong fit, the empathy, love for animals, and nature don't strongly align with the typical activities in computer science.
+
+Given the sketch, let's assume:
+- Prior probability for agricultural and veterinary science \( P(H_{agri}) = 0.15 \)
+- Likelihood of sketch for agricultural and veterinary science \( P(E|H_{agri}) = 0.8 \)
+- Prior probability for computer science \( P(H_{CS}) = 0.3 \)
+- Likelihood of sketch for computer science \( P(E|H_{CS}) = 0.3 \)
+
+We don't have the exact evidence \( P(E) \), but we assume it's the same for each calculation, so it cancels out in a relative comparison.
+
+```python
+# Assuming values for normalization purposes
+P_E = 1  # Simplified as constant for direct comparison
+
+# Calculate P(H|E) for agricultural and veterinary science
+P_H_agri = 0.15
+P_E_H_agri = 0.8
+
+P_H_E_agri = (P_E_H_agri * P_H_agri) / P_E
+
+# Calculate P(H|E) for computer science
+P_H_CS = 0.3
+P_E_H_CS = 0.3
+
+P_H_E_CS = (P_E_H_CS * P_H_CS) / P_E
+
+results = {
+    "agricultural and veterinary science": P_H_E_agri,
+    "computer science": P_H_E_CS
+}
+
+print(results)
+```
+
+The computed values can be simplified because \( P(E) \) is a constant factor for relative comparison:
+
+```json
+{
+  "agricultural and veterinary science": 0.12,
+  "computer science": 0.09
+}
+```
+
+Hence, the posterior conditional probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.12,
+  "computer science": 0.09
+}
+```

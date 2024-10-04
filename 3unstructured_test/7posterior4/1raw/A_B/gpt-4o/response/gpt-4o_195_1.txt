@@ -1,0 +1,57 @@
+Bayes' rule states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To compute the posterior conditional probabilities \( P(H|E) \), we need to consider three components: 
+
+1. \( P(E|H) \): The likelihood of observing Adam's personality sketch given he is enrolled in a specific field.
+2. \( P(H) \): The prior probability that Adam is enrolled in that field.
+3. \( P(E) \): The marginal likelihood of observing Adam's personality sketch across all possible fields.
+
+Given the personality sketch, we can intuitively estimate the likelihoods and priors based on typical characteristics associated with students in each field.
+
+### Estimations
+
+1. **P(E|H) for Business Administration**
+   - Business Administration students typically focus on management, analytics, economics, and leadership. While empathy and high intelligence are relevant here, curiosity about nature and love for animals are less common.
+   - **Estimated P(E|H) for Business Administration**: Low to Moderate
+
+2. **P(E|H) for Agricultural and Veterinary Science**
+   - This field involves a direct interaction with plants, animals, and nature, matching Adam’s interests and traits much more closely.
+   - **Estimated P(E|H) for Agricultural and Veterinary Science**: High
+
+3. **P(H) for each field**
+   - Assuming there is no initial bias towards any specific field, we assume a uniform prior. However, data on the relative popularity of each field might adjust these priors in a practical scenario.
+
+4. **P(E)**
+   - Normalizing constant across all fields, we don't need the exact value, as we are only computing comparative posterior probabilities.
+
+### Simplified Bayesian Computation
+
+Assume:
+- \( P(E|H_{bus}) = 0.1 \)
+- \( P(E|H_{agVet}) = 0.8 \)
+- \( P(H_{bus}) \approx 0.5 \)
+- \( P(H_{agVet}) \approx 0.5 \)
+
+Since we are comparing the two specific fields, \( P(E) \) will normalize:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Posterior Probabilities
+- \( P(H_{bus}|E) \propto 0.1 \cdot 0.5 = 0.05 \)
+- \( P(H_{agVet}|E) \propto 0.8 \cdot 0.5 = 0.4 \)
+
+The exact posterior probabilities will be normalized proportional to these values:
+
+\[ P(H_{bus}|E) = \frac{0.05}{0.05 + 0.4} \approx 0.111 \]
+\[ P(H_{agVet}|E) = \frac{0.4}{0.05 + 0.4} \approx 0.889 \]
+
+### Result
+
+```json
+{
+  "business administration": 0.111,
+  "agricultural and veterinary science": 0.889
+}
+```

@@ -1,0 +1,42 @@
+To use Bayes' rule for these probabilities, we need to consider the following:
+
+1. **Prior probability of each field (P(H))**: This is the general probability that a graduate student might be enrolled in that field. This depends on the relative popularity of the fields.
+2. **Likelihood of E given H (P(E|H))**: This is the probability that a student from that field would have the personality traits described.
+
+For illustrative purposes, let's assume:
+- Prior probability P(H_cs) of a field like computer science: 0.2 (20%)
+- Prior probability P(H_avs) of a field like agricultural and veterinary science: 0.05 (5%)
+
+**Personality sketch considerations:**
+- **Computer Science (CS)**: Interest in nature and plants is less common; higher probability for intelligence and abstract concepts.
+- **Agricultural and Veterinary Science (AVS)**: Interest in nature, plants, and animals is highly aligned with AVS; empathy and love for animals are good fits.
+
+Let's make some rough estimates for the likelihoods:
+- P(E|H_cs) (computer science students with Adam's traits): 0.1
+- P(E|H_avs) (agricultural and veterinary science students with Adam's traits): 0.6
+
+**Bayes' rule:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since P(E) is the same for both fields (which we can consider as a normalizing constant), we can simplify the comparison of posterior probabilities by focusing on the numerator \( P(E|H) \cdot P(H) \).
+
+Let's compute these values:
+
+For computer science:
+\[ P(H_{cs}|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.1 \cdot 0.2 = 0.02 \]
+
+For agricultural and veterinary science:
+\[ P(H_{avs}|E) \propto P(E|H_{avs}) \cdot P(H_{avs}) = 0.6 \cdot 0.05 = 0.03 \]
+
+Finally, we normalize these to sum to 1 for practical purposes of this comparison:
+
+\[ \textrm{Normalized } P(H_{cs}|E) = \frac{0.02}{0.02 + 0.03} = \frac{0.02}{0.05} = 0.4 \]
+
+\[ \textrm{Normalized } P(H_{avs}|E) = \frac{0.03}{0.02 + 0.03} = \frac{0.03}{0.05} = 0.6 \]
+
+Thus:
+
+{
+  "computer science": "0.4",
+  "agricultural and veterinary science": "0.6"
+}

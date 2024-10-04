@@ -1,0 +1,52 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' Rule, we first need to consider the prior probabilities and the likelihoods of the hypotheses given the evidence.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we don't have explicit values for these probabilities, we can make educated guesses based on the provided personality sketch.
+
+### Prior Probabilities \( P(H) \)
+Let's make some reasonable assumptions about the prior probabilities:
+- The number of graduate students enrolling in business administration is high, but not necessarily the most common field for someone with Adam's described qualities.
+- Computer science is a very popular field, particularly for those with high intelligence and an aptitude for abstract concepts.
+
+We could assign the prior probabilities as follows:
+- Business administration: \( P(\text{business administration}) = 0.2 \)
+- Computer science: \( P(\text{computer science}) = 0.5 \)
+
+### Likelihoods \( P(E|H) \)
+Next, we consider how likely Adam's personality traits are given each field.
+
+- **Business Administration**: The field typically values leadership, communication, strategy, and management skills. While empathy and understanding are useful, curiosity about nature and solving puzzles might be less aligned.
+  - \( P(E|\text{business administration}) = 0.2 \)
+
+- **Computer Science**: This field highly values problem-solving skills, intelligence, and the ability to understand abstract concepts. Adam's love for puzzles and high intelligence fit well here.
+  - \( P(E|\text{computer science}) = 0.7 \)
+
+### Evidence \( P(E) \)
+Since we lack an exact probability distribution over all fields, we can simplify by focusing on relative comparisons. We'll ignore the actual computation of \( P(E) \) since it will factor out when comparing between fields.
+
+### Posterior Probabilities
+Using the simplified version of Bayes’ rule, ignoring \( P(E) \) (since it’s the same across hypotheses):
+
+\[ P(\text{business administration} | E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) = 0.2 \times 0.2 = 0.04 \]
+
+\[ P(\text{computer science} | E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) = 0.7 \times 0.5 = 0.35 \]
+
+Now, let's scale these to be between 0 and 1 by dividing by their sum (0.04 + 0.35):
+
+\[
+\begin{align*}
+P(\text{business administration} | E) & = \frac{0.04}{0.04 + 0.35} = \frac{0.04}{0.39} \approx 0.103 \\
+P(\text{computer science} | E) & = \frac{0.35}{0.04 + 0.35} = \frac{0.35}{0.39} \approx 0.897 
+\end{align*}
+\]
+
+Thus, the final probabilities are:
+
+```json
+{
+  "business administration": 0.103,
+  "computer science": 0.897
+}
+```

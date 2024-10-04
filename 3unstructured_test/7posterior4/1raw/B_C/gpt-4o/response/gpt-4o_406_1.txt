@@ -1,0 +1,51 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to know the prior probabilities \( P(H) \) of Adam being enrolled in each field and the likelihoods \( P(E|H) \) of Adam exhibiting the described personality given that he is enrolled in each field. In the absence of specific prior information, we can assume some general priors and likelihoods based on common knowledge and intuition.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume the prior probabilities \( P(H) \) for computer science and business administration as follows:
+- \( P(H_{\text{CS}}) \): probability that a random graduate student is in computer science.
+- \( P(H_{\text{BA}}) \): probability that a random graduate student is in business administration.
+
+While exact values are not given, we can make reasonable assumptions based on the characteristics:
+
+1. **Computer Science**:
+   - Adam enjoys solving puzzles and has high intelligence along with the ability to understand abstract concepts, which align well with the typical traits of computer science students.
+   - The likelihood \( P(E|H_{\text{CS}}) \) (Adam's personality traits given he is in computer science) is fairly high.
+
+2. **Business Administration**:
+   - Although Adam has a warm heart and strong empathy, which could fit business administration, his strong interest in nature, plants, and animals might not typically align with business administration.
+   - The likelihood \( P(E|H_{\text{BA}}) \) is possibly lower compared to computer science.
+
+Let's assume:
+\[ P(H_{\text{CS}}) = 0.3 \]
+\[ P(H_{\text{BA}}) = 0.25 \]
+
+For likelihoods, let's assume:
+\[ P(E|H_{\text{CS}}) = 0.7 \]   (high likelihood due to matching traits)
+\[ P(E|H_{\text{BA}}) = 0.4 \]   (lower likelihood due to partial mismatch)
+
+Since \( P(E) \) (evidence for the traits) is a normalizing constant and not directly needed to compare these two probabilities, we calculate relative scores:
+
+For computer science (CS):
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \]
+\[ P(H_{\text{CS}}|E) \propto 0.7 \times 0.3 = 0.21 \]
+
+For business administration (BA):
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+\[ P(H_{\text{BA}}|E) \propto 0.4 \times 0.25 = 0.1 \]
+
+Normalize these scores:
+\[ P(H_{\text{CS}}|E) = \frac{0.21}{0.21 + 0.1} = \frac{0.21}{0.31} \approx 0.677 \]
+\[ P(H_{\text{BA}}|E) = \frac{0.1}{0.21 + 0.1} = \frac{0.1}{0.31} \approx 0.323 \]
+
+So, the conditional probabilities are approximately:
+
+```json
+{
+  "computer science": 0.677,
+  "business administration": 0.323
+}
+```
+These values indicate that, given the described personality traits, Adam is more likely to be enrolled in computer science than in business administration.

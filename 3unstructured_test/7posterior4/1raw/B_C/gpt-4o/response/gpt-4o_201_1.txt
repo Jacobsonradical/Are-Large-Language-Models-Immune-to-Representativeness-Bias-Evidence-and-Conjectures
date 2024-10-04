@@ -1,0 +1,47 @@
+To compute the posterior conditional probability \( P(H|E) \) for Adam being enrolled in either computer science or business administration based on his personality sketch \( E \), we will use Bayes' rule. Bayes' rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of Adam being in a particular field given his personality sketch.
+- \( P(E|H) \) is the likelihood of Adam's personality traits given that he is in a particular field.
+- \( P(H) \) is the prior probability of Adam being in a particular field.
+- \( P(E) \) is the probability of observing Adam’s personality traits across all fields.
+
+For this problem, we will assume rough estimates for the likelihoods and prior probabilities:
+
+1. **Computer Science**:
+   - \( P(H) \): Let's assume the prior probability of a graduate student being in computer science is relatively high, around 0.25 (since STEM fields are quite popular).
+   - \( P(E|H) \): Adam’s traits such as high intelligence, understanding abstract concepts, and enjoying puzzles would make computer science likely. Let's estimate this likelihood as 0.6.
+   
+2. **Business Administration**:
+   - \( P(H) \): The prior probability of a graduate student being in business administration is also pretty significant, let’s say around 0.2.
+   - \( P(E|H) \): While empathy and a warm heart are valuable in business, Adam's curiosity about nature, love for animals, and preference for puzzles are less typical for this field. We might estimate this likelihood at 0.3.
+   
+We need a common \( P(E) \) for normalization, which is complex to determine without more data, but for this process, we will treat it as an unknown constant \( k \).
+
+Using Bayes' rule:
+
+For Computer Science:
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+\[ P(H_{cs}|E) = \frac{0.6 \cdot 0.25}{k} = \frac{0.15}{k} \]
+
+For Business Administration:
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+\[ P(H_{ba}|E) = \frac{0.3 \cdot 0.2}{k} = \frac{0.06}{k} \]
+
+Since \( P(E) = k \) is the same for both, it acts as a normalizing constant, we compare the numerators directly:
+
+{
+  "computer science": \( \frac{0.15}{k} \),
+  "business administration": \( \frac{0.06}{k} \)
+}
+
+Thus, the unnormalized values need to sum, but purely as proportional:
+
+{
+  "computer science": "0.7143",  // 0.15 / (0.15 + 0.06)
+  "business administration": "0.2857"  // 0.06 / (0.15 + 0.06)
+}
+
+These values suggest that, based on Adam’s personality traits and the provided simple assumptions, he is more likely to be enrolled in computer science than in business administration. The probabilities are normalized estimates but do not need to be treated as exhaustive summing to 1 due to the existence of other fields.

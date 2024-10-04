@@ -1,0 +1,46 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to consider the base rates (prior probabilities) of students enrolling in each field, as well as the likelihood of the given personality sketch \( E \) for students in each field.
+
+Bayes' rule states:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Here, \( P(E|H) \) is the likelihood of the personality sketch given the field \( H \), \( P(H) \) is the prior probability of the field, and \( P(E) \) is the normalizing constant, which is generally the same across all hypotheses and can be ignored for relative comparisons.
+
+Let's consider each field one by one:
+
+### Computer Science
+- **Likelihood \( P(E|H_{\text{CS}}) \)**: Computer science students often require high intelligence and problem-solving skills (aligning with Adam's enjoyment of puzzles and abstract concepts). However, a genuine curiosity about nature and a deep love for animals might be less common in this field.
+- **Base Rate \( P(H_{\text{CS}}) \)**: Computer science is a common field among graduate students.
+
+### Business Administration
+- **Likelihood \( P(E|H_{\text{BA}}) \)**: Business administration students might also need intelligence and empathy (important for managing people). But the strong curiosity about nature and the deep love for animals is less aligned with typical interests in this field.
+- **Base Rate \( P(H_{\text{BA}}) \)**: Business administration is another common field among graduate students.
+
+Given Adam's deep love for nature and animals, it seems less likely (though not impossible) that he would be in either of these fields compared to something like environmental science or biology. Thus, the \( P(E|H) \) values for both fields might be somewhat low, but we still need to judge relative likelihoods.
+
+Now we'll assign some illustrative values based on the above considerations:
+- Assume the likelihood of having Adam's personality sketch in computer science is \( P(E|H_{\text{CS}}) = 0.3 \).
+- Assume the likelihood of having Adam's personality sketch in business administration is \( P(E|H_{\text{BA}}) = 0.1 \).
+- Suppose the prior probabilities for these fields (considering base rates) are similar, say \( P(H_{\text{CS}}) = 0.2 \) and \( P(H_{\text{BA}}) = 0.2 \).
+
+### Calculations
+Since the exact value of \( P(E) \) cancels out in these relative comparisons, we mainly focus on the numerators:
+
+\[
+P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.3 \times 0.2 = 0.06
+\]
+\[
+P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \times 0.2 = 0.02
+\]
+
+Given the probabilities don't need to sum to 1, we can leave them as relative proportions:
+
+```json
+{
+  "computer science": 0.06,
+  "business administration": 0.02
+}
+```
+
+These are illustrative probabilities showing that, based on the given personality, Adam is more likely to be enrolled in computer science than in business administration, though these probabilities are quite low compared to other possible fields fitting his interests, such as environmental science or biology.

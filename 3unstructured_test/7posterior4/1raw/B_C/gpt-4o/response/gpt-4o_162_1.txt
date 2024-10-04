@@ -1,0 +1,94 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' Rule, we need:
+
+1. The prior probability \( P(H) \), which is the likelihood of Adam being enrolled in that field, regardless of any personality sketch.
+2. The likelihood \( P(E|H) \), which is the probability of observing the personality traits \( E \), given that Adam is enrolled in a particular field \( H \).
+3. The evidence \( P(E) \), which can be expressed as \( P(E) = \sum_{H} P(E|H)P(H) \).
+
+Given we do not have specific prior probabilities, we will make assumptions for simplicity. We'll assume reasonable estimates for \( P(E|H) \) based on how well the personality sketch \( E \) aligns with each field of study.
+
+### Assumptions for Prior Probabilities
+
+Let's assume for simplicity:
+- \( P(H = \text{computer science}) = 0.2 \)
+- \( P(H = \text{business administration}) = 0.15 \)
+
+### Likelihoods \( P(E|H) \)
+
+Given the personality sketch, the subject has traits like curiosity about nature, love for solving puzzles, empathy, and a deep appreciation for hard work.
+
+#### Computer Science
+
+- High intelligence and abstract thinking are strongly aligned with computer science.
+- Solving puzzles is also very much related to computer science.
+- Empathy, while beneficial in any field, is less directly related to the core domain knowledge but can be useful in areas like user experience or human-computer interaction.
+
+We'll assign a high probability but not perfect for \( P(E|\text{computer science}) \):
+
+- \( P(E|\text{computer science}) = 0.6 \)
+
+#### Business Administration
+
+- Empathy and a warm heart are very relevant for business, particularly in management, HR, and customer relations.
+- Abstract thinking and high intelligence are useful but may be used differently than in computer science.
+- Curiosity about nature and love for animals doesn't directly align but can manifest in certain niches like environmental business or sustainable development.
+
+We'll assign a moderate probability for \( P(E|\text{business administration}) \):
+
+- \( P(E|\text{business administration}) = 0.3 \)
+
+### Calculation using Bayes' Rule
+
+Bayes' Rule formula:
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+Where \( P(E) = P(E|\text{computer science})P(\text{computer science}) + P(E|\text{business administration})P(\text{business administration}) + \ldots \)
+
+### Estimating \( P(E) \)
+
+Let's sum over the two fields:
+
+\[
+P(E) \approx P(E|\text{computer science})P(\text{computer science}) + P(E|\text{business administration})P(\text{business administration})
+\]
+
+\[
+P(E) \approx (0.6 \times 0.2) + (0.3 \times 0.15)
+\]
+
+\[
+P(E) \approx 0.12 + 0.045 = 0.165
+\]
+
+### Final Posterior Probabilities
+
+#### Computer Science
+
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science})P(\text{computer science})}{P(E)}
+\]
+
+\[
+P(\text{computer science}|E) = \frac{0.6 \times 0.2}{0.165} \approx \frac{0.12}{0.165} \approx 0.727
+\]
+
+#### Business Administration
+
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration})P(\text{business administration})}{P(E)}
+\]
+
+\[
+P(\text{business administration}|E) = \frac{0.3 \times 0.15}{0.165} \approx \frac{0.045}{0.165} \approx 0.273
+\]
+
+The resulting probabilities are:
+
+```json
+{
+  "computer science": 0.727,
+  "business administration": 0.273
+}
+```

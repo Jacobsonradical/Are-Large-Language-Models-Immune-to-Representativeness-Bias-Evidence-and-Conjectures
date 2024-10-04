@@ -1,0 +1,43 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to have some prior probabilities and likelihoods. However, since these are not provided, we will make reasonable assumptions based on the given personality sketch \( E \).
+
+### Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the total probability of the evidence.
+
+For simplicity, we assume the prior probabilities (\( P(H) \)) for business administration and computer science are equal. Let's denote them as \( P(B) \) and \( P(C) \) respectively. Since we don't have exact values, we'll say \( P(B) = P(C) = 0.5 \).
+
+Next, we estimate the likelihoods \( P(E|B) \) and \( P(E|C) \) based on how well Adam's attributes fit into each field.
+
+- **Business Administration:** Generally associated with skills like leadership, management, finance, etc. Adam's personality traits like quiet nature, empathy, love for animals, and interest in nature do not align particularly well with this field.
+  - Estimate \( P(E|B) \) to be low.
+
+- **Computer Science:** Often requires high intelligence, problem-solving skills, understanding abstract concepts, and sometimes empathy (for user experiences, team collaboration). Adam's traits like being quiet, enjoying puzzles, high intelligence, and understanding abstract concepts fit well here.
+  - Estimate \( P(E|C) \) to be high.
+
+Finally, since \( P(E) \) will be the same for both hypotheses and is a normalization factor, we focus on the relative likelihoods.
+
+Given:
+\[ P(H = \text{business administration}) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) \]
+\[ P(H = \text{computer science}) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) \]
+
+We estimate:
+- \( P(E|\text{business administration}) \approx 0.2 \)
+- \( P(E|\text{computer science}) \approx 0.8 \)
+
+Hence, we can assume:
+\[ P(\text{computer science}|E) \approx \frac{0.8 \times 0.5}{0.8 \times 0.5 + 0.2 \times 0.5} = \frac{0.4}{0.4 + 0.1} = \frac{0.4}{0.5} = 0.8 \]
+\[ P(\text{business administration}|E) \approx \frac{0.2 \times 0.5}{0.8 \times 0.5 + 0.2 \times 0.5} = \frac{0.1}{0.4 + 0.1} = \frac{0.1}{0.5} = 0.2 \]
+
+Thus, we can infer:
+
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

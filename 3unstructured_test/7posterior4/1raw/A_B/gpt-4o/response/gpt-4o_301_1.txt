@@ -1,0 +1,51 @@
+To compute the posterior probabilities \( P(H|E) \) for each field given the personality sketch \( E \) of Adam, we can apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here are the terms we need:
+1. \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given that Adam is enrolled in field \( H \).
+2. \( P(H) \): The prior probability of Adam being enrolled in field \( H \).
+3. \( P(E) \): The marginal probability of observing the personality sketch \( E \) (same for all hypotheses).
+
+Since we do not have exact numerical prior probabilities and likelihoods, we will make educated estimates based on the provided sketch and common knowledge about these fields.
+
+1. **Agricultural and Veterinary Science:**
+   - **P(E|H)** (Likelihood): Given his love for nature, plants, and animals, and his strong empathy, it is quite likely that someone with Adam's profile would be in agricultural or veterinary science. We can assign a high likelihood \( P(E|H) \approx 0.8 \).
+   - **P(H)** (Prior): Not a very common field among all graduate fields, but not extremely rare either. We estimate \( P(H) \approx 0.1 \).
+
+2. **Business Administration:**
+   - **P(E|H)** (Likelihood): His personality traits do not strongly align with typical traits sought in business administration students (such as strong interest in finance, economics, etc.). Hence, the likelihood is lower, \( P(E|H) \approx 0.2 \).
+   - **P(H)** (Prior): Business administration is a very common field for graduate students. We estimate \( P(H) \approx 0.2 \).
+
+The marginal probability \( P(E) \) does not affect the ratio of these probabilities directly since it is a normalizing constant common to all hypotheses. 
+
+Given these educated estimates, we can calculate the unnormalized posterior probabilities:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+- For **Agricultural and Veterinary Science**:
+\[ P(H = \text{Agri/Vet}|E) \propto 0.8 \times 0.1 = 0.08 \]
+
+- For **Business Administration**:
+\[ P(H = \text{Bus Admin}|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+We normalize these to obtain the posterior probabilities:
+
+- Sum of unnormalized posteriors: \( 0.08 + 0.04 = 0.12 \)
+
+So the normalized posterior probabilities are:
+
+- For **Agricultural and Veterinary Science**:
+\[ P(H = \text{Agri/Vet}|E) = \frac{0.08}{0.12} \approx 0.67 \]
+
+- For **Business Administration**:
+\[ P(H = \text{Bus Admin}|E) = \frac{0.04}{0.12} \approx 0.33 \]
+
+Thus, the posterior conditional probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.67,
+  "business administration": 0.33
+}
+```

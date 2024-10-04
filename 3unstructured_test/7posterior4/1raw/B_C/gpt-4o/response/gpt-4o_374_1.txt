@@ -1,0 +1,82 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, let's first break down the components we need:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+- \( P(H) \) = Prior probability of Adam being enrolled in a given field.
+- \( P(E|H) \) = Likelihood of observing E given H.
+- \( P(E) \) = Total probability of E.
+
+Calculating these precisely would require detailed data and prior probabilities (like the general distribution of graduate enrollments per field). Without this data, we can make educated guesses based on the personality sketch.
+
+### Estimating the Likelihoods \( P(E|H) \)
+
+1. **Business Administration**:
+   - Adam's traits that might be relevant: high intelligence, appreciation for hard work.
+   - Traits less relevant or detrimental: a quiet personality, deep love for animals and nature, strong empathy.
+   - Generally, business administration may require a more sociable and extroverted nature.
+   - Estimated \( P(E|H) \): Low.
+
+2. **Computer Science**:
+   - Adam's traits that might be relevant: high intelligence, understanding abstract concepts, liking for puzzles.
+   - Quiet personality and solving puzzles align strongly with common computer science traits.
+   - Estimated \( P(E|H) \): High.
+
+### Estimating the Priors \( P(H) \):
+
+1. **Business Administration**: Representing a common graduate field, let's assume moderate priors.
+   - Estimated \( P(H) \): 0.2.
+2. **Computer Science**: Also a common field with many quiet, puzzle-solving individuals.
+   - Estimated \( P(H) \): 0.25.
+
+### Simplifying the Denominator \( P(E) \):
+
+- \( P(E) \) represents the overall probability of Adam's personality sketch, a constant for all H hypotheses.
+
+### Posterior Probabilities:
+
+Given the estimates:
+
+Let's assume
+\[ P(E| \text{Business Administration}) \approx 0.1 \]
+\[ P(E| \text{Computer Science}) \approx 0.7 \]
+
+Applying Bayes' rule:
+
+1. **Business Administration**:
+   \[
+   P(\text{Business Administration} | E) = \frac{P(E | \text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)}
+   \]
+   \[
+   \approx \frac{0.1 \cdot 0.2}{P(E)} = \frac{0.02}{P(E)}
+   \]
+
+2. **Computer Science**:
+   \[
+   P(\text{Computer Science} | E) = \frac{P(E | \text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)}
+   \]
+   \[
+   \approx \frac{0.7 \cdot 0.25}{P(E)} = \frac{0.175}{P(E)}
+   \]
+
+Normalizing \( P(\text{Business Administration} | E) \) and \( P(\text{Computer Science} | E) \):
+
+\[
+\frac{P(\text{Business Administration} | E)}{P(\text{Computer Science} | E)} = \frac{0.02}{0.175}
+\]
+
+Providing approximate values, we get:
+
+\[
+P(\text{Business Administration} | E) \approx 0.1 \quad (\text{without normalizing to other fields})
+\]
+\[
+P(\text{Computer Science} | E) \approx 0.9 \quad (\text{without normalizing to other fields})
+\]
+
+Thus:
+
+```json
+{
+  "business administration": 0.1,
+  "computer science": 0.9
+}
+```

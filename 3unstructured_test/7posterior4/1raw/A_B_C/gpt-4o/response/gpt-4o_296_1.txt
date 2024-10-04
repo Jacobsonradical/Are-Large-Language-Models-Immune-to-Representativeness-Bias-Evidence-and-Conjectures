@@ -1,0 +1,77 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to apply:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( H \) is the hypothesis that Adam was enrolled in a specific field.
+- \( E \) is the evidence, which is Adam's personality sketch.
+
+To determine \( P(H|E) \) for each field, we require:
+1. \( P(E|H) \): The likelihood of Adam's personality sketch given he is enrolled in that field.
+2. \( P(H) \): The prior probability that a random graduate student is enrolled in that field.
+3. \( P(E) \): The overall probability of Adam's personality sketch.
+
+While \( P(H) \) and \( P(E) \) can be estimated from available data on the frequency of graduate fields and the general occurrence of such a personality sketch, here we focus more intuitively due to lack of specific numbers.
+
+Given Adam's traits (curiosity about nature, love for animals, empathy, intelligence, understanding of hard work) and considering the fields in question, we'll make qualitative assessments:
+
+1. **Agricultural and Veterinary Science:**
+   - High likelihood since it aligns with natural curiosity and love for animals.
+2. **Business Administration:**
+   - Lower likelihood as Adam's traits don’t strongly correlate with typical business administration traits.
+3. **Computer Science:**
+   - Moderate likelihood since puzzle-solving and intelligence align with computer science, but love for nature/animals is less relevant.
+
+Using these qualitative assessments:
+
+\[
+\begin{aligned}
+&\text{P(E|H, Agricultural and Veterinary Science)} \approx 0.7 \\
+&\text{P(E|H, Business Administration)} \approx 0.2 \\
+&\text{P(E|H, Computer Science)} \approx 0.5 \\
+\end{aligned}
+\]
+
+If we assume an equal distribution of graduate students across these fields, \( P(H) \approx \frac{1}{N} \) for simplicity. For three fields:
+
+\[ P(H) = \frac{1}{3} \approx 0.33 \]
+
+We can ignore normalizing \( P(E) \) for relative comparisons:
+
+\[
+\begin{aligned}
+P(H|E, \text{Agricultural and Veterinary Science}) &\propto 0.7 \cdot 0.33 = 0.231 \\
+P(H|E, \text{Business Administration}) &\propto 0.2 \cdot 0.33 = 0.066 \\
+P(H|E, \text{Computer Science}) &\propto 0.5 \cdot 0.33 = 0.165 \\
+\end{aligned}
+\]
+
+Thus, using relative values:
+
+\[
+\begin{aligned}
+&\frac{0.231}{(0.231 + 0.066 + 0.165)} \approx 0.511 \\
+&\frac{0.066}{(0.231 + 0.066 + 0.165)} \approx 0.146 \\
+&\frac{0.165}{(0.231 + 0.066 + 0.165)} \approx 0.364 \\
+\end{aligned}
+\]
+
+However, acknowledging qualitative inputs:
+
+\[
+\begin{aligned}
+&\text{P(H|E, Agricultural and Veterinary Science)} \approx 0.55 \\
+&\text{P(H|E, Business Administration)} \approx 0.10 \\
+&\text{P(H|E, Computer Science)} \approx 0.35 \\
+\end{aligned}
+\]
+
+This refined approximation:
+
+```json
+{
+  "agricultural and veterinary science": 0.55,
+  "business administration": 0.10,
+  "computer science": 0.35
+}
+```

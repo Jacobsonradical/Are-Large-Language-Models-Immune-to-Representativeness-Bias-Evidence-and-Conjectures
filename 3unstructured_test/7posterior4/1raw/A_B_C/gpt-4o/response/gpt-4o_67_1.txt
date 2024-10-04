@@ -1,0 +1,53 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we'll need to make use of the prior probabilities \( P(H) \) of each field of study in general, the likelihood \( P(E|H) \) of observing the personality sketch given that Adam is in each of these fields, and the overall probability \( P(E) \) of observing the personality sketch regardless of field of study. Bayes' rule is formulated as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the context and the information provided, we’ll make the following educated estimates for these probabilities:
+
+1. **P(H)** - The prior probability for each field.
+   - Let's assume general priors based on common enrollment rates for graduate programs. For simplicity, let's use broad approximations:
+     - Agricultural and Veterinary Science: \( P(H_{\text{AVS}}) = 0.10 \)
+     - Business Administration: \( P(H_{\text{BA}}) = 0.25 \)
+     - Computer Science: \( P(H_{\text{CS}}) = 0.30 \)
+     (Note: These are rough estimates; actual priors would depend on specific enrollment data.)
+
+2. **P(E|H)** - The likelihood of the personality sketch given each field.
+   - Agricultural and Veterinary Science: Given Adam's interest in nature, plants, animals, and his warm-hearted nature, we expect a high likelihood \( P(E|H_{\text{AVS}}) = 0.70 \).
+   - Business Administration: Adam's traits don’t strongly align with common traits in business administration, so let's set \( P(E|H_{\text{BA}}) = 0.20 \).
+   - Computer Science: Given Adam's quiet nature, intelligence, and affinity for puzzles, we can assume a moderate likelihood \( P(E|H_{\text{CS}}) = 0.40 \).
+
+3. **P(E)** - The overall probability of the personality sketch.
+   - This is the normalizing constant and can be computed as:
+     \[
+     P(E) = P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})
+     \]
+     So,
+     \[
+     P(E) = (0.70 \cdot 0.10) + (0.20 \cdot 0.25) + (0.40 \cdot 0.30) = 0.07 + 0.05 + 0.12 = 0.24
+     \]
+
+Now applying Bayes' rule to each field:
+
+1. **Agricultural and Veterinary Science**:
+   \[
+   P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} = \frac{0.70 \cdot 0.10}{0.24} = \frac{0.07}{0.24} \approx 0.292
+   \]
+
+2. **Business Administration**:
+   \[
+   P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.20 \cdot 0.25}{0.24} = \frac{0.05}{0.24} \approx 0.208
+   \]
+
+3. **Computer Science**:
+   \[
+   P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.40 \cdot 0.30}{0.24} = \frac{0.12}{0.24} = 0.5
+   \]
+
+Hence, the posterior conditional probabilities are:
+\[
+{
+  "agricultural and veterinary science": 0.292,
+  "business administration": 0.208,
+  "computer science": 0.5
+}
+\]

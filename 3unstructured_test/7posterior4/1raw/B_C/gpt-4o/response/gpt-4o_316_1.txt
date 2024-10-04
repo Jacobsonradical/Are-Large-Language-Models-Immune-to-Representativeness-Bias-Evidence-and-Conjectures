@@ -1,0 +1,70 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider the likelihood of the evidence given the hypothesis and the prior probability of each hypothesis. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's a simplified step-by-step process for estimating \( P(H|E) \), leveraging reasonable assumptions about the prior probabilities and evidence likelihoods:
+
+1. **Prior Probability, \( P(H) \)**: This is the initial probability of Adam being in each field before we know anything about his personality.
+  
+2. **Likelihood, \( P(E|H) \)**: This is the probability of observing his personality sketch given that he is in a specific field.
+
+3. **Evidence, \( P(E) \)**: This is the normalization factor, ensuring that the probabilities sum up to 1 across all hypotheses. Since you don't need your total to add up to 1, we can ignore this for relative comparison.
+
+We can assume:
+- The prior probability of a student being in business administration is lower compared to other fields like computer science, given the range of possible grad fields in 2021.
+- The nature of Adam’s personality might be more aligned with computer science due to his affinity for solving puzzles, high intelligence, and understanding of abstract concepts.
+
+Given these reasonable assumptions, here are our rough estimates for the conditional probabilities:
+
+\[
+\text{Prior (P(H)) for Business Administration} = 0.1 \quad \text{(lower priority)}
+\]
+\[
+\text{Prior (P(H)) for Computer Science} = 0.2 \quad \text{(higher priority due to nature alignment)}
+\]
+
+\[
+\text{Likelihood (P(E|H)) for Business Administration} \approx 0.1 \quad \text{(less likely for nature and puzzles)}
+\]
+\[
+\text{Likelihood (P(E|H)) for Computer Science} \approx 0.8 \quad \text{(more likely due to nature and puzzles)}
+\]
+
+Using Bayes' Rule:
+
+\[
+P(\text{Business Administration}|E) \approx \frac{0.1 \times 0.1}{P(E)} \approx \frac{0.01}{P(E)}
+\]
+
+\[
+P(\text{Computer Science}|E) \approx \frac{0.8 \times 0.2}{P(E)} \approx \frac{0.16}{P(E)}
+\]
+
+Since \( P(E) \) is the same for both and we are comparing relative values:
+
+\[
+\text{{Relative Probability for Business}} \approx 0.01
+\]
+\[
+\text{{Relative Probability for Computer Science}} \approx 0.16
+\]
+
+So accordingly, we can normalize these relative probabilities:
+
+\[
+P(\text{Business Administration}|E) \approx 0.01 \quad (\text{normalized assumption})
+\]
+\[
+P(\text{Computer Science}|E) \approx 0.16 \quad (\text{normalized surprising weighting})
+\]
+
+Given the values:
+
+```json
+{
+  "business administration": "0.05",
+  "computer science": "0.8"
+}
+```
+
+(Note: The values provided are approximations and for conceptual purposes. Actual computations would necessitate more precise priors and data-specific likelihoods.)

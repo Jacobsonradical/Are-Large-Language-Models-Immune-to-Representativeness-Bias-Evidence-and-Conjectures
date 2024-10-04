@@ -1,0 +1,69 @@
+To compute the posterior conditional probability \( P(H|E) \) for each field, we need to use Bayes' rule which is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Here:
+- \( P(H|E) \) is the posterior probability we want to compute.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given that \( H \) is true (i.e., Adam is enrolled in that field).
+- \( P(H) \) is the prior probability of \( H \) (the probability of Adam being enrolled in that field without knowing his personality sketch).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+To compute these, we would ideally have empirical data on the distribution of graduate students in these fields and their personality traits. In the absence of concrete data, we can make educated guesses.
+
+Let's start by assigning rough probabilities based on the given personality sketch.
+
+1. **Agricultural and Veterinary Science** \( (H_1) \):
+   - \( P(E|H_1) \): Given Adam's curiosity about nature, plants, and his love for animals, the likelihood is high. Let's assume \( P(E|H_1) = 0.8 \).
+   - \( P(H_1) \): This is less common among graduate students than fields like computer science. Let's assume \( P(H_1) = 0.1 \).
+
+2. **Computer Science** \( (H_2) \):
+   - \( P(E|H_2) \): Adam's intelligence and puzzle-solving skills fit well, but his nature and animal interests are less aligned. We might assume \( P(E|H_2) = 0.5 \).
+   - \( P(H_2) \): More common than agricultural and veterinary science. Let's assign \( P(H_2) = 0.3 \).
+
+3. **Business Administration** \( (H_3) \):
+   - \( P(E|H_3) \): The traits described do not strongly align with typical interests in business administration. Let's assume \( P(E|H_3) = 0.2 \).
+   - \( P(H_3) \): Fairly common among graduate students. Let's assume \( P(H_3) = 0.3 \).
+
+Given the absence of information about \( P(E) \), let's normalize the probabilities so that they sum to 1 for the purpose of comparison. 
+
+The posterior probabilities are proportional to the product of the prior and the likelihood:
+
+\[
+P(H_i|E) \propto P(E|H_i)P(H_i)
+\]
+
+For normalization, we calculate \( P(E) \) as:
+
+\[
+P(E) = P(E|H_1)P(H_1) + P(E|H_2)P(H_2) + P(E|H_3)P(H_3)
+\]
+
+\[
+P(E) = 0.8 \cdot 0.1 + 0.5 \cdot 0.3 + 0.2 \cdot 0.3
+\]
+
+\[
+P(E) = 0.08 + 0.15 + 0.06 = 0.29
+\]
+
+Now compute the posteriors:
+
+\[
+P(H_1|E) = \frac{P(E|H_1)P(H_1)}{P(E)} = \frac{0.8 \cdot 0.1}{0.29} \approx 0.276
+\]
+
+\[
+P(H_2|E) = \frac{P(E|H_2)P(H_2)}{P(E)} = \frac{0.5 \cdot 0.3}{0.29} \approx 0.517
+\]
+
+\[
+P(H_3|E) = \frac{P(E|H_3)P(H_3)}{P(E)} = \frac{0.2 \cdot 0.3}{0.29} \approx 0.207
+\]
+
+The probabilities are as follows:
+
+{
+  "agricultural and veterinary science": 0.276,
+  "computer science": 0.517,
+  "business administration": 0.207
+}

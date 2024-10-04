@@ -1,0 +1,52 @@
+Let's denote the fields as \( H_{BA} \) for business administration and \( H_{CS} \) for computer science. We need to find the posterior probabilities \( P(H_{BA}|E) \) and \( P(H_{CS}|E) \) using Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) given hypothesis \( H \).
+- \( P(E) \) is the total probability of observing evidence \( E \), calculated as:
+  \[
+  P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + ... \text{(probabilities of other fields)}
+  \]
+
+Since we are given a personality sketch that includes a genuine curiosity about nature, love for solving puzzles, empathy, deep love for animals, high intelligence, understanding abstract concepts, and appreciation for hard work, these traits might differ significantly in their likelihood across different fields.
+
+We assume the following:
+- A student with such traits is less likely to be in business administration compared to fields where analytical and scientific curiosity are more prominent.
+- A student with a high interest in nature, animals, and solving puzzles aligns more with fields like biological sciences, environmental studies, or computer science.
+- We will approximate the prior probabilities for the broad popularity of graduate fields, but these are rough estimates and might be influenced by many factors.
+
+Let's make some reasoned approximations to keep the calculation simple.
+
+Assume:
+- Prior probabilities \( P(H_{BA}) \approx 0.25 \) and \( P(H_{CS}) \approx 0.20 \). These are taken roughly from the general distribution of graduate enrollments in these fields.
+- Likelihoods \( P(E|H_{BA}) \approx 0.10 \) (since Adam’s traits are not highly characteristic of business students), and \( P(E|H_{CS}) \approx 0.20 \) (since analytical and abstract thinking are more common in this field).
+
+Now, let's ignore other fields for simplicity and compute:
+
+\[ P(E) \approx P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(E) \approx (0.10 \cdot 0.25) + (0.20 \cdot 0.20) \]
+\[ P(E) \approx 0.025 + 0.04 \]
+\[ P(E) \approx 0.065 \]
+
+Now applying Bayes' rule:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) \approx \frac{0.10 \cdot 0.25}{0.065} \]
+\[ P(H_{BA}|E) \approx \frac{0.025}{0.065} \]
+\[ P(H_{BA}|E) \approx 0.385 \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) \approx \frac{0.20 \cdot 0.20}{0.065} \]
+\[ P(H_{CS}|E) \approx \frac{0.04}{0.065} \]
+\[ P(H_{CS}|E) \approx 0.615 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.385,
+  "computer science": 0.615
+}
+```

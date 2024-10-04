@@ -1,0 +1,38 @@
+To calculate the posterior probabilities \( P(H|E) \) using Bayes' rule, we need the prior probabilities \( P(H) \) for each hypothesis (i.e., the probability that a graduate student is enrolled in each field), the likelihood \( P(E|H) \) (i.e., the probability of the personality sketch given enrollment in each field), and the total probability of observing the evidence \( P(E) \). 
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we do not have empirical data for prior probabilities or likelihoods, we will make some educated estimates for this example.
+
+1. **Prior Probabilities \( P(H) \)**:
+   - Let's assume the prior probability for a graduate student to be in computer science is 0.3.
+   - Let's assume the prior probability for a graduate student to be in agricultural and veterinary science is 0.1.
+
+2. **Likelihoods \( P(E|H) \)**:
+   - For **computer science**, given that Adam enjoys solving puzzles and has high intelligence, we might estimate \( P(E|H_{\text{cs}}) \) to be 0.4.
+   - For **agricultural and veterinary science**, given Adam's curiosity about nature, plants, love for animals, empathy, and appreciation for hard work, we might estimate \( P(E|H_{\text{avs}}) \) to be 0.7.
+
+3. **Total Probability \( P(E) \)**:
+   - This is the normalization constant which ensures that the probabilities sum to 1. Essentially, \( P(E) = P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}}) + \text{probabilities for other fields} \). For simplicity in this context, we will ignore other fields.
+
+Now, let's compute:
+\[ P(E) = (0.4 \cdot 0.3) + (0.7 \cdot 0.1) = 0.12 + 0.07 = 0.19 \]
+
+4. **Posterior Probabilities \( P(H|E) \)**:
+   - For **computer science**:
+     \[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} = \frac{0.4 \cdot 0.3}{0.19} \approx 0.63 \]
+
+   - For **agricultural and veterinary science**:
+     \[ P(H_{\text{avs}}|E) = \frac{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}})}{P(E)} = \frac{0.7 \cdot 0.1}{0.19} \approx 0.37 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.63,
+  "agricultural and veterinary science": 0.37
+}
+```
+
+These values suggest that based on the given personality sketch, it is more likely that Adam was enrolled in computer science, but there is still a notable chance he was in agricultural and veterinary science.

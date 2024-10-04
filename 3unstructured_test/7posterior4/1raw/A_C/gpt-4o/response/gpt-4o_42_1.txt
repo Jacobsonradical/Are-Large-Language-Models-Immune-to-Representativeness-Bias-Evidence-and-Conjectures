@@ -1,0 +1,46 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' Rule, we need to consider the prior probability \( P(H) \) for each field, the likelihood \( P(E|H) \) of observing Adam's personality sketch given that he is in that field, and the evidence \( P(E) \) across all fields.
+
+Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since the exact prior probabilities \( P(H) \) and the likelihoods \( P(E|H) \) are not provided, we will make reasonable assumptions based on typical data to get an indicative result.
+
+Let's assume:
+- \( P(H = \text{computer science}) = 0.2 \) (20% of graduate students are in computer science)
+- \( P(H = \text{agricultural and veterinary science}) = 0.05 \) (5% of graduate students are in agricultural and veterinary science)
+- A high likelihood (\( P(E|H = \text{agricultural and veterinary science}) \)) for Adam's personality sketch in the context of agricultural and veterinary science, because of his love for animals and nature.
+- Moderate likelihood (\( P(E|H = \text{computer science}) \)) for Adam's personality sketch in the context of computer science, because of his enjoyment of solving puzzles and understanding abstract concepts.
+
+Now, let's define a proportional basis for likelihood:
+- \( P(E|H = \text{computer science}) = 0.4 \)
+- \( P(E|H = \text{agricultural and veterinary science}) = 0.8 \)
+
+Finally, for the evidence \( P(E) \), let's assume it's a normalizing constant that ensures total probability sums up.
+
+Applying Bayes' Rule:
+
+1. **Computer Science:**
+\[ P(H = \text{computer science} | E) = \frac{P(E|H = \text{computer science}) \cdot P(H = \text{computer science})}{P(E)} \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H = \text{agricultural and veterinary science} | E) = \frac{P(E|H = \text{agricultural and veterinary science}) \cdot P(H = \text{agricultural and veterinary science})}{P(E)} \]
+
+Since \( P(E) \) is the same in both calculations, it cancels out when comparing the two probabilities.
+
+Thus, we compute:
+
+\[ P(H = \text{computer science} | E) \propto P(E|H = \text{computer science}) \cdot P(H = \text{computer science}) \]
+\[ P(H = \text{computer science} | E) \propto 0.4 \times 0.2 = 0.08 \]
+
+\[ P(H = \text{agricultural and veterinary science} | E) \propto P(E|H = \text{agricultural and veterinary science}) \cdot P(H = \text{agricultural and veterinary science}) \]
+\[ P(H = \text{agricultural and veterinary science} | E) \propto 0.8 \times 0.05 = 0.04 \]
+
+Now normalizing these to get values between 0 and 1, considering these two options alone (for simplicity relative scaling):
+
+{
+  "computer science": 0.67,  // 0.08 / (0.08 + 0.04)
+  "agricultural and veterinary science": 0.33  // 0.04 / (0.08 + 0.04)
+}
+
+In absolute terms they don't have to sum to 1 unless limited to only provided fields. For absolute values over full set of fields additional normalizing required.

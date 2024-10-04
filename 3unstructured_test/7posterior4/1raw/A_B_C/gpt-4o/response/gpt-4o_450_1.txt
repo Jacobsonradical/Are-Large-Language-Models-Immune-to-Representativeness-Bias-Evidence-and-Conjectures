@@ -1,0 +1,48 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+
+1. **Identify the Prior Probabilities \( P(H) \)**: This represents the general probability of a student being enrolled in each field without any other information. For simplicity, let's assume these prior probabilities are equal (1/3 each) because there are no given values.
+   
+2. **Likelihood \( P(E|H) \)**: This is the probability of observing the evidence (Adam's personality sketch) given the specific hypothesis (field of study).
+
+3. **Evidence Probability \( P(E) \)**: This is the total probability of observing the evidence under all hypotheses. It is computed by summing the product of the prior and likelihoods over all hypotheses.
+
+Using Bayes' rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll estimate \( P(E|H) \) based on the fit of Adam's personality traits to the fields.
+
+**Assumptions for \( P(E|H) \):**
+
+- **Computer Science** (CS): Adam's high intelligence and capacity for abstract thinking fit well. Curiosity about nature is less relevant.
+- **Business Administration** (BA): Strong empathy and understanding of hard work fit somewhat, but curiosity about nature and love for animals are less relevant.
+- **Agricultural and Veterinary Science** (AgriVet): Direct fit with curiosity about nature, love for animals, empathy, and appreciation for hard work.
+
+Let's assign likelihood values (high=0.7, medium=0.3, low=0.1):
+- \( P(E|CS) = 0.3 \)
+- \( P(E|BA) = 0.1 \)
+- \( P(E|AgriVet) = 0.7 \)
+
+**Prior Probabilities** were assumed equal:
+- \( P(CS) = \frac{1}{3} \)
+- \( P(BA) = \frac{1}{3} \)
+- \( P(AgriVet) = \frac{1}{3} \)
+
+**Total Evidence Probability \( P(E) \)**:
+\[ P(E) = P(E|CS) \cdot P(CS) + P(E|BA) \cdot P(BA) + P(E|AgriVet) \cdot P(AgriVet) \]
+\[ P(E) = (0.3 \cdot \frac{1}{3}) + (0.1 \cdot \frac{1}{3}) + (0.7 \cdot \frac{1}{3}) \]
+\[ P(E) = 0.1 + 0.0333 + 0.2333 \]
+\[ P(E) = 0.3666 \]
+
+**Posterior Probabilities**:
+\[ P(CS|E) = \frac{P(E|CS) \cdot P(CS)}{P(E)} = \frac{0.3 \cdot \frac{1}{3}}{0.3666} = \frac{0.1}{0.3666} \approx 0.273 \]
+\[ P(BA|E) = \frac{P(E|BA) \cdot P(BA)}{P(E)} = \frac{0.1 \cdot \frac{1}{3}}{0.3666} = \frac{0.0333}{0.3666} \approx 0.0908 \]
+\[ P(AgriVet|E) = \frac{P(E|AgriVet) \cdot P(AgriVet)}{P(E)} = \frac{0.7 \cdot \frac{1}{3}}{0.3666} = \frac{0.2333}{0.3666} \approx 0.636 \]
+
+Thus, the posterior conditional probabilities would be:
+```json
+{
+  "computer science": 0.273,
+  "business administration": 0.0908,
+  "agricultural and veterinary science": 0.636
+}
+```

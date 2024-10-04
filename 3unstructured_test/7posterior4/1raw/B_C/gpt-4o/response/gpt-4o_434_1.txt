@@ -1,0 +1,55 @@
+To compute the posterior conditional probabilities \( P(H|E) \) for each field, we need to use Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's a breakdown of what each term represents:
+
+- \( P(H|E) \): The probability that Adam is enrolled in a given field \( H \) given his personality sketch \( E \).
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam is enrolled in field \( H \).
+- \( P(H) \): The prior probability that Adam is enrolled in field \( H \).
+- \( P(E) \): The probability of observing the personality sketch \( E \) across all fields.
+
+To keep things manageable, we'll make the following general assumptions:
+
+1. \( P(E|H) \) is higher in fields where Adam's interests and traits are more relevant.
+2. \( P(H) \) is assumed to be approximately equal for simplicity unless other information is provided.
+3. \( P(E) \) is a normalizing constant but is not necessarily required for a relative comparison.
+
+### Evaluation of \( P(E|H) \)
+
+- **Computer Science**:
+    - Strong intelligence and understanding abstract concepts are highly relevant.
+    - His enjoyment of solving puzzles aligns well with computer science.
+    - Less directly relevant traits: empathy, love for nature, and animals.
+  - Estimated \( P(E|H = \text{computer science}) \): High
+
+- **Business Administration**:
+    - Appreciation for hard work and dedication is relevant.
+    - Empathy could be useful in management.
+    - Not directly relevant: curiosity about nature/plants, love for animals, enjoyment of solving puzzles.
+  - Estimated \( P(E|H = \text{business administration}) \): Moderate to Low
+
+Given these estimates, let's assign some values. These values are subjective and for illustrative purposes:
+
+- \( P(E|H = \text{computer science}) = 0.7 \)
+- \( P(E|H = \text{business administration}) = 0.3 \)
+- Assume \( P(H) \) for each as 0.5 (due to lack of prior information favoring one over the other).
+  
+### Using Bayes' Rule without Normalizing Constant:
+
+For computer science:
+\[ P(H = \text{computer science} | E) \propto P(E|H = \text{computer science}) \cdot P(H = \text{computer science}) = 0.7 \times 0.5 = 0.35 \]
+
+For business administration:
+\[ P(H = \text{business administration} | E) \propto P(E|H = \text{business administration}) \cdot P(H = \text{business administration}) = 0.3 \times 0.5 = 0.15 \]
+
+### Conditional Probabilities:
+
+```json
+{
+  "computer science": 0.35,
+  "business administration": 0.15
+}
+```
+
+These are relative probabilities as per our subjective evaluation based on the given personality sketch. For absolute probabilities, we would need the normalizing constant \( P(E) \) which includes the sum of all \( P(E|H) \cdot P(H) \) terms for every possible field.

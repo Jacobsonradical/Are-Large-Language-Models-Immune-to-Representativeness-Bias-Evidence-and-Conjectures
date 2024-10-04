@@ -1,0 +1,52 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to use the formula:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+For practicality, we consider:
+- The likelihood \( P(E|H) \) is an estimate on how well the characteristics in \( E \) match typical students in the given field.
+- The prior \( P(H) \) reflects the general popularity or prevalence of the field among graduate students.
+
+Firstly, we make informed guesses for:
+1. Prior probabilities \( P(H) \) based on general popularity of fields.
+2. Likelihood \( P(E|H) \) based on how well Adam's personality sketch matches stereotypical students in those fields.
+
+For simplicity, let's assign reasonable values:
+
+### Business Administration
+Adam's personality doesn't strongly align with stereotypical traits of business administration (e.g., a focus on leadership, communication, and organizational skills). However, the field is popular.
+- \( P(H_{\text{BA}}) \approx 0.2 \) (20% of graduate students)
+- \( P(E|H_{\text{BA}}) \approx 0.1 \)
+
+### Computer Science
+Adam's affinity for puzzles, high intelligence, understanding of abstract concepts, and general demeanor match well with computer science students.
+- \( P(H_{\text{CS}}) \approx 0.15 \) (15% of graduate students)
+- \( P(E|H_{\text{CS}}) \approx 0.5 \)
+
+The marginal likelihood \( P(E) \) normalizes the overall probabilities considering all possible fields. For simplicity, since we're examining individual hypotheses, precise calculation isn't feasible without extensive data. Generally, the ranking comparison conveys meaningful insights.
+
+Combining estimates, we can compute the unnormalized posterior probabilities and then normalize for relative comparison:
+
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \cdot 0.2 = 0.02 \]
+
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.5 \cdot 0.15 = 0.075 \]
+
+Given only two hypotheses considered, normalize:
+
+\[ P(H_{\text{BA}}|E) = \frac{0.02}{0.02 + 0.075} \approx 0.211 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.075}{0.02 + 0.075} \approx 0.789 \]
+
+### Conclusion
+```json
+{
+  "business administration": 0.211,
+  "computer science": 0.789
+}
+```
+
+These probabilities reflect the best approximate fit based on Adam's given personality traits.

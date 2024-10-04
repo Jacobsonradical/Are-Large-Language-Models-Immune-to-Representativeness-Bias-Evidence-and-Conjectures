@@ -1,0 +1,37 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to apply the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to make some assumptions to estimate the necessary probabilities:
+
+1. **\( P(E|H) \)**: The probability of Adam's personality traits given that he is enrolled in a particular field.
+2. **\( P(H) \)**: The prior probability that Adam is enrolled in a particular field.
+3. **\( P(E) \)**: The overall probability of Adam's personality traits across all fields.
+
+### Assumptions
+- We'll assume that Adam's traits of curiosity about nature, intelligence, and empathy are somewhat weakly aligned with business administration but more strongly aligned with fields like computer science.
+- We'll use a prior probability of 0.1 for business administration and 0.2 for computer science, reflecting typical enrollment rates in various graduate fields.
+
+### Estimations
+- **\( P(E|H_1) \)** for business administration: Given Adam's traits, these traits might be weakly connected with business administration. Hence, we'll assume \( P(E|H_1) \approx 0.3 \).
+- **\( P(E|H_2) \)** for computer science: Given Adam’s high intelligence, problem-solving skills, and interest in abstract concepts, these traits are more likely to be found in computer science. Hence, we'll assume \( P(E|H_2) \approx 0.7 \).
+- **\( P(E) \)**: Since \( P(E) = P(E|H_1)P(H_1) + P(E|H_2)P(H_2) + \ldots \), we'll include a normalization factor considering other probabilities. Here, let's assume it roughly equals \( 0.3 \times 0.1 + 0.7 \times 0.2 \) plus other fields’ probabilities.
+
+### Calculation
+- For business administration:
+  \[
+  P(H_1|E) = \frac{P(E|H_1)P(H_1)}{P(E)} = \frac{0.3 \times 0.1}{0.3 \times 0.1 + 0.7 \times 0.2} = \frac{0.03}{0.17} \approx 0.176
+  \]
+
+- For computer science:
+  \[
+  P(H_2|E) = \frac{P(E|H_2)P(H_2)}{P(E)} = \frac{0.7 \times 0.2}{0.3 \times 0.1 + 0.7 \times 0.2} = \frac{0.14}{0.17} \approx 0.824
+  \]
+
+### Results
+```json
+{
+  "business administration": 0.176,
+  "computer science": 0.824
+}
+```

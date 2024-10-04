@@ -1,0 +1,63 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to consider the likelihood of Adam's personality sketch \( E \) given his enrollment in a specific field \( H \), as well as the prior probabilities of enrollment in each field.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the evidence probability, which can be seen as a normalizing constant.
+
+Given the inputs:
+
+1. **Computer Science**
+2. **Agricultural and Veterinary Science**
+3. **Business Administration**
+
+We estimate \( P(E|H) \) based on how well the personality traits align with typical characteristics needed or common in these fields. Furthermore, \( P(H) \) must consider the relative frequency of students in these fields, but for simplicity, we'll assign equal priors.
+
+Since exact values for likelihoods and priors require substantial field-specific data, we'll make reasoned estimates based on the information at hand.
+
+**Estimates of \( P(E|H) \):**
+
+- **Computer Science:** High intelligence and problem-solving are key traits.
+  \( P(E|H) \approx 0.4 \)
+- **Agricultural and Veterinary Science:** Love for animals, nature, and plants, empathy.
+  \( P(E|H) \approx 0.8 \)
+- **Business Administration:** Empathy and intelligence are useful, but less direct fit for the nature and animal-oriented traits.
+  \( P(E|H) \approx 0.2 \)
+
+Without exact data, we'll assume uniform priors (each field equally likely initially).
+\[ P(H) = \frac{1}{3} \approx 0.333 \]
+
+Since we are comparing, the factor \( P(E) \) normalizes the probabilities but affects all fields equally, so we'll omit it from comparative terms.
+
+**Computations:**
+- **Computer Science:**
+  \( P(H|E_{CS}) \approx 0.4 \times 0.333 \approx 0.133 \)
+
+- **Agricultural and Veterinary Science:**
+  \( P(H|E_{AgVet}) \approx 0.8 \times 0.333 \approx 0.267 \)
+
+- **Business Administration:**
+  \( P(H|E_{BA}) \approx 0.2 \times 0.333 \approx 0.067 \)
+
+Normalize these for comparative purposes (optional):
+
+\[ Total = 0.133 + 0.267 + 0.067 = 0.467 \]
+\[ P(H|E_{CS}) = \frac{0.133}{0.467} \approx 0.285 \]
+\[ P(H|E_{AgVet}) = \frac{0.267}{0.467} \approx 0.572 \]
+\[ P(H|E_{BA}) = \frac{0.067}{0.467} \approx 0.143 \]
+
+Based on rough estimates:
+
+```json
+{
+  "computer science": 0.285,
+  "agricultural and veterinary science": 0.572,
+  "business administration": 0.143
+}
+```
+
+Note that these are estimated probabilities and should be interpreted with the understanding of the assumptions and approximations made.

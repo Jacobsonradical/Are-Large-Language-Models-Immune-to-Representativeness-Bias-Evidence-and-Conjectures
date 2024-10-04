@@ -1,0 +1,55 @@
+To compute the posterior conditional probabilities, we need to use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here:
+- \( P(H|E) \) is the posterior probability of the hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E) \) is the total probability of the evidence \( E \).
+
+We need to analyze both \( P(E|H) \) and \( P(H) \) for each field.
+
+### Steps to Estimate Posteriors
+1. **Estimate Likelihood \( P(E|H) \):**
+   - **Computer Science:** Given Adam's high intelligence, good understanding of abstract concepts, and enjoyment of solving puzzles, there is a strong likelihood that he fits the profile of a computer science student.
+   - **Business Administration:** Considering Adam's strong empathy and appreciation for hard work and dedication, these traits can be common in business administration students, but his deep love for animals and nature might not be as strong a fit for this field.
+
+2. **Estimate Prior \( P(H) \):**
+   - Since we do not have specific data on the proportion of students in different graduate fields in 2021, we might assume some reasonable default priors. For instance, computer science and business administration are popular fields, but they attract different types of students.
+     - Let's assume prior probabilities for simplicity:
+       - \( P(\text{computer science}) = 0.3 \)
+       - \( P(\text{business administration}) = 0.2 \)
+
+3. **Combine Estimates:**
+
+To simplify, we can assume relative likelihoods:
+
+\[ P(E|\text{computer science}) \approx 0.8 \]
+\[ P(E|\text{business administration}) \approx 0.4 \]
+
+The denominator \( P(E) \) would be the same for both fields under comparison, so we can focus on the numerators.
+
+### Calculation:
+For computer science:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.8 \cdot 0.3}{P(E)} \]
+
+For business administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.4 \cdot 0.2}{P(E)} \]
+
+Next, normalize these to obtain ratios:
+
+Normalized \( P(\text{computer science}|E) \approx \frac{0.8 \cdot 0.3}{0.8 \cdot 0.3 + 0.4 \cdot 0.2} \approx 0.6 \)
+
+Normalized \( P(\text{business administration}|E) \approx \frac{0.4 \cdot 0.2}{0.8 \cdot 0.3 + 0.4 \cdot 0.2} \approx 0.2 \)
+
+Finally, we record the results:
+
+```json
+{
+  "computer science": 0.6,
+  "business administration": 0.2
+}
+```
+
+These computed values reflect the posterior plausibility of Adam being enrolled in each field, given his personality sketch. Keep in mind these numbers are based on assumed priors and likelihoods, which can be refined with more comprehensive data.

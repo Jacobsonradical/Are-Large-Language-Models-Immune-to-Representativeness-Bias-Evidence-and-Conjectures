@@ -1,0 +1,50 @@
+To compute the posterior conditional probabilities \( P(H|E) \) for each field, we would need various pieces of information:
+
+1. The prior probabilities \( P(H) \) for Adam being enrolled in business administration (BA) or computer science (CS).
+2. The likelihood \( P(E|H) \), which is the probability of observing Adam's personality sketch given that he is in each respective field.
+3. The evidence \( P(E) \), which normalizes the results but isn't strictly necessary as we are calculating relative probabilities.
+
+Without concrete data, we will need to make some reasonable assumptions based on the provided personality sketch and general knowledge of typical scenarios. 
+
+### Assumptions:
+
+- **Priors**: Let's assume equal priors for simplicity:
+  - \( P(\text{H}_{\text{BA}}) \) = \( P(\text{H}_{\text{CS}}) \) = 0.5
+
+- **Likelihoods**: 
+  - Given Adam's strong attributes like genuine curiosity about nature, love for animals, high empathy, and talent for understanding abstract concepts, he is less likely to be in a business administration field and more likely to be in a field like computer science, which often requires understanding abstract concepts and solving problems.
+
+So, let's assume:
+  - \( P(E|\text{H}_{\text{BA}}) \): lower, say 0.2
+  - \( P(E|\text{H}_{\text{CS}}) \): higher, say 0.7
+
+### Applying Bayes' Rule
+
+Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For business administration (\( H_{\text{BA}} \)):
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.2 \cdot 0.5}{P(E)} \]
+
+For computer science (\( H_{\text{CS}} \)):
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.7 \cdot 0.5}{P(E)} \]
+
+Since we are only looking for relative probabilities:
+\[ \frac{P(H_{\text{CS}}|E)}{P(H_{\text{BA}}|E)} = \frac{\frac{0.7 \cdot 0.5}{P(E)}}{\frac{0.2 \cdot 0.5}{P(E)}} = \frac{0.35}{0.1} = 3.5 \]
+
+### Normalizing:
+
+We know \( P(H_{\text{BA}}|E) + P(H_{\text{CS}}|E) \) will not sum to 1, so instead, we represent them in relative terms:
+\[ P(\text{CS}|E) = \frac{0.35}{0.35 + 0.1} = 0.777 \]
+\[ P(\text{BA}|E) = \frac{0.1}{0.35 + 0.1} = 0.223 \]
+
+### Result:
+
+```json
+{
+  "business administration": 0.223,
+  "computer science": 0.777
+}
+```
+
+So, based on the given personality sketch and assumptions, Adam is more likely to be enrolled in computer science than business administration.

@@ -1,0 +1,63 @@
+Using Bayes' rule to compute the posterior conditional probability \( P(H|E) \) involves considering both the prior probability \( P(H) \) for a given hypothesis \( H \) and the likelihood \( P(E|H) \) of observing the evidence \( E \) given that hypothesis.
+
+Let's denote:
+- \( H_{AV} \) as the hypothesis that Adam was enrolled in agricultural and veterinary science.
+- \( H_{CS} \) as the hypothesis that Adam was enrolled in computer science.
+- \( E \) as the personality sketch of Adam.
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of \( H \) given \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the probability of evidence \( E \).
+
+Next, we need to estimate these probabilities based on the given personality sketch.
+
+### Agricultural and Veterinary Science (H_{AV})
+- **Likelihood \( P(E|H_{AV}) \):** Adam shows a genuine curiosity about nature and plants, a deep love for animals, and a strong understanding and appreciation for hard work, all of which align well with an interest in agricultural and veterinary science.
+  - High likelihood: Let's estimate \( P(E|H_{AV}) = 0.8 \).
+
+- **Prior \( P(H_{AV}) \):** The baseline probability of a graduate student being enrolled in agricultural and veterinary science might be lower than more common fields like computer science.
+  - Let's estimate \( P(H_{AV}) = 0.1 \).
+
+### Computer Science (H_{CS})
+- **Likelihood \( P(E|H_{CS}) \):** Adam enjoys solving puzzles and has high intelligence with a good understanding of abstract concepts, attributes that align well with computer science. However, some aspects like a deep love for animals might be less directly related.
+  - Moderate likelihood: Let's estimate \( P(E|H_{CS}) = 0.4 \).
+
+- **Prior \( P(H_{CS}) \):** The baseline probability of a graduate student being enrolled in computer science is generally high.
+  - Let's estimate \( P(H_{CS}) = 0.3 \).
+
+### Normalizing Constant \( P(E) \)
+- \( P(E) \) is the normalization factor ensuring all posterior probabilities sum to 1 over all possible hypotheses.
+  - Since \( P(E) \) includes contributions from all fields, it’s a sum of terms like \( P(E|H) \cdot P(H) \) for all fields. Let’s consider only these two fields for simplicity.
+
+\[ P(E) = P(E|H_{AV}) \cdot P(H_{AV}) + P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(E) = (0.8 \cdot 0.1) + (0.4 \cdot 0.3) \]
+\[ P(E) = 0.08 + 0.12 \]
+\[ P(E) = 0.20 \]
+
+### Posterior Probabilities
+- \( P(H_{AV}|E) = \frac{P(E|H_{AV}) \cdot P(H_{AV})}{P(E)} \)
+\[ P(H_{AV}|E) = \frac{(0.8 \cdot 0.1)}{0.20} \]
+\[ P(H_{AV}|E) = \frac{0.08}{0.20} \]
+\[ P(H_{AV}|E) = 0.4 \]
+
+- \( P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \)
+\[ P(H_{CS}|E) = \frac{(0.4 \cdot 0.3)}{0.20} \]
+\[ P(H_{CS}|E) = \frac{0.12}{0.20} \]
+\[ P(H_{CS}|E) = 0.6 \]
+
+### Final Result
+
+```json
+{
+  "agricultural and veterinary science": 0.4,
+  "computer science": 0.6
+}
+```
+
+These values represent the conditional posterior probabilities of Adam being enrolled in each field given the provided personality sketch.

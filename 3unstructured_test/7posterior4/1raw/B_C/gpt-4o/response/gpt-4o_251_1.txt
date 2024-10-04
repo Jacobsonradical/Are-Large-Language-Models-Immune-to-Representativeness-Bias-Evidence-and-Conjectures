@@ -1,0 +1,63 @@
+To compute the posterior conditional probability \( P(H|E) \) for each field given the personality sketch \( E \) using Bayes' rule, we would need the following:
+
+1. The prior probability \( P(H) \) of each field, representing how likely it is for a graduate student to be enrolled in that field without any additional information.
+2. The likelihood \( P(E|H) \), representing the probability of Adam fitting the personality sketch \( E \) if he were enrolled in that field.
+3. The marginal probability \( P(E) \), representing the overall probability of the personality sketch \( E \).
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we don't have the exact values for these probabilities, we'll need to make reasonable estimations based on the provided information. 
+
+### Estimations and Reasoning
+
+1. **Prior Probabilities \( P(H) \)**:
+   - Graduate students in the U.S. can choose from a wide range of fields. Let's assume that the prior probabilities for computer science and business administration are moderate but not extremely high given the number of possible fields.
+   - For simplicity, assume \( P(H_{\text{CS}}) = 0.2 \) and \( P(H_{\text{BA}}) = 0.1 \).
+
+2. **Likelihoods \( P(E|H) \)**:
+   - Given Adam's personality sketch, a strong understanding of abstract concepts and intelligence align well with computer science. Empathy, a warm heart, and a love for animals do not particularly align but do not exclude it either.
+   - For business administration, traits like empathy and a strong appreciation for hard work are important, but the other traits are less directly relevant.
+   - Let's estimate \( P(E|H_{\text{CS}}) = 0.4 \) and \( P(E|H_{\text{BA}}) = 0.2 \).
+
+3. **Marginal Probability \( P(E) \)**:
+   - The marginal probability \( P(E) \) can be considered as a normalizing constant. Since we are comparing two fields, we do not need its exact value, as it will cancel out in the comparison.
+
+Given these estimates:
+
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.4 \cdot 0.2}{P(E)}
+\]
+
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)}
+\]
+
+These values are proportional to:
+
+\[
+P(H_{\text{CS}}|E) \propto 0.08
+\]
+
+\[
+P(H_{\text{BA}}|E) \propto 0.02
+\]
+
+Normalizing these to sum 1 for comparison gives:
+
+\[
+P(H_{\text{CS}}|E) \approx \frac{0.08}{0.08 + 0.02} = 0.8
+\]
+
+\[
+P(H_{\text{BA}}|E) \approx \frac{0.02}{0.08 + 0.02} = 0.2
+\]
+
+Thus, the approximate posterior probabilities are:
+
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```

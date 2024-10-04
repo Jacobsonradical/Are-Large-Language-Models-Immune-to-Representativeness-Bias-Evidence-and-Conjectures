@@ -1,0 +1,61 @@
+To calculate \( P(H|E) \) using Bayes' rule, we'll use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To break it down:
+- \( P(H|E) \) is the posterior probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the likelihood of the personality sketch given that Adam was enrolled in a particular field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that particular field.
+- \( P(E) \) is the marginal probability of the personality sketch.
+
+For the sake of this exercise, we will:
+1. Assume priors \( P(H) \) for each field based on typical enrollment distributions (these will be arbitrary for this example).
+2. Estimate the likelihood \( P(E|H) \) based on how well the personality aligns with each field.
+3. Recognize \( P(E) \) is the same for both fields and cancels out because we are comparing the probabilities.
+
+### Assumptions:
+1. Priors:
+   - \( P(H_{\text{business administration}}) = 0.1 \) 
+   - \( P(H_{\text{computer science}}) = 0.15 \)
+
+2. Likelihoods:
+    - Personality traits like empathy, warm heart, and appreciation for hard work suggest a good fit for Business Administration but may not perfectly match typical traits needed for it.
+    - Traits such as high intelligence, good at abstract concepts, puzzles, and quiet nature fit well with Computer Science.
+
+Let’s estimate:
+- \( P(E|H_{\text{business administration}}) = 0.4 \) 
+- \( P(E|H_{\text{computer science}}) = 0.8 \) 
+
+Using these, we calculate the posterior probabilities.
+
+### Calculation:
+1. For Business Administration:
+\[ P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.4 \times 0.1}{P(E)} \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.04}{P(E)} \]
+
+2. For Computer Science:
+\[ P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \]
+\[ P(H_{\text{computer science}}|E) = \frac{0.8 \times 0.15}{P(E)} \]
+\[ P(H_{\text{computer science}}|E) = \frac{0.12}{P(E)} \]
+
+Since \( P(E) \) is the same for both, we do not need to calculate it explicitly when comparing the two fields.
+
+### Normalizing:
+To get a more interpretable result, we compare the two fractions:
+\[ \text{Ratio} = \frac{P(H_{\text{computer science}}|E)}{P(H_{\text{business administration}}|E)} = \frac{0.12/P(E)}{0.04/P(E)} = 3 \]
+
+This normalization implies the likelihood of Adam being in Computer Science is three times that of business administration given the provided personality traits.
+
+### Posterior Values:
+\[ P(H_{\text{business administration}}|E) \approx 0.25 \]
+\[ P(H_{\text{computer science}}|E) \approx 0.75 \]
+
+Thus, the results are:
+
+```json
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+```

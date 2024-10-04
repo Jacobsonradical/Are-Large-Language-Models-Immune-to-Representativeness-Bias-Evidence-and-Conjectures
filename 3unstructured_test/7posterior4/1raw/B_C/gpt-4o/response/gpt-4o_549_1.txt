@@ -1,0 +1,64 @@
+To compute the posterior conditional probability, we need to use Bayes' rule, which is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that hypothesis \( H \) (specific field of study) is true given the evidence \( E \) (personality sketch of Adam).
+- \( P(E|H) \) is the probability of observing the evidence \( E \) given the hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the probability of observing the evidence \( E \).
+
+Assuming we don’t have specific prior probabilities \( P(H) \) and \( P(E) \), we can informally estimate \( P(E|H) \) based on how well Adam's personality traits align with the typical traits expected for each field. We then use these estimations to compare the fields.
+
+### Estimating P(E|H):
+1. **Computer Science:**
+   - High intelligence and good at understanding abstract concepts (strong match).
+   - Enjoys solving puzzles (strong match).
+   - Quiet and introspective nature can fit with common perceptions of people in this field.
+   - Nature and animals might be less relevant but aren’t contradictory.
+
+2. **Business Administration:**
+   - High intelligence (matches).
+   - Strong empathy and warm heart (good fit for people-oriented roles).
+   - Quiet nature might be slightly less aligned with the typical need for networking and extroversion in business settings.
+   - Appreciation for hard work (good fit).
+
+### Assigning Informal Probabilities:
+- For simplicity, let’s assign relative probabilities \( P(E|H) \) based on subjective alignments.
+
+Assume:
+- \( P(E|H_{cs}) = 0.75 \) for Computer Science, reflecting the strong match.
+- \( P(E|H_{ba}) = 0.4 \) for Business Administration, reflecting some but fewer strong alignments.
+
+### Prior Estimates \( P(H) \):
+Without explicit data, we might assume the following for rough illustrative purposes:
+- \( P(H_{cs}) = 0.3 \) as a roughly common field for high-achieving graduates.
+- \( P(H_{ba}) = 0.2 \) as another common field.
+
+Given:
+\[ P(E) = P(E|H_{cs})P(H_{cs}) + P(E|H_{ba})P(H_{ba}) + \ldots \]
+
+Let’s cancel \( P(E) \) assuming we're only interested in comparative probabilities and not absolute values.
+
+### Calculation:
+\[ P(H_{cs}|E) \approx \frac{P(E|H_{cs})P(H_{cs})}{P(E)} \]
+\[ P(H_{ba}|E) \approx \frac{P(E|H_{ba})P(H_{ba})}{P(E)} \]
+
+So, the relative probabilities are:
+\[ P(H_{cs}|E) \approx 0.75 \times 0.3 \]
+\[ P(H_{ba}|E) \approx 0.4 \times 0.2 \]
+
+\[ P(H_{cs}|E) \approx 0.225 \]
+\[ P(H_{ba}|E) \approx 0.08 \]
+
+### Normalizing:
+Finally, since we need values between 0 and 1 and should correspond to relative likelihoods:
+
+```json
+{
+  "computer science": 0.225,
+  "business administration": 0.08
+}
+```
+
+This provides a comparative look at the relative strengths of the hypotheses given the evidence.

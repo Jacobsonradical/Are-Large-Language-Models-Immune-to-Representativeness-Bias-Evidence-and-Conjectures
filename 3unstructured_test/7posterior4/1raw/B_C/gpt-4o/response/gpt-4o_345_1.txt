@@ -1,0 +1,63 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to establish the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the evidence \( P(E) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's break this down for each field.
+
+### Prior Probabilities \( P(H) \)
+
+To simplify, let's use some rough assumptions. In the U.S., considering the distribution of graduate students across different fields:
+
+- The prior probability \( P(\text{computer science}) \) might be around 0.2 (20%), as many students opt for this growing field.
+- The prior probability \( P(\text{business administration}) \) might also be around 0.2 (20%), as MBA programs are quite popular.
+
+### Likelihoods \( P(E|H) \)
+
+Given Adam's personality sketch \( E \):
+
+- For **computer science**:
+  - High intelligence and good at understanding abstract concepts align well with computer science.
+  - Enjoyment of solving puzzles is also indicative of a mindset well-suited for computer science.
+  - However, the specific emphasis on a love for nature, animals, and strong empathy is not particularly indicative of this field, potentially lowering the likelihood.
+  - Let's assume \( P(E|\text{computer science}) \) to be approximately 0.4.
+
+- For **business administration**:
+  - Strong empathy and appreciation for hard work could fit well within the context of managing and understanding people, which are critical in business administration.
+  - However, Adam's deep love for nature and abstract problem-solving focus is less aligned with typical business administration goals.
+  - Let's assume \( P(E|\text{business administration}) \) to be approximately 0.3.
+
+### Evidence \( P(E) \)
+
+The evidence \( P(E) \) is challenging to compute explicitly because it requires summing over all possible fields of graduate study. However, since we are only comparing two fields, we can normalize these without explicitly computing \( P(E) \).
+
+### Posterior Probabilities
+
+Now, let's use the values and Bayes' rule to compute \( P(H|E) \):
+
+#### For Computer Science:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+
+\[ P(\text{computer science}|E) = \frac{0.4 \cdot 0.2}{P(E)} = \frac{0.08}{P(E)} \]
+
+#### For Business Administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+\[ P(\text{business administration}|E) = \frac{0.3 \cdot 0.2}{P(E)} = \frac{0.06}{P(E)} \]
+
+Since we are only using these two fields and not calculating the total \( P(E) \), we compare the ratios directly. To normalize, sum the unnormalized values:
+
+\[ P(E) = 0.08 + 0.06 = 0.14 \]
+
+Now, normalize each:
+
+\[ P(\text{computer science}|E) = \frac{0.08}{0.14} \approx 0.57 \]
+\[ P(\text{business administration}|E) = \frac{0.06}{0.14} \approx 0.43 \]
+
+Therefore, the posterior probabilities would be approximated as:
+
+```json
+{
+  "computer science": 0.57,
+  "business administration": 0.43
+}
+```

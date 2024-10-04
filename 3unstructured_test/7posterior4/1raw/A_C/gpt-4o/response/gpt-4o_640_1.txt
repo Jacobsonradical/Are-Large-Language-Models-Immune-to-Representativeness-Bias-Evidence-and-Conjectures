@@ -1,0 +1,70 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' Rule, we need to use the following formula for each hypothesis \( H \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of the evidence \( E \).
+
+Since we are not provided with specific prior probabilities or likelihoods, we'll need to make educated estimates based on the provided personality sketch of Adam.
+
+### Likelihoods:
+- \( P(E|H) \) for computer science: While Adam's high intelligence and enjoyment of solving puzzles fit with computer science, his deep love for animals and nature is not directly aligned. Thus, we can estimate a moderate likelihood.
+- \( P(E|H) \) for agricultural and veterinary science: Adam's love for animals, curiosity about nature, and empathy strongly align with agricultural and veterinary science, suggesting a high likelihood.
+
+### Priors:
+- \( P(H) \): We'll assume the U.S. has a larger proportion of graduate students in computer science compared to agricultural and veterinary science, suggesting a higher prior probability for computer science.
+
+For simplicity, we'll estimate the following reasonable values, although please note that accurate probabilities require more detailed data:
+
+- \( P(E|H_{CS}) = 0.4 \) (moderate fit for computer science)
+- \( P(E|H_{AVS}) = 0.8 \) (strong fit for agricultural and veterinary science)
+- \( P(H_{CS}) = 0.6 \) (higher prior for computer science)
+- \( P(H_{AVS}) = 0.1 \) (lower prior for agricultural and veterinary science)
+
+Given these values, let's compute the posterior probabilities assuming equal marginal likelihood for both fields:
+
+\[
+P(H_{CS}|E) = \frac{0.4 \times 0.6}{P(E)}
+\]
+\[
+P(H_{AVS}|E) = \frac{0.8 \times 0.1}{P(E)}
+\]
+
+\( P(E) \) acts as a normalizing constant and is the same for both fields, so we compare ratios:
+
+\[
+P(H_{CS}|E) \propto 0.4 \times 0.6 = 0.24
+\]
+\[
+P(H_{AVS}|E) \propto 0.8 \times 0.1 = 0.08
+\]
+
+To normalize them to a relative measure (still not summing to 1 because other fields exist):
+
+\[
+P(H_{CS}|E) = \frac{0.24}{0.24 + 0.08} \cdot C = \frac{0.75}{1} \cdot C \ 
+\]
+\[
+P(H_{AVS}|E) = \frac{0.08}{0.24 + 0.08} \cdot C = \frac{0.25}{1} \cdot C
+\]
+
+Ignoring other fields \( C=1 \):
+
+\[
+P(H_{CS}|E) \approx 0.75
+\]
+\[
+P(H_{AVS}|E) \approx 0.25
+\]
+
+Thus, the estimated answers are:
+
+```json
+{
+  "computer science": 0.75,
+  "agricultural and veterinary science": 0.25
+}
+```

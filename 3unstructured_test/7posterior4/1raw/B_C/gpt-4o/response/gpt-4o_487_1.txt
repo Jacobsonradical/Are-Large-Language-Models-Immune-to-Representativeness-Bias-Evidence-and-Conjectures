@@ -1,0 +1,72 @@
+To compute the posterior conditional probability P(H|E) using Bayes' rule, we need the prior probabilities and the likelihood of the evidence given the hypothesis:
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability (the probability that a hypothesis is true given the evidence).
+- \( P(E|H) \) is the likelihood (the probability of the evidence given that the hypothesis is true).
+- \( P(H) \) is the prior probability (the initial probability of the hypothesis before seeing the evidence).
+- \( P(E) \) is the evidence's total probability under all hypotheses.
+
+Given the personality sketch of Adam, we need to make reasonable assumptions about the priors and likelihoods. 
+
+1. **Priors (P(H))**:
+   - We assume the prior probability that a randomly chosen graduate student in the U.S. is enrolled in Computer Science (CS) or Business Administration (BA) is equal, unless specific data suggests otherwise.
+
+2. **Likelihoods (P(E|H))**:
+   - We need to estimate how likely it is for a student with a given personality sketch to be in each field.
+
+Given Adam's personality traits:
+
+### Computer Science:
+- Curious about nature and plants: not directly related.
+- Enjoys solving puzzles: positive indicator for CS.
+- Warm heart, strong empathy: not direct indicator for CS.
+- Deep love for animals: not directly related.
+- High intelligence and understanding abstract concepts: positive for CS.
+- Strong understanding and appreciation for hard work: neutral.
+
+### Business Administration:
+- Curious about nature and plants: not directly related.
+- Enjoys solving puzzles: neutral.
+- Warm heart, strong empathy: positive for leadership roles in BA.
+- Deep love for animals: possibly positive for ethics and environmental sustainability in BA.
+- High intelligence: positive.
+- Understanding and appreciation for hard work: positive for BA.
+
+Here, let’s make reasonable assumptions for the likelihoods:
+
+- **P(computer science)**: 0.2 (assuming moderate priors)
+- **P(business administration)**: 0.05 (assuming low priors)
+
+- **P(E|computer science)**: 0.4 (high fit for puzzle-solving and abstract thinking)
+- **P(E|business administration)**: 0.3 (decent fit for empathy, intelligence, and hard work appreciation)
+
+We can then estimate:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For normalization, we should calculate \( P(E) \), but as other fields might contribute, we'll focus on proportional relationships:
+
+### Calculation:
+\[ P(\text{computer science}|E) \propto 0.4 \times 0.2 = 0.08 \]
+\[ P(\text{business administration}|E) \propto 0.3 \times 0.05 = 0.015 \]
+
+Thus, the unnormalized probabilities are:
+- Computer Science: 0.08
+- Business Administration: 0.015
+
+In proportional terms:
+\[ P(\text{computer science}|E) = \frac{0.08}{0.08 + 0.015} \approx 0.842 \]
+\[ P(\text{business administration}|E) = \frac{0.015}{0.08 + 0.015} \approx 0.158 \]
+
+Finally, the probabilities (rounded to 3 decimal places):
+
+```json
+{
+  "computer science": 0.842,
+  "business administration": 0.158
+}
+```

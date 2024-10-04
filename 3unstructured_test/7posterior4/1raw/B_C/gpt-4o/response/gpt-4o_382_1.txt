@@ -1,0 +1,89 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to perform the following steps:
+
+1. **Define Bayes' Rule:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+2. **Identify the Components:**
+    - \( P(E|H) \): The probability of observing the evidence \( E \) given that the hypothesis \( H \) is true.
+    - \( P(H) \): The prior probability of the hypothesis \( H \) before observing the evidence.
+    - \( P(E) \): The total probability of observing the evidence \( E \).
+
+Given that we don’t have prior probabilities (i.e., \( P(H) \)) and likelihoods for each hypothesis (i.e., \( P(E|H) \)), we will make some educated assumptions based on intuition and the given personality sketch of Adam.
+
+### Business Administration
+
+**Likelihood \( P(E|H_{\text{business administration}}) \):**
+The field of business administration does not strongly align with Adam's traits of curiosity about nature and animals, puzzle-solving, empathy, and interest in abstract concepts. Therefore, we might propose a low value for \( P(E|H_{\text{business administration}}) \).
+
+**Assumption for Prior \( P(H_{\text{business administration}}) \):**
+Let’s assume that business administration is a fairly common field but not the dominant field given Adam's traits, so we might assign a moderate prior probability.
+
+Combining these with an intuitive likelihood, we might place the conditional probability relatively low.
+
+### Computer Science
+
+**Likelihood \( P(E|H_{\text{computer science}}) \):**
+Computer science is more compatible with Adam's penchant for solving puzzles, understanding abstract concepts, and high intelligence. While his empathy and love for nature don't directly indicate computer science, they don't contradict it either, especially considering AI and related fields which may involve modeling nature.
+
+**Assumption for Prior \( P(H_{\text{computer science}}) \):**
+Given current trends in graduate education and the broad applicability of computer science, assigning a moderately high prior to this field seems reasonable.
+
+Combining these with an intuitive likelihood, we might place the conditional probability higher than that for business administration.
+
+### Assumptions and Calculations
+
+Let's make a simplified assumption to calculate approximate values:
+
+- \( P(H_{\text{business administration}}) \) = 0.2 (subjective assumption)
+- \( P(H_{\text{computer science}}) \) = 0.3 (subjective assumption)
+
+Assume
+
+- \( P(E|H_{\text{business administration}}) = 0.2 \)
+- \( P(E|H_{\text{computer science}}) = 0.7 \)
+
+\( P(E) \): We do not have an exact value for \( P(E) \), but it is a normalizing constant. For the sake of simplification, we'll assume it's the same for each field but acknowledge it's a distribution over these and other possible fields.
+
+### Posterior Calculations
+
+For Business Administration:
+\[ P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \approx \frac{0.2 \cdot 0.2}{P(E)} \]
+
+For Computer Science:
+\[ P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \approx \frac{0.7 \cdot 0.3}{P(E)} \]
+
+Without a specific \( P(E) \), the values will be:
+
+```json
+{
+  "business administration": 0.04 / P(E),
+  "computer science": 0.21 / P(E)
+}
+```
+
+Since \( P(E) \) is the same for both, we normalize:
+
+```json
+{
+  "business administration": 1,
+  "computer science": 5.25
+}
+```
+
+To make it probabilistic:
+
+```json
+{
+  "business administration": 0.04 / (0.04 + 0.21) = 0.16,
+  "computer science": 0.21 / (0.04 + 0.21) = 0.84
+}
+```
+
+Hence, the final approximate probabilities are:
+
+```json
+{
+  "business administration": 0.16,
+  "computer science": 0.84
+}
+```

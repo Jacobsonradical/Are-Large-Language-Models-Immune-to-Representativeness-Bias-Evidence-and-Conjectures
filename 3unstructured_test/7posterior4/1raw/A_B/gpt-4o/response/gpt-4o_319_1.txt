@@ -1,0 +1,46 @@
+To compute the posterior conditional probabilities \( P(H|E) \) using Bayes' rule, we need to look at the individual likelihoods and prior probabilities of the hypotheses. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+In this scenario:
+- \( E \) is the personality sketch of Adam.
+- \( H \) could be either of the hypotheses "Adam was enrolled in business administration" or "Adam was enrolled in agricultural and veterinary science."
+
+To simplify, let's assume some general prior probabilities \( P(H) \) for a graduate student being in these fields:
+
+- For business administration, we'll denote it as \( P(H_{BA}) \).
+- For agricultural and veterinary science, we'll denote it as \( P(H_{AVS}) \).
+
+\[ P(H_{BA}) = 0.15 \] (15% of graduate students in business administration)
+\[ P(H_{AVS}) = 0.05 \] (5% of graduate students in agricultural and veterinary science)
+
+Next, we estimate \( P(E|H) \), the probability of observing Adam's personality sketch given that he is in one of these fields:
+
+- \( P(E|H_{BA}) \): The personality sketch (curiosity about nature, solving puzzles, empathy, love for animals) seems less typical for a business administration student. Let's assume a very low probability: 0.01.
+- \( P(E|H_{AVS}) \): The personality traits align well with someone in agricultural and veterinary science. Let's assume a higher probability: 0.50.
+
+Finally, \( P(E) \) is the probability of observing the personality sketch in the general population. This is a normalization factor, but since we only compare relative values, we can ignore it for simplicity.
+
+Now we apply Bayes' rule:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.01 \cdot 0.15}{P(E)} \]
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} = \frac{0.50 \cdot 0.05}{P(E)} \]
+
+Ignoring the denominator (since it's common in both cases), the relative probabilities are:
+
+\[ P(H_{BA}|E) \propto 0.01 \cdot 0.15 = 0.0015 \]
+\[ P(H_{AVS}|E) \propto 0.50 \cdot 0.05 = 0.025 \]
+
+To get the normalized probabilities, we divide each by their sum:
+
+\[ P(H_{BA}|E) = \frac{0.0015}{0.0015 + 0.025} = \frac{0.0015}{0.0265} \approx 0.0566 \]
+\[ P(H_{AVS}|E) = \frac{0.025}{0.0015 + 0.025} = \frac{0.025}{0.0265} \approx 0.9434 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0566,
+  "agricultural and veterinary science": 0.9434
+}
+```

@@ -1,0 +1,47 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability, i.e., the probability that Adam is enrolled in a given field given his personality sketch.
+- \( P(E|H) \) is the likelihood, i.e., the probability that the personality sketch would be observed if Adam were in the given field.
+- \( P(H) \) is the prior probability, i.e., the general probability of a student being enrolled in the field without any specific personality information.
+- \( P(E) \) is the evidence, i.e., the total probability of the personality sketch across all fields.
+
+Since we lack precise numerical values for these probabilities, we'll need to estimate these based on typical characteristics of students in these fields. Let's make some qualitative assessments:
+
+1. **Business Administration**:
+   - Likelihood \( P(E|H) \): Business students might usually have strong social skills, leadership traits, and an interest in organizational behavior. Adam's characteristics—focus on nature, love for animals, and puzzles—seem less aligned with typical business administration traits.
+   - Prior probability \( P(H) \): Since business administration is a popular field, the prior might be relatively high, but it doesn't perfectly align with Adam's profile.
+
+2. **Computer Science**:
+   - Likelihood \( P(E|H) \): Computer science students often have strong problem-solving skills, enjoy abstract concepts and puzzles, and may have solitary interests. Adam’s profile seems to align well.
+   - Prior probability \( P(H) \): Computer science is also a popular field but more quantitatively and analytically aligned with Adam's traits.
+
+Given these assessments, let's assign some rough estimates:
+   
+- For business administration: \( P(E|H) = 0.1 \) and \( P(H) = 0.3 \)
+- For computer science: \( P(E|H) = 0.7 \) and \( P(H) = 0.25 \)
+
+We do not have \( P(E) \), the probability of observing the personality sketch. But since we're comparing relative probabilities, we can ignore it for the comparison. This simplifies the calculation:
+
+\[ P(H_i|E) \propto P(E|H_i) \cdot P(H_i) \]
+
+So, for "business administration", we have:
+\[ P(H_{\text{BA}}|E) \propto 0.1 \times 0.3 = 0.03 \]
+
+And for "computer science":
+\[ P(H_{\text{CS}}|E) \propto 0.7 \times 0.25 = 0.175 \]
+
+Normalize these to get conditional probabilities:
+\[ P(H_{\text{BA}}|E) = \frac{0.03}{0.03 + 0.175} \approx 0.146 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.175}{0.03 + 0.175} \approx 0.854 \]
+
+Therefore, the results are:
+
+```json
+{
+  "business administration": 0.146,
+  "computer science": 0.854
+}
+```

@@ -1,0 +1,62 @@
+To compute the posterior conditional probabilities P(H|E) using Bayes' rule, we need the prior probabilities P(H) for each field, the likelihood P(E|H) for each field given the personality sketch E, and normalization (which we can skip since we are only asked for individual posterior probabilities).
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the lack of explicit prior probabilities and likelihoods, I'll make reasonable assumptions based on the personality sketch and typical distributions across these fields.
+
+### Assumptions:
+1. **P(H)**: The prior probability a graduate student is enrolled in a given field.
+    - **Agricultural and veterinary science**: Moderate prior (say, 0.15).
+    - **Business administration**: High prior (say, 0.30).
+    - **Computer science**: High prior (say, 0.30).
+
+2. **P(E|H)**: The likelihood of the personality sketch given the field.
+    - **Agricultural and veterinary science**: High (focus on nature, animals, empathy).
+    - **Business administration**: Low (traits don't strongly align with typical business interests).
+    - **Computer science**: Moderate to high (puzzle-solving, intelligence, abstract concepts).
+
+### Calculation:
+Estimating P(E|H) with subjective values:
+- **Agricultural and veterinary science**: \( P(E|H) \approx 0.90 \)
+- **Business administration**: \( P(E|H) \approx 0.10 \)
+- **Computer science**: \( P(E|H) \approx 0.70 \)
+
+Given our prior P(H):
+- **Agricultural and veterinary science**: \( P(H) = 0.15 \)
+- **Business administration**: \( P(H) = 0.30 \)
+- **Computer science**: \( P(H) = 0.30 \)
+
+We can then qualitatively combine these to get our posterior:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Estimated Posterior Probabilities:
+Normalize for comparison:
+
+For **agricultural and veterinary science**:
+\[ P(H|E) \propto 0.90 \times 0.15 = 0.135 \]
+
+For **business administration**:
+\[ P(H|E) \propto 0.10 \times 0.30 = 0.030 \]
+
+For **computer science**:
+\[ P(H|E) \propto 0.70 \times 0.30 = 0.210 \]
+
+Now normalizing to ensure internal consistency:
+\[ P(E) \approx 0.135 + 0.030 + 0.210 = 0.375 \]
+
+Then:
+\[ P(\text{agricultural and veterinary science}|E) \approx \frac{0.135}{0.375} \approx 0.36 \]
+\[ P(\text{business administration}|E) \approx \frac{0.030}{0.375} \approx 0.08 \]
+\[ P(\text{computer science}|E) \approx \frac{0.210}{0.375} \approx 0.56 \]
+
+```json
+{
+  "agricultural and veterinary science": 0.36,
+  "business administration": 0.08,
+  "computer science": 0.56
+}
+```
+
+These values provide a balance of Adam's personality traits with typical field alignments. Note the qualitative nature of the estimates means actual probabilities can vary based on more precise data.

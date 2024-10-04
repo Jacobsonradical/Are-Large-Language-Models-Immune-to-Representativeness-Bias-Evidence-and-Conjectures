@@ -1,0 +1,43 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to consider the prior probability of each hypothesis (the likelihood of each field in general) and the likelihood of the evidence given each hypothesis (how well Adam's personality sketch fits each field).
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of the evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the total probability of the evidence \( E \), which can be computed as \( P(E) = \sum_i P(E|H_i) \cdot P(H_i) \) over all considered hypotheses.
+
+For simplification, let's assume that \( P(E) \) is a normalizing constant that we don't need to compute explicitly because it will be the same for all hypotheses under consideration.
+
+### Business Administration
+
+1. **Prior \( P(H) \)**: Let's denote the prior probability of being enrolled in business administration as \( P(\text{bus}) \). The field of business administration might be quite common among graduate students, let’s assume it has a moderate prior, say \( 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**: Adam’s personality sketch doesn't strongly suggest an inclination towards business administration. His love for nature and animals, enjoyment of puzzles, and empathy are less typical for business administration students. Let's assign a lower likelihood, say \( 0.1 \).
+
+### Agricultural and Veterinary Science
+
+1. **Prior \( P(H) \)**: Let's denote the prior probability of being enrolled in agricultural and veterinary science as \( P(\text{agri}) \). While not as common as business administration, it's still a significant field. Assume \( 0.1 \).
+
+2. **Likelihood \( P(E|H) \)**: Adam’s personality fits very well with agricultural and veterinary science due to his genuine curiosity about nature, love for animals, high intelligence, and appreciation for hard work. Let’s assign a high likelihood, say \( 0.8 \).
+
+Using Bayes' rule proportionally without considering the exact normalizing constant \( P(E) \):
+
+\[ P(\text{bus}|E) \propto P(E|\text{bus}) \cdot P(\text{bus}) = 0.1 \cdot 0.2 = 0.02 \]
+\[ P(\text{agri}|E) \propto P(E|\text{agri}) \cdot P(\text{agri}) = 0.8 \cdot 0.1 = 0.08 \]
+
+While the exact values would need normalization to ensure they sum to 1 when considering all possible fields, these proportional values indicate relatively stronger support for agricultural and veterinary science over business administration.
+
+Thus, the hypothesis posterior conditional probabilities can be roughly summarized as follows:
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.08
+}
+```
+
+These values are without explicit normalization but show the correct ratio reflecting how likely Adam is to be in each field given his personality sketch.

@@ -1,0 +1,55 @@
+To compute the posterior probabilities using Bayes' Rule, we must take into account certain factors:
+1. The likelihood of Adam's characteristics given each field (P(E|H)).
+2. The prior probability of enrollment in each field (P(H)).
+3. The marginal likelihood of Adam's characteristics across all fields (P(E)).
+
+For simplicity, let's assume prior probabilities and likelihoods from general knowledge about graduate fields and Adam's personality sketch.
+
+Let's denote:
+- \(P(H|E)\) as the posterior probability given the evidence E.
+- \(P(E|H)\) as the likelihood of the evidence given the hypothesis H.
+- \(P(H)\) as the prior probability of the hypothesis H.
+- \(P(E)\) as the overall probability of the evidence.
+
+Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Hypothesis 1: Agricultural and Veterinary Science
+- Given Adam's characteristics (love for nature, animals, empathy, and intelligence), it's highly likely he fits into this field.
+- Assume \(P(E|H_{\text{agricultural and veterinary science}}) = 0.8\) (high likelihood given the fit).
+- Assume \(P(H_{\text{agricultural and veterinary science}}) = 0.1\) (a reasonable prior probability).
+
+### Hypothesis 2: Business Administration
+- Adam's characteristics do not particularly point towards this field strongly.
+- Assume \(P(E|H_{\text{business administration}}) = 0.2\) (low likelihood given the fit).
+- Assume \(P(H_{\text{business administration}}) = 0.2\) (a reasonable prior probability).
+
+For simplicity, let's assume \(P(E)\) is the same for both cases and normalize later.
+
+Now, let’s compute the posterior probabilities:
+
+### Agricultural and Veterinary Science
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+### Business Administration
+\[ P(H_{\text{business administration}}|E) = \frac{0.2 \cdot 0.2}{P(E)} \]
+
+Let's normalize these values by setting \(P(E) = 1\) for simplicity in posterior context:
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \cdot 0.1}{k} \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.2 \cdot 0.2}{k} \]
+
+Normalizing by the sum of unnormalized probabilities:
+\[ k = 0.8 \cdot 0.1 + 0.2 \cdot 0.2 = 0.08 + 0.04 = 0.12 \]
+
+Therefore:
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.08}{0.12} = \frac{2}{3} = 0.67 \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.04}{0.12} = \frac{1}{3} = 0.33 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.67,
+  "business administration": 0.33
+}
+```

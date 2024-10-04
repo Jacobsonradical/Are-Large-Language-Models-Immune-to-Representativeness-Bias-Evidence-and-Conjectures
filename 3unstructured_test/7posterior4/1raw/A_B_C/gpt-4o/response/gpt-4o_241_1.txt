@@ -1,0 +1,54 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need the prior probability \( P(H) \) for each field and the likelihood \( P(E|H) \), which is the probability of observing the personality sketch \( E \) given that Adam is enrolled in one of the fields. Bayes' rule is defined as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) serves as a normalizing factor to ensure the probabilities sum to 1 across all hypotheses. While we do not have precise statistical data, we can qualitatively estimate the relation between Adam's personality and his field of study.
+
+### Problem Breakdown:
+- **Priors \( P(H) \)**:
+  - We can assume that the prior probability for each field depends on general enrollment statistics for those fields. Hypothetically, let's assume:
+    - \( P(H_{CS}) = 0.3 \) (Computer Science)
+    - \( P(H_{AVS}) = 0.15 \) (Agricultural and Veterinary Science)
+    - \( P(H_{BA}) = 0.25 \) (Business Administration)
+
+- **Likelihoods \( P(E|H) \)**: This indicates how well Adam's personality matches a typical student in each field.
+  - **Computer Science**: Adam's intelligence and problem-solving skills match this field. However, empathy and a love for animals might not be strong indicators. So, we assign a moderate likelihood.
+    - \( P(E|H_{CS}) = 0.4 \)
+  - **Agricultural and Veterinary Science**: Adam’s curiosity about nature, love for animals, and empathy are highly aligned with this field.
+    - \( P(E|H_{AVS}) = 0.8 \)
+  - **Business Administration**: Adam's abstract understanding and appreciation for hard work are relevant, but other traits are less aligned.
+    - \( P(E|H_{BA}) = 0.3 \)
+
+### Normalization:
+\( P(E) \) can be computed as:
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{AVS}) \cdot P(H_{AVS}) + P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(E) = (0.4 \cdot 0.3) + (0.8 \cdot 0.15) + (0.3 \cdot 0.25) \]
+\[ P(E) = 0.12 + 0.12 + 0.075 \]
+\[ P(E) = 0.315 \]
+
+### Posteriors \( P(H|E) \):
+
+- **Computer Science**:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.4 \cdot 0.3}{0.315} \]
+\[ P(H_{CS}|E) \approx 0.381 \]
+
+- **Agricultural and Veterinary Science**:
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+\[ P(H_{AVS}|E) = \frac{0.8 \cdot 0.15}{0.315} \]
+\[ P(H_{AVS}|E) \approx 0.381 \]
+
+- **Business Administration**:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) = \frac{0.3 \cdot 0.25}{0.315} \]
+\[ P(H_{BA}|E) \approx 0.238 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.381,
+  "agricultural and veterinary science": 0.381,
+  "business administration": 0.238
+}
+```

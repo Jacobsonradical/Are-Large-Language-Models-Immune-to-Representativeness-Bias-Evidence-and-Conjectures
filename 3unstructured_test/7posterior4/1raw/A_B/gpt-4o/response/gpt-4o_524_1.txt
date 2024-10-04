@@ -1,0 +1,54 @@
+To compute the posterior conditional probability \( P(H|E) \) using Bayes' rule, we need to assess the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and then normalize them. Bayes' rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of evidence \( E \), which is a normalizing constant.
+
+Let us approximate the values for \( P(E|H) \), \( P(H) \), and \( P(E) \):
+
+1. **Prior Probabilities (\( P(H) \))**:
+   - Assume a somewhat equal distribution of students across graduate fields, but give slightly higher priors to fields that have larger enrollment.
+   - Let’s assume \( P(H) \) for each field out of the general distribution:
+     - Agricultural and Veterinary Science: \( P(H) \approx 0.15 \)
+     - Business Administration: \( P(H) \approx 0.25 \)
+
+2. **Likelihoods (\( P(E|H) \))**:
+   - Given Adam's interests and traits, it's highly likely he might be in a field related to nature and animals.
+   - Assess the likelihoods:
+     - For Agricultural and Veterinary Science (\( P(E|H)_{\text{AgVet}} \)):
+       - Given Adam’s love for nature, animals, and empathy, \( P(E|H)_{\text{AgVet}} \approx 0.8 \)
+     - For Business Administration (\( P(E|H)_{\text{BusAdmin}} \)):
+       - Adam’s interests and traits are less aligned with typical traits for business administration, \( P(E|H)_{\text{BusAdmin}} \approx 0.2 \)
+
+3. **Marginal Likelihood (\( P(E) \))**:
+   - Normalize the probabilities:
+     \[ P(E) = P(E|H)_{\text{AgVet}} \cdot P(H)_{\text{AgVet}} + P(E|H)_{\text{BusAdmin}} \cdot P(H)_{\text{BusAdmin}} \]
+     \[ P(E) = (0.8 \times 0.15) + (0.2 \times 0.25) \]
+     \[ P(E) = 0.12 + 0.05 = 0.17 \]
+
+Now, compute the posterior probabilities:
+
+- \( P(H_{\text{AgVet}}|E) \):
+  \[ P(H_{\text{AgVet}}|E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E)} \]
+  \[ P(H_{\text{AgVet}}|E) = \frac{0.8 \times 0.15}{0.17} \]
+  \[ P(H_{\text{AgVet}}|E) \approx \frac{0.12}{0.17} \]
+  \[ P(H_{\text{AgVet}}|E) \approx 0.706 \]
+
+- \( P(H_{\text{BusAdmin}}|E) \):
+  \[ P(H_{\text{BusAdmin}}|E) = \frac{P(E|H_{\text{BusAdmin}}) \cdot P(H_{\text{BusAdmin}})}{P(E)} \]
+  \[ P(H_{\text{BusAdmin}}|E) = \frac{0.2 \times 0.25}{0.17} \]
+  \[ P(H_{\text{BusAdmin}}|E) \approx \frac{0.05}{0.17} \]
+  \[ P(H_{\text{BusAdmin}}|E) \approx 0.294 \]
+
+Therefore, the posterior conditional probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.706,
+  "business administration": 0.294
+}
+```

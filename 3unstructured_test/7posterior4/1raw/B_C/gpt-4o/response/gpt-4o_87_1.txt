@@ -1,0 +1,65 @@
+To apply Bayes' rule to compute the posterior conditional probabilities \( P(H|E) \), we need to have the prior probabilities \( P(H) \) of Adam being in each field and the likelihood \( P(E|H) \) of observing Adam's personality sketch given each field. In practice, these values can be challenging to obtain precisely without extensive data, so we'll make reasonable assumptions for this hypothetical exercise.
+
+#### Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( H \) is the hypothesis (e.g., Adam being in computer science or business administration).
+- \( E \) is the evidence (the personality sketch of Adam).
+
+Let's break this down step-by-step for each field.
+
+### Assumptions:
+
+1. **Priors \( P(H) \)**: Graduate fields have different proportions of students.
+   - Assume a slight preference for computer science given its popularity: \( P(\text{computer science}) = 0.25 \)
+   - Assume a lower but still significant proportion for business administration: \( P(\text{business administration}) = 0.15 \)
+
+2. **Likelihoods \( P(E|H) \)**: Likelihood of Adam's personality traits in each field.
+   - **Computer science**: Adam's intelligence, curiosity, and problem-solving align well with computer science. However, empathy and love for animals may not be directly related.
+     - Suppose \( P(E|\text{computer science}) = 0.7 \)
+   - **Business administration**: Traits like empathy and appreciation for hard work are beneficial in business but the emphasis on abstract concepts and love for nature/animals may be less relevant.
+     - Suppose \( P(E|\text{business administration}) = 0.3 \)
+
+3. **Marginal likelihood \( P(E) \)**: The overall probability of observing Adam's personality sketch. 
+   - This is challenging to estimate without comprehensive data, but it serves as a normalizing constant.
+
+Given this setup:
+
+### Posterior calculations:
+
+1. For **computer science**:
+\[ P(\text{computer science} | E) = \frac{P(E | \text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+
+2. For **business administration**:
+\[ P(\text{business administration} | E) = \frac{P(E | \text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+To get the actual values using the provided assumptions, we normalize by the marginal likelihood (but since we're not using it explicitly for comparison, just multiplying the priors and likelihoods will give us relative scales):
+
+For **computer science**:
+\[ P(\text{computer science} | E) = \frac{0.7 \cdot 0.25}{P(E)} \]
+
+For **business administration**:
+\[ P(\text{business administration} | E) = \frac{0.3 \cdot 0.15}{P(E)} \]
+
+Ignoring the exact marginal likelihood for simplicity, the relative scales are:
+
+\[
+P(\text{computer science} | E) = 0.175
+\]
+\[
+P(\text{business administration} | E) = 0.045
+\]
+
+These values suggest Adam is more likely to be in computer science than in business administration given the personality sketch \( E \).
+
+Thus, the Bayesian posterior conditional probabilities can be reported as relative values without the exact normalization:
+
+```json
+{
+  "computer science": 0.175,
+  "business administration": 0.045
+}
+```
+
+Please note that these values are based on several assumptions and ordinal scales without precise empirical data.

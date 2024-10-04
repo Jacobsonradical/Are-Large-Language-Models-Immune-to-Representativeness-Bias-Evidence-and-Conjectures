@@ -1,0 +1,46 @@
+To compute the posterior conditional probability \( P(H|E) \) for each field using Bayes' rule, we need to consider both the likelihood of Adam having these personality traits given each field, \( P(E|H) \), and the prior probability of each field, \( P(H) \).
+
+### Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Assumptions:
+1. \( P(E|H) \): The likelihood of Adam having the described personality given the field.
+2. \( P(H) \): The prior probability of a graduate student being in each field.
+
+Let's use some qualitative reasoning to estimate \( P(E|H) \) and \( P(H) \):
+
+- It is more likely for someone with Adam’s personality traits (deep love for animals, curiosity about nature, empathy, and appreciation for hard work) to be in Agricultural and Veterinary Science than in Business Administration.
+- Graduate students in Agricultural and Veterinary Science are more likely to have traits such as a love for animals and curiosity about nature than those in Business Administration.
+
+### Likelihood:
+- \( P(E|H_{agricultural and veterinary science}) \approx 0.9 \) (because the traits align well with this field)
+- \( P(E|H_{business administration}) \approx 0.1 \) (because the traits align poorly with this field)
+
+### Prior Probabilities:
+- Let's assume the prior probability distribution of graduate students among these categories generally.
+- Suppose \( P(H_{agricultural and veterinary science}) \approx 0.1 \) (this field is less common than Business Administration).
+- Suppose \( P(H_{business administration}) \approx 0.3 \) (this field is more common).
+
+### Normalizing Constant:
+Since we're considering only two fields here for simplicity, let’s normalize the posterior probabilities so their sum is 1 for these two fields:
+
+\[ P(E) \approx P(E|H_{agricultural and veterinary science}) \cdot P(H_{agricultural and veterinary science}) + P(E|H_{business administration}) \cdot P(H_{business administration}) \]
+\[ P(E) \approx (0.9 \cdot 0.1) + (0.1 \cdot 0.3) \]
+\[ P(E) \approx 0.09 + 0.03 \]
+\[ P(E) \approx 0.12 \]
+
+### Posterior Probabilities:
+- \( P(H_{agricultural and veterinary science}|E) = \frac{P(E|H_{agricultural and veterinary science}) \cdot P(H_{agricultural and veterinary science})}{P(E)} \)
+\[ P(H_{agricultural and veterinary science}|E) \approx \frac{0.9 \cdot 0.1}{0.12} \approx 0.75 \]
+
+- \( P(H_{business administration}|E) = \frac{P(E|H_{business administration}) \cdot P(H_{business administration})}{P(E)} \)
+\[ P(H_{business administration}|E) \approx \frac{0.1 \cdot 0.3}{0.12} \approx 0.25 \]
+
+Given this reasoning and calculations, we can approximate the posterior probabilities as follows:
+
+```json
+{
+  "business administration": 0.25,
+  "agricultural and veterinary science": 0.75
+}
+```

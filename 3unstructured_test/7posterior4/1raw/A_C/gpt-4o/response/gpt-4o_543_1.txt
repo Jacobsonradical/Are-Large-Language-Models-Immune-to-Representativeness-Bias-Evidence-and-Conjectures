@@ -1,0 +1,49 @@
+To compute the posterior conditional probability \(P(H|E)\) using Bayes' rule, we need the following components:
+
+1. **Prior Probability \(P(H)\)**: The probability of Adam being enrolled in each field before considering the evidence \(E\).
+2. **Likelihood \(P(E|H)\)**: The probability of observing the evidence \(E\) given that Adam is enrolled in that field.
+3. **Evidence \(P(E)\)**: The total probability of observing the evidence \(E\) across all possible fields.
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that:
+- \(E\) represents the personality sketch of Adam.
+- Hypothesis \(H\) represents Adam being enrolled in either computer science or agricultural and veterinary science.
+
+We will make reasonable assumptions for prior probabilities and likelihoods based on general knowledge and Adam's personality traits:
+
+### Prior Probabilities (\(P(H)\))
+Assume there are many fields in which Adam could have enrolled, but we don't have exact statistics. For simplicity, let's assume the prior probability for each is equal to a rough estimate of distribution in graduate programs.
+- \(P(H=\text{computer science}) = 0.2\)
+- \(P(H=\text{agricultural and veterinary science}) = 0.1\)
+
+### Likelihoods (\(P(E|H)\))
+- **For computer science**: Given that curiosity about nature and plants, empathy, and love for animals are less relevant traits for computer science, we assume the likelihood \(P(E|H=\text{computer science})\) to be lower, but solving puzzles and high intelligence are relevant.
+  - Let's assume \(P(E|H=\text{computer science}) = 0.3\)
+
+- **For agricultural and veterinary science**: Given that the traits like curiosity about nature, love for animals, empathy, and appreciation for hard work are highly relevant, we assume the likelihood \(P(E|H=\text{agricultural and veterinary science})\) to be higher.
+  - Let's assume \(P(E|H=\text{agricultural and veterinary science}) = 0.7\)
+
+### Total Evidence (\(P(E)\))
+The total probability of observing \(E\) requires summing over the likelihoods weighted by the priors for all possible fields. For simplicity, we'll consider only these two fields for the estimate:
+
+\[ P(E) = P(E|H=\text{computer science}) \cdot P(H=\text{computer science}) + P(E|H=\text{agricultural and veterinary science}) \cdot P(H=\text{agricultural and veterinary science}) \]
+\[ P(E) = 0.3 \cdot 0.2 + 0.7 \cdot 0.1 = 0.06 + 0.07 = 0.13 \]
+
+### Posterior Probabilities (\(P(H|E)\))
+Using Bayes' rule:
+
+\[ P(H=\text{computer science}|E) = \frac{P(E|H=\text{computer science}) \cdot P(H=\text{computer science})}{P(E)} = \frac{0.3 \cdot 0.2}{0.13} \approx 0.4615 \]
+
+\[ P(H=\text{agricultural and veterinary science}|E) = \frac{P(E|H=\text{agricultural and veterinary science}) \cdot P(H=\text{agricultural and veterinary science})}{P(E)} = \frac{0.7 \cdot 0.1}{0.13} \approx 0.5385 \]
+
+So the posterior conditional probabilities are:
+
+```json
+{
+  "computer science": 0.4615,
+  "agricultural and veterinary science": 0.5385
+}
+```

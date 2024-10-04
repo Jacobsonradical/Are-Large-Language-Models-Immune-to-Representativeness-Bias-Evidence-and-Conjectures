@@ -1,0 +1,69 @@
+To compute the posterior conditional probabilities \( P(H|E) \) for the given hypotheses, we will use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the marginal probability of the evidence.
+
+We need to make some assumptions and estimations for these probabilities:
+
+1. **Prior Probability \(P(H)\)**:
+   - The proportion of graduate students in each field.
+   
+2. **Likelihood \(P(E|H)\)**:
+   - The probability of having Adam's personality characteristics given enrollment in each field.
+
+### Assumptions:
+
+1. **Prior Probabilities \(P(H)\)**:
+   - Proportion of graduate students in Agricultural and Veterinary Science: Approximately 5% (0.05).
+   - Proportion of graduate students in Computer Science: Approximately 15% (0.15).
+
+2. **Likelihood \(P(E|H)\)**:
+   - Characteristics fitting Agricultural and Veterinary Science:
+     - Genuine curiosity about nature and plants, love for animals, and strong empathy are strong matches.
+     - Assume \(P(E|H_{\text{AgriVet}}) = 0.8\).
+   - Characteristics fitting Computer Science:
+     - High intelligence, good at solving puzzles, understanding abstract concepts match well.
+     - Assume \(P(E|H_{\text{CS}}) = 0.6\) (as the empathy and love for animals are less aligned with this field).
+
+3. **Marginal Probability \(P(E)\)**:
+   - Normalization factor representing the overall likelihood of the evidence, taking into account other possible fields.
+   - For simplicity, assume \(P(E)\) is calibrated such that the sum of the probabilities is proportional to differences in the likelihood and enrollment factors.
+
+### Calculations:
+
+1. **Agricultural and Veterinary Science**:
+   \[
+   P(H_{\text{AgriVet}}|E) = \frac{P(E|H_{\text{AgriVet}}) \cdot P(H_{\text{AgriVet}})}{P(E)} = \frac{0.8 \cdot 0.05}{P(E)}
+   \]
+
+2. **Computer Science**:
+   \[
+   P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.6 \cdot 0.15}{P(E)}
+   \]
+
+Since we are only interested in relative likelihoods and not absolute probabilities (thus, the total need not be 1), we will not normalize by \(P(E)\). Instead, we compare the numerators directly.
+
+Therefore:
+
+\[
+P(H_{\text{AgriVet}}|E) = 0.8 \cdot 0.05 = 0.04
+\]
+
+\[
+P(H_{\text{CS}}|E) = 0.6 \cdot 0.15 = 0.09
+\]
+
+### Results:
+```json
+{
+  "agricultural and veterinary science": "0.04",
+  "computer science": "0.09"
+}
+```
+
+Note: These values are relative and provide a sense of which specialization is more consistent with Adam's personality traits, given the assumptions.

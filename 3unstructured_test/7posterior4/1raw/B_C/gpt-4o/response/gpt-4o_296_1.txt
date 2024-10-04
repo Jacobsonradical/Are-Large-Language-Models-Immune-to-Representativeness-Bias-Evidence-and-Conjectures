@@ -1,0 +1,49 @@
+To apply Bayes' rule for the posterior probabilities of Adam being enrolled in computer science and business administration based on his personality sketch \( E \), we need to estimate the likelihood of each field given the personality sketch and the prior probability of each field.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here's a simplified approach to estimating these probabilities:
+
+1. **Prior probabilities \( P(H) \)**:
+   - These are the general probabilities of a graduate student being in a specific field. Based on general statistics, let's assume the following priors (these are illustrative and should ideally come from actual data):
+     - \( P(\text{computer science}) = 0.2 \) (20% of grad students)
+     - \( P(\text{business administration}) = 0.15 \) (15% of grad students)
+
+2. **Likelihood \( P(E|H) \)**:
+   - How likely Adam's personality sketch \( E \) would be if he were in each field:
+     - For computer science: Given Adam's high intelligence, curiosity about nature, and talent for solving puzzles, we'll assume these traits align well with computer science.
+       \( P(E|\text{computer science}) \approx 0.7 \)
+     - For business administration: While strong empathy and appreciation for hard work are relevant, other traits such as abstract thinking and love for nature are less central.
+       \( P(E|\text{business administration}) \approx 0.2 \)
+
+3. **Marginal probability \( P(E) \)**:
+   - This is the probability of the evidence, incorporating all possible fields. This could be detailed out further but for simplification, we'll denote this as a constant that normalizes the probabilities.
+
+Given these simplifications, let’s calculate the posterior probabilities:
+
+Using Bayes' rule:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+Since \( P(E) \) is a constant for all hypotheses, we can ignore it in the proportional comparison:
+\[ P(\text{computer science}|E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) \]
+\[ P(\text{business administration}|E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) \]
+
+Thus,
+\[ P(\text{computer science}|E) \approx 0.7 \cdot 0.2 = 0.14 \]
+\[ P(\text{business administration}|E) \approx 0.2 \cdot 0.15 = 0.03 \]
+
+Normalizing these probabilities (putting them on the same scale), we get:
+
+\[ P(\text{computer science}|E) = \frac{0.14}{0.14 + 0.03} \approx 0.824 \]
+\[ P(\text{business administration}|E) = \frac{0.03}{0.14 + 0.03} \approx 0.176 \]
+
+Therefore, the probabilities are:
+
+```json
+{
+  "computer science": 0.824,
+  "business administration": 0.176
+}
+```

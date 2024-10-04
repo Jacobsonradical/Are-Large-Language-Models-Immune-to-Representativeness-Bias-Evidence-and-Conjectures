@@ -1,0 +1,49 @@
+To compute the posterior conditional probability P(H|E) using Bayes' rule, we need to consider the following:
+
+1. **Prior probability P(H)**: The general probability that a randomly chosen graduate student is enrolled in each of the respective fields.
+2. **Likelihood P(E|H)**: The probability of observing Adam's personality sketch given that he is in a specific field.
+3. **Evidence P(E)**: The overall probability of observing Adam's personality sketch, regardless of the field.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we are working on limited qualitative data, the most feasible approach is to assign relative likelihoods based on the compatibility of Adam's personality traits with each field. We can assume that P(E) is constant across fields and doesn't need to be calculated explicitly:
+
+### 1. Prior Probabilities (P(H)):
+Suppose the priors are approximated as:
+- Business administration: 0.2
+- Computer science: 0.4
+- Agricultural and veterinary science: 0.1
+(The sum here isn't 1 since there are other fields as well.)
+
+### 2. Likelihoods (P(E|H)):
+We estimate the likelihood based on Adam's traits:
+- Business administration: Moderately probable. Curiosity and abstract thinking fit many fields but less closely with business administration. Let's assign P(E|H) = 0.3.
+- Computer science: Highly probable. Solving puzzles, high intelligence, and understanding abstract concepts align well. Let's assign P(E|H) = 0.7.
+- Agricultural and veterinary science: Very probable. A deep love for animals and nature fits well. Let's assign P(E|H) = 0.9.
+
+Given these assumptions, we can now plug the values into Bayes' rule.
+
+### Computations:
+For each field:
+\[ P(H|E) = k \cdot P(E|H) \cdot P(H) \]
+where \( k \) is a normalization constant same for all fields since P(E) is constant.
+
+Relative probabilities are:
+- **Business administration**:
+  \[ P(H|E) \propto 0.3 \cdot 0.2 = 0.06 \]
+
+- **Computer science**:
+  \[ P(H|E) \propto 0.7 \cdot 0.4 = 0.28 \]
+
+- **Agricultural and veterinary science**:
+  \[ P(H|E) \propto 0.9 \cdot 0.1 = 0.09 \]
+
+Assuming these are the relevant fields considered:
+```json
+{
+  "business administration": "0.06",
+  "computer science": "0.28",
+  "agricultural and veterinary science": "0.09"
+}
+```

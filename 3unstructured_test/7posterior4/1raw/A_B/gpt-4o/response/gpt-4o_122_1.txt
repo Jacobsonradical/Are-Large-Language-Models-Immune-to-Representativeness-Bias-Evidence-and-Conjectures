@@ -1,0 +1,63 @@
+To compute the posterior probability P(H|E) using Bayes' rule, we need to follow these steps:
+
+1. **Determine Prior Probability \( P(H) \)**: This is the initial probability of Adam being in a specific field before considering the personality sketch.
+
+2. **Determine Likelihood \( P(E|H) \)**: This is the probability that the personality sketch fits someone who is enrolled in the specific field.
+
+3. **Determine Total Evidence \( P(E) \)**: This is the overall probability of the personality sketch regardless of the field.
+
+4. **Apply Bayes' Rule**: 
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+   
+Given the subjective nature of personality and field alignment, exact numeric values would typically derive from empirical data, but I'll provide approximate reasoning to deduce the probabilities in this context.
+
+### Reasoning
+
+1. **Prior Probability \( P(H) \)**:
+   - Assume equal prior probabilities for simplicity because we don't have specific information on the distribution of graduate students across fields.
+   - Let’s assume \( P(\text{business administration}) = 0.5 \)
+   - Let’s assume \( P(\text{agricultural and veterinary science}) = 0.5 \)
+
+2. **Likelihood \( P(E|H) \)**:
+   - **P(E | business administration)**: Business administration students might have traits like high intelligence and strong understanding of hard work, but empathy for nature and animals might be less common.
+   - **P(E | agricultural and veterinary science)**: Students in these fields are often empathetic towards nature and animals, interested in plants, and may enjoy solving practical problems.
+
+Given that Adam’s characteristics align more closely with agricultural and veterinary science:
+
+   - Let’s assume \( P(E | \text{business administration}) = 0.1 \)
+   - Let’s assume \( P(E | \text{agricultural and veterinary science}) = 0.9 \)
+
+3. **Total Evidence \( P(E) \)**:
+   - We calculate \( P(E) \) based on the marginal likelihood:
+   
+\[ 
+P(E) = P(E|\text{business administration}) \times P(\text{business administration}) + P(E|\text{agricultural and veterinary science}) \times P(\text{agricultural and veterinary science}) 
+\]
+   
+\[
+P(E) = (0.1 \times 0.5) + (0.9 \times 0.5) = 0.05 + 0.45 = 0.5
+\]
+
+4. **Posterior Probability using Bayes' Rule**:
+
+- For business administration:
+
+\[ 
+P(\text{business administration} | E) = \frac{P(E|\text{business administration}) \times P(\text{business administration})}{P(E)} = \frac{0.1 \times 0.5}{0.5} = 0.1 
+\]
+
+- For agricultural and veterinary science:
+
+\[ 
+P(\text{agricultural and veterinary science} | E) = \frac{P(E|\text{agricultural and veterinary science}) \times P(\text{agricultural and veterinary science})}{P(E)}= \frac{0.9 \times 0.5}{0.5} = 0.9 
+\]
+
+### Result
+
+```json
+{
+  "business administration": 0.1,
+  "agricultural and veterinary science": 0.9
+}
+```
