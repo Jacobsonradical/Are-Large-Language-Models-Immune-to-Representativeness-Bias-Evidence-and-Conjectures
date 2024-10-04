@@ -1,0 +1,48 @@
+To compute the probabilities \( P(H|E) \) for each field, we can apply Bayes' rule which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(H) \) is the prior probability of Adam being enrolled in a particular field, \( P(E|H) \) is the likelihood of observing Adam's personality sketch given he is enrolled in that field, and \( P(E|\neg H) \) is the likelihood of observing Adam's personality sketch given he is not enrolled in that field. \( P(E) \) is the evidence probability but since it is a normalizing constant, we do not require its exact value for comparing the fields.
+
+Let's estimate each quantity for each field:
+
+1. **Business administration:**
+   * \( P(H) \): Business fields are commonly high-enrollment, so let’s assume \( P(H) = 0.3 \).
+   * \( P(E|H) \): The personality described seems less typical for business administration (not as nature, animals, or empathy-focused), thus \( P(E|H) \) might be lower, say \( 0.1 \).
+   * \( P(E|\neg H) \): Moderate likelihood since the personality can fit several non-business fields, let's say \( P(E|\neg H) = 0.2 \).
+
+2. **Agricultural and veterinary science:**
+   * \( P(H) \): Less common but still probable for those who love nature and animals, so let’s assume \( P(H) = 0.1 \).
+   * \( P(E|H) \): The description fits very well—high curiosity about nature, love for animals—so \( P(E|H) \) should be high, say \( 0.9 \).
+   * \( P(E|\neg H) \): Lower likelihood since not everyone interested in nature or animals would be in another field, say \( 0.2 \).
+
+3. **Computer science:**
+   * \( P(H) \): Another common field among graduate students, let's assume \( P(H) = 0.3 \).
+   * \( P(E|H) \): Curiosity, intelligence, and puzzle-solving fit well, moderate to high \( P(E|H) \), say \( 0.6 \).
+   * \( P(E|\neg H) \): Strong likelihood since these traits can apply to many fields, let’s say \( P(E|\neg H) = 0.4 \).
+
+Now, let's compute \( P(H|E) \) for each field:
+
+1. **Business administration:**
+\[ P(H|E) = \frac{0.1 \cdot 0.3}{P(E)} = \frac{0.03}{P(E)} \]
+
+2. **Agricultural and veterinary science:**
+\[ P(H|E) = \frac{0.9 \cdot 0.1}{P(E)} = \frac{0.09}{P(E)} \]
+ 
+3. **Computer science:**
+\[ P(H|E) = \frac{0.6 \cdot 0.3}{P(E)} = \frac{0.18}{P(E)} \]
+
+To form a comparison:
+
+\[ \frac{P(H|E)}{\sum P(H|E)} = \frac{P(E|H) \cdot P(H)}{\sum P(E|H) \cdot P(H)} \]
+
+Summing numerators:
+\[ \sum P(E|H) \cdot P(H) = 0.03 + 0.09 + 0.18 = 0.30 \]
+
+Finally, computing normalized \( P(H|E) \):
+
+{
+  "business administration": \(\frac{0.03}{0.30} \approx 0.1\),
+  "agricultural and veterinary science": \(\frac{0.09}{0.30} \approx 0.3\),
+  "computer science": \(\frac{0.18}{0.30} \approx 0.6\)
+}

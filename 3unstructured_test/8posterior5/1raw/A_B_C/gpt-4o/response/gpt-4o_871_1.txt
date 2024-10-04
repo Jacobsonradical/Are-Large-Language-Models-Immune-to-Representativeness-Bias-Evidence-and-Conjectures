@@ -1,0 +1,62 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we need to follow the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis.
+- \( P(E) \) is the marginal likelihood, often computed as \( P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+We'll estimate these probabilities in intuitive terms, based on the provided personality sketch.
+
+For calculating probabilities, we need:
+1. \( P(H) \) - Prior probability that Adam is enrolled in each field.
+2. \( P(E|H) \) - Probability of observing Adam's personality sketch given that he is enrolled in each field.
+3. \( P(E|\neg H) \) - Probability of observing Adam's personality sketch given that he is not enrolled in that field.
+
+### Prior Probabilities \( P(H) \)
+
+Let's assume some prior distributions:
+- For simplicity, we assume there are many fields of study, so none of these fields are overwhelmingly more likely to be chosen randomly.
+
+Let's denote:
+- \( P(H_{\text{CS}}) = 0.2 \) (Computer Science)
+- \( P(H_{\text{BA}}) = 0.1 \) (Business Administration)
+- \( P(H_{\text{AVS}}) = 0.05 \) (Agricultural and Veterinary Science)
+
+### Likelihoods \( P(E|H) \)
+
+Given the personality sketch, we estimate:
+- \( P(E|H_{\text{CS}}) \approx 0.5 \): High intelligence and abstract thinking align with CS, but empathy and love for animals less so.
+- \( P(E|H_{\text{BA}}) \approx 0.2 \): The personality traits are less typical for Business Administration.
+- \( P(E|H_{\text{AVS}}) \approx 0.9 \): High empathy, love for nature, and animals strongly align with this field.
+
+### Likelihoods \( P(E|\neg H) \)
+
+Likewise, the probability of observing the personality sketch given he is not in each field:
+- \( P(E|\neg H_{\text{CS}}) = 1 - P(E|H_{\text{CS}}) = 0.5 \)
+- \( P(E|\neg H_{\text{BA}}) = 1 - P(E|H_{\text{BA}}) = 0.8 \)
+- \( P(E|\neg H_{\text{AVS}}) = 1 - P(E|H_{\text{AVS}}) = 0.1 \)
+
+### Posterior Probabilities \( P(H|E) \)
+
+Using Bayes' Rule, we have:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+
+Where \( P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + (P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}})) +P(E|\neg H_{\text{BA}}) \cdot (1 - P(H_{\text{BA}})) + P(E|\neg H_{\text{AVS}}) \cdot (1 - P(H_{\text{AVS}})) \approx 0.5 \cdot 0.2 + 0.2 \cdot 0.1 + 0.9 \cdot 0.05 \)=0.1+0.02+0.045
+
+So:
+
+\[ P(H_{\text{CS}}|E) = \frac{0.5 \times 0.2}{0.165} \approx 0.60 \]
+\[ P(H_{\text{BA}}|E) = \frac{0.2 \times 0.1}{0.165} \approx 0.121 \]
+\[ P(H_{\text{AVS}}|E) = \frac{0.9 \times 0.05}{0.165} \approx 0.272 \]
+
+Final values:
+
+{
+  "computer science": 0.60,
+  "business administration": 0.121,
+  "agricultural and veterinary science": 0.272
+}

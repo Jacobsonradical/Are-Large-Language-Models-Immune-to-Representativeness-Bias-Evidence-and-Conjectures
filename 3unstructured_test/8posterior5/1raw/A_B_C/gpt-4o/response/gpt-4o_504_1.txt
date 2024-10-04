@@ -1,0 +1,54 @@
+To calculate the posterior probabilities \( P(H|E) \), where \( H \) denotes the specific hypothesis that Adam was enrolled in a particular field given the evidence \( E \) (the personality sketch), we apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) remains constant across all hypotheses, we can rank the hypotheses by evaluating the numerator \( P(E|H) \cdot P(H) \). Let's break this down for each field:
+
+### 1. **Computer Science**
+- **P(H)**: Proportion of graduate students in computer science. Let's assume this is 0.30.
+- **P(E|H)**: Probability of Adam's characteristics given he's in computer science. Although high intelligence and understanding abstract concepts fit well, a deep love for nature and animals is less typical. Let's estimate \( P(E|H) = 0.2 \).
+- **P(E|\neg H)**: Probability of Adam's characteristics in any other field. Varied, but let's estimate it at 0.1 on average.
+
+Using Bayes' rule:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.30 = 0.06 \]
+
+### 2. **Agricultural and Veterinary Science**
+- **P(H)**: Proportion of students in agricultural and veterinary science. Let's assume this is 0.10.
+- **P(E|H)**: This field strongly aligns with Adam's love for nature, animals, and appreciation of hard work. Let's estimate \( P(E|H) = 0.7 \).
+- **P(E|\neg H)**: As earlier, assume this to be 0.1.
+
+Using Bayes' rule:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \cdot 0.10 = 0.07 \]
+
+### 3. **Business Administration**
+- **P(H)**: Proportion of students in business administration. Let's assume this is 0.20.
+- **P(E|H)**: Intelligence and appreciation of hard work fit, but other components like love for nature and animals do not. Let's estimate \( P(E|H) = 0.1 \).
+- **P(E|\neg H)**: Assume this to be 0.1.
+
+Using Bayes' rule:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.20 = 0.02 \]
+
+### Normalizing the Probabilities
+To obtain the normalized \( P(H|E) \) values (so they sum to 1), we calculate:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{\sum_{\text{all fields}} P(E|H) \cdot P(H)} \]
+
+Computing the denominator:
+
+\[ \sum_{\text{all fields}} P(E|H) \cdot P(H) = 0.06 + 0.07 + 0.02 = 0.15 \]
+
+Normalizing:
+
+\[ P(\text{computer science}|E) = \frac{0.06}{0.15} = 0.4 \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.07}{0.15} = 0.467 \]
+\[ P(\text{business administration}|E) = \frac{0.02}{0.15} = 0.133 \]
+
+Thus, the normalized probabilities are:
+
+```json
+{
+  "computer science": 0.4,
+  "agricultural and veterinary science": 0.467,
+  "business administration": 0.133
+}
+```

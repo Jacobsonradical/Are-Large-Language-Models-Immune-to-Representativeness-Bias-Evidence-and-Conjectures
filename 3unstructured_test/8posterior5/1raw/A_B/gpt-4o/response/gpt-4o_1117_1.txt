@@ -1,0 +1,43 @@
+Let's start with the initial probabilities \( P(H) \), which are the probabilities of Adam being enrolled in "agricultural and veterinary science" and "business administration" respectively. Given the personality sketch E and typical graduate student distributions, we'll make educated guesses:
+
+- \( P(H_{agri}) \): Probability of a graduate student being in agricultural and veterinary science
+- \( P(H_{bus}) \): Probability of a graduate student being in business administration.
+
+For simplicity, let's assume for agricultural and veterinary science \( P(H_{agri}) = 0.05 \) (5%) and for business administration \( P(H_{bus})= 0.10 \) (10%), based on general information about the relative popularity of these fields among graduate students.
+
+Now we estimate \( P(E|H) \), the probability that Adam has the given personality sketch assuming he is enrolled in a particular field:
+
+- \( P(E|H_{agri}) \): High likelihood given Adam’s love for nature, animals, and strong work ethic, let's assume 0.60.
+- \( P(E|H_{bus}) \): Lower likelihood as business administration does not typically align with his interests and personality, let's assume 0.20.
+
+\( P(E|\neg H) \):
+
+- \( P(E|\neg H_{agri}) \): Let’s assume a lower value because the profile fits well with agricultural and veterinary science, so we assume 0.20.
+- \( P(E|\neg H_{bus}) \): A general graduate student fitting this profile not in business administration might be higher, let’s assume 0.40.
+
+We use Bayes' Rule to determine \( P(H|E) \):
+
+\[ P(H_{agri}|E) = \frac{P(E|H_{agri}) \cdot P(H_{agri})}{P(E)} \]
+\[ P(H_{bus}|E) = \frac{P(E|H_{bus}) \cdot P(H_{bus})}{P(E)} \]
+
+We compute \( P(E) \) as follows:
+
+\[ P(E) = P(E|H_{agri}) \cdot P(H_{agri}) + P(E|\neg H_{agri}) \cdot P(\neg H_{agri}) \]
+\[ P(E) = 0.60 \cdot 0.05 + 0.20 \cdot 0.95 = 0.03 + 0.19 = 0.22 \]
+
+\[ P(E) = P(E|H_{bus}) \cdot P(H_{bus}) + P(E|\neg H_{bus}) \cdot P(\neg H_{bus}) \]
+\[ P(E) = 0.20 \cdot 0.10 + 0.40 \cdot 0.90 = 0.02 + 0.36 = 0.38 \]
+
+Finally, we compute \( P(H|E) \):
+
+\[ P(H_{agri}|E) = \frac{0.60 \cdot 0.05}{0.22} \approx 0.136 \]
+\[ P(H_{bus}|E) = \frac{0.20 \cdot 0.10}{0.38} \approx 0.053 \]
+
+Putting it all together in the required format:
+
+```json
+{
+  "agricultural and veterinary science": 0.136,
+  "business administration": 0.053
+}
+```

@@ -1,0 +1,86 @@
+To compute the probabilities for Adam being in either computer science or agricultural and veterinary science based on his personality sketch, we follow the Bayesian approach. We'll use Bayes' theorem for this:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of hypothesis \(H\) given evidence \(E\).
+- \( P(E|H) \) is the probability of evidence \(E\) given hypothesis \(H\).
+- \( P(H) \) is the prior probability of hypothesis \(H\).
+- \( P(E) \) is the total probability of the evidence \(E\).
+
+Let's denote:
+\( H_{CS} \): Adam is enrolled in computer science.
+\( H_{AVS} \): Adam is enrolled in agricultural and veterinary science.
+
+### Assumptions and Estimations:
+
+1. **P(H) - Prior Probabilities:**
+   - Assume that the base rates of students enrolled in computer science (\( P(H_{CS}) \)) and agricultural & veterinary science (\( P(H_{AVS}) \)) are somewhat equal given a diverse range of fields in graduate studies, but not necessarily specific percentages. We will assume:
+
+     \( P(H_{CS}) = 0.2 \)
+     \( P(H_{AVS}) = 0.1 \)
+
+2. **P(E|H) - Likelihoods:**
+   - For computer science: Given his high intelligence and abstract thinking, which are relevant, but not highly indicative of enjoying nature, puzzles, and empathy:
+
+     \( P(E|H_{CS}) = 0.2 \)
+
+   - For agricultural and veterinary science: Given his genuine curiosity about nature, plants, and animals, which highly aligns with this field:
+
+     \( P(E|H_{AVS}) = 0.8 \)
+
+3. **P(E|\neg H) - Likelihoods given not H:**
+   - P(E|\neg H_{CS}) would be considering all other fields except computer science. Given there are many, we assume a relatively lower probability:
+
+     \( P(E|\neg H_{CS}) = 0.6 \)
+
+   - P(E|\neg H_{AVS}) would be considering all other fields except agricultural and veterinary science:
+
+     \( P(E|\neg H_{AVS}) = 0.15 \)
+
+### Step-by-Step Calculation:
+
+1. **For Computer Science:**
+
+   \[
+   \begin{align*}
+   P(E) &= P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS})\\
+   &= 0.2 \cdot 0.2 + 0.6 \cdot 0.8\\
+   &= 0.04 + 0.48\\
+   &= 0.52
+   \end{align*}
+   \]
+
+   Thus,
+
+   \[
+   P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.2 \cdot 0.2}{0.52} \approx 0.077
+   \]
+
+2. **For Agricultural and Veterinary Science:**
+
+   \[
+   \begin{align*}
+   P(E) &= P(E|H_{AVS}) \cdot P(H_{AVS}) + P(E|\neg H_{AVS}) \cdot P(\neg H_{AVS})\\
+   &= 0.8 \cdot 0.1 + 0.15 \cdot 0.9\\
+   &= 0.08 + 0.135\\
+   &= 0.215
+   \end{align*}
+   \]
+
+   Thus,
+
+   \[
+   P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} = \frac{0.8 \cdot 0.1}{0.215} \approx 0.372
+   \]
+
+### Final Results:
+
+```json
+{
+  "computer science": 0.077,
+  "agricultural and veterinary science": 0.372
+}
+```
+
+Please note that these probabilities are influenced by the assumed prior probabilities and likelihood values, which are estimated based on the provided personality sketch.

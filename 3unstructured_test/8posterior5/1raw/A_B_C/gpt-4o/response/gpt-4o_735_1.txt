@@ -1,0 +1,72 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' Theorem, we start by calculating the individual components: prior probability \( P(H) \), likelihood \( P(E|H) \), and \( P(E|\neg H) \).
+
+Since we don't have exact numbers, we'll use reasonable assumptions.
+
+1. **Prior Probability \( P(H) \)**: 
+   This represents the initial likelihood of someone being in a particular field without any additional information.
+
+   - **business administration**: Let's assume \( P(H) = 0.20 \)
+   - **agricultural and veterinary science**: Let's assume \( P(H) = 0.10 \)
+   - **computer science**: Let's assume \( P(H) = 0.20 \)
+
+2. **Likelihood \( P(E|H) \)**: 
+   This represents the probability of observing Adam's personality sketch given that he is in a particular field.
+
+   - **business administration**: Not particularly aligned, \( P(E|H) \approx 0.1 \)
+   - **agricultural and veterinary science**: Highly aligned, \( P(E|H) \approx 0.7 \)
+   - **computer science**: Moderately aligned, \( P(E|H) \approx 0.3 \)
+
+3. **Likelihood \( P(E|\neg H) \)**: 
+   This represents the probability of observing Adam's personality sketch given that he is not in a particular field.
+
+   Assuming a rough distribution and focusing mainly on more realistic alignments overall, let's say:
+
+   - \( P(E|\neg H) \approx 0.2 \)
+
+Using Bayes' Theorem:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+And using the law of total probability for \( P(E) \):
+
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+Let’s compute the values for each:
+
+### Business Administration
+\[
+P(E) = 0.1 \times 0.2 + 0.2 \times 0.8 = 0.02 + 0.16 = 0.18
+\]
+\[
+P(H|E) = \frac{0.1 \times 0.2}{0.18} = \frac{0.02}{0.18} \approx 0.111
+\]
+
+### Agricultural and Veterinary Science
+\[
+P(E) = 0.7 \times 0.1 + 0.2 \times 0.9 = 0.07 + 0.18 = 0.25
+\]
+\[
+P(H|E) = \frac{0.7 \times 0.1}{0.25} = \frac{0.07}{0.25} = 0.28
+\]
+
+### Computer Science
+\[
+P(E) = 0.3 \times 0.2 + 0.2 \times 0.8 = 0.06 + 0.16 = 0.22
+\]
+\[
+P(H|E) = \frac{0.3 \times 0.2}{0.22} = \frac{0.06}{0.22} \approx 0.273
+\]
+
+Here is the final answer:
+
+```json
+{
+  "business administration": 0.111,
+  "agricultural and veterinary science": 0.28,
+  "computer science": 0.273
+}
+```

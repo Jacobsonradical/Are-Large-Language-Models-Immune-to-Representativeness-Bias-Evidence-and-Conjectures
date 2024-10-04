@@ -1,0 +1,42 @@
+To use Bayes' rule, we need to estimate the probability of Adam being enrolled in either computer science or business administration, given his personality sketch, \( P(H|E) \). For this, we'll start by estimating the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the marginal likelihoods \( P(E|\neg H) \). 
+
+Given the personality traits described, Adam seems to have interests that may not map directly to traditional engineering or business fields and may align better with fields like biology, environmental science, or psychology. Therefore, we might expect the priors for computer science and business administration to be moderate. 
+
+1. **Computer Science:**
+    - \( P(H) \): To estimate this, let's assume a reasonable prior that about 20% of graduate students could be in computer science.
+    - \( P(E|H) \): Adam's interests in nature and animals, and his quiet disposition might not strongly align with a computer science graduate student compared to other fields. Let's assign a moderate likelihood, say, 0.2.
+    - \( P(E|\neg H) \): This must account for all other fields not being computer science. Given Adam's traits seem strongly aligned with other fields, we might estimate this to be higher, such as 0.8.
+
+2. **Business Administration:**
+    - \( P(H) \): If we assume about 10% of graduate students are in business administration, we’ll use this as the prior.
+    - \( P(E|H) \): Adam's attributes don't strongly suggest a typical business administration student. Let's assign a lower likelihood, say, 0.1.
+    - \( P(E|\neg H) \): This will be similar to the previous reasoning, hence we set it to 0.8.
+
+Using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is the marginal likelihood (overall probability of the evidence), computed as:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+### Calculations:
+
+1. **For Computer Science:**
+    - \( P(E|H) \cdot P(H) = 0.2 \cdot 0.2 = 0.04 \)
+    - \( P(E) = 0.04 + 0.8 \cdot (1 - 0.2) = 0.04 + 0.64 = 0.68 \)
+    - \( P(H|E) = \frac{0.04}{0.68} \approx 0.059 \)
+
+2. **For Business Administration:**
+    - \( P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01 \)
+    - \( P(E) = 0.01 + 0.8 \cdot (1 - 0.1) = 0.01 + 0.72 = 0.73 \)
+    - \( P(H|E) = \frac{0.01}{0.73} \approx 0.014 \)
+
+Hence, we have:
+
+```json
+{
+  "computer science": 0.059,
+  "business administration": 0.014
+}
+```

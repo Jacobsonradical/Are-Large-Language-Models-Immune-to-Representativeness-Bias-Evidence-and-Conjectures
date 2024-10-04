@@ -1,0 +1,81 @@
+To compute \( P(H | E) \) using Bayes' rule, we'll follow the steps for each field:
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E | H) \) is the likelihood of observing Adam's personality sketch if he was enrolled in that field.
+- \( P(E | \neg H) \) is the likelihood of observing Adam's personality sketch if he was not enrolled in that field.
+- \( P(E) \) is the overall probability of Adam's personality sketch.
+
+We need to estimate these probabilities for both fields based on the provided personality sketch.
+
+**Business Administration:**
+
+1. \( P(H) \) (prior probability): Let's assume a low prior, as the personality described sounds less typical for business administration.
+  
+2. \( P(E | H) \) (likelihood): Adam’s traits (interest in nature, puzzles, animals, empathy) are not commonly associated with business administration, so we'll assume the likelihood to be low.
+  
+3. \( P(E | \neg H) \) (likelihood if not enrolled): This will be based on the overall commonness of those traits outside business administration.
+
+**Computer Science:**
+
+1. \( P(H) \) (prior probability): We'll assume a higher prior because Adam enjoys solving puzzles and has high intelligence, which are typical traits in computer science.
+  
+2. \( P(E | H) \) (likelihood): Adam’s traits align well with computer science, making this likelihood higher.
+  
+3. \( P(E | \neg H) \) (likelihood if not enrolled): This would be the complementary likelihood of his traits outside of computer science.
+
+Let's assume the following subjective probabilities for simplicity:
+
+- \( P(H_{\text{business}}) = 0.1 \)
+- \( P(H_{\text{CS}}) = 0.4 \)
+- \( P(E | H_{\text{business}}) = 0.05 \)
+- \( P(E | H_{\text{CS}}) = 0.5 \)
+- \( P(E | \neg H_{\text{business}}) = 0.3 \)
+- \( P(E | \neg H_{\text{CS}}) = 0.2 \)
+
+Overall \( P(E) \) can be ignored in relative comparison as it normalizes probabilities across all possible fields.
+
+### Calculations:
+
+#### Business Administration:
+
+\[ P(H_{\text{business}} | E) = \frac{P(E | H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E)} = \frac{0.05 \cdot 0.1}{P(E)} \]
+
+#### Computer Science:
+
+\[ P(H_{\text{CS}} | E) = \frac{P(E | H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.5 \cdot 0.4}{P(E)} \]
+
+Since \( P(E) \) is the same term in both fractions, it’s used for normalization across any other fields but can be ignored when assessing relative probabilities:
+
+### Result:
+
+{
+  "business administration": \( \frac{0.05 \cdot 0.1}{P(E)} \approx 0.005 \),
+  "computer science": \( \frac{0.5 \cdot 0.4}{P(E)} \approx 0.2\)
+}
+
+Relatively:
+
+{
+  "business administration": 0.005,
+  "computer science": 0.2
+}
+
+Computing \( P(H | E) \) through actual normalization (respective to other fields):
+
+{
+  "business administration": \( \frac{0.005}{0.005 + 0.2 + \text{other fields}} \),
+
+  "computer science": \( \frac{0.2}{0.005 + 0.2 + \text{other fields}} \)
+}
+
+An exact numerical answer comes from the additional normalization against all possible enrolled fields.
+
+But simplified and skipping normalization step:
+
+{
+  "business administration": \( 0.005 \),
+  "computer science": \( 0.2 \)
+}

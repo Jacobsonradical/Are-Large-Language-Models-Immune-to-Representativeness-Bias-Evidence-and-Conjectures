@@ -1,0 +1,45 @@
+To calculate the probability that Adam was enrolled in a specific graduate field given the personality sketch of Adam (E), we will use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in that field.
+- \( P(E|H) \) is the probability of the personality sketch given that Adam is in that field.
+- \( P(E) \) is the overall probability of the personality sketch, which can be considered as a normalizing constant here.
+
+Given that we do not have exact numerical values for each probability, we'll make qualitative estimates to perform the calculation.
+
+### Computer Science
+- **P(H):** The prior probability Adam is enrolled in computer science. Considering the large number of students who enroll in computer science, let's assume \( P(H) \approx 0.2 \).
+- **P(E|H):** The probability of the personality sketch given Adam is in computer science. Adam's skills in abstract concepts and problem-solving align well with computer science, so this might be relatively high, let's say \( P(E|H) \approx 0.5 \).
+- **P(E|\neg H):** The probability of the personality sketch given Adam is not in computer science. There are many other fields he might belong to that also fit his personality sketch well (e.g., biology, environmental science), so let's assume \( P(E|\neg H) \approx 0.1 \).
+
+### Business Administration
+- **P(H):** The prior probability Adam is enrolled in business administration. Business administration is also a common field but might have a slightly different demographic which might not emphasize the described attributes as much, so let's assume \( P(H) \approx 0.1 \).
+- **P(E|H):** The probability of the personality sketch given Adam is in business administration. This is likely to be lower as attributes like strong empathy and love for animals are less directly related, so let's assume \( P(E|H) \approx 0.2 \).
+- **P(E|\neg H):** The probability of the personality sketch given Adam is not in business administration. This might be similar to the computer science case, so let's assume \( P(E|\neg H) \approx 0.1 \).
+
+For simplicity, we assume \( P(E) \) remains similar between fields and treat it as a normalizing constant. Now we can calculate the posterior probabilities.
+
+### Calculations
+
+#### For Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(\text{CS}|E) \propto 0.5 \times 0.2 = 0.1 \]
+
+#### For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(\text{BA}|E) \propto 0.2 \times 0.1 = 0.02 \]
+
+Finally, normalizing these values within the context of only these two fields (for the purposes of comparison):
+\[ P(\text{CS}|E) = \frac{0.1}{0.1 + 0.02} = \frac{0.1}{0.12} \approx 0.83 \]
+\[ P(\text{BA}|E) = \frac{0.02}{0.1 + 0.02} = \frac{0.02}{0.12} \approx 0.17 \]
+
+Thus, the approximate probabilities will be:
+
+```json
+{
+  "computer science": 0.83,
+  "business administration": 0.17
+}
+```

@@ -1,0 +1,85 @@
+Let's begin by breaking down the individual probabilities needed for Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to estimate the relevant probabilities:
+
+1. **P(H)**: The prior probability that Adam was enrolled in a given field.
+2. **P(E|H)**: The probability that Adam would have the given personality sketch if he were enrolled in that field.
+3. **P(E|\neg H)**: The probability that Adam would have the given personality sketch if he were not enrolled in that field.
+4. **P(E)**: The overall probability of the personality sketch, which can be computed from the above probabilities.
+
+We will use reasonable assumptions to estimate these probabilities based on typical graduate student distributions in the U.S. and how well they align with the provided personality sketch:
+
+### Computer Science
+
+1. **P(H) for computer science**: 
+   Assume roughly 20% of graduate students might be in this field.
+   \( P(H) \approx 0.20 \)
+
+2. **P(E|H)**: 
+   Adam's traits don't perfectly align with the stereotypical computer science student profile, but we can't rule it out entirely. Let's say it's moderately likely.
+   \( P(E|H) \approx 0.2 \)
+
+3. **P(E|\neg H)**: 
+   For fields other than computer science, this personality profile could also occur. Let's assume that 80% of the time, he's not in computer science.
+   \( P(E|\neg H) \approx 0.8 \)
+
+### Agricultural and Veterinary Science
+
+1. **P(H) for agricultural and veterinary science**: 
+   Let's assume this field has fewer students, say 5%.
+   \( P(H) \approx 0.05 \)
+
+2. **P(E|H)**: 
+   Adam's love for nature, plants, and animals strongly suggests this field. This makes it highly likely that his personality fits well here.
+   \( P(E|H) \approx 0.9 \)
+
+3. **P(E|\neg H)**: 
+   If he’s not in this field, the personality is less likely, given the specific interests. Let's keep it low.
+   \( P(E|\neg H) \approx 0.2 \)
+
+### Business Administration
+
+1. **P(H) for business administration**: 
+   Assume about 15% of graduate students are in this field.
+   \( P(H) \approx 0.15 \)
+
+2. **P(E|H)**: 
+   Business administration doesn't strongly correlate with the given traits, although it’s not implausible.
+   \( P(E|H) \approx 0.1 \)
+
+3. **P(E|\neg H)**: 
+   If Adam is not in business administration, the personality scenario would be more likely by default.
+   \( P(E|\neg H) \approx 0.9 \)
+
+Using the given estimates:
+
+### Bayes' Rule Calculation
+
+We need to normalize and calculate individual values. But looking at the rough estimates, we’ll provide calculated probabilities based on human intuition:
+
+#### Computer Science
+
+\[ P(\text{CS}|E) = \frac{P(E|CS) \cdot P(CS)}{P(E|CS) \cdot P(CS) + P(E|\neg CS) \cdot P(\neg CS)} \]
+\[ P(\text{CS}|E) = \frac{0.2 \cdot 0.20}{(0.2 \cdot 0.20) + (0.8 \cdot 0.80)} \approx 0.05 \]
+
+#### Agricultural and Veterinary Science
+
+\[ P(\text{Ag and Vet Sci}|E) = \frac{P(E|Ag and Vet Sci) \cdot P(Ag and Vet Sci)}{P(E|Ag and Vet Sci) \cdot P(Ag and Vet Sci) + P(E|\neg Ag and Vet Sci) \cdot P(\neg Ag and Vet Sci)} \]
+\[ P(\text{Ag and Vet Sci}|E) = \frac{0.9 \cdot 0.05}{(0.9 \cdot 0.05) + (0.2 \cdot 0.95)} \approx 0.194 \]
+
+#### Business Administration
+
+\[ P(\text{Bus Admin}|E) = \frac{P(E|Bus Admin) \cdot P(Bus Admin)}{P(E|Bus Admin) \cdot P(Bus Admin) + P(E|\neg Bus Admin) \cdot P(\neg Bus Admin)} \]
+\[ P(\text{Bus Admin}|E) = \frac{0.1 \cdot 0.15}{(0.1 \cdot 0.15) + (0.9 \cdot 0.85)} \approx 0.019 \]
+
+Based on these calculations, we present our answers:
+
+```json
+{
+  "computer science": 0.05,
+  "agricultural and veterinary science": 0.194,
+  "business administration": 0.019
+}
+```

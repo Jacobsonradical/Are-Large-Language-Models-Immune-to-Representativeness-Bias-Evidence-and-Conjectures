@@ -1,0 +1,70 @@
+To determine the posterior probabilities \( P(H|E) \) for each field given the personality sketch \( E \), we can use Bayes' theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis \( H \).
+- \( P(E|\neg H) \) is the likelihood of the evidence given the hypothesis \( \neg H \).
+- \( P(E) \) is the overall probability of the evidence \( E \).
+
+Since \( P(E) \) remains the same for all fields, we can ignore it for relative comparisons.
+
+Let's consider the fields "business administration" and "computer science" for Adam based on his personality sketch.
+
+### Prior Probabilities \( P(H) \):
+
+- Business administration and computer science are common graduate fields, but let's assume they have different prior probabilities:
+
+  - \( P(H_{\text{business administration}}) \): Likely less common among students with Adam's characteristics, assume \( 0.2 \).
+  - \( P(H_{\text{computer science}}) \): More common among students with high intelligence and appreciation for abstract concepts, assume \( 0.3 \) .
+
+### Likelihoods \( P(E|H) \):
+
+- For "business administration":
+  - \( P(E|H_{\text{business administration}}) \): Lower likelihood as the characteristics of nature curiosity, love for animals, and enjoyment of puzzles don't align strongly. Assume \( 0.2 \).
+- For "computer science":
+  - \( P(E|H_{\text{computer science}}) \): Higher likelihood given Adam's intelligence, understanding of abstract concepts, and enjoyment of solving puzzles. Assume \( 0.7 \).
+
+### Complement Likelihoods \( P(E|\neg H) \):
+
+- Generally, \( P(E|\neg H) \) would reflect the typical profile not matching:
+  - For business administration: Assume \( 0.3 \) as Adam's profile less matches typical profiles.
+  - For computer science: Assume \( 0.5 \) as Adam's profile aligns closer, but not exclusively.
+
+### Posterior Probabilities with Bayes' Rule:
+
+- "business administration":
+  - \( P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \)
+  - Since \( P(E) \) equals for comparisons, tangible form is enough.
+  - \( P(H_{\text{business administration}}|E) = 0.2 \times 0.2/constant \)
+
+- "computer science":
+  - \( P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \)
+  - Tangible form: \( P(H_{\text{computer science}}|E) = 0.7 \times 0.3/constant \)
+
+Post normalization:
+
+\[
+\text{Sum} = (0.2 \times 0.2) + (0.7 \times 0.3) = 0.04 + 0.21 = 0.25
+\]
+- Normalized values provide ratio:
+
+\[
+P(H_{\text{business administration}}|E) = \frac{0.04}{0.25} = 0.16
+\]
+
+\[
+P(H_{\text{computer science}}|E) = \frac{0.21}{0.25} = 0.84
+\]
+
+## Final Output:
+
+```json
+{
+  "business administration": 0.16,
+  "computer science": 0.84
+}
+```
+
+These represent high probability terms Adam's personality most likely fitting into computer science over business administration.

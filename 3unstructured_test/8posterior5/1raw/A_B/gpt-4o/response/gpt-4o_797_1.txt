@@ -1,0 +1,57 @@
+We'll start by determining the prior probabilities \(P(H)\), which represent the likelihood that Adam is enrolled in each field prior to considering the personality sketch.
+
+{
+  "agricultural and veterinary science": 0.05,
+  "business administration": 0.15
+}
+
+Next, we determine \(P(E|H)\), the likelihood of observing the personality sketch if Adam is indeed enrolled in each field.
+
+Given Adam's genuine curiosity about nature, love for animals, and appreciation for hard work:
+
+{
+  "agricultural and veterinary science": 0.9,
+  "business administration": 0.1
+}
+
+Then, we need to determine \(P(E|\neg H)\), the likelihood of observing the personality sketch if Adam is not enrolled in each field. Let's estimate how common these traits are outside of the specified fields.
+
+Assuming the traits are moderately common in fields unrelated to Adam's, we use:
+
+{
+  "agricultural and veterinary science": 0.3,
+  "business administration": 0.3
+}
+
+Now, let's apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \(P(E)\) can be computed using the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Given that \(P(\neg H)\) for either field is \(1 - P(H)\), let's estimate \(P(E)\) for both cases.
+
+For Agricultural and Veterinary Science:
+
+\[ P(E)_{AV} = (0.9 \cdot 0.05) + (0.3 \cdot 0.95) = 0.045 + 0.285 = 0.33 \]
+
+Therefore:
+
+\[ P(H|E)_{AV} = \frac{0.9 \cdot 0.05}{0.33} = \frac{0.045}{0.33} \approx 0.136 \]
+
+For Business Administration:
+
+\[ P(E)_{BA} = (0.1 \cdot 0.15) + (0.3 \cdot 0.85) = 0.015 + 0.255 = 0.27 \]
+
+Therefore:
+
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.15}{0.27} = \frac{0.015}{0.27} \approx 0.056 \]
+
+So, the final answers are:
+
+{
+  "agricultural and veterinary science": 0.136,
+  "business administration": 0.056
+}

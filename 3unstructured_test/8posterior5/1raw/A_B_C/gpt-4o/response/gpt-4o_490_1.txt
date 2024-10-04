@@ -1,0 +1,53 @@
+Let's use Bayes' rule, which is stated as:
+\[P(H|E) = \frac{P(E|H)P(H)}{P(E)}\]
+
+First, we need to define some reasonable values for P(H), P(E|H), and P(E|\neg H) for each field of study based on the given personality sketch of Adam.
+
+### Agricultural and Veterinary Science
+- **P(H)**: The prior probability that Adam might enroll in agricultural and veterinary science given a general context. Let’s say 0.1 because it's a less common field overall compared to business and computer science but aligns with Adam's love for nature and animals.
+  
+- **P(E|H)**: The probability of observing the personality sketch E given that Adam is in the field of agricultural and veterinary science. This is likely high since his interests and traits align. Let’s say 0.8.
+
+- **P(E|\neg H)**: The probability of observing the personality sketch E given that Adam is not in this field. Given that the sketch can somewhat fit many contexts, let’s consider it modest. Let's say 0.2.
+
+### Business Administration
+- **P(H)**: The prior probability that Adam might enroll in business administration. Let's assign a higher prior since business programs are common. Let’s say 0.3.
+
+- **P(E|H)**: The probability of observing the personality sketch E given that Adam is in business administration. This is likely low since his interests and traits don't align strongly. Let’s say 0.2.
+
+- **P(E|\neg H)**: The probability of observing the personality sketch E given that Adam is not in business administration. Using the same modest estimate as above, let’s assume it as 0.4 due to the commonality of business programs.
+
+### Computer Science
+- **P(H)**: The prior probability that Adam might enroll in computer science. Let's set it high since computer science is highly popular. Let’s say 0.4.
+
+- **P(E|H)**: The probability of observing the personality sketch E given that Adam is in computer science. This is fairly reasonable given his intelligence, puzzle-solving skills, and understanding of abstract concepts. Let’s say 0.6.
+
+- **P(E|\neg H)**: The probability of observing the personality sketch E given that Adam is not in computer science, again assumed at a modest 0.3.
+
+### Calculations
+
+1. **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.8 \times 0.1}{P(E)} \]
+
+2. **Business Administration**:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.2 \times 0.3}{P(E)} \]
+
+3. **Computer Science**:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.6 \times 0.4}{P(E)} \]
+
+Since \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \), let's denote it as a common factor and simplify:
+
+### Summary of Posterior Probabilities:
+{
+  "agricultural and veterinary science": \(\frac{0.08}{P(E)}\),
+  "business administration": \(\frac{0.06}{P(E)}\),
+  "computer science": \(\frac{0.24}{P(E)}\)
+}
+
+Upon normalizing (considering \( P(E) \)):
+
+{
+  "agricultural and veterinary science": \( \frac{0.08}{0.08+0.06+0.24} = \frac{0.08}{0.38} \approx 0.21\),
+  "business administration": \( \frac{0.06}{0.08+0.06+0.24} = \frac{0.06}{0.38} \approx 0.16\),
+  "computer science": \( \frac{0.24}{0.08+0.06+0.24} = \frac{0.24}{0.38} \approx 0.63\)
+}

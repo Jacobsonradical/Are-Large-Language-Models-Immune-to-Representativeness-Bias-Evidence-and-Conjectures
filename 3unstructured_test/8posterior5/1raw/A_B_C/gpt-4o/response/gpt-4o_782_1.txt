@@ -1,0 +1,82 @@
+To evaluate \(P(H|E)\) for each field using Bayes' Rule, we need to first estimate:
+
+1. \(P(H)\): The prior probability that Adam was enrolled in that field.
+2. \(P(E|H)\): The probability that Adam has the described personality traits given that he was enrolled in that field.
+3. \(P(E|\neg H)\): The probability that Adam has the described personality traits given that he was not enrolled in that field.
+
+### Estimating the Probabilities
+
+1. **Prior Probability, \(P(H)\):**
+   - **Agricultural and Veterinary Science:** Relatively less common than fields like business and computer science.
+   - **Computer Science:** A very common graduate field.
+   - **Business Administration:** Also a very common graduate field.
+
+   We might estimate:
+   - \(P(\text{Agricultural and Veterinary Science}) = 0.1\)
+   - \(P(\text{Computer Science}) = 0.5\)
+   - \(P(\text{Business Administration}) = 0.4\)
+
+2. **Likelihood, \(P(E|H)\):**
+   - **Agricultural and Veterinary Science:** Fits well with Adam's curiosity about nature, plants, empathy, and love for animals.
+   - **Computer Science:** Fits well with Adam's intelligence and ability to solve puzzles, but less so with his love for nature and animals.
+   - **Business Administration:** Fits with Adam's intelligence and hard work appreciation, but less with his love for nature and animals.
+
+   We might estimate:
+   - \(P(E|\text{Agricultural and Veterinary Science}) = 0.8\)
+   - \(P(E|\text{Computer Science}) = 0.5\)
+   - \(P(E|\text{Business Administration}) = 0.3\)
+
+3. **Complement Likelihood, \(P(E|\neg H)\):**
+   - The probability that Adam has the described traits, given that he is not enrolled in that field. For the sake of simplicity, we'll assume some average values for these estimations.
+
+   We might estimate:
+   - \(P(E|\neg \text{Agricultural and Veterinary Science}) = 0.3\)
+   - \(P(E|\neg \text{Computer Science}) = 0.4\)
+   - \(P(E|\neg \text{Business Administration}) = 0.5\)
+
+### Applying Bayes' Rule
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) is the same for all computations, we can ignore it for comparison purposes and compute the relative likelihoods.
+
+#### Agricultural and Veterinary Science
+
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{P(E|\text{Agricultural and Veterinary Science}) \cdot P(\text{Agricultural and Veterinary Science})}{P(E)} \]
+
+\[ P(\text{Agricultural and Veterinary Science}|E) \propto 0.8 \cdot 0.1 = 0.08 \]
+
+#### Computer Science
+
+\[ P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)} \]
+
+\[ P(\text{Computer Science}|E) \propto 0.5 \cdot 0.5 = 0.25 \]
+
+#### Business Administration
+
+\[ P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)} \]
+
+\[ P(\text{Business Administration}|E) \propto 0.3 \cdot 0.4 = 0.12 \]
+
+### Normalizing
+
+To normalize these values, we sum them:
+
+\[ 0.08 + 0.25 + 0.12 = 0.45 \]
+
+Then we can divide each by the total to get the final probabilities:
+
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.08}{0.45} = 0.178 \]
+\[ P(\text{Computer Science}|E) = \frac{0.25}{0.45} = 0.556 \]
+\[ P(\text{Business Administration}|E) = \frac{0.12}{0.45} = 0.267 \]
+
+### Summary
+
+```json
+{
+  "agricultural and veterinary science": 0.178,
+  "computer science": 0.556,
+  "business administration": 0.267
+}
+```
+These values represent the relative probabilities of Adam being enrolled in each field given his described personality traits.

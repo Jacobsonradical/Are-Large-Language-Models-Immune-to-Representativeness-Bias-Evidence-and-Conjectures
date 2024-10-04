@@ -1,0 +1,56 @@
+To estimate the probability that Adam was enrolled in a specific field given his personality sketch using Bayes' rule, we follow these steps:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll need to assign reasonable estimates for \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) for each of the fields. Here’s how we can approach it:
+
+1. **Assign Prior Probabilities \(P(H)\)**: These represent the initial likelihoods of Adam enrolling in each field, before considering his personality sketch.
+2. **Assign Likelihoods \(P(E|H)\)**: These represent how likely it is that someone enrolled in a particular field would have the attributes described in the personality sketch.
+3. **Assign \(P(E|\neg H)\)**: These represent how likely it is that someone not enrolled in that particular field would have the attributes described.
+
+### Business Administration
+
+- **P(H)**: Business administration is a common field, but given Adam's traits (curiosity about nature, empathy, love for animals), it seems somewhat less likely.
+  - Estimate: \(P(H) = 0.1\)
+
+- **P(E|H)**: The personality traits described (curiosity about nature, empathy, love for animals) are not particularly associated with business administration students.
+  - Estimate: \(P(E|H) = 0.05\)
+
+- **P(E|\neg H)**: The likelihood of these traits in the general graduate student population not studying business administration.
+  - Estimate: \(P(E|\neg H) = 0.15\)
+
+### Computer Science
+
+- **P(H)**: Computer science is a broad and popular field. Adam’s intelligence and problem-solving ability fit well, but his specific interests in nature and animals make it a bit less likely.
+  - Estimate: \(P(H) = 0.2\)
+
+- **P(E|H)**: The combination of his traits fit only some computer science specializations (like AI related to natural sciences or bioinformatics), making it relatively less likely.
+  - Estimate: \(P(E|H) = 0.1\)
+
+- **P(E|\neg H)**: Likelihood of these traits in the general graduate population not studying computer science.
+  - Estimate: \(P(E|\neg H) = 0.15\)
+
+### Computing Posterior Probabilities
+
+Now we apply Bayes' rule to compute the posterior probabilities \(P(H|E)\):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+For business administration:
+
+\[ P(H|E) = \frac{0.05 \cdot 0.1}{0.05 \cdot 0.1 + 0.15 \cdot 0.9} = \frac{0.005}{0.005 + 0.135} \approx 0.0357 \]
+
+For computer science:
+
+\[ P(H|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.15 \cdot 0.8} = \frac{0.02}{0.02 + 0.12} \approx 0.1429 \]
+
+Given these calculations, the estimates for \(P(H|E)\) are:
+
+```json
+{
+  "business administration": 0.0357,
+  "computer science": 0.1429
+}
+```
+
+These posterior probabilities indicate that, given his personality sketch, Adam is more likely to be a student in computer science than in business administration, but both probabilities are relatively low, suggesting other fields might be more likely given his attributes.

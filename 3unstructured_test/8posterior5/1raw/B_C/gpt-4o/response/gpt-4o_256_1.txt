@@ -1,0 +1,70 @@
+To make informed estimations of \( P(H|E) \) where H denotes the hypotheses that Adam was enrolled in various fields, we'll first need to estimate the required probabilities and then use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, a detailed prior probability and specific conditional probabilities are not offered, so we will need to make reasonable estimations based on the provided personality sketch and typical attributes of students in these fields. Let's estimate these probabilities:
+
+1. **P(H):** the prior probability that Adam is enrolled in each field. Given we have no specific information, we might assign a broad prior but keep it relatively even.
+  
+2. **P(E|H):** the likelihood of Adam having his described traits given that he is enrolled in each field. This would evaluate how well the characteristics match typical students in the field.
+
+3. **P(E|¬H):** the likelihood of Adam having his described traits given that he is not enrolled in the field.
+
+4. **P(E):** the overall probability of Adam having these traits. This can be considered a normalizing constant which sums over all possible fields.
+
+### Estimations
+
+1. **Business Administration:**
+
+- **P(H):** Assume a medium-to-high base rate of students enrolling in this field.
+- **P(E|H):** Typically, students might not align strongly with curiosity about nature, empathy, and love for animals, which do not directly correlate with this field.
+- **P(E|¬H):** Similar level but higher due to many other fields potentially matching his traits better.
+
+2. **Computer Science:**
+
+- **P(H):** Assume a medium-to-high base rate of students enrolling in this field.
+- **P(E|H):** Likelihood might be higher compared to business administration, given that problem-solving, high intelligence, and understanding abstract concepts are strong indicators.
+- **P(E|¬H):** Likely lower as Adam’s traits match strongly with typical computer science student profiles.
+
+Now let's assign rough values:
+
+- **Business Administration:**
+  - \( P(H) = 0.1 \)
+  - \( P(E|H) = 0.2 \)
+  - \( P(E|\neg H) = 0.3 \)
+
+- **Computer Science:**
+  - \( P(H) = 0.1 \)
+  - \( P(E|H) = 0.6 \)
+  - \( P(E|\neg H) = 0.1 \)
+
+### Bayes' Theorem Computation
+
+For **Business Administration**:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assume \( P(E) \) to normalize, then 
+
+\[ P(H|E) = \frac{0.2 \cdot 0.1}{P(E)} \] 
+\[ P(H|E) = \frac{0.02}{P(E)} \]
+
+For **Computer Science**:
+
+\[ P(H|E) = \frac{0.6 \cdot 0.1}{P(E)}  \]
+\[ P(H|E) = \frac{0.06}{P(E)}  \]
+
+Since \(P(E)\) is the same in both cases, we can compare their relative values:
+
+\[ \frac{0.02}{P(E)} \text{ vs. }\frac{0.06}{P(E)}  \]
+
+Values would thus suggest:
+
+```json
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+```
+
+These values are approximate and show a higher posterior probability for Adam being enrolled in Computer Science given the personality sketch provided.

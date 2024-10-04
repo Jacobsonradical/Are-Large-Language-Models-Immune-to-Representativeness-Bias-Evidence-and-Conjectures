@@ -1,0 +1,50 @@
+To apply Bayes' theorem, we need to assess the following probabilities:
+
+- **P(H)**: The prior probability that Adam was enrolled in a given field (business administration or agricultural and veterinary science).
+- **P(E|H)**: The probability of observing the evidence (Adam's personality sketch) given that he was enrolled in the specified field.
+- **P(E|¬H)**: The probability of observing the evidence given that Adam was not enrolled in the specified field.
+
+Then, we use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's assume that P(H) is roughly equal for different graduate fields unless we have specific information to the contrary. So, we can assume P(H) is initially 0.5 for both fields.
+
+### Business Administration
+
+- **P(H)**: The prior probability Adam was in business administration, let’s assume P(H) = 0.5.
+- **P(E|H)**: Considering the personality sketch, we can infer that Adam's warm heart, empathy, curiosity about nature, and love for animals don't strongly align with typical characteristics highly emphasized in business administration. Therefore, we can assign a lower probability to P(E|H).
+  Let’s assume P(E|H_business) = 0.2.
+- **P(E|¬H)**: Since the other field we’re considering (agricultural and veterinary science) does align well with the characteristics, P(E|¬H) will be higher.
+  Let’s assume P(E|¬H_business) = 0.8.
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: The prior probability Adam was in agricultural and veterinary science, let’s assume P(H) = 0.5.
+- **P(E|H)**: Given Adam’s curiosity about nature, empathy, and love for animals, these traits align very well with someone in agricultural and veterinary science. So, let’s assume P(E|H) is higher.
+  Let’s assume P(E|H_agri_vet) = 0.8.
+- **P(E|¬H)**: Conversely, P(E|¬H) for this field would be lower.
+  Let’s assume P(E|¬H_agri_vet) = 0.2.
+
+Given these assumptions, we can compute \( P(H|E) \):
+
+For **Business Administration**:
+\[ P(H|E) = \frac{P(E|H_business) \cdot P(H_business)}{P(E|H_business) \cdot P(H_business) + P(E|¬H_business) \cdot P(¬H_business)} \]
+\[ P(H|E) = \frac{0.2 \cdot 0.5}{0.2 \cdot 0.5 + 0.8 \cdot 0.5} \]
+\[ P(H|E) = \frac{0.1}{0.1 + 0.4} \]
+\[ P(H|E) = \frac{0.1}{0.5} \]
+\[ P(H|E) = 0.2 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H_agri_vet) \cdot P(H_agri_vet)}{P(E|H_agri_vet) \cdot P(H_agri_vet) + P(E|¬H_agri_vet) \cdot P(¬H_agri_vet)} \]
+\[ P(H|E) = \frac{0.8 \cdot 0.5}{0.8 \cdot 0.5 + 0.2 \cdot 0.5} \]
+\[ P(H|E) = \frac{0.4}{0.4 + 0.1} \]
+\[ P(H|E) = \frac{0.4}{0.5} \]
+\[ P(H|E) = 0.8 \]
+
+Summarizing, we can write the results as follows:
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}
+```

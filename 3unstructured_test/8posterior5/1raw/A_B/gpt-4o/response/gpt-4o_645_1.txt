@@ -1,0 +1,38 @@
+To compute \( P(H|E) \) for each field, we will need to make some educated assumptions regarding the probabilities involved. Given the personality sketch (E) of Adam, we judge the following probabilities:
+
+1. **Business Administration**: 
+   - \( P(\text{H}) \) (prior probability of being enrolled in Business Administration): Let's assume a moderate prior, as business administration is a popular graduate field but given Adam's interests, it may not be the most likely. Let's estimate \( P(\text{H}) = 0.15 \).
+   - \( P(E|H) \) (likelihood of the personality sketch given enrollment in Business Administration): Adam's traits do not strongly align with those typically associated with Business Administration. Let's estimate \( P(E|H) = 0.05 \).
+   - \( P(E|\neg H) \) (likelihood of the personality sketch given not enrolled in Business Administration): Given there's a wide range of fields outside of Business Administration, we estimate \( P(E|\neg H) = 0.30 \). We use this as a rough general probability reflecting his alignment better with other fields.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(\text{H}) \) (prior probability of being enrolled in Agricultural and Veterinary Science): Given Adam's deep appreciation for nature, plants, and animals, this field aligns well with his interests. Let's estimate \( P(\text{H}) = 0.10 \).
+   - \( P(E|H) \) (likelihood of the personality sketch given enrollment in Agricultural and Veterinary Science): Adam's personality traits and interests strongly match with this field. Let's estimate \( P(E|H) = 0.60 \).
+   - \( P(E|\neg H) \) (likelihood of the personality sketch given not enrolled in Agricultural and Veterinary Science): Given there's a wide range of other fields, we estimate \( P(E|\neg H) = 0.30 \).
+
+Using Bayes' rule, we compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, \( P(E) \) can be simplified as a normalizing constant calculated from the full sum of the probabilities for both fields:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Applying this,
+
+For **Business Administration**:
+\[ P(E) = (0.05 \cdot 0.15) + (0.30 \cdot 0.85) = 0.0075 + 0.255 = 0.2625 \]
+\[ P(H|E)_{BA} = \frac{0.05 \cdot 0.15}{0.2625} = \frac{0.0075}{0.2625} \approx 0.0286 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(E) = (0.60 \cdot 0.10) + (0.30 \cdot 0.90) = 0.06 + 0.27 = 0.33 \]
+\[ P(H|E)_{AVS} = \frac{0.60 \cdot 0.10}{0.33} = \frac{0.06}{0.33} \approx 0.1818 \]
+
+Hence, the final judged probabilities are:
+
+```json
+{
+  "business administration": 0.0286,
+  "agricultural and veterinary science": 0.1818
+}
+```

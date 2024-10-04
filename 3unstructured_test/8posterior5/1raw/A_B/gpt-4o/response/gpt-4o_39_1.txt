@@ -1,0 +1,51 @@
+Let me walk through the reasoning before providing the final values:
+
+1. **Agricultural and Veterinary Science:**
+   - P(H): The prior probability that Adam was enrolled in Agricultural and Veterinary Science, given his interests and innate characteristics. Given his love for nature, plants, and animals, a likelihood significantly higher than random choice can be assumed.
+   - P(E|H): Likelihood that Adam has the described personality traits given that he is enrolled in Agricultural and Veterinary Science. This likelihood is high, as the field aligns with his interests in nature and animals.
+   - P(E|\neg H): Likelihood that Adam has the described personality traits given that he is not enrolled in Agricultural and Veterinary Science. Though higher than random, it's lower than P(E|H) because these traits closely match interests typically seen in this field.
+
+2. **Business Administration:**
+   - P(H): The prior probability that Adam was enrolled in Business Administration, given his interests and characteristics. This field does not align with the primary interests described in the personality sketch.
+   - P(E|H): Likelihood that Adam has the described personality traits given that he is enrolled in Business Administration. This likelihood is lower since business administration is generally more aligned with interests in finance, management, and organizational behavior rather than nature and animals.
+   - P(E|\neg H): Likelihood that Adam has the described personality traits given that he is not enrolled in Business Administration. As the personality sketch fits less with business-oriented interests, this likelihood remains lower.
+
+### Summary Calculations using Bayes' Rule:
+To discover \( P(H|E) \), we employ Bayes' rule: 
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Given \( P(H) \), \( P(E|H) \), and assuming \( P(E) \) is constant across both hypotheses (which ensures proportionality):
+
+For **Agricultural and Veterinary Science**:
+- P(H): 0.6
+- P(E|H): 0.9 
+- P(E|\neg H): 0.2
+
+For **Business Administration**:
+- P(H): 0.2
+- P(E|H): 0.2 
+- P(E|\neg H): 0.2
+
+Applying these values:
+
+1. **Agricultural and Veterinary Science**: 
+\[ 
+P(H|E) = \frac{0.9 \times 0.6}{0.9 \times 0.6 + 0.2 \times (1-0.6)} = \frac{0.54}{0.54 + 0.08} = \frac{0.54}{0.62} \approx 0.87 
+\]
+
+2. **Business Administration**: 
+\[ 
+P(H|E) = \frac{0.2 \times 0.2}{0.2 \times 0.2 + 0.5 \times (1-0.2)} = \frac{0.04}{0.04 + 0.4} = \frac{0.04}{0.44} \approx 0.09 
+\]
+
+Thus, the posterior probabilities \( P(H|E) \) for each field are:
+
+```json
+{
+  "agricultural and veterinary science": 0.87,
+  "business administration": 0.09
+}
+```

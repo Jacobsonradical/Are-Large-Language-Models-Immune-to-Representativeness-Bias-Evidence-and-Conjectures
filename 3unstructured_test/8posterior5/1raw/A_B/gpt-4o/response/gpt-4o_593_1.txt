@@ -1,0 +1,52 @@
+Let's denote:
+
+- \(P(H_{BA})\) as the prior probability that Adam was enrolled in business administration.
+- \(P(H_{AV})\) as the prior probability that Adam was enrolled in agricultural and veterinary science.
+- \(P(E|H_{BA})\) as the likelihood of observing E given that Adam was enrolled in business administration.
+- \(P(E|H_{AV})\) as the likelihood of observing E given that Adam was enrolled in agricultural and veterinary science.
+- \(P(E|\neg H_{BA})\) as the likelihood of observing E given that Adam was not enrolled in business administration.
+- \(P(E|\neg H_{AV})\) as the likelihood of observing E given that Adam was not enrolled in agricultural and veterinary science.
+
+Bayes' rule states:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+Given the description of Adam, we make the following assumptions for simplicity:
+1. **Business Administration**:
+   - Prior: Let's assume business administration is a fairly common field, so \(P(H_{BA}) = 0.1\).
+   - Likelihood: Adam's personality does not strongly align with typical traits of students in business administration (such as a strong interest in nature and animals). So, \(P(E|H_{BA}) = 0.05\).
+   - Complementary likelihood: \(P(E|\neg H_{BA})\) might be higher given his alignment with nature-related fields, say \(0.5\).
+
+2. **Agricultural and Veterinary Science**:
+   - Prior: This field seems more aligned with Adam's interests, but it's less common. So, let's assume \(P(H_{AV}) = 0.05\).
+   - Likelihood: Adam's personality strongly aligns with this field. Therefore, \(P(E|H_{AV}) = 0.8\).
+   - Complementary likelihood: \(P(E|\neg H_{AV})\) might be lower than for business fields, say \(0.2\).
+
+Now to find the posterior probability \(P(H|E)\) for each field:
+
+### For Business Administration:
+\[P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)}\]
+
+\[P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA})\]
+\[P(E) = 0.05 \cdot 0.1 + 0.5 \cdot 0.9\]
+\[P(E) = 0.005 + 0.45 = 0.455\]
+
+\[P(H_{BA}|E) = \frac{0.05 \cdot 0.1}{0.455} \approx 0.011\]
+
+### For Agricultural and Veterinary Science:
+\[P(H_{AV}|E) = \frac{P(E|H_{AV}) \cdot P(H_{AV})}{P(E)}\]
+
+\[P(E) = P(E|H_{AV}) \cdot P(H_{AV}) + P(E|\neg H_{AV}) \cdot P(\neg H_{AV})\]
+\[P(E) = 0.8 \cdot 0.05 + 0.2 \cdot 0.95\]
+\[P(E) = 0.04 + 0.19 = 0.23\]
+
+\[P(H_{AV}|E) = \frac{0.8 \cdot 0.05}{0.23} \approx 0.174\]
+
+Thus, the posterior probabilities for the given fields are:
+
+```json
+{
+  "business administration": 0.011,
+  "agricultural and veterinary science": 0.174
+}
+```

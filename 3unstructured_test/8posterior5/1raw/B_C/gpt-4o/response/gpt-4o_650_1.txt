@@ -1,0 +1,58 @@
+To calculate the probabilities, we need to apply Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) can be simplified as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity, let's assume:
+
+- \( P(H) \): our initial belief about Adam's enrollment in each field.
+- \( P(E|H) \): the probability that Adam's personality sketch matches given he is in that field.
+- \( P(E|\neg H) \): the probability that Adam's personality sketch matches given he is not in that field.
+
+### Assumptions and Estimations:
+
+1. **Computer Science**:
+   - \( P(H_{CS}) \): Assume a broad estimation of 0.2 due to the popularity of the field.
+   - \( P(E|H_{CS}) \): Given his intelligence and abstract reasoning, let's estimate this at 0.4.
+   - \( P(E|\neg H_{CS}) \): Suppose this as 0.1 since many fields might fit such a personality profile but we need to differentiate.
+
+2. **Business Administration**:
+   - \( P(H_{BA}) \): Assume a lower broad estimation of 0.1 due to its generic applicability.
+   - \( P(E|H_{BA}) \): Given his appreciation for hard work and empathy, let's estimate this at 0.2.
+   - \( P(E|\neg H_{BA}) \): Given such a specific profile, let's assume 0.1 once again.
+
+Now let's calculate using the given assumptions.
+
+### Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ = 0.4 \cdot 0.2 + 0.1 \cdot 0.8 \]
+\[ = 0.08 + 0.08 \]
+\[ = 0.16 \]
+\[ P(H_{CS}|E) = \frac{0.4 \cdot 0.2}{0.16} \]
+\[ = \frac{0.08}{0.16} \]
+\[ = 0.5 \]
+
+### Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ = 0.2 \cdot 0.1 + 0.1 \cdot 0.9 \]
+\[ = 0.02 + 0.09 \]
+\[ = 0.11 \]
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.1}{0.11} \]
+\[ = \frac{0.02}{0.11} \]
+\[ \approx 0.18 \]
+
+### Summary:
+
+Based on these estimations and calculations, our posterior probabilities are:
+
+```json
+{
+  "computer science": 0.5,
+  "business administration": 0.18
+}
+```

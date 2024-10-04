@@ -1,0 +1,35 @@
+In order to compute \( P(H|E) \) for each field using Bayes' rule, we need to know \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). We can then use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) will act as a normalizing constant, we can compare the relative values of \( P(H|E) \) based on the likelihoods and priors.
+
+1. **Business Administration:**
+
+    - \( P(H) \): The prior probability that a graduate student is studying business administration. Let's assume that, given the large number of fields, \( P(H) \approx 0.15 \) (Since business fields are quite common among graduate students).
+    - \( P(E|H) \): The probability that Adam's personality description would fit if he were studying business administration. Given Adam's empathy, love for animals, and interest in nature, \( P(E|H) \) seems relatively low, maybe \( P(E|H) \approx 0.2 \).
+    - \( P(E|\neg H) \): The probability of the personality sketch if Adam is in a field other than business administration. Given the likelihood of other fields matching better, let’s estimate \( P(E|\neg H) \approx 0.7 \).
+
+2. **Agricultural and Veterinary Science:**
+
+    - \( P(H) \): The prior probability for a student to be studying agricultural and veterinary science. While generally smaller compared to a field like business, given Adam’s strong fit, let’s assume \( P(H) \approx 0.05 \).
+    - \( P(E|H) \): The probability that Adam’s personality would fit if he were studying agricultural and veterinary science is quite high given his interests. Let's assume \( P(E|H) \approx 0.9 \).
+    - \( P(E|\neg H) \): The probability of his personality sketch if he is in another field. Considering there are many fields and some might match better, let’s estimate \( P(E|\neg H) \approx 0.4 \).
+
+Using Bayes’ rule, for relative values:
+
+1. **Business Administration:**
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \times 0.15 = 0.03 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \times 0.05 = 0.045 \]
+
+Now normalizing these to get relative probabilities, we can directly compare them as such (to suit software processing our Bayes inputs):
+
+```json
+{
+  "business administration": "0.03",
+  "agricultural and veterinary science": "0.045"
+}
+```
+This illustration shows that based on the given personality sketch, Adam fits better with agricultural and veterinary science than business administration.

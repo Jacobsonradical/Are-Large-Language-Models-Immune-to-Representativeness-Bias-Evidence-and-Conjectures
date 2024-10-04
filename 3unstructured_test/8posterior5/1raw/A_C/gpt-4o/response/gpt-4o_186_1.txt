@@ -1,0 +1,67 @@
+To use Bayes' Rule, we need to first estimate the following probabilities for each field:
+
+1. P(H): The prior probability that Adam was enrolled in that field.
+2. P(E|H): The probability of the evidence given that Adam is in that field.
+3. P(E|¬H): The probability of the evidence given that Adam is not in that field.
+
+Bayes' Rule for computing the posterior probability P(H|E) is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since P(E) (the normalizing constant) is the same for both fields and depends on all possible fields, we'll only focus on the numerator for comparisons.
+
+Let's make the following qualitative estimates based on the personality sketch:
+
+### Agricultural and Veterinary Science
+
+1. P(H): The prior probability.
+   - Agricultural and Veterinary Science is fairly specialized but is a logical field given Adam's interest in plants and animals.
+   - Estimate: 0.05
+
+2. P(E|H): The likelihood of the evidence given this field.
+   - His curiosity about nature, love for animals, and empathy are highly consistent with this field.
+   - Estimate: 0.8
+
+3. P(E|¬H): The likelihood of the evidence given not this field.
+   - While the traits are generally positive and may be found in other fields, the combination of them is less likely outside of this specialization.
+   - Estimate: 0.3
+
+### Computer Science
+
+1. P(H): The prior probability.
+   - Computer Science is a very common field for graduate students.
+   - Estimate: 0.25
+
+2. P(E|H): The likelihood of the evidence given this field.
+   - His intelligence and love for solving puzzles fit well with computer science.
+   - However, his curiosity about nature and love for animals are less directly aligned.
+   - Estimate: 0.4
+
+3. P(E|¬H): The likelihood of the evidence given not this field.
+   - There are many other fields and the traits are somewhat general.
+   - Estimate: 0.6
+
+### Applying Bayes' Rule:
+
+We need to compute:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Since we are only interested in comparison, we can omit dividing by P(E).
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto 0.8 \cdot 0.05 = 0.04 \]
+
+For Computer Science:
+\[ P(H|E) \propto 0.4 \cdot 0.25 = 0.10 \]
+
+### Normalizing for Comparison:
+
+We calculate the relative probabilities:
+\[ P(Agricultural \, and \, Veterinary \, Science|E) = \frac{0.04}{0.04 + 0.10} = \frac{0.04}{0.14} \approx 0.286 \]
+\[ P(Computer \, Science|E) = \frac{0.10}{0.04 + 0.10} = \frac{0.10}{0.14} \approx 0.714 \]
+
+Therefore, the final estimates are:
+
+{
+  "agricultural and veterinary science": 0.286,
+  "computer science": 0.714
+}

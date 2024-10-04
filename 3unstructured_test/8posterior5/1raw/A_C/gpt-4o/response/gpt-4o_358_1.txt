@@ -1,0 +1,62 @@
+To compute the probabilities of Adam being enrolled in either computer science or agricultural and veterinary science based on the personality sketch \( E \) provided, we will use Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+To apply Bayes' Rule, we need to estimate the following:
+
+1. \( P(H) \) — The prior probability of Adam being enrolled in each field.
+2. \( P(E|H) \) — The likelihood of observing the personality traits given he is enrolled in each field.
+3. \( P(E|\neg H) \) — The likelihood of observing the personality traits given he is not enrolled in that particular field.
+
+Since we don't have specific data, we will use reasonable estimates based on general knowledge and the information provided.
+
+### Estimations:
+
+1. **Prior Probabilities \( P(H) \)**
+
+   - \( P(\text{computer science}) \): Let's assume that the probability of a graduate student being in computer science is fairly high, as it is a common field. We can estimate this as \( 0.2 \).
+   - \( P(\text{agricultural and veterinary science}) \): Let's assume this field is less common than computer science. We can estimate this as \( 0.05 \).
+
+2. **Likelihoods \( P(E|H) \)**
+
+   - \( P(E|\text{computer science}) \): While possible, it's less typical for a computer science student to have a strong interest in nature, plants, animals, and empathy as described. We can estimate this as \( 0.1 \).
+   - \( P(E|\text{agricultural and veterinary science}) \): The described personality aligns well with this field, so we estimate this as \( 0.7 \).
+
+3. **Other Likelihoods \( P(E|\neg H) \)**
+
+   It's challenging to estimate \( P(E) \) directly, so we approximate \( P(E) \) using the law of total probability:
+
+   \[
+   P(E) = P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\text{other fields}) \cdot P(\text{other fields})
+   \]
+
+   Given that there are many other possible fields Adam could be studying, let's rough-estimate \( P(E|\text{other fields}) \) as \( 0.2 \) and \( P(\text{other fields}) \) as \( 0.75 \).
+
+   Now, let's calculate:
+
+   - \( P(E) = 0.1 \cdot 0.2 + 0.7 \cdot 0.05 + 0.2 \cdot 0.75 = 0.02 + 0.035 + 0.15 = 0.205 \)
+
+### Bayes' Rule Calculation:
+
+1. **For computer science:**
+
+   \[
+   P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.1 \cdot 0.2}{0.205} \approx 0.0976
+   \]
+
+2. **For agricultural and veterinary science:**
+
+   \[
+   P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} = \frac{0.7 \cdot 0.05}{0.205} \approx 0.1707
+   \]
+
+Thus, our results are as follows:
+
+```json
+{
+  "computer science": 0.0976,
+  "agricultural and veterinary science": 0.1707
+}
+```

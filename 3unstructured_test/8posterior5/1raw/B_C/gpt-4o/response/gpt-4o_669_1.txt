@@ -1,0 +1,82 @@
+To compute the probability that Adam was enrolled in a particular field of study given his personality sketch using Bayes' Theorem, we need to follow several steps:
+
+1. **P(H)**: The prior probability of Adam being in each field. For simplicity, let's assume all fields have an equal prior probability, though this can be adjusted based on specific data or general trends.
+2. **P(E|H)**: The probability of observing Adam's personality sketch if he were in each field.
+3. **P(E|¬H)**: The probability of observing Adam's personality sketch if he were not in each field.
+
+Given the personality traits and interests mentioned for Adam, we can roughly estimate these probabilities. However, as an initial approximation, we assume some reasonable but arbitrary values for simplicity.
+
+### Step-by-Step Estimation:
+
+1. **P(H) - Prior Probabilities**:
+   Since there are many possible graduate fields of study, we assume two fields mentioned have equal prior probability:
+
+   \[
+   P(H_{\text{CS}}) = 0.1, \quad P(H_{\text{BA}}) = 0.1
+   \]
+
+2. **P(E|H) - Likelihood**:
+   
+   Given Adam's interests and traits:
+   - **Computer Science (CS)**: Analytical thinking and problem-solving align well with computer science. However, the emphasis on love for nature and plants is less typical of a CS student.
+   
+     \[
+     P(E|H_{\text{CS}}) \approx 0.3
+     \]
+
+   - **Business Administration (BA)**: Business Administration is more likely to attract people interested in human dynamics, management, and less inclined towards nature or abstract puzzles.
+   
+     \[
+     P(E|H_{\text{BA}}) \approx 0.1
+     \]
+
+3. **P(E|¬H) - Probability of E regardless of H**:
+   
+   For simplicity, assume the probabilities of other fields giving such a personality sketch:
+   
+   \[
+   P(E|\neg H_{\text{CS}}) \approx 0.05, \quad P(E|\neg H_{\text{BA}}) \approx 0.05
+   \]
+
+4. **Bayes’ theorem to compute P(H|E)**:
+   
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   
+   Where \( P(E) \) can be calculated as:
+   
+   \[
+   P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})
+   \]
+
+Given the prior estimates:
+
+\[
+P(E) \approx 0.3 \cdot 0.1 + 0.1 \cdot 0.1 + 0.05 \cdot 0.9 + 0.05 \cdot 0.9
+\]
+
+\[
+P(E) \approx 0.03 + 0.01 + 0.045 + 0.045 = 0.13
+\]
+
+Finally, the posterior probabilities:
+
+\[
+P(H_{\text{CS}}|E) = \frac{0.3 \cdot 0.1}{0.13} \approx 0.231
+\]
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.1 \cdot 0.1}{0.13} \approx 0.077
+\]
+
+Thus, the computed probabilities are approximately:
+
+```json
+{
+  "computer science": 0.231,
+  "business administration": 0.077
+}
+```
+
+These values show that given the personality sketch, it is more likely that Adam was studying Computer Science rather than Business Administration in 2021.

@@ -1,0 +1,53 @@
+To tackle the problem using Bayes' rule, we need to compute \( P(H|E) \) for each of the given fields (business administration, agricultural and veterinary science, and computer science). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in the field given the personality sketch.
+- \( P(E|H) \) is the probability of the personality traits given that Adam was enrolled in the field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the total probability of observing the personality traits (which can be broken down into the sum of \( P(E|H) \cdot P(H) \) for all possible fields).
+
+However, since \( P(E) \) is constant for all fields, we can focus on \( P(E|H) \cdot P(H) \) to compare the probabilities. We assume our own estimates for \( P(H) \) (priors) based on relative commonness and suitability.
+
+First, let's estimate these probabilities qualitatively.
+
+### Business Administration
+- \( P(H) \): Business administration is a broad field commonly chosen by many, but given Adam's traits, it's less likely.
+- \( P(E|H) \): Low. The personality sketch (love for nature, animals, and empathy) suggests he would not fit the profile of a typical business administration student.
+- \( P(E|\neg H) \): Medium to high since many other fields would fit Adam's description better.
+
+### Agricultural and Veterinary Science
+- \( P(H) \): This field aligns well with Adam's love for nature and animals.
+- \( P(E|H) \): High. Personality fits very well with agricultural and veterinary science.
+- \( P(E|\neg H) \): Lower, as fewer other fields would match so well.
+
+### Computer Science
+- \( P(H) \): Computer science is a common field that values problem-solving skills, which Adam has, but not necessarily the empathy and love for animals.
+- \( P(E|H) \): Moderate. Solving puzzles fits but not exceptionally well with nature and animals.
+- \( P(E|\neg H) \): Medium, as other fields might fit better.
+
+Using rough estimated values:
+- For Business Administration: \( P(H) = 0.2 \), \( P(E|H) = 0.1 \)
+- For Agricultural and Veterinary Science: \( P(H) = 0.1 \), \( P(E|H) = 0.7 \)
+- For Computer Science: \( P(H) = 0.3 \), \( P(E|H) = 0.3 \)
+
+Now we calculate the likelihood ratios:
+
+\[
+\text{Business Administration} \rightarrow P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02
+\]
+\[
+\text{Agricultural and Veterinary Science} \rightarrow P(E|H) \cdot P(H) = 0.7 \cdot 0.1 = 0.07
+\]
+\[
+\text{Computer Science} \rightarrow P(E|H) \cdot P(H) = 0.3 \cdot 0.3 = 0.09
+\]
+
+Thus, normalizing these values to find \( P(H|E) \):
+
+\{
+  "business administration": \frac{0.02}{0.02 + 0.07 + 0.09} \approx 0.1,
+  "agricultural and veterinary science": \frac{0.07}{0.02 + 0.07 + 0.09} \approx 0.35,
+  "computer science": \frac{0.09}{0.02 + 0.07 + 0.09} \approx 0.45
+\}

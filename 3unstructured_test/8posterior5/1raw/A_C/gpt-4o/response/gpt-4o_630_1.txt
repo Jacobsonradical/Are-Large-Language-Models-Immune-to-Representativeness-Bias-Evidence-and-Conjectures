@@ -1,0 +1,66 @@
+To compute the probabilities that Adam was enrolled in either Computer Science or Agricultural and Veterinary Science based on the given personality sketch using Bayes' Rule, we need to estimate the following probabilities:
+
+1. **P(H):** The prior probability of Adam being enrolled in each field.
+2. **P(E|H):** The probability of Adam's personality sketch given that he is enrolled in each field.
+3. **P(E|~H):** The probability of Adam's personality sketch given that he is not enrolled in each field.
+
+We then use Bayes' Rule for each field to compute the posterior probability \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given there are multiple fields and to simplify the context, we'll assign arbitrary but reasonable values to these probabilities based on the given personality sketch.
+
+1. **Computer Science:**
+   - **P(H):** Let's assume the prior probability of being enrolled in Computer Science is 30% (0.3).
+   - **P(E|H):** Considering the personality traits mentioned, such as high intelligence, good understanding of abstract concepts, and enjoyment of solving puzzles, which align well with Computer Science, let's assign this a high conditional probability of 70% (0.7).
+   - **P(E|~H):** Assuming an arbitrary but lower probability for other fields, let's say there is a 40% (0.4) chance that someone with this personality sketch is enrolled in a field other than Computer Science.
+
+   Using Bayes' Rule for Computer Science:
+
+   \[
+   P(\text{computer science}|E) = \frac{0.7 \cdot 0.3}{P(E)}
+   \]
+
+2. **Agricultural and Veterinary Science:**
+   - **P(H):** Let's assume the prior probability of being enrolled in Agricultural and Veterinary Science is 10% (0.1).
+   - **P(E|H):** Given Adam's love of nature, plants, animals, and strong empathy, which align well with Agricultural and Veterinary Science, let's assign this a high conditional probability of 80% (0.8).
+   - **P(E|~H):** Assuming a lower probability for this personality sketch being enrolled in a field other than Agricultural and Veterinary Science, let's say there is a 30% (0.3) chance.
+
+   Using Bayes' Rule for Agricultural and Veterinary Science:
+
+   \[
+   P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.1}{P(E)}
+   \]
+
+**Now, we need to calculate \( P(E) \), the total probability of the evidence.**
+
+\[ P(E) = P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}}) + P(E|H_{\neg \text{cs}, \neg \text{ag}}) \cdot P(H_{\neg \text{cs}, \neg \text{ag}}) \]
+
+Where \( P(H_{\neg \text{cs}, \neg \text{ag}}) \) represents all other fields, assumed for simplicity as:
+
+\[ P(H_{\neg \text{cs}, \neg \text{ag}}) = 0.6 \] 
+
+Assume \( P(E|H_{\neg \text{cs}, \neg \text{ag}}) \) is an average probability across these other fields, let's say 50% (0.5).
+
+\[ P(E) = 0.7 \cdot 0.3 + 0.8 \cdot 0.1 + 0.5 \cdot 0.6 \]
+\[ P(E) = 0.21 + 0.08 + 0.3 \]
+\[ P(E) = 0.59 \]
+
+Now, we use Bayes' Rule for each field:
+
+1. **Computer Science:**
+
+\[ P(\text{computer science}|E) = \frac{0.7 \cdot 0.3}{0.59} \approx 0.356 \]
+
+2. **Agricultural and Veterinary Science:**
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.1}{0.59} \approx 0.136 \]
+
+Finally, the result is:
+
+```json
+{
+  "computer science": 0.356,
+  "agricultural and veterinary science": 0.136
+}
+```

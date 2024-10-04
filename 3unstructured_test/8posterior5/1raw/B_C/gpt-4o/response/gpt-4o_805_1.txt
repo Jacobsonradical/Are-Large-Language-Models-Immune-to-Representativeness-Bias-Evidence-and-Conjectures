@@ -1,0 +1,73 @@
+To determine the probability that Adam was enrolled in business administration or computer science based on the provided personality sketch, we need to use Bayes' Rule. Bayes' Rule can be expressed as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of the hypothesis H given the evidence E.
+- \( P(E|H) \) is the probability of the evidence E given the hypothesis H.
+- \( P(H) \) is the prior probability of the hypothesis H.
+- \( P(E) \) is the total probability of the evidence E.
+
+However, computing this directly would typically require detailed prior probabilities and conditional probabilities, which we don't have exact numbers for. Instead, we can make educated assumptions based on the typical characteristics of students in these fields.
+
+Let's make the following reasonable estimates:
+- \( P(H_{BA}) \) and \( P(H_{CS}) \): The prior probability of a graduate student being in Business Administration or Computer Science.
+- \( P(E|H_{BA}) \) and \( P(E|H_{CS}) \): The likelihood of the evidence given that the student is in Business Administration or Computer Science.
+- \( P(E|\neg H_{BA}) \) and \( P(E|\neg H_{CS}) \): The likelihood of the evidence given that the student is not in Business Administration or Computer Science.
+
+### Assumptions
+
+1. **Prior Probabilities:**
+   - Let's assume \( P(H_{BA}) = 0.15 \)
+   - Let's assume \( P(H_{CS}) = 0.20 \)
+
+2. **Likelihood of Evidence Given Hypothesis:**
+   - The characteristics given in the personality sketch suggest Adam has a love for nature, puzzles, high intelligence, and appreciation for hard work, making it seem less typical for a Business Administration student compared to a Computer Science student.
+   - Let's assume:
+     - \( P(E|H_{BA}) = 0.05 \) (less likely given Adam's characteristics)
+     - \( P(E|H_{CS}) = 0.50 \) (more likely given Adam’s characteristics)
+
+3. **Likelihood of Evidence Given Not Hypothesis:**
+   - Assuming that Adam's personality profile is rare in Business Administration but more likely in fields other than BA:
+     - \( P(E|\neg H_{BA}) = 0.95 \)
+     - \( P(E|\neg H_{CS}) = 0.50 \)
+
+Now, calculate the posterior probabilities using Bayes' rule:
+
+### Business Administration:
+\[ 
+P(E_{BA}) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) 
+          = (0.05 \cdot 0.15) + (0.95 \cdot 0.85) 
+          = 0.0075 + 0.8075 
+          = 0.815 
+\]
+\[ 
+P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E_{BA})} 
+            = \frac{0.05 \cdot 0.15}{0.815} 
+            = \frac{0.0075}{0.815} 
+            = 0.0092 
+\]
+
+### Computer Science:
+\[ 
+P(E_{CS}) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) 
+          =  (0.50 \cdot 0.20) + (0.50 \cdot 0.80) 
+          = 0.10 + 0.40 
+          = 0.50 
+\]
+\[ 
+P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E_{CS})} 
+            = \frac{0.50 \cdot 0.20}{0.50} 
+            = \frac{0.10}{0.50} 
+            = 0.20 
+\]
+
+### Results:
+```json
+{
+  "business administration": 0.0092,
+  "computer science": 0.20
+}
+```
+
+Thus, based on the given personality sketch of Adam, it is more likely that he was enrolled in computer science rather than business administration.

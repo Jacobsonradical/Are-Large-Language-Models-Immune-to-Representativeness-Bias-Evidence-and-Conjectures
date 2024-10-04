@@ -1,0 +1,69 @@
+To calculate \( P(H|E) \) for each field, we need to use Bayes' Rule, which is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam is enrolled in a given field given his personality sketch.
+- \( P(E|H) \) is the likelihood of Adam's personality sketch for a given field.
+- \( P(H) \) is the prior probability of Adam being enrolled in a given field.
+- \( P(E) \) is the marginal likelihood of Adam's personality sketch.
+
+While we may not have exact values, we can make reasonable assumptions based on the given information and the context. Here's an attempt to provide a reasonable estimation:
+
+1. **Agricultural and Veterinary Science**:
+   - \( P(H) \): The likelihood that a random graduate student is enrolled in agricultural and veterinary science is likely lower compared to more common fields like computer science or business administration. Let's assume \( P(H) = 0.05 \).
+   - \( P(E|H) \): Given Adam’s curiosity about nature, plants, strong empathy, and love for animals, this field seems highly compatible with his personality. Let's assume \( P(E|H) = 0.8 \).
+   - \( P(E|\neg H) \): The likelihood of Adam’s personality given any field other than agricultural and veterinary science is relatively lower. Let's assume \( P(E|\neg H) = 0.2 \).
+
+2. **Computer Science**:
+   - \( P(H) \): The likelihood that a random graduate student is enrolled in computer science is relatively high. Let's assume \( P(H) = 0.3 \).
+   - \( P(E|H) \): Adam enjoys solving puzzles and understanding abstract concepts, which aligns well with this field. However, his empathy and love for animals are not directly relevant. Let's assume \( P(E|H) = 0.4 \).
+   - \( P(E|\neg H) \): The likelihood of Adam’s personality given any field other than computer science is still relatively moderate. Let's assume \( P(E|\neg H) = 0.3 \).
+
+3. **Business Administration**:
+   - \( P(H) \): The likelihood that a random graduate student is enrolled in business administration is also relatively high. Let's assume \( P(H) = 0.3 \).
+   - \( P(E|H) \): Adam’s personality traits do not seem to strongly align with this field. Let's assume \( P(E|H) = 0.1 \).
+   - \( P(E|\neg H) \): The likelihood of Adam’s personality given any field other than business administration is relatively higher. Let's assume \( P(E|\neg H) = 0.4 \).
+
+Now, we'll compute \( P(H|E) \):
+
+### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \times 0.05}{P(E)} \]
+
+### Computer Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.4 \times 0.3}{P(E)} \]
+
+### Business Administration
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \times 0.3}{P(E)} \]
+
+Let's sum these to calculate \( P(E) \):
+
+\[ P(E) = (0.8 \times 0.05) + (0.4 \times 0.3) + (0.1 \times 0.3) + \text{other probabilities} \]
+
+\[ P(E) = 0.04 + 0.12 + 0.03 + \text{other probabilities} \]
+
+Since we are only interested in relative probabilities, we will compute them without normalizing by \( P(E) \):
+
+### Agricultural and Veterinary Science
+\[ P(H|E) \propto 0.8 \times 0.05 = 0.04 \]
+
+### Computer Science
+\[ P(H|E) \propto 0.4 \times 0.3 = 0.12 \]
+
+### Business Administration
+\[ P(H|E) \propto 0.1 \times 0.3 = 0.03 \]
+
+Normalizing values:
+\[ P(H|E)_{\text{agricultural and veterinary science}} = \frac{0.04}{0.04 + 0.12 + 0.03} = 0.1905 \]
+\[ P(H|E)_{\text{computer science}} = \frac{0.12}{0.04 + 0.12 + 0.03} = 0.5714 \]
+\[ P(H|E)_{\text{business administration}} = \frac{0.03}{0.04 + 0.12 + 0.03} = 0.1429 \]
+
+Approximate results:
+
+```json
+{
+  "agricultural and veterinary science": 0.19,
+  "computer science": 0.57,
+  "business administration": 0.14
+}
+```

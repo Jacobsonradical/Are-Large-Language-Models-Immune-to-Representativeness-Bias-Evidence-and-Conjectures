@@ -1,0 +1,53 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to estimate the following probabilities: \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Here we will make reasonable assumptions based on the given personality sketch of Adam:
+
+1. **Agricultural and Veterinary Science**:
+   - \( P(H) \): Since agricultural and veterinary science is a specialized field, we assume fewer graduate students are enrolled in it compared to broader fields like computer science or business administration, so let's assume \( P(H) = 0.05 \).
+   - \( P(E|H) \): Given Adam's strong love for nature, animals, and empathy, it is highly likely he would be in this field. So, \( P(E|H) \) is high, say 0.8.
+   - \( P(E|\neg H) \): This is the probability of having the personality sketch \( E \) given that Adam is not enrolled in agricultural and veterinary science. Given Adam's traits are somewhat uncommon for other fields, we might set this relatively low, say 0.1.
+
+2. **Computer Science**:
+   - \( P(H) \): Computer science is a very popular field of study, so we assume a relatively high prior, \( P(H) = 0.3 \).
+   - \( P(E|H) \): Adam's love for solving puzzles and high intelligence fits well into computer science, but his love for nature and animals is less related. We'll set \( P(E|H) \) to be moderate, say 0.3.
+   - \( P(E|\neg H) \): This is the probability of having the personality sketch \( E \) given that Adam is not enrolled in computer science. Since Computer science is quite prevalent, \( P(E|\neg H) \) might be slightly higher, say 0.4.
+
+3. **Business Administration**:
+   - \( P(H) \): Business administration encompasses a large number of graduate students, but not as many as computer science. We assume \( P(H) = 0.2 \).
+   - \( P(E|H) \): Adam's traits do not strongly align with business administration. Thus, we set \( P(E|H) \) to 0.1.
+   - \( P(E|\neg H) \): This is the probability of having the personality sketch \( E \) given that Adam is not in business administration. We set this similar to the agricultural and veterinary case, let's assume it to be 0.2.
+
+Given these estimates, we use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) is the normalizing constant:
+\[ P(E) = P(E|H_1)P(H_1) + P(E|H_2)P(H_2) + P(E|H_3)P(H_3) + \ldots  \]
+
+For simplicity, let's assume Adam is only enrolled in one of these three fields, so we only normalize by these three probabilities.
+
+\[
+P(E) = (0.8 \cdot 0.05) + (0.3 \cdot 0.3) + (0.1 \cdot 0.2) = 0.04 + 0.09 + 0.02 = 0.15
+\]
+
+Now, we compute \( P(H|E) \) for each field:
+
+1. **Agricultural and Veterinary Science**:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.05}{0.15} = \frac{0.04}{0.15} \approx 0.267
+\]
+
+2. **Computer Science**:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.3 \cdot 0.3}{0.15} = \frac{0.09}{0.15} \approx 0.6
+\]
+
+3. **Business Administration**:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{0.15} = \frac{0.02}{0.15} \approx 0.133
+\]
+
+Final results:
+```json
+{
+  "agricultural and veterinary science": 0.267,
+  "computer science": 0.6,
+  "business administration": 0.133
+}
+```

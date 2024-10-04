@@ -1,0 +1,71 @@
+To estimate the probabilities, we'll use Bayes' rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, without exact data on the probabilities, we'll make educated guesses based on typical characteristics associated with students in each field and the personality sketch of Adam.
+
+### Assumptions:
+1. **P(H):** The prior probabilities that a random graduate student is in each field.
+   - Let's assume reasonably equal prior probabilities, given no additional information.
+   - \( P(\text{computer science}) = 0.33 \)
+   - \( P(\text{business administration}) = 0.33 \)
+   - \( P(\text{agricultural and veterinary science}) = 0.33 \)
+  
+2. **P(E|H):** The likelihood of the personality sketch given each field.
+   - Computer science: Adam's intelligence fits well, but his love for nature and animals is less typical.
+     - \( P(E|\text{computer science}) = 0.3 \)
+   - Business administration: Adam's empathy and quiet nature are less typical traits for this field.
+     - \( P(E|\text{business administration}) = 0.1 \)
+   - Agricultural and veterinary science: Adam's love for nature, animals, and dedication is highly typical.
+     - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+
+3. **P(E|¬H):** The likelihood of the personality sketch given any other field. 
+   - P(E|¬H) is assumed to give a rough combined likelihood of personality sketch E under the other fields. Since P(E) can be approximated by the average of P(E|H), we don't need to compute this explicitly in isolation.
+
+Given these pieces of information, the probability P(H|E) can be computed as follows:
+
+### Computations:
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We approximate:
+\[ P(E) = \sum P(E|H) \cdot P(H) \]
+
+Let's compute each part:
+
+1. P(E) = \( P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\text{business administration}) \cdot P(\text{business administration})
++ P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) \)
+
+\[ 
+  P(E) = (0.3 \cdot 0.33) + (0.1 \cdot 0.33) + (0.8 \cdot 0.33) \\
+  = 0.099 + 0.033 + 0.264 \\
+  = 0.396
+\]
+
+2. Compute P(H|E):
+
+\[
+  P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \\
+  = \frac{0.3 \cdot 0.33}{0.396} \\
+  \approx 0.25
+\]
+
+\[
+  P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \\
+  = \frac{0.1 \cdot 0.33}{0.396} \\
+  \approx 0.083
+\]
+
+\[
+  P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \\
+  = \frac{0.8 \cdot 0.33}{0.396} \\
+  \approx 0.67
+\]
+
+### Results:
+\[
+{
+  "computer science": 0.25, \\
+  "business administration": 0.083, \\
+  "agricultural and veterinary science": 0.67
+}
+\]

@@ -1,0 +1,61 @@
+To compute the probabilities \( P(H | E) \) for each field using Bayes' rule, we need to assess the prior probabilities \( P(H) \), the likelihoods \( P(E | H) \) and \( P(E | \neg H) \). Here, \( H \) denotes the hypothesis that Adam was enrolled in that specific graduate field, and \( E \) is the given personality sketch of Adam.
+
+### Step-by-step Analysis
+
+1. **P(H)**: The prior probability that Adam would be enrolled in each field. Without specific information, we can assume it reflects the general distribution of students in these fields.
+
+    - For computer science (CS), let's denote it as \( P(H_{CS}) \).
+    - For business administration (BA), denote it as \( P(H_{BA}) \).
+
+2. **P(E | H)**: The likelihood that the personality sketch fits someone in these fields.
+
+    - For CS, we'd consider characteristics common in CS students and how they align with Adam's personality.
+    - For BA, we'd consider characteristics common in BA students and how they align with Adam's personality.
+
+3. **P(E | \neg H)**: The likelihood that the personality sketch fits someone not in these fields. 
+
+    This involves considering how likely someone with Adam's characteristics would choose a graduate field other than CS or BA, which we'll estimate from general knowledge.
+
+### Assumptions
+
+- Let \( P(H_{CS}) \approx 0.2 \): A significant number of graduate students might be in computer science.
+- Let \( P(H_{BA}) \approx 0.1 \): Business administration is a less common choice among graduate students.
+
+### Evaluating Likelihoods
+
+- **\( P(E | H_{CS}) \):** High, since Adam’s intelligence, problem-solving skills, and appreciation for hard work are relevant traits for a CS student. Given his empathy and love for animals, though less typical, could be seen in interdisciplinary fields within CS like bioinformatics.
+    - Let's assume \( P(E | H_{CS}) = 0.4 \).
+
+- **\( P(E | H_{BA}) \):** Lower, as empathy, a warm heart, and love for animals are not typically the primary traits sought in business administration, although problem-solving skills and intelligence are valuable.
+    - Let's assume \( P(E | H_{BA}) = 0.2 \).
+
+- **\( P(E | \neg H_{CS})\):** The probability that someone with these traits is not in CS. Given Adam's profile, other fields such as environmental science or biology might fit well.
+    - Let's assume \( P(E | \neg H_{CS}) = 0.6 \).
+
+- **\( P(E | \neg H_{BA})\):** The likelihood that someone with these traits is not in business administration, considering fields such as psychology, environmental science, etc.
+    - Let's assume \( P(E | \neg H_{BA}) = 0.7 \).
+
+### Bayes' Rule Application
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E | H) \cdot P(H) + P(E | \neg H) \cdot P(\neg H) \).
+
+For computer science:
+\[ P(E)_{CS} = (0.4 \cdot 0.2) + (0.6 \cdot 0.8) = 0.08 + 0.48 = 0.56 \]
+\[ P(H_{CS} | E) = \frac{0.4 \cdot 0.2}{0.56} = \frac{0.08}{0.56} = 0.1428 \]
+
+For business administration:
+\[ P(E)_{BA} = (0.2 \cdot 0.1) + (0.7 \cdot 0.9) = 0.02 + 0.63 = 0.65 \]
+\[ P(H_{BA} | E) = \frac{0.2 \cdot 0.1}{0.65} = \frac{0.02}{0.65} = 0.0308 \]
+
+### Result
+
+With these computations, the answer is:
+
+```json
+{
+  "computer science": 0.1428,
+  "business administration": 0.0308
+}
+```

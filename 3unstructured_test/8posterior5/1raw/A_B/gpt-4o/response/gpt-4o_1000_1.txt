@@ -1,0 +1,47 @@
+To compute the probability that Adam was enrolled in each field given his personality sketch \( E \), we'll use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E|H) \) is the probability of observing the personality sketch \( E \) if Adam was enrolled in the field.
+- \( P(E|\neg H) \) is the probability of observing the personality sketch \( E \) if Adam was not enrolled in the field.
+- \( P(E) \) is the overall probability of observing the personality sketch \( E \). 
+
+For simplicity, we will assume the following probabilities:
+
+1. **Business Administration**
+   - \( P(H) = 0.2 \) (Assuming a fairly common field)
+   - \( P(E|H) = 0.1 \)
+   - \( P(E|\neg H) = 0.05 \)
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H) = 0.05 \) (Less common than business)
+   - \( P(E|H) = 0.6 \)
+   - \( P(E|\neg H) = 0.05 \)
+
+Firstly, we calculate \( P(E) \):
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For **Business Administration**:
+\[ P(E) = (0.1 \cdot 0.2) + (0.05 \cdot 0.8) = 0.02 + 0.04 = 0.06 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(E) = (0.6 \cdot 0.05) + (0.05 \cdot 0.95) = 0.03 + 0.0475 = 0.0775 \]
+
+Now applying Bayes’ theorem:
+
+1. **Business Administration**:
+\[ P(H|E) = \frac{0.1 \cdot 0.2}{0.06} = \frac{0.02}{0.06} \approx 0.333 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{0.6 \cdot 0.05}{0.0775} = \frac{0.03}{0.0775} \approx 0.387 \]
+
+So our final output is:
+
+```json
+{
+  "business administration": 0.333,
+  "agricultural and veterinary science": 0.387
+}
+```

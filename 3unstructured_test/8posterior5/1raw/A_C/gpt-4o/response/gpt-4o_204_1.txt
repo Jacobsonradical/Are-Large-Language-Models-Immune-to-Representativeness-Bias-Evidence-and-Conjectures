@@ -1,0 +1,98 @@
+To assess the probability that Adam was enrolled in specific fields given his personality sketch \( E \) and using Bayes' Rule, we need to calculate the following:
+
+1. **Prior probability \( P(H) \)**: The likelihood that Adam was enrolled in each field before considering his personality sketch.
+2. **Likelihood \( P(E|H) \)**: The likelihood of Adam's personality traits given that he is enrolled in a specific field.
+3. **Marginal likelihood \( P(E|\neg H) \)**: The likelihood of Adam's personality traits given that he is enrolled in any other field.
+4. **Posterior probability \( P(H|E) \)**: The updated probability that Adam was enrolled in a specific field given his personality traits.
+
+#### Assumptions:
+1. We'll assume a simplified prior \( P(H) \) based on the abundance of these fields among graduate students.
+2. We'll use qualitative judgments to estimate the likelihoods \( P(E|H) \) for each field.
+3. We assume the marginal likelihood \( P(E|\neg H) \) represents the average probability of these traits across all other fields given no specific traits immediately point to a particular field.
+
+Given the constraints, here’s a structured approach:
+
+### For Computer Science:
+
+1. **Prior Probability \( P(H_{CS}) \)**:
+   \[
+   P(H_{CS}) \approx 0.20 
+   \]
+   (Assuming computer science is a popular field but not overwhelmingly dominant).
+
+2. **Likelihood \( P(E|H_{CS}) \)**:
+   \[
+   P(E|H_{CS}) \approx 0.30 
+   \]
+   (Computer science students can be intelligent, enjoy solving puzzles, and have empathy, but the specific emphasis on nature and animals is less common).
+
+3. **Marginal Likelihood \( P(E|\neg H_{CS}) \)**:
+   \[
+   P(E|\neg H_{CS}) \approx 0.10 
+   \]
+   (These personality traits are relatively specific and may not characterize typical fields broadly).
+
+### For Agricultural and Veterinary Science:
+
+1. **Prior Probability \( P(H_{AVS}) \)**:
+   \[
+   P(H_{AVS}) \approx 0.05
+   \]
+   (Agricultural and veterinary sciences are less common among graduate students).
+
+2. **Likelihood \( P(E|H_{AVS}) \)**:
+   \[
+   P(E|H_{AVS}) \approx 0.70
+   \]
+   (Traits such as a love for nature, plants, animals, and empathy align strongly with this field).
+
+3. **Marginal Likelihood \( P(E|\neg H_{AVS}) \)**:
+   \[
+   P(E|\neg H_{AVS}) = 0.10 
+   \]
+   (Same as above).
+
+### Applying Bayes' Rule:
+
+1. **For Computer Science**:
+   \[
+   P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)}
+   \]
+   Where:
+   \[
+   P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS})
+   \]
+   Assuming \( P(\neg H_{CS}) \approx 0.80 \):
+   \[
+   P(E) \approx 0.30 \cdot 0.20 + 0.10 \cdot 0.80 = 0.06 + 0.08 = 0.14
+   \]
+   Then:
+   \[
+   P(H_{CS}|E) \approx \frac{0.30 \cdot 0.20}{0.14} = \frac{0.06}{0.14} \approx 0.43
+   \]
+
+2. **For Agricultural and Veterinary Science**:
+   \[
+   P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)}
+   \]
+   Where:
+   \[
+   P(E) = P(E|H_{AVS}) \cdot P(H_{AVS}) + P(E|\neg H_{AVS}) \cdot P(\neg H_{AVS})
+   \]
+   Assuming \( P(\neg H_{AVS}) \approx 0.95 \):
+   \[
+   P(E) \approx 0.70 \cdot 0.05 + 0.10 \cdot 0.95 = 0.035 + 0.095 = 0.13
+   \]
+   Then:
+   \[
+   P(H_{AVS}|E) \approx \frac{0.70 \cdot 0.05}{0.13} = \frac{0.035}{0.13} \approx 0.27
+   \]
+
+Given these calculations, the resulting posterior probabilities are:
+
+\[ 
+\{
+  "computer science": 0.43, 
+  "agricultural and veterinary science": 0.27
+\} 
+\]

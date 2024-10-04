@@ -1,0 +1,48 @@
+To solve this problem using Bayes' Rule, we need to estimate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the baseline probabilities \( P(E|\neg H) \) for each field of study. Here's the setup:
+
+1. **Agricultural and Veterinary Science**:
+   - **P(H)**: The probability that Adam was enrolled in the Agricultural and Veterinary Science field as a baseline. Let's estimate this at 10% or 0.1.
+   - **P(E|H)**: The probability that Adam would have the given personality sketch if he were enrolled in this field. Given his love for nature, plants, animals, and understanding of hard work, we'll set this high, maybe 0.9.
+   - **P(E|\neg H)**: The probability that Adam would have the given personality sketch if he were not enrolled in this field. Given that these traits are not extremely rare, but also not ubiquitous, let's estimate this at 0.2.
+
+Now let's apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+\[
+P(E) = (0.9 \cdot 0.1) + (0.2 \cdot 0.9) = 0.09 + 0.18 = 0.27
+\]
+
+Therefore,
+
+\[
+P(H|E) = \frac{0.9 \cdot 0.1}{0.27} \approx \frac{0.09}{0.27} \approx 0.333
+\]
+
+2. **Business Administration**:
+   - **P(H)**: The probability that Adam was enrolled in Business Administration as a baseline. Let's estimate this also at 10% or 0.1.
+   - **P(E|H)**: The probability that Adam would have the given personality sketch if he were enrolled in this field. Given that his personality seems less aligned with business administration traits, we'll set this low, maybe 0.1.
+   - **P(E|\neg H)**: The probability that Adam would have the given personality sketch if he were not enrolled in this field. We'll keep this at 0.2 for consistency.
+
+So again using Bayes' Rule:
+
+\[
+P(E) = (0.1 \cdot 0.1) + (0.2 \cdot 0.9) = 0.01 + 0.18 = 0.19
+\]
+
+Therefore,
+
+\[
+P(H|E) = \frac{0.1 \cdot 0.1}{0.19} \approx \frac{0.01}{0.19} \approx 0.053
+\]
+
+Now we have the posterior probabilities \( P(H|E) \):
+
+```json
+{
+  "agricultural and veterinary science": 0.333,
+  "business administration": 0.053
+}
+```
+These calculations provide a Bayesian inference, reflecting that based on the personality sketch, Adam is more likely to be enrolled in Agricultural and Veterinary Science than in Business Administration.

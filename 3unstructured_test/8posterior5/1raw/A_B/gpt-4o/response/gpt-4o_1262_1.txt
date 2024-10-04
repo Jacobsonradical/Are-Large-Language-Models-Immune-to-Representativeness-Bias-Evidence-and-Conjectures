@@ -1,0 +1,76 @@
+To apply Bayes' Theorem effectively, we need to compute the following for each hypothesis \( H \):
+
+- \( P(H) \): The prior probability that Adam was enrolled in the specified field.
+- \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given that Adam was enrolled in the specified field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch \( E \) given that Adam was not enrolled in the specified field.
+- \( P(H|E) \): The posterior probability that Adam was enrolled in the specified field given the personality sketch \( E \), computed using Bayes' Theorem.
+
+Bayes' Theorem is stated as:
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+For simplicity, we will normalize the posterior probabilities, focusing on the relative likelihoods.
+
+### Business Administration
+
+- \( P(H) \): The probability of a graduate student being enrolled in business administration. Let's assume a prior probability of 0.2 (20%), given the wide popularity of the field.
+- \( P(E|H) \): The probability of having Adam's personality sketch if he was in business administration. Given that business administration typically focuses on leadership, strategy, and organizational behavior, the match to Adam's traits is low. Let's assign a value of 0.1 (10%).
+- \( P(E|\neg H) \): The probability of Adam's personality not fitting in business administration would be higher, given his strong affinity for nature, empathy, and animals. Let's assume it is 0.9 (90%).
+
+### Agricultural and Veterinary Science
+
+- \( P(H) \): The probability of a graduate student being enrolled in agricultural and veterinary science. Let's assume a lower prior probability of 0.05 (5%) because it's less common than business administration.
+- \( P(E|H) \): The probability of having Adam's personality sketch if he was in agricultural and veterinary science. This field highly correlates with his empathy, love for nature and animals, and appreciation for hard work. Let's assign a value of 0.8 (80%).
+- \( P(E|\neg H) \): The probability of Adam's personality not fitting in agricultural and veterinary science would be lower. Let's assume it is 0.2 (20%).
+
+### Calculating Posterior Probabilities
+
+#### For Business Administration
+
+\[
+P(H|E)_{BA} = \frac{P(E|H)_{BA} \times P(H)_{BA}}{P(E)}
+\]
+
+Assuming \(P(E)\) is some normalizing constant for both fields:
+
+\[
+P(H|E)_{BA} \propto P(E|H)_{BA} \times P(H)_{BA} = 0.1 \times 0.2 = 0.02
+\]
+
+#### For Agricultural and Veterinary Science
+
+\[
+P(H|E)_{AVS} = \frac{P(E|H)_{AVS} \times P(H)_{AVS}}{P(E)}
+\]
+
+Assuming \(P(E)\) is the same normalizing constant for both fields:
+
+\[
+P(H|E)_{AVS} \propto P(E|H)_{AVS} \times P(H)_{AVS} = 0.8 \times 0.05 = 0.04
+\]
+
+### Normalizing the Probabilities
+
+Since the total doesn’t need to add up to 1 for the selected fields:
+
+\[
+{
+  "business administration": \frac{0.02}{0.02 + 0.04},
+  "agricultural and veterinary science": \frac{0.04}{0.02 + 0.04}
+}
+\]
+
+\[
+{
+  "business administration": 0.333,
+  "agricultural and veterinary science": 0.667
+}
+\]
+
+Therefore, the normalized posterior probabilities are:
+
+\[
+{
+  "business administration": 0.333,
+  "agricultural and veterinary science": 0.667
+}
+\]

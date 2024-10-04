@@ -1,0 +1,55 @@
+To compute \( P(H|E) \) for each field using Bayes' Rule, we need to first understand and estimate the individual probabilities. Recall that Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}. \]
+
+Since \( P(E) \) is a normalizing constant and the same for both hypotheses (business administration and computer science), we can focus on calculating the numerator \( P(E|H) \cdot P(H) \).
+
+Let's start by estimating \( P(H) \) for each field.
+- \( P(H) \) for business administration: There are many graduate fields, so let's assume business administration is one among many, making \( P(H) \) probably lower because of Adam’s personality sketch.
+- \( P(H) \) for computer science: Given the vast number of fields, it's slightly more likely than business administration for someone with Adam's traits, but still not extremely high because Adam was described as someone who enjoys working with nature and animals.
+
+Next are the conditional probabilities \( P(E|H) \), which measure how likely Adam's personality traits fit into these fields.
+- \( P(E|H) \) for business administration: Considering the traits like curiosity about nature, love for animals, empathy, and quiet demeanor, it's fairly low. These traits don't typically align strongly with business administration.
+- \( P(E|H) \) for computer science: Slightly higher than for business administration because the high intelligence, abstract problem-solving abilities, and puzzle-solving enjoyments fit more commonly with computer science.
+
+Lastly, \( P(E|\neg H) \) is the likelihood of Adam's personality occurring in any field other than the one in question, which is equally difficult to estimate but we assume it's similar for both fields given the variety of other fields.
+
+Let's make reasonable estimates for these values:
+- \( P(H_{BA}) \) for business administration: 5% or 0.05 (since it is one among many fields, and less likely given the description)
+- \( P(H_{CS}) \) for computer science: 10% or 0.10 (slightly more likely given abstract problem-solving and intelligence)
+- \( P(E|H_{BA}) \) for business administration: 0.1 (low, because few traits align nicely)
+- \( P(E|H_{CS}) \) for computer science: 0.3 (moderate, more fitting traits)
+- \( P(E|\neg H) \): Given the diversity, let's assume 0.01, although in actual context a complex prior would be better.
+
+Now, applying Bayes' Rule:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+Since \( P(E) \) is constant and could be a normalizing factor:
+
+\[ P(H_{BA}|E) = 0.1 \cdot 0.05 \]
+
+\[ P(H_{CS}|E) = 0.3 \cdot 0.1 \]
+
+Normalizing constant \( P(E) \) is more elaborate but suffice for direct proportionality:
+
+So relative:
+
+\[ P(H_{BA}|E) = 0.005 \]
+
+\[ P(H_{CS}|E) = 0.03 \]
+
+On normalization between two:
+
+\[ P(H_{BA}|E) = \frac{0.005}{0.005+0.03} \approx 0.142 \]
+
+\[ P(H_{CS}|E) = \frac{0.03}{0.005+0.03} \approx 0.857 \]
+
+Thus:
+
+{
+  "business administration": "0.142",
+  "computer science": "0.857"
+}

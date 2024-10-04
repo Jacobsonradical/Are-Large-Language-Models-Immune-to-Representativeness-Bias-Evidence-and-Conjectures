@@ -1,0 +1,49 @@
+To solve this problem using Bayes' Rule, we need to compute the probability of Adam being enrolled in a given field of study given the personality sketch \(E\).
+
+The formula for Bayes' Rule is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll calculate for two fields: computer science \(H_{CS}\) and business administration \(H_{BA}\).
+
+Let's start with the following assumptions:
+- \( P(H_{CS}) \): Prior probability that Adam is enrolled in Computer Science. This can be roughly assumed to be a common field for a high-intelligent person interested in abstract concepts. Let's say 25% or 0.25.
+- \( P(H_{BA}) \): Prior probability that Adam is enrolled in Business Administration. This is less likely given his interests but still possible. Let's say 10% or 0.10.
+
+### Probabilities for Computer Science (\(H_{CS}\)):
+- \( P(E|H_{CS}) \): Probability of E given H_{CS}. Given the problem-solving nature and high intelligence, this is likely. Let’s assume 0.6.
+- \( P(E|\neg H_{CS}) \): Probability of E given not Computer Science. Considering other similar fields (like biology, physics, etc.), let's assume this is 0.2.
+
+### Probabilities for Business Administration (\(H_{BA}\)):
+- \( P(E|H_{BA}) \): Probability of E given H_{BA}. Less likely as traits like love for animals might not align perfectly. Assume 0.3.
+- \( P(E|\neg H_{BA}) \): This should be higher considering other fields more aligned with his traits. Assume 0.4.
+
+We'll compute \( P(E) \) as a normalization constant:
+\[ P(E) = P(E|H_{CS})*P(H_{CS}) + P(E|H_{BA})*P(H_{BA}) + P(E|\neg H_{CS \cup H_{BA}})*P(\neg H_{CS \cup H_{BA}}) \]
+For simplicity, we will assume P(\neg H) is 1 normalized.
+
+### Normalization:
+Let's simplify the computation by assuming P(E) is dominated by \(P(E|H)\):
+
+### For Computer Science (\(H_{CS}\)):
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) * P(H_{CS})}{P(E)} \approx \frac{0.6 * 0.25}{?} \]
+
+### For Business Administration (\(H_{BA}\)):
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) * P(H_{BA})}{P(E)} \approx \frac{0.3 * 0.10}{?} \]
+
+However, P(E) can be ignored as we normalize the result later.
+
+### Calculated values:
+\[ P(H_{CS}|E) = 0.6 * 0.25 \] 
+\[ P(H_{BA}|E) = 0.3 * 0.10 \]
+
+### Normalize:
+\[ P(H_{CS}|E) = 0.6 * 0.25 = 0.15 \]
+\[ P(H_{BA}|E) = 0.3 * 0.10 = 0.03 \]
+
+So the results are:
+```json
+{
+  "computer science": 0.83, // As 0.15/(0.18)
+  "business administration": 0.17, // As 0.03/0.18
+}
+```

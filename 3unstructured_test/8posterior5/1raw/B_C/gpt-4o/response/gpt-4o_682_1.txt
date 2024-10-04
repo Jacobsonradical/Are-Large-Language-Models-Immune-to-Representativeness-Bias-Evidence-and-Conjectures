@@ -1,0 +1,42 @@
+To compute the probabilities \( P(H|E) \) (the probability Adam was enrolled in a particular field given his personality sketch), we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality sketch given that he is enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of observing Adam's personality sketch given that he is not enrolled in that field.
+
+Let's analyze the provided fields:
+
+1. **Business Administration (H = Adam was enrolled in Business Administration)**
+    - \( P(H) \): Assume a prior probability of any graduate field; let's use 0.1 as a rough estimation.
+    - \( P(E|H) \): The likelihood given Adam's personality (curiosity about nature, solving puzzles, empathy, love for animals) seems somewhat low for business administration, where these traits are less emphasized. Let's estimate this as 0.2.
+    - \( P(E|\neg H) \): This would be the average likelihood of observing such traits in graduate students who are not in business administration. Estimate as around 0.3.
+
+Plugging these into Bayes' Formula:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \times 0.1 = 0.02 \]
+
+2. **Computer Science (H = Adam was enrolled in Computer Science)**
+    - \( P(H) \): Assume the same prior probability for general graduate disciplines, 0.1.
+    - \( P(E|H) \): Computer science aligns well with his traits of being good at solving puzzles and understanding abstract concepts. Let's estimate this as 0.6.
+    - \( P(E|\neg H) \): The average likelihood of observing these traits in other fields can still be 0.3.
+
+Plugging these into Bayes' Formula:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.6 \times 0.1 = 0.06 \]
+
+Now computing the normalization constant \(P(E)\), sum of probabilities for all hypos and normalize:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \approx \]
+\[  = 0.02 + 0.06 = 0.08 \]
+
+Normalizing:
+
+\[ P(H_{\text{business administration}}|E) = \frac{0.02}{0.08} = 0.25 \]
+\[ P(H_{\text{computer science}}|E) = \frac{0.06}{0.08} = 0.75 \]
+
+Therefore:
+
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}

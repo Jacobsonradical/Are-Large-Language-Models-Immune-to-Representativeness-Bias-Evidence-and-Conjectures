@@ -1,0 +1,91 @@
+To compute \( P(H|E) \) for the given fields of study, we need to apply Bayes' Theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll make some informed approximations for the required probabilities.
+
+For simplicity, let's assume: 
+- \( P(H) \) for any specific field being randomly chosen is the prior probability of Adam being enrolled in that field without additional information (say 1% or 0.01 since there are many fields of graduate studies).
+- \( P(E|H) \) denotes the probability of observing Adam's personality traits given he is enrolled in that field.
+- \( P(E|\neg H) \) refers to the probability of observing Adam's personality traits given he is not enrolled in that field.
+- \( P(E) \) is the overall probability of observing Adam's personality traits across all fields, which may be approximated by summing the weighted probabilities.
+
+### Assumptions and Probabilities:
+1. **Computer Science**:
+   - \(P(H)\): Computers science has a high enrollment rate generally, but personality traits matching are not strong (0.01).
+   - \(P(E|H)\): Traits like intelligence and solving puzzles align well, but curiosity about nature doesn't typically match (0.1).
+   - \(P(E|\neg H)\): Assuming broad interest across other fields, we'll average this out (0.01).
+
+2. **Business Administration**:
+   - \(P(H)\): Business programs are also common, personality traits do not align strongly (0.01).
+   - \(P(E|H)\): Curiosity about nature and empathy less common in business students (0.01).
+   - \(P(E|\neg H)\): Averaging across non-business fields (0.01).
+
+3. **Agricultural and Veterinary Science**:
+   - \(P(H)\): Less common than other fields, but the traits fit well (0.005).
+   - \(P(E|H)\): Strong alignment with interest in nature and animals (0.8).
+   - \(P(E|\neg H)\): Less likely in general population, but still possible (0.01).
+
+### Calculations using Bayes' Theorem:
+
+1. **Computer Science**:
+   \[
+   P(H|E)_{CS} = \frac{P(E|H)_{CS} \cdot P(H)_{CS}}{P(E)}
+   \]
+
+   Since \( P(E) \) is constant across all calculations:
+   \[
+   P(H|E)_{CS} \propto P(E|H)_{CS} \cdot P(H)_{CS} = 0.1 \cdot 0.01 = 0.001
+   \]
+
+2. **Business Administration**:
+   \[
+   P(H|E)_{BA} = \frac{P(E|H)_{BA} \cdot P(H)_{BA}}{P(E)}
+   \]
+
+   \[
+   P(H|E)_{BA} \propto P(E|H)_{BA} \cdot P(H)_{BA} = 0.01 \cdot 0.01 = 0.0001
+   \]
+
+3. **Agricultural and Veterinary Science**:
+   \[
+   P(H|E)_{AVS} = \frac{P(E|H)_{AVS} \cdot P(H)_{AVS}}{P(E)}
+   \]
+
+   \[
+   P(H|E)_{AVS} \propto P(E|H)_{AVS} \cdot P(H)_{AVS} = 0.8 \cdot 0.005 = 0.004
+   \]
+
+### Rescaling to a Probability Distribution (Optional):
+
+To provide these as probabilities adding up to 1, we could normalize these proportional values:
+
+- Sum of proportions:
+  \[
+  0.001 + 0.0001 + 0.004 = 0.0051
+  \]
+
+- Normalize each:
+  \[
+  P(H|E)_{CS} = \frac{0.001}{0.0051} \approx 0.196
+  \]
+
+  \[
+  P(H|E)_{BA} = \frac{0.0001}{0.0051} \approx 0.0196
+  \]
+
+  \[
+  P(H|E)_{AVS} = \frac{0.004}{0.0051} \approx 0.784
+  \]
+
+### Answer:
+
+```json
+{
+  "computer science": 0.196,
+  "business administration": 0.0196,
+  "agricultural and veterinary science": 0.784
+}
+```
+
+These values represent our best estimate of Adam's likely graduate field based on his personality traits.

@@ -1,0 +1,62 @@
+To apply Bayes' Theorem, we use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in the field given the personality sketch \( E \).
+- \( P(E|H) \) is the probability of the personality sketch \( E \) given that Adam is enrolled in the field.
+- \( P(H) \) is the prior probability that Adam is enrolled in the field.
+- \( P(E) \) is the overall probability of the personality sketch \( E \).
+
+Since \( P(E) \) stays constant for all fields, we focus on calculating \( P(H|E) \) up to a proportional constant.
+
+Let's start by estimating \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+### Agricultural and Veterinary Science
+
+- **P(H):** The prior probability \( P(H) \) of being enrolled in agricultural and veterinary science is likely to be relatively low, given the various available fields. Let's estimate it at 0.05.
+  
+- **P(E|H):** The personality sketch of Adam aligns closely with agricultural and veterinary science due to his love for nature, animals, and his empathy. Hence, \( P(E|H) \) could be relatively high, around 0.7.
+  
+- **P(E|\neg H):** The personality traits described do not exclusively point to agricultural and veterinary science, so \( P(E|\neg H) \) remains somewhat moderate, perhaps around 0.2 given other plausible fields like biology, psychology, etc.
+
+### Computer Science
+
+- **P(H):** The prior probability \( P(H) \) of being enrolled in computer science is higher due to the field's popularity among graduate students. Let's estimate it at 0.2.
+  
+- **P(E|H):** The personality sketch of Adam (solving puzzles, high intelligence, understanding abstract concepts) matches well with computer science, so \( P(E|H) \) might be around 0.5.
+  
+- **P(E|\neg H):** While the personality traits align somewhat with other fields too, they are not exclusive; hence \( P(E|\neg H) \) could be around 0.3.
+
+### Applying Bayes' Theorem
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \cdot 0.05 = 0.035 \]
+
+For Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.5 \cdot 0.2 = 0.10 \]
+
+Now, we normalize these calculations to get a properly scaled value by calculating a normalization constant \( Z \):
+
+\[ Z = P(E) = P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) + P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + \cdots \]
+
+However, since we are comparing two fields:
+
+\[ Z \approx 0.035 + 0.10 = 0.135 \]
+
+So the refined probabilities are:
+
+- For Agricultural and Veterinary Science:
+  \[ P(H_{\text{agri}}|E) = \frac{0.035}{0.135} \approx 0.259 \]
+
+- For Computer Science:
+  \[ P(H_{\text{cs}}|E) = \frac{0.10}{0.135} \approx 0.741 \]
+
+Thus, the more accurate probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.259,
+  "computer science": 0.741
+}
+```

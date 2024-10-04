@@ -1,0 +1,53 @@
+To compute \(P(H|E)\) using Bayes' Theorem, we need to have some values or estimates for:
+- \(P(H)\): The prior probability that Adam was enrolled in a particular field.
+- \(P(E|H)\): The probability of observing E given that Adam was enrolled in a particular field.
+- \(P(E|\neg H)\): The probability of observing E given that Adam was not enrolled in that particular field.
+  
+Let's break it down for each field.
+
+### Agricultural and Veterinary Science
+1. **P(H)**: Prior probability that Adam was enrolled in agricultural and veterinary science. This might be relatively low, as not as many students overall pursue this compared to some other fields.
+   - Estimate: 0.05
+
+2. **P(E|H)**: Probability of Adam having characteristics E given that he was in agricultural and veterinary science. Since Adam's interests (nature, plants, animals) align closely with this field,
+   - Estimate: 0.8
+
+3. **P(E|\neg H)**: Probability of Adam having characteristics E given that he was not in agricultural and veterinary science. Since his characteristics also align fairly well with other fields (for example, environmental sciences, biology), but less so with fields like business or engineering,
+   - Estimate: 0.2
+
+### Computer Science
+1. **P(H)**: Prior probability that Adam was enrolled in computer science. Given the popularity of the field among graduate students, this might be higher.
+   - Estimate: 0.2
+
+2. **P(E|H)**: Probability of Adam having characteristics E given that he was in computer science. There are some overlaps (e.g., solving puzzles, high intelligence), but less alignment with nature and animals.
+   - Estimate: 0.3
+
+3. **P(E|\neg H)**: Probability of Adam having characteristics E given that he was not in computer science. Adam's characteristics better match some other fields.
+   - Estimate: 0.7
+
+### Calculation using Bayes' Rule
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \(P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\)
+
+#### Agricultural and Veterinary Science
+
+\[ P(E) = (0.8 \times 0.05) + (0.2 \times 0.95) = 0.04 + 0.19 = 0.23 \]
+
+\[ P(H|E) = \frac{0.8 \times 0.05}{0.23} \approx \frac{0.04}{0.23} \approx 0.1739 \]
+
+#### Computer Science
+
+\[ P(E) = (0.3 \times 0.2) + (0.7 \times 0.8) = 0.06 + 0.56 = 0.62 \]
+
+\[ P(H|E) = \frac{0.3 \times 0.2}{0.62} \approx \frac{0.06}{0.62} \approx 0.0968 \]
+
+Finally, the results formatted:
+
+```json
+{
+  "agricultural and veterinary science": 0.1739,
+  "computer science": 0.0968
+}
+```

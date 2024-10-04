@@ -1,0 +1,40 @@
+To compute posteriors \( P(H|E) \) for the fields of "agricultural and veterinary science" and "business administration," we need to estimate the priors \( P(H) \), the likelihoods \( P(E|H) \), and the normalizing constant (which could be omitted here since we are comparing the probabilities between fields).
+
+Given the information about Adam, we can assume the following:
+
+- **Priors \( P(H) \)**: Initial probabilities of Adam being enrolled in each field.
+  - Let's assume there is an equal initial probability for each field just for simplicity.
+  - So, \( P(\text{H}_{\text{agricultural and veterinary science}}) \approx 0.5 \) and \( P(\text{H}_{\text{business administration}}) \approx 0.5 \).
+
+- **Likelihoods \( P(E|H) \)**: 
+  - Given a personality sketch of Adam, we estimate how likely it is that he is in each field.
+  - For **agricultural and veterinary science**, given Adam's love for nature, animals, and his empathy, \( P(E|\text{H}_{\text{agricultural and veterinary science}}) \) would likely be high, let's say \( 0.9 \).
+  - For **business administration**, given Adam's personality traits, \( P(E|\text{H}_{\text{business administration}}) \) would be lower because these traits do not strongly correlate with what is typically expected in business administration students, let's say \( 0.2 \).
+
+- **Complementary Likelihoods \( P(E|\neg H) \)**: 
+  - The likelihoods of Adam's personality sketch given he is not in these fields.
+  - These would be lower for an aggregate of all other fields of study.
+
+Now, using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the comparative nature between the two fields and normalization across these fields:
+
+For "agricultural and veterinary science":
+\[ P(\text{H}_{\text{agricultural and veterinary science}}|E) \propto P(E|\text{H}_{\text{agricultural and veterinary science}}) \cdot P(\text{H}_{\text{agricultural and veterinary science}}) \approx 0.9 \cdot 0.5 = 0.45 \]
+
+For "business administration":
+\[ P(\text{H}_{\text{business administration}}|E) \propto P(E|\text{H}_{\text{business administration}}) \cdot P(\text{H}_{\text{business administration}}) \approx 0.2 \cdot 0.5 = 0.1 \]
+
+After normalizing these values so that they sum up to 1 (since this is just a comparative analysis between these two fields):
+
+\[ P(\text{H}_{\text{agricultural and veterinary science}}|E) \approx \frac{0.45}{0.45 + 0.1} \approx 0.818 \]
+\[ P(\text{H}_{\text{business administration}}|E) \approx \frac{0.1}{0.45 + 0.1} \approx 0.182 \]
+
+Therefore, the probabilities are:
+```json
+{
+  "agricultural and veterinary science": 0.818,
+  "business administration": 0.182
+}
+```

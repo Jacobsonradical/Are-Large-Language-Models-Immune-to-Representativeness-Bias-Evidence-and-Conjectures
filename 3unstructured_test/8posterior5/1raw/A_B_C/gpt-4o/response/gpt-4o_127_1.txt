@@ -1,0 +1,67 @@
+To calculate the probability of Adam being enrolled in each field given his personality sketch, we'll need to use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll make use of the following steps:
+1. Assign prior probabilities \( P(H) \) for each field.
+2. Estimate \( P(E|H) \), the likelihood of observing Adam's personality given he is in that field.
+3. Estimate \( P(E|\neg H) \), the likelihood of observing Adam's personality given he is not in that field.
+4. Compute the posterior probabilities \( P(H|E) \) using Bayes' theorem.
+
+Let's assign some reasonable estimates:
+1. \( P(H) \) values (prior probabilities) for each field:
+   - Business administration: 0.2
+   - Agricultural and veterinary science: 0.1
+   - Computer science: 0.3
+
+   The sum of these is 0.6, indicating we believe there's a 60% chance Adam is in one of these three fields.
+
+2. \( P(E|H) \) values, based on matching Adam's description with what we might expect in each field:
+   - Business administration: 0.1 (seems less likely for someone with a deep love for nature and animals)
+   - Agricultural and veterinary science: 0.7 (high match given Adam's love for nature, animals, and understanding of hard work)
+   - Computer science: 0.5 (possible due to high intelligence and interest in solving puzzles)
+
+3. \( P(E|\neg H) \) values, the likelihood of observing Adam's personality given he is not in that specific field (let's estimate these as reasonable but not high, given we don't have details on every field):
+   - For business administration: 0.6
+   - For agricultural and veterinary science: 0.4
+   - For computer science: 0.5
+
+Let's compute the posterior probabilities \( P(H|E) \):
+
+### For Business Administration:
+\[ P(H|E)_{BA} = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{P(E)} \]
+\[ P(H|E)_{BA} = 0.02 / P(E) \]
+
+### For Agricultural and Veterinary Science:
+\[ P(H|E)_{AVS} = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+\[ P(H|E)_{AVS} = \frac{0.7 \cdot 0.1}{P(E)} \]
+\[ P(H|E)_{AVS} = 0.07 / P(E) \]
+
+### For Computer Science:
+\[ P(H|E)_{CS} = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H|E)_{CS} = \frac{0.5 \cdot 0.3}{P(E)} \]
+\[ P(H|E)_{CS} = 0.15 / P(E) \]
+
+Since \( P(E) \) is a normalizing constant, it doesn't change the relative proportions, so we can compare the numerators directly.
+
+Then normalize each value to make them sum to 1 for these three fields:
+\[ \text{Normalization constant} = 0.02 + 0.07 + 0.15 = 0.24 \]
+
+\[
+\begin{aligned}
+& P(H|E)_{BA} = \frac{0.02}{0.24} \approx 0.083, \\
+& P(H|E)_{AVS} = \frac{0.07}{0.24} \approx 0.292, \\
+& P(H|E)_{CS} = \frac{0.15}{0.24} \approx 0.625.
+\end{aligned}
+\]
+
+Hence, the computed probabilities are:
+
+```json
+{
+  "business administration": 0.083,
+  "agricultural and veterinary science": 0.292,
+  "computer science": 0.625
+}
+```

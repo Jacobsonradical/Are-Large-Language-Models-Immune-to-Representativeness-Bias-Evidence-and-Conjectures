@@ -1,0 +1,51 @@
+To compute the probability of Adam being enrolled in a specific field given his personality sketch (E), we need to use Bayes' Rule. Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability Adam was enrolled in a specific field given the personality sketch.
+- \( P(E|H) \) is the probability of the personality sketch occurring given that Adam was enrolled in that field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the total probability of the personality sketch occurring.
+
+Since \( P(E) \) is the same for all hypotheses (fields), we can ignore it when comparing probabilities for different fields. We only need to compute the numerator for each field and then normalize these values if necessary.
+
+First, let's judge the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Computer Science
+- \( P(H_{\text{CS}}) \): Around 0.15, considering that many students might choose popular fields like Computer Science but not exceedingly high given the broader context.
+- \( P(E|H_{\text{CS}}) \): This is how likely Adam's personality sketch fits a typical Computer Science student. Considering his high intelligence and skill at solving puzzles, we might give it a modest value like 0.4.
+- \( P(E|\neg H_{\text{CS}}) \): This could be judged as high, around 0.6, because Adam's personality could also fit many other fields outside Computer Science (quiet, empathetic, loves nature and animals).
+
+### Business Administration
+- \( P(H_{\text{BA}}) \): Around 0.1, considering the range of graduate specializations, business administration might not be as high in probability given his interest in nature, animals, and puzzles.
+- \( P(E|H_{\text{BA}}) \): This is how likely Adam’s personality sketch fits a typical Business Administration student. Given the lesser fit with his general interests and characteristics, we might set it at around 0.2.
+- \( P(E|\neg H_{\text{BA}}) \): Slightly higher around 0.7 because his personality traits fit a broad range of other fields better.
+
+Now, let's input these values into Bayes' rule and compute \( P(H|E) \) for each field:
+
+### Normalizing Constants
+- \( k_{\text{CS}} = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \)
+- \( k_{\text{BA}} = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \)
+
+### Calculations
+- \( k_{\text{CS}} = 0.4 \times 0.15 = 0.06 \)
+- \( k_{\text{BA}} = 0.2 \times 0.1 = 0.02 \)
+
+Based on these calculations:
+
+- \( P(H_{\text{CS}}|E) = \frac{k_{\text{CS}}}{k_{\text{CS}} + k_{\text{BA}} + k_{\text{others}}} = \frac{0.06}{0.06 + 0.02 + k_{\text{others}}} \)
+- \( P(H_{\text{BA}}| E) = \frac{k_{\text{BA}}}{K_{\text{CS}} + K_{\text{BA}}+ K_{\text{others}}} = \frac{0.02}{0.06 + 0.02+ k_{\text{others}}}\)
+
+Since we can't compute the exact normalization constants without details for all other fields, we will use relative probabilities:
+
+So, the relative probabilities can be represented as:
+
+```
+{
+  "computer science": 0.75,
+  "business administration": 0.25
+}
+```
+
+These are relative values based on our computed \( k \)-values and should align within the context of all possible fields Adam could be studying.

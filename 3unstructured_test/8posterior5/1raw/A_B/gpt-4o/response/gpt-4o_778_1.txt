@@ -1,0 +1,68 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' theorem, we'll first outline the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihood of \( E \) given the negation of the hypothesis \( P(E|\neg H) \).
+
+Let's start by assessing each of these components for the given fields.
+
+1. **Business Administration:**
+
+    - **Prior Probability (\( P(H) \)):**
+      This is generally low for Adam since his personality sketch does not align closely with typical traits associated with business administration.
+      \( P(H_{BA}) \): A lower value, say 0.1 (since many graduate students might choose a variety of other fields).
+      
+    - **Likelihood (\( P(E|H) \)):**
+      Adam's traits such as strong empathy, love for nature and animals, and interest in abstract concepts don't closely align with common traits for business administration. 
+      \( P(E|H_{BA}) \): A relatively low value, say 0.1.
+      
+    - **Likelihood (\( P(E|\neg H) \)):**
+      Since many other fields could fit better based on Adam's personality sketch, this would be higher.
+      \( P(E|\neg H_{BA}) \): A higher value, say 0.75.
+
+2. **Agricultural and Veterinary Science:**
+
+    - **Prior Probability (\( P(H) \)):**
+      Adam's strong interests and traits suggest a good fit for this field.
+      \( P(H_{AV}) \): A higher value, say 0.3.
+      
+    - **Likelihood (\( P(E|H) \)):**
+      His interest in plants, animals, empathy, and understanding of hard work aligns well with agricultural and veterinary science.
+      \( P(E|H_{AV}) \): A high value, say 0.9.
+      
+    - **Likelihood (\( P(E|\neg H) \)):**
+      Still a high value but a bit lower than in the previous case as Adam fits well in this field.
+      \( P(E|\neg H_{AV}) \): A lower value, say 0.6.
+
+### Bayes Rule Formula:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where,
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's compute the posterior probabilities.
+
+1. **Business Administration:**
+
+    \[
+    P(E)_{BA} = (0.1 \cdot 0.1) + (0.75 \cdot 0.9) = 0.01 + 0.675 = 0.685
+    \]
+    \[
+    P(H_{BA}|E) = \frac{0.1 \cdot 0.1}{0.685} \approx 0.0146
+    \]
+
+2. **Agricultural and Veterinary Science:**
+
+    \[
+    P(E)_{AV} = (0.9 \cdot 0.3) + (0.6 \cdot 0.7) = 0.27 + 0.42 = 0.69
+    \]
+    \[
+    P(H_{AV}|E) = \frac{0.9 \cdot 0.3}{0.69} \approx 0.3913
+    \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0146,
+  "agricultural and veterinary science": 0.3913
+}
+```
+
+These values suggest that Adam is significantly more likely to be studying agricultural and veterinary science than business administration.

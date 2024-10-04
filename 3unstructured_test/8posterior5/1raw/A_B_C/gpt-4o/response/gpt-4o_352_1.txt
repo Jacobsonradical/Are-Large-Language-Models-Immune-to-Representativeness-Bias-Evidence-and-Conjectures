@@ -1,0 +1,73 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' Rule, we need the following:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, to simplify, we do not need the absolute value of \(P(E)\) because it is a constant across all hypotheses. Instead, we'll compute the relative likelihoods since we're only comparing fields.
+
+### 1. Assigning Prior Probabilities (\(P(H)\)):
+
+The overall probability of Adam being enrolled in each field should be somewhat based on common enrollment statistics in the U.S. for graduate students and any additional context.
+
+- Computer Science: This is a popular field, so let's assume a moderate prior probability, say 0.25.
+- Business Administration: Also popular, say 0.25.
+- Agricultural and Veterinary Science: Less common, perhaps 0.10.
+
+### 2. Likelihoods (\(P(E|H)\)):
+
+These probabilities describe how likely the evidence (Adam's personality sketch) fits within each field:
+
+- **Computer Science**: Puzzle-solving and abstract thinking point toward computer science, but love for nature and animals does not. Let's assign this a moderate likelihood, say 0.50.
+- **Business Administration**: The personality traits provided don’t strongly fit this profile, given the lack of visible traits aligning with business-specific skills or interests. Assign a lower likelihood, say 0.20.
+- **Agricultural and Veterinary Science**: Strong fit with love for nature, animals, and empathy. Assign a high likelihood, say 0.80.
+
+### 3. Complement Likelihood (\(P(E|\neg H)\)):
+
+This portrays how likely the evidence fits when not considering each specific field. Since this applies across any fields and any field might attract people with these traits, let's assume:
+- General likelihood: 0.50 for simplicity.
+
+### 4. Combining into Bayes' Rule for Relative Likelihoods:
+
+Now, combining all these values using the simplified approach:
+
+#### Computer Science:
+\[
+P(H|E) \propto P(E|H) \cdot P(H) = 0.50 \cdot 0.25 = 0.125
+\]
+
+#### Business Administration:
+\[
+P(H|E) \propto P(E|H) \cdot P(H) = 0.20 \cdot 0.25 = 0.05
+\]
+
+#### Agricultural and Veterinary Science:
+\[
+P(H|E) \propto P(E|H) \cdot P(H) = 0.80 \cdot 0.10 = 0.08
+\]
+
+Based on these relative likelihoods, we can see:
+
+\[
+\text{Relative probabilities (unnormalized)} = \{ \text{"computer science": 0.125, "business administration": 0.05, "agricultural and veterinary science": 0.08} \}
+\]
+
+### Normalization:
+To convert these to probabilities summing to 1 (if needed, though not required by your question):
+Sum: \(0.125 + 0.05 + 0.08 = 0.255\)
+
+Normalized:
+\[
+\text{"computer science"}: \frac{0.125}{0.255} \approx 0.49,
+\text{"business administration"}: \frac{0.05}{0.255} \approx 0.20,
+\text{"agricultural and veterinary science"}: \frac{0.08}{0.255} \approx 0.31
+\]
+
+Thus, these values are:
+```json
+{
+  "computer science": 0.49,
+  "business administration": 0.20,
+  "agricultural and veterinary science": 0.31
+}
+```
+
+Note: These values are not normalized, as requested. If required, they will add up to 1.

@@ -1,0 +1,58 @@
+To compute the probabilities, we'll use Bayes' Rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability of the hypothesis \( H \)
+- \( P(E|H) \) is the likelihood of observing the evidence \( E \) given \( H \)
+- \( P(E|\neg H) \) is the likelihood of observing the evidence \( E \) given not \( H \)
+- \( P(E) \) is the overall probability of observing the evidence \( E \), which can be broken down as \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+We know \( P(H|E) \) is what we need to compute for each hypothesis. Now let’s estimate the values:
+
+### Agricultural and Veterinary Science (H1)
+- \( P(H1) \): Let's assume a moderate prior probability that Adam might be enrolled in this field, based on the diversity of graduate programs available. We can say \( P(H1) = 0.2 \).
+- \( P(E|H1) \): Adam's deep love for nature, animals, and understanding of hard work fits well with agricultural and veterinary science. Therefore, this likelihood is high, perhaps \( P(E|H1) = 0.9 \).
+- \( P(E|\neg H1) \): The probability of observing Adam's attributes in fields other than agricultural and veterinary science might be moderate but not as high, say \( P(E|\neg H1) = 0.3 \).
+
+### Computer Science (H2)
+- \( P(H2) \): Since computer science is a very common field of study, we can give it a higher prior probability, say \( P(H2) = 0.3 \).
+- \( P(E|H2) \): Adam being good at puzzles and abstract thinking supports computer science, but doesn't fully fit his love for nature and animals, so \( P(E|H2) = 0.5 \).
+- \( P(E|\neg H2) \): The likelihood of observing Adam’s characteristics in non-computer-science fields might be higher due to his affinity for nature and animals, say \( P(E|\neg H2) = 0.6 \).
+
+### Business Administration (H3)
+- \( P(H3) \): Consider business administration as a common field, but less aligned with Adam's interests. Let’s assume \( P(H3) = 0.1 \).
+- \( P(E|H3) \): Adam's personality does not strongly align with typical traits for business administration, so \( P(E|H3) = 0.2 \).
+- \( P(E|\neg H3) \): The likelihood of observing Adam’s characteristics in other fields would be relatively high, say \( P(E|\neg H3) = 0.6 \).
+
+To simplify \( P(E) \), note it's a normalization factor. We calculate \( P(E) \) as:
+\[ P(E) = P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) + P(E|H3) \cdot P(H3) + \sum \text{other fields} \]
+
+For simplicity, however, we will focus only on the given fields and assume the proportional estimates without normalizing over all possible fields.
+
+### Bayesian Update
+For each field:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we need proportional results:
+
+1. **Agricultural and Veterinary Science:**
+\[ P(H1|E) \approx P(E|H1) \cdot P(H1) = 0.9 \cdot 0.2 = 0.18 \]
+
+2. **Computer Science:**
+\[ P(H2|E) \approx P(E|H2) \cdot P(H2) = 0.5 \cdot 0.3 = 0.15 \]
+
+3. **Business Administration:**
+\[ P(H3|E) \approx P(E|H3) \cdot P(H3) = 0.2 \cdot 0.1 = 0.02 \]
+
+Putting it all together, we get:
+
+```json
+{
+  "agricultural and veterinary science": 0.18,
+  "computer science": 0.15,
+  "business administration": 0.02
+}
+```
+
+These are proportionate values indicating that Adam is most likely enrolled in "agricultural and veterinary science", followed by "computer science", and least likely in "business administration".

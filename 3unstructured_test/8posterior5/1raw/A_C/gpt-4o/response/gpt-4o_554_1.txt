@@ -1,0 +1,56 @@
+To compute the posterior probability \( P(H|E) \) for each field given the personality sketch E of Adam, we need to use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the fields "agricultural and veterinary science" and "computer science", let's denote:
+
+- \( H_1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \): Adam was enrolled in computer science.
+
+We need to estimate:
+
+- \( P(H_1) \): The prior probability that Adam was enrolled in agricultural and veterinary science.
+- \( P(H_2) \): The prior probability that Adam was enrolled in computer science.
+- \( P(E|H_1) \): The likelihood of Adam's personality sketch given that he was enrolled in agricultural and veterinary science.
+- \( P(E|H_2) \): The likelihood of Adam's personality sketch given that he was enrolled in computer science.
+- \( P(E|\neg H_1) \) and \( P(E|\neg H_2) \): The likelihood of Adam's personality sketch given that he was not enrolled in those fields.
+
+For simplicity, let's assume the following values based on the given personality sketch:
+
+1. **Agricultural and Veterinary Science**:
+
+- \( P(H_1) \): Let's assume the prior probability is 0.1, reflecting that it’s a somewhat specialized field.
+- \( P(E|H_1) \): Given Adam's interest in nature, plants, animals, and a warm heart, the likelihood is high, say 0.8.
+- \( P(E|\neg H_1) \): For simplicity, we assume the likelihood of \( E \) given that Adam was not in this field is lower, say 0.2.
+
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \]
+\[ P(E) \] can be taken as a normalizing constant, but since we are interested in relative probabilities, we can focus on the numerator.
+
+2. **Computer Science**:
+
+- \( P(H_2) \): Let’s assume a higher prior probability, say 0.2, considering the popularity of the field.
+- \( P(E|H_2) \): Given Adam's intelligence and interest in puzzles, the likelihood is moderate, say 0.5.
+- \( P(E|\neg H_2) \): For simplicity, we assume the likelihood of \( E \) given that Adam was not in this field is slightly higher, say 0.3.
+
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \]
+
+Now, let's compute the relative values:
+
+\[ P(H_1|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+\[ P(H_2|E) = \frac{0.5 \cdot 0.2}{P(E)} \]
+
+Since \( P(E) \) is the same in both calculations and it will cancel out when comparing relative probabilities, we can compare the numerators directly.
+
+- For Agricultural and Veterinary Science: \( 0.8 \times 0.1 = 0.08 \)
+- For Computer Science: \( 0.5 \times 0.2 = 0.1 \)
+
+So in relative terms, the computed posteriors would be (roughly):
+
+```json
+{
+  "agricultural and veterinary science": 0.08,
+  "computer science": 0.1
+}
+```
+
+This implies that, based on the provided personality sketch, Adam is slightly more likely to be enrolled in computer science, but there is a non-negligible chance he is enrolled in agricultural and veterinary science.

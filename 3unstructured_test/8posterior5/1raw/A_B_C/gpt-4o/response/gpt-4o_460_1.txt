@@ -1,0 +1,48 @@
+To calculate the posterior probability \( P(H|E) \) for each field given the personality sketch of Adam, we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a constant across all fields, we can focus on comparing the values \( P(E|H) \cdot P(H) \) for each hypothesis \( H \).
+
+Let's start with some qualitative estimations:
+
+1. **Business Administration (BA)**
+   - \( P(H_{BA}) \): The prior probability of a graduate student studying business administration. Business administration is a popular field, so let's assume a moderate prior.
+   - \( P(E|H_{BA}) \): The likelihood of Adam's personality traits fitting someone in business administration. While empathy and understanding abstract concepts can be beneficial in business, Adam's strong love for animals and nature might make this less likely.
+   - \( P(E|\neg H_{BA}) \): The likelihood of Adam's personality traits given he is not studying business administration. Since business administration is one of many fields, this could be relatively high.
+
+2. **Computer Science (CS)**
+   - \( P(H_{CS}) \): The prior probability of a graduate student studying computer science. This is also a popular field, so let's assume a moderate to high prior.
+   - \( P(E|H_{CS}) \): The likelihood of Adam's personality traits fitting someone in computer science. His intelligence and problem-solving skills are a good fit, though his love for animals and nature might make it slightly less likely.
+   - \( P(E|\neg H_{CS}) \): The likelihood of Adam's personality traits given he is not studying computer science. This could be moderate, as his traits do not strongly disfavor computer science.
+
+3. **Agricultural and Veterinary Science (AVS)**
+   - \( P(H_{AVS}) \): The prior probability of a graduate student studying agricultural and veterinary science. This is less common than the other two fields but more aligned with his personality.
+   - \( P(E|H_{AVS}) \): The likelihood of Adam’s personality traits fitting someone in agricultural and veterinary science. His love for nature, plants, and animals, along with a warm heart and empathy, aligns very well with this field.
+   - \( P(E|\neg H_{AVS}) \): The likelihood of Adam’s personality traits given he is not studying agricultural and veterinary science. This could be relatively lower because his traits are very specific to this field.
+
+Given this qualitative assessment, let's assign some estimated quantitative values:
+
+- \( P(H_{BA}) = 0.2 \)
+- \( P(H_{CS}) = 0.3 \)
+- \( P(H_{AVS}) = 0.1 \)
+
+- \( P(E|H_{BA}) = 0.2 \)
+- \( P(E|H_{CS}) = 0.3 \)
+- \( P(E|H_{AVS}) = 0.7 \)
+
+We'll assume \( P(E|\neg H) \approx 0.5 \) for all fields since \( \neg H \) encompasses many other possibilities.
+
+Using Bayes' rule:
+
+- \( P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.2 \cdot 0.2 = 0.04 \)
+- \( P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.3 \cdot 0.3 = 0.09 \)
+- \( P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.7 \cdot 0.1 = 0.07 \)
+
+Normalizing each to compare them relatively:
+
+{
+  "business administration": \( 0.04 \),
+  "computer science": \( 0.09 \),
+  "agricultural and veterinary science": \( 0.07 \)
+}

@@ -1,0 +1,61 @@
+To compute \( P(H|E) \) for each field, we'll use Bayes' rule. Let's denote the relevant probabilities:
+
+- \( P(H) \): The prior probability that Adam is enrolled in the field.
+- \( P(E|H) \): The probability that Adam's personality sketch \( E \) fits given he is enrolled in the field \( H \).
+- \( P(E|\neg H) \): The probability that Adam's personality sketch \( E \) fits given he is not enrolled in the field \( H \).
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both fields, we only need to compute the numerator for each field to compare them.
+
+For simplicity, let's initially assume the following priors for \( P(H) \):
+- \( P(business\ administration) = 0.2 \)
+- \( P(computer\ science) = 0.3 \)
+  
+These are subjective priors based on general knowledge of graduate field enrollments which could be updated with better data if available.
+
+Next, let's gauge \( P(E|H) \) based on the fit of the personality sketch \( E \) for each field:
+
+1. **Business administration:**
+   - The personality sketch describes Adam as having a strong curiosity about nature and animals, being quiet, empathetic, and intelligent.
+   - While business administration students can be intelligent and empathetic, the strong curiosity about nature and love for animals are less immediately relevant to this field.
+   - Therefore, \( P(E|business\ administration) = 0.2 \).
+
+2. **Computer science:**
+   - The sketch describes Adam as enjoying solving puzzles and being good at understanding abstract concepts, traits which are very relevant to computer science.
+   - Therefore, \( P(E|computer\ science) = 0.7 \).
+
+Finally, since we might assume there are many fields not listed that could also be considered, let's use an approximate baseline \( P(E|\neg H) \):
+
+- \( P(E|\neg H_{business\ administration}) = 0.5 \)
+   - This represents the likelihood that Adam’s personality fits a field other than business administration.
+- \( P(E|\neg H_{computer\ science}) = 0.4 \)
+   - This represents the likelihood that Adam’s personality fits a field other than computer science.
+
+Using Bayes' Rule:
+\[ P(business\ administration|E) = \frac{P(E|business\ administration) \cdot P(business\ administration)}{P(E)} \]
+\[ P(computer\ science|E) = \frac{P(E|computer\ science) \cdot P(computer\ science)}{P(E)} \]
+
+Since \( P(E) \) is the same for each field, we can compare the numerators for ranking purposes:
+
+### Business Administration:
+\[ Numerator = P(E|business\ administration) \cdot P(business\ administration) = 0.2 \cdot 0.2 = 0.04 \]
+
+### Computer Science:
+\[ Numerator = P(E|computer\ science) \cdot P(computer\ science) = 0.7 \cdot 0.3 = 0.21 \]
+
+Given these results, we can infer that \( P(business\ administration|E) \) and \( P(computer\ science|E) \) should be comparable in relative terms:
+
+### Final Estimates:
+\[
+\{
+  "business administration": \frac{0.04}{0.04+0.21} \approx 0.16,
+  "computer science": \frac{0.21}{0.04+0.21} \approx 0.84
+\}
+\]
+
+{
+  "business administration": "0.16",
+  "computer science": "0.84"
+}

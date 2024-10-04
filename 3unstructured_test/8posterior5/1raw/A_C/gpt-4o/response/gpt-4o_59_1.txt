@@ -1,0 +1,60 @@
+To compute the probability \( P(H|E) \), we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing two specific fields, we need to estimate the various probabilities involved. Let's break this down for each field:
+
+### Agricultural and Veterinary Science
+
+#### 1. \( P(H) \): Prior probability that any graduate student is enrolled in Agricultural and Veterinary Science.
+- Agriculture and Veterinary Science is not one of the most common fields but it is still a significant field. Let's assume \( P(H_{\text{AVS}}) \) is 0.05.
+
+#### 2. \( P(E|H) \): Probability of observing Adam's personality sketch given that he is in Agricultural and Veterinary Science.
+- Adam's interests in nature, plants, animals, and a strong understanding and appreciation for hard work align well with this field. Let's estimate \( P(E|H_{\text{AVS}}) \) as 0.8.
+
+#### 3. \( P(E|\neg H) \): Probability of observing Adam's personality sketch given that he is not in Agricultural and Veterinary Science.
+- This includes all other fields. The personality traits such as empathy, love for animals, curiosity about nature, etc., are less common across all disciplines but still possible in some. Let's assume \( P(E|\neg H_{\text{AVS}}) \) as 0.2.
+
+### Computer Science
+
+#### 1. \( P(H) \): Prior probability that any graduate student is enrolled in Computer Science.
+- Computer Science is a very common field. Let's assume \( P(H_{\text{CS}}) \) is 0.15.
+
+#### 2. \( P(E|H) \): Probability of observing Adam's personality sketch given that he is in Computer Science.
+- While Adam's intelligence and understanding of abstract concepts fit Computer Science, his interest in nature, plants, animals and empathy are less typical for the field. Let's estimate \( P(E|H_{\text{CS}}) \) as 0.3.
+
+#### 3. \( P(E|\neg H) \): Probability of observing Adam's personality sketch given that he is not in Computer Science.
+- This includes all other fields. Given the generality of the traits, let's assume \( P(E|\neg H_{\text{CS}}) \) as 0.2.
+
+### Calculations
+
+Let's assume \( P(E) \) is approximately the same for both fields since we are using relative probabilities and not the precise values.
+
+\[ P(E) \approx P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+For Agricultural and Veterinary Science:
+\[ P(E)_{\text{AVS}} \approx P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|\neg H_{\text{AVS}}) \cdot (1 - P(H_{\text{AVS}})) \]
+\[ = (0.8 \cdot 0.05) + (0.2 \cdot 0.95) \]
+\[ \approx 0.04 + 0.19 = 0.23 \]
+
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)_{\text{AVS}}} \]
+\[ = \frac{0.8 \cdot 0.05}{0.23} \approx \frac{0.04}{0.23} \approx 0.174 \]
+
+For Computer Science:
+\[ P(E)_{\text{CS}} \approx P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}})) \]
+\[ = (0.3 \cdot 0.15) + (0.2 \cdot 0.85) \]
+\[ \approx 0.045 + 0.17 = 0.215 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)_{\text{CS}}} \]
+\[ = \frac{0.3 \cdot 0.15}{0.215} \approx \frac{0.045}{0.215} \approx 0.209 \]
+
+Based on these calculations:
+
+```json
+{
+  "agricultural and veterinary science": 0.174,
+  "computer science": 0.209
+}
+```
+
+The probabilities suggest that given Adam's personality traits, it is slightly more likely that he is enrolled in Computer Science than in Agricultural and Veterinary Science. However, both probabilities are relatively low, indicating that other fields might be more suitable to match Adam's personality traits.

@@ -1,0 +1,56 @@
+To solve this, we need to follow Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll go through the prior probabilities \( P(H) \) for each field, the likelihood \( P(E|H) \), and the likelihood of the evidence given not-H \( P(E|\neg H) \). Finally, we'll use these to find the posterior probability \( P(H|E) \).
+
+### Computer Science
+Let's assign the prior probabilities and likelihoods:
+
+1. **Prior Probability \(P(H)\)**:
+   - Computer Science is a common graduate field. Let's assume a moderate prior probability: \( P(H_{\text{CS}}) = 0.2 \).
+
+2. **Likelihood \(P(E|H)\)**:
+   - Given Adam's skills (understanding abstract concepts, high intelligence, puzzles), it seems likely he fits a Computer Science student profile: \( P(E|H_{\text{CS}}) = 0.7 \).
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - How likely is someone with Adam's characteristics not in Computer Science to have his personality sketch? There are other fields like biology, psychology, etc., that also fit: \( P(E|\neg H_{\text{CS}}) = 0.3 \).
+
+Combining these:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+Since we don't have exact values for \( P(E) \) and need it only for comparing relative probabilities, we'll use the ratio approach:
+\[ \frac{P(H_{\text{CS}}|E)}{P(\neg H_{\text{CS}}|E)} = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}})} \]
+\[ \frac{P(H_{\text{CS}}|E)}{P(\neg H_{\text{CS}}|E)} = \frac{0.7 \cdot 0.2}{0.3 \cdot 0.8} \]
+
+\[ P(H_{\text{CS}}|E) \approx \frac{0.14}{0.24} \approx 0.583 \]
+
+### Business Administration 
+Next, we evaluate for Business Administration:
+
+1. **Prior Probability \(P(H)\)**:
+   - Business Administration is common, but Adam’s traits don't as strongly align with it: \( P(H_{\text{BA}}) = 0.15 \).
+
+2. **Likelihood \(P(E|H)\)**:
+   - Given Adam's traits, it’s less likely he’s in Business Administration (traditionally less abstract/problem-solving focused): \( P(E|H_{\text{BA}}) = 0.2 \).
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - Similar to before, the likelihood for not being in Business Administration: \( P(E|\neg H_{\text{BA}}) = 0.4 \).
+
+Combining these:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+
+Applying the ratio approach for comparison:
+\[ \frac{P(H_{\text{BA}}|E)}{P(\neg H_{\text{BA}}|E)} = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})} \]
+\[ \frac{P(H_{\text{BA}}|E)}{P(\neg H_{\text{BA}}|E)} = \frac{0.2 \cdot 0.15}{0.4 \cdot 0.85} \]
+
+\[ P(H_{\text{BA}}|E) \approx \frac{0.03}{0.34} \approx 0.088 \]
+
+### Final Answer:
+Given these posterior probabilities (normalized for comparison):
+```json
+{
+  "computer science": 0.583,
+  "business administration": 0.088
+}
+```

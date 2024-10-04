@@ -1,0 +1,48 @@
+To compute the probabilities \( P(H|E) \) for each hypothesis (H) given the evidence (E), we will apply Bayes' rule, which is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E) \) is the probability of the evidence.
+- \( P(\neg H) \) is the probability of not being in the hypothesis field.
+
+Let's proceed by estimating these values for each of the two fields, considering the personality sketch of Adam:
+
+### Business Administration
+- \( P(H) \): The prior probability that Adam was a graduate student in business administration without considering the evidence. This is a broad field and popular among many students. Let's assume a general value of 0.2.
+- \( P(E|H) \): The likelihood that someone interested in nature, puzzles, and animals with high intelligence, empathy, and appreciation for hard work would be in business administration. This seems less aligned with the typical traits for business administration; let's assume a lower value, such as 0.2.
+- \( P(E|\neg H) \): The probability that the observed personality traits would be seen in someone not in business administration. Given the general nature of these traits, let's set this to around 0.4.
+
+### Computer Science
+- \( P(H) \): The prior probability that Adam was a graduate student in computer science. Given the general popularity of the field and the alignment of some traits like intelligence and problem-solving skills, let’s assume a value of 0.15.
+- \( P(E|H) \): The likelihood that someone who is intelligent, enjoys solving puzzles, and has empathy for animals would be in computer science. The personality traits align well with typical computer science students. Let's set this to around 0.6.
+- \( P(E|\neg H) \): The probability that these traits are seen in someone not in computer science. Given the specific alignment with the skills required in the field, let's set this value around 0.3.
+
+Now let's compute the posterior probabilities using Bayes' rule. Note that we will not actually calculate \( P(E) \) as it will cancel out in the normalization:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For Business Administration:
+\[ P(H|E) \propto 0.2 \cdot 0.2 = 0.04 \]
+
+For Computer Science:
+\[ P(H|E) \propto 0.6 \cdot 0.15 = 0.09 \]
+
+Consider these unnormalized values, we need to normalize them to sum up to 1 across considered hypotheses (assuming equal likelihood for fields not specified here).
+
+Normalization factor:
+\[ 0.04 + 0.09 = 0.13 \]
+
+Normalized posterior probabilities:
+
+\[ P(\text{Business Administration}|E) = \frac{0.04}{0.13} \approx 0.31 \]
+\[ P(\text{Computer Science}|E) = \frac{0.09}{0.13} \approx 0.69 \]
+
+This simplification yields:
+
+{
+  "business administration": 0.31,
+  "computer science": 0.69
+}

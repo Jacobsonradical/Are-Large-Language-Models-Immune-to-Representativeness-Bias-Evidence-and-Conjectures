@@ -1,0 +1,65 @@
+To compute \( P(H|E) \) for each field using Bayes' Theorem, we need to estimate:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that specific field.
+2. \( P(E|H) \): The likelihood that Adam fits the personality sketch given he is in that field.
+3. \( P(E|\neg H) \): The likelihood that Adam fits the personality sketch given he is not in that field.
+
+Let's start with some reasonable assumptions based on the given personality sketch and known distributions of graduate students across fields.
+
+### Computer Science
+
+1. **\( P(H_{CS}) \), prior probability for computer science**:
+    - Assume a moderate number of students are enrolled in computer science programs.
+    - Let’s estimate \( P(H_{CS}) = 0.2 \).
+
+2. **\( P(E|H_{CS}) \), likelihood of Adam fitting the sketch in computer science**:
+    - Computer Science students often require high intelligence and abstract thinking skills.
+    - However, traits such as a deep love for nature and animals, while not contradictory, are less central.
+    - Let's estimate \( P(E|H_{CS}) = 0.3 \).
+
+3. **\( P(E|\neg H_{CS}) \), likelihood of Adam fitting the sketch in other fields**:
+    - Consider that Adam’s traits might align well with fields like biology, environmental science, or psychology.
+    - Let's estimate \( P(E|\neg H_{CS}) = 0.2 \).
+
+Using Bayes' rule:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+
+\[ P(E) = (0.3 \cdot 0.2) + (0.2 \cdot 0.8) = 0.06 + 0.16 = 0.22 \]
+
+Therefore:
+\[ P(H_{CS}|E) = \frac{0.3 \cdot 0.2}{0.22} \approx 0.2727 \]
+
+### Business Administration
+
+1. **\( P(H_{BA}) \), prior probability for business administration**:
+    - Assume a moderate number of students are enrolled in business administration programs.
+    - Let’s estimate \( P(H_{BA}) = 0.15 \).
+
+2. **\( P(E|H_{BA}) \), likelihood of Adam fitting the sketch in business administration**:
+    - Business Administration students typically require different traits (leadership, business acumen) that are not central to Adam's description.
+    - Let’s estimate \( P(E|H_{BA}) = 0.15 \).
+
+3. **\( P(E|\neg H_{BA}) \), likelihood of Adam fitting the sketch in other fields**:
+    - Similar to before, we consider Adam's traits aligning well with sciences rather than business.
+    - Let’s estimate \( P(E|\neg H_{BA}) = 0.22 \).
+
+Using Bayes' rule:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+
+\[ P(E) = (0.15 \cdot 0.15) + (0.22 \cdot 0.85) = 0.0225 + 0.187 = 0.2095 \]
+
+Therefore:
+\[ P(H_{BA}|E) = \frac{0.15 \cdot 0.15}{0.2095} \approx 0.107 \]
+
+### Results
+
+```json
+{
+  "computer science": 0.2727,
+  "business administration": 0.107
+}
+```

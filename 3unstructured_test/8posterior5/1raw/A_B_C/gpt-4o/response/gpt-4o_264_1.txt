@@ -1,0 +1,57 @@
+To calculate the posterior probability \( P(H|E) \) for each given field through Bayes' Rule, we need the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E) \).
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+The marginal likelihood \( P(E) \) is the same for all hypotheses and can be considered a normalizing constant, but we can compare relative likelihoods without explicitly computing it:
+
+\[ P(E) = P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) + \ldots \]
+
+### Assumptions:
+- **Priors (P(H))**: Making an assumption about the distribution of graduate fields:
+  - Business Administration: \( P(H) \approx 0.3 \)
+  - Computer Science: \( P(H) \approx 0.4 \)
+  - Agricultural and Veterinary Science: \( P(H) \approx 0.1 \)
+
+- **Likelihoods (P(E|H))**:
+  - **Business Administration**: Low likelihood considering Adam's interests and attributes.
+    - \( P(E|H_{\text{business}}) \approx 0.1 \)
+  - **Computer Science**: Medium likelihood due to high intelligence and abstract thinking.
+    - \( P(E|H_{\text{CS}}) \approx 0.5 \)
+  - **Agricultural and Veterinary Science**: High likelihood given his curiosity about nature, love for animals, and empathy.
+    - \( P(E|H_{\text{agri}}) \approx 0.8 \)
+
+- **Negation Likelihoods (P(E|¬H))**: Assumed based on contrasting fields not fitting his profile.
+
+Now we calculate \( P(H|E) \):
+
+### Business Administration
+\[ P(H_{\text{business}}|E) = \frac{0.1 \cdot 0.3}{P(E)} \]
+\[ P(H_{\text{business}}|E) \propto 0.03 \]
+
+### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{0.5 \cdot 0.4}{P(E)} \]
+\[ P(H_{\text{CS}}|E) \propto 0.2 \]
+
+### Agricultural and Veterinary Science
+\[ P(H_{\text{agri}}|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+\[ P(H_{\text{agri}}|E) \propto 0.08 \]
+
+To standardize and find relative probabilities, we normalize these values:
+
+Sum of relative probabilities: \( 0.03 + 0.2 + 0.08 = 0.31 \)
+
+Normalized probabilities:
+- Business Administration: \( \frac{0.03}{0.31} \approx 0.097 \)
+- Computer Science: \( \frac{0.2}{0.31} \approx 0.645 \)
+- Agricultural and Veterinary Science: \( \frac{0.08}{0.31} \approx 0.258 \)
+
+## Answer:
+
+```json
+{
+  "business administration": 0.097,
+  "computer science": 0.645,
+  "agricultural and veterinary science": 0.258
+}
+```

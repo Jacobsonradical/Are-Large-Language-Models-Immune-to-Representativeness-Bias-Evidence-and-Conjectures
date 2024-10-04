@@ -1,0 +1,100 @@
+To estimate the probabilities, we'll first need to make some reasonable assumptions based on the given personality sketch and our understanding of typical enrollment numbers in these fields. Let's break it down step by step.
+
+**Prior Probabilities (P(H)):**
+We'll assume general popularity of each field among graduate students as follows:
+- Agricultural and Veterinary Science: 0.05 
+- Computer Science: 0.15
+- Business Administration: 0.20
+
+These are generic estimates and not precise figures.
+
+**Likelihoods (P(E|H)):**
+Now we address how well the personality sketch fits each field:
+
+- Agricultural and Veterinary Science:
+  - Adam's love for nature, plants, and animals fits very well.
+  - P(E|H) ≈ 0.9
+  
+- Computer Science:
+  - Adam's interest in solving puzzles and high intelligence fits, but his love for nature and animals is not as directly relevant.
+  - P(E|H) ≈ 0.3
+  
+- Business Administration:
+  - Adam's empathy and appreciation for hard work fit to some extent, but his love of nature, animals, and solving puzzles doesn't align as closely.
+  - P(E|H) ≈ 0.2
+
+**Complementary Likelihoods (P(E|¬H)):**
+For these, we need to consider how likely the personality sketch is if Adam was *not* in each field:
+
+- Agricultural and Veterinary Science:
+  - If not in this field, it would be less likely for someone to share Adam's specific traits about nature and animals.
+  - P(E|¬H) ≈ 0.2
+
+- Computer Science:
+  - If not in this field, the traits about nature become more prominent.
+  - P(E|¬H) ≈ 0.6
+    
+- Business Administration:
+  - The traits fit less well than the general case, so they might align more ambiguously elsewhere.
+  - P(E|¬H) ≈ 0.7
+
+**Applying Bayes' Rule:**
+
+Let's compute \( P(H|E) \) using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) can be computed as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+However, since we aren't given the exact distribution, we will proceed with direct proportional comparison after determining likelihoods.
+
+For simplicity, we can normalize values to see relative probabilities:
+
+### Agricultural and Veterinary Science:
+- \( P(E|H) = 0.9 \)
+- \( P(H) = 0.05 \)
+- \( P(E|¬H) = 0.2 \)
+
+\[ P(H|E) \propto 0.9 \times 0.05 = 0.045 \]
+
+### Computer Science:
+- \( P(E|H) = 0.3 \)
+- \( P(H) = 0.15 \)
+- \( P(E|¬H) = 0.6 \)
+
+\[ P(H|E) \propto 0.3 \times 0.15 = 0.045 \]
+
+### Business Administration:
+- \( P(E|H) = 0.2 \)
+- \( P(H) = 0.2 \)
+- \( P(E|¬H) = 0.7 \)
+
+\[ P(H|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+These values need to be normalized to get relative probabilities:
+
+\[ 
+\text{Sum of all } P(H|E) = 0.045 + 0.045 + 0.04 = 0.13 
+\]
+
+\[
+\begin{align*}
+\text{Normalized for Agricultural and Veterinary Science} &= \frac{0.045}{0.13} \approx 0.346 \\
+\text{Normalized for Computer Science} &= \frac{0.045}{0.13} \approx 0.346 \\
+\text{Normalized for Business Administration} &= \frac{0.04}{0.13} \approx 0.308 \\
+\end{align*}
+\]
+
+Here are estimated probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.346,
+  "computer science": 0.346,
+  "business administration": 0.308
+}
+```
+
+These are approximate values and meant to give a sense of the relative likelihoods based on the information provided.

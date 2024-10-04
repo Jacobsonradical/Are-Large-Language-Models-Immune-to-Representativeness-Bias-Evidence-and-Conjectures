@@ -1,0 +1,61 @@
+To estimate \( P(H|E) \) (the probability that Adam was enrolled in a given field, knowing his personality sketch), I would use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in that specific field.
+- \( P(E|H) \) is the probability of Adam having his personality sketch given that he is enrolled in that specific field.
+- \( P(E|\neg H) \) is the probability of Adam having his personality sketch given that he is not enrolled in that specific field.
+- \( P(E) \) is the total probability of Adam having his personality sketch.
+
+Since we're comparing two fields and assuming that other fields could also be possible, we can ignore \( P(E) \) as it will be constant for both cases.
+
+### Assumptions:
+1. **Prior Probability \( P(H) \)**:
+   - Since business administration and agricultural and veterinary science are just two of many possible fields, let's assume \( P(H) \) for both fields is representative of typical graduate enrollments:
+     - Business administration is a relatively common graduate field.
+     - Agricultural and veterinary science is less common overall but more distinctly matched with Adam's stated interests.
+
+   For simplicity’s sake, I will set:
+   \[ P(H_{\text{business administration}}) = 0.1 \]
+   \[ P(H_{\text{agricultural and veterinary science}}) = 0.05 \]
+
+2. **Conditional Probability \( P(E|H) \)**:
+   - Given the personality sketch, it seems much more likely that Adam would be in agricultural and veterinary science than in business administration. Let's estimate:
+   \[ P(E|H_{\text{business administration}}) = 0.1 \]
+   \[ P(E|H_{\text{agricultural and veterinary science}}) = 0.9 \]
+
+### Calculation using Bayes' Rule:
+
+For business administration:
+\[ P(H_{\text{business administration}}|E) = \frac{0.1 \times 0.1}{P(E)} \]
+
+For agricultural and veterinary science:
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.9 \times 0.05}{P(E)} \]
+
+Since we are comparing relative probabilities and \( P(E) \) is the same for both, we can use the numerator to compare:
+
+\[
+\text{Normalize each against the total probability: }
+\]
+
+\[
+P(E) = (0.1 \times 0.1) + (0.9 \times 0.05) = 0.01 + 0.045 = 0.055
+\]
+
+\[
+P(H_{\text{business administration}}|E) = \frac{0.01}{0.055} \approx 0.18
+\]
+
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.045}{0.055} \approx 0.82
+\]
+
+Thus:
+
+```json
+{
+  "business administration": 0.18,
+  "agricultural and veterinary science": 0.82
+}
+```

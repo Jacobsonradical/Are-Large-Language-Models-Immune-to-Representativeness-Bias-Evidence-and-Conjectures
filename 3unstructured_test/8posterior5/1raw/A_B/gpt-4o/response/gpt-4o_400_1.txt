@@ -1,0 +1,49 @@
+To apply Bayes' theorem for each field, let us firstly denote:
+
+- \( P(H_{\text{agri-vet}}) \): Probability that Adam is enrolled in agricultural and veterinary science.
+- \( P(E|H_{\text{agri-vet}}) \): Probability of observing E given that Adam is enrolled in agricultural and veterinary science.
+- \( P(E|\neg H_{\text{agri-vet}}) \): Probability of observing E given that Adam is not enrolled in agricultural and veterinary science.
+- \( P(H_{\text{bus-admin}}) \): Probability that Adam is enrolled in business administration.
+- \( P(E|H_{\text{bus-admin}}) \): Probability of observing E given that Adam is enrolled in business administration.
+- \( P(E|\neg H_{\text{bus-admin}}) \): Probability of observing E given that Adam is not enrolled in business administration.
+
+### Judging the probabilities
+- **General Probability Prior (P(H)):**
+  - Given that there are numerous fields of study, let's assume the prior probability is equal for each field: Assume \( P(H_{\text{agri-vet}}) = 0.1 \) and \( P(H_{\text{bus-admin}}) = 0.1 \).
+
+- **Evidence Probability:**
+  - \( P(E|H_{\text{agri-vet}}) \): The personality sketch fits well with agricultural and veterinary science due to his curiosity about nature, love for animals, and empathy. Hence, \( P(E|H_{\text{agri-vet}}) \) might be high, say \( 0.8 \).
+  - \( P(E|H_{\text{bus-admin}}) \): The personality sketch does not align strongly with the typical traits associated with business administration. Hence, \( P(E|H_{\text{bus-admin}}) \) may be low, say \( 0.2 \).
+
+- **Complementary Evidence Probability:**
+  - \( P(E|\neg H_{\text{agri-vet}}) \): Probability of E given that Adam is not in agricultural and veterinary science. Considering there's a variety of other fields, let's assume this as \( 0.2 \).
+  - \( P(E|\neg H_{\text{bus-admin}}) \): Probability of E given that Adam is not in business administration might be higher considering the wide distribution of non-business-related fields fitting better, say, \( 0.8 \).
+
+### Applying Bayes' Rule
+Bayes' Theorem: 
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where,
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)(1 - P(H)) \]
+
+### Calculations:
+1. For agricultural and veterinary science: 
+
+\[ P(E) = (0.8 \times 0.1) + (0.2 \times 0.9) = 0.08 + 0.18 = 0.26 \]
+
+\[ P(H_{\text{agri-vet}}|E) = \frac{0.8 \times 0.1}{0.26} \approx 0.3077 \]
+
+2. For business administration:
+
+\[ P(E) = (0.2 \times 0.1) + (0.8 \times 0.9) = 0.02 + 0.72 = 0.74 \]
+
+\[ P(H_{\text{bus-admin}}|E) = \frac{0.2 \times 0.1}{0.74} \approx 0.027 \]
+
+### Final Answers
+```json
+{
+  "agricultural and veterinary science": 0.3077,
+  "business administration": 0.027
+}
+```

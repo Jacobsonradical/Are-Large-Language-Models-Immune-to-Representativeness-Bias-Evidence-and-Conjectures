@@ -1,0 +1,67 @@
+In order to determine the probabilities P(H|E) for each field under consideration, we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, for simplicity, instead of determining the exact value of P(E), we'll focus on the relative likelihoods. 
+
+Let's denote:
+- \( P(H_{BA}) \) as the prior probability that Adam was enrolled in business administration.
+- \( P(H_{AVS}) \) as the prior probability that Adam was enrolled in agricultural and veterinary science.
+- \( P(E|H_{BA}) \) as the probability of observing Adam's personality sketch given he was enrolled in business administration.
+- \( P(E|H_{AVS}) \) as the probability of observing Adam's personality sketch given he was enrolled in agricultural and veterinary science.
+- \( P(E|\neg H_{BA}) \) as the probability of observing Adam's personality sketch given he was not enrolled in business administration.
+- \( P(E|\neg H_{AVS}) \) as the probability of observing Adam's personality sketch given he was not enrolled in agricultural and veterinary science.
+
+### Business Administration
+
+1. **Prior Probability \(P(H_{BA})\):**
+   - Let's assume \( P(H_{BA}) = 0.10 \) (an arbitrary but reasonable prior assuming a modest probability).
+
+2. **Likelihood \(P(E|H_{BA})\):**
+   - Adam's traits such as empathy, love for nature, animals, and solving puzzles do not strongly correlate with typical business administration profiles.
+   - Let's assume \( P(E|H_{BA}) = 0.05 \).
+
+3. **Complementary Likelihood \(P(E|\neg H_{BA})\):**
+   - Given the general nature of empathy and love for animals, it’s more likely outside business administration.
+   - Let's assume \( P(E|\neg H_{BA}) = 0.20 \).
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability \(P(H_{AVS})\):**
+   - Let's assume \( P(H_{AVS}) = 0.05 \) (an arbitrary but reasonable prior indicating a lower probability based on the general population).
+
+2. **Likelihood \(P(E|H_{AVS})\):**
+   - Adam's traits strongly align with interests in plants, animals, and empathy, correlating well with agricultural and veterinary science profiles.
+   - Let's assume \( P(E|H_{AVS}) = 0.85 \).
+
+3. **Complementary Likelihood \(P(E|\neg H_{AVS})\):**
+   - Given Adam's profile, his characteristics might slightly align outside this field, though less strongly.
+   - Let's assume \( P(E|\neg H_{AVS}) = 0.10 \).
+
+### Bayes' Rule Application
+
+We only need the numerators for comparison as we are interested in relative probabilities:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+
+Calculate these:
+
+\[ P(H_{BA}|E) \propto 0.05 \cdot 0.10 = 0.005 \]
+\[ P(H_{AVS}|E) \propto 0.85 \cdot 0.05 = 0.0425 \]
+
+Normalize these values to sum to 1:
+
+\[ \text{Normalization factor} = 0.005 + 0.0425 = 0.0475 \]
+
+Thus,
+\[ P(H_{BA}|E) = \frac{0.005}{0.0475} \approx 0.105 \]
+\[ P(H_{AVS}|E) = \frac{0.0425}{0.0475} \approx 0.895 \]
+
+So, the probabilities are:
+
+```json
+{
+  "business administration": 0.105,
+  "agricultural and veterinary science": 0.895
+}
+```

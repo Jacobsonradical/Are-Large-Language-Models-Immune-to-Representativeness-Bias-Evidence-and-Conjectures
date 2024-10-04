@@ -1,0 +1,41 @@
+Sure, I'll start by making some educated guesses about the probabilities based on the information in the personality sketch and common graduate fields of study.
+
+1. **Business Administration (H1)**:
+   - *P(H1)*: The prior probability that a randomly chosen graduate student is enrolled in business administration. Let's assume this to be around 0.2 (20%) since business administration is a popular field.
+   - *P(E|H1)*: The probability of observing Adam's personality traits given that he is enrolled in business administration. The sketch describes Adam as having a strong love for nature, animals, and abstract thinking, which isn't necessarily aligned with business administration. Let's assume P(E|H1) to be low, around 0.1 (10%).
+   - *P(E|\neg H1)*: The probability of observing Adam's personality traits given that he is not enrolled in business administration. Considering many other fields could align better with his traits, let's assume this to be higher, around 0.5 (50%).
+
+2. **Computer Science (H2)**:
+   - *P(H2)*: The prior probability that a randomly chosen graduate student is enrolled in computer science. Let's assume this to be around 0.15 (15%) as computer science is a common field but slightly less so than business administration in terms of sheer numbers.
+   - *P(E|H2)*: The probability of observing Adam's personality traits given that he is enrolled in computer science. His interest in puzzles, high intelligence, and abstract thinking fits well with computer science, though his love for nature and animals might not as much. Let's assume P(E|H2) to be moderate, around 0.4 (40%).
+   - *P(E|\neg H2)*: The probability of observing Adam's personality traits given that he is not enrolled in computer science. This would be similar to before, around 0.5 (50%).
+
+Using Bayes' Rule, we compute the posterior probability \(P(H|E)\):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We know \(P(E)\) is a normalizing factor that ensures total probability sums to 1, but since we are only comparing two fields, it will cancel out as the constant of proportionality:
+
+For **Business Administration**:
+
+\[ P(H1|E) \propto P(E|H1) \cdot P(H1) \]
+\[ P(H1|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+For **Computer Science**:
+
+\[ P(H2|E) \propto P(E|H2) \cdot P(H2) \]
+\[ P(H2|E) \propto 0.4 \times 0.15 = 0.06 \]
+
+To compute the exact probabilities, we need to normalize these values:
+
+\[ P(H1|E) = \frac{0.02}{0.02 + 0.06} = \frac{0.02}{0.08} = 0.25 \]
+\[ P(H2|E) = \frac{0.06}{0.02 + 0.06} = \frac{0.06}{0.08} = 0.75 \]
+
+So, we find:
+
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+
+These probabilities indicate that based on Adam's personality sketch and the given assumptions, it is more likely that he was enrolled in a computer science graduate program compared to business administration.

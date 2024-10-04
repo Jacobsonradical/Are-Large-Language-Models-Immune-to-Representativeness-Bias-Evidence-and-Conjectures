@@ -1,0 +1,48 @@
+Sure, let's reason through the probabilities and then apply Bayes' rule to compute the values of P(H|E) for both fields.
+
+### Definitions and Probabilities:
+- **P(H):** The prior probability that Adam was enrolled in the given field.
+- **P(E|H):** The probability of the personality sketch given that Adam was enrolled in the field.
+- **P(E|\neg H):** The probability of the personality sketch given that Adam was not enrolled in the field.
+- **P(H|E):** The posterior probability that Adam was enrolled in the field given the personality sketch.
+
+### Prior Probabilities (P(H)):
+- **Agricultural and veterinary science:** Let's assume that the prior probability, P(H_agriculture), is 0.05 (agriculture and veterinary science is a relatively specialized field).
+- **Computer science:** Given the prevalence of computer science, we can assume the prior probability, P(H_CS), is 0.15.
+
+### Likelihoods (P(E|H) and P(E|\neg H)):
+- **P(E|H_agriculture):** Given Adam's characteristics, it's highly probable that his traits match someone in agricultural and veterinary science. Let's assign this a high probability, say 0.8.
+- **P(E|H_CS):** Adam's traits align less with a typical computer science graduate, where interests might trend more toward abstract and technical fields rather than nature and animals. Let's assign this a probability of 0.2.
+
+- **P(E|\neg H_agriculture):** This is the probability of the personality sketch given that Adam was not enrolled in agriculture and veterinary science. Given the diversity of fields, let's assign this a moderate probability, say 0.4.
+- **P(E|\neg H_CS):** This is the probability of the personality sketch given that Adam was not enrolled in computer science. Let's assign this a higher probability, say 0.6, because his personality traits are not very typical for computer science, making it common to find such traits more in non-computer science fields.
+
+### Computing Posterior Probabilities (P(H|E)):
+Using Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \(P(E)\) is the total probability of E and can be computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+#### For Agricultural and veterinary science:
+\[
+P(E) = (0.8 \times 0.05) + (0.4 \times 0.95) = 0.04 + 0.38 = 0.42
+\]
+\[
+P(H_agriculture|E) = \frac{0.8 \times 0.05}{0.42} \approx 0.095
+\]
+
+#### For Computer Science:
+\[
+P(E) = (0.2 \times 0.15) + (0.6 \times 0.85) = 0.03 + 0.51 = 0.54
+\]
+\[
+P(H_CS|E) = \frac{0.2 \times 0.15}{0.54} \approx 0.056
+\]
+
+So we have:
+
+{
+  "agricultural and veterinary science": 0.095,
+  "computer science": 0.056
+}

@@ -1,0 +1,55 @@
+To apply Bayes' Rule, we need to compute the posterior probability \(P(H|E)\), which represents the probability that Adam is enrolled in a specific field given his personality sketch \(E\). Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We also need to make educated guesses for the following probabilities:
+- \( P(H) \): The prior probability that Adam is enrolled in a particular field.
+- \( P(E|H) \): The likelihood of observing the personality sketch if Adam is enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch if Adam is not enrolled in that field.
+  
+\( P(E) \) is the overall probability of observing the personality sketch, which can be computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+However, for simplicity, given that \( P(\neg H) \) covers all other fields not specified as computer science or business administration, we will focus on comparing the relative probabilities.
+
+### Hypotheses:
+1. Adam is enrolled in *computer science*.
+2. Adam is enrolled in *business administration*.
+
+### Assumptions:
+Let us assume:
+- \(P(H)\) is relatively low for both fields as they are specific options.
+- Given his characteristics, let us assume that the traits fit computer science more closely than business administration based on traits like high intelligence, problem-solving interest, appreciation of hard work, and understanding abstract concepts.
+
+#### Computer Science:
+- \( P(H_\text{cs}) \approx 0.1 \): Low prior probability.
+- \( P(E|H_\text{cs}) \approx 0.7 \): Likelihood is relatively high given his interest in solving puzzles, high intelligence, and appreciation for abstract concepts.
+- \( P(E|\neg H_\text{cs}) \approx 0.3 \): Lower than \(P(E|H_\text{cs})\) but not negligible.
+
+\[ P(H_\text{cs}|E) = \frac{P(E|H_\text{cs}) \cdot P(H_\text{cs})}{P(E)} \]
+
+#### Business Administration:
+- \( P(H_\text{ba}) \approx 0.1 \): Low prior probability.
+- \( P(E|H_\text{ba}) \approx 0.2 \): Likelihood is relatively low because business administration typically does not align as closely with Adam's profile.
+- \( P(E|\neg H_\text{ba}) \approx 0.5 \): Fairly high because the profile can fit many other fields more than BA.
+
+\[ P(H_\text{ba}|E) = \frac{P(E|H_\text{ba}) \cdot P(H_\text{ba})}{P(E)} \]
+
+### Estimations:
+Given our assumptions, computing the exact \(P(E)\) is complex without a denominator, but we can still compare relative probabilities based on the numerators:
+
+#### Results:
+- For computer science:
+\[ P(H_\text{cs}|E) \propto 0.7 \times 0.1 = 0.07 \]
+
+- For business administration:
+\[ P(H_\text{ba}|E) \propto 0.2 \times 0.1 = 0.02 \]
+
+Since these values aren't intended to perfectly add up but rather to give a comparative sense:
+
+```json
+{
+  "computer science": 0.7,
+  "business administration": 0.2
+}
+```

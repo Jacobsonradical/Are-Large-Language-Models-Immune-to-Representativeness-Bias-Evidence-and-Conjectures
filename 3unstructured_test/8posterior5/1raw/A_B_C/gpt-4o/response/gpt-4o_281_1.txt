@@ -1,0 +1,65 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in a specific field given the personality sketch \( E \), we'll use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+First, we need to provide reasonable estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field given Adam's personality traits.
+
+**Assumptions:**
+- \( P(H) \) is the prior probability that Adam was in a particular field.
+- \( P(E|H) \) is the probability that Adam's personality sketch fits if he was in that field.
+- \( P(E|\neg H) \) is the probability that Adam's personality sketch fits if he was not in that field.
+
+**Estimations:**
+
+1. **Business Administration**
+   - \( P(H_{BA}) \approx 0.2 \): Business administration is a fairly common field.
+   - Given his traits, \( P(E|H_{BA}) \approx 0.2 \): The sketch partially fits as empathy and intelligence can be relevant, but curiosity about nature and love for animals is less pertinent.
+   - \( P(E|\neg H_{BA}) \approx 0.8 \): These traits are fairly common, so they are likely outside this field too.
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H_{AVS}) \approx 0.05 \): This field is less common but relevant to nature and animals.
+   - Given his traits, \( P(E|H_{AVS}) \approx 0.9 \): Strong fit given his curiosity about nature, plants, empathy, and love for animals.
+   - \( P(E|\neg H_{AVS}) \approx 0.3 \): These traits are less common outside this field but not rare, especially empathy and intelligence.
+
+3. **Computer Science**
+   - \( P(H_{CS}) \approx 0.2 \): Computer science is a common field.
+   - Given his traits, \( P(E|H_{CS}) \approx 0.4 \): The fit is moderate given his intelligence and puzzle-solving, but not much on nature and animals.
+   - \( P(E|\neg H_{CS}) \approx 0.6 \): These traits can be found outside this field as well, though not predominately.
+
+Now, let's calculate \( P(H|E) \):
+
+**Normalization factor**:
+\[ P(E) = P(E|H_{BA})P(H_{BA}) + P(E|\neg H_{BA})(1 - P(H_{BA})) \]
+
+We need to calculate this for each hypothesis.
+
+1. **Business Administration**
+
+\[ P(E) = (0.2 \times 0.2) + (0.8 \times 0.8 \times 0.333 + 0.7 \times 0.3) \]
+\[ \approx 0.04 + 0.112 + 0.21 \approx 0.362 \]
+
+\[ P(H_{BA}|E) = \frac{0.2 \times 0.2}{0.362} \approx 0.11 \]
+
+2. **Agricultural and Veterinary Science**
+
+\[ P(E) = (0.9 \times 0.05) + (0.3 \times 0.95) \]
+\[ \approx 0.045 + 0.285 \approx 0.33 \]
+
+\[ P(H_{AVS}|E) = \frac{0.9 \times 0.05}{0.33} \approx  0.136 \]
+
+3. **Computer Science**
+
+\[ P(E) = (0.4 \times 0.2) + (0.6 \times 0.8) \]
+\[ \approx 0.08 + 0.48 \approx 0.56 \]
+
+\[ P(H_{CS}|E) = \frac{0.4 \times 0.2}{0.56} \approx 0.14 \]
+
+Combining these estimates, we can say:
+
+```json
+{
+    "business administration": 0.11,
+    "agricultural and veterinary science": 0.136,
+    "computer science": 0.14
+}
+```

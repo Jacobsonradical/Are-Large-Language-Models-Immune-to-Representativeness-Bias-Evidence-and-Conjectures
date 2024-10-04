@@ -1,0 +1,82 @@
+To apply Bayes' rule to find the posterior probability \( P(H|E) \) for each of the two fields given the personality sketch \( E \), we need to consider the following components for each field:
+
+- \( P(H) \): The prior probability of Adam being enrolled in that field.
+- \( P(E|H) \): The likelihood of the personality sketch given Adam is enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of the personality sketch given Adam is not enrolled in that field.
+
+We will assume initial generic values for \( P(H) \). Note that these values can be adjusted based on specific data if available.
+
+### Business Administration
+
+#### Priors and Likelihoods
+\[
+P(H_{\text{ba}}) = 0.2 \quad \text{(assuming a generic value based on the number of graduate fields)}
+\]
+
+Considering the personality sketch traits (curiosity about nature, love for animals, empathy, solving puzzles) might not fit as strongly with a typical business administration profile, we can reasonably assume:
+
+\[
+P(E|H_{\text{ba}}) = 0.1
+\]
+
+Now, considering \( \neg H_{\text{ba}} \) employs some understanding of other fields, including computer science and others:
+
+\[
+P(E|\neg H_{\text{ba}}) = 0.4
+\]
+
+\[
+P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)}
+\]
+
+Note that \( P(E) \) is a normalizing constant:
+
+\[
+P(E) = P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) + P(E|\neg H_{\text{ba}}) \cdot P(\neg H_{\text{ba}})
+\]
+
+Substituting values,
+
+\[
+P(E) = (0.1 \cdot 0.2) + (0.4 \cdot 0.8) = 0.02 + 0.32 = 0.34
+\]
+
+So,
+
+\[
+P(H_{\text{ba}}|E) = \frac{0.1 \cdot 0.2}{0.34} = \frac{0.02}{0.34} \approx 0.0588
+\]
+
+### Computer Science
+
+#### Priors and Likelihoods
+\[
+P(H_{\text{cs}}) = 0.2 \quad \text{(assuming a generic value based on the number of graduate fields)}
+\]
+
+Given Adam's traits, they might align more closely with interests in computer science:
+
+\[
+P(E|H_{\text{cs}}) = 0.6
+\]
+
+Considering \( \neg H_{\text{cs}} \):
+
+\[
+P(E|\neg H_{\text{cs}}) = 0.2
+\]
+
+\[
+P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} = \frac{0.6 \cdot 0.2}{0.34} = \frac{0.12}{0.34} \approx 0.3529
+\]
+
+### Results
+
+\[
+\{
+  "business administration": 0.0588,
+  "computer science": 0.3529
+\}
+\]
+
+This suggests that given the personality sketch \( E \), the posterior probability of Adam being enrolled in computer science is higher compared to business administration.

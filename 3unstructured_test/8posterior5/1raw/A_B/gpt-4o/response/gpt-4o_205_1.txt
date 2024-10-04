@@ -1,0 +1,48 @@
+To use Bayes' rule to compute \( P(H|E) \), we need to evaluate the prior \( P(H) \), the likelihood \( P(E|H) \), and the likelihood under the negation \( P(E|\neg H) \).
+
+**Step-by-step Analysis:**
+
+1. **Priors \( P(H) \):**
+   - \( P(H_{\text{agricultural}}) \): The prior probability of a graduate student being in agricultural and veterinary science. We'll estimate a moderate prior because this is a specialized field:
+     \( P(H_{\text{agricultural}}) \approx 0.1 \)
+   - \( P(H_{\text{business}}) \): The prior probability of a graduate student being in business administration. This is a more common field, so it will have a higher prior:
+     \( P(H_{\text{business}}) \approx 0.2 \)
+
+2. **Likelihood \( P(E|H) \):**
+   - \( P(E|H_{\text{agricultural}}) \): Given Adam's personality sketch, which aligns well with nature, animals, and a deep appreciation for hard work (traits often associated with agricultural and veterinary science), we estimate:
+     \( P(E|H_{\text{agricultural}}) \approx 0.8 \)
+   - \( P(E|H_{\text{business}}) \): The personality traits listed (empathy, curiosity about nature and animals) do not strongly align with typical traits associated with business administration. Therefore, we estimate:
+     \( P(E|H_{\text{business}}) \approx 0.2 \)
+
+3. **Likelihood under negation \( P(E|\neg H) \):**
+   - To compute this, consider the probability of the personality sketch appearing in fields other than the specified ones. Since there are many other graduate fields and the probability of such a fit in other fields will be spread out widely, we assume a relatively low probability here:
+     \( P(E|\neg H_{\text{agricultural}}) \approx 0.3 \)
+     \( P(E|\neg H_{\text{business}}) \approx 0.5 \)
+
+**Bayes' rule:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assuming \( P(E) \approx \text{sum of weighted likelihoods} \):
+
+For **agricultural and veterinary science**:
+\[ P(H_{\text{agricultural}}|E) \approx \frac{P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}})}{P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}}) + P(E|\neg H_{\text{agricultural}}) \cdot (1 - P(H_{\text{agricultural}}))} \]
+\[ \approx \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.3 \cdot 0.9} \]
+\[ \approx \frac{0.08}{0.08 + 0.27} \]
+\[ \approx \frac{0.08}{0.35} \]
+\[ \approx 0.23 \]
+
+For **business administration**:
+\[ P(H_{\text{business}}|E) \approx \frac{P(E|H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) + P(E|\neg H_{\text{business}}) \cdot (1 - P(H_{\text{business}}))} \]
+\[ \approx \frac{0.2 \cdot 0.2}{0.2 \cdot 0.2 + 0.5 \cdot 0.8} \]
+\[ \approx \frac{0.04}{0.04 + 0.4} \]
+\[ \approx \frac{0.04}{0.44} \]
+\[ \approx 0.09 \]
+
+Thus, the final probability assignments are:
+
+```json
+{
+  "agricultural and veterinary science": 0.23,
+  "business administration": 0.09
+}
+```

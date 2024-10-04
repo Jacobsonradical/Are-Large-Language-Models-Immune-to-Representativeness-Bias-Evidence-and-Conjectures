@@ -1,0 +1,72 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we'll follow these steps:
+
+1. Estimate prior probabilities \( P(H) \) for each field.
+2. Estimate the likelihood \( P(E|H) \) of observing the personality sketch given each hypothesis.
+3. Estimate the likelihood \( P(E|\neg H) \) of observing the personality sketch given the negation of each hypothesis.
+4. Use Bayes' rule: 
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+   \]
+
+For simplicity, let's assume we're given the prior probabilities \( P(H) \) for each field and the total sum \( P(E) \) which might be consistent across the fields. 
+We will then calculate \( P(H|E) \) in a relative manner.
+
+### Business Administration
+
+1. **Prior probability \(P(H)\)**:
+   - Assume a typical graduate student pool might have a moderate fraction in this field.
+   - \( P(H_{BA}) \approx 0.2 \) (20%)
+
+2. **Likelihood \(P(E|H)\)**:
+   - The personality traits described might be less aligned with a traditional business administration focus, though not impossible.
+   - \( P(E|H_{BA}) \approx 0.1 \) (10%)
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - We need the combined probability of \( E \) given not being in business administration.
+   - Given the specific traits, this could be broader.
+   - \( P(E|\neg H_{BA}) \approx 0.01 \) (1%)
+
+### Computer Science
+
+1. **Prior probability \(P(H)\)**:
+   - Computer Science is a popular field among graduate students, especially those with a high intelligence and analytical abilities.
+   - \( P(H_{CS}) \approx 0.25 \) (25%)
+
+2. **Likelihood \(P(E|H)\)**:
+   - The traits align well with Computer Science, due to the analytical, abstract thinking, puzzle-solving skills.
+   - \( P(E|H_{CS}) \approx 0.5 \) (50%)
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - We need the combined probability of \( E \) given not being in computer science.
+   - Given the specific traits as before, this might be broad but a bit less aligned with CS than with BA.
+   - \( P(E|\neg H_{CS}) \approx 0.02 \) (2%)
+
+### Computing Bayes' Rule
+Using Bayes' rule:
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+\]
+
+We can ignore \( P(E) \) for a relative measure as it's constant across fields.
+
+For Business Administration: 
+\[ 
+P(H_{BA}|E) = \frac{0.1 \cdot 0.2}{P(E)} \approx 0.02 \, (\text{ignoring} \, P(E)) 
+\]
+
+For Computer Science: 
+\[ 
+P(H_{CS}|E) = \frac{0.5 \cdot 0.25}{P(E)} \approx 0.125 \, (\text{ignoring} \, P(E)) 
+\]
+
+Thus, the relative estimates given a constant \( P(E) \):
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.125
+}
+```
+
+This suggests Adam is more likely to be in computer science based on his personality sketch.

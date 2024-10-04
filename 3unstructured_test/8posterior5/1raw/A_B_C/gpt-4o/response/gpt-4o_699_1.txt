@@ -1,0 +1,53 @@
+To apply Bayes' rule, we need to break down the problem into the necessary components: 
+- \( P(H) \) = Prior probability of Adam being in a specific field
+- \( P(E|H) \) = Likelihood of personality sketch \( E \) given that Adam is enrolled in that specific field
+- \( P(E|\neg H) \) = Likelihood of personality sketch \( E \) given that Adam is not enrolled in that specific field
+- \( P(H|E) \) = Posterior probability that Adam is in a specific field given his personality sketch
+
+### Prior Probabilities (\( P(H) \))
+These will be subjective approximations based on the typical enrollment distribution in the U.S.:
+
+- Business Administration: \( P(H) = 0.2 \)
+- Agricultural and Veterinary Science: \( P(H) = 0.1 \)
+- Computer Science: \( P(H) = 0.2 \)
+
+### Likelihoods (\( P(E|H) \))
+Next, we consider how likely Adam's personality sketch \( E \) fits with each of the fields:
+
+- Business Administration: \( P(E|H) = 0.1 \) (less likely given his empathy, love for nature, and animals)
+- Agricultural and Veterinary Science: \( P(E|H) = 0.7 \) (very likely given his love for nature, plants, and animals)
+- Computer Science: \( P(E|H) = 0.3 \) (a mix as he enjoys solving puzzles and abstract concepts fit well, but not much relevance to nature and animals)
+
+### Likelihoods (\( P(E|\neg H) \))
+This evaluates how generally likely \( E \) is across other fields. Given that many fields could have students with a love of nature, empathy, intelligence, we will assume moderate probabilities:
+
+- Business Administration: \( P(E|\neg H) = 0.2 \)
+- Agricultural and Veterinary Science: \( P(E|\neg H) = 0.2 \)
+- Computer Science: \( P(E|\neg H) = 0.2 \)
+
+### Applying Bayes' Rule (\( P(H|E) \))
+
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where,
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+#### Business Administration
+\[ P(H|E) = \frac{0.1 \cdot 0.2}{(0.1 \cdot 0.2 + 0.2 \cdot 0.8)} \approx 0.071 \]
+
+#### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{0.7 \cdot 0.1}{(0.7 \cdot 0.1 + 0.2 \cdot 0.9)} \approx 0.28 \]
+
+#### Computer Science
+\[ P(H|E) = \frac{0.3 \cdot 0.2}{(0.3 \cdot 0.2 + 0.2 \cdot 0.8)} \approx 0.23 \]
+
+### Conclusion
+```json
+{
+  "business administration": 0.071,
+  "agricultural and veterinary science": 0.28,
+  "computer science": 0.23
+}
+```
+
+Note: These are approximate values and the judgments are based on subjective interpretations of the likelihoods.

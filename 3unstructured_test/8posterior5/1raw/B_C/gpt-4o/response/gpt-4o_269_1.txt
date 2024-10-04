@@ -1,0 +1,56 @@
+Let's apply Bayes' Theorem to calculate \( P(H|E) \), the probability that Adam was enrolled in a given field given his personality sketch \( E \). Here's the formula for Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to estimate the following probabilities:
+- \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \): The probability of the evidence given that Adam was enrolled in that field.
+- \( P(E|\neg H) \): The probability of the evidence given that Adam was not enrolled in that field.
+- \( P(E) \): The overall probability of the evidence, which can be derived as \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+For simplification, let's assume there is no strong prior favorability for each field, so we might assign \( P(H) = 0.1 \) for both fields as a placeholder. 
+
+### Computer Science (CS)
+- \( P(H_{CS}) = 0.1 \)
+- \( P(E|H_{CS}) \): Given that Adam is in CS, we need to consider how likely the personality sketch fits a typical CS student. Because CS requires high intelligence, understanding abstract concepts, and problem-solving skills, we can assume these traits align moderately well.
+  - Let's assume \( P(E|H_{CS}) = 0.6 \).
+
+- \( P(E|\neg H_{CS}) \): The probability that the personality sketch fits someone not in CS would be some aggregated average of fitting other fields.
+  - Let's assume \( P(E|\neg H_{CS}) = 0.3 \).
+
+### Business Administration (BA)
+- \( P(H_{BA}) = 0.1 \)
+- \( P(E|H_{BA}) \): Business Administration students might typically show empathy, warm-heartedness, an understanding of hard work, and sometimes high intelligence; however, they might not fit as well with the curiosity about nature and solving puzzles.
+  - Let’s assume \( P(E|H_{BA}) = 0.3 \).
+
+- \( P(E|\neg H_{BA}) \): Similar to the above, we look at the aggregated average.
+  - Let’s assume \( P(E|\neg H_{BA}) = 0.4 \).
+
+Now, we compute \( P(E) \) overall:
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E) = 0.6 \times 0.1 + 0.3 \times 0.9 \]
+\[ P(E) = 0.06 + 0.27 = 0.33 \]
+
+Using Bayes' Theorem for CS:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.6 \times 0.1}{0.33} \approx 0.182 \]
+
+For BA:
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) = 0.3 \times 0.1 + 0.4 \times 0.9 \]
+\[ P(E) = 0.03 + 0.36 = 0.39 \]
+
+Using Bayes' Theorem for BA:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) = \frac{0.3 \times 0.1}{0.39} \approx 0.077 \]
+
+So, based on these calculations, we have:
+
+```json
+{
+  "computer science": 0.182,
+  "business administration": 0.077
+}
+```
+
+These probabilities indicate Adam would be more likely enrolled in computer science than business administration given his personality sketch.

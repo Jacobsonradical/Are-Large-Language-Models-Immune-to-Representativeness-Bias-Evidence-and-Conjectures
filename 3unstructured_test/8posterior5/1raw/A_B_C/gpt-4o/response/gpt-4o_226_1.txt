@@ -1,0 +1,58 @@
+To compute \( P(H|E) \)—the probability that Adam was enrolled in a specific field given his personality sketch—we use Bayes' Rule, which is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch given that he is enrolled in that field.
+- \( P(E) \) is the total probability of observing Adam's personality sketch across all fields.
+
+We'll assume the following general prior probabilities \( P(H) \) for graduate students in 2021 in the U.S. (values are for illustrative purposes):
+- Business administration: 0.20 (20%)
+- Computer science: 0.25 (25%)
+- Agricultural and veterinary science: 0.10 (10%)
+
+We should also estimate \( P(E|H) \) and  \( P(E|\neg H) \):
+
+- \( P(E|H) \) is high for agricultural and veterinary science because Adam’s love for nature, plants, and animals matches well with this field.
+- \( P(E|H) \) for computer science might be moderate since his quiet personality and enjoyment of solving puzzles align somewhat with this field.
+- \( P(E|H) \) for business administration is likely lower, as his traits do not strongly align with typical characteristics needed in this field.
+
+Assuming estimations for \( P(E|H) \):
+
+- Business administration: 0.10
+- Computer science: 0.40
+- Agricultural and veterinary science: 0.80
+
+Assuming \( P(E|\neg H) \):
+
+\( P(E|\neg H) \) is the average probability of observing Adam’s characteristics in fields other than the one specified, simplifying by assuming they are equally distributed across remaining fields.
+
+\[ P(E|\neg H) = \frac{(\text{Sum of } P(E|H_i) \text{ for all other fields})} {\text{(Number of other fields)}} \]
+
+Calculating these values:
+
+Consider the remaining probabilities for \( P(E|\neg H) \):
+
+\[ P(E|\neg H_{\text{business administration}}) = \frac{0.40+\ 0.80}{2} = 0.60 \]
+\[ P(E|\neg H_{\text{computer science}}) = \frac{0.10 + 0.80}{2} = 0.45 \]
+\[ P(E|\neg H_{\text{agriculture and veterinary science}}) = \frac{0.10 + 0.40}{2} = 0.25 \]
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assuming uniform proportionality inside each probability estimation, \( P(E) \) can be considered a normalization constant across evaluated fields so terms adaptively scale:
+
+{
+  "business administration": \( \frac{0.10 \cdot 0.20}{0.10 \cdot 0.20 + 0.40 \cdot 0.25 + 0.80 \cdot 0.10} \approx 0.09 \),
+  "computer science": \( \frac{0.40 \cdot 0.25}{0.10 \cdot 0.20 + 0.40 \cdot 0.25 + 0.80 \cdot 0.10} \approx 0.36 \),
+  "agricultural and veterinary science": \( \frac{0.80 \cdot 0.10}{0.10 \cdot 0.20 + 0.40 \cdot 0.25 + 0.80 \cdot 0.10} \approx 0.55 \)
+}
+
+Thus, the more definite probabilistic values would be:
+
+{
+  "business administration": 0.09,
+  "computer science": 0.36,
+  "agricultural and veterinary science": 0.55
+}

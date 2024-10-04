@@ -1,0 +1,69 @@
+To compute the probabilities \( P(H|E) \) we can use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to estimate the probabilities for each field:
+
+1. **P(H)**: The prior probability of Adam being enrolled in each field. It's challenging to know exact values without data, so let's assume rough estimates for graduate students' enrollment in the U.S.
+
+- Business Administration: 0.25
+- Agricultural and Veterinary Science: 0.10
+- Computer Science: 0.30
+
+2. **P(E|H)**: The likelihood of observing Adam's personality sketch given he's enrolled in that field.
+
+- Business Administration: 0.10 (business students are less likely to have his personality traits)
+- Agricultural and Veterinary Science: 0.60 (fits well with his love for nature and animals)
+- Computer Science: 0.50 (fits well with his intelligence and puzzle-solving skills)
+
+3. **P(E|\neg H)**: The likelihood of observing Adam's personality sketch given he's not enrolled in that field, which is relatively lower than \(P(E|H)\) for more fitting fields.
+
+- Business Administration: 0.15
+- Agricultural and Veterinary Science: 0.20
+- Computer Science: 0.20
+
+We then use these estimates to compute \( P(H|E) \). Let's assume \( P(E) \) is roughly averaged across these fields for simplicity.
+
+Using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assuming \( P(E) \) is roughly normalized to average likelihood among given hypotheses:
+
+\( P(E) \approx \sum P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+Let's break it down:
+
+\[ P(E) \approx (0.10 \times 0.25) + (0.60 \times 0.10) + (0.50 \times 0.30) + (0.15 \times 0.75) + (0.20 \times 0.70) + (0.20 \times 0.70) \]
+
+\[ P(E) \approx 0.025 + 0.06 + 0.15 + 0.1125 + 0.14 + 0.14 = 0.6275 \]
+
+Now, let's compute each \( P(H|E) \):
+
+1. Business Administration:
+
+\[ P(E|H) \cdot P(H) = 0.10 \cdot 0.25 = 0.025 \]
+
+\[ P(H|E) \approx \frac{0.025}{0.6275} \approx 0.040 \]
+
+2. Agricultural and Veterinary Science:
+
+\[ P(E|H) \cdot P(H) = 0.60 \cdot 0.10 = 0.06 \]
+
+\[ P(H|E) \approx \frac{0.06}{0.6275} \approx 0.096 \]
+
+3. Computer Science:
+
+\[ P(E|H) \cdot P(H) = 0.50 \cdot 0.30 = 0.15 \]
+
+\[ P(H|E) \approx \frac{0.15}{0.6275} \approx 0.239 \]
+
+So, the probabilities for each field are approximately:
+
+```json
+{
+  "business administration": 0.040,
+  "agricultural and veterinary science": 0.096,
+  "computer science": 0.239
+}
+```

@@ -1,0 +1,82 @@
+To determine the likelihood of Adam being enrolled in each field given his personality sketch, we'll proceed using Bayesian inference. The central idea here is to update our prior beliefs (P(H)) based on the likelihood of observing the evidence given each hypothesis (P(E|H)), and the overall probability of the evidence (P(E)).
+
+### Notation
+- \( P(H) \): Prior probability of the hypothesis. This can be considered as the proportion of students in that field in the overall population.
+- \( P(E|H) \): Likelihood of observing the evidence given the hypothesis.
+- \( P(E|\neg H) \): Likelihood of observing the evidence given the negation of the hypothesis.
+- \( P(H|E) \): Posterior probability of the hypothesis given the evidence.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be expanded using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since \( P(E) \) is the same across all hypotheses when comparing them, we can simplify the calculation to:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Givens:
+- \( P(H) \): Prior probability of each field being chosen independently of the personality sketch.
+- \( P(E|H) \): Likelihood based on the personality sketch being a good fit for the field.
+- \( P(E|\neg H) \): Likelihood of the evidence given other fields.
+
+### Assumptions:
+Assume some typical distributions based on a general understanding of the fields:
+- Agricultural and Veterinary Science: Moderate number of students enrolled
+- Business Administration: High number of students enrolled
+- Computer Science: High number of students enrolled
+
+Let's enumerate reasonable values and then compute:
+
+**Agricultural and Veterinary Science**:
+- \( P(H) \): 0.10 (assuming fewer people enroll in this compared to broader fields)
+- \( P(E|H) \): 0.9 (fits Adam's personality sketch very well)
+- \( P(E|\neg H) \): 0.3 (other fields are less aligned with his personality)
+
+\[ P(H|E) \propto 0.9 \cdot 0.10 \]
+
+**Business Administration**:
+- \( P(H) \): 0.4 (business is a very common grad field)
+- \( P(E|H) \): 0.2 (does not fit Adam's personality sketch as well)
+- \( P(E|\neg H) \): 0.3
+
+\[ P(H|E) \propto 0.2 \cdot 0.4 \]
+
+**Computer Science**:
+- \( P(H) \): 0.2 (popular field)
+- \( P(E|H) \): 0.5 (fits moderately well)
+- \( P(E|\neg H) \): 0.3
+
+\[ P(H|E) \propto 0.5 \cdot 0.2 \]
+
+### Normalizing:
+To normalize, we sum the unnormalized posterior probabilities and divide each by this sum to get the final probabilities.
+
+\( \sum_{i} P(H_i|E) \):
+
+\[ = (0.9 \cdot 0.10) + (0.2 \cdot 0.4) + (0.5 \cdot 0.2) \]
+\[ = 0.09 + 0.08 + 0.10 \]
+\[ = 0.27 \]
+
+Normalize each:
+
+\[
+P(H|E, \text{Agricultural and Veterinary Science}) = \frac{0.09}{0.27} = 0.333
+\]
+
+\[
+P(H|E, \text{Business Administration}) = \frac{0.08}{0.27} = 0.296
+\] 
+
+\[
+P(H|E, \text{Computer Science}) = \frac{0.10}{0.27} = 0.370
+\]
+
+Final values in JSON format:
+```json
+{
+  "agricultural and veterinary science": 0.333,
+  "business administration": 0.296,
+  "computer science": 0.370
+}
+```

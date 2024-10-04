@@ -1,0 +1,55 @@
+To estimate the probabilities for Adam being enrolled in business administration or agricultural and veterinary science given his personality sketch E, we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, we don't have explicit values for \(P(E)\), so we'll focus on relative comparisons using the given sketch of Adam.
+
+### Step-by-Step Reasoning:
+
+1. **Define the Prior Probabilities \(P(H)\):**
+   - While exact numbers are not available, we can assume that agricultural and veterinary science is a more specialized and less common field compared to business administration. Hence:
+     - \(P(H_{\text{business administration}}) = 0.3\)
+     - \(P(H_{\text{agricultural and veterinary science}}) = 0.1\)
+
+2. **Define the Likelihood \(P(E|H)\):**
+   - For business administration:
+     - Adam has a personality highly curious about nature, plants, puzzles, empathy, and a love for animals. This sketch fits less comfortably with business administration. So:
+       - \(P(E|H_{\text{business administration}}) = 0.05\)
+   - For agricultural and veterinary science:
+     - His traits align well with this field due to his love for animals and interest in nature. So:
+       - \(P(E|H_{\text{agricultural and veterinary science}}) = 0.9\)
+
+3. **Define \(P(E|\neg H)\):**
+   - For business administration:
+     - If he is not in business administration but considering the above, there are good chances he's in some other specific field with focus or interest in nature, etc.
+         - \(P(E|\neg H_{\text{business administration}}) = 0.5\)
+   - For agricultural and veterinary science:
+     - If he is not in agricultural and veterinary science, a lesser number of fields would fit quite as well as this, but still possible:
+        - \(P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.25\)
+
+4. **Apply Bayes' Rule:**
+
+  - For business administration:
+    \[
+    P(H_{\text{business administration}}|E) \approx \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} = \frac{0.05 \cdot 0.3}{P(E)} = \frac{0.015}{P(E)}
+    \]
+
+  - For agricultural and veterinary science:
+    \[
+    P(H_{\text{agricultural and veterinary science}}|E) \approx \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}{P(E)} = \frac{0.9 \cdot 0.1}{P(E)} = \frac{0.09}{P(E)}
+    \]
+
+Since \(P(E)\) is a normalization constant, it serves the purpose of scaling so that all probabilities add to 1. Relative to each other:
+
+\[
+\frac{0.015}{P(E)} \quad \text{vs} \quad \frac{0.09}{P(E)}
+\]
+
+These indicate \(P(H_{\text{agricultural and veterinary science}}|E)\) is much higher. Normalize relatively, we estimate non-exact raw values for simplicity:
+
+{
+  "business administration": 0.05,
+  "agricultural and veterinary science": 0.85
+}
+
+This should highlight that Adam is much more likely to be in agricultural and veterinary science given his described personality traits.

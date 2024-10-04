@@ -1,0 +1,52 @@
+To solve this, we'll use Bayes' rule: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in a specific field given his personality sketch.
+- \( P(E|H) \) is the probability of Adam having this personality sketch if he is enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the total probability of Adam having this personality sketch, which can be calculated using the law of total probability.
+
+### Computer Science
+- **P(H):** Let's assume the probability of a graduate student being in Computer Science is 0.30 (since Computer Science is a common field of study).
+- **P(E|H):** Given Adam's personality sketch, the likelihood of showing these traits in Computer Science is lower because it does not directly align with animal care or nature. Let's assume 0.05.
+- **P(E|¬H):** The likelihood of showing these traits outside of Computer Science. Given the broad set of graduate fields, let's assume 0.25.
+
+### Business Administration
+- **P(H):** Let's assume the probability of a graduate student being in Business Administration is 0.20 (less common than Computer Science but still a popular field).
+- **P(E|H):** Personality traits like strong empathy and an appreciation for hard work could be beneficial, but nature curiosity and animal love are less aligned. Let's assume 0.10.
+- **P(E|¬H):** Like above, 0.25 as business skills don't strongly match curiosity about nature or animals.
+
+### Agricultural and Veterinary Science
+- **P(H):** Given the popularity of this field among students keen on nature and animals, let's assume 0.05.
+- **P(E|H):** The personality sketch strongly matches someone likely to be interested in this field. Let's assume 0.90.
+- **P(E|¬H):** 0.25 similar to other fields.
+
+Given the assumed values, we can estimate \(P(E)\) as follows:
+
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{AVS}) \cdot P(H_{AVS}) + \ldots \]
+
+\[ P(E) \approx (0.05 \cdot 0.30) + (0.10 \cdot 0.20) + (0.90 \cdot 0.05) + \ldots \]
+
+\[ P(E) \approx 0.015 + 0.02 + 0.045 + \ldots \]
+
+Let's assume non-listed fields give a negligible contribution for simplicity:
+
+\[ P(E) \approx 0.08 \]
+
+Now, computing \(P(H|E)\):
+
+\[ P(H_{CS}|E) = \frac{0.05 \cdot 0.30}{0.08} \approx 0.1875 \]
+
+\[ P(H_{BA}|E) = \frac{0.10 \cdot 0.20}{0.08} \approx 0.25 \]
+
+\[ P(H_{AVS}|E) = \frac{0.90 \cdot 0.05}{0.08} \approx 0.5625 \]
+
+Finally:
+
+{
+  "computer science": 0.1875,
+  "business administration": 0.25,
+  "agricultural and veterinary science": 0.5625
+}

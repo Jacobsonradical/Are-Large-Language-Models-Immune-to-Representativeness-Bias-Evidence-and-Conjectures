@@ -1,0 +1,42 @@
+To calculate the probabilities, we need to first estimate the prior probabilities \(P(H)\), which is the likelihood that Adam is enrolled in each field. We also need \(P(E|H)\), the probability of observing Adam's personality sketch given that he is in each field, and \(P(E|\neg H)\), the probability of observing Adam's personality sketch given that he is not in each field.
+
+### Priors \(P(H)\)
+Given that we are considering three fields and there are many other possible fields Adam could be in, the prior probabilities might look something like this:
+
+- \(P(H_{agricultural\_vet}) = 0.1\): Agricultural and veterinary science is not among the most common fields but given Adam’s characteristics, it has a reasonable prior value.
+- \(P(H_{computer\_science}) = 0.2\): Computer science is a common field for graduate students, although Adam's personality doesn't strongly suggest it.
+- \(P(H_{business\_admin}) = 0.1\): Business administration is also a common field, but Adam's profile doesn't suggest a strong fit.
+
+Other unspecified fields would take up the rest of the probability space.
+
+### Compute \(P(E|H)\)
+- \(P(E|H_{agricultural\_vet}) = 0.8\): Adam's love for nature, animals, and his empathy align very well with this field.
+- \(P(E|H_{computer\_science}) = 0.4\): Adam's intelligence and problem-solving skills do fit computer science, but his other characteristics do not strongly match.
+- \(P(E|H_{business\_admin}) = 0.2\): Business administration typically does not align well with Adam’s emphases on nature, animals, and empathy.
+
+### Compute \(P(E|\neg H)\)
+- \(P(E|\neg H_{agricultural\_vet}) = 0.2\): Because fewer fields specifically focus on animals and nature.
+- \(P(E|\neg H_{computer\_science}) = 0.5\): There are many fields where intelligence and problem-solving are important.
+- \(P(E|\neg H_{business\_admin}) = 0.6\): Business-adjacent fields are common but they don’t generally emphasize Adam’s key traits.
+
+### Bayes Rule
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+\]
+For simplicity, assume \(P(\neg H) \approx 1 - P(H)\):
+
+- \(P(H_{agricultural\_vet}|E) \approx \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.2 \cdot (1 - 0.1)} \approx \frac{0.08}{0.08 + 0.18} \approx \frac{0.08}{0.26} \approx 0.31\)
+- \(P(H_{computer\_science}|E) \approx \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.5 \cdot (1 - 0.2)} \approx \frac{0.08}{0.08 + 0.4} \approx \frac{0.08}{0.48} \approx 0.17\)
+- \(P(H_{business\_admin}|E) \approx \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.6 \cdot (1 - 0.1)} \approx \frac{0.02}{0.02 + 0.54} \approx \frac{0.02}{0.56} \approx 0.036\)
+
+Using these values, we get:
+
+```json
+{
+  "agricultural and veterinary science": 0.31,
+  "computer science": 0.17,
+  "business administration": 0.036
+}
+```
+
+These calculations are based on a logical estimation of given probabilities. In an actual scenario, detailed statistical data would lead to more precise values.

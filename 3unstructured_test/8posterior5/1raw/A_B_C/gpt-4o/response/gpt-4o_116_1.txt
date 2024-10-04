@@ -1,0 +1,67 @@
+To compute \( P(H|E) \) for each field, we need to apply Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll need to judge \( P(H) \) for each hypothesis (prior probability), \( P(E|H) \) for each hypothesis (likelihood), and \( P(E|\neg H) \) (which together with \( P(E|H) \) can help inform the overall \( P(E) \)).
+
+Let's break this down step by step for each field:
+
+1. **Computer Science**:
+   - **Prior Probability (\( P(H) \))**: Moderate probability as computer science is a popular field.
+   - **Likelihood (\( P(E|H) \))**: Lower likelihood since a curiosity about nature, plants, and animals, as well as strong empathy, do not strongly correlate with typical computer science values.
+   - **Likelihood (\( P(E|\neg H) \))**: Higher likelihood for other fields since empathy and nature enthusiasm could be more aligned with them.
+
+2. **Business Administration**:
+   - **Prior Probability (\( P(H) \))**: Lower probability since nature and animal interest are less common drivers for business administration students.
+   - **Likelihood (\( P(E|H) \))**: Very low likelihood due to lack of alignment with known traits for business administration.
+   - **Likelihood (\( P(E|\neg H) \))**: Higher likelihood for other fields, similarly to computer science.
+
+3. **Agricultural and Veterinary Science**:
+   - **Prior Probability (\( P(H) \))**: Moderate probability as deep love for animals and empathy aligns well with this field.
+   - **Likelihood (\( P(E|H) \))**: High likelihood due to a strong alignment between Adam's personality and the values/skills needed in this field.
+   - **Likelihood (\( P(E|\neg H) \))**: Lower likelihood for other fields.
+
+Now, let's use these estimations to compute \( P(H|E) \):
+
+- **Computer Science**:
+  \[
+  P(H) \approx 0.25 \\
+  P(E|H) \approx 0.1 \\
+  P(E|\neg H) \approx 0.9 \\
+  P(E) \approx P(E|H)P(H) + P(E|\neg H)P(\neg H) \approx 0.1 \cdot 0.25 + 0.9 \cdot 0.75 \approx 0.725
+  \]
+  \[
+  P(H|E) = \frac{0.1 \cdot 0.25}{0.725} \approx 0.034
+  \]
+
+- **Business Administration**:
+  \[
+  P(H) \approx 0.1 \\
+  P(E|H) \approx 0.05 \\
+  P(E|\neg H) \approx 0.95 \\
+  P(E) \approx P(E|H)P(H) + P(E|\neg H)P(\neg H) \approx 0.05 \cdot 0.1 + 0.95 \cdot 0.9 \approx 0.86
+  \]
+  \[
+  P(H|E) = \frac{0.05 \cdot 0.1}{0.86} \approx 0.0058
+  \]
+
+- **Agricultural and Veterinary Science**:
+  \[
+  P(H) \approx 0.3 \\
+  P(E|H) \approx 0.8 \\
+  P(E|\neg H) \approx 0.2 \\
+  P(E) \approx P(E|H)P(H) + P(E|\neg H)P(\neg H) \approx 0.8 \cdot 0.3 + 0.2 \cdot 0.7 \approx 0.38
+  \]
+  \[
+  P(H|E) = \frac{0.8 \cdot 0.3}{0.38} \approx 0.632
+  \]
+
+So, combining these results, we have:
+
+```json
+{
+  "computer science": 0.034,
+  "business administration": 0.0058,
+  "agricultural and veterinary science": 0.632
+}
+```

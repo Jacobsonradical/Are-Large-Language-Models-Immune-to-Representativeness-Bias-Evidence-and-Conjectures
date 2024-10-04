@@ -1,0 +1,41 @@
+To apply Bayesian inference to determine the likelihood that Adam was enrolled in either business administration or computer science, we need to estimate the following probabilities: 
+
+1. Prior probability \(P(H)\): The initial probability that Adam was enrolled in each field before considering his personality sketch.
+2. Likelihood \(P(E|H)\): The probability of observing Adam's personality sketch given that he was enrolled in each field.
+3. Marginal likelihood \(P(E|\neg H)\): The probability of observing Adam's personality sketch given that he was not enrolled in each field.
+
+Based on the given characteristics of Adam and the common associations between these characteristics and the fields, we can informally estimate these probabilities. While these are subjective estimates, they are based on general knowledge of the fields:
+
+### Business Administration
+- **P(H)**, the prior that Adam could be in business administration: Let's assume a smaller fraction of graduate students are in business administration compared to technical fields like computer science, but not negligible. Hence, we can set this at \(0.1\) or 10%.
+- **P(E|H)**, the likelihood of Adam's personality sketch given he is in business administration: Business administration students may indeed value hard work and dedications, but given Adam's deep love for nature, animals and empathy, such characteristics might more naturally fit less with business administration. We might estimate this likelihood as low, say \(0.05\) or 5%.
+- **P(E|\neg H)**, the probability of the personality sketch given he is not in business administration: The sketch could describe various fields, but with less fitting specialties we might consider it still somewhat more probable to observe this pattern outside business administration, say \(0.2\) or 20%.
+
+### Computer Science
+- **P(H)**, the prior that Adam is in computer science: Given the increasing popularity of computer science in graduate programs, we might set this higher, as \(0.3\) or 30%.
+- **P(E|H)**, the likelihood of Adam's personality sketch given he is in computer science: Computer science students frequently handle abstract concepts and puzzles, which fits well, though the strong empathy and love for animals less so but qualified students in technical degrees do have diverse interests. Hence, it might be \(0.2\) or 20%.
+- **P(E|\neg H)**, the probability of the personality sketch not fitting Non-CS students (including every other program): This is broader and might be similarly possible at roughly \(0.2\) or 20%.
+
+Now applying Bayes' rule for each hypothesis:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+where,
+\[ P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \]
+
+For **Business Administration**,
+\[ P(E)_{BA} = (0.05 \times 0.1) + (0.2 \times 0.9) = 0.005 + 0.18 = 0.185 \]
+\[ P(H|E) = \frac{0.05 \times 0.1}{0.185} = \frac{0.005}{0.185} \approx 0.027 \]
+
+For **Computer Science**,
+\[ P(E)_{CS} = (0.2 \times 0.3) + (0.2 \times 0.7) = 0.06 + 0.14 = 0.2 \]
+\[ P(H|E) = \frac{0.2 \times 0.3}{0.2} = \frac{0.06}{0.2} = 0.3 \]
+
+Thus, the probability of Adam being in each field given his personality sketch is:
+\[ 
+{
+  "business administration": 0.027,
+  "computer science": 0.3
+}
+\]
+
+Please note these are subjective estimations and the real values might differ based on actual statistical data from the universities.

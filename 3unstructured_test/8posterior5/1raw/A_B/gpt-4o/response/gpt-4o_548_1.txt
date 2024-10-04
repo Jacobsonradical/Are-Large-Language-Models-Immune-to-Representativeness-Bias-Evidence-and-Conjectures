@@ -1,0 +1,37 @@
+To compute the probabilities, let's first understand Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in the field given the personality sketch.
+- \( P(E|H) \) is the probability of the personality sketch given that Adam is enrolled in the field.
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E) \) is the probability of the personality sketch, which can be found using the law of total probability.
+
+The denominator, \( P(E) \), can be expressed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+However, for simplicity in our calculations since we are only comparing these two fields, we can assume the sum involves just them. 
+
+Let's start estimating each term:
+
+### Business Administration:
+- **P(H):** The general probability that a student in 2021 might be enrolled in Business Administration. Let's estimate it at 0.2 (20%).
+- **P(E|H):** Given the personality sketch, the likelihood that Adam fits the profile of a Business Administration student is quite low because the description does not align much with typical traits required or cultivated in such fields. Let's estimate it at 0.1 (10%).
+- **P(E|\neg H):** The likelihood of this personality sketch given Adam is in some other field. Given the fields tend to vary widely, let's assume 0.8 (80%).
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{(0.1 \cdot 0.2 + 0.8 \cdot 0.8)} \approx \frac{0.02}{0.02 + 0.64} \approx \frac{0.02}{0.66} \approx 0.0303 \]
+
+### Agricultural and Veterinary Science:
+- **P(H):** The likelihood that a student might be enrolled in Agricultural and Veterinary Science, let's estimate it at 0.1 (10%).
+- **P(E|H):** Given the personality sketch, the likelihood that Adam fits the profile of an Agricultural and Veterinary Science student is high. Estimate it at 0.7 (70%).
+- **P(E|\neg H):** The likelihood of this personality sketch given Adam is in some other field. Assuming 0.8 (80%) as before.
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.7 \cdot 0.1}{(0.7 \cdot 0.1 + 0.8 \cdot 0.9)} \approx \frac{0.07}{0.07 + 0.72} \approx \frac{0.07}{0.79} \approx 0.0886 \]
+
+So the approximate probabilities, using Bayes' rule, are:
+
+```json
+{
+  "business administration": 0.0303,
+  "agricultural and veterinary science": 0.0886
+}
+```

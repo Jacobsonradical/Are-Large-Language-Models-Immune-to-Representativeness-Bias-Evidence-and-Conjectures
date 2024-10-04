@@ -1,0 +1,51 @@
+To apply Bayes' theorem and compute the values for \( P(H|E) \) for each of the fields given \( E \), we need to use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is enrolled in a certain field (assuming uniform distributions if no other information is available).
+- \( P(E|H) \) is the likelihood of observing Adam's personality traits if he is in that particular field.
+- \( P(E|\neg H) \) is the probability of observing Adam's personality traits if he is not in that field.
+- \( P(E) \) is the overall probability of observing Adam's personality traits. This can be computed by a weighted sum of \( P(E|H) \cdot P(H) \) across all fields.
+
+For simplicity, I will assume a uniform prior probability for each field since no prior probabilities are given, i.e., \( P(H) \) is equal for all fields, say 0.33 for each field since we are examining three fields. We then estimate \( P(E|H) \) and \( P(E|\neg H) \) based on how well Adam’s personality aligns with the typical profiles of students in each field.
+
+Let's evaluate the probabilities based on available information:
+
+### Business Administration
+- **P(H)**: 0.33 (assuming a uniform distribution)
+- **P(E|H)**: Low, as Adam’s traits (curiosity about nature, empathy, love for animals, etc.) do not align well with the common traits of business administration students (e.g., leadership, project management).
+  \( P(E|H) \) for business administration might be around 0.1.
+- **P(E|\neg H)**: This is more complicated, but we'll assume it's typical for people not in business administration to have a personality like Adam's.
+  \( P(E|\neg H) \) could be around 0.4, considering the uniform distribution among the other fields.
+
+Using these values \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.33}{P(E)} = \frac{0.033}{P(E)} \]
+
+### Computer Science
+- **P(H)**: 0.33
+- **P(E|H)**: Moderate to high, as Adam’s traits (high intelligence, love for solving puzzles, understanding of abstract concepts) align with common traits in computer science.
+  \( P(E|H) \) for computer science might be around 0.6.
+- **P(E|\neg H)**: Considering other fields, this might be higher than specific fields like business administration but lower than agricultural and veterinary science.
+  \( P(E|\neg H) \) could be around 0.4.
+
+Using these values \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.6 \cdot 0.33}{P(E)} = \frac{0.198}{P(E)} \]
+
+### Agricultural and Veterinary Science
+- **P(H)**: 0.33
+- **P(E|H)**: Very high, as Adam’s traits (love for nature, plants, animals, empathy, understanding of hard work) align strongly with this field’s common traits.
+  \( P(E|H) \) for agricultural and veterinary science might be around 0.9.
+- **P(E|\neg H)**: With agricultural interest, this would be quite low.
+  \( P(E|\neg H) \) could be around 0.1.
+
+Using these values \( P(H|E) \):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.9 \cdot 0.33}{P(E)} = \frac{0.297}{P(E)} \]
+
+Finally, we normalize these values to ensure they sum to 1:
+
+{
+  "business administration": \(\frac{0.033}{0.033 + 0.198 + 0.297} \approx 0.065\),
+  "computer science": \(\frac{0.198}{0.033 + 0.198 + 0.297} \approx 0.392\),
+  "agricultural and veterinary science": \(\frac{0.297}{0.033 + 0.198 + 0.297} \approx 0.588\)
+}

@@ -1,0 +1,47 @@
+To calculate the posterior probabilities \( P(H|E) \) for each field using Bayes' Rule, we first need to assess the prior probability \( P(H) \), the likelihoods \( P(E|H) \), and the complement likelihoods \( P(E|\neg H) \). While precise probabilities are not given, we can make reasonable estimates based on the provided personality sketch.
+
+Let's assume:
+- \( P(H) \) is the prior probability that a random graduate student is in that field.
+- \( P(E|H) \) is the probability that we observe Adam's personality sketch given that he is in that field.
+- \( P(E|\neg H) \) is the probability that we observe Adam's personality sketch given that he is not in that field.
+
+We then use Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given our limited data, we must make some educated assumptions about these probabilities. Here are our estimations:
+
+1. **Computer Science** (CS):
+   - \( P(H) \): Computer Science is a popular field; let's assume \( P(H) = 0.3 \).
+   - \( P(E|H) \): Adam's personality traits such as high intelligence and problem-solving skills are common in CS, but his empathy and love for animals are less typical. Thus, \( P(E|H) = 0.4 \).
+   - \( P(E|\neg H) \): This represents the probability of Adam's personality sketch given that he is not in CS. By the general distribution of similar traits across other fields, let’s assume \( P(E|\neg H) = 0.2 \).
+
+2. **Agricultural and Veterinary Science** (AVS):
+   - \( P(H) \): This is less common compared to CS; let's assume \( P(H) = 0.1 \).
+   - \( P(E|H) \): Adam's love for nature, animals, and empathy is quite typical in this field, so \( P(E|H) = 0.7 \).
+   - \( P(E|\neg H) \): The probability of these traits being present if not in AVS. Let’s assume \( P(E|\neg H) = 0.2 \).
+
+We'll calculate the posterior probability for each field using these estimations. However, \( P(E) \) (the overall probability of observing Adam's traits) is the same for both, so it cancels out in the comparison of ratios.
+
+Using Bayes' Rule:
+\[ P(H|E) \approx \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For CS:
+\[ P(\text{CS}|E) = \frac{P(E|CS) \cdot P(CS)}{P(E)} = \frac{0.4 \cdot 0.3}{P(E)} = \frac{0.12}{P(E)} \]
+
+For AVS:
+\[ P(\text{AVS}|E) = \frac{P(E|AVS) \cdot P(AVS)}{P(E)} = \frac{0.7 \cdot 0.1}{P(E)} = \frac{0.07}{P(E)} \]
+
+Normalizing these to compare directly:
+\[ P(\text{CS}|E) \approx \frac{0.12}{0.19} \approx 0.63 \]
+\[ P(\text{AVS}|E) \approx \frac{0.07}{0.19} \approx 0.37 \]
+
+So, the probabilities are:
+
+```json
+{
+  "computer science": 0.63,
+  "agricultural and veterinary science": 0.37
+}
+```
+
+These estimates reflect the best information provided. Remember, these values could vary slightly with different assumptions and more precise data.

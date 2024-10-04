@@ -1,0 +1,66 @@
+To estimate the probability that Adam was enrolled in either business administration or computer science given his personality sketch, we use Bayes' theorem. The theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \): the probability of the hypothesis given the evidence (this is what we want to compute).
+- \( P(E|H) \): the probability of the evidence given the hypothesis.
+- \( P(H) \): the prior probability of the hypothesis (before seeing the evidence).
+- \( P(E) \): the total probability of the evidence.
+
+Let's start by making some reasonable estimates for \( P(H) \) (the prior probabilities), \( P(E|H) \) (the likelihoods of Adam's personality sketch given the fields), and \( P(E|\neg H) \) (the likelihoods of Adam's personality sketch given any other field).
+
+Assumptions for prior probabilities:
+- Let's assume there are many graduate fields, and let's assume business administration and computer science are common fields.
+- We consider \( P(\text{business administration}) = 0.1 \) and \( P(\text{computer science}) = 0.1 \) as prior guesses.
+
+Next, we estimate \( P(E|H) \):
+
+### Business Administration:
+- Puzzles, animals, and nature appreciation are less directly related to business administration.
+- Warm heart and empathy can be good traits for business administration but are not specific.
+- Understanding abstract concepts is useful but not a defining trait.
+
+Let's estimate \( P(E|\text{business administration}) = 0.2 \).
+
+### Computer Science:
+- High intelligence and understanding abstract concepts are typical for computer science.
+- Puzzles align well with the field's problem-solving nature.
+- The curiosity about nature doesn't directly apply, but it's not unusual either.
+
+Let's estimate \( P(E|\text{computer science}) = 0.5 \).
+
+Now, we need to estimate \( P(E|\neg H) \) for any other field. Let's assume \( P(E|\neg H) = 0.1 \) as a baseline probability for other fields.
+
+### Applying Bayes' theorem
+
+For business administration:
+
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+\[ P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\neg H) \cdot (1 - P(\text{business administration}) - P(\text{computer science})) \]
+
+\[ P(E) = 0.2 \cdot 0.1 + 0.5 \cdot 0.1 + 0.1 \cdot (1 - 0.1 - 0.1) \]
+
+\[ P(E) = 0.02 + 0.05 + 0.08 = 0.15 \]
+
+Now,
+
+\[ P(\text{business administration}|E) = \frac{0.2 \cdot 0.1}{0.15} \]
+
+\[ P(\text{business administration}|E) = \frac{0.02}{0.15} \approx 0.133 \]
+
+For computer science:
+
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+
+\[ P(\text{computer science}|E) = \frac{0.5 \cdot 0.1}{0.15} \]
+
+\[ P(\text{computer science}|E) = \frac{0.05}{0.15} \approx 0.333 \]
+
+So, our results are:
+
+{
+  "business administration": 0.133,
+  "computer science": 0.333
+}

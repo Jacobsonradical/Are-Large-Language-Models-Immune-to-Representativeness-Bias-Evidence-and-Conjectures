@@ -1,0 +1,52 @@
+In order to compute \( P(H|E) \) for each field through Bayes' rule, we need to estimate the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field.
+2. \( P(E|H) \): The likelihood of Adam having his personality sketch E given that he was enrolled in each field.
+3. \( P(E|\neg H) \): The likelihood of Adam having his personality sketch E given that he was not enrolled in each field.
+
+To apply Bayes' rule, we use the formula:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) is a normalization factor that ensures the probabilities sum to 1.
+
+Since we don't have concrete data, we'll use reasonable approximations:
+
+### Computer Science
+1. **\( P(H) \)**: Computer Science is a common field, so let's assume \( P(H) = 0.3 \).
+2. **\( P(E|H) \)**: Personality traits such as quietness, high intelligence, and puzzle-solving are common among computer science students, but empathy and appreciation for hard work are less emphasized. Let's approximate \( P(E|H) = 0.2 \).
+3. **\( P(E|\neg H) \)**: The likelihood of such traits in the broader population of graduate students, excluding CS students. Let's approximate \( P(E|\neg H) \) at around 0.1.
+
+### Agricultural and Veterinary Science
+1. **\( P(H) \)**: This is a less common field, but nature curiosity and animal love fit well. Let's assume \( P(H) = 0.1 \).
+2. **\( P(E|H) \)**: The traits described fit very well with this field. Let's approximate \( P(E|H) = 0.8 \).
+3. **\( P(E|\neg H) \)**: The likelihood of such traits in the broader population of graduate students, excluding AG (agricultural and veterinary science) students. Let's approximate \( P(E|\neg H) \) at around 0.1.
+
+### Business Administration
+1. **\( P(H) \)**: Business Administration is also a common field. Let's assume \( P(H) = 0.3 \).
+2. **\( P(E|H) \)**: Traits like empathy and high intelligence may fit, but love for nature and animals isn't as strong. Let's approximate \( P(E|H) = 0.1 \).
+3. **\( P(E|\neg H) \)**: The likelihood of such traits in the broader population of graduate students, excluding business students. Let's approximate \( P(E|\neg H) = 0.1.
+
+We need to apply Bayes' rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+For simplicity, we'll ignore the exact computation of \( P(E) \) since we're comparing relative values.
+
+### Calculations:
+- **Computer Science**: 
+  \[ P(H|E) = \frac{0.2 \cdot 0.3}{0.2 \cdot 0.3 + 0.1 \cdot (1-0.3)} = \frac{0.06}{0.06 + 0.07} \approx 0.462 \]
+
+- **Agricultural and Veterinary Science**:
+  \[ P(H|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.1 \cdot (1-0.1)} = \frac{0.08}{0.08 + 0.09} \approx 0.471 \]
+
+- **Business Administration**:
+  \[ P(H|E) = \frac{0.1 \cdot 0.3}{0.1 \cdot 0.3 + 0.1 \cdot (1-0.3)} = \frac{0.03}{0.03 + 0.07} \approx 0.300 \]
+
+Finally, the revised probabilities are:
+
+```json
+{
+  "computer science": 0.462,
+  "agricultural and veterinary science": 0.471,
+  "business administration": 0.300
+}
+```

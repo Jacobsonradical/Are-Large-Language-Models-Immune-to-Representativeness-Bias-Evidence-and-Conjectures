@@ -1,0 +1,59 @@
+To compute the probabilities \(P(H|E)\) for each graduate field using Bayes' rule, let's denote:
+
+- \(E\) as the personality sketch of Adam.
+- \(H\) as the hypothesis that Adam is enrolled in a particular field.
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We should estimate three key probabilities for each field:
+1. \(P(H)\): The prior probability that Adam is in a particular field.
+2. \(P(E|H)\): The likelihood of observing the personality sketch \(E\) given that Adam is in that field.
+3. \(P(E|\neg H)\): The likelihood of observing the personality sketch \(E\) given that Adam is not in that field.
+
+However, because \(P(E)\) (the probability of observing the personality sketch) is the same denominator for all fields when calculating \(P(H|E)\), we can ignore it in our relative comparisons. We primarily need to focus on \(P(H) \cdot P(E|H)\) for each field.
+
+Let's estimate these values:
+
+### 1. Computer Science
+- **\(P(H)\)**: Computer Science is a popular field. Let's estimate it as 0.2.
+- **\(P(E|H)\)**: Since Adam's personality sketch shows a deep love for nature, plants, animals, and empathy, it seems less likely for a typical Computer Science student, possibly around 0.1.
+- **\(P(E|\neg H)\)**: More typical among other non-CS students, let's estimate it as 0.5.
+
+### 2. Business Administration
+- **\(P(H)\)**: Business Administration is also a common field. Estimate it as 0.1.
+- **\(P(E|H)\)**: The personality sketch does not strongly align with typical traits of business admin students, possibly 0.05.
+- **\(P(E|\neg H)\)**: As before, a higher likelihood among other non-business students, estimate 0.4.
+
+### 3. Agricultural and Veterinary Science
+- **\(P(H)\)**: Less common but relevant given Adam's interests. Estimate it at 0.05.
+- **\(P(E|H)\)**: Very likely given his sketch (love for nature, plants, animals), possibly around 0.9.
+- **\(P(E|\neg H)\)**: Lower compared to this field. Estimate at 0.2.
+
+
+### Calculation of \(P(H|E)\) for each field:
+Using the posterior estimation proportionally:
+
+1. **Computer Science**
+\[ P(H|E) = P(E|H) \cdot P(H) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+2. **Business Administration**
+\[ P(H|E) = P(E|H) \cdot P(H) \propto 0.05 \cdot 0.1 = 0.005 \]
+
+3. **Agricultural and Veterinary Science**
+\[ P(H|E) = P(E|H) \cdot P(H) \propto 0.9 \cdot 0.05 = 0.045 \]
+
+Here are the results, normalized to indicate relative strengths:
+
+{
+  "computer science": \( \frac{0.02}{0.02+0.005+0.045} = \frac{0.02}{0.07} \approx 0.286 \),
+  "business administration": \( \frac{0.005}{0.07} \approx 0.071 \),
+  "agricultural and veterinary science": \( \frac{0.045}{0.07} \approx 0.643 \)
+}
+
+So, in a more comprehensive format:
+{
+  "computer science": 0.286,
+  "business administration": 0.071,
+  "agricultural and veterinary science": 0.643
+}

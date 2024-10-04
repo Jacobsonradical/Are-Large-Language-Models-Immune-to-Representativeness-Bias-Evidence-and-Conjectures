@@ -1,0 +1,37 @@
+To use Bayes' rule to compute \(P(H|E)\), the posterior probability that Adam was enrolled in a given field (H) given the personality sketch (E), we need to estimate the following probabilities:
+- \(P(H)\): The prior probability of Adam being enrolled in the given field.
+- \(P(E|H)\): The probability of observing the personality sketch given that Adam is enrolled in the field.
+- \(P(E)\): The overall probability of observing the personality sketch. This is a normalization constant but can be omitted since we're only interested in relative probabilities.
+
+### 1. Business Administration
+- **P(H)**: The prior probability of any given graduate student being enrolled in business administration. Let’s assume \(P(H)_{\text{BA}} = 0.1\) (10% of graduate students).
+- **P(E|H)**: The likelihood of the personality sketch given business administration. Adam’s appreciation for hard work and dedication might slightly increase the likelihood. However, other traits like a deep love for animals and nature might not be as relevant to this field. Let’s assume \(P(E|H)_{\text{BA}} = 0.2\).
+- **P(E|\neg H)**: The likelihood of the personality sketch given any field except business administration. Given that this sketch aligns more with empathetic and nature-loving fields, let’s assume \(P(E|\neg H)_{\text{BA}} = 0.5\).
+
+Using Bayes' rule:
+\[ P(H|E)_{\text{BA}} = \frac{P(E|H)_{\text{BA}} \cdot P(H)_{\text{BA}}}{P(E)} \]
+
+We can ignore \(P(E)\) for relative comparison:
+
+\[ P(H|E)_{\text{BA}} \propto P(E|H)_{\text{BA}} \cdot P(H)_{\text{BA}} = 0.2 \cdot 0.1 = 0.02 \]
+
+### 2. Computer Science
+- **P(H)**: The prior probability of any given graduate student being enrolled in computer science. Let’s assume \(P(H)_{\text{CS}} = 0.15\) (15% of graduate students).
+- **P(E|H)**: The likelihood of the personality sketch given computer science. Adam’s high intelligence and good understanding of abstract concepts align well with this field. Let’s assume \(P(E|H)_{\text{CS}} = 0.5\).
+- **P(E|\neg H)**: The likelihood of the personality sketch given any field except computer science. Given the given personality traits, let's assume \(P(E|\neg H)_{\text{CS}} = 0.4\).
+
+Using Bayes' rule:
+\[ P(H|E)_{\text{CS}} = \frac{P(E|H)_{\text{CS}} \cdot P(H)_{\text{CS}}}{P(E)} \]
+
+We can ignore \(P(E)\) for relative comparison:
+
+\[ P(H|E)_{\text{CS}} \propto P(E|H)_{\text{CS}} \cdot P(H)_{\text{CS}} = 0.5 \cdot 0.15 = 0.075 \]
+
+Returning the relative probabilities:
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.075
+}
+```

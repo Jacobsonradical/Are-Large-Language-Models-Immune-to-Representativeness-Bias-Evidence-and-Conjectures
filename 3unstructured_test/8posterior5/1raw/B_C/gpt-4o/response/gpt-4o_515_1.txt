@@ -1,0 +1,63 @@
+To compute \( P(H|E) \), we'll use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the sketch, let's estimate the probabilities for each hypothesis.
+
+### Fields of Study
+
+1. **Computer Science**
+   - **P(H_CS)**: The prior probability that a random graduate student in the U.S. is in computer science. Computer science is a common graduate program, so let's say \( P(H_{\text{CS}}) \approx 0.15 \).
+   - **P(E|H_CS)**: Given Adam's traits (curiosity, intelligence, love for solving puzzles, understanding abstract concepts), it's reasonable to think he might be in computer science. Let's estimate \( P(E|H_{\text{CS}}) \approx 0.5 \).
+   - **P(E|\neg H_CS)**: The probability that Adam's traits match if he is not in computer science. Nature and animals lean against computer science, so \( P(E|\neg H_{\text{CS}}) \approx 0.2 \).
+
+Calculating for computer science:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+Since \( P(E) \) is constant for both calculations and mainly \( P(\neg H) \) values are considered,
+
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \]
+
+\[ P(H_{\text{CS}}|E) \approx 0.5 \times 0.15 = 0.075 \]
+
+2. **Business Administration**
+   - **P(H_BA)**: The prior probability that a random graduate student in the U.S. is in business administration. Business administration is also common, so let's say \( P(H_{\text{BA}}) \approx 0.15 \).
+   - **P(E|H_BA)**: Given Adam's traits, business administration seems less likely because it doesn't align strongly with curiosity about nature, animals, and solving puzzles. Let’s estimate \( P(E|H_{\text{BA}}) \approx 0.1 \).
+   - **P(E|\neg H_BA)**: The probability that Adam's traits match if he is not in business administration. \( P(E|\neg H_{\text{BA}}) \approx 0.3 \).
+
+Calculating for business administration:
+
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+
+\[ P(H_{\text{BA}}|E) \approx 0.1 \times 0.15 = 0.015 \]
+
+### Normalizing the Probabilities
+
+Let's normalize to get relative values (since we are only comparing these two probabilities):
+
+\[
+P(H_{\text{CS}}|E) \approx 0.075
+\]
+\[
+P(H_{\text{BA}}|E) \approx 0.015
+\]
+
+Normalize by dividing by the sum \(0.075 + 0.015 = 0.09\):
+
+\[
+P(H_{\text{CS}}|E) = \frac{0.075}{0.09} = \frac{75}{90} = \frac{5}{6} \approx 0.833
+\]
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.015}{0.09} = \frac{15}{90} = \frac{1}{6} \approx 0.167
+\]
+
+### Final Result
+
+\[
+{
+  "computer science": 0.833,
+  "business administration": 0.167
+}
+\]

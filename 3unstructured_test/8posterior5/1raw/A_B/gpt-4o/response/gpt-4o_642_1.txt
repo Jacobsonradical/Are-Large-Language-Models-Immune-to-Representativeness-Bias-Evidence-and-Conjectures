@@ -1,0 +1,51 @@
+To compute the probabilities \( P(H|E) \) through Bayes' rule, we need to evaluate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihoods \( P(E|\neg H) \).
+
+Given:
+- \( E \): The personality sketch of Adam.
+- \( H \): The hypothesis that Adam was enrolled in a specific field.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We will make reasonable assumptions about the prior probabilities and the likelihoods, as follows:
+
+1. **Business Administration:**
+   - \( P(H) \): It's a commonly chosen graduate field, but does not strongly correlate with Adam's personality sketch.
+   - \( P(E|H) \): The likelihood of the personality sketch given Business Administration is moderate but not particularly high.
+   - \( P(E|\neg H) \): The likelihood of the personality sketch given other fields (not Business Administration) is higher than for Business Administration, as Adam's personality sketch fits better with other specialized fields.
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): This field aligns well with Adam's interests (curiosity about nature, love for animals).
+   - \( P(E|H) \): The likelihood of the personality sketch given Agricultural and Veterinary Science is very high.
+   - \( P(E|\neg H) \): The likelihood of the personality sketch given other fields (not Agricultural and Veterinary Science) is lower as Adam's characteristics strongly correspond to this field.
+
+Let's assign reasonable numeric values for computation:
+
+1. **Business Administration**:
+   - \( P(H_{\text{BA}}) = 0.1 \)
+   - \( P(E|H_{\text{BA}}) = 0.2 \)
+   - \( P(E|\neg H_{\text{BA}}) = 0.8 \)
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AVS}}) = 0.05 \) (fewer students might choose this field overall, but it's increasing)
+   - \( P(E|H_{\text{AVS}}) = 0.9 \)
+   - \( P(E|\neg H_{\text{AVS}}) = 0.1 \)
+
+For simplicity, let's assume \( P(E) = 1 \) as it will cancel in the computation (normalized at the end).
+
+Now calculate \( P(H|E) \) using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For Business Administration:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.2 \cdot 0.1}{1} = 0.02 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} = \frac{0.9 \cdot 0.05}{1} = 0.045 \]
+
+Thus, the computed probabilities are:
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.045
+}
+```

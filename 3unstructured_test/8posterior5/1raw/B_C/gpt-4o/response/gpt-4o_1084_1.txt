@@ -1,0 +1,52 @@
+To compute the probabilities \( P(H|E) \) for Adam being enrolled in either business administration or computer science, we need to use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where
+- \( P(H) \) is the prior probability of Adam being enrolled in the specified field.
+- \( P(E|H) \) is the probability of the evidence given that Adam was enrolled in that field.
+- \( P(E|\neg H) \) is the probability of the evidence given that Adam was not enrolled in that field.
+- \( P(E) \) is the overall probability of the evidence.
+
+Since we are comparing across two fields, let's assume:
+- \( P(H_{business}) \) and \( P(H_{cs}) \) are the prior probabilities of Adam being enrolled in business administration and computer science, respectively. 
+
+Given a lack of specific prior information, we may assume these priors are equal for simplicity (this is a simplifying assumption that could be adjusted with more information).
+
+### Step-by-step process:
+
+1. **Prior Probabilities \( P(H) \):**
+   - Assuming equal priors for simplicity:
+     \[ P(H_{business}) = P(H_{cs}) = 0.5 \]
+
+2. **Likelihoods \( P(E|H) \):**
+   - For business administration:
+     Adam's described personality (love for nature and animals, curiosity, strong empathy) does not strongly align with typical characteristics we might associate with business administration students. Thus, \( P(E|H_{business}) \) might be somewhat low.
+     - Estimate: \( P(E|H_{business}) = 0.2 \)
+   
+   - For computer science:
+     Adam's description of enjoying solving puzzles and understanding abstract concepts fits well with typical characteristics of computer science students. Thus, \( P(E|H_{cs}) \) is likely higher.
+     - Estimate: \( P(E|H_{cs}) = 0.7 \)
+
+3. **Complementary Likelihoods \( P(E|\neg H) \):**
+   We will use these only implicitly by comparing the relative likelihoods between the two fields.
+
+4. **Normalization Factor \( P(E) \):**
+   Since \( P(E) \) is the same in both calculations and we are comparing probabilities, it will cancel out. 
+
+The important part is the relative comparison:
+
+\[ P(H_{business}|E) \propto P(E|H_{business})P(H_{business}) = 0.2 \cdot 0.5 = 0.1 \]
+\[ P(H_{cs}|E) \propto P(E|H_{cs})P(H_{cs}) = 0.7 \cdot 0.5 = 0.35 \]
+
+Finally, we normalize these so they sum to the same weight for easier comparison:
+
+### Result:
+```json
+{
+  "business administration": 0.1,
+  "computer science": 0.35
+}
+```
+
+These results indicate that, given the personality sketch, Adam is more likely to be enrolled in computer science than in business administration.

@@ -1,0 +1,57 @@
+To apply Bayes' rule for each of these hypotheses, we need to determine the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence given that the hypothesis is false \( P(E|\neg H) \).
+
+Given the personality sketch, here are some reasonable assumptions:
+
+1. **Computer Science:**
+   - \( P(H) \), the prior probability of Adam being in computer science: Let's assume the relative popularity of computer science among all fields is medium, so we can assign a prior probability of 0.3.
+   - \( P(E|H) \), the probability that Adam's personality sketch fits computer science: He enjoys solving puzzles and has high intelligence, so this is relatively high. I'll assign 0.6.
+   - \( P(E|\neg H) \), the probability that Adam fits the personality sketch if he's not in computer science: Without computer science, other fields may also fit a similar personality, so I'll assign 0.3.
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): Since this field may be less common than computer science, let's assume a prior of 0.2.
+   - \( P(E|H) \): Given his curiosity about nature and love for animals, this is highly likely. I'll assign 0.8.
+   - \( P(E|\neg H) \): If he's not in agricultural and veterinary science, many other fields might not match his deep love for animals, so I'll assign 0.2.
+
+3. **Business Administration:**
+   - \( P(H) \): This is also a relatively common field but might be less fitting given his personality traits, so let's set the prior to 0.25.
+   - \( P(E|H) \): His personality sketch doesn't particularly emphasize traits for business, so I'll assign 0.2.
+   - \( P(E|\neg H) \): Many fields other than business might still fit his traits well, so I'll assign 0.4.
+
+Given Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) is the normalizing constant and \( P(E) = P(E|H_1)P(H_1) + P(E|H_2)P(H_2) + ... \)
+
+Let's calculate \( P(H|E) \) for each of the hypotheses mentioned:
+
+1. **Computer Science:**
+\[ P(H|E) = \frac{0.6 \cdot 0.3}{(0.6 \cdot 0.3) + (0.8 \cdot 0.2) + (0.2 \cdot 0.25)} \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{0.8 \cdot 0.2}{(0.6 \cdot 0.3) + (0.8 \cdot 0.2) + (0.2 \cdot 0.25)} \]
+
+3. **Business Administration:**
+\[ P(H|E) = \frac{0.2 \cdot 0.25}{(0.6 \cdot 0.3) + (0.8 \cdot 0.2) + (0.2 \cdot 0.25)} \]
+
+Calculating each of these:
+
+**Computer Science:**
+\[ P(H|E) = \frac{0.18}{0.18 + 0.16 + 0.05} \]
+\[ P(H|E) = \frac{0.18}{0.39} \approx 0.46 \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{0.16}{0.18 + 0.16 + 0.05} \]
+\[ P(H|E) = \frac{0.16}{0.39} \approx 0.41 \]
+
+**Business Administration:**
+\[ P(H|E) = \frac{0.05}{0.18 + 0.16 + 0.05} \]
+\[ P(H|E) = \frac{0.05}{0.39} \approx 0.13 \]
+
+Thus, we get the probabilities:
+
+```json
+{
+  "computer science": 0.46,
+  "agricultural and veterinary science": 0.41,
+  "business administration": 0.13
+}
+```

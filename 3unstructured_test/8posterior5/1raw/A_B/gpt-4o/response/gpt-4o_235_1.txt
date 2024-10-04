@@ -1,0 +1,71 @@
+Let's use Bayes' theorem to solve this problem. According to Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) * P(H)}{P(E)} \]
+
+Now, let's break this down and assign some probabilities.
+
+### Agricultural and Veterinary Science
+- **P(H)**: The prior probability Adam was enrolled in this field. Let's assume this is moderately likely for the general population of graduate students.
+  
+  \[ P(H)_{\text{ag}} = 0.15 \]
+
+- **P(E|H)**: The probability that Adam's personality sketch fits if he is in Agricultural and Veterinary Science. Given his curiosity about nature, love for animals, and appreciation for hard work, this seems quite high.
+
+  \[ P(E|H)_{\text{ag}} = 0.8 \]
+
+- **P(E|\neg H)**: The probability that Adam's personality sketch fits if he is NOT in Agricultural and Veterinary Science. This could be lower, as the specific fit for nature and animals might be less common in other fields.
+  
+  \[ P(E|\neg H)_{\text{ag}} = 0.3 \]
+
+### Business Administration
+- **P(H)**: The prior probability Adam was enrolled in this field. For graduate students, business administration is also moderately common.
+
+  \[ P(H)_{\text{bus}} = 0.2 \]
+
+- **P(E|H)**: The probability that Adam's personality sketch fits if he is in Business Administration. Given his love for nature and animals, this fit is less likely.
+  
+  \[ P(E|H)_{\text{bus}} = 0.2 \]
+
+- **P(E|\neg H)**: The probability that Adam's personality sketch fits if he is NOT in Business Administration. Given his traits, this could be moderately high.
+  
+  \[ P(E|\neg H)_{\text{bus}} = 0.6 \]
+
+### Calculations
+To find \( P(H|E) \), we need to compute \( P(E) \) which can be done using the law of total probability:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+We will use this separate for each field.
+
+#### For Agricultural and Veterinary Science:
+
+\[ P(E)_{\text{ag}} = P(E|H)_{\text{ag}}*P(H)_{\text{ag}} + P(E|\neg H)_{\text{ag}}*(1 - P(H)_{\text{ag}}) \]
+\[ P(E)_{\text{ag}} = (0.8 * 0.15) + (0.3 * 0.85) \]
+\[ P(E)_{\text{ag}} = 0.12 + 0.255 \]
+\[ P(E)_{\text{ag}} = 0.375 \]
+
+\[ P(H|E)_{\text{ag}} = \frac{P(E|H)_{\text{ag}} * P(H)_{\text{ag}}}{P(E)_{\text{ag}}} \]
+\[ P(H|E)_{\text{ag}} = \frac{0.8 * 0.15}{0.375} \]
+\[ P(H|E)_{\text{ag}} = \frac{0.12}{0.375} \]
+\[ P(H|E)_{\text{ag}} = 0.32 \]
+
+#### For Business Administration:
+
+\[ P(E)_{\text{bus}} = P(E|H)_{\text{bus}}*P(H)_{\text{bus}} + P(E|\neg H)_{\text{bus}}*(1 - P(H)_{\text{bus}}) \]
+\[ P(E)_{\text{bus}} = (0.2 * 0.2) + (0.6 * 0.8) \]
+\[ P(E)_{\text{bus}} = 0.04 + 0.48 \]
+\[ P(E)_{\text{bus}} = 0.52 \]
+
+\[ P(H|E)_{\text{bus}} = \frac{P(E|H)_{\text{bus}} * P(H)_{\text{bus}}}{P(E)_{\text{bus}}} \]
+\[ P(H|E)_{\text{bus}} = \frac{0.2 * 0.2}{0.52} \]
+\[ P(H|E)_{\text{bus}} = \frac{0.04}{0.52} \]
+\[ P(H|E)_{\text{bus}} = 0.077 \]
+
+```json
+{
+  "agricultural and veterinary science": 0.32,
+  "business administration": 0.077
+}
+```
+
+Therefore, given the personality sketch of Adam, it is more likely that he was enrolled in Agricultural and Veterinary Science than in Business Administration.

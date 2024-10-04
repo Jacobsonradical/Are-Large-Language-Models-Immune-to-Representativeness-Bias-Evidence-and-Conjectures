@@ -1,0 +1,49 @@
+Let's apply Bayes' theorem to compute the probability of Adam being enrolled in each field given his personality sketch. Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For the sake of clarity and simplicity, we will make some assumptions about the values of \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\).
+
+**Agricultural and Veterinary Science**
+
+1. **P(H)**: This is the prior probability that any random graduate student is enrolled in agricultural and veterinary science. Let's assume a small value, say 0.05, since this is a less common field.
+2. **P(E|H)**: This is the probability of observing Adam's personality if he is enrolled in this field. Given his interest in nature, plants, and animals, let's set this high at 0.9.
+3. **P(E|\neg H)**: This is the probability of observing Adam's personality if he is not enrolled in this field. Given his characteristics, but assuming they could fit into some other fields as well, let's set this at 0.1.
+
+**Business Administration**
+
+1. **P(H)**: This is the prior probability that any random graduate student is enrolled in business administration. Let’s assume a medium value, say 0.2, since this is a more common field.
+2. **P(E|H)**: This is the probability of observing Adam's personality if he is enrolled in this field. Given his traits do not typically align perfectly with business administration, let's set this low at 0.2.
+3. **P(E|\neg H)**: This remains the same 0.1 as before.
+
+To compute \(P(E)\):
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+For **agricultural and veterinary science**:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) \approx 0.9 \cdot 0.05 + 0.1 \cdot 0.95 \]
+\[ P(E) \approx 0.045 + 0.095 \]
+\[ P(E) \approx 0.14 \]
+
+Using Bayes' theorem:
+\[ P(H|E) \approx \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) \approx \frac{0.9 \cdot 0.05}{0.14} \]
+\[ P(H|E) \approx \frac{0.045}{0.14} \approx 0.32 \]
+
+For **business administration**:
+\[ P(E) \approx 0.2 \cdot 0.2 + 0.1 \cdot 0.8 \]
+\[ P(E) \approx 0.04 + 0.08 \]
+\[ P(E) \approx 0.12 \]
+
+Using Bayes' theorem:
+\[ P(H|E) \approx \frac{0.2 \cdot 0.2}{0.12} \]
+\[ P(H|E) \approx \frac{0.04}{0.12} \approx 0.33 \]
+
+The results are then:
+
+```json
+{
+  "agricultural and veterinary science": 0.32,
+  "business administration": 0.33
+}
+```

@@ -1,0 +1,37 @@
+To calculate the probability that Adam was enrolled in a specific field given his personality sketch, we need to use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) can be considered common for all hypotheses, we only need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Here are my judgements:
+
+1. **Computer Science**:
+   - \( P(H) \): Let's assume an arbitrary prior probability that Adam is enrolled in computer science. Given the wide popularity of computer science among graduate students, let's set this to 0.2.
+   - \( P(E|H) \): The personality sketch of Adam highlights skills that are quite valuable in computer science, such as high intelligence, solving puzzles, and understanding abstract concepts. Therefore, let's set this reasonably high, say 0.4.
+   - \( P(E|\neg H) \): Considering the broad nature of the skills described, I would gauge that about 0.3 of graduate students not in computer science would still fit this profile.
+
+\[ P(\text{computer science}|E) = \frac{0.4 \cdot 0.2}{P(E)} \approx \frac{0.08}{P(E)} \]
+
+2. **Business Administration**:
+   - \( P(H) \): Business administration, like computer science, is a popular field but tends to attract students with different personality features. Let's set this prior probability to 0.2 as well.
+   - \( P(E|H) \): The personality sketch is less indicative of a typical business administration student who might focus more on leadership, management, and practical business skills. Let's estimate this at 0.1.
+   - \( P(E|\neg H) \): Similar to earlier, let's estimate this around 0.3 for those not in business administration.
+
+\[ P(\text{business administration}|E) = \frac{0.1 \cdot 0.2}{P(E)} \approx \frac{0.02}{P(E)} \]
+
+Now we can drop the common factor \( P(E) \) and compare the ratios:
+
+Thus, calculating the adjusted probabilities (marginalization over E):
+
+- Computer Science: ~ 0.08
+- Business Administration: ~ 0.02
+
+Given the above, we have:
+
+```json
+{
+  "computer science": 0.08,
+  "business administration": 0.02
+}
+```
+
+Please note that the absolute values aren't important for comparison; what matters is the relative likelihoods. Thus, based on the personality sketch provided, Adam is significantly more likely to have been enrolled in computer science than business administration.

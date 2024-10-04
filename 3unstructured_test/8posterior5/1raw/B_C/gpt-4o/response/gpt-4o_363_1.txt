@@ -1,0 +1,78 @@
+To approach this problem, we need to evaluate the probabilities for Adam being enrolled in computer science (CS) or business administration (BA) based on his personality sketch, using Bayes' theorem.
+
+Bayes' theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E) \) is the evidence probability.
+
+### Computer Science
+
+1. **Prior Probability \(P(H)\):**
+   Generally, a considerable number of graduate students are enrolled in computer science, but this number has to be balanced against the total number of graduate programs.
+
+   \( P(H_{CS}) \approx 0.2 \) (Assumption: 20%)
+
+2. **Likelihood \(P(E|H)\):**
+   Given Adam's traits (curiosity about nature, love for animals, empathy), they are not directly typical of a CS student but intelligence and appreciation for abstract concepts can align well with CS.
+
+   \( P(E|H_{CS}) \approx 0.4 \)
+
+3. **Complement Likelihood \(P(E|\neg H)\):**
+   This represents Adam's profile likelihood among non-CS graduate fields. With his love for animals and nature, fields like biology and environmental science may be more probable.
+
+   \( P(E|\neg H_{CS}) \approx 0.1 \)
+
+### Business Administration
+
+1. **Prior Probability \(P(H)\):**
+   Business administration is a common field for graduate studies, but less so compared to CS for a profile with Adam's traits.
+
+   \( P(H_{BA}) \approx 0.1 \) (Assumption: 10%)
+
+2. **Likelihood \(P(E|H)\):**
+   Given Adam's traits, particularly his empathy and understanding for hard work and dedication, fit well but are not strictly indicative of a BA student.
+
+   \( P(E|H_{BA}) \approx 0.3 \)
+
+3. **Complement Likelihood \(P(E|\neg H)\):**
+   Likelihood of this profile in non-BA fields would be higher due to the traits aligning with various natural and social sciences.
+
+   \( P(E|\neg H_{BA}) \approx 0.15 \)
+
+### Applying Bayes' theorem:
+
+#### For Computer Science
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+Estimating \( P(E) \) as a normalization factor:
+
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+
+\[ P(E) = 0.4 \cdot 0.2 + 0.1 \cdot 0.8 = 0.08 + 0.08 = 0.16 \]
+
+\[ P(H_{CS}|E) = \frac{0.4 \cdot 0.2}{0.16} = \frac{0.08}{0.16} = 0.5 \]
+
+#### For Business Administration
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Estimating \( P(E) \):
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+
+\[ P(E) = 0.3 \cdot 0.1 + 0.15 \cdot 0.9 = 0.03 + 0.135 = 0.165 \]
+
+\[ P(H_{BA}|E) = \frac{0.3 \cdot 0.1}{0.165} = \frac{0.03}{0.165} \approx 0.1818 \]
+
+### Results
+
+Therefore:
+
+{
+  "computer science": 0.5,
+  "business administration": 0.1818
+}

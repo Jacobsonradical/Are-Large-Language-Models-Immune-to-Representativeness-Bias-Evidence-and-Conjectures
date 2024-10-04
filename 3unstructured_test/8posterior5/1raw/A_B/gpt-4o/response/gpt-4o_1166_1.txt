@@ -1,0 +1,53 @@
+To compute the probabilities \( P(H|E) \) using Bayes' theorem, we need to use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis H.
+- \( P(E|H) \) is the likelihood of observing E given H.
+- \( P(E|\neg H) \) is the likelihood of observing E given not H.
+- \( P(E) \) is the overall probability of observing E.
+
+Let's make a simplified set of assumptions for each field based on the personality sketch of Adam. 
+
+### For Agricultural and Veterinary Science:
+- **P(H)**: The probability that a graduate student is enrolled in agricultural and veterinary science, hypothetically let's assume it is 0.1 (10%) based on an average university population distribution.
+- **P(E|H)**: The probability of observing E given that Adam is in agricultural and veterinary science. Given Adam's love for nature, plants, animals, and his empathy, this field seems very fitting. Let's assume it is 0.8 (80%).
+- **P(E|\neg H)**: The probability of observing E given that Adam is in a different field. Given the general alignment of Adam's traits to nature-related fields, but accounting for the broad range of other fields he could be in. Let's assume it is 0.2 (20%).
+
+### For Business Administration:
+- **P(H)**: The probability that a graduate student is enrolled in business administration, let's assume it is 0.1 (10%) as well.
+- **P(E|H)**: The probability of observing E given that Adam is in business administration. Business administration does not seem to align closely with Adam’s deep love for animals, nature, and solving puzzles related to those areas. Let's assume it is 0.2 (20%).
+- **P(E|\neg H)**: The probability of observing E given that Adam is in a different field. Given the specific traits, this would be more frequent in other fields than business administration. Let's assume it is 0.3 (30%).
+
+To simplify the weight of overall P(E), we will limit our calculation of \( P(H|E) \) to the comparisons between Agricultural and Veterinary Science and Business Administration.
+
+To calculate P(E):
+\[ P(E) = P(E|H)\times P(H) + P(E|\neg H)\times P(\neg H) \]
+Since H and \neg H (not H) are binary for simplicity:
+\[ P(E) = P(E|H) \times P(H) + P(E|\neg H) \times (1 - P(H)) \]
+
+**For Agricultural and Veterinary Science**:
+\[ P(E) = 0.8 \times 0.1 + 0.2 \times 0.9 = 0.08 + 0.18 = 0.26 \]
+
+**For Business Administration**:
+\[ P(E) = 0.2 \times 0.1 + 0.3 \times 0.9 = 0.02 + 0.27 = 0.29 \]
+
+Now we can calculate the posterior probabilities \( P(H|E) \):
+
+**For Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} = \frac{0.8 \times 0.1}{0.26} \approx 0.308 \]
+
+**For Business Administration**:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} = \frac{0.2 \times 0.1}{0.29} \approx 0.069 \]
+
+So, the approximate posterior probabilities \( P(H|E) \) for each field are:
+
+```json
+{
+  "agricultural and veterinary science": 0.308,
+  "business administration": 0.069
+}
+```
+
+These probability values represent the likelihood that Adam is enrolled in the given field given his personality sketch.

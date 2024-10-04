@@ -1,0 +1,56 @@
+Let's break down the steps and conduct the calculations using Bayes' theorem.
+
+Bayes' theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For our two hypotheses:
+
+1. **Computer Science**: \( H_c \)
+2. **Agricultural and Veterinary Science**: \( H_a \)
+
+Let's define:
+
+- \( P(H_c) \): Prior probability that a randomly chosen graduate student is enrolled in computer science.
+- \( P(H_a) \): Prior probability that a randomly chosen graduate student is enrolled in agricultural and veterinary science.
+
+To proceed, we need to make educated guesses about these probabilities:
+
+--- Prior Probabilities \( P(H) \):
+
+Given the popularity of computer science, let's assume \( P(H_c) \approx 0.3 \) (30%). Agricultural and veterinary science is less common, so we might assume \( P(H_a) \approx 0.05 \) (5%).
+
+--- Likelihoods \( P(E|H) \):
+
+Given the personality sketch \( E \):
+- For computer science (\( H_c \)): A student in computer science can have high intelligence, an appreciation for hard work, and strong abstract thinking skills, but the deep love for nature and animals is less common. Let's estimate \( P(E|H_c) \approx 0.1 \) (10%).
+- For agricultural and veterinary science (\( H_a \)): This field aligns much more closely with a love for nature, plants, and animals, as well as empathy and warmth. Let’s estimate \( P(E|H_a) \approx 0.7 \) (70%).
+
+--- Complementary Likelihoods \( P(E|\neg H) \):
+
+Considering the probabilities complementary to \( H_c \) and \( H_a \):
+
+- \( P(E|\neg H_c) \): The probability that a student not in computer science has this personality. This could be quite high given that most non-CS students probably have various interests. Let's estimate around \( P(E|\neg H_c) \approx 0.4 \) (40%).
+- \( P(E|\neg H_a) \): The probability that a student not in agricultural and veterinary science has this personality. Let’s estimate \( P(E|\neg H_a) \approx 0.1 \) (10%).
+
+--- Bayes' Rule Calculation:
+
+Now, let's calculate \( P(H|E) \) for each field using Bayes' theorem. Assume \( P(E) \) to be a normalization constant so that the probabilities add up proportionally:
+
+For Computer Science \( H_c \):
+\[ P(H_c|E) = \frac{P(E|H_c) \cdot P(H_c)}{P(E)} \]
+\[ P(H_c|E) \approx \frac{0.1 \times 0.3}{0.1 \times 0.3 + 0.7 \times 0.05} \]
+\[ P(H_c|E) \approx \frac{0.03}{0.03 + 0.035} \]
+\[ P(H_c|E) \approx \frac{0.03}{0.065} \approx 0.4615 \]
+
+For Agricultural and Veterinary Science \( H_a \):
+\[ P(H_a|E) = \frac{P(E|H_a) \cdot P(H_a)}{P(E)} \]
+\[ P(H_a|E) \approx \frac{0.7 \times 0.05}{0.1 \times 0.3 + 0.7 \times 0.05} \]
+\[ P(H_a|E) \approx \frac{0.035}{0.03 + 0.035} \]
+\[ P(H_a|E) \approx \frac{0.035}{0.065} \approx 0.5385 \]
+
+So, the likelihood that Adam was enrolled in these fields given his personality sketch \( E \) is:
+
+{
+  "computer science": 0.4615,
+  "agricultural and veterinary science": 0.5385
+}

@@ -1,0 +1,41 @@
+To address the problem, we'll use Bayesian inference to determine the posterior probabilities \( P(H|E) \) for Adam being in each graduate field, given the personality sketch \( E \). Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To compare different fields, we need the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complementary likelihoods \( P(E|\neg H) \). Here, the normalization factor \( P(E) \) can be ignored as it remains constant across different fields. 
+
+We'll follow a structured estimation, but it's important to note that these values are subjective estimates based on common perceptions:
+
+1. **Computer Science:**
+   - **Prior \( P(H)_{CS} \)**: Let's assume computer science is a popular field, so we might estimate a prior of 0.2.
+   - **Likelihood \( P(E|H)_{CS} \)**: The characteristics given in the sketch (like high intelligence, quiet nature, puzzle-solving ability) fit well with a computer science profile, so let's assign a high likelihood of 0.6.
+   - **Complementary Likelihood \( P(E|\neg H)_{CS} \)**: This reflects how likely the sketch fits across other fields in general. Because the traits are valuable in many fields, we'll assign a moderately high value of 0.5.
+
+2. **Business Administration:**
+   - **Prior \( P(H)_{BA} \)**: Business administration is also a common field, but let’s assign a slightly lower prior than computer science, say 0.15.
+   - **Likelihood \( P(E|H)_{BA} \)**: The sketch doesn't fit as neatly with business administration, especially considering the strong empathy and love for animals, so we'll assign a likelihood of 0.2.
+   - **Complementary Likelihood \( P(E|\neg H)_{BA} \)**: Similar to computer science, there are many fields where the traits in the sketch are relevant, so let’s set it to 0.5.
+
+Applying these values to Bayes' rule:
+
+1. **Computer Science (CS):**
+
+\[ P(H|E)_{CS} \propto P(E|H)_{CS} \cdot P(H)_{CS} \]
+\[ P(H|E)_{CS} \propto 0.6 \cdot 0.2 = 0.12 \]
+
+2. **Business Administration (BA):**
+
+\[ P(H|E)_{BA} \propto P(E|H)_{BA} \cdot P(H)_{BA} \]
+\[ P(H|E)_{BA} \propto 0.2 \cdot 0.15 = 0.03 \]
+
+To convert these into probabilities, we should normalize them:
+
+\[ P(H|E)_{CS} = \frac{0.12}{0.12 + 0.03} = \frac{0.12}{0.15} = 0.8 \]
+\[ P(H|E)_{BA} = \frac{0.03}{0.12 + 0.03} = \frac{0.03}{0.15} = 0.2 \]
+
+Thus, the final probabilities based on our estimates are:
+
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}

@@ -1,0 +1,47 @@
+To estimate the probabilities, we need to consider how likely it is for Adam, given his personality sketch \( E \), to be enrolled in each of the fields \( H \).
+
+1. **Computer Science (CS)**:
+    - **P(H)**: The prior probability that a random graduate student is enrolled in a computer science program. Let's assume computer science is a relatively popular field, so we might estimate this as, say, 0.2 (20%).
+    - **P(E|H)**: The likelihood of Adam's personality sketch given he is in computer science. While intelligence and problem-solving fit well, the warm heart, empathy, and love for nature are less strongly associated with CS, making this moderately low. Let's estimate 0.2.
+    - **P(E|¬H)**: The likelihood of Adam's personality sketch given he is not in computer science. Given a diverse range of other fields, this could be expected, so let's approximate this as roughly similar across non-CS fields—say, 0.1.
+
+Using Bayes' rule to find \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) can be factored out as a normalizing constant:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \times 0.2 = 0.04 \]
+
+2. **Agricultural and Veterinary Science (AgVetSci)**:
+    - **P(H)**: The prior probability that a random graduate student is enrolled in agricultural and veterinary sciences. This might be less common than CS, so let's assume 0.05 (5%).
+    - **P(E|H)**: The likelihood of Adam's personality sketch given he is in agricultural and veterinary sciences. His curiosity about nature, love for animals, empathy, and appreciation for hard work fits very well, making this high. Let's estimate 0.9.
+    - **P(E|¬H)**: The likelihood of Adam's personality sketch given he is not in agricultural and veterinary sciences. This remains relatively low compared to AgVetSci, so we might assign a similar value as earlier, 0.1.
+
+Using Bayes' rule to find \( P(H|E) \):
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \times 0.05 = 0.045 \]
+
+So the normalized probabilities will be proportional to these calculations.
+
+For simplicity:
+
+\[
+P(H1|E) + P(H2|E) = 0.04 + 0.045 = 0.085
+\]
+
+Normalization:
+
+\[
+P(H1|E) = \frac{0.04}{0.085} \approx 0.47
+\]
+\[
+P(H2|E) = \frac{0.045}{0.085} \approx 0.53
+\]
+
+Thus:
+
+{
+  "computer science": 0.47,
+  "agricultural and veterinary science": 0.53
+}

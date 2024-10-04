@@ -1,0 +1,54 @@
+To apply Bayes' rule, we need to evaluate the following probabilities:
+
+- \(P(H)\): The prior probability that Adam is enrolled in that field.
+- \(P(E|H)\): The probability of observing Adam's personality sketch, given he is in that field.
+- \(P(E|\neg H)\): The probability of observing Adam's personality sketch, given he is not in that field.
+
+We are looking to compute \(P(H|E)\), which is the probability of Adam being enrolled in a particular field given his personality sketch.
+
+We will assume the priors \(P(H)\) as the baseline rates of enrollment in these fields and estimate the conditional probabilities \(P(E|H)\) and \(P(E|\neg H)\) based on how well the personality sketch fits a typical student in those fields. Here's an estimate:
+
+1. **Business Administration:**
+   - \(P(H_{BA})\) (the prior probability that Adam is enrolled in Business Administration): Let's assume a general probability of about 0.2 (20%), given that business administration is a fairly common field.
+   - \(P(E|H_{BA})\) (the probability of observing Adam's personality sketch given he is in Business Administration): Given Adam's strong empathy, appreciation for hard work, and intelligence, but noting that his interests lean more towards nature, animals, and puzzles rather than typical business traits, let's estimate 0.1 (10%).
+   - \(P(E|\neg H_{BA})\) (the probability of observing Adam's personality sketch given he is not in Business Administration): Since this sketch might better fit other fields, we'll set it around 0.4 (40%).
+
+   Applying Bayes' rule:
+   \[
+   P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} 
+   \]
+   We need the normalizing constant \(P(E)\), but since we are comparing fields, it's sufficient to note relative probabilities.
+
+2. **Computer Science:**
+   - \(P(H_{CS})\) (the prior probability that Adam is enrolled in Computer Science): Let's assume a general probability of about 0.15 (15%), as it is a moderately common field.
+   - \(P(E|H_{CS})\) (the probability of observing Adam's personality sketch given he is in Computer Science): Given Adam likes solving puzzles, has high intelligence, appreciates abstract concepts, and is empathetic, these traits fit well. Let's estimate 0.6 (60%).
+   - \(P(E|\neg H_{CS})\) (the probability of observing Adam's personality sketch given he is not in Computer Science): Given similar reasoning as above, we’ll set it around 0.3 (30%).
+
+   Applying Bayes' rule:
+   \[
+   P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)}
+   \]
+ 
+For our purposes:
+
+\[
+P(H_{BA}|E) \propto \frac{0.1 \cdot 0.2}{P(E)} \approx 0.02
+\]
+\[
+P(H_{CS}|E) \propto \frac{0.6 \cdot 0.15}{P(E)} \approx 0.09
+\]
+
+Normalizing these values (since we are only comparing two fields here):
+\[
+P(H_{BA}|E) \approx \frac{0.02}{0.02 + 0.09} \approx 0.182
+\]
+\[
+P(H_{CS}|E) \approx \frac{0.09}{0.02 + 0.09} \approx 0.818
+\]
+
+Thus, the probabilities are approximately:
+
+{
+  "business administration": 0.182,
+  "computer science": 0.818
+}

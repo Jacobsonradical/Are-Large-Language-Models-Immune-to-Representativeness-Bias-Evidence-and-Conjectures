@@ -1,0 +1,60 @@
+Let's first break down the probabilities given the provided personality sketch of Adam:
+
+1. **Prior Probabilities (P(H)):**
+   - Since we don't have the exact distribution of graduate student enrollment across specific fields, we will assume a fairly even distribution for simplicity, but we need to account for the fact that some fields might naturally have more students. Suppose we assume an approximate prior distribution as:
+     - P(computer science) = 0.3
+     - P(business administration) = 0.3
+     - P(agricultural and veterinary science) = 0.4
+
+2. **Likelihood (P(E|H)):**
+   - Based on the personality sketch, we can make educated guesses about how likely someone with Adam’s characteristics would be found in each field:
+     - P(E|computer science): While being intelligent and good with abstract concepts fits, his love for nature and animals less so—let's assume 0.2.
+     - P(E|business administration): Adam’s characteristics do not particularly align closely with business administration—let's assume 0.1.
+     - P(E|agricultural and veterinary science): Adam’s curiosity about nature, strong empathy, and love for animals fit very well—let's assume 0.7.
+
+3. **Inverse Likelihood (P(E|¬H)):**
+   - This is the probability of the evidence given that Adam is not in the field. Since we have three fields, P(E|¬H) can be seen as a weighted average from the other fields for each individual field:
+     - For computer science:
+       - P(E|¬H) ≈ (P(E|business administration) * P(business administration) + P(E|agricultural and veterinary science) * P(agricultural and veterinary science)) / (1 - P(computer science)) 
+       - P(E|¬H) ≈ (0.1 * 0.3 + 0.7 * 0.4) / (1 - 0.3)
+       - P(E|¬H) ≈ (0.03 + 0.28) / 0.7 ≈ 0.31 / 0.7 ≈ 0.44
+     - For business administration:
+       - P(E|¬H) ≈ (P(E|computer science) * P(computer science) + P(E|agricultural and veterinary science) * P(agricultural and veterinary science)) / (1 - P(business administration)) 
+       - P(E|¬H) ≈ (0.2 * 0.3 + 0.7 * 0.4) / (1 - 0.3)
+       - P(E|¬H) ≈ (0.06 + 0.28) / 0.7 ≈ 0.34 / 0.7 ≈ 0.49
+     - For agricultural and veterinary science:
+       - P(E|¬H) ≈ (P(E|computer science) * P(computer science) + P(E|business administration) * P(business administration)) / (1 - P(agricultural and veterinary science))
+       - P(E|¬H) ≈ (0.2 * 0.3 + 0.1 * 0.3) / (1 - 0.4)
+       - P(E|¬H) ≈ (0.06 + 0.03) / 0.6 ≈ 0.09 / 0.6 ≈ 0.15
+
+4. **Posterior Probabilities (P(H|E)):**
+   - Bayes' rule: P(H|E) = [P(E|H) * P(H)] / [P(E|H) * P(H) + P(E|¬H) * P(¬H)]
+
+Let's calculate each:
+
+   - For computer science:
+     - P(H|E) = [0.2 * 0.3] / [0.2 * 0.3 + 0.44 * 0.7]
+     - P(H|E) = 0.06 / [0.06 + 0.308]
+     - P(H|E) = 0.06 / 0.368 ≈ 0.163
+
+   - For business administration:
+     - P(H|E) = [0.1 * 0.3] / [0.1 * 0.3 + 0.49 * 0.7]
+     - P(H|E) = 0.03 / [0.03 + 0.343]
+     - P(H|E) = 0.03 / 0.373 ≈ 0.080
+
+   - For agricultural and veterinary science:
+     - P(H|E) = [0.7 * 0.4] / [0.7 * 0.4 + 0.15 * 0.6]
+     - P(H|E) = 0.28 / [0.28 + 0.09]
+     - P(H|E) = 0.28 / 0.37 ≈ 0.757
+
+So the final estimates:
+
+```json
+{
+  "computer science": 0.163,
+  "business administration": 0.080,
+  "agricultural and veterinary science": 0.757
+}
+```
+
+These values indicate that, based on the personality sketch, Adam is most likely enrolled in agricultural and veterinary science, given the alignment of his interests and personality with that field.

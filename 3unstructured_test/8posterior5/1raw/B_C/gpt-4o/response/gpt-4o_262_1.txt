@@ -1,0 +1,68 @@
+To apply Bayes' rule, we need to evaluate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \) and \( P(E|\neg H) \), and then compute the posterior probabilities \( P(H|E) \).
+
+Let's break this down for each field:
+
+1. **Prior probabilities** (\( P(H) \)):
+   - These represent how likely it is for Adam to be enrolled in each program before considering the evidence \( E \). Without additional information about the distribution of graduate students across fields, we can assume some general priors. Suppose:
+     - \( P(\text{business administration}) = 0.3 \)
+     - \( P(\text{computer science}) = 0.2 \)
+
+2. **Likelihoods** (\( P(E|H) \)):
+   - These represent the probability of observing Adam's traits given his field of study.
+   - **For Business Administration**:
+     - Business administration students can have high intelligence and empathy, but the strong curiosity about nature, deep love for animals, and enjoyment of puzzles are less typical. Suppose:
+       - \( P(E|\text{business administration}) = 0.1 \)
+   - **For Computer Science**:
+     - Computer science students are often good at solving puzzles and possess high intelligence. However, strong empathy and a love for animals may be less common. Suppose:
+       - \( P(E|\text{computer science}) = 0.3 \)
+
+3. **Complementary Likelihoods** (\( P(E|\neg H) \)):
+   - These represent the probability of observing Adam's traits among all other fields.
+   - Estimations could be:
+     - \( P(E|\neg\text{business administration}) = 0.05 \)
+     - \( P(E|\neg\text{computer science}) = 0.1 \)
+
+4. **Posterior probabilities** (\( P(H|E) \)):
+   - These are computed using Bayes' rule:
+     \[
+     P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+     \]
+     Where \( P(E) \) is given by:
+     \[
+     P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+     \]
+
+### Business Administration
+- \( P(\text{business administration}|E) \):
+  \[
+  P(E) = (P(E|\text{business administration}) \cdot P(\text{business administration})) + (P(E|\neg\text{business administration}) \cdot P(\neg\text{business administration}))
+  \]
+  \[
+  = (0.1 \cdot 0.3) + (0.05 \cdot 0.7) = 0.03 + 0.035 = 0.065
+  \]
+  \[
+  P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.1 \cdot 0.3}{0.065} \approx 0.4615
+  \]
+
+### Computer Science
+- \( P(\text{computer science}|E) \):
+  \[
+  P(E) = (P(E|\text{computer science}) \cdot P(\text{computer science})) + (P(E|\neg\text{computer science})) \cdot P(\neg\text{computer science}))
+  \]
+  \[
+  = (0.3 \cdot 0.2) + (0.1 \cdot 0.8) = 0.06 + 0.08 = 0.14
+  \]
+  \[
+  P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.3 \cdot 0.2}{0.14} \approx 0.4286
+  \]
+
+So the computed posterior probabilities are:
+
+```json
+{
+  "business administration": 0.4615,
+  "computer science": 0.4286
+}
+```
+
+Please note that these values are approximate and based on set prior probabilities and likelihoods. Adjustments to initial assumptions would alter the final poster probability values.

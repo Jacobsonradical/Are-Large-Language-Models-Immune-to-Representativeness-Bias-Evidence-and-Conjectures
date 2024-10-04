@@ -1,0 +1,69 @@
+To determine the probabilities we are interested in, we'll make some reasonable assumptions based on typical profiles of students in different graduate fields and the information provided in the personality sketch of Adam.
+
+Let's denote:
+- \( H_{CS} \): Adam is enrolled in computer science.
+- \( H_{BA} \): Adam is enrolled in business administration.
+
+We need to estimate the following:
+1. \( P(H) \): The prior probability that Adam was enrolled in computer science or business administration.
+2. \( P(E|H) \): The probability of observing E (Adam's personality sketch) given that Adam is in that field.
+3. \( P(E|\neg H) \): The probability of observing E given that Adam is not in that field.
+
+Based on the given personality sketch and typical graduate fields:
+
+### Step-by-Step Estimations
+
+1. **Prior Probabilities, P(H):**
+    We'll assume that the graduate fields have roughly equal popularity among students.
+    - \( P(H_{CS}) \approx 0.2 \)
+    - \( P(H_{BA}) \approx 0.2 \)
+    - These values are chosen assuming other fields (e.g., biology, psychology) share the remaining probabilities.
+
+2. **Likelihoods, P(E|H) and P(E|\neg H):**
+    Based on personality traits:
+    - Computer science students might generally have high intelligence and good problem-solving skills but may or may not have strong empathy or love for nature/animals, lessening the likelihood.
+    - Business administration students may appreciate hard work and dedication but may not fit well with the high abstraction and empathy towards animals and nature.
+
+    Let's guess:
+    - \( P(E|H_{CS}) \approx 0.1 \)  (interest in nature and empathy are less common in CS)
+    - \( P(E|H_{BA}) \approx 0.05 \)  (traits are even less common in typical BA profiles)
+
+    For the probability of observing E given Adam is not in these fields, we need to consider general graduate student traits:
+    - Many non-CS, non-BA fields (e.g., biology, environmental studies) could align well with Adam's personality sketch.
+    - Thus, both will have:
+    - \( P(E|\neg H_{CS}) \approx 0.4 \)
+    - \( P(E|\neg H_{BA}) \approx 0.4 \)
+
+### Bayesian Calculation for Each Field
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Where \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \)
+
+#### For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS})P(H_{CS})}{P(E)} \]
+\[ P(E) = P(E|H_{CS})P(H_{CS}) + P(E|\neg H_{CS})P(\neg H_{CS}) \]
+\[ P(E) = (0.1 \times 0.2) + (0.4 \times 0.8) \]
+\[ P(E) = 0.02 + 0.32 \]
+\[ P(E) = 0.34 \]
+\[ P(H_{CS}|E) = \frac{0.1 \times 0.2}{0.34} \]
+\[ P(H_{CS}|E) \approx \frac{0.02}{0.34} \]
+\[ P(H_{CS}|E) \approx 0.059 \]
+
+#### For Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA})P(H_{BA})}{P(E)} \]
+\[ P(E) = P(E|H_{BA})P(H_{BA}) + P(E|\neg H_{BA})P(\neg H_{BA}) \]
+\[ P(E) = (0.05 \times 0.2) + (0.4 \times 0.8) \]
+\[ P(E) = 0.01 + 0.32 \]
+\[ P(E) = 0.33 \]
+\[ P(H_{BA}|E) = \frac{0.05 \times 0.2}{0.33} \]
+\[ P(H_{BA}|E) \approx \frac{0.01}{0.33} \]
+\[ P(H_{BA}|E) \approx 0.03 \]
+
+### Summary of Probabilities
+```json
+{
+  "computer science": 0.059,
+  "business administration": 0.03
+}
+```

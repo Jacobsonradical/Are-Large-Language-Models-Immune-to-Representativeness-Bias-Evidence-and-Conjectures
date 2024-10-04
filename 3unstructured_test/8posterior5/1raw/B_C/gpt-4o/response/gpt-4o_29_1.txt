@@ -1,0 +1,58 @@
+To compute \( P(H|E) \) using Bayes' Rule, we need to determine the following:
+
+1. \( P(H) \): Prior probability that Adam was enrolled in the specified field.
+2. \( P(E|H) \): Probability of observing Adam's personality sketch given that he was enrolled in the specified field.
+3. \( P(E|\neg H) \): Probability of observing Adam's personality sketch given that he was not enrolled in the specified field.
+4. \( P(E) \): Overall probability of observing Adam's personality sketch.
+
+For simplicity, we will approximate \( P(E|\neg H) \) with an average of the probabilities of observing Adam's personality sketch across common graduate fields excluding the specified ones.
+
+### Computer Science
+1. **Prior Probability** \( P(H_{cs}) \):
+   - Let’s assume a moderate prior based on the popularity of the field.
+   - \( P(H_{cs}) \approx 0.10 \)
+
+2. **Likelihood** \( P(E|H_{cs}) \):
+   - Given Adam's love for solving puzzles and high intelligence, there is a fair chance he could be in computer science.
+   - However, his empathy and love for animals might not be as commonly associated with this field.
+   - \( P(E|H_{cs}) \approx 0.30 \)
+
+3. **Likelihood of observing E given not in computer science** \( P(E|\neg H_{cs}) \):
+   - This would have to cover a broad range of fields. Let's estimate a generic value.
+   - \( P(E|\neg H_{cs}) \approx 0.05 \)
+
+### Business Administration
+1. **Prior Probability** \( P(H_{ba}) \):
+   - Let’s assume a somewhat lower prior due to the distinct nature of his interests.
+   - \( P(H_{ba}) \approx 0.05 \)
+
+2. **Likelihood** \( P(E|H_{ba}) \):
+   - Given Adam's empathy and appreciation for hard work, it is possible that he might be in business administration, although the match is not perfect.
+   - \( P(E|H_{ba}) \approx 0.10 \)
+
+3. **Likelihood of observing E given not in business administration** \( P(E|\neg H_{ba}) \):
+   - Similar estimation as above.
+   - \( P(E|\neg H_{ba}) \approx 0.05 \)
+
+### Computing \( P(H|E) \) using Bayes' Rule
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We approximate \( P(E) \) as \( P(E) \approx P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+1. **Computer Science**:
+   \[
+   P(H_{cs}|E) = \frac{0.30 \cdot 0.10}{(0.30 \cdot 0.10 + 0.05 \cdot 0.90)} = \frac{0.03}{(0.03 + 0.045)} = \frac{0.03}{0.075} \approx 0.40
+   \]
+
+2. **Business Administration**:
+   \[
+   P(H_{ba}|E) = \frac{0.10 \cdot 0.05}{(0.10 \cdot 0.05 + 0.05 \cdot 0.95)} = \frac{0.005}{(0.005 + 0.0475)} = \frac{0.005}{0.0525} \approx 0.095
+   \]
+
+Final output in the required format:
+```json
+{
+  "computer science": 0.40,
+  "business administration": 0.095
+}
+```

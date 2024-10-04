@@ -1,0 +1,65 @@
+To apply Bayes' rule for each hypothesis, we need to define and calculate the following probabilities:
+- \( P(H) \): The prior probability of Adam being enrolled in each field.
+- \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam is enrolled in each field.
+- \( P(E| \neg H) \): The probability of observing the evidence \( E \) given that Adam is not enrolled in each field.
+- \( P(H|E) \): The posterior probability of Adam being enrolled in each field given the evidence \( E \).
+
+### Assumptions for Prior Probabilities
+Since we do not have specific prior data, we will assume equal prior probabilities for each field. However, these can be adjusted if more information is available.
+
+### Calculation for Each Field
+
+Let's assume the prior probabilities \( P(H) \) for simplicity are uniformly distributed among the fields:
+- \( P(H_{\text{business administration}}) = 0.33 \)
+- \( P(H_{\text{computer science}}) = 0.33 \)
+- \( P(H_{\text{agricultural and veterinary science}}) = 0.33 \)
+
+### Likelihoods ( \( P(E|H) \) )
+Based on the personality sketch \( E \):
+- **Business Administration**: The probability \( P(E|H_{\text{business administration}}) \) is relatively low because the traits listed (curiosity about nature, love for animals, quiet, enjoys solving puzzles) do not strongly correlate with business administration.
+  - \( P(E|H_{\text{business administration}}) = 0.1 \)
+
+- **Computer Science**: The traits like high intelligence, abstract thinking, and enjoying solving puzzles are highly relevant, but the interest in plants and animals is less common.
+  - \( P(E|H_{\text{computer science}}) = 0.3 \)
+
+- **Agricultural and Veterinary Science**: The traits like a genuine curiosity about nature, love for animals, and empathy strongly correlate with this field.
+  - \( P(E|H_{\text{agricultural and veterinary science}}) = 0.8 \)
+
+### Normalization Constant
+We'll use the law of total probability to compute the normalization constant \( P(E) \).
+
+\[
+P(E) = P(E|H_{\text{business administration}})P(H_{\text{business administration}}) + P(E|H_{\text{computer science}})P(H_{\text{computer science}}) + P(E|H_{\text{agricultural and veterinary science}})P(H_{\text{agricultural and veterinary science}})
+\]
+\[
+P(E) = (0.1 \times 0.33) + (0.3 \times 0.33) + (0.8 \times 0.33) = 0.033 + 0.099 + 0.264 = 0.396
+\]
+
+### Compute Posterior Probabilities using Bayes' Rule
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+- **Business Administration**:
+\[
+P(H_{\text{business administration}}|E) = \frac{(0.1 \times 0.33)}{0.396} = \frac{0.033}{0.396} \approx 0.083
+\]
+
+- **Computer Science**:
+\[
+P(H_{\text{computer science}}|E) = \frac{(0.3 \times 0.33)}{0.396} = \frac{0.099}{0.396} \approx 0.250
+\]
+
+- **Agricultural and Veterinary Science**:
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{(0.8 \times 0.33)}{0.396} = \frac{0.264}{0.396} \approx 0.667
+\]
+
+### Final Answer
+\[
+\{
+  "business administration": 0.083,
+  "computer science": 0.250,
+  "agricultural and veterinary science": 0.667
+\}
+\]

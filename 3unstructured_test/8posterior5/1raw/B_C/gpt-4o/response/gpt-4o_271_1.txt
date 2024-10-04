@@ -1,0 +1,47 @@
+To compute \( P(H|E) \) (the probability of Adam being enrolled in a particular field given his personality sketch), we need to use Bayes' theorem which is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of the personality sketch given enrollment in that field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch given not being enrolled in that field.
+
+Let's start with some assumptions for these probabilities:
+
+1. \( P(H_{\text{CS}}) \), \( P(H_{\text{BA}}) \) - the prior probabilities of Adam enrolling in Computer Science and Business Administration could be assumed equal for simplicity unless otherwise specified. Let's assume they are each 0.1 (10%).
+
+2. \( P(E|H_{\text{CS}}) \) - the probability of the personality sketch given enrollment in Computer Science. Given Adam's profile, which suggests intellectual curiosity, puzzle-solving abilities, and intelligence in understanding abstract concepts, this could be relatively high. Let's assume it as 0.5.
+
+3. \( P(E|H_{\text{BA}}) \) - the probability of the personality sketch given enrollment in Business Administration. Given that the profile emphasizes empathy, warm heart, hard work, and dedication along with intelligence, this also has a likelihood of being reasonably high but possibly not as high as Computer Science. Let's assume it as 0.3.
+
+4. \( P(E|\neg H_{\text{CS}}) \) and \( P(E|\neg H_{\text{BA}}) \) - the probability of the personality sketch given not being in those specific fields. Let's assume that for other fields these probabilities are generally lower. Let's assume these as 0.1 each.
+
+Now, using Bayes' theorem to calculate:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+
+Where \( P(E) \) can be calculated as:
+
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}}) \]
+
+For simplicity, if we assume \(\neg H \) to be the space containing other fields with lower prior probabilities than CS and BA, we can calculate P(E) in a rough estimation as:
+
+\[ P(E) = (0.5 \cdot 0.1) + (0.3 \cdot 0.1) + (0.1 \cdot 0.8 + 0.1 \cdot 0.7) = 0.05 + 0.03 + 0.08 + 0.07 = 0.23 \]
+
+Now proceeding with the Bayes' calculations:
+
+\[ P(H_{\text{CS}}|E) = \frac{0.5 \cdot 0.1}{0.23} = \frac{0.05}{0.23} \approx 0.217 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{0.3 \cdot 0.1}{0.23} = \frac{0.03}{0.23} \approx 0.130 \]
+
+So, our final computed probabilities are:
+
+```json
+{
+  "computer science": 0.217,
+  "business administration": 0.130
+}
+```

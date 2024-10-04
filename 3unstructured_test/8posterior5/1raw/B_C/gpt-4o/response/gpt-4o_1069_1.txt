@@ -1,0 +1,47 @@
+To estimate the probabilities, let's break down the steps as follows:
+
+1. **Assessing Prior Probability \(P(H)\):**
+   We need to estimate the likelihood that Adam was enrolled in a given field before considering the personality sketch. Because we do not have specific data, we will assume an equal prior probability for simplicity.
+
+2. **Assessing Likelihood \(P(E|H)\):**
+   We need to judge how likely it is that Adam's personality sketch fits a student in each field.
+
+3. **Assessing Likelihood \(P(E|\neg H)\):**
+   We need to judge how likely Adam's personality sketch is given that he is not in that field.
+
+4. **Computing Posterior Probability \(P(H|E)\):**
+   Using Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)}
+   \]
+
+Let's assign subjective values based on our assessment of Adam's personality relative to each field.
+
+### Business Administration:
+- **Prior Probability \(P(H)\):** Let's assume \(P(Business Administration) = 0.2\)
+- **Likelihood \(P(E|H)\):** Adam's personality (curiosity about nature, puzzles, empathy, love for animals, abstract thinking, appreciation for hard work) seems less typical for a business administration student. Thus, assign a lower likelihood value. Assume \(P(E|Business Administration) = 0.2\)
+- **Likelihood \(P(E|\neg H)\):** Considering the same traits for someone not in business administration, assume a more balanced likelihood. Assume \(P(E|\neg Business Administration) = 0.6\)
+
+Using Bayes' rule:
+\[
+P(Business Administration|E) = \frac{0.2 \cdot 0.2}{0.2 \cdot 0.2 + 0.6 \cdot 0.8} = \frac{0.04}{0.04 + 0.48} = \frac{0.04}{0.52} \approx 0.077
+\]
+
+### Computer Science:
+- **Prior Probability \(P(H)\):** Let's assume \(P(Computer Science) = 0.2\)
+- **Likelihood \(P(E|H)\):** Adam's intelligence, problem-solving skills, and understanding of abstract concepts make him fit well in computer science. Thus, assign a higher likelihood value. Assume \(P(E|Computer Science) = 0.7\)
+- **Likelihood \(P(E|\neg H)\):** Considering the same traits for someone not in computer science, assume a lower likelihood. Assume \(P(E|\neg Computer Science) = 0.3\)
+
+Using Bayes' rule:
+\[
+P(Computer Science|E) = \frac{0.7 \cdot 0.2}{0.7 \cdot 0.2 + 0.3 \cdot 0.8} = \frac{0.14}{0.14 + 0.24} = \frac{0.14}{0.38} \approx 0.368
+\]
+
+So, the final probabilities are:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.368
+}
+```

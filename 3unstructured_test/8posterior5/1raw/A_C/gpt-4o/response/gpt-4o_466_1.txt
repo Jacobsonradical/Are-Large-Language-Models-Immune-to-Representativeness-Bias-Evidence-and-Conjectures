@@ -1,0 +1,80 @@
+Let's break down the problem using Bayes' Theorem. Bayes' Theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To compute \( P(H|E) \) for each hypothesis, we need the following:
+
+1. \( P(H) \): The prior probability that Adam is enrolled in the given field
+2. \( P(E|H) \): The probability of observing the evidence (Adam's personality sketch) given that he is enrolled in the given field
+3. \( P(E|\neg H) \): The probability of observing the evidence given that he is not enrolled in the given field
+
+Let's go through the fields:
+
+### 1. Computer Science
+
+- **\( P(H) \)**: The prior probability that Adam is a computer science graduate student. Computer science is a very popular field, so let's assume this probability is relatively high. Let's say \( P(H) = 0.2 \).
+
+- **\( P(E|H) \)**: The probability that Adam's personality sketch fits someone in computer science. Although Adam has high intelligence and likes solving puzzles, his empathy and love for animals are less characteristic of the typical computer science profile. Let's give this a moderate probability, say \( P(E|H) = 0.3 \).
+
+- **\( P(E|\neg H) \)**: The probability that Adam's personality sketch fits someone not in computer science. Given how varied graduate fields are, this value might be higher. Let's use \( P(E|\neg H) = 0.7 \).
+
+### 2. Agricultural and Veterinary Science
+
+- **\( P(H) \)**: The prior probability that Adam is an agricultural and veterinary science graduate student. This field is less popular than computer science, so let's assume a lower prior probability. Let's say \( P(H) = 0.05 \).
+
+- **\( P(E|H) \)**: The probability that Adam's personality sketch fits someone in agricultural and veterinary science. Given his love for nature, plants, and animals, this probability should be relatively high. Let's say \( P(E|H) = 0.8 \).
+
+- **\( P(E|\neg H) \)**: The probability that Adam's personality sketch fits someone not in agricultural and veterinary science. Since his sketch strongly aligns with agricultural and veterinary traits, this should be lower. Let's use \( P(E|\neg H) = 0.3 \).
+
+Now, let's calculate the posterior probabilities using Bayes' Theorem. 
+
+### Calculation for Computer Science
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To find \( P(E) \):
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+\[ P(E) = (0.3 \cdot 0.2) + (0.7 \cdot (1 - 0.2)) \]
+
+\[ P(E) = 0.06 + 0.56 \]
+
+\[ P(E) = 0.62 \]
+
+So,
+
+\[ P(H|E) = \frac{0.3 \cdot 0.2}{0.62} \]
+
+\[ P(H|E) = \frac{0.06}{0.62} \]
+
+\[ P(H|E) \approx 0.097 \]
+
+### Calculation for Agricultural and Veterinary Science
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To find \( P(E) \):
+
+\[ P(E) = (0.8 \cdot 0.05) + (0.3 \cdot (1 - 0.05)) \]
+
+\[ P(E) = 0.04 + 0.285 \]
+
+\[ P(E) = 0.325 \]
+
+So,
+
+\[ P(H|E) = \frac{0.8 \cdot 0.05}{0.325} \]
+
+\[ P(H|E) = \frac{0.04}{0.325} \]
+
+\[ P(H|E) \approx 0.123 \]
+
+The results are as follows:
+
+```json
+{
+  "computer science": 0.097,
+  "agricultural and veterinary science": 0.123
+}
+```

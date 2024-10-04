@@ -1,0 +1,55 @@
+To apply Bayes' rule, we need to compute the posterior probability \( P(H|E) \), which can be expressed as:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E|H) \) is the probability of observing E given that Adam is enrolled in that field.
+- \( P(E) \) is the overall probability of observing E.
+- \( P(E|\neg H) \) is the probability of observing E given that Adam is not enrolled in that field.
+
+Since \( P(E) \) is a normalizing constant, we can simplify it by comparing the relative values rather than computing an exact number. Instead, we will focus on the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Given the values we choose are fairly subjective, let's assume the following:
+
+### For Computer Science
+
+1. **P(H)**: The prior probability of Adam being enrolled in Computer Science.
+   - Considering the high enrollment in computer science programs among graduate students, let's assume a prior probability of about \( P(H) = 0.15 \).
+
+2. **P(E|H)**: The probability of observing the personality sketch given Adam is enrolled in Computer Science.
+   - Considering Adam's intelligence and abstraction skills, but not necessarily a direct fit with nature and empathy, we estimate \( P(E|H) = 0.25 \).
+
+3. **P(E|\neg H)**: The probability of observing the personality sketch given Adam is not enrolled in Computer Science.
+   - Assuming that empathy, a love for animals, and interest in nature might be less related to computer science, \( P(E|\neg H) = 0.30 \).
+
+Using Bayesian updating:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Since \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \):
+
+\[ P(H|E) = \frac{0.25 \times 0.15}{(0.25 \times 0.15 + 0.30 \times 0.85)} = \frac{0.0375}{0.2595} \approx 0.1445 \]
+
+### For Business Administration
+
+1. **P(H)**: The prior probability of Adam being enrolled in Business Administration.
+   - With many students in business fields, we assume a prior probability of \( P(H) = 0.10 \).
+
+2. **P(E|H)**: The probability of observing the personality sketch given Adam is enrolled in Business Administration.
+   - Given the not direct alignment with Adam's nature curiosity and animal empathy, but some relevance as business can involve diverse knowledge, \( P(E|H) = 0.15 \).
+
+3. **P(E|\neg H)**: The probability of observing the personality sketch given Adam is not enrolled in Business Administration.
+   - Assuming this not fitting well with a business student, \( P(E|\neg H) = 0.35 \).
+
+Using Bayesian updating:
+
+\[ P(H|E) = \frac{0.15 \times 0.10}{(0.15 \times 0.10 + 0.35 \times 0.90)} = \frac{0.015}{0.015 + 0.315} = \frac{0.015}{0.33} \approx 0.0455 \]
+
+Expressing the final results:
+
+```json
+{
+  "computer science": 0.1445,
+  "business administration": 0.0455
+}
+```

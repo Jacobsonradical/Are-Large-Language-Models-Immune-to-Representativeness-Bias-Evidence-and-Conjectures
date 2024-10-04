@@ -1,0 +1,33 @@
+Each step will require making some educated estimations about probabilities, given the limited information. Here we go:
+
+1. **Computer Science**
+
+- **P(H_cs)**: The prior probability that Adam was enrolled in Computer Science. Given the popularity of Computer Science, let's assume a prior P(H_cs) = 0.2.
+- **P(E|H_cs)**: The likelihood of Adam's personality sketch given he is in Computer Science. Since Adam has a genuine curiosity about nature and animals, which might not be strongly related to Computer Science, let's say P(E|H_cs) = 0.2.
+- **P(E|\neg H_cs)**: The probability of Adam's personality sketch given he is not in Computer Science. Since many other fields (like Agricultural Science, Biology, etc.) fit his interests better, let's assume this value to be higher, say P(E|\neg H_cs) = 0.4.
+
+Now, applying Bayes' rule:
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+\[ P(H_{cs}|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.2 \times 0.2 = 0.04 \]
+
+2. **Agricultural and Veterinary Science**
+
+- **P(H_agvet)**: The prior probability that Adam was enrolled in Agricultural and Veterinary Science. This might be less popular compared to Computer Science, so let's assume P(H_agvet) = 0.05.
+- **P(E|H_agvet)**: The likelihood of Adam's personality sketch given he is in Agricultural and Veterinary Science. Given Adam's strong connection to nature and animals, this is likely higher, let's say P(E|H_agvet) = 0.8.
+- **P(E|\neg H_agvet)**: The probability of Adam's personality sketch given he is not in Agricultural and Veterinary Science. Because Agricultural and Veterinary Science fits his interests so well, the value should be lower compared to fields that align less well, say P(E|\neg H_agvet) = 0.3.
+
+Now, applying Bayes' rule:
+\[ P(H_{agvet}|E) = \frac{P(E|H_{agvet}) \cdot P(H_{agvet})}{P(E)} \]
+\[ P(H_{agvet}|E) \propto P(E|H_{agvet}) \cdot P(H_{agvet}) = 0.8 \times 0.05 = 0.04 \]
+
+Thus, according to these estimates:
+
+```json
+{
+  "computer science": 0.04,
+  "agricultural and veterinary science": 0.04
+}
+```
+
+Note: The computed values are proportional to the actual probabilities. However, you can scale them appropriately to get the actual conditional probabilities if you have the full picture of P(E).
+

@@ -1,0 +1,53 @@
+To calculate \( P(H|E) \) for each field using Bayes' theorem, we first need to estimate:
+
+1. \( P(H) \) - prior probability of Adam being enrolled in a given field.
+2. \( P(E|H) \) - probability of observing Adam's personality sketch given he is in a particular field.
+3. \( P(E|\neg H) \) - probability of observing Adam's personality sketch given he is not in a particular field.
+
+Then, we use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalization constant and the same for all fields in this context, we do not need to compute it individually. We'll assume \( P(H) \) is based on general field distribution among graduate students and make educated guesses on \( P(E|H) \).
+
+Let's denote \( H_{CS} \), \( H_{AV} \), and \( H_{BA} \) as the hypotheses for Adam being enrolled in computer science, agricultural and veterinary science, and business administration respectively. 
+
+Here are the rough estimates and calculations:
+
+1. **Computer Science**
+   - \( P(H_{CS}) \): Assume 0.25 (assuming computer science is a relatively common graduate field).
+   - \( P(E|H_{CS}) \): Curiosity and intelligence might fit, but empathy and love for animals may be less central: 0.2
+   - \( P(E|\neg H_{CS}) \): Any field not involving computer science. As the personality traits are broad and not specific to any one non-CS field: 0.8
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H_{AV}) \): Assume 0.1 (less common than general fields like CS or BA, but still significant).
+   - \( P(E|H_{AV}) \): Strong match with nature, plants, and animals: 0.9
+   - \( P(E|\neg H_{AV}) \): Traits not necessarily oriented towards nature and animals: 0.3
+
+3. **Business Administration**
+   - \( P(H_{BA}) \): Assume 0.2 (another common field).
+   - \( P(E|H_{BA}) \): Traits like empathy and intelligence are valued but not central to the field: 0.3
+   - \( P(E|\neg H_{BA}) \): Traits could be broad and applicable outside BA: 0.7
+
+Now apply Bayes' Theorem:
+
+**Computer Science:**
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \times P(H_{CS})}{P(E)} = \frac{0.2 \times 0.25}{P(E)} \approx 0.05 \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H_{AV}|E) = \frac{P(E|H_{AV}) \times P(H_{AV})}{P(E)} = \frac{0.9 \times 0.1}{P(E)} \approx 0.09 \]
+
+**Business Administration:**
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \times P(H_{BA})}{P(E)} = \frac{0.3 \times 0.2}{P(E)} \approx 0.06 \]
+
+Given these results and assuming \( P(E) \) normalizes these computed posteriors, we provide the final probabilities (not normalized but in convenient form):
+
+```json
+{
+  "computer science": 0.05,
+  "agricultural and veterinary science": 0.09,
+  "business administration": 0.06
+}
+```
+
+These values give a relative sense of likelihood among the three options based on Adam's personality sketch.

@@ -1,0 +1,59 @@
+To apply Bayes' Rule, we need to make certain judgments about the probabilities involved. Let’s break it down step by step for each field:
+
+1. **P(H)**: The prior probability that Adam was enrolled in a specific field.
+2. **P(E|H)**: The probability of the evidence (E) given that Adam was enrolled in that field.
+3. **P(E|\neg H)**: The probability of the evidence (E) given that Adam was not enrolled in that field.
+4. **P(H|E)**: The posterior probability that Adam was enrolled in that field given the evidence (E).
+
+Notes:
+- P(H) is subjective and depends on the general enrollment rates in each field and any additional assumptions we make.
+- P(E|H) is also subjective but based on how well the personality sketch fits the common traits of students in that field.
+- P(E|\neg H) involves considering the chance of the evidence given any field other than the one being evaluated. 
+
+Let's make some subjective estimates based on the given personality sketch:
+
+### Agricultural and Veterinary Science
+- P(H): Let's assume there is a moderate prior probability for this field, as it's less common than some fields but not rare. Suppose P(H) = 0.10
+- P(E|H): Given Adam's love for nature, animals, and appreciation for hard work, this fits well. Let's estimate P(E|H) = 0.80
+- P(E|\neg H): This is the probability of the personality traits fitting if Adam wasn't in this field. Other fields might also exhibit these traits, so let's estimate P(E|\neg H) = 0.20
+
+### Computer Science
+- P(H): Computer Science is a common choice for graduate students, so let’s assume a higher prior probability. Suppose P(H) = 0.20
+- P(E|H): Adam’s traits (curiosity, solving puzzles, intelligence) fit computer science students well, but not as perfectly as agricultural and veterinary science. Let's estimate P(E|H) = 0.70
+- P(E|\neg H): The general probability of these traits given any other fields. Let’s estimate P(E|\neg H) = 0.30
+
+Now we use Bayes' Rule to compute the posterior probabilities \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+### Calculations
+
+**For Agricultural and Veterinary Science:**
+
+\[
+P(E) = (0.80 \times 0.10) + (0.20 \times 0.90) = 0.08 + 0.18 = 0.26
+\]
+
+\[
+P(H|E) = \frac{0.80 \times 0.10}{0.26} \approx 0.3077
+\]
+
+**For Computer Science:**
+
+\[
+P(E) = (0.70 \times 0.20) + (0.30 \times 0.80) = 0.14 + 0.24 = 0.38
+\]
+
+\[
+P(H|E) = \frac{0.70 \times 0.20}{0.38} \approx 0.3684
+\]
+
+So, the posterior probabilities are as follows:
+```json
+{
+  "agricultural and veterinary science": 0.3077,
+  "computer science": 0.3684
+}
+```

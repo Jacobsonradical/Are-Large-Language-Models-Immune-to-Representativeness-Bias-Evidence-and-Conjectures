@@ -1,0 +1,51 @@
+To approach the problem, we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll make reasonable assumptions for the probabilities given the personality sketch of Adam. Here's the step-by-step reasoning:
+
+1. **Agricultural and Veterinary Science (H1)**:
+    - **P(H1):** This is the prior probability that Adam was enrolled in Agricultural and Veterinary Science. Considering the variety of graduate fields, let's assume \( P(H1) = 0.05 \).
+    - **P(E|H1):** This is the probability of Adam's personality sketch given he's in the Agricultural and Veterinary Science field. Given the match between Adam's love for nature, animals, and the typical interests of someone in this field, let's assume \( P(E|H1) = 0.9 \).
+    - **P(E|\neg H1):** This is the probability of Adam's personality sketch given he's not in the Agricultural and Veterinary Science field. This will be lower since not all fields align well with his personality. Let's assume \( P(E|\neg H1) = 0.1 \).
+
+2. **Business Administration (H2)**:
+    - **P(H2):** This is the prior probability Adam was enrolled in Business Administration. Business programs are common, but do not align directly with Adam's interests. Let's assume \( P(H2) = 0.1 \).
+    - **P(E|H2):** This is the probability of Adam's personality sketch given he's in Business Administration. Given the discrepancy between the field and his interests, let's assume \( P(E|H2) = 0.05 \).
+    - **P(E|\neg H2):** This is the probability of Adam's personality sketch given he's not in Business Administration. It overlaps with the general probability of fields that align with his interests. Let's assume \( P(E|\neg H2) = 0.15 \).
+
+To compute \( P(E) \):
+
+\[ P(E) = P(E|H1) \cdot P(H1) + P(E|\neg H1) \cdot P(\neg H1) \]
+
+\[ = 0.9 \cdot 0.05 + 0.1 \cdot 0.95 \]
+\[ = 0.045 + 0.095 \]
+\[ = 0.14 \]
+
+Similar for Business Administration (total probability calculation):
+
+\[ P(E) = P(E|H2) \cdot P(H2) + P(E|\neg H2) \cdot P(\neg H2) \]
+\[ = 0.05 \cdot 0.1 + 0.15 \cdot 0.9 \]
+\[ = 0.005 + 0.135 \]
+\[ = 0.14 \]
+
+Now we can use Bayes' rule to find \( P(H1 | E) \) and \( P(H2 | E) \):
+
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \]
+\[ = \frac{0.9 \cdot 0.05}{0.14} \]
+\[ = \frac{0.045}{0.14} \]
+\[ = \approx 0.321 \]
+
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \]
+\[ = \frac{0.05 \cdot 0.1}{0.14} \]
+\[ = \frac{0.005}{0.14} \]
+\[ = \approx 0.036 \]
+
+So, summarizing:
+
+```json
+{
+  "agricultural and veterinary science": 0.321,
+  "business administration": 0.036
+}
+```

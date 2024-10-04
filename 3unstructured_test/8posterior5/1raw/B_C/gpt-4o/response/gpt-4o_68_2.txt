@@ -1,0 +1,39 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' Rule, we'll start by defining the inputs:  
+
+1. **P(H)**: The prior probability that Adam was enrolled in a particular field.
+2. **P(E|H)**: The probability of observing Adam's personality sketch given that he was enrolled in that field.
+3. **P(E|\neg H)**: The probability of observing Adam's personality sketch given that he was not enrolled in that field.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume that graduate students are equally likely to be enrolled in each field initially, making \( P(H) \) for each hypothesis relatively equal. This simplifies our calculations, but you can refine these baselines with more specific data about the distribution of graduate students across fields.
+
+We will take the following values based on reasonable assumptions:
+
+### Computer Science
+
+1. \( P(H_{\text{cs}}) \): Prior probability of being a Computer Science student. Let's assume that about 20% of graduate students choose Computer Science.
+2. \( P(E|H_{\text{cs}}) \): Given the personality traits—curiosity about nature, quiet, enjoys solving puzzles, high intelligence—we might say this is relatively high. Let's assume 0.6.
+3. \( P(E|\neg H_{\text{cs}}) \): Given that Adam could fit multiple academic profiles with his personality traits, this could also be relatively high. Let's assume 0.3.
+
+Applying Bayes' Rule:
+\[ P(H_{\text{cs}}|E) = \frac{0.6 \times 0.2}{0.6 \times 0.2 + 0.3 \times 0.8} = \frac{0.12}{0.12 + 0.24} = \frac{0.12}{0.36} = 0.33 \]
+
+### Business Administration
+
+1. \( P(H_{\text{ba}}) \): Prior probability of being a Business Administration student. Let's assume that about the same number, 20% of graduate students choose Business Administration.
+2. \( P(E|H_{\text{ba}}) \): Given that curiosity about nature and love for animals and a quiet personality are less common characteristics for business students, this might be relatively low. Let's assume 0.1.
+3. \( P(E|\neg H_{\text{ba}}) \): This doesn't change from the previous calculation considering all other possibilities. Let's assume 0.3.
+
+Applying Bayes' Rule:
+\[ P(H_{\text{ba}}|E) = \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.3 \times 0.8} = \frac{0.02}{0.02 + 0.24} = \frac{0.02}{0.26} \approx 0.08 \]
+
+Therefore, the conditional probabilities \( P(H|E) \) are:
+
+```json
+{
+  "computer science": 0.33,
+  "business administration": 0.08
+}
+```

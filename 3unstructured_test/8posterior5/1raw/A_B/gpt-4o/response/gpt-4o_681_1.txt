@@ -1,0 +1,67 @@
+Using Bayes' Theorem, we can compute the probability that Adam was enrolled in a particular field based on his personality sketch. Bayes' Theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the likelihood of having the personality sketch given Adam was enrolled in that field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the total probability of the personality sketch.
+
+First, we need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field, and then use these to compute \( P(H|E) \).
+
+### For Business Administration:
+1. **\( P(H) \)**: Estimate the general probability that a graduate student is enrolled in business administration. For simplicity, let's assume it's relatively common compared to other specializations:
+   - \( P(H) \approx 0.2 \)
+   
+2. **\( P(E|H) \)**: The likelihood of Adam having the described personality sketch if he was in business administration might be low, considering the description involves a deep love for animals and nature which are not typically associated with business administration:
+   - \( P(E|H) \approx 0.01 \)
+   
+3. **\( P(E|\neg H) \)**: The likelihood of the personality sketch given he is enrolled in a field other than business administration. Considering there are many fields, this is likely higher:
+   - \( P(E|\neg H) \approx 0.05 \)
+
+Using Bayes' Theorem:
+\[ P(H|E) = \frac{0.01 \cdot 0.2}{P(E)} \]
+
+Ignoring the normalization term \( P(E) \) and just comparing relative terms:
+\[ P(H|E) \propto 0.002 \]
+
+### For Agricultural and Veterinary Science:
+1. **\( P(H) \)**: Estimate the general probability for this field. Given it might be less common but Adam's personality fits well:
+   - \( P(H) \approx 0.05 \)
+   
+2. **\( P(E|H) \)**: The personality sketch fits extremely well with this field:
+   - \( P(E|H) \approx 0.8 \)
+   
+3. **\( P(E|\neg H) \)**: Similar to before, the likelihood of having such a personality sketch in a different field:
+   - \( P(E|\neg H) \approx 0.05 \)
+
+Using Bayes' Theorem:
+\[ P(H|E) = \frac{0.8 \cdot 0.05}{P(E)} \]
+
+Ignoring the normalization term \( P(E) \) and just comparing relative terms:
+\[ P(H|E) \propto 0.04 \]
+
+Normalizing these values and assuming for simplicity that these are the only two considerations:
+
+1. Normalizing constant, \( k = 0.002 + 0.04 = 0.042 \)
+
+2. Normalized probabilities:
+    - For Business Administration:
+    \[
+    P(H|E) = \frac{0.002}{0.042} \approx 0.048
+    \]
+
+    - For Agricultural and Veterinary Science:
+    \[
+    P(H|E) = \frac{0.04}{0.042} \approx 0.952
+    \]
+
+Therefore:
+
+```json
+{
+  "business administration": 0.048,
+  "agricultural and veterinary science": 0.952
+}
+```

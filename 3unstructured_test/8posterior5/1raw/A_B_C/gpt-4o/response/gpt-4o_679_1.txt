@@ -1,0 +1,36 @@
+To compute the probability \(P(H|E)\) using Bayes rule, we need to use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \(P(E)\) is the same for all fields, we can simply compare the numerator for each field. We have:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's make reasonable assumptions about the probabilities:
+
+1. **P(H) (prior probabilities)**:  
+   - **Computer Science:** Given the wide popularity and enrollment rates, let's assume \(P(\text{CS}) = 0.3\).
+   - **Business Administration:** Given its popularity as well, let's assume \(P(\text{BA}) = 0.2\).
+   - **Agricultural and Veterinary Science:** As a more specialized field, let's assume \(P(\text{AVS}) = 0.05\).
+
+2. **P(E|H) (likelihoods)**:
+   - **Computer Science**: Traits like high intelligence and understanding abstract concepts align well, but empathy, love for animals, and strong appreciation for hard work and nature might be less common. Thus, let's assume \(P(E|\text{CS}) = 0.1\).
+   - **Business Administration**: Empathy and appreciation for hard work align, but less so the love for nature and animals, so let's assume \(P(E|\text{BA}) = 0.05\).
+   - **Agricultural and Veterinary Science**: A perfect fit with nearly all traits aligning well, so let's assume \(P(E|\text{AVS}) = 0.8\).
+
+3. **P(E|\neg H) (likelihood of sketch not in specified field)**: This is more complex to evaluate directly; however, for simplicity in this case, let's assume this contributes equally and is incorporated in computing the posterior using the proportional approach.
+
+Given these values:
+- **Computer Science**: \( P(H|E) \propto P(E| \text{CS}) \cdot P(\text{CS}) = 0.1 \times 0.3 = 0.03 \)
+- **Business Administration**: \( P(H|E) \propto P(E| \text{BA}) \cdot P(\text{BA}) = 0.05 \times 0.2 = 0.01 \)
+- **Agricultural and Veterinary Science**: \( P(H|E) \propto P(E| \text{AVS}) \cdot P(\text{AVS}) = 0.8 \times 0.05 = 0.04 \)
+
+To make these proportional values meaningful, we should normalize them so they sum to 1. However, since the total does not need to be 1, we report the raw proportional values.
+
+{
+  "computer science": 0.03,
+  "business administration": 0.01,
+  "agricultural and veterinary science": 0.04
+}
+
+These values suggest that Agricultural and Veterinary Science is the most likely field, followed by Computer Science, and lastly Business Administration, given Adam's personality sketch.

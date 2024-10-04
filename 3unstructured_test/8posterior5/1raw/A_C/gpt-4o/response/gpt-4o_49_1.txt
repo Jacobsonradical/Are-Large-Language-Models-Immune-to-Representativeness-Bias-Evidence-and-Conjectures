@@ -1,0 +1,54 @@
+To calculate the probability that Adam was enrolled in a specific field given the personality sketch, we'll apply Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote:
+
+- \( H_{\text{cs}} \) as the hypothesis that Adam was enrolled in computer science.
+- \( H_{\text{avs}} \) as the hypothesis that Adam was enrolled in agricultural and veterinary science.
+- \( E \) as the personality sketch provided.
+
+We need to estimate:
+- \( P(H_{\text{cs}}) \) and \( P(H_{\text{avs}}) \) - the prior probabilities of Adam being enrolled in each field.
+- \( P(E|H_{\text{cs}}) \) and \( P(E|H_{\text{avs}}) \) - the likelihood of the personality sketch given each field.
+- \( P(E|\neg H_{\text{cs}}) \) and \( P(E|\neg H_{\text{avs}}) \) - the likelihood of the personality sketch given not being in each respective field.
+
+Let's assume for the sake of this calculation (as exact values are difficult to determine without more specific data):
+- \( P(H_{\text{cs}}) \approx 0.20 \): This is based on graduate enrolment statistics where a significant number of students are in computer science but not overwhelming.
+- \( P(H_{\text{avs}}) \approx 0.05 \): Fewer students typically enroll in agricultural and veterinary science compared to computer science.
+
+Given Adam's described interests and characteristics:
+- \( P(E|H_{\text{cs}}) \approx 0.10 \): While computer science requires high intelligence and problem-solving skills, it doesn't strongly align with the empathy and love for nature.
+- \( P(E|H_{\text{avs}}) \approx 0.70 \): Agricultural and veterinary science aligns well with Adam's interest in nature, animals, and empathy.
+
+We'll assume \( P(E) \) is the same for each hypothesis as part of the normalization process in Bayes' theorem.
+
+Finally, let's calculate:
+1. \( P(H_{\text{cs}}|E) \):
+   \[
+   P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|\neg H_{\text{cs}}) \cdot (1 - P(H_{\text{cs}}))}
+   \]
+   Here, \( P(E|\neg H_{\text{cs}}) \approx 0.50 \) as an average likelihood that doesn't strongly align or misalign with Adam's traits.
+   \[
+   P(H_{\text{cs}}|E) = \frac{0.10 \cdot 0.20}{0.10 \cdot 0.20 + 0.50 \cdot 0.80} = \frac{0.02}{0.02 + 0.40} = \frac{0.02}{0.42} \approx 0.048
+   \]
+
+2. \( P(H_{\text{avs}}|E) \):
+   \[
+   P(H_{\text{avs}}|E) = \frac{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}})}{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}}) + P(E|\neg H_{\text{avs}}) \cdot (1 - P(H_{\text{avs}}))}
+   \]
+   Again, let \( P(E|\neg H_{\text{avs}}) \approx 0.30 \) to generalize the likelihood for other fields.
+   \[
+   P(H_{\text{avs}}|E) = \frac{0.70 \cdot 0.05}{0.70 \cdot 0.05 + 0.30 \cdot 0.95} = \frac{0.035}{0.035 + 0.285} = \frac{0.035}{0.32} \approx 0.109
+   \]
+
+So, our results are as follows:
+
+```json
+{
+  "computer science": 0.048,
+  "agricultural and veterinary science": 0.109
+}
+```
+
+Please note, these values are estimates based on reasonable assumptions and may not perfectly reflect real-world statistics.

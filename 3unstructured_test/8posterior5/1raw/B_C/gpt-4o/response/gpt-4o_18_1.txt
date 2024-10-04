@@ -1,0 +1,58 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to provide values for the prior probability \( P(H) \), the likelihood \( P(E|H) \), and \( P(E|\neg H) \) for each hypothesis \( H \).
+
+### Assumptions and Estimations:
+
+1. **Prior Probability \( P(H) \):**
+   - Let’s assume prior probabilities based on the general enrollment in graduate programs. Without specific data, let's hypothesize:
+     - Computer Science: \( P(H_{CS}) = 0.2 \)
+     - Business Administration: \( P(H_{BA}) = 0.1 \)
+   
+2. **Likelihood \( P(E|H) \):** 
+   - Given Adam’s sketch, we judge how well each field aligns with his personality.
+     - **Computer Science**: High intelligence, abstract thinking, puzzle-solving align well.
+       - \( P(E|H_{CS}) = 0.6 \)
+     - **Business Administration**: Empathy, understanding and appreciation for hard work, and warm-heartedness align to an extent.
+       - \( P(E|H_{BA}) = 0.3 \)
+
+3. **Likelihood \( P(E|\neg H) \):**
+   - Assuming the likelihood of the sketch given a field other than the proposed hypotheses is based on a broad appreciation of the sketch with various grad programs.
+     - \( P(E|\neg H_{CS}) = 0.1 \)
+     - \( P(E|\neg H_{BA}) = 0.2 \)
+
+### Bayesian Computation:
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where,
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's compute these for each field:
+
+#### Computer Science:
+\[ P(E)_{CS} = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E)_{CS} = 0.6 \cdot 0.2 + 0.1 \cdot 0.8 \]
+\[ P(E)_{CS} = 0.12 + 0.08 \]
+\[ P(E)_{CS} = 0.2 \]
+
+\[ P(H_{CS}|E) = \frac{0.6 \cdot 0.2}{0.2} \]
+\[ P(H_{CS}|E) = 0.6 \]
+
+#### Business Administration:
+\[ P(E)_{BA} = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E)_{BA} = 0.3 \cdot 0.1 + 0.2 \cdot 0.9 \]
+\[ P(E)_{BA} = 0.03 + 0.18 \]
+\[ P(E)_{BA} = 0.21 \]
+
+\[ P(H_{BA}|E) = \frac{0.3 \cdot 0.1}{0.21} \]
+\[ P(H_{BA}|E) = \frac{0.03}{0.21} \]
+\[ P(H_{BA}|E) = 0.142857 \approx 0.14 \]
+
+### Result:
+
+```json
+{
+  "computer science": 0.6,
+  "business administration": 0.14
+}
+```

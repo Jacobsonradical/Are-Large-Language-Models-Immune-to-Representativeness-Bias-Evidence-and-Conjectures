@@ -1,0 +1,84 @@
+To calculate the probabilities \(P(H|E)\) for the given fields using Bayes' rule, we need to apply the following formula:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+where:
+- \(P(H)\) is the prior probability of hypothesis \(H\), i.e., Adam being enrolled in a specific field.
+- \(P(E|H)\) is the likelihood of observing the personality sketch \(E\) given the hypothesis \(H\).
+- \(P(E|\neg H)\) is the likelihood of observing the personality sketch \(E\) given that \(H\) is not true.
+- \(P(E)\) can be computed using the law of total probability.
+
+### Assumptions:
+
+1. \(P(H)\) for both fields is assumed to be equal for simplicity, recognizing that this might not actually be the case.
+2. \(P(E|H)\) is our estimated probability that Adam fits the personality sketch given the field.
+3. \(P(E|\neg H)\) is the estimated probability that Adam fits the personality sketch given any other field.
+
+We will assign approximate values based on the given personality sketch.
+
+### Calculation:
+
+1. **Business Administration**:
+    - \(P(H)\) (prior for business administration): Let's assume \(P(H)\) = 0.05 (this is just an example, actual data may vary).
+    - \(P(E|H)\) (likelihood of sketch given enrollment in business administration): Given Adam's interests and traits, it seems less likely that he fits in business administration as well as in agricultural and veterinary science. Let's assign a low probability: \(P(E|H) = 0.1\).
+    - \(P(E|\neg H)\): the average likelihood of Adam fitting the sketch given other fields. Let's assume \(P(E|\neg H) = 0.2\).
+
+2. **Agricultural and Veterinary Science**:
+    - \(P(H)\) (prior for agricultural and veterinary science): Let's assume \(P(H) = 0.05\) for simplicity.
+    - \(P(E|H)\) (likelihood of sketch given enrollment in agricultural and veterinary science): Given Adam’s deep love for animals and nature, this fits very well. Let's assign a higher probability: \(P(E|H) = 0.7\).
+    - \(P(E|\neg H)\): remains 0.2 as before.
+
+### Bayes' Rule:
+
+1. **Business Administration**:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+\]
+\[ 
+= \frac{0.1 \times 0.05}{P(E)} 
+\]
+
+2. **Agricultural and Veterinary Science**:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+\[ 
+= \frac{0.7 \times 0.05}{P(E)} 
+\]
+
+Since \(P(E) = P(E|H_{\text{business}})P(H_{\text{business}}) + P(E|H_{\text{agri-vet}})P(H_{\text{agri-vet}}) + P(E|\neg H_{\text{business}} \land \neg H_{\text{agri-vet}})P(\neg H_{\text{business}} \land \neg H_{\text{agri-vet}}) \)
+
+If we simplify the denominator but leave out the 3rd term for simplicity:
+\[ 
+P(E) \approx (0.1 \times 0.05) + (0.7 \times 0.05) + ... \]
+
+Evaluating the total denominator is typically more complex and relies on overall distribution, but for simplicity let's denote it approximately equals:
+
+\[ 
+0.1 \times 0.05 + 0.7 \times 0.05 + \sum(P(E|H_{other}) \cdot P(H_{other})) \approx (0.005 + 0.035)
+\]
+
+\[
+= 0.04
+\]
+
+So:
+
+1. **Business Administration**:
+\[ 
+P(H|E) = \frac{0.1 \times 0.05}{0.04} = \frac{0.005}{0.04} = 0.125
+\]
+
+2. **Agricultural and Veterinary Science**:
+\[ 
+P(H|E) = \frac{0.7 \times 0.05}{0.04} = \frac{0.035}{0.04} = 0.875
+\]
+
+So:
+
+```json
+{
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.875
+}
+```

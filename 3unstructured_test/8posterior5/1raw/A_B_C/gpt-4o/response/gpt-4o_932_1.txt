@@ -1,0 +1,73 @@
+Let's use Bayes' Theorem to calculate the probability of Adam being enrolled in each of the specified fields, given the personality sketch \( E \).
+
+Bayes' Theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of Adam being enrolled in a specific field given the evidence \( E \).
+- \( P(E|H) \) is the likelihood of the evidence given that Adam is enrolled in a specific field.
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E) \) is the probability of the evidence, which can be derived from the law of total probability.
+
+Since \( P(E) \) is common for calculations across all fields, it will be a normalizing constant that ensures the final probabilities sum to 1. We will focus on calculating the other terms.
+
+### Computer Science
+Hypothesis \( H_{CS} \): Adam was enrolled in Computer Science.
+- Adam's high intelligence and ability to understand abstract concepts are traits often seen in Computer Science, hence \( P(E|H_{CS}) \) might be moderately high.
+- However, his strong empathy, love for animals, and appreciation for nature might not necessarily align closely with common computer science values.
+  
+### Business Administration
+Hypothesis \( H_{BA} \): Adam was enrolled in Business Administration.
+- A strong appreciation for hard work and dedication can be seen in this field but his personality traits (curiosity about nature, empathy, love for animals) might not be as aligned.
+- Therefore, \( P(E|H_{BA}) \) might not be very high.
+
+### Agricultural and Veterinary Science
+Hypothesis \( H_{AVS} \): Adam was enrolled in Agricultural and Veterinary Science.
+- This field aligns very well with his love for nature, plants, animals, and empathy.
+- Thus, \( P(E|H_{AVS}) \) would likely be very high.
+
+Now we assign prior probabilities \( P(H) \) based on a reasonable assumption, such as equal likelihood unless given specific prior data:
+
+- \( P(H_{CS}) = 1/3 \)
+- \( P(H_{BA}) = 1/3 \)
+- \( P(H_{AVS}) = 1/3 \)
+
+Next, we estimate the conditional probabilities \( P(E|H) \):
+
+- \( P(E|H_{CS}) \approx 0.3 \)
+- \( P(E|H_{BA}) \approx 0.2 \)
+- \( P(E|H_{AVS}) \approx 0.9 \)
+
+We can now use Bayes' Theorem but note that we don't need to compute \( P(E) \) explicitly as we're interested in relative values and \( P(E) \) is the same denominator for each field:
+
+### Computer Science
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \approx \frac{0.3 \cdot \frac{1}{3}}{P(E)} \]
+
+### Business Administration
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \approx \frac{0.2 \cdot \frac{1}{3}}{P(E)} \]
+
+### Agricultural and Veterinary Science
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \approx \frac{0.9 \cdot \frac{1}{3}}{P(E)} \]
+
+We normalize these to get probabilities that sum to 1:
+
+- \( P(H_{CS}|E) \approx \frac{0.1}{P(E)} \)
+- \( P(H_{BA}|E) \approx \frac{0.067}{P(E)} \)
+- \( P(H_{AVS}|E) \approx \frac{0.3}{P(E)} \)
+
+Total normalization constant \( P(E) = 0.1 + 0.067 + 0.3 \approx 0.467 \)
+
+Thus, the normalized probabilities are:
+
+- \( P(H_{CS}|E) = \frac{0.1}{0.467} \approx 0.214 \)
+- \( P(H_{BA}|E) = \frac{0.067}{0.467} \approx 0.143 \)
+- \( P(H_{AVS}|E) = \frac{0.3}{0.467} \approx 0.643 \)
+
+```json
+{
+  "computer science": 0.214,
+  "business administration": 0.143,
+  "agricultural and veterinary science": 0.643
+}
+```

@@ -1,0 +1,51 @@
+Let's denote:
+- \(P(H_{AV})\) as the prior probability that Adam was enrolled in agricultural and veterinary science.
+- \(P(H_{CS})\) as the prior probability that Adam was enrolled in computer science.
+- \(P(H_{BA})\) as the prior probability that Adam was enrolled in business administration.
+
+We will estimate these prior probabilities based on general statistical knowledge about graduate students in the U.S. Let's approximate these prior probabilities for simplicity and say they are roughly equal to some common frequencies or intuition:
+
+- \(P(H_{AV}) \approx 0.15\): Agricultural and veterinary science attracts a fair number of students, but it is still a niche field.
+- \(P(H_{CS}) \approx 0.25\): Computer science is a very popular field.
+- \(P(H_{BA}) \approx 0.20\): Business administration is also a popular field but not as much as computer science.
+
+Next, we estimate the likelihoods (\(P(E|H)\)):
+
+1. **Agricultural and Veterinary Science**:
+   - \(P(E|H_{AV})\) should be high because Adam has a curiosity about nature and plants, a love for animals, and an appreciation for hard work—all characteristics relevant to this field. Let's estimate \(P(E|H_{AV}) = 0.8\).
+
+2. **Computer Science**:
+   - \(P(E|H_{CS})\) might be moderate because Adam enjoys solving puzzles and is of high intelligence. However, it doesn't align with his love for nature and animals in the same way. Let's estimate \(P(E|H_{CS}) = 0.5\).
+
+3. **Business Administration**:
+   - \(P(E|H_{BA})\) is lower because the sketch doesn't indicate a strong interest or characteristics directly relevant to business administration. Let's estimate \(P(E|H_{BA}) = 0.2\).
+
+Now we estimate:
+- \(P(E|\neg H)\), the likelihood of the evidence given Adam is not in each field. 
+  - Think of this as an average over other possible fields. We might simplify this to an average given the fields considered and estimate: 
+  - Let's take this to be somewhere lower but uniform enough, around \(P(E|\neg H) \approx 0.4\).
+
+Using Bayes' rule, we compute the posterior probability \(P(H|E)\):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+Now for each field:
+
+1. **Agricultural and Veterinary Science**:
+\[ P(H_{AV}|E) = \frac{0.8 \cdot 0.15}{0.8 \cdot 0.15 + 0.4 \cdot 0.85} = \frac{0.12}{0.12 + 0.34} = \frac{0.12}{0.46} \approx 0.26 \]
+
+2. **Computer Science**:
+\[ P(H_{CS}|E) = \frac{0.5 \cdot 0.25}{0.5 \cdot 0.25 + 0.4 \cdot 0.75} = \frac{0.125}{0.125 + 0.3} = \frac{0.125}{0.425} \approx 0.29 \]
+
+3. **Business Administration**:
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.20}{0.2 \cdot 0.20 + 0.4 \cdot 0.80} = \frac{0.04}{0.04 + 0.32} = \frac{0.04}{0.36} \approx 0.11 \]
+
+Thus:
+
+```json
+{
+  "agricultural and veterinary science": 0.26,
+  "computer science": 0.29,
+  "business administration": 0.11
+}
+```

@@ -1,0 +1,66 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to evaluate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Bayes' rule is stated as follows:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and is the same for all hypotheses, we can ignore it for relative comparisons. 
+
+First, we make some subjective judgments:
+
+1. **P(H): The prior probability of Adam being enrolled in each field.**
+
+Given the typical distribution of graduate students across various fields, we can assume:
+- Computer Science may have a decent number of students.
+- Business Administration is a popular field.
+- Agricultural and Veterinary Science is less common but still significant.
+
+Let's assign the following approximate priors:
+- \( P(H_{\text{CS}}) = 0.3 \)
+- \( P(H_{\text{BA}}) = 0.3 \)
+- \( P(H_{\text{AgVetSci}}) = 0.2 \)
+
+2. **P(E|H): The likelihood of Adam’s personality given the field.**
+
+- \( P(E| H_{\text{CS}}) \): Adam's warmth, empathy, and love for animals are less typical, while intelligence and problem-solving fit well.
+  - Subjective estimate: \( 0.3 \)
+
+- \( P(E| H_{\text{BA}}) \): Warm heart and empathy could fit, but the love for nature and animals is less typical.
+  - Subjective estimate: \( 0.1 \)
+
+- \( P(E| H_{\text{AgVetSci}}) \): Strongly aligns with his curiosity about nature, empathy, and love for animals.
+  - Subjective estimate: \( 0.8 \)
+
+3. **P(E|\neg H): The conditional probability of Adam’s personality given he is not in the specified field.**
+
+Given there are many fields, typically unrelated to nature and animals:
+- For CS:
+  - \( P(E|\neg H_{\text{CS}}) \) can be averaged based on other fields:
+  - Subjective estimate: \( 0.6 \)
+
+- For Business Administration:
+  - \( P(E|\neg H_{\text{BA}}) \):
+  - Subjective estimate: \( 0.6 \)
+
+- For Agricultural and Veterinary Science:
+  - \( P(E|\neg H_{\text{AgVetSci}}) \):
+  - Subjective estimate: \( 0.4 \)
+
+Given these values, we can now estimate \( P(H|E) \) for each field:
+
+- For Computer Science:
+  \[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|\neg H_{\text{CS}})} \approx \frac{0.3 \cdot 0.3}{0.6} = 0.15 \]
+
+- For Business Administration:
+  \[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|\neg H_{\text{BA}})} \approx \frac{0.1 \cdot 0.3}{0.6} = 0.05 \]
+
+- For Agricultural and Veterinary Science:
+  \[ P(H_{\text{AgVetSci}}|E) = \frac{P(E|H_{\text{AgVetSci}}) \cdot P(H_{\text{AgVetSci}})}{P(E|\neg H_{\text{AgVetSci}})} \approx \frac{0.8 \cdot 0.2}{0.4} = 0.4 \]
+
+Therefore, the posterior probabilities can be summarized as follows:
+
+```json
+{
+  "computer science": 0.15,
+  "business administration": 0.05,
+  "agricultural and veterinary science": 0.4
+}
+```

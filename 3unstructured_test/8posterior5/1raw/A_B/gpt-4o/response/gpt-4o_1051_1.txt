@@ -1,0 +1,52 @@
+To compute \( P(H|E) \) using Bayes' rule, we need to carefully consider the probabilities involved:
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis \( H \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) given \( H \).
+- \( P(E) \) is the marginal likelihood of observing evidence \( E \).
+
+For simplicity, let’s assume the number of graduate students is uniformly distributed across the different fields, which is probably not strictly true, but helps provide a working model without specific data. This implies \( P(H) \) is equal across fields at 0.5, considering only our two fields.
+
+Next, consider the likelihood \( P(E|H) \) — the probability of Adam's personality sketch given he is in each field.
+
+1. **Business Administration**:
+   - \( P(H)_{business} \): There's a considerable number of graduate students in business administration, so \( P(H)_{business} = 0.5 \) (since we're assuming uniform distribution for simplicity).
+   - \( P(E|H)_{business} \): The traits in E don't particularly align with common business characteristics like financial interest, leadership, etc. Let's estimate this as low, maybe 0.2.
+   - \( P(E|\neg H)_{business} \): Probability of these traits if not in business administration could be about 0.8.
+   
+2. **Agricultural and Veterinary Science**:
+   - \( P(H)_{agricultural} \): A number of graduate students are in this field, so \( P(H)_{agricultural} = 0.5 \) under uniform assumption.
+   - \( P(E|H)_{agricultural} \): The traits strongly suggest fit with agricultural or veterinary science. High probability, perhaps 0.9.
+   - \( P(E|\neg H)_{agricultural} \): If not in this field, let’s assign 0.1 (since we think traits suggest strong fit).
+
+Using Bayes' rule:
+
+- For **Business Administration**:
+  \[
+  P(H|E)_{business} = \frac{P(E|H)_{business} \cdot P(H)_{business}}{P(E)}
+  \]
+  - Here, \( P(E) \) is normalized to consider both fields, \( P(E) = P(E|H)_{business} \cdot P(H)_{business} + P(E|H)_{agricultural} \cdot P(H)_{agricultural} = 0.2 \cdot 0.5 + 0.9 \cdot 0.5 = 0.55 \).
+  \[
+  P(H|E)_{business} = \frac{0.2 \cdot 0.5}{0.55} \approx 0.1818
+  \]
+
+- For **Agricultural and Veterinary Science**:
+  \[
+  P(H|E)_{agricultural} = \frac{P(E|H)_{agricultural} \cdot P(H)_{agricultural}}{P(E)}
+  \]
+  - Using previous \( P(E) = 0.55 \).
+  \[
+  P(H|E)_{agricultural} = \frac{0.9 \cdot 0.5}{0.55} \approx 0.8182
+  \]
+
+So, the probabilities are:
+
+```json
+{
+  "business administration": 0.1818,
+  "agricultural and veterinary science": 0.8182
+}
+```

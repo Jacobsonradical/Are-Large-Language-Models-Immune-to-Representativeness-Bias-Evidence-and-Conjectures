@@ -1,0 +1,44 @@
+To compute the probabilities, we need to use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote the hypotheses as follows:
+- \( H_1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \): Adam was enrolled in business administration.
+
+Given hypotheses \( H_1 \) and \( H_2 \), we can evaluate \( P(H_1) \) and \( P(H_2) \) based on general enrollment statistics and prior expectations, without specific data, I'll use judgment values:
+
+### Prior Probabilities \( P(H) \):
+- \( P(H_1) \): Since fields like agricultural and veterinary science are less commonly chosen than business, we might assign a lower prior probability, let’s say 0.1.
+- \( P(H_2) \): Business administration is a very common graduate field, so let’s assign a higher prior probability, like 0.3.
+
+### Likelihood \( P(E | H) \):
+- \( P(E | H_1) \): Adam’s love for nature, plants, and animals corresponds highly with agricultural and veterinary science, as these fields directly involve such interests. So, let's assign a high likelihood, like 0.8.
+- \( P(E | H_2) \): Business administration is less directly related to Adam’s personality traits and interests. Thus, we might assign a lower likelihood, like 0.1.
+
+### Probability of Evidence \( P(E) \):
+The probability of evidence \( P(E) \) is a normalization factor that ensures the posterior probabilities sum to 1. This can be computed as:
+
+\[ P(E) = P(E | H_1) \cdot P(H_1) + P(E | H_2) \cdot P(H_2) + P(E | \neg H_1 \cap \neg H_2) \cdot P(\neg H_1 \cap \neg H_2) \]
+
+However, we just need relative values for \( P(H|E) \), so we can work with the proportionalities directly.
+
+### Computation:
+- For \( H_1 \):
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+\[ P(H_1|E) \propto 0.8 \cdot 0.1 = 0.08 \]
+
+- For \( H_2 \):
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+\[ P(H_2|E) \propto 0.1 \cdot 0.3 = 0.03 \]
+
+Normalize:
+\[ P(H_1|E) = \frac{0.08}{0.08 + 0.03} = \frac{0.08}{0.11} \approx 0.727 \]
+\[ P(H_2|E) = \frac{0.03}{0.08 + 0.03} = \frac{0.03}{0.11} \approx 0.273 \]
+
+Thus, the probabilities are approximately:
+
+{
+  "agricultural and veterinary science": 0.727,
+  "business administration": 0.273
+}

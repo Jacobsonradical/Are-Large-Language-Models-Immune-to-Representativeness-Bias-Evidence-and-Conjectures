@@ -1,0 +1,60 @@
+To compute the probabilities using Bayes' rule, we'll begin by estimating the relevant probabilities. Note that these values are subjective estimations.
+
+Let's denote the following:
+
+- H₁: Adam was enrolled in agricultural and veterinary science.
+- H₂: Adam was enrolled in business administration.
+- E: The personality sketch of Adam.
+
+We need:
+
+- P(H₁) and P(H₂): The prior probabilities that Adam was enrolled in agricultural and veterinary science or business administration.
+- P(E|H₁) and P(E|H₂): The probabilities of observing the personality sketch given each hypothesis.
+- P(E) and P(E|¬H): The probabilities of observing the personality sketch in general and given the negation of each hypothesis.
+
+Assuming the priors for P(H₁) and P(H₂) are roughly equal, but noting that the total does not have to sum up to 1 due to other possible graduate fields:
+
+P(H₁) and P(H₂) being roughly equal, let's give a prior of 0.1 (since there are many other possible graduate fields, this is a low but reasonable starting point).
+
+Given these initial priors:
+- P(H₁) = 0.1
+- P(H₂) = 0.1
+
+Next, let's consider P(E|H₁), P(E|H₂), and P(E|\neg H₁), P(E|\neg H₂):
+
+For H₁ (agricultural and veterinary science), Adam's personality traits align well. Given his curiosity about nature, love for animals, and appreciation for hard work, we estimate:
+- P(E|H₁) ≈ 0.8
+
+For H₂ (business administration), Adam's personality traits do not align as strongly. Although his intelligence and understanding of abstract concepts might help in business, his other traits align more with science. So a lower likelihood:
+- P(E|H₂) ≈ 0.2
+
+For not being in agricultural and veterinary science (¬H₁), we consider the overall likelihood of his personality matching other random fields:
+- P(E|¬H₁) ≈ 0.4 (since his traits are still quite aligned with scientific fields)
+
+For not being in business administration (¬H₂):
+- P(E|¬H₂) ≈ 0.5 (since there are many scientific fields his traits can align with)
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be approximated by:
+
+\[ P(E) = P(E|H₁) \cdot P(H₁) + P(E|\neg H₁) \cdot P(\neg H₁) \]
+
+Let's start with H₁ (agricultural and veterinary science):
+
+\[ P(E) = 0.8 \cdot 0.1 + 0.4 \cdot 0.9 = 0.08 + 0.36 = 0.44 \]
+\[ P(H₁|E) = \frac{0.8 \cdot 0.1}{0.44} = \frac{0.08}{0.44} \approx 0.182 \]
+
+Now for H₂ (business administration):
+
+\[ P(E) = 0.2 \cdot 0.1 + 0.5 \cdot 0.9 = 0.02 + 0.45 = 0.47 \]
+\[ P(H₂|E) = \frac{0.2 \cdot 0.1}{0.47} = \frac{0.02}{0.47} \approx 0.043 \]
+
+So the final values are:
+
+{
+  "agricultural and veterinary science": 0.182,
+  "business administration": 0.043
+}

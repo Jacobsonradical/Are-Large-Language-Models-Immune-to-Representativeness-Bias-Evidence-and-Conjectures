@@ -1,0 +1,43 @@
+To compute the posterior probability \( P(H|E) \) for each field using Bayes' Rule, we need to consider the following:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The probability of observing the evidence \( E \) given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing the evidence \( E \) given that Adam was not enrolled in that field.
+
+Given that we don't have specific data, we'll have to make educated guesses based on the personality sketch \( E \) and typical characteristics of students in each field. We will assume an equal base rate \( P(H) \) for simplicity but adjust the likelihoods \( P(E|H) \) and \( P(E|\neg H) \) based on how well the personality fits each field.
+
+### Business Administration
+
+- \( P(H_{\text{business administration}}) \approx 0.1 \) (assuming a prior probability of 10% that any given graduate student is in business administration)
+- \( P(E|H_{\text{business administration}}) \approx 0.05 \): Typically, business administration students may not necessarily be characterized by strong curiosity about nature, empathy for animals, or interest in solving puzzles.
+- \( P(E|\neg H_{\text{business administration}}) \approx 0.1 \): This could be a rough average across all other fields of study.
+
+### Computer Science
+
+- \( P(H_{\text{computer science}}) \approx 0.1 \) (assuming a prior probability of 10% that any given graduate student is in computer science)
+- \( P(E|H_{\text{computer science}}) \approx 0.2 \): Students in computer science often have high intelligence, enjoy solving puzzles, and understand abstract concepts. These fit quite well with the personality sketch.
+- \( P(E|\neg H_{\text{computer science}}) \approx 0.1 \): Similar to the assumption made for business administration.
+
+### Bayes' Rule Calculation
+
+Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We can ignore \( P(E) \) for relative comparison purposes as it's a normalizing constant. Therefore, we need to compare the numerators \( P(E|H)P(H) \).
+
+For business administration:
+\[ P(H_{\text{business administration}}|E) \propto P(E|H_{\text{business administration}})P(H_{\text{business administration}}) = 0.05 \times 0.1 = 0.005 \]
+
+For computer science:
+\[ P(H_{\text{computer science}}|E) \propto P(E|H_{\text{computer science}})P(H_{\text{computer science}}) = 0.2 \times 0.1 = 0.02 \]
+
+### Result
+
+```json
+{
+  "business administration": 0.005,
+  "computer science": 0.02
+}
+```
+
+These computed values show that the personality sketch \( E \) is more consistent with being a graduate student in computer science than in business administration, within the simplified assumptions used.

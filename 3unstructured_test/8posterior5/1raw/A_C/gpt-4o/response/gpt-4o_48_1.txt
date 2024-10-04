@@ -1,0 +1,74 @@
+To perform the Bayesian inference, I need to estimate the probabilities P(H), P(E|H), and P(E|\neg H) for each field, and then apply Bayes' rule to compute P(H|E). Here is a step-by-step approach for the two fields provided:
+
+### Definitions
+- **P(H):** Prior probability that Adam is enrolled in a specific field.
+- **P(E|H):** Probability of observing the evidence E (the personality sketch) given that Adam is enrolled in the field.
+- **P(E|\neg H):** Probability of observing the evidence E given that Adam is not enrolled in the specific field.
+
+Let's assume that in general:
+- **P(H)** is the prior probability that Adam is in a specific field. Since there are many graduate fields of specialization, let's assume a uniform prior distribution, \( P(H) \) could roughly be \( \frac{1}{N} \) where \( N \) is the number of possible fields. For simplicity, I will assume \( N = 20 \); thus, \( P(H) = 0.05 \).
+
+- **P(E|\neg H)** is the probability of observing the evidence if Adam is not in the specific field. Without additional detailed information, this is difficult to estimate precisely but can be considered as a baseline probability of observing such traits in any other field.
+
+### Estimations and Calculations
+#### Computer Science:
+1. **P(H):** Prior probability that Adam is in Computer Science.
+   - Assuming \( P(H) = 0.05 \).
+
+2. **P(E|H):** Probability of the personality traits given Adam is in Computer Science.
+   - Computer Science students can have a variety of interests, and given Adam's curiosity about nature, empathy, and animal love, these traits are less typical for CS students.
+   - \( P(E|H) \) might be lower, let's assume \( P(E|H) = 0.1 \).
+
+3. **P(E|\neg H):** Probability of the personality traits if Adam is not in Computer Science.
+   - This would be an average probability over all other fields, assumed to be uniformly distributed.
+   - Let's assume \( P(E|\neg H) = 0.3 \).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Given that \( P(E) \approx P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+\[ P(E) \approx (0.1 \cdot 0.05) + (0.3 \cdot 0.95) \]
+
+\[
+P(E) \approx 0.005 + 0.285 = 0.29 
+\]
+
+Finally:
+\[
+P(H|E) \approx \frac{0.1 \cdot 0.05}{0.29} = \frac{0.005}{0.29} \approx 0.017 
+\]
+
+#### Agricultural and Veterinary Science:
+1. **P(H):** Prior probability that Adam is in Agricultural and Veterinary Science.
+   - Assuming \( P(H) = 0.05 \).
+
+2. **P(E|H):** Probability of the personality traits given Adam is in Agricultural and Veterinary Science.
+   - Adam’s traits, such as curiosity about nature, love for animals, empathy, and appreciation of hard work, are very relevant.
+   - \( P(E|H) \) might be higher, let's assume \( P(E|H) = 0.7 \).
+
+3. **P(E|\neg H):** Probability of the personality traits if Adam is not in Agricultural and Veterinary Science.
+   - It is an average over all other fields.
+   - Let's assume \( P(E|\neg H) = 0.3 \).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Given that \( P(E) \approx P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+\[ P(E) \approx (0.7 \cdot 0.05) + (0.3 \cdot 0.95) \]
+
+\[
+P(E) \approx 0.035 + 0.285 = 0.32 
+\]
+
+Finally:
+\[
+P(H|E) \approx \frac{0.7 \cdot 0.05}{0.32} = \frac{0.035}{0.32} \approx 0.109 
+\]
+
+### Results
+```json
+{
+  "computer science": 0.017,
+  "agricultural and veterinary science": 0.109
+}
+```
+
+These values indicate that given Adam's personality sketch, it is more likely that he is enrolled in Agricultural and Veterinary Science than in Computer Science.

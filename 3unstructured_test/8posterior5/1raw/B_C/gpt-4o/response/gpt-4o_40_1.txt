@@ -1,0 +1,72 @@
+To begin, let's use Bayes' Theorem to compute the posterior probabilities of Adam being enrolled in either business administration or computer science, given his personality sketch (E).
+
+Bayes' Theorem states:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \(P(H|E)\) is the probability of Adam being enrolled in a specific field given his personality sketch.
+- \(P(E|H)\) is the probability of Adam having the personality sketch if he's enrolled in that field.
+- \(P(H)\) is the prior probability of Adam being enrolled in that field without any additional information.
+- \(P(E)\) is the overall probability of Adam having the personality sketch.
+
+For both fields, let's first set our prior probabilities \(P(H)\). Given that there are many fields Adam could be in, we'll use some reasonable assumptions without needing an exhaustive list.
+
+Assume:
+\[ P(\text{business administration}) = 0.1 \]
+\[ P(\text{computer science}) = 0.1 \]
+
+Next, let's assess \(P(E|H)\) – the likelihood of Adam having the personality sketch given enrollment in each field.
+
+Given Adam's genuine curiosity about nature, love for animals, and interest in abstract concepts:
+- For business administration, this seems less aligned, but not impossible. So, we'll assume: 
+\[ P(E|\text{business administration}) = 0.2 \]
+- For computer science, his interest in puzzles and understanding abstract concepts aligns better. So:
+\[ P(E|\text{computer science}) = 0.3 \]
+
+Additionally, we need \( P(E|\neg H) \), the probability of the personality sketch given he is not in that specific field.
+We'd generally expect it to be spread over many other fields, often similar to the given field probabilities.
+
+For an approximation:
+\[ P(E|\neg \text{business administration}) = 0.3 \]
+\[ P(E|\neg \text{computer science}) = 0.25 \]
+
+Lastly, calculate \(P(H|E)\):
+\[
+\begin{aligned}
+P(\text{business administration}|E) &= \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \\
+&= \frac{0.2 \times 0.1}{P(E)} 
+\end{aligned}
+\]
+\[
+\begin{aligned}
+P(\text{computer science}|E) &= \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \\
+&= \frac{0.3 \times 0.1}{P(E)} 
+\end{aligned}
+\]
+
+As we do not have \(P(E)\) outright, we can use a relative approach where we normalize later for comparative evaluation:
+
+\[
+\begin{aligned}
+P(\text{business administration}|E) &= \frac{0.02}{P(E')} \\
+P(\text{computer science}|E) &= \frac{0.03}{P(E')}
+\end{aligned}
+\]
+
+Normalization is key:
+\[
+\begin{aligned}
+\frac{0.02}{0.02 + 0.03 + ...} &= \frac{0.02}{relative\_normalizer} \\
+\frac{0.03}{0.02 + 0.03 + ...} &= \frac{0.03}{relative\_normalizer}
+\end{aligned}
+\]
+
+Thus we have:
+
+{
+  "business administration": "0.4 (normalized)",
+  "computer science": "0.6 (normalized)"
+}
+
+This indicates Adam's personality is more aligned with computer science than business administration, though both are considered.

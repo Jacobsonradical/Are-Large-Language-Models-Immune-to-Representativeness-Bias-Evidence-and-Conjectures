@@ -1,0 +1,62 @@
+To solve this problem using Bayes' rule, we need to determine the following probabilities for each field:
+
+1. **P(H)**: The prior probability that Adam was enrolled in the given field, without any additional information about his personality sketch.
+2. **P(E|H)**: The likelihood of observing the personality sketch given that Adam was enrolled in the given field.
+3. **P(E|¬H)**: The likelihood of observing the personality sketch given that Adam was not enrolled in the given field.
+4. **P(H|E)**: The posterior probability that Adam was enrolled in the given field given his personality sketch, which we compute using Bayes' rule.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- **P(H):** Initial assumption about the field's probability without additional information.
+- **P(E|H):** The probability of observing Adam's personality sketch if he was in that field.
+- **P(E|¬H):** The probability of observing Adam's personality sketch if he was not in that field.
+
+For simplicity, let's assume the following broad estimates for the fields:
+
+### Business Administration:
+1. **P(H):** Low/Medium, since there's a diverse range of graduate fields and business administration is quite specific.
+2. **P(E|H):** Low/Medium, as business administration typically doesn't align strongly with a deep curiosity about nature and plants, or empathy and love for animals.
+3. **P(E|¬H):** We objectly need to marginalize over all non-business administration fields, but since it's broader and has more overlap with Adam's personality, it may be higher than **P(E|H)**.
+
+### Computer Science:
+1. **P(H):** Medium/High, computer science is a popular graduate field.
+2. **P(E|H):** Medium, since problem-solving and understanding abstract concepts align well with this field.
+3. **P(E|¬H):** Given how numerous non-computer science fields are, **P(E|¬H)** may be similar or higher.
+
+Based on these qualitative assessments, we might assume:
+
+1. Business Administration:
+   - \( P(H) = 0.1 \)
+   - \( P(E|H) = 0.1 \)
+   - \( P(E|¬H) = 0.5 \) (assuming multiple non-specific fields)
+
+2. Computer Science:
+   - \( P(H) = 0.3 \)
+   - \( P(E|H) = 0.3 \)
+   - \( P(E|¬H) = 0.4 \)
+
+### Computing Bayes' Posterior:
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+We approximate \( P(E) \approx P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \).
+
+For simplicity, assume **P(E)** can be omitted for relative comparisons between the fields.
+
+#### Business Administration:
+\[ P(H|E) = \frac{0.1 \times 0.1}{P(E)} \]
+
+#### Computer Science:
+\[ P(H|E) = \frac{0.3 \times 0.3}{P(E)} \]
+
+Therefore, the relative estimates for Bayesian probabilities may look like:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.09
+}
+```
+
+These values reflect the relatively higher likelihood that Adam's personality sketch aligns with a field where abstract thinking and problem-solving are more prominently valued, such as computer science.

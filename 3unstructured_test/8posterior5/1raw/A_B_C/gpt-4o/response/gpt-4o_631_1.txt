@@ -1,0 +1,76 @@
+Given the personality sketch of Adam and the fields of study, we need to judge the respective probabilities and use Bayes' rule to determine \( P(H|E) \) for each field.
+
+### Definitions:
+- \( P(H) \): Prior probability that Adam was enrolled in the field.
+- \( P(E|H) \): Probability of observing the personality sketch given that Adam is in the field.
+- \( P(E|\neg H) \): Probability of observing the personality sketch given that Adam is not in the field.
+- \( P(H|E) \): Posterior probability that Adam was enrolled in the field given the personality sketch.
+
+### Evaluation:
+
+1. **Agricultural and Veterinary Science**
+   - \( P(H) \): Moderate to high, this is a common field for anyone interested in nature and animals.
+   - \( P(E|H) \): High, given his curiosity about nature, love for animals, and strong empathy.
+   - \( P(E|\neg H) \): Lower, but not negligible, because these traits can be found in other fields too.
+
+2. **Computer Science**
+   - \( P(H) \): High, given the popularity of this field.
+   - \( P(E|H) \): Moderate, Adam enjoys solving puzzles and abstract concepts which align with computer science.
+   - \( P(E|\neg H) \): Moderate, because these traits can be found in other fields (puzzles and abstract concepts).
+
+3. **Business Administration**
+   - \( P(H) \): Moderate to high, as it's a popular field.
+   - \( P(E|H) \): Lower, the personality sketch doesn't strongly align with typical business administration traits.
+   - \( P(E|\neg H) \): Higher, because the traits listed are not strongly indicative of business administration.
+
+### Calculation:
+We need values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), to compute \( P(H|E) \). For simplicity, we'll use approximate values.
+
+- For **Agricultural and Veterinary Science**:
+  - \( P(H) \approx 0.2 \)
+  - \( P(E|H) \approx 0.85 \)
+  - \( P(E|\neg H) \approx 0.2 \)
+
+- For **Computer Science**:
+  - \( P(H) \approx 0.25 \)
+  - \( P(E|H) \approx 0.6 \)
+  - \( P(E|\neg H) \approx 0.2 \)
+
+- For **Business Administration**:
+  - \( P(H) \approx 0.25 \)
+  - \( P(E|H) \approx 0.3 \)
+  - \( P(E|\neg H) \approx 0.25 \)
+
+### Bayes Rule:
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+where
+\[ P(E) = P(E|H) P(H) + P(E|\neg H) P(\neg H) \]
+
+Since \( P(\neg H) \) for a given hypothesis is \( 1 - P(H) \), we can simplify calculations by noting that \( P(E) \) is a normalization constant across all hypotheses.
+
+So calculating relative probabilities:
+
+- For **Agricultural and Veterinary Science**:
+  \[ P(H|E) \approx \frac{0.85 \times 0.2}{0.85 \times 0.2 + 0.2 \times 0.8 \times (1 - 0.2)} \]
+  
+- For **Computer Science**:
+  \[ P(H|E) \approx \frac{0.6 \times 0.25}{0.6 \times 0.25 + 0.2 \times 0.75} \]
+  
+- For **Business Administration**:
+  \[ P(H|E) \approx \frac{0.3 \times 0.25}{0.3 \times 0.25 + 0.25 \times 0.75} \]
+
+Thus, approximate results are:
+
+- Agricultural and Veterinary Science = \( (0.85 \times 0.2) \approx 0.17 \)
+- Computer Science = \( (0.6 \times 0.25) \approx 0.15 \)
+- Business Administration = \( (0.3 \times 0.25) \approx 0.075 \)
+
+Given these relative strengths,
+
+```json
+{
+  "agricultural and veterinary science": 0.17,
+  "computer science": 0.15,
+  "business administration": 0.075
+}
+```

@@ -1,0 +1,40 @@
+Based on Adam's personality sketch (E), let's estimate the relevant probabilities for the given fields: computer science (H_CS) and business administration (H_BA).
+
+### Initial Probabilities P(H)
+- P(H_CS): This is the prior probability of a graduate student being in computer science. At many universities, computer science is a popular graduate field. Let's assume a moderate prior of 0.2 (20%).
+- P(H_BA): Business administration is another common field. Let's also assume a moderate prior of 0.2 (20%).
+
+### Likelihoods P(E|H) 
+- P(E|H_CS): Given Adam's characteristics (high intelligence, good at abstract concepts, enjoys solving puzzles), these align well with traits beneficial for computer science. Let's estimate this as 0.7 (70%).
+- P(E|H_BA): Given Adam's empathy, warm heart, and appreciation for hard work, these could fit a profile for someone in business administration, but it is generally less aligned than for computer science. Let's estimate this as 0.4 (40%).
+
+### Complementary Likelihoods P(E|¬H)
+- P(E|¬H_CS): The probability of observing Adam's characteristics given he is not in computer science involves many other fields where such traits are less central. Let's estimate this as 0.3 (30%).
+- P(E|¬H_BA): The probability of observing Adam's characteristics given he is not in business administration is probably slightly higher, given Adam’s empathy and warm heart, which could be useful in fields like psychology or education. Let's estimate this as 0.5 (50%).
+
+### Using Bayes Rule to Compute P(H|E)
+Bayes Rule: \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+We don't need to compute the exact value of P(E) as we are comparing relative probabilities:
+
+#### For Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(H_{CS}|E) \approx 0.7 \cdot 0.2 = 0.14 \]
+
+#### For Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(H_{BA}|E) \approx 0.4 \cdot 0.2 = 0.08 \]
+
+### Normalizing Probabilities
+For simplicity, we can normalize these to compare directly:
+\[ P(H_{CS}|E) \approx \frac{0.14}{0.14 + 0.08} = \frac{0.14}{0.22} \approx 0.636 \]
+\[ P(H_{BA}|E) \approx \frac{0.08}{0.14 + 0.08} = \frac{0.08}{0.22} \approx 0.364 \]
+
+Thus, the probabilities would be:
+
+{
+  "computer science": 0.636,
+  "business administration": 0.364
+}

@@ -1,0 +1,42 @@
+To employ Bayes' rule to compute P(H|E) for each field, we need to start by estimating P(H), P(E|H), and P(E|\neg H). Then, we can use these numbers to find P(H|E).
+
+Bayes' rule is given by: 
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where 
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+Let's assume some reasonable values based on the given personality sketch of Adam:
+
+### Assumptions:
+1. **Business Administration**
+- **P(H)**: Graduate students in Business Administration make up about 10% of the graduate student population. So, let's set \( P(H) = 0.10 \).
+- **P(E|H)**: The traits described (curiosity about nature, love for animals, empathy, high intelligence) are less characteristic of a typical business administration student. Therefore, let's assume \( P(E|H) = 0.05 \).
+- **P(E|\neg H)**: For this value, let's consider that the traits are moderately common among the general population of graduate students. So, let's set \( P(E|\neg H) = 0.20 \).
+
+Using these values, we can calculate the probability:
+\[ P(\neg H) = 1 - P(H) = 0.90 \]
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = (0.05)(0.10) + (0.20)(0.90) = 0.005 + 0.18 = 0.185 \]
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.05 \times 0.10}{0.185} = \frac{0.005}{0.185} \approx 0.027 \]
+
+2. **Agricultural and Veterinary Science**
+- **P(H)**: Graduate students in Agricultural and Veterinary Science make up about 5% of the graduate student population. So, let's set \( P(H) = 0.05 \).
+- **P(E|H)**: The traits described (curiosity about nature, love for animals, empathy, intelligence) are highly characteristic of this field. Therefore, let's assume \( P(E|H) = 0.70 \).
+- **P(E|\neg H)**: This would be shared across the rest of the graduate population which doesn’t specialize in these traits. So, let's set \( P(E|\neg H) = 0.15 \).
+
+Using these values, we can calculate the probability:
+\[ P(\neg H) = 1 - P(H) = 0.95 \]
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = (0.70)(0.05) + (0.15)(0.95) = 0.035 + 0.1425 = 0.1775 \]
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.70 \times 0.05}{0.1775} = \frac{0.035}{0.1775} \approx 0.197 \]
+
+So, the calculations yield the following posterior probabilities:
+```json
+{
+  "business administration": 0.027,
+  "agricultural and veterinary science": 0.197
+}
+```
+
+These values suggest that it is significantly more likely, given Adam's personality traits, that he was enrolled in Agricultural and Veterinary Science than in Business Administration.

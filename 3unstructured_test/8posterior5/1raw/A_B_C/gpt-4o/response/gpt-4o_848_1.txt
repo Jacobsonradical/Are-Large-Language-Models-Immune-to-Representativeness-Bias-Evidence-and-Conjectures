@@ -1,0 +1,47 @@
+To compute the posterior probability \(P(H|E)\) for each hypothesis \(H\) given evidence \(E\), Bayes' Rule is applied as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are not evaluating the total universe of hypotheses, the normalization against \(P(E)\) can be omitted for the sake of this comparison, simplifying to:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's denote the hypotheses as follows:
+- \( H_{\text{BA}} \): Adam was enrolled in business administration.
+- \( H_{\text{AVS}} \): Adam was enrolled in agricultural and veterinary science.
+- \( H_{\text{CS}} \): Adam was enrolled in computer science.
+
+First, let's estimate \(P(H)\) for each hypothesis based on general enrollment trends (assuming uniform priors for simplicity):
+- \( P(H_{\text{BA}}) \approx 0.3 \) (Common graduate field)
+- \( P(H_{\text{AVS}}) \approx 0.2 \) (Less common, but reasonable given Adam's interests)
+- \( P(H_{\text{CS}}) \approx 0.3 \) (Popular graduate field)
+
+Next, let's estimate \(P(E|H)\), the likelihood of observing the evidence given each field:
+- \( P(E|H_{\text{BA}}) \approx 0.1 \) (Low, as business administration does not highly correlate with Adam's interests and traits)
+- \( P(E|H_{\text{AVS}}) \approx 0.8 \) (High, given Adam's curiosity about nature, love for animals, and appreciation for hard work)
+- \( P(E|H_{\text{CS}}) \approx 0.4 \) (Moderate, as understanding abstract concepts aligns with computer science, but nature and animals do not)
+
+Finally, let's compute these values:
+
+**Normalized calculations:**
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.1 \cdot 0.3 = 0.03 \]
+\[ P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 0.8 \cdot 0.2 = 0.16 \]
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.4 \cdot 0.3 = 0.12 \]
+
+Thus, the unnormalized probabilities are:
+\[ P(H|E) = \{ 0.03, 0.16, 0.12 \} \]
+
+Normalizing these:
+- Total sum: \( 0.03 + 0.16 + 0.12 = 0.31 \)
+- Normalized probabilities:
+  - Business administration: \( \frac{0.03}{0.31} \approx 0.097 \)
+  - Agricultural and veterinary science: \( \frac{0.16}{0.31} \approx 0.516 \)
+  - Computer science: \( \frac{0.12}{0.31} \approx 0.387 \)
+
+Thus, the normalized posterior probabilities are approximately:
+
+{
+  "business administration": 0.097,
+  "agricultural and veterinary science": 0.516,
+  "computer science": 0.387
+}

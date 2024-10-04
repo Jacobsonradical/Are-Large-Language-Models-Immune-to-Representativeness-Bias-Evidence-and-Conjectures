@@ -1,0 +1,44 @@
+To apply Bayes' Rule and calculate the posterior probabilities \( P(H|E) \) for Adam being enrolled in business administration or computer science, we should follow these steps:
+
+1. **Estimate Prior Probabilities \( P(H) \):** These represent the probabilities that Adam was enrolled in either business administration or computer science, before considering the personality sketch.
+
+2. **Estimate Likelihoods \( P(E|H) \):** These represent the probabilities that the personality sketch \( E \) would be observed given that Adam is enrolled in business administration or computer science.
+
+3. **Estimate \( P(E|\neg H) \):** These represent the probabilities that the personality sketch \( E \) would be observed given that Adam is *not* enrolled in business administration or computer science.
+
+4. **Apply Bayes' Rule:** Calculate \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \).
+
+Given the personality sketch \( E \), let's make reasonable assumptions for these probabilities:
+
+### Business Administration
+- \( P(H_{\text{BA}}) \): Prior for enrolling in business administration. Let's assume \( 0.10 \) or 10%.
+- \( P(E|H_{\text{BA}}) \): Likelihood of exhibiting the personality traits given enrollment in business administration. The traits described in \( E \) (a deep love for nature, solving puzzles, warm heart, strong empathy, etc.) are less typical for business administration, so let's say \( 0.20 \).
+- \( P(E|\neg H_{\text{BA}}) \): Likelihood of exhibiting these traits given *not* enrolled in business administration, say, \( 0.80 \) as it seems more common in non-business-related fields.
+
+### Computer Science
+- \( P(H_{\text{CS}}) \): Prior for enrolling in computer science. Let's assume \( 0.15 \) or 15%.
+- \( P(E|H_{\text{CS}}) \): Likelihood of exhibiting the personality traits given enrollment in computer science. Many of the traits (enjoy solving puzzles, high intelligence, understanding abstract concepts) align well so let's assume \( 0.70 \).
+- \( P(E|\neg H_{\text{CS}}) \): Likelihood of exhibiting these traits given *not* enrolled in computer science, say, \( 0.50 \).
+
+### Compute Posterior Probabilities
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Since \( P(E) \) is a normalization factor and can be derived from:
+\[ P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|(H \neq \text{BA,CS})) \cdot P(H \neq \text{BA,CS}) \]
+
+But for simplicity, we'll assume the patterns and normalization naturally and provide estimates directly.
+
+#### Business Administration
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) \approx \frac{0.20 \cdot 0.10}{0.20 \cdot 0.10 + 0.70 \cdot 0.15} = \frac{0.02}{0.02 + 0.105} = \frac{0.02}{0.125} \approx 0.16 \]
+
+#### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) \approx \frac{0.70 \cdot 0.15}{0.20 \cdot 0.10 + 0.70 \cdot 0.15} = \frac{0.105}{0.02 + 0.105} = \frac{0.105}{0.125} \approx 0.84 \]
+
+Hence:
+
+{
+  "business administration": 0.16,
+  "computer science": 0.84
+}

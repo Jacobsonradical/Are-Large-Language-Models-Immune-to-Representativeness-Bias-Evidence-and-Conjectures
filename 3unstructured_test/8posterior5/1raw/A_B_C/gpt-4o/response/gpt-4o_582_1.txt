@@ -1,0 +1,71 @@
+To compute \( P(H|E) \) using Bayes' rule, we'll use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E) \) is the total probability of the evidence.
+- \( \neg H \) represents all other hypotheses that are not \( H \).
+
+To get the total probability of the evidence (\( P(E) \)), we sum the contributions from \( H \) and \( \neg H \).
+
+We can make some educated guesses about these probabilities based on the personality sketch provided.
+
+### Probability Judgements
+
+1. **Business Administration:**
+   - \( P(H) \): Let's assume a moderate prior probability since it is a popular field.
+     - \( P(H) \approx 0.1 \)
+   - \( P(E|H) \): The description doesn’t align strongly with traits typically associated with business administration students.
+     - \( P(E|H) \approx 0.1 \)
+   - \( P(E|\neg H) \): The characteristics described could fit more closely with other fields.
+     - \( P(E|\neg H) \approx 0.05 \)
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): Assume a moderate prior probability based on general enrollment levels.
+     - \( P(H) \approx 0.05 \)
+   - \( P(E|H) \): The traits like curiosity about nature, empathy, love for animals align very well.
+     - \( P(E|H) \approx 0.8 \)
+   - \( P(E|\neg H) \): Could slightly fit some other fields but not as strongly.
+     - \( P(E|\neg H) \approx 0.1 \)
+
+3. **Computer Science:**
+   - \( P(H) \): Assume a higher prior probability due to the popularity of this field.
+     - \( P(H) \approx 0.2 \)
+   - \( P(E|H) \): Curiosity and intelligence might fit well, but not as strongly as agricultural and veterinary science.
+     - \( P(E|H) \approx 0.3 \)
+   - \( P(E|\neg H) \): Other fields might align with this personality as well.
+     - \( P(E|\neg H) \approx 0.2 \)
+
+### Bayes' Rule Calculation
+
+To apply Bayes' rule, we'll calculate \( P(E) \):
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+We approximate \( P(\neg H) \) by summing other remaining probabilities and normalizing them.
+
+Let's specifically calculate for each field:
+
+- **Business Administration:**
+  \[ P(E) \approx (0.1 * 0.1 + 0.8 * 0.05 + 0.3 * 0.2) = 0.1 * 0.1 + 0.8 * 0.05 + 0.3 * 0.2 = 0.01 + 0.04 + 0.06 = 0.11 \]
+  \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 * 0.1}{0.11} \approx 0.009 \]
+
+- **Agricultural and Veterinary Science:**
+  \[ P(E) \approx 0.11 \] (Using same total for comparison)
+  \[ P(H|E) = \frac{0.8 * 0.05}{0.11} \approx 0.036 \]
+
+- **Computer Science:**
+  \[ P(E) \approx 0.11 \] (Using same total for comparison)
+  \[ P(H|E) = \frac{0.3 * 0.2}{0.11} \approx 0.054 \]
+
+Summarizing these results:
+
+```json
+{
+  "business administration": 0.009,
+  "agricultural and veterinary science": 0.036,
+  "computer science": 0.054
+}
+```

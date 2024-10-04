@@ -1,0 +1,55 @@
+To apply Bayes' Theorem, we need values for the following:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a field.
+2. \( P(E|H) \): The probability of the personality sketch given the enrollment in the field.
+3. \( P(E|\neg H) \): The probability of the personality sketch given enrollment in other fields.
+
+Then, Bayes' Theorem can be used to compute:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's assume equal priors for the fields. Given the personality sketch E, we can make some reasonable assumptions about \(P(E|H)\) for each field.
+
+### Field: Computer Science
+1. \( P(H_{CS}) \): Assume equal priors across all fields.
+   - Let's consider a baseline in absence of other information: 0.1.
+2. \( P(E|H_{CS}) \): Given Adam's curiosity about nature and animals, strong empathy, and interest in abstract concepts:
+   - This doesn't typically align strongly with computer science, although abstract concepts fit well.
+  - Assume \( P(E|H_{CS}) = 0.2 \).
+3. \( P(E|\neg H_{CS}) \): Given that the personality sketch might better align with fields other than computer science:
+  - Assume \( P(E|\neg H_{CS}) = 0.5 \).
+
+### Field: Agricultural and Veterinary Science
+1. \( P(H_{AVS}) \): Assume equal priors across all fields.
+   - Let's consider the same baseline: 0.1.
+2. \( P(E|H_{AVS}) \): Given Adam's characteristics, which strongly align with studying nature, plants, and animals:
+  - Assume \( P(E|H_{AVS}) = 0.9 \).
+3. \( P(E|\neg H_{AVS}) \): Given the alignment of the personality sketch with this field:
+  - Assume \( P(E|\neg H_{AVS}) = 0.3 \).
+
+Now let's compute \( P(H|E) \) for each field:
+
+1. **Computer Science**
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+First, we need \( P(E) \):
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \] 
+\[  P(E) = 0.2 \cdot 0.1 + 0.5 \cdot 0.9 \]
+\[  P(E) = 0.02 + 0.45 \]
+\[  P(E) = 0.47 \]
+So,
+\[ P(H_{CS}|E) = \frac{0.2 \cdot 0.1}{0.47} \]
+\[ P(H_{CS}|E) \approx 0.0426 \]
+
+2. **Agricultural and Veterinary Science**
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+Using the same \( P(E) \), as it was computed as:
+\[ P(E) \approx 0.47 \]
+
+\[ P(H_{AVS}|E) = \frac{0.9 \cdot 0.1}{0.47} \]
+\[ P(H_{AVS}|E) \approx 0.1915 \]
+
+Thus, the probabilities are:
+
+{
+  "computer science": 0.0426,
+  "agricultural and veterinary science": 0.1915
+}

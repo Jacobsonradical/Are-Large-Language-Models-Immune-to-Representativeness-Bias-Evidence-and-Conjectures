@@ -1,0 +1,52 @@
+To calculate \(P(H|E)\), Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the following hypotheses:
+- \(H_{BA}\): Adam was enrolled in business administration.
+- \(H_{CS}\): Adam was enrolled in computer science.
+
+And similarly:
+- \(\neg H\): Adam was not enrolled in the given field.
+
+We will denote:
+- \(P(E)\) as the probability of observing the personality sketch of Adam.
+- \(P(E|H_{BA})\) and \(P(E|H_{CS})\) as the probability of observing the personality sketch given Adam was enrolled in business administration or computer science, respectively.
+- \(P(\neg H_{BA})\) and \(P(\neg H_{CS})\) as the probability of the negation of each field.
+
+Let's define some initial assumptions about the probabilities:
+
+1. \(P(H_{BA})\): The prior probability that a graduate student could be enrolled in business administration. We assume this to be relatively average for a popular program. Let's approximate it as 0.1.
+
+2. \(P(H_{CS})\): The prior probability that a graduate student could be enrolled in computer science. Also, a popular field among graduate students. Let's approximate it as 0.1.
+
+3. \(P(E|H_{BA})\): The probability of observing Adam's personality sketch given he is in business administration. Based on his traits, business administration might not strongly correlate with his love for nature and curiosity about plants. Let's set this low, around 0.02.
+
+4. \(P(E|H_{CS})\): The probability of observing Adam's personality sketch given he is in computer science. Given his high intelligence and love for solving puzzles, this might fit a bit better. Let's set this higher, around 0.3.
+
+5. \(P(E|\neg H_{BA})\): The probability of observing Adam's personality sketch given he is not in business administration. We can be generous and set this a bit higher, say 0.08.
+
+6. \(P(E|\neg H_{CS})\): The probability of observing Adam's personality sketch given he is not in computer science. Given the broad range of other fields, let’s assume this is lower, around 0.1.
+
+Now, let's compute the posterior probabilities using Bayes' Rule.
+
+For business administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) = (0.02 \cdot 0.1) + (0.08 \cdot 0.9) = 0.002 + 0.072 = 0.074 \]
+\[ P(H_{BA}|E) = \frac{0.02 \cdot 0.1}{0.074} \approx 0.027 \]
+
+For computer science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E) = (0.3 \cdot 0.1) + (0.1 \cdot 0.9) = 0.03 + 0.09 = 0.12 \]
+\[ P(H_{CS}|E) = \frac{0.3 \cdot 0.1}{0.12} = \frac{0.03}{0.12} = 0.25 \]
+
+So the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.25
+}
+```

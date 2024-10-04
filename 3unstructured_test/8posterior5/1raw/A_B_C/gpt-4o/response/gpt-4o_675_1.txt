@@ -1,0 +1,91 @@
+Let's begin by assigning and estimating the values for each field of study:
+
+1. **Prior Probability \(P(H)\):**
+   - **Computer Science (CS):** Considering the popularity and common enrollment in CS programs, we might assign this a moderate probability.
+   - **Business Administration (BA):** Given its wide range of applications and high enrollment, this would also be moderate.
+   - **Agricultural and Veterinary Science (AVS):** This is less common compared to CS and BA, but still an important field, especially given Adam's interests.
+
+2. **Likelihood \(P(E|H)\):** The probability of observing the traits mentioned in Adam's sketch if he were in each respective field.
+   - Given Adam's curiosity about nature, love for animals, and appreciation for hard work, AGS is the most aligned.
+   - CS is also plausible due to his high intelligence and good understanding of abstract concepts.
+   - BA seems less aligned with his personality traits, particularly his empathy and love for animals.
+
+3. **Marginal Likelihood \(P(E|\neg H)\):** The probability of observing the traits mentioned if Adam were not in each respective field.
+   - This is more subjective but will be assumed with the below values.
+
+Using these estimates, we can calculate the posterior probability \(P(H|E)\) using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \(P(E)\) is a normalizing constant that ensures the sum of the probabilities is 1, not strictly necessary for individual calculations but theoretically:
+
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|H_{avs}) \cdot P(H_{avs}) \]
+
+### Values
+
+Let's assume reasonable values:
+1. **Prior Probabilities \(P(H)\):**
+   - \(P(H_{cs}) = 0.4\)
+   - \(P(H_{ba}) = 0.3\)
+   - \(P(H_{avs}) = 0.2\)
+
+2. **Likelihoods \(P(E|H)\):**
+   - \(P(E|H_{cs}) = 0.5\)
+   - \(P(E|H_{ba}) = 0.2\)
+   - \(P(E|H_{avs}) = 0.9\)
+
+3. **Marginal Likelihoods \(P(E|\neg H)\):**
+   - These are subjective and depend on the overall prevalence of such traits across other fields. Let's assume:
+   - \(P(E|\neg H_{cs}) = 0.45\)
+   - \(P(E|\neg H_{ba}) = 0.35\)
+   - \(P(E|\neg H_{avs}) = 0.55\)
+
+Now compute the posterior probabilities using Bayes' rule:
+
+### Posterior Calculations
+1. **Computer Science:**
+   \[
+   P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.5 \cdot 0.4}{P(E)}
+   \]
+
+2. **Business Administration:**
+   \[
+   P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.2 \cdot 0.3}{P(E)}
+   \]
+
+3. **Agricultural and Veterinary Science:**
+   \[
+   P(H_{avs}|E) = \frac{P(E|H_{avs}) \cdot P(H_{avs})}{P(E)} = \frac{0.9 \cdot 0.2}{P(E)}
+   \]
+
+To find \(P(E)\):
+\[
+P(E) = (0.5 \cdot 0.4) + (0.2 \cdot 0.3) + (0.9 \cdot 0.2) = 0.2 + 0.06 + 0.18 = 0.44
+\]
+
+Now, the calculations:
+
+1. **Computer Science:**
+   \[
+   P(H_{cs}|E) = \frac{0.5 \cdot 0.4}{0.44} = \frac{0.2}{0.44} \approx 0.4545
+   \]
+
+2. **Business Administration:**
+   \[
+   P(H_{ba}|E) = \frac{0.2 \cdot 0.3}{0.44} = \frac{0.06}{0.44} \approx 0.1364
+   \]
+
+3. **Agricultural and Veterinary Science:**
+   \[
+   P(H_{avs}|E) = \frac{0.9 \cdot 0.2}{0.44} = \frac{0.18}{0.44} \approx 0.4091
+   \]
+
+Final approximate posterior probabilities:
+
+```json
+{
+  "computer science": 0.4545,
+  "business administration": 0.1364,
+  "agricultural and veterinary science": 0.4091
+}
+```

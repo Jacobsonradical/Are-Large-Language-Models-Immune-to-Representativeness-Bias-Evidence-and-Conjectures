@@ -1,0 +1,57 @@
+To compute the probabilities \( P(H|E) \) for both hypotheses (enrollment in computer science and business administration), we need the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the overall probability \( P(E) \). Bayes' rule tells us:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the nature of the provided information, we can only make rough estimates. However, let's define and estimate these probabilities:
+
+1. **P(H)** (prior probability): This is the prior likelihood that a randomly selected graduate student was enrolled in computer science or business administration. Let's assume the following typical distribution for graduate students, though in a real scenario these would need to be based on actual data:
+   - Computer Science: 0.2 (20%)
+   - Business Administration: 0.15 (15%)
+
+2. **P(E|H)** (likelihood): This is the probability of observing the personality traits given the field of study. Given Adam's interests and traits:
+   - Computer Science:
+     - Interest in nature/plants: Unlikely directly related, but not impossible.
+     - Solving puzzles and high intelligence: Fits well.
+     - Empathy and love for animals: Not typically related to the field.
+     - Understanding abstract concepts: Fits well.
+     Therefore, roughly: \(P(E|H_{cs}) \approx 0.4\)
+   
+   - Business Administration:
+     - Interest in nature/plants: Unlikely directly related, but not impossible.
+     - Solving puzzles: Moderately likely.
+     - Empathy and love for animals: Could fit in organizational behavior or HR aspects.
+     - Understanding abstract concepts: Fits well.
+     Therefore, roughly: \(P(E|H_{ba}) \approx 0.3\)
+
+3. **P(E|\neg H)** (probability of the evidence given that Adam is not in these fields): Involves a guess based on how common these traits are in graduate students and how they do not necessarily point toward the specified fields:
+   - Assume \(P(E|\neg H) \approx 0.01\) as these traits might not be highly specific to either field compared to other possible fields.
+
+4. **P(E)** (overall probability of the evidence):
+   - This can be approximated using the law of total probability:
+   \[
+   P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|\neg H) \cdot P(\neg H)
+   \]
+   \[
+   = (0.4 \cdot 0.2) + (0.3 \cdot 0.15) + (0.01 \cdot 0.65)
+   = 0.08 + 0.045 + 0.0065
+   = 0.1315
+   \]
+
+Now, use Bayes' rule to find \( P(H|E) \):
+
+- For Computer Science:
+\[
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.4 \cdot 0.2}{0.1315} \approx 0.608
+\]
+
+- For Business Administration:
+\[
+P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.3 \cdot 0.15}{0.1315} \approx 0.342
+\]
+
+Thus, our final estimates are:
+
+{
+  "computer science": 0.608,
+  "business administration": 0.342
+}

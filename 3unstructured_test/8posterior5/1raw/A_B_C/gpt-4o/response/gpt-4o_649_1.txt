@@ -1,0 +1,54 @@
+To apply Bayes' Rule, we express it as:
+
+\[P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)}\]
+
+For each field:
+
+- \(P(H)\): The prior probability that Adam is enrolled in this field.
+- \(P(E | H)\): The probability of Adam's personality sketch \(E\) given he is in this field.
+- \(P(E | \neg H)\): The probability of Adam's personality sketch \(E\) given he is not in this field.
+- \(P(E)\): The total probability of Adam's personality sketch. Since we will ultimately compare relative values for \(P(H | E)\) across each field, we don't need to compute \(P(E)\) explicitly.
+
+Now, assigning reasonable estimates to these probabilities:
+
+For Business Administration:
+- \(P(H_{BA})\): Let's assume prior probability of being enrolled in business administration, a broad and popular graduate field, is 0.2.
+- \(P(E | H_{BA})\): Given Adam's curiosity about nature, love for animals, and empathy, this seems less aligned with a business administration profile. Let's rate it at 0.1.
+- \(P(E | \neg H_{BA})\): Assuming average likelihood of having Adam’s traits in other fields is 0.3
+
+For Agricultural and Veterinary Science:
+- \(P(H_{AVS})\): Let's assume prior probability of being enrolled in agricultural and veterinary science, a specialized field, is 0.05.
+- \(P(E | H_{AVS})\): Given his profile, Adam’s traits fit well with this field. Let's rate it at 0.7.
+- \(P(E | \neg H_{AVS})\): Likelihood for non-AVS fields might be lower. Let's say 0.3.
+
+For Computer Science:
+- \(P(H_{CS})\): Prior probability is 0.1, as computer science is a fairly common field for graduate students.
+- \(P(E | H_{CS})\): Adam’s intelligence and interest in puzzles fit well here, though his nature curiosity is less aligned. Rate it at 0.4.
+- \(P(E | \neg H_{CS})\): Likelihood for non-CS fields might be roughly 0.3.
+
+Now, applying Bayes' Rule for each field:
+
+1) Business Administration:
+\[P(H_{BA} | E) = \frac{P(E | H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} = \frac{0.02}{P(E)}\]
+
+2) Agricultural and Veterinary Science:
+\[P(H_{AVS} | E) = \frac{P(E | H_{AVS}) \cdot P(H_{AVS})}{P(E)} = \frac{0.7 \cdot 0.05}{P(E)} = \frac{0.035}{P(E)}\]
+
+3) Computer Science:
+\[P(H_{CS} | E) = \frac{P(E | H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.4 \cdot 0.1}{P(E)} = \frac{0.04}{P(E)}\]
+
+Therefore, normalizing to compare relative probabilities:
+
+{
+  "business administration": \( \frac{0.02}{0.02 + 0.035 + 0.04} \approx 0.193 \),
+  "agricultural and veterinary science": \( \frac{0.035}{0.02 + 0.035 + 0.04} \approx 0.338 \),
+  "computer science": \( \frac{0.04}{0.02 + 0.035 + 0.04} \approx 0.386 \)
+}
+
+So the relative probabilities are:
+
+{
+  "business administration": 0.193,
+  "agricultural and veterinary science": 0.338,
+  "computer science": 0.386
+}

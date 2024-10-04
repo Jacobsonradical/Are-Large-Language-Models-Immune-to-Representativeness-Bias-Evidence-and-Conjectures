@@ -1,0 +1,35 @@
+To calculate the probability \( P(H|E) \) that Adam was enrolled in a particular field given his personality sketch \( E \), we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is constant for all fields, we can simplify our computation by comparing the numerators \( P(E|H) \cdot P(H) \) across different fields. For simplicity, let's assume the following priors (probability of being enrolled in each field without any additional information):
+
+For \( H \) being "business administration", let's assume \( P(H) = 0.2 \).
+For \( H \) being "agricultural and veterinary science", let's assume \( P(H) = 0.05 \).
+
+### Business Administration
+- \( P(H) \approx 0.2 \)
+- \( P(E|H) \): The personality traits mentioned in \( E \) are not highly indicative of a business administration student. Traits like empathy and a love for animals are not particularly common or required in business. We might assign \( P(E|H) \approx 0.1 \).
+- \( P(E|\neg H) \): Without specifying "not business administration", the traits in \( E \) could fit many other fields. Given the broad range of fields in graduate study, we might assume that outside of business administration, the likelihood is moderate, \( P(E|\neg H) \approx 0.3 \).
+
+Using Bayes' rule, we get:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02 \]
+
+### Agricultural and Veterinary Science
+- \( P(H) \approx 0.05 \)
+- \( P(E|H) \): The personality traits are very indicative of someone in agricultural and veterinary science. Strong empathy, love for animals, understanding and appreciation for hard work, and curiosity about nature align very well with this field. We might assign \( P(E|H) \approx 0.9 \).
+- \( P(E|\neg H) \): It's less likely that traits as specific as these would fit another field as well. We might assign \( P(E|\neg H) \approx 0.1 \).
+
+Using Bayes' rule, we get:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \cdot 0.05 = 0.045 \]
+
+Finally, normalizing the results to keep them between 0 and 1 without forcing them to sum to 1 (as there are many other fields):
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.045
+}
+```

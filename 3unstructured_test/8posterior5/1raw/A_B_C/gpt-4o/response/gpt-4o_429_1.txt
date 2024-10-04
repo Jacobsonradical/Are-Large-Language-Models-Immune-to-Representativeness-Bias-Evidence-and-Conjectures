@@ -1,0 +1,79 @@
+To evaluate the probability \( P(H|E) \) for each field using Bayes' Rule, we need the following probabilities:
+
+1. Prior probability \( P(H) \): The likelihood that Adam was enrolled in each field before knowing his personality sketch.
+2. Likelihood \( P(E|H) \): The probability of Adam having the given personality traits if he was enrolled in a specific field.
+3. Prior probability of the evidence \( P(E|\neg H) \): The probability of Adam having the given personality traits if he was not enrolled in a specific field.
+
+Let's denote the fields as:
+
+- \( H_1 \) : Agricultural and veterinary science
+- \( H_2 \) : Business administration 
+- \( H_3 \) : Computer science 
+
+We will estimate these values based on typical characteristics for each field.
+
+1. **Agricultural and veterinary science**:
+    - \( P(H_1) \approx 0.1 \): A smaller fraction of graduate students choose agricultural and veterinary science.
+    - \( P(E|H_1) \approx 0.8 \): High likelihood of having Adam's personality traits (curiosity about nature and plants, love for animals, empathy).
+    - \( P(E|\neg H_1) \approx 0.2 \): It’s relatively less likely for students in other fields to share these specific traits.
+
+2. **Business administration**:
+    - \( P(H_2) \approx 0.4 \): A larger fraction of graduate students may choose business administration.
+    - \( P(E|H_2) \approx 0.1 \): Lower likelihood of having Adam's personality traits (business students typically focus more on human interaction, leadership, and less on nature and animals).
+    - \( P(E|\neg H_2) \approx 0.3 \): Somewhat likely for students in other fields to share these traits.
+
+3. **Computer science**:
+    - \( P(H_3) \approx 0.3 \): A significant number of students choose computer science.
+    - \( P(E|H_3) \approx 0.4 \): Moderate likelihood of having Adam's personality traits (interest in puzzles and high intelligence fits, but curiosity about nature and love for animals less so).
+    - \( P(E|\neg H_3) \approx 0.4 \): Moderate likelihood for students in other fields to share these traits.
+
+Now, using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We don't have \( P(E) \), but we can note that it serves only as a normalizing constant. We can compare the relative values of \( P(H|E) \) for each field:
+
+1. **Agricultural and veterinary science**:
+    \[
+    P(H_1|E) \propto P(E|H_1) \cdot P(H_1) = 0.8 \cdot 0.1 = 0.08
+    \]
+
+2. **Business administration**:
+    \[
+    P(H_2|E) \propto P(E|H_2) \cdot P(H_2) = 0.1 \cdot 0.4 = 0.04
+    \]
+
+3. **Computer science**:
+    \[
+    P(H_3|E) \propto P(E|H_3) \cdot P(H_3) = 0.4 \cdot 0.3 = 0.12
+    \]
+
+Thus, normalized:
+
+- Agricultural and veterinary science: \( 0.08 \)
+- Business administration: \( 0.04 \)
+- Computer science: \( 0.12 \)
+
+Let's normalize these values so their sum equals 1:
+
+Sum of the values = \( 0.08 + 0.04 + 0.12 = 0.24 \)
+
+\[
+P(H_1|E) = \frac{0.08}{0.24} \approx 0.33
+\]
+\[
+P(H_2|E) = \frac{0.04}{0.24} \approx 0.17
+\]
+\[
+P(H_3|E) = \frac{0.12}{0.24} = 0.50
+\]
+
+Therefore, the probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": "0.33",
+  "business administration": "0.17",
+  "computer science": "0.50"
+}
+```

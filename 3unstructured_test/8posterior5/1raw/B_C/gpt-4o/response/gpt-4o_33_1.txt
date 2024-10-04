@@ -1,0 +1,66 @@
+To calculate the probabilities, I'll make some assumptions about the likelihood of Adam's personality traits fitting each field and use Bayes' rule to compute the posterior probabilities.
+
+### Bayes' Theorem
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in field H given the personality sketch E.
+- \( P(E|H) \) is the probability of the personality sketch E given that Adam is enrolled in field H.
+- \( P(H) \) is the prior probability that Adam is enrolled in field H.
+- \( P(E) \) is the overall probability of the personality sketch E.
+
+Given:
+- \( E \): Personality sketch of Adam.
+- \( H \): Hypothesis that Adam is enrolled in a specific field.
+- \(\neg H \): Adam is not enrolled in the specific field.
+
+Assumptions for the Prior Probabilities:
+- Let's assume \( P(H_{\text{CS}}) = 0.2 \) (20% chance Adam is in computer science).
+- Let's assume \( P(H_{\text{BA}}) = 0.1 \) (10% chance Adam is in business administration).
+- Note: These are assumptions, as we don't have actual data on the distribution of graduate students across all fields.
+
+For conditional probabilities based on the given personality sketch:
+1. **Computer Science (CS)**:
+   - \( P(E|H_{\text{CS}}) \): Computer science students may have high intelligence and enjoy solving puzzles, but strong empathy and a deep love for animals are less common traits in this field.
+     - Assume \( P(E|H_{\text{CS}}) = 0.2 \).
+
+2. **Business Administration (BA)**:
+   - \( P(E|H_{\text{BA}}) \): Business administration often values appreciation for hard work, but usually, they don't prioritize solving puzzles or a love for animals.
+     - Assume \( P(E|H_{\text{BA}}) = 0.1 \).
+
+Finally, let's assume:
+- \( P(E) \): The overall probability of Adam's combination of traits, \( P(E) \), is assumed to be average across fields. For simplicity, we normalize it out and not directly compute it but assume it is consistent across the calculation per hypothesis.
+
+### Calculations
+Using Bayes' Rule:
+1. \( P(H_{\text{CS}}|E) \)
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}})P(H_{\text{CS}})}{P(E)} = \frac{0.2 \times 0.2}{P(E)} \]
+
+2. \( P(H_{\text{BA}}|E) \)
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}})P(H_{\text{BA}})}{P(E)} = \frac{0.1 \times 0.1}{P(E)} \]
+
+Since \( P(E) \) is a common denominator:
+### Normalizing
+The common denominator \( P(E) \) gets eliminated in the comparative analysis. We focus on relative likelihoods.
+
+Normalize these (i.e., ignore \( P(E) \) for comparison):
+1. For CS: \( 0.2 \times 0.2 = 0.04 \)
+2. For BA: \( 0.1 \times 0.1 = 0.01 \)
+
+Summing for normalization (to compare proportions):
+\( 0.04 + 0.01 = 0.05 \)
+
+Normalized Posterior:
+1. CS: \(\frac{0.04}{0.05} = 0.8\)
+2. BA: \(\frac{0.01}{0.05} = 0.2\)
+
+So the values would be:
+
+```json
+{
+  "computer science": 0.8,
+  "business administration": 0.2
+}
+```
+
+This reflects Adam's personality traits being more aligned with an environment valuing his puzzling and intelligent traits compared to BA.

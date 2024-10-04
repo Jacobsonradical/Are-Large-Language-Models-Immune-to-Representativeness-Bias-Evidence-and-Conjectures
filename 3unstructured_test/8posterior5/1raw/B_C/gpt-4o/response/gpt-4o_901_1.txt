@@ -1,0 +1,54 @@
+Sure, let's calculate this step-by-step using Bayes' rule. For each field \( H \), we need the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood \( P(E|\neg H) \). Finally, we use Bayes' rule to calculate \( P(H|E) \).
+
+Let's start with business administration (\( H_1 \)) and computer science (\( H_2 \)).
+
+### Business Administration
+
+1. **Prior probability \( P(H_1) \)**: 
+   - The prior probability of Adam being in business administration without any additional information. Let's give this a prior, for instance, \( P(H_1) = 0.25 \) (this is arbitrary and can be adjusted).
+
+2. **Likelihood \( P(E|H_1) \)**: 
+   - Given the personality sketch, how likely is it Adam fits as a business administration student? Business administration generally focuses on leadership, management, and operational skills. The personality traits described (curiosity about nature, warmth, love for animals, high intelligence) do not strongly align with the typical traits of business administration students.
+   - Let's estimate \( P(E|H_1) = 0.1 \).
+
+3. **Likelihood \( P(E|\neg H_1) \)**: 
+   - How likely is it to see Adam's personality sketch in fields other than business administration? Given our sketch, it would be common in several fields (social sciences, natural sciences, engineering, etc.).
+   - Estimating this, let's say \( P(E|\neg H_1) = 0.5 \).
+
+Using Bayes' rule:
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} = \frac{0.1 \cdot 0.25}{P(E)} \]
+
+Since \( P(E) \) is common for all fields and remains the same in calculating posterior for different fields, we can leave it as a constant and compute relative posteriors. 
+
+\[ P(H_1|E) \propto 0.1 \times 0.25 = 0.025 \]
+
+### Computer Science
+
+1. **Prior probability \( P(H_2) \)**: 
+   - The prior probability of Adam being in computer science, given no additional information. Let's also use an arbitrary prior, say \( P(H_2) = 0.25 \).
+
+2. **Likelihood \( P(E|H_2) \)**:
+   - Given the personality sketch, how likely it is that Adam fits as a computer science student? The traits (solving puzzles, high intelligence, understanding abstract concepts) align rather well with a computer science student.
+   - Let's estimate \( P(E|H_2) = 0.6 \).
+
+3. **Likelihood \( P(E|\neg H_2) \)**:
+   - How likely is it to see Adam's personality sketch in fields other than computer science? This is the same likelihood as for fields other than business due to general humanistic traits.
+   - Again, \( P(E|\neg H_2) = 0.5 \).
+
+Using Bayes' rule:
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} = \frac{0.6 \cdot 0.25}{P(E)} \]
+
+\[ P(H_2|E) \propto 0.6 \times 0.25 = 0.15 \]
+
+### Result
+
+After normalizing (which we skip the actual normalization but present relative proportions):
+
+```json
+{
+  "business administration": 0.025,
+  "computer science": 0.15
+}
+```
+
+These estimates show Adam is much more likely enrolled in computer science than in business administration given the described personality traits.

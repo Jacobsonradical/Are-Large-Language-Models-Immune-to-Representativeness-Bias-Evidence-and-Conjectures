@@ -1,0 +1,54 @@
+To solve the problem, we need to apply Bayes' theorem. The theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the probability of Adam having the personality sketch given he was enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the total probability of the personality sketch \( E \).
+
+Since the total probability \( P(E) \) is common and will cancel out when making relative comparisons, we only need to focus on \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), ignoring normalization.
+
+### Let's assume the following values:
+
+For **Agricultural and Veterinary Science**:
+- \( P(H_{\text{ag}}) = 0.1 \) (assuming roughly 10% of graduate students might be in this field)
+- \( P(E|H_{\text{ag}}) = 0.8 \) (a high probability since the personality traits align well with this field)
+- \( P(E|\neg H_{\text{ag}}) = 0.2 \) (assuming fewer students in other fields have these traits)
+
+For **Business Administration**:
+- \( P(H_{\text{bus}}) = 0.15 \) (assuming roughly 15% of graduate students might be in this field)
+- \( P(E|H_{\text{bus}}) = 0.1 \) (a low probability since the personality traits don't align well with this field)
+- \( P(E|\neg H_{\text{bus}}) = 0.3 \) (assuming the traits are more common in students outside this field)
+
+### Calculations:
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_{\text{ag}}|E) = \frac{P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}})}{P(E)} 
+= \frac{0.8 \cdot 0.1}{P(E)} 
+= \frac{0.08}{P(E)} \]
+
+For **Business Administration**:
+\[ P(H_{\text{bus}}|E) = \frac{P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}})}{P(E)} 
+= \frac{0.1 \cdot 0.15}{P(E)} 
+= \frac{0.015}{P(E)} \]
+
+### Normalize:
+
+Since both actions use the total probability \( P(E) \), we can compare their relative values directly:
+
+\[ P(H_{\text{ag}}|E) \approx 0.08 \]
+\[ P(H_{\text{bus}}|E) \approx 0.015 \]
+
+To normalize these to be within a range of [0,1] while keeping their proportions, we divide each by their sum:
+
+\[ P(H_{\text{ag}}|E) = \frac{0.08}{0.08 + 0.015} \approx 0.842 \]
+\[ P(H_{\text{bus}}|E) = \frac{0.015}{0.08 + 0.015} \approx 0.158 \]
+
+The answers are:
+
+{
+  "agricultural and veterinary science": "0.842",
+  "business administration": "0.158"
+}

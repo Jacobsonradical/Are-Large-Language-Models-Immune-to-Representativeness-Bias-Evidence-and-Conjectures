@@ -1,0 +1,46 @@
+To apply Bayes' rule, we need to estimate the prior probability of Adam being in each field (\( P(H) \)), the likelihood of observing his personality sketch given he is in each field (\( P(E|H) \)), and the likelihood of observing his personality sketch given he is not in each field (\( P(E|\neg H) \)). 
+
+**Given:**
+- \( P(E|H_{\text{business administration}}) \): Likelihood of Adam's personality if he is in business administration.
+- \( P(E|H_{\text{computer science}}) \): Likelihood of Adam's personality if he is in computer science.
+- \( P(E|\neg H_{\text{business administration}}) \): Likelihood of Adam's personality if he is not in business administration.
+- \( P(E|\neg H_{\text{computer science}}) \): Likelihood of Adam's personality if he is not in computer science.
+
+**Assumptions:**
+- \( P(H_{\text{business administration}}) \) and \( P(H_{\text{computer science}}) \): Prior probabilities of Adam being in each field. Given that they both are common fields of study, I will assume equal priors for simplicity, though this might vary in reality. Let's take these priors as 0.2 (20%) each for the sake of the example.
+
+Based on Adam's personality sketch:
+- His love for nature and animals, and his empathy might suggest he is less likely to be in fields that are more traditionally associated with corporate or highly technical roles, like business administration.
+- His interest in solving puzzles and high intelligence in understanding abstract concepts seems more aligned with computer science, which often involves algorithmic problem-solving and abstract thinking.
+
+### Estimating Probabilities:
+- \( P(E|H_{\text{business administration}}) \): Considering the personality traits don't strongly align with typical expectations from a business administration student, I'll estimate this as low, say 0.1.
+- \( P(E|\neg H_{\text{business administration}}) \): The probability of observing his personality if he's not in business administration might be assumed as higher because his traits might fit better elsewhere, say 0.3.
+- \( P(E|H_{\text{computer science}}) \): Probably higher due to alignment with his problem-solving skills and intellectual interests, let's estimate 0.6.
+- \( P(E|\neg H_{\text{computer science}}) \): Probability of observing his personality if he's not in computer science, say 0.4.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+### Business Administration:
+\[ P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) + P(E|\neg H_{\text{business administration}}) \cdot P(\neg H_{\text{business administration}})} \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.3 \cdot 0.8} \]
+\[ P(H_{\text{business administration}}|E) = \frac{0.02}{0.02 + 0.24} \]
+\[ P(H_{\text{business administration}}|E) \approx 0.0769 \]
+
+### Computer Science:
+\[ P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}}) + P(E|\neg H_{\text{computer science}}) \cdot P(\neg H_{\text{computer science}})} \]
+\[ P(H_{\text{computer science}}|E) = \frac{0.6 \cdot 0.2}{0.6 \cdot 0.2 + 0.4 \cdot 0.8} \]
+\[ P(H_{\text{computer science}}|E) = \frac{0.12}{0.12 + 0.32} \]
+\[ P(H_{\text{computer science}}|E) \approx 0.2727 \]
+
+Therefore, the probabilities are:
+
+```json
+{
+  "business administration": 0.0769,
+  "computer science": 0.2727
+}
+```

@@ -1,0 +1,74 @@
+To compute \( P(H|E) \) for the respective fields (Computer Science and Business Administration), we need to use Bayes' Theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Firstly, let's assign the prior probabilities \( P(H) \) based on the general likelihood of a student being enrolled in a specific field and Adam's characteristics.
+
+### Assigning Prior Probabilities \( P(H) \):
+
+- **Computer Science**: Given Adam's high intelligence, good understanding of abstract concepts, and he enjoys solving puzzles, he might be more likely to choose Computer Science. We'll assign a moderate prior probability to this field.
+  
+  \( P(\text{Computer Science}) = 0.3 \)
+
+- **Business Administration**: Based on the given characteristics, Adam's profile does not strongly align with the typical traits prioritized in Business Administration such as interest in management, finance, or entrepreneurship. However, his empathy and understanding of hard work can moderately align with some aspects of Business Administration, but with lesser probability.
+  
+  \( P(\text{Business Administration}) = 0.15 \)
+
+### Likelihoods \( P(E|H) \):
+
+- **Computer Science**:
+  - **Puzzles and Abstract Concepts**: Adam's enjoyment in solving puzzles and understanding abstract concepts align well with Computer Science.
+  - **Nature and Plants, Animals**: His curiosity for nature/plants and love for animals doesn't directly relate but doesn't exclude it.
+
+  Thus, \( P(E|\text{Computer Science}) \) might be reasonably high.
+
+  \( P(E|\text{Computer Science}) = 0.6 \)
+
+- **Business Administration**:
+  - **Empathy and Warm Heart**: Empathy and understanding of hard work can relate to workplace leadership and team management.
+  - **Nature and Plants, Animals**: These attributes are less relevant to Business Administration but do not disqualify it.
+
+  Thus, \( P(E|\text{Business Administration}) \) might be moderate but lesser compared to Computer Science.
+
+  \( P(E|\text{Business Administration}) = 0.35 \)
+
+### Normalizing Constant \( P(E) \):
+
+Since \( P(E) \) is a normalizing constant to ensure probabilities sum up to 1 over all hypotheses, which we may not need to compute directly. For simplicity, we assume only given fields:
+  
+\[ P(E) = P(E|\text{Computer Science}) \cdot P(\text{Computer Science}) + P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) \]
+
+### Applying Bayes' Rule:
+
+\[
+P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)} 
+\]
+
+\[
+P(\text{Computer Science}|E) = \frac{0.6 \cdot 0.3}{0.6 \cdot 0.3 + 0.35 \cdot 0.15}
+\]
+
+\[
+P(\text{Computer Science}|E) = \frac{0.18}{0.18 + 0.0525} \approx 0.774
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)}
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{0.35 \cdot 0.15}{0.6 \cdot 0.3 + 0.35 \cdot 0.15}
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{0.0525}{0.18 + 0.0525} \approx 0.226
+\]
+
+### Results:
+
+```json
+{
+  "computer science": 0.774,
+  "business administration": 0.226
+}
+```

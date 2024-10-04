@@ -1,0 +1,67 @@
+To use Bayes' rule to compute the probability of Adam being enrolled in particular fields of study given his personality sketch, we need to assess the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a given field. 
+2. \( P(E|H) \): The likelihood of the personality sketch \(E\) given that Adam was enrolled in a given field.
+3. \( P(E|\neg H) \): The likelihood of the personality sketch \(E\) given that Adam was not enrolled in a given field.
+
+Let's denote the probability of Adam being enrolled in "agricultural and veterinary science" as \(H_1\) and "business administration" as \(H_2\).
+
+### Estimations:
+
+1. **Prior Probability \(P(H)\):**
+    - \(P(H_1)\) (agricultural and veterinary science): Given Adam's characteristics and interests, he seems very likely to be oriented towards natural sciences. A reasonable estimate might be medium-high for this field given the interest in plants, animals, and nature.
+    - \(P(H_2)\) (business administration): His quiet personality and deep empathy might make him less likely to pursue business administration, which often emphasizes social interaction and strategic planning. Hence, a reasonable estimate might be lower.
+
+2. **Likelihood \(P(E|H)\):**
+    - \(P(E|H_1)\) (agricultural and veterinary science): Adam's interests align well with agricultural and veterinary science, so this is likely to be high.
+    - \(P(E|H_2)\) (business administration): The match is less clear with his personality sketch. His empathy and understanding might be useful, but these fields don't typically stress a love for nature or animals. This would potentially be lower.
+
+3. **Likelihood \(P(E|\neg H)\):**
+    - \(P(E|\neg H_1)\): Given that Adam's traits are quite strong for agricultural and veterinary science, the likelihood of these traits appearing in someone not in this field might be relatively low.
+    - \(P(E|\neg H_2)\): Adam's traits are less typical for business administration, so there might be a higher probability of these traits appearing in someone not in this field compared to someone in it.
+
+### Bayesian Calculation:
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both fields and not directly needed for relative comparison:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's plug in some estimated values and compute the relative probabilities:
+
+#### Agricultural and Veterinary Science:
+- \( P(H_1) \approx 0.3 \) (prior estimate, assuming many possible fields)
+- \( P(E|H_1) \approx 0.8 \) (Adam's traits fit well)
+- \( P(E|\neg H_1) \approx 0.2 \) (traits less likely outside this field)
+
+#### Business Administration:
+- \( P(H_2) \approx 0.1 \) (not a typical fit based on traits)
+- \( P(E|H_2) \approx 0.2 \) (traits not a strong fit)
+- \( P(E|\neg H_2) \approx 0.8 \) (traits likely outside this field)
+
+Now, applying Bayes' Rule for relative comparison (without normalizing):
+#### Agricultural and Veterinary Science:
+\[ P(H_1|E) \propto 0.8 \times 0.3 = 0.24 \]
+
+#### Business Administration:
+\[ P(H_2|E) \propto 0.2 \times 0.1 = 0.02 \]
+
+Finally, normalizing these within our considered set (by dividing by their sum):
+Total for considered fields \( = 0.24 + 0.02 = 0.26 \)
+
+#### Normalized Posterior Probabilities:
+```json
+{
+  "agricultural and veterinary science": 0.24 / 0.26 = 0.923,
+  "business administration": 0.02 / 0.26 = 0.077
+}
+```
+
+So, rounded to two significant digits:
+```json
+{
+  "agricultural and veterinary science": 0.92,
+  "business administration": 0.08
+}
+```

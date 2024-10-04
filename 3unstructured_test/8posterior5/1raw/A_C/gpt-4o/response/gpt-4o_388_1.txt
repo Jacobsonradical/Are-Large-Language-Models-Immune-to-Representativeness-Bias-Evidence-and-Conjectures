@@ -1,0 +1,51 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' Rule, we need to estimate the required probabilities:
+
+- \( P(H) \): The prior probability that Adam is enrolled in that field.
+- \( P(E|H) \): The probability of observing Adam's personality traits given that he is in that field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality traits given that he is not in that field.
+
+Bayes' Rule is given as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Here, \( P(E) \) is the same for both fields and will cancel out when we compare the two \( P(H|E) \). Therefore, we can focus on the numerator's components for relative comparison.
+
+### Given Fields
+
+1. **Computer Science**
+2. **Agricultural and Veterinary Science**
+
+### Estimations
+
+#### Computer Science
+
+- **P(H)**: Let's assume that the prior probability that any student is in computer science is \( 0.2 \) (assuming it's a common field but not overwhelmingly so).
+- **P(E|H)**: The probability that someone with Adam’s traits (curiosity about nature, love for animals) is in computer science might be relatively low. Let's estimate \( 0.1 \).
+- **P(E|\neg H)**: The probability of someone not in computer science having Adam's traits might be higher, say \( 0.5 \).
+
+Bayes Rule calculation for **Computer Science**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \times 0.2 = 0.02 \]
+
+#### Agricultural and Veterinary Science
+
+- **P(H)**: Let's assume the prior probability that any student is in this field is \( 0.05 \) (this field is less common than computer science).
+- **P(E|H)**: Given Adam’s traits, the likelihood increases significantly if he was in agricultural and veterinary science. Estimate this to be \( 0.7 \).
+- **P(E|\neg H)**: The likelihood that someone not in this field has Adam's traits might be lower, say \( 0.2 \).
+
+Bayes Rule calculation for **Agricultural and Veterinary Science**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \times 0.05 = 0.035 \]
+
+### Normalized Probabilities
+Since these are the only two options we are asked to evaluate, and we skip \( P(E) \) which would be the normalizing constant:
+
+\[ P(H|E)_{cs} = \frac{0.02}{0.02 + 0.035} \approx 0.363 \]
+\[ P(H|E)_{avs} = \frac{0.035}{0.02 + 0.035} \approx 0.637 \]
+
+### Conclusion
+
+According to the Bayesian update:
+
+{
+  "computer science": 0.363,
+  "agricultural and veterinary science": 0.637
+}
+
+This means, based on the given personality description and assumptions, it is more likely that Adam is enrolled in agricultural and veterinary science than in computer science.

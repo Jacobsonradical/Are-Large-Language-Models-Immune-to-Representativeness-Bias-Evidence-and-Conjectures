@@ -1,0 +1,48 @@
+To compute the posterior probability \( P(H|E) \) for each hypothesis (field of study), we can use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where 
+- \( P(H) \) is the prior probability of the hypothesis (the probability that Adam is enrolled in that field before considering the personality sketch).
+- \( P(E|H) \) is the likelihood (the probability of observing Adam's personality given that he is enrolled in that field).
+- \( P(E) \) is the marginal probability of the evidence (the overall probability of observing Adam's personality sketch, regardless of the field of study).
+- \( P(E|\neg H) \) is the probability of observing the personality sketch given that Adam is not enrolled in the specified field.
+
+Because we don't have exact numerical values, we will estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) based on reasonable assumptions.
+
+### Computer Science
+- \( P(H) \): Likely moderate, as computer science is a popular field.
+- \( P(E|H) \): Likely low to moderate, Adam's love for nature and animals doesn't strongly align with computer science, but his intelligence and problem-solving skills do.
+- \( P(E|\neg H) \): Likely moderate since many other fields may share the problem-solving skillset without the mismatch of interest.
+
+### Business Administration
+- \( P(H) \): Likely moderate to high, it's a very common field of study.
+- \( P(E|H) \): Likely low, Adam's curiosity about nature and empathy don't align strongly with business administration.
+- \( P(E|\neg H) \): Likely moderate to high, other fields align better with his personality traits.
+
+### Agricultural and Veterinary Science
+- \( P(H) \): Likely lower than business, but not insignificant since agricultural and veterinary sciences are specialized fields.
+- \( P(E|H) \): Likely high, Adam's interest in nature, empathy, and love for animals strongly align with this field.
+- \( P(E|\neg H) \): Likely low to moderate, few other fields would fit his personality as well.
+
+Estimated Numerical Values:
+- \( P(H) = \{ \text{Computer Science}: 0.3, \text{Business Administration}: 0.4, \text{Agricultural and Veterinary Science}: 0.2 \} \)
+- \( P(E|H) = \{ \text{Computer Science}: 0.3, \text{Business Administration}: 0.2, \text{Agricultural and Veterinary Science}: 0.8 \} \)
+- \( P(E|\neg H) \): Let's assume 0.5 for a broad distribution 
+
+Using Bayes Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \), for simplicity, we could assume \( P(E) = \sum P(E|H_i)P(H_i) \) (considering the probabilistic context).
+
+{
+  "computer science": \( \frac{0.3 \cdot 0.3}{0.3 \cdot 0.3 + 0.2 \cdot 0.4 + 0.8 \cdot 0.2} = \frac{0.09}{0.09 + 0.08 + 0.16} \approx 0.23 \),
+  "business administration": \( \frac{0.2 \cdot 0.4}{0.3 \cdot 0.3 + 0.2 \cdot 0.4 + 0.8 \cdot 0.2} = \frac{0.08}{0.09 + 0.08 + 0.16} \approx 0.20 \),
+  "agricultural and veterinary science": \( \frac{0.8 \cdot 0.2}{0.3 \cdot 0.3 + 0.2 \cdot 0.4 + 0.8 \cdot 0.2} = \frac{0.16}{0.09 + 0.08 + 0.16} \approx 0.40 \)
+}
+
+{
+  "computer science": 0.23,
+  "business administration": 0.20,
+  "agricultural and veterinary science": 0.40
+}

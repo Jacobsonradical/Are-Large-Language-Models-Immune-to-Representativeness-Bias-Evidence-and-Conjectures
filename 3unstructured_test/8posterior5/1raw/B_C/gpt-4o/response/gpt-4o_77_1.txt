@@ -1,0 +1,47 @@
+To calculate the probabilities, let's break down the problem. We will judge the values of P(H), P(E|H), and P(E|\neg H) for each field and then use Bayes' Theorem to find P(H|E).
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability, the probability of hypothesis \( H \) given the evidence \( E \).
+- \( P(E|H) \) is the likelihood, the probability of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability, the initial probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood, the total probability of evidence \( E \).
+
+Since we are comparing probabilities instead of absolute values, we'll ignore the denominator and focus on the numerators.
+
+1. **Computer Science**
+
+   - \( P(H) \): Let's assume that there is a moderate probability that Adam, given he is a graduate student in the U.S., is enrolled in computer science. Let’s assign a value of 0.3.
+   - \( P(E|H) \): The personality sketch does not perfectly match a typical computer science student, but a curious mind and high intelligence might fit. Let's assume a value of 0.2.
+   - \( P(E|\neg H) \): The probability that someone who is not in computer science fits the given evidence could be higher because the description suits a wide range of fields. Let's assign 0.7.
+
+    Therefore, \[ P(\text{computer science}|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.3 = 0.06 \]
+
+2. **Business Administration**
+
+   - \( P(H) \): Assuming there's a lower initial probability that Adam is a business administration student, let’s assign 0.1.
+   - \( P(E|H) \): The traits described are less likely for a typical business administration student. Let’s assume a value of 0.1.
+   - \( P(E|\neg H) \): Similar to above, this probability can be higher because the characteristics fit a broad range of students. Let’s assign 0.7.
+
+    Therefore, \[ P(\text{business administration}|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01 \]
+
+When we normalize the probabilities to ensure they sum up across all choices, we might get the below estimated values:
+
+```json
+{
+  "computer science": 0.06 / (0.06 + 0.01 + others) = approx 0.85,
+  "business administration": 0.01 / (0.06 + 0.01 + others) = approx 0.14
+}
+```
+
+This normalization is approximate and assumes "others" do not significantly compete with given options. Given our estimations and the likelihood, it appears more probable that:
+
+```json
+{
+  "computer science": 0.85,
+  "business administration": 0.14
+}
+```

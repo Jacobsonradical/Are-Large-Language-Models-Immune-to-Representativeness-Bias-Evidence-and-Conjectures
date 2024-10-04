@@ -1,0 +1,38 @@
+To estimate the posterior probabilities \( P(H|E) \) for Adam being enrolled in either business administration or agricultural and veterinary science, we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+We'll first make some reasonable assumptions about the probabilities:
+
+1. **Prior Probability \( P(H) \)**:
+   - \( P(\text{business administration}) \): Graduate students in business administration are quite common. Let's assume \( P(H) = 0.2 \).
+   - \( P(\text{agricultural and veterinary science}) \): Graduate students in agricultural and veterinary science are less common but still significant due to the interest in this field. Let's assume \( P(H) = 0.1 \).
+
+2. **Likelihoods \( P(E|H) \)**:
+   - \( P(E|\text{business administration}) \): The described traits (genuine curiosity about nature, love for animals, quietness, etc.) do not strongly align with typical business administration students. Let's assume \( P(E|H) = 0.05 \).
+   - \( P(E|\text{agricultural and veterinary science}) \): The traits strongly align with interests in agricultural and veterinary science. Let’s assume \( P(E|H) = 0.7 \).
+
+3. **Likelihoods \( P(E|\neg H) \)**:
+   - \( P(E|\neg \text{business administration}) \): The probability of these traits given that Adam is in a field other than business administration is higher. Let’s assume \( P(E|\neg H) = 0.2 \).
+   - \( P(E|\neg \text{agricultural and veterinary science}) \): The probability of these traits given that Adam is in a field other than agricultural and veterinary science is lower. Let’s assume \( P(E|\neg H) = 0.3 \).
+
+Now, we'll compute \( P(E) \):
+
+\[ P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration}) \]
+\[ P(E) = 0.05 \cdot 0.2 + 0.2 \cdot 0.8 = 0.01 + 0.16 = 0.17 \]
+
+\[ P(E) = P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\neg \text{agricultural and veterinary science}) \cdot P(\neg \text{agricultural and veterinary science}) \]
+\[ P(E) = 0.7 \cdot 0.1 + 0.3 \cdot 0.9 = 0.07 + 0.27 = 0.34 \]
+
+With these values, we use Bayes' rule to compute the posterior probabilities:
+
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.05 \cdot 0.2}{0.17} \approx 0.0588 \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} = \frac{0.7 \cdot 0.1}{0.34} \approx 0.2059 \]
+
+Therefore, the probabilities are:
+
+{
+  "business administration": 0.0588,
+  "agricultural and veterinary science": 0.2059
+}

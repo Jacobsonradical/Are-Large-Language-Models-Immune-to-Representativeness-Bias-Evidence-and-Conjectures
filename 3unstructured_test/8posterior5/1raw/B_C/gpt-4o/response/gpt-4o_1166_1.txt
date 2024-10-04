@@ -1,0 +1,42 @@
+To compute the probabilities \( P(H|E) \), we need to use Bayes' Rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We need to estimate the following:
+- \( P(H) \): The prior probability that Adam was enrolled in the given field.
+- \( P(E|H) \): The probability of observing the personality sketch given that Adam was enrolled in the given field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam was not enrolled in the given field.
+
+For simplicity, we assume \( P(E) \) is constant across fields, so it will cancel out. We will qualitatively evaluate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field and then compute \( P(H|E) \).
+
+**1. Computer Science:**
+
+- \( P(H) \): Prior probability of being a computer science student. (Assume moderate as computer science is a common major for high-intelligence students, let's say 0.2)
+- \( P(E|H) \): Computer science students might enjoy solving puzzles and have high intelligence, but empathy, strong appreciation for hard work, and love for animals might not be closely related. Let's say 0.3.
+- \( P(E|\neg H) \): This would be the probability of his personality sketch given that he is not in computer science. Since the sketch fits other fields broadly, let's say 0.8.
+
+\[ P(H|E) \propto P(E|H)P(H) = 0.3 \times 0.2 = 0.06 \]
+
+**2. Business Administration:**
+
+- \( P(H) \): Prior probability of being a business administration student. (Assume low, as business administration is less common for someone with interest in nature, animals, and solving puzzles, let's say 0.05)
+- \( P(E|H) \): Business administration students might have an appreciation for hard work but empathy, love for animals, and puzzles are less related. Let's say 0.1.
+- \( P(E|\neg H) \): This is the same as above, so 0.8.
+
+\[ P(H|E) \propto P(E|H)P(H) = 0.1 \times 0.05 = 0.005 \]
+
+Now we normalize them:
+
+\[ \text{Total} = 0.06 + 0.005 = 0.065 \]
+
+\[ P(H|E) \, \text{(Computer Science)} = \frac{0.06}{0.065} \approx 0.923 \]
+\[ P(H|E) \, \text{(Business Administration)} = \frac{0.005}{0.065} \approx 0.077 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "computer science": 0.923,
+  "business administration": 0.077
+}
+```

@@ -1,0 +1,75 @@
+To apply Bayes' theorem, we need to compute the posterior probability \( P(H|E) \), which is the probability that Adam was enrolled in a given field based on the personality sketch \( E \). The formula for Bayes' theorem is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalization factor across all possible hypotheses, we can instead compare the relative likelihoods, which is:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Agricultural and Veterinary Science
+Let's compute the components needed for Bayes' rule:
+
+1. **\( P(H) \)**: The prior probability that any given graduate student is in agricultural and veterinary science. This is generally a lower percentage compared to other fields like business.
+   \[
+   P(H) \approx 0.05
+   \]
+
+2. **\( P(E|H) \)**: The likelihood that Adam's personality sketch matches someone in agricultural and veterinary science. Given his curiosity about nature, love for animals, and strong empathy, this seems likely.
+   \[
+   P(E|H) \approx 0.7
+   \]
+
+3. **\( P(E|\neg H) \)**: The likelihood of Adam's personality sketch given he's not in agricultural and veterinary science. Because his personality traits are quite specific, it is less likely (but not impossible) for students in other fields.
+   \[
+   P(E|\neg H) \approx 0.2
+   \]
+
+The result:
+
+\[
+P(H|E) \propto 0.7 \cdot 0.05 = 0.035
+\]
+
+### Business Administration
+Now, let's compute the components for business administration:
+
+1. **\( P(H) \)**: The prior probability that any given graduate student is in business administration. This is relatively high due to the popularity of the field.
+   \[
+   P(H) \approx 0.2
+   \]
+
+2. **\( P(E|H) \)**: The likelihood that Adam's personality sketch matches someone in business administration. Given that the traits listed are very specific and not typically associated with business students, this seems less likely.
+   \[
+   P(E|H) \approx 0.05
+   \]
+
+3. **\( P(E|\neg H) \)**: The likelihood of Adam's personality sketch given he is not in business administration. This remains the same as calculated before.
+   \[
+   P(E|\neg H) \approx 0.2
+   \]
+
+The result:
+
+\[
+P(H|E) \propto 0.05 \cdot 0.2 = 0.01
+\]
+
+### Normalizing
+To find the actual probabilities, we would normalize these values:
+
+\[
+P(H|E)_{\text{agricultural and veterinary science}} = \frac{0.035}{0.035 + 0.01} = \frac{0.035}{0.045} \approx 0.78
+\]
+
+\[
+P(H|E)_{\text{business administration}} = \frac{0.01}{0.035 + 0.01} = \frac{0.01}{0.045} \approx 0.22
+\]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.78,
+  "business administration": 0.22
+}
+```

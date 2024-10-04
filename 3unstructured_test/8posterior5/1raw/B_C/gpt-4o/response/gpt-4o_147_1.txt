@@ -1,0 +1,71 @@
+To determine \(P(H|E)\), the probability that Adam was enrolled in a particular field given his personality sketch, we need to use Bayes' rule:
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+Let us evaluate this for each field:
+
+### Business Administration
+
+#### Judging the probabilities:
+
+- **Base rate probability of being enrolled in Business Administration (P(H))**:
+  This depends on the proportion of graduate students in this field. Estimates suggest business administration is a popular field, so let's assume a prior of 0.2 (20%).
+
+- **Probability of the sketch given Business Administration (P(E|H))**:
+  Business Administration generally focuses on management, finance, and organizational behavior. The attributes in Adam's personality sketch (curiosity about nature, solving puzzles, empathy, love for animals, intelligence) do not strongly align with traditional expectations in this field. Nonetheless, some features might still be found in a small subset of this population.
+  Let's assign \(P(E|H) = 0.1\).
+
+- **Probability of the sketch given not Business Administration (P(E|¬H))**:
+  This is more tricky and is essentially the average probability of the personality sketch across all other fields. Since it's not highly specific to Business Administration, let's estimate this as more likely elsewhere,
+  e.g., \(P(E|¬H) = 0.2\).
+
+### Computer Science
+
+#### Judging the probabilities:
+
+- **Base rate probability of being enrolled in Computer Science (P(H))**:
+  Computer Science is a common field, especially for high-intelligence students who enjoy solving puzzles. Assume a prior of 0.3 (30%).
+
+- **Probability of the sketch given Computer Science (P(E|H))**:
+  Adam's enjoyment of solving puzzles and his intelligence are highly aligned with the field of computer science. His empathy and love for animals are less common but do not detract significantly. Assume \(P(E|H) = 0.3\).
+
+- **Probability of the sketch given not Computer Science (P(E|¬H))**:
+  This again is the average probability of the personality sketch across all other fields. Given Adam's high affinity for puzzle-solving and abstract concepts which align strongly with CS, we'll assume it's lower for other fields, e.g., \(P(E|¬H) = 0.15\).
+
+### Computing \(P(H|E)\)
+
+Using Bayes' rule:
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+Since \(P(E)\) is constant for both fields, this term will be normalized out when comparing across fields.
+
+#### Business Administration
+\[P(\text{BA}|E) = \frac{P(E|\text{BA}) \cdot P(\text{BA})}{P(E)} = \frac{0.1 \times 0.2}{P(E)} = \frac{0.02}{P(E)}\]
+
+#### Computer Science
+\[P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E)} = \frac{0.3 \times 0.3}{P(E)} = \frac{0.09}{P(E)}\]
+
+#### Normalizing
+\[
+P(E) = P(E|\text{BA}) P(\text{BA}) + P(E|\text{CS}) P(\text{CS}) + ... \approx 0.02 + 0.09 + \text{other terms}
+\]
+Ignoring the other terms (as they are similar for both),
+\[
+\frac{P(\text{BA}|E)}{P(\text{CS}|E)} = \frac{0.02}{0.09}
+\]
+
+Finally regularizing and providing probabilities,
+\[
+P(\text{BA}|E) \approx \frac{0.02}{0.02 + 0.09} = 0.18
+\]
+\[
+P(\text{CS}|E) \approx \frac{0.09}{0.02 + 0.09} = 0.82
+\]
+
+Hence,
+
+```json
+{
+  "business administration": 0.18,
+  "computer science": 0.82
+}
+```

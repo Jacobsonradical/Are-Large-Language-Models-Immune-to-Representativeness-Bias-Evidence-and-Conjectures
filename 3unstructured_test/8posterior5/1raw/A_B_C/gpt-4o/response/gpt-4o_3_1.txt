@@ -1,0 +1,56 @@
+To apply Bayes' rule, we need to determine three probabilities:
+
+1. \(P(H)\): The prior probability of Adam being enrolled in a specific field.
+2. \(P(E|H)\): The probability of observing Adam's personality sketch \(E\) given that he is in that field \(H\).
+3. \(P(E|\neg H)\): The probability of observing Adam's personality sketch \(E\) given that he is not in that field.
+
+Bayes' rule can be stated as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, we assume \( P(E) \) is a normalizing constant that is the same for all comparisons and will only influence the relative values, not their comparative ranking.
+
+### Assumptions:
+1. **Agricultural and Veterinary Science**:
+   - \(P(H)\): Moderate since agricultural and veterinary science fields have a steady number of students.
+   - \(P(E|H)\): High, because his interest in nature, plants, animals, and empathy align strongly.
+   - \(P(E|\neg H)\): Lower than \(P(E|H)\), as these traits are less explicitly related to other fields.
+
+2. **Computer Science**:
+   - \(P(H)\): High, given the popularity of computer science.
+   - \(P(E|H)\): Moderate, his puzzle-solving skills and intelligence align, but less so his love for nature and animals.
+   - \(P(E|\neg H)\): Approximately the same as for other fields, since these characteristics can exist in other disciplines.
+
+3. **Business Administration**:
+   - \(P(H)\): Moderate to low, business administration is common but less likely given his described characteristics.
+   - \(P(E|H)\): Low, less overlap with personality traits related to love for nature and animals.
+   - \(P(E|\neg H)\): Higher than \(P(E|H)\), as it could capture more diverse personalities.
+
+### Calculations:
+Given these assumptions, we calculate:
+
+1. \(P(H|E)\) for Agricultural and Veterinary Science:
+   - \(P(H)\): Assume 0.2 (moderate).
+   - \(P(E|H)\): Assume 0.8 (high).
+   - \(P(E|\neg H)\): Assume 0.3 (lower due to mismatch).
+   - By Bayes' rule, \(P(H|E) \approx \frac{0.8 \cdot 0.2}{P(E)} = 0.16\)
+
+2. \(P(H|E)\) for Computer Science:
+   - \(P(H)\): Assume 0.4 (high popularity).
+   - \(P(E|H)\): Assume 0.5 (moderate).
+   - \(P(E|\neg H)\): Assume 0.4 (other fields can match certain traits).
+   - By Bayes' rule, \(P(H|E) \approx \frac{0.5 \cdot 0.4}{P(E)} = 0.20\)
+
+3. \(P(H|E)\) for Business Administration:
+   - \(P(H)\): Assume 0.2 (moderate).
+   - \(P(E|H)\): Assume 0.2 (low).
+   - \(P(E|\neg H)\): Assume 0.5 (higher general fit outside this field).
+   - By Bayes' rule, \(P(H|E) \approx \frac{0.2 \cdot 0.2}{P(E)} = 0.04\)
+
+### Results:
+```json
+{
+  "agricultural and veterinary science": 0.16,
+  "computer science": 0.20,
+  "business administration": 0.04
+}
+```

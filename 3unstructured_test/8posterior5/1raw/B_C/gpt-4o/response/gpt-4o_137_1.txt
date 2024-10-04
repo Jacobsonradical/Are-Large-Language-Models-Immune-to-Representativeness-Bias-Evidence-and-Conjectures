@@ -1,0 +1,70 @@
+Let's break down the given personality sketch \( E \) and assess the hypotheses \( H \) that Adam was enrolled in either "computer science" or "business administration" based on that personality sketch.
+
+We need to start by assessing the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in each field without any additional information.
+2. \( P(E|H) \): The likelihood of Adam having the described personality traits given that he was enrolled in each field.
+3. \( P(E|\neg H) \): The likelihood of Adam having the described personality traits given that he was not enrolled in each field.
+
+Let's assign some reasonable values to these probabilities based on typical graduate student distributions and the alignment of the personality sketch with each field.
+
+### Prior Probabilities \( P(H) \):
+
+1. \( P(\text{computer science}) \): Computer science is a fairly popular field among graduate students. We can say there's a moderate probability that the average graduate student would be in computer science. So, let's assign it a value of \( 0.2 \).
+
+2. \( P(\text{business administration}) \): Business administration is also a very popular field. Let's assign it a similar value of \( 0.2 \).
+
+### Likelihoods \( P(E|H) \):
+
+1. \( P(E|\text{computer science}) \): Adam exhibits curiosity about nature, enjoys solving puzzles, and has high intelligence, which aligns well with the traits seen in computer science students. However, his deep love for animals and warm empathy are not typically emphasized in this field. Let's assign this a value of \( 0.4 \).
+
+2. \( P(E|\text{business administration}) \): Adam's warm heart and strong empathy might align with roles that focus on interpersonal skills which is valued in business administration, but his curiosity about nature and love for animals are less relevant. Also, business administration is not typically associated with solving puzzles in the same way computer science is. Let's assign this a value of \( 0.2 \).
+
+### Likelihoods \( P(E|\neg H) \):
+
+For each field, we need to consider the likelihood of Adam's personality traits if he were in any other field:
+
+1. \( P(E|\neg\text{computer science}) \): Given that there are many fields outside of computer science that might value Adam's traits, we assign a value of \( 0.3 \).
+
+2. \( P(E|\neg\text{business administration}) \): Similarly, considering there are many other fields where Adam’s traits can be appreciated, we assign this too a value of \( 0.3 \).
+
+### Compute Posterior Probabilities \( P(H|E) \) using Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where \( P(E) \) can be calculated for each field as:
+
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+For computer science:
+
+\[
+P(E) = 0.4 \cdot 0.2 + 0.3 \cdot (1 - 0.2) = 0.08 + 0.24 = 0.32
+\]
+
+\[
+P(\text{computer science}|E) = \frac{0.4 \cdot 0.2}{0.32} = \frac{0.08}{0.32} = 0.25
+\]
+
+For business administration:
+
+\[
+P(E) = 0.2 \cdot 0.2 + 0.3 \cdot (1 - 0.2) = 0.04 + 0.24 = 0.28
+\]
+
+\[
+P(\text{business administration}|E) = \frac{0.2 \cdot 0.2}{0.28} = \frac{0.04}{0.28} = 0.14
+\]
+
+Thus, using the calculations above:
+
+```json
+{
+  "computer science": 0.25,
+  "business administration": 0.14
+}
+```

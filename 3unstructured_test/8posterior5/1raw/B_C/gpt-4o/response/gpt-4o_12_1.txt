@@ -1,0 +1,75 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we need to identify the priors, the likelihoods, and the normalization constants.
+
+Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of observing evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood, which can be computed as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's denote:
+- \( H \) for "Adam was enrolled in computer science."
+- \( \neg H \) for "Adam was not enrolled in computer science."
+
+Similarly, for business administration:
+- \( H \) for "Adam was enrolled in business administration."
+- \( \neg H \) for "Adam was not enrolled in business administration."
+
+We'll consider these two fields separately and make reasonable assumptions about the priors and likelihoods based on the personality sketch \( E \).
+
+### Computer Science
+
+1. **Prior \( P(H) \)**: Assume moderate prior likelihood that Adam might be enrolled in computer science given he is a graduate student.
+   - \( P(H_{CS}) \approx 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**: Given Adam's traits such as intelligence, understanding of abstract concepts, and puzzle-solving skills, the likelihood is quite high.
+   - \( P(E|H_{CS}) \approx 0.8 \).
+
+3. **Likelihood \( P(E|\neg H) \)**: Assume the likelihood of observing Adam's traits in another graduate field is moderate.
+   - \( P(E|\neg H_{CS}) \approx 0.4 \).
+
+Using Bayes' rule for computer science:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+
+### Business Administration
+
+1. **Prior \( P(H) \)**: Assume a lower prior likelihood that Adam might be enrolled in business administration given he is a graduate student.
+   - \( P(H_{BA}) \approx 0.1 \).
+
+2. **Likelihood \( P(E|H) \)**: Given Adam's traits, the likelihood is lower compared to computer science.
+   - \( P(E|H_{BA}) \approx 0.3 \).
+
+3. **Likelihood \( P(E|\neg H) \)**: Assume the likelihood of observing Adam's traits in another graduate field is moderate.
+   - \( P(E|\neg H_{BA}) \approx 0.5 \).
+
+Using Bayes' rule for business administration:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Since exact computation of \( P(E) \) requires summing over all possible fields and is complex without complete data, we'll use our assumptions to logically infer the results:
+
+### Computation
+Assuming approximate values:
+
+For computer science:
+\[ P(H_{CS}|E) \approx \frac{0.8 \cdot 0.2}{(0.8 \cdot 0.2) + (0.4 \cdot 0.8)} = \frac{0.16}{0.48} \approx 0.33 \]
+
+For business administration:
+\[ P(H_{BA}|E) \approx \frac{0.3 \cdot 0.1}{(0.3 \cdot 0.1) + (0.5 \cdot 0.9)} = \frac{0.03}{0.48} \approx 0.0625 \]
+
+### Answer
+
+```json
+{
+  "computer science": 0.33,
+  "business administration": 0.0625
+}
+```
+
+This indicates that, based on the given information \( E \), Adam is more likely to have been enrolled in computer science compared to business administration.

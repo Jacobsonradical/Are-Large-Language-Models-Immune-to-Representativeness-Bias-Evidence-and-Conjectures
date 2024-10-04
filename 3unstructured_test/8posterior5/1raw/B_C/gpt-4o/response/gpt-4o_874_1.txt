@@ -1,0 +1,60 @@
+To apply Bayes' Rule, we need to calculate the posterior probability \( P(H|E) \) using the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that:
+
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \) is the probability of the personality sketch being true given that Adam is in that field.
+- \( P(E|\neg H) \) is the probability of the personality sketch being true given that Adam is not in that field.
+- \( P(E) \) is the evidence, the overall probability of the personality sketch regardless of the field. This can be calculated from \( P(E|H) \) and \( P(H) \).
+
+For simplification, we assume the following:
+
+- Enrolling in either business administration or computer science is equally probable, so \( P(H) \) for both fields is approximately \( 0.5 \).
+- To focus on Bayes' calculation, let's assume \( P(E|\neg H) \) is a baseline for each field.
+
+Now let's make educated guesses based on Adam's personality sketch:
+
+For **Business Administration (BA)**:
+- \( P(E|H_\text{BA}) \): Adam's traits (nature curiosity, empathy, love for animals) are less typical for BA, so it might be lower (0.1).
+- \( P(E|\neg H_\text{BA}) \): Considering Adam might be in various other fields, we set this to a middle value (0.5).
+
+For **Computer Science (CS)**:
+- \( P(E|H_\text{CS}) \): Adam's traits (solving puzzles, abstract thinking) align better, so it might be higher (0.6).
+- \( P(E|\neg H_\text{CS}) \): Considering Adam might be in various other fields, we set this to a middle value (0.5).
+
+Assuming a uniform prior \( P(H) = 0.5 \) because initially we don't have reason to favor one field over the other:
+
+\[
+P(H_\text{BA}|E) = \frac{P(E|H_\text{BA}) \cdot P(H_\text{BA})}{P(E)}
+\]
+\[
+P(H_\text{CS}|E) = \frac{P(E|H_\text{CS}) \cdot P(H_\text{CS})}{P(E)}
+\]
+
+Where \( P(E) \):
+
+\[
+P(E) = P(E|H_\text{BA}) \cdot P(H_\text{BA}) + P(E|H_\text{CS}) \cdot P(H_\text{CS}) + P(E|\neg H_\text{BA}) \cdot P(\neg H_\text{BA}) + P(E|\neg H_\text{CS}) \cdot P(\neg H_\text{CS})
+\]
+
+Given equal priors:
+\[
+P(E) = 0.1 \cdot 0.5 + 0.6 \cdot 0.5 = 0.05 + 0.3 = 0.35
+\]
+
+\[
+P(H_\text{BA}|E) = \frac{0.1 \cdot 0.5}{0.35} \approx 0.143
+\]
+\[
+P(H_\text{CS}|E) = \frac{0.6 \cdot 0.5}{0.35} \approx 0.857
+\]
+
+Therefore:
+\[
+{
+  "business administration": 0.143,
+  "computer science": 0.857
+}
+\]

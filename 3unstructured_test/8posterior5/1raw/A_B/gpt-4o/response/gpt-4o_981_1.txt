@@ -1,0 +1,63 @@
+To compute the probabilities, we'll use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+However, since \(P(E)\) is the same for all fields and non-fields, we only need to compare the numerator, i.e., \( P(E|H) \times P(H) \).
+
+We'll denote:
+- \(P(H) = P\) for the prior probability of being enrolled in the field.
+- \(P(E|H)\) for the likelihood of the evidence given the hypothesis.
+- \(P(E|\neg H)\) for the likelihood of the evidence given the hypothesis is false (not in that field).
+
+Here's the reasoning for each field:
+
+### Agricultural and Veterinary Science
+1. **P(H)**: The prior probability, \(P\), of someone being enrolled in this field is more common than some other fields but not the most popular, let’s assume a moderate value. 
+2. **P(E|H)**: Adam's love for nature, plants, animals, and his empathy strongly align with Agricultural and Veterinary Science, so this should be high.
+3. **P(E|\neg H)**: Given his personality, it's less likely but not impossible that these traits would align with many other fields.
+
+### Business Administration
+1. **P(H)**: The prior probability, \(P\), of someone being enrolled in this field is relatively high, as Business Administration is a popular field.
+2. **P(E|H)**: His personality traits don't seem to align particularly well with Business Administration. His interest in nature, plants, and animals, and his empathy may not be as strongly related to business.
+3. **P(E|\neg H)**: There are many students not in Business Administration who might share these traits, so this likelihood might be moderate.
+
+Let's assign some hypothetical values based on the above reasoning:
+- For Agricultural and Veterinary Science:
+  - \(P(H)\) = 0.1
+  - \(P(E|H)\) = 0.9
+  - \(P(E|\neg H)\) = 0.2
+
+- For Business Administration:
+  - \(P(H)\) = 0.3
+  - \(P(E|H)\) = 0.2
+  - \(P(E|\neg H)\) = 0.7
+
+So for each field:
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} = \frac{0.9 \times 0.1}{P(E)} \]
+
+For Business Administration:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} = \frac{0.2 \times 0.3}{P(E)} \]
+
+Since \( P(E) \) will be the same for all fields, we compare the numerators:
+
+- Agricultural and Veterinary Science: \(0.9 \times 0.1 = 0.09\)
+- Business Administration: \(0.2 \times 0.3 = 0.06\)
+
+Now we'll normalize these so the total is 1:
+
+Sum = 0.09 + 0.06 = 0.15
+
+Normalized probabilities:
+- Agricultural and Veterinary Science: \(0.09 / 0.15 = 0.6\)
+- Business Administration: \(0.06 / 0.15 = 0.4\)
+
+Therefore, the probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.6,
+  "business administration": 0.4
+}
+```

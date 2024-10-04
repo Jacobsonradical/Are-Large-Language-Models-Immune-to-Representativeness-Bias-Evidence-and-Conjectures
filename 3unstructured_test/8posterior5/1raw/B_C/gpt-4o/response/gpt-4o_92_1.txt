@@ -1,0 +1,55 @@
+To compute the probabilities \( P(H|E) \) that Adam was enrolled in either computer science or business administration, we follow these steps:
+
+1. Determine the prior probabilities \( P(H) \) for each field.
+2. Judge the likelihoods \( P(E|H) \) for each field based on the personality sketch.
+3. Judge the likelihoods \( P(E|\neg H) \), where \( \neg H \) represents not being in that specific field, for each field.
+4. Use Bayes' Rule to compute \( P(H|E) \).
+
+Let's begin with the estimates:
+
+### Prior Probabilities \( P(H) \)
+Assume a hypothetical prior probability for Adam enrolling in each field. Since we have no additional information favoring one field over another:
+
+- Let's set \( P(H_{\text{CS}}) = 0.2 \) for computer science.
+- Similarly, let's set \( P(H_{\text{BA}}) = 0.2 \) for business administration.
+
+These values are hypothetical and based on an assumption of the distribution of graduate fields. 
+
+### Likelihoods \( P(E|H) \) and \( P(E|\neg H) \)
+
+**Computer Science:**
+- \( P(E|H_{\text{CS}}) \): Given Adam's strong intelligence and abstract reasoning skills, fields like computer science are likely. However, his empathy, love for animals, and nature curiosity might not align strongly with typical computer science profiles. Let's estimate \( P(E|H_{\text{CS}}) = 0.2 \).
+- \( P(E|\neg H_{\text{CS}}) \): The likelihood of Adam possessing these traits regardless of being in computer science. Given he's more suited for something empathetic and nature-oriented, let's estimate a higher value than computer science. Let's say it's \( 0.7 \).
+
+**Business Administration:**
+- \( P(E|H_{\text{BA}}) \): Business administration could fit various types of people, but doesn't strongly indicate alignment with Adam's nature-oriented and empathetic traits. Also, business administration typically requires people skills which aren't highlighted in Adam's description. Let's say \( P(E|H_{\text{BA}}) = 0.1 \).
+- \( P(E|\neg H_{\text{BA}}) \): Same reasoning as above; a higher likelihood if not in business administration. Estimating at \( 0.7 \).
+
+### Using Bayes' Rule
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) is the evidence and can be computed: 
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Assume all fields (\( H \) and \( \neg H \)):
+\[ P(\neg H) = 1 - 0.2 = 0.8 \]
+
+Let's compute for each field.
+
+**Computer Science:**
+\[ P(E)_{\text{CS}} = (0.2 \cdot 0.2) + (0.7 \cdot 0.8) = 0.04 + 0.56 = 0.6 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.2 \cdot 0.2}{0.6} = \frac{0.04}{0.6} = \frac{1}{15} \approx 0.0667 \]
+
+**Business Administration:**
+\[ P(E)_{\text{BA}} = (0.1 \cdot 0.2) + (0.7 \cdot 0.8) = 0.02 + 0.56 = 0.58 \]
+\[ P(H_{\text{BA}}|E) = \frac{0.1 \cdot 0.2}{0.58} = \frac{0.02}{0.58} \approx 0.0345 \]
+
+So the final probabilities are:
+
+```json
+{
+  "computer science": 0.0667,
+  "business administration": 0.0345
+}
+```

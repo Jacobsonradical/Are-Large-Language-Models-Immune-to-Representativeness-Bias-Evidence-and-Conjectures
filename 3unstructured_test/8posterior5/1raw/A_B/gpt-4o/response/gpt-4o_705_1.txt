@@ -1,0 +1,50 @@
+To compute \( P(H|E) \), we need to apply Bayes' Theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is common for all hypotheses and we are only comparing the hypotheses relative to each other, we can simply compare the numerators \( P(E|H) \cdot P(H) \) for now. 
+
+Here’s how we can assess the different terms for both fields:
+
+### Business Administration
+- \( P(H) \): The prior probability that Adam was enrolled in business administration; let's assume a moderate prior, \ say 0.2 (20%) considering it’s a common graduate field.
+- \( P(E|H) \): The likelihood of observing Adam's personality sketch if he is in business administration. Since business administration does not strongly align with Adam's known interests like nature, animals, and empathy, we will assign this a lower probability, say 0.1 (10%).
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given he is not in business administration. Since many other fields can better explain his personality, let’s assume this to be higher, say 0.9 (90%).
+
+### Agricultural and Veterinary Science
+- \( P(H) \): The prior probability that Adam was enrolled in agricultural and veterinary science; let's assume this is slightly lower given societal trends, say 0.1 (10%).
+- \( P(E|H) \): The likelihood of observing Adam's personality sketch if he is in agricultural and veterinary science. Adam’s interest in nature, plants, animals, and empathy fits well here, so we will assign a higher probability, say 0.8 (80%).
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given he is not in agricultural and veterinary science. This is higher relative to business administration but lower than \( P(E|\neg H) \) for business due to the strong fit, say 0.8 (80%).
+
+Using these values, we calculate the relative posteriors:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+\[
+\begin{align*}
+\text{Business Administration:} & \quad P(E|H) \cdot P(H) = 0.1 \times 0.2 = 0.02 \\
+\text{Agricultural and Veterinary Science:} & \quad P(E|H) \cdot P(H) = 0.8 \times 0.1 = 0.08 \\
+\end{align*}
+\]
+
+Now normalizing these:
+
+The sums of the values \( 0.02 + 0.08 = 0.1 \).
+
+So the normalized probabilities are:
+
+\[
+\begin{align*}
+P(\text{Business Administration}|E) & = \frac{0.02}{0.1} = 0.2 \\
+P(\text{Agricultural and Veterinary Science}|E) & = \frac{0.08}{0.1} = 0.8 \\
+\end{align*}
+\]
+
+Therefore, our answer is:
+
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}
+```

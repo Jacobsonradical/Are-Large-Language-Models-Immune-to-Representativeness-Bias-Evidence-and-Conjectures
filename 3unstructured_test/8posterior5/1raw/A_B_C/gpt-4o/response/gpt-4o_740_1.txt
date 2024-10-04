@@ -1,0 +1,59 @@
+To begin with, let's estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field and then use Bayes' rule to compute \( P(H|E) \).
+
+### Business Administration ##
+- **\( P(H_{BA}) \)**: The prior probability that a student is enrolled in business administration. Let's assume this is around 0.15 (15%).
+- **\( P(E|H_{BA}) \)**: The probability that Adam has the described personality sketch given that he is studying business administration. Considering his personality traits, this might be relatively low since the field doesn't necessarily align with his interests. Let's estimate this to be around 0.1 (10%).
+- **\( P(E|\neg H_{BA}) \)**: The probability that Adam has the described personality given that he is not studying business administration. Since many other fields might align with his personality traits better, let's assume this to be around 0.6 (60%).
+
+Using Bayes' rule:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+We can simplify this equation by recognizing that \( P(E) \) can be calculated using the law of total probability, but for the comparison, we can use the proportionality aspect:
+
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+
+Therefore:
+
+\[ P(H_{BA}|E) \propto 0.1 \times 0.15 = 0.015 \]
+
+### Computer Science
+- **\( P(H_{CS}) \)**: The prior probability that a student is enrolled in computer science. Let's assume this to be around 0.2 (20%).
+- **\( P(E|H_{CS}) \)**: The probability that Adam has the described personality sketch given that he is studying computer science. Given his interest in solving puzzles and high intelligence, this might be higher. Let's estimate this to be around 0.4 (40%).
+- **\( P(E|\neg H_{CS}) \)**: The probability that Adam has the described personality given that he is not studying computer science. Similar to business administration, let's assume it to be around 0.6 (60%).
+
+Using Bayes' rule:
+
+\[ P(H_{CS}|E) \propto 0.4 \times 0.2 = 0.08 \]
+
+### Agricultural and Veterinary Science
+- **\( P(H_{AVS}) \)**: The prior probability that a student is enrolled in agricultural and veterinary science. Let's assume this is around 0.05 (5%) since fewer students might choose this field.
+- **\( P(E|H_{AVS}) \)**: The probability that Adam has the described personality sketch given that he is studying agricultural and veterinary science. Given his love for animals and interest in nature, this might be very high. Let's estimate this to be around 0.9 (90%).
+- **\( P(E|\neg H_{AVS}) \)**: The probability that Adam has the described personality given that he is not studying agricultural and veterinary science. This could be relatively high as there might be other fields that fit his traits. Let's assume this to be around 0.6 (60%).
+
+Using Bayes' rule:
+
+\[ P(H_{AVS}|E) \propto 0.9 \times 0.05 = 0.045 \]
+
+### Normalizing the values ###
+To obtain normalized probabilities, we need to sum the proportional values and divide each by this sum:
+
+Sum of proportional values: \( 0.015 + 0.08 + 0.045 = 0.14 \)
+
+Normalized probabilities:
+
+\[ P(H_{BA}|E) = \frac{0.015}{0.14} \approx 0.107 \]
+\[ P(H_{CS}|E) = \frac{0.08}{0.14} \approx 0.571 \]
+\[ P(H_{AVS}|E) = \frac{0.045}{0.14} \approx 0.321 \]
+
+Based on these estimates, the results are:
+
+```json
+{
+  "business administration": 0.107,
+  "computer science": 0.571,
+  "agricultural and veterinary science": 0.321
+}
+```
+
+These values represent the conditional probabilities that Adam was enrolled in each field given the described personality sketch.

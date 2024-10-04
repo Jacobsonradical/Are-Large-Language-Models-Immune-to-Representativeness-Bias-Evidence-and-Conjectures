@@ -1,0 +1,54 @@
+To apply Bayes' rule, we need to calculate the posterior probability \( P(H|E) \), which is the probability that Adam was enrolled in a particular field (H) given his personality sketch (E).
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in field H.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam is in field H.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch given that Adam is not in field H.
+
+To summarize:
+
+1. **business administration**:
+   - **P(H):** Let's assume business administration is moderately common among graduate fields. We might set \( P(H) = 0.2 \).
+   - **P(E|H):** The personality sketch doesn't particularly align with business administration, which might involve more social and extroverted traits. Let's set this to a low value, such as \( 0.1 \).
+   - **P(E|\neg H):** Given that Adam seems more aligned with nature, animals, and complex problem-solving, the probability of E given not business administration might be around \( 0.4 \).
+
+2. **computer science**:
+   - **P(H):** Computer science is a common graduate field. We might set \( P(H) = 0.3 \).
+   - **P(E|H):** The personality sketch aligns well with someone in computer science, given the high intelligence, abstract thinking, and affinity for puzzles. Let's set this higher, around \( 0.7 \).
+   - **P(E|\neg H):** The probability of E given not computer science might be lower, at \( 0.2 \).
+
+Now we use Bayes' rule:
+
+For business administration:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+For computer science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.7 \cdot 0.3}{P(E)} \]
+
+Since we don't have the exact value of \( P(E) \), we can simply compare the numerators and assume \( P(E) \) is constant for both fields:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+So compare the proportional values:
+
+For business administration:
+\[ P(H|E) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+For computer science:
+\[ P(H|E) \propto 0.7 \cdot 0.3 = 0.21 \]
+
+Normalizing these values within themselves:
+
+\[ \frac{0.02}{0.02 + 0.21} \approx 0.087 \]
+\[ \frac{0.21}{0.02 + 0.21} \approx 0.913 \]
+
+So, the output would be:
+```json
+{
+  "business administration": 0.087,
+  "computer science": 0.913
+}
+```

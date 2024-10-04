@@ -1,0 +1,62 @@
+To find the posterior probabilities \(P(H|E)\) for the fields of study "computer science" and "agricultural and veterinary science" given the personality sketch \(E\) of Adam, we follow Bayes' theorem:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+However, since we only need to compare the posterior probabilities relative to each other, we can simplify our task by only focusing on the numerators (\(P(E|H) \cdot P(H)\)). This is because \(P(E)\) will cancel out when we normalize the results.
+
+Let's assess the given fields:
+
+### For Computer Science
+1. **Prior Probability \(P(H)\)**: 
+   - Computer Science is a popular field.
+   - Assume \(P(H_{\text{cs}})\) is moderate, say, 0.20.
+   
+2. **Likelihood \(P(E|H)\)**:
+   - While Adam's high intelligence and love for puzzles fit this field well, his strong empathy, love for nature and animals, and appreciation for hard work align less with typical computer science traits.
+   - Assume \(P(E|H_{\text{cs}})\) is low, say, 0.10.
+   
+3. **Likelihood not under H: \(P(E|\neg H)\)**:
+   - This should reflect the generality of Adam's traits among all fields.
+   - Assume \(P(E|\neg H_{\text{cs}})\) is around 0.15.
+
+Using Bayes' rule, we focus on:
+\[
+P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) = 0.10 \times 0.20 = 0.02
+\]
+
+### For Agricultural and Veterinary Science
+1. **Prior Probability \(P(H)\)**: 
+   - This is a less common field than computer science, but it's relevant given Adam's personality.
+   - Assume \(P(H_{\text{agri}})\) is lower, say, 0.10.
+   
+2. **Likelihood \(P(E|H)\)**:
+   - Adam's curiosity about nature, love for animals, and empathy are strong indicators for this field.
+   - Assume \(P(E|H_{\text{agri}})\) is high, say, 0.70.
+   
+3. **Likelihood not under H: \(P(E|\neg H)\)**:
+   - As above, use the same baseline for not being in this specific field.
+   - Assume \(P(E|\neg H_{\text{agri}})\) is around 0.15.
+
+Using Bayes' rule, we focus on:
+\[
+P(H_{\text{agri}}|E) \propto P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) = 0.70 \times 0.10 = 0.07
+\]
+
+### Normalizing the Results
+To find the normalized posterior probabilities:
+1. Sum the unnormalized probabilities: \(0.02 + 0.07 = 0.09\).
+2. Find the normalized posteriors:
+   - For computer science: \(\frac{0.02}{0.09} \approx 0.22\)
+   - For agricultural and veterinary science: \(\frac{0.07}{0.09} \approx 0.78\)
+
+### Conclusion
+Given the personality sketch of Adam, the posterior probabilities are:
+
+\[
+{
+  "computer science": 0.22,
+  "agricultural and veterinary science": 0.78
+}
+\]

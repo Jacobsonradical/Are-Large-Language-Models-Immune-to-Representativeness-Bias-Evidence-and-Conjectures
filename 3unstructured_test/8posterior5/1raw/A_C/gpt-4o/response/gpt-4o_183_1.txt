@@ -1,0 +1,34 @@
+To apply Bayes rule, we need to compute the conditional probabilities. The key is to estimate the probabilities based on the given personality sketch and how likely Adam's traits align with each field of study. We'll use the following formula:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll break down the steps for each field:
+
+- \( P(H) \): Prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \): Probability of observing Adam's personality given he is enrolled in the given field.
+- \( P(E|\neg H) \): Probability of observing Adam's personality given he is not enrolled in the given field.
+- \( P(E) \): Normalization factor, which is the sum of \( P(E|H) \cdot P(H) \) and \( P(E|\neg H) \cdot P(\neg H) \). This cancels out in our calculations because we are only comparing two specific fields out of many possible fields.
+
+For simplicity, let's provide qualitative estimates for these probabilities as we do not have exact numerical data. Here’s a step-by-step evaluation:
+
+1. **Computer Science**:
+   - \( P(H) \): The prior likelihood of a graduate student being in computer science can be assumed to be moderately high, considering the popularity of the field. Let's assume \( P(H_{\text{cs}}) = 0.2 \).
+   - \( P(E|H) \): The given personality sketch suggests that Adam is empathetic, loves animals, and has a curiosity about nature, which doesn’t strongly align with typical computer science interests. However, curiosity and intelligence are relevant traits. We might give it a moderate likelihood, say \( P(E|H_{\text{cs}}) = 0.2 \).
+   - \( P(E|\neg H) \): If Adam is not enrolled in computer science, his interest in nature and animals would significantly increase the likelihood of this personality sketch being true. Let's estimate \( P(E|\neg H_{\text{cs}}) = 0.5 \).
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): The prior likelihood of a graduate student being in agricultural and veterinary science is generally lower than computer science due to less popularity. Let's assume \( P(H_{\text{agri}}) = 0.1 \).
+   - \( P(E|H) \): The personality sketch fits very well with agricultural and veterinary science, considering Adam’s empathy, love for animals, and nature. This provides a high likelihood, let's say \( P(E|H_{\text{agri}}) = 0.9 \).
+   - \( P(E|\neg H) \): If Adam is not in agricultural and veterinary science, the personality sketch is less likely to be observed. Let's estimate \( P(E|\neg H_{\text{agri}}) = 0.1 \).
+
+Now, applying Bayes rule:
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|\neg H_{\text{cs}}) \cdot P(\neg H_{\text{cs}})} \]
+\[ = \frac{0.2 \cdot 0.2}{0.2 \cdot 0.2 + 0.5 \cdot 0.8} = \frac{0.04}{0.04 + 0.4} = \frac{0.04}{0.44} \approx 0.09 \]
+
+\[ P(H_{\text{agri}}|E) = \frac{P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}})}{P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) + P(E|\neg H_{\text{agri}}) \cdot P(\neg H_{\text{agri}})} \]
+\[ = \frac{0.9 \cdot 0.1}{0.9 \cdot 0.1 + 0.1 \cdot 0.9} = \frac{0.09}{0.09 + 0.09} = \frac{0.09}{0.18} = 0.5 \]
+
+Thus the estimated probabilities are:
+\[ \{
+  "computer science": 0.09,
+  "agricultural and veterinary science": 0.5
+\} \]

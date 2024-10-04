@@ -1,0 +1,52 @@
+To determine the probabilities \( P(H|E) \) for each hypothesis using Bayes' Rule, we need to set estimates for the prior probabilities \( P(H) \), likelihoods \( P(E|H) \), and the likelihoods for the negation \( P(E|\neg H) \). 
+
+Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(E) \) is the marginal likelihood of evidence \( E \).
+
+Given:
+- \( H = \text{agricultural and veterinary science} \)
+- \( H' = \text{computer science} \)
+
+1. **Agricultural and Veterinary Science**:
+   - \( P(H) \) (prior probability that Adam enrolled in Agricultural and Veterinary Science): let's assume 0.2 (since it's a less common field).
+   - \( P(E|H) \) (probability of the personality sketch \( E \) given the hypothesis \( H \)): let's assume 0.8 (as his traits align well with nature, plants, and animals).
+   - \( P(E|\neg H) \) (probability of the personality sketch \( E \) given the hypothesis \( H' \)): let's assume 0.1 (traits are less consistent with most other fields).
+
+2. **Computer Science**:
+   - \( P(H) \) (prior probability that Adam enrolled in Computer Science): let's assume 0.3 (more common and diverse field).
+   - \( P(E|H) \) (probability of the personality sketch \( E \) given the hypothesis \( H \)): let's assume 0.2 (he is good at puzzles but the empathy and love for nature are less relevant).
+   - \( P(E|\neg H) \) (probability of the personality sketch \( E \) given the hypothesis \( H' \)): let's assume 0.7 (as \( H' \) would be more consistent with broader traits).
+
+Now calculate the Bayes' Rule:
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_{\text{agri}}|E) = \frac{P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}})}{P(E)} \approx \frac{0.8 \cdot 0.2}{P(E)} \]
+
+For **Computer Science**:
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} \approx \frac{0.2 \cdot 0.3}{P(E)} \]
+
+We need \( P(E) \) for normalization:
+\[ P(E) = P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) + P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + \cdots \]
+
+Assuming just these two hypotheses for simplicity:
+\[ P(E) \approx (0.8 \cdot 0.2) + (0.2 \cdot 0.3) = 0.16 + 0.06 = 0.22 \]
+
+Therefore:
+\[ P(H_{\text{agri}}|E) \approx \frac{0.16}{0.22} \approx 0.727 \]
+\[ P(H_{\text{cs}}|E) \approx \frac{0.06}{0.22} \approx 0.273 \]
+
+So the final probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.73,
+  "computer science": 0.27
+}
+```

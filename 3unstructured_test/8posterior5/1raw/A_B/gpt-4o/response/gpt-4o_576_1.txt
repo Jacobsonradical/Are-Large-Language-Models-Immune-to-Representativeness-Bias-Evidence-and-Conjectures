@@ -1,0 +1,81 @@
+To compute the probabilities, we will use Bayes' Rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+
+- \( P(H|E) \) is the posterior probability of H given E.
+- \( P(E|H) \) is the probability of E (the evidence) given H.
+- \( P(H) \) is the prior probability of H.
+- \( P(E) \) is the total probability of E.
+
+We will need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field and then compute \( P(H|E) \).
+
+### Step 1: Estimate Prior Probabilities \( P(H) \)
+Since specific background information about the prevalence of each field among all graduate students in the U.S. in 2021 is not provided, we can make an educated guess:
+
+- Business Administration is a relatively common field.
+- Agricultural and Veterinary Science is less common compared to Business Administration.
+
+With this reasoning, let's assign the following priors:
+- \( P(\text{business administration}) \approx 0.10 \)
+- \( P(\text{agricultural and veterinary science}) \approx 0.02 \)
+
+### Step 2: Estimate Likelihoods \( P(E|H) \) and \( P(E|\neg H) \)
+Based on the personality sketch E:
+
+#### Business Administration
+- \( P(E|\text{business administration}) \): A quieter student (less suitable) with high intelligence (moderately suitable) but a strong empathy and love for animals (less directly relevant) may be less common in Business Administration.
+  - Estimated: 0.02
+
+- \( P(E|\neg \text{business administration}) \): Many fields will fit Adam's personality better than Business Administration.
+  - Estimated: 0.18
+
+#### Agricultural and Veterinary Science
+- \( P(E|\text{agricultural and veterinary science}) \): Adam's love for nature, plants, and animals strongly aligns with this field, making it more likely.
+  - Estimated: 0.65
+
+- \( P(E|\neg \text{agricultural and veterinary science}) \): There are many fields that don't align as well with Adam's qualities.
+  - Estimated: 0.10
+
+### Step 3: Compute \( P(E) \)
+As exact values aren't available, it is ideal to acknowledge that there are many graduate fields, yet we focus on these two probabilities appropriately.
+
+### Step 4: Apply Bayes Rule
+Now apply the Bayes' Rule for each field:
+
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)}
+\]
+Using the relative probabilities: 
+\[
+P(\text{business administration}|E) \approx \frac{0.02 \cdot 0.10}{P(E)}
+\]
+\[
+P(E) \approx \text{Total probability for normalization}
+\]
+
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)}
+\]
+\[
+P(\text{agricultural and veterinary science}|E) \approx \frac{0.65 \cdot 0.02}{P(E)}
+\]
+
+By comparing relative values:
+\[
+P(E) = \text{constant non-specified}
+\]
+
+### Final Estimation
+Although normalization is quite exacting here, comparing relative strengths, Agricultural and Veterinary Science is much more plausible.
+
+Output for normalized probability perspective (scaled):
+```json
+{
+  "business administration": 0.001,
+  "agricultural and veterinary science": 0.015
+}
+```
+
+These values signify scaled relative probabilities based on alignment to traits and typical distributions respectively.

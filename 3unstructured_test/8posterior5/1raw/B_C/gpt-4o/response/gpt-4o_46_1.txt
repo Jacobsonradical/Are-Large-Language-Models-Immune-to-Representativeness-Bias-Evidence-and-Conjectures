@@ -1,0 +1,68 @@
+Let's break down the steps to determine the probability that Adam was enrolled in either computer science or business administration using Bayes' theorem.
+
+1. **Prior Probability \( P(H) \)**: This is the prior probability that Adam is enrolled in a specific field without any other information.
+2. **Likelihood \( P(E|H) \)**: This is the probability of the given personality sketch given that Adam is enrolled in a specific field.
+3. **Likelihood \( P(E|\neg H) \)**: This is the probability of the personality sketch given that Adam is not enrolled in the specific field.
+
+### For Computer Science
+
+1. **Prior Probability \( P(H_{\text{cs}}) \)**: 
+   - Let's assume graduate students are evenly distributed among many fields. 
+   - Suppose computer science students make up 10% of the graduate population.
+   - Hence, \( P(H_{\text{cs}}) = 0.10 \).
+
+2. **Likelihood \( P(E|H_{\text{cs}}) \)**: 
+   - Traits like high intelligence, abstract thinking, a love of problem-solving, and possibly a quiet demeanor fit well.
+   - Let's give this a likelihood of 0.40.
+
+3. **Likelihood \( P(E|\neg H_{\text{cs}}) \)**: 
+   - This is harder to judge but could realistically be distributed among various other fields.
+   - Suppose the personality sketch fits with about 5% of non-CS graduate students.
+   - Hence, \( P(E|\neg H_{\text{cs}}) = 0.05 \).
+
+### For Business Administration
+
+1. **Prior Probability \( P(H_{\text{ba}}) \)**: 
+   - Suppose business administration students make up around 15% of the general graduate population.
+   - Hence, \( P(H_{\text{ba}}) = 0.15 \).
+
+2. **Likelihood \( P(E|H_{\text{ba}}) \)**:
+   - Traits like a warm heart, empathy, and understanding hard work might fit, but the generally quiet and nature-oriented aspects might not.
+   - Let's assign a lower likelihood, say 0.10.
+
+3. **Likelihood \( P(E|\neg H_{\text{ba}}) \)**:
+   - Given the same logic as above, let's assume this personality sketch matches about 5% of students not in business administration.
+   - Hence, \( P(E|\neg H_{\text{ba}}) = 0.05 \).
+
+### Application of Bayes' Theorem
+
+Bayes' theorem \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \).
+
+For simplification, we'll calculate \( P(E) \) assuming these are the only two fields considered:
+
+\[ P(E) = P(E|H_{\text{cs}})P(H_{\text{cs}}) + P(E|\neg H_{\text{cs}})P(\neg H_{\text{cs}}) \]
+
+For Computer Science:
+
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}})P(H_{\text{cs}})}{P(E)} \]
+
+Assuming \( P(E) \approx (0.40 \times 0.10) + (0.05 \times 0.90) = 0.04 + 0.045 = 0.085 \):
+
+\[ P(H_{\text{cs}}|E) = \frac{0.40 \times 0.10}{0.085} \approx \frac{0.04}{0.085} \approx 0.47 \]
+
+For Business Administration:
+
+\[ P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}})P(H_{\text{ba}})}{P(E)} \]
+
+Assuming \( P(E) \approx (0.10 \times 0.15) + (0.05 \times 0.85) = 0.015 + 0.0425 = 0.0575 \):
+
+\[ P(H_{\text{ba}}|E) = \frac{0.10 \times 0.15}{0.0575} \approx \frac{0.015}{0.0575} \approx 0.26 \]
+
+Thus, given the calculations:
+
+```json
+{
+  "computer science": 0.47,
+  "business administration": 0.26
+}
+```

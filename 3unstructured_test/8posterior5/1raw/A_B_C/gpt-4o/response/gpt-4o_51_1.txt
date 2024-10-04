@@ -1,0 +1,60 @@
+Given Adam's personality sketch, we need to calculate the likelihoods of him being in each of the specified graduate fields using Bayes' theorem. We require the following probabilities for each field \( H \) (hypothesis): 
+
+1. \( P(H) \): The prior probability of the hypothesis.
+2. \( P(E|H) \): The likelihood of the evidence given the hypothesis.
+3. \( P(E|\neg H) \): The likelihood of the evidence given that the hypothesis is not true.
+
+Finally, using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's assume the following estimated values based on typical distributions and the provided personality sketch:
+
+### Business Administration
+- \( P(H) \): The prior probability that a random graduate student is in business administration. Let's assume this is around 0.20.
+- \( P(E|H) \): The likelihood that someone with Adam's personality sketch is in business administration. Given that business administration typically attracts outgoing and people-oriented individuals, this might be lower than average. Let's assume 0.05.
+- \( P(E|\neg H) \): The likelihood of Adam's personality sketch, given he is not in business administration. Let's assume 0.10.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.05 \cdot 0.20}{P(E)} = 0.01 / P(E) \]
+
+### Computer Science
+- \( P(H) \): The prior probability that a random graduate student is in computer science. Let's assume this is around 0.25.
+- \( P(E|H) \): The likelihood that someone with Adam's personality sketch is in computer science. Given his intelligence and interest in solving puzzles, it might be higher. Let's assume 0.30.
+- \( P(E|\neg H) \): The likelihood of Adam's personality sketch, given he is not in computer science. Let's assume 0.10.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.30 \cdot 0.25}{P(E)} = 0.075 / P(E) \]
+
+### Agricultural and Veterinary Science
+- \( P(H) \): The prior probability that a random graduate student is in agricultural and veterinary science. Let's assume this is around 0.10.
+- \( P(E|H) \): The likelihood that someone with Adam's personality sketch is in agricultural and veterinary science. Given his curiosity about nature and love for animals, this might be very high. Let's assume 0.70.
+- \( P(E|\neg H) \): The likelihood of Adam's personality sketch, given he is not in agricultural and veterinary science. Let's assume 0.10.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.70 \cdot 0.10}{P(E)} = 0.07 / P(E) \]
+
+### Normalizing by \( P(E) \)
+Given these calculations, we now need to normalize by \( P(E) \). Although we do not have an explicit \( P(E) \), we can compute relative probabilities:
+
+We have:
+- \( business\_administration \): 0.01 / \( P(E) \)
+- \( computer\\_science \): 0.075 / \( P(E) \)
+- \( agricultural\_and\_veterinary \_science \): 0.07 / \( P(E) \)
+
+Sum of unnormalized values:
+\[ 0.01 + 0.075 + 0.07 = 0.155 \]
+
+Since these values need to be normalized, we get:
+- \( business\_administration \): \( \frac{0.01}{0.155} \approx 0.0645 \)
+- \( computer\_science \): \( \frac{0.075}{0.155} \approx 0.4839 \)
+- \( agricultural\_and\_veterinary \_science \): \( \frac{0.07}{0.155} \approx 0.4516 \)
+
+Thus, the normalized probabilities are:
+
+```json
+{
+  "business_administration": 0.0645,
+  "computer_science": 0.4839,
+  "agricultural_and_veterinary_science": 0.4516
+}
+```

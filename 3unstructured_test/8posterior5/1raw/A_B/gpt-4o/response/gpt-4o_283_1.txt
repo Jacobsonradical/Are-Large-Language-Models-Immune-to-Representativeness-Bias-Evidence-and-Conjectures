@@ -1,0 +1,42 @@
+To compute the value of \( P(H|E) \) for each field of study, we can use Bayes' Rule, which states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Estimations
+1. **P(H)**: The prior probability that Adam is enrolled in a particular field. Since we are comparing two fields, we can consider these probabilities relative to each other. 
+   - *Agricultural and Veterinary Science*: Generally, fewer graduates enroll in specific fields like this compared to broader fields like business administration. Let's estimate \( P(H_{\text{agricultural and veterinary science}}) = 0.05 \).
+   - *Business Administration*: A very popular field for graduate students. Let's estimate \( P(H_{\text{business administration}}) = 0.15 \).
+
+2. **P(E|H)**: The probability of observing the evidence given that Adam is enrolled in the field.
+   - *Agricultural and Veterinary Science*: Adam’s interests and personality strongly align with this field, so let's estimate \( P(E|H_{\text{agricultural and veterinary science}}) = 0.8 \).
+   - *Business Administration*: His characteristics do not align as well with business administration, so let’s estimate \( P(E|H_{\text{business administration}}) = 0.1 \).
+
+3. **P(E|\neg H)**: The probability of observing the evidence given that Adam is not enrolled in the field.
+   - *Agricultural and Veterinary Science*: Aristotle’s interest in nature and empathy is far more characteristic of this field. We would estimate this as \( P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.1 \).
+   - *Business Administration*: Since only a small subset of business students would share these characteristics, let's estimate \( P(E|\neg H_{\text{business administration}}) = 0.4 \).
+
+4. **P(E)**: The overall probability of observing the evidence. This can be seen as a normalization constant. For simplicity of comparison purposes, we omit calculating this directly since it would be the same for both comparisons and therefore cancels out in a relative comparison.
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{\sum_i P(E|H_i) \cdot P(H_i)} \]
+
+Thus:
+- For Agricultural and Veterinary Science:
+\[ P(H_{\text{agricultural and veterinary science}}|E) \propto P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}}) \]
+\[ P(H_{\text{agricultural and veterinary science}}|E) = 0.8 \times 0.05 = 0.04 \]
+
+- For Business Administration:
+\[ P(H_{\text{business administration}}|E) \propto P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) \]
+\[ P(H_{\text{business administration}}|E) = 0.1 \times 0.15 = 0.015 \]
+
+The values don't sum up to 1 here since we are considering only two fields among many possible fields of study.
+
+Based on these calculations, we get the following relatively scaled probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.04,
+  "business administration": 0.015
+}
+```
+
+This indicates that it is more likely, based on his personality sketch, that Adam is enrolled in agricultural and veterinary science than in business administration.

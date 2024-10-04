@@ -1,0 +1,49 @@
+To solve this problem using Bayes' rule, we need to define some probabilities. Let's denote the following:
+
+- \( P(H_1) \) and \( P(H_2) \) as the prior probabilities that Adam was enrolled in computer science and business administration, respectively.
+- \( P(E|H_1) \) and \( P(E|H_2) \) as the probabilities of the evidence given the hypotheses.
+- \( P(E|\neg H_1) \) and \( P(E|\neg H_2) \) as the probabilities of the evidence given the negation of the hypotheses.
+- \( P(H_1|E) \) and \( P(H_2|E) \) as the posterior probabilities that Adam was enrolled in computer science and business administration given the evidence.
+
+Let's make reasonable assumptions based on the personality sketch for the prior probabilities and the likelihoods. We will estimate:
+
+1. Prior probabilities:
+    - \( P(H_1) = 0.2 \): The general prior that a graduate student might be in computer science.
+    - \( P(H_2) = 0.15 \): The general prior that a graduate student might be in business administration.
+
+2. Likelihoods:
+    - \( P(E|H_1) = 0.5 \): The likelihood that someone in computer science has Adam's characteristics. Since he is intelligent, good at abstract concepts, enjoys solving puzzles, and has empathy, there is a moderate fit.
+    - \( P(E|H_2) = 0.2 \): The likelihood that someone in business administration has Adam’s characteristics. Business students are often empathetic and appreciate hard work, but the interest in nature and puzzles is less typical.
+
+3. Probabilities given the negation:
+    - \( P(E|\neg H_1) = 0.3 \): The likelihood that someone not in computer science has Adam's characteristics.
+    - \( P(E|\neg H_2) = 0.4 \): The likelihood that someone not in business administration has Adam's characteristics.
+
+Next, we use Bayes' rule to calculate the posterior probabilities:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be found using the law of total probability.
+
+### For Computer Science:
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1) \]
+\[ P(\neg H_1) = 1 - P(H_1) = 0.8 \]
+\[ P(E) = 0.5 \cdot 0.2 + 0.3 \cdot 0.8 = 0.1 + 0.24 = 0.34 \]
+
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} = \frac{0.5 \cdot 0.2}{0.34} \approx 0.294 \]
+
+### For Business Administration:
+\[ P(E) = P(E|H_2) \cdot P(H_2) + P(E|\neg H_2) \cdot P(\neg H_2) \]
+\[ P(\neg H_2) = 1 - P(H_2) = 0.85 \]
+\[ P(E) = 0.2 \cdot 0.15 + 0.4 \cdot 0.85 = 0.03 + 0.34 = 0.37 \]
+
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} = \frac{0.2 \cdot 0.15}{0.37} \approx 0.081 \]
+
+Based on these calculations:
+
+```json
+{
+  "computer science": 0.294,
+  "business administration": 0.081
+}
+```

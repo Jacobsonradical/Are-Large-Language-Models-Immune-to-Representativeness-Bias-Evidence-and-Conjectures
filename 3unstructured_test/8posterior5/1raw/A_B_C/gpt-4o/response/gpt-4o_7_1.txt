@@ -1,0 +1,60 @@
+Using Bayes' Theorem, we want to calculate \( P(H|E) \), which is the probability of Adam being enrolled in a specific field given his personality sketch (E). Bayes' Theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each of the fields, I'll make reasonable assumptions for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). \( P(H) \) represents the prior probability of being enrolled in a particular field, \( P(E|H) \) represents the probability of having the personality sketch given enrollment in that field, and \( P(E|\neg H) \) represents the probability of having the personality sketch given not being enrolled in that field.
+
+Firstly, we assume some general probabilities:
+
+1. Business Administration:
+   - \( P(H) \): Graduate students enrolled in this field (10%)
+   - \( P(E|H) \): Curiosity about nature and plants, empathy, and love for animals are less likely (5%)
+   - \( P(E|\neg H) \): Much higher if not in Business Administration (20%)
+
+2. Agricultural and Veterinary Science:
+   - \( P(H) \): Graduate students enrolled in this field (5%)
+   - \( P(E|H) \): Very high due to alignment with personality traits (80%)
+   - \( P(E|\neg H) \): Lower if not in this field (15%)
+
+3. Computer Science:
+   - \( P(H) \): Graduate students enrolled in this field (15%)
+   - \( P(E|H) \): Some alignment due to problem-solving (30%)
+   - \( P(E|\neg H) \): Slightly lower for those not in this field (25%)
+
+Now, calculating the posterior probability \( P(H|E) \):
+
+1. Business Administration:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+           = \frac{0.05 \cdot 0.10}{0.05 \cdot 0.10 + (1-0.10) \cdot 0.20}
+           = \frac{0.005}{0.005 + 0.18}
+           = \frac{0.005}{0.185}
+           \approx 0.027
+   \]
+
+2. Agricultural and Veterinary Science:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+           = \frac{0.80 \cdot 0.05}{0.80 \cdot 0.05 + (1-0.05) \cdot 0.15}
+           = \frac{0.04}{0.04 + 0.1425}
+           = \frac{0.04}{0.1825}
+           \approx 0.219
+   \]
+
+3. Computer Science:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+           = \frac{0.30 \cdot 0.15}{0.30 \cdot 0.15 + (1-0.15) \cdot 0.25}
+           = \frac{0.045}{0.045 + 0.2125}
+           = \frac{0.045}{0.2575}
+           \approx 0.175
+   \]
+
+Thus, the probabilities are:
+{
+  "business administration": 0.027,
+  "agricultural and veterinary science": 0.219,
+  "computer science": 0.175
+} 
+
+These values show that based on Adam's personality sketch, it is most likely (among the given options) that he is enrolled in Agricultural and Veterinary Science.

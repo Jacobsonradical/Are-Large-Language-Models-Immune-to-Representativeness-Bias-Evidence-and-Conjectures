@@ -1,0 +1,84 @@
+To estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), we'll need to use background knowledge and logical inference based on Adam's personality sketch. Then we can use Bayes' rule to compute \( P(H|E) \). Here's a step-by-step approach:
+
+1. **Prior probabilities, \( P(H) \):**
+   - \( P(H_{agri}) \) (Agricultural and Veterinary Science) and \( P(H_{cs}) \) (Computer Science) represent the prior probabilities that Adam was enrolled in these fields. Without additional data, we can initialize them equally or make educated guesses based on their prevalence amongst graduate students.
+
+2. **Likelihood of E given H, \( P(E|H) \):**
+   - This represents the probability of Adam's personality sketch given he was enrolled in these fields.
+
+3. **Likelihood of E given not H, \( P(E|\neg H_i) \):**
+   - This is the probability of Adam's personality sketch given he was not enrolled in these specific fields.
+
+4. **Bayes' rule** can be written as:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   where \( P(E) \) is a normalization factor ensuring that the posterior probabilities sum to 1, calculated as:
+   \[
+   P(E) = P(E|H_{agri}) \cdot P(H_{agri}) + P(E|H_{cs}) \cdot P(H_{cs}) + \cdots
+   \]
+
+Considering the personality sketch of Adam:
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H_{agri}) \):** Let’s assume the probability of Adam being in Agricultural and Veterinary Science is moderate because of his love for nature and animals.
+    - \( P(H_{agri}) \approx 0.2 \)
+- **Likelihood \( P(E|H_{agri}) \):** Adam’s genuine curiosity about nature, love for animals, and appreciation for hard work aligns well with characteristics of students in this field.
+    - \( P(E|H_{agri}) \approx 0.75 \)
+- **Likelihood given not H \( P(E|\neg H_{agri}) \):** The chance of having such characteristics if not in this field but in others could be lower.
+    - \( P(E|\neg H_{agri}) \approx 0.3 \)
+
+### Computer Science
+- **Prior Probability \( P(H_{cs}) \):** Given the prevalence of Computer Science, it’s also likely yet perhaps less associated with nature and animals.
+    - \( P(H_{cs}) \approx 0.25 \)
+- **Likelihood \( P(E|H_{cs}) \):** While his traits of being intelligent and good at abstract concepts fit Computer Science, the focus on nature and animals does not fit as well.
+    - \( P(E|H_{cs}) \approx 0.4 \)
+- **Likelihood given not H \( P(E|\neg H_{cs}) \):**
+    - \( P(E|\neg H_{cs}) \approx 0.5 \)
+
+Using Bayes’ Rule:
+
+### Agricultural and Veterinary Science
+\[
+P(H_{agri}|E) = \frac{P(E|H_{agri}) \cdot P(H_{agri})}{P(E)}
+\]
+
+### Computer Science
+\[
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)}
+\]
+
+For normalization, a more simplified assumption:
+
+\[
+P(E) \approx P(E|H_{agri}) \cdot P(H_{agri}) + P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{agri}) \cdot (1 - P(H_{agri})) + P(E|\neg H_{cs}) \cdot (1 - P(H_{cs}))
+\]
+
+Thus:
+
+\[
+P(E) \approx (0.75 \cdot 0.2) + (0.4 \cdot 0.25) + (0.3 \cdot 0.8) + (0.5 \cdot 0.75)
+\]
+
+\[
+P(E) \approx 0.15 + 0.1 + 0.24 + 0.375 = 0.865
+\]
+
+Now calculating the posterior probabilities:
+
+### Agricultural and Veterinary Science
+\[
+P(H_{agri}|E) = \frac{0.75 \cdot 0.2}{0.865} \approx 0.173
+\]
+
+### Computer Science
+\[
+P(H_{cs}|E) = \frac{0.4 \cdot 0.25}{0.865} \approx 0.116
+\]
+
+```json
+{
+  "agricultural and veterinary science": 0.173,
+  "computer science": 0.116
+}
+```

@@ -1,0 +1,38 @@
+To compute posterior probabilities \( P(H|E) \) for each field (business administration and computer science) given Adam's personality sketch (E), we'll need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) (the probability of Adam's personality sketch) is constant across all hypotheses (fields), it can be considered a normalizing factor. Here we'll only compute the numerator of Bayes' rule, \( P(E|H) \cdot P(H) \), for each field and compare them.
+
+### Business Administration
+1. **P(H)**: The general prior probability that a graduate student in the U.S. is enrolled in business administration. This is relatively common but less so compared to fields like computer science. Let's estimate \( P(H) \) as 0.15.
+2. **P(E|H)**: Business administration students usually need social skills, strategic thinking, and might be less focused on nature and animals specifically. Let's estimate \( P(E|H) \) to be relatively low, perhaps around 0.05.
+3. **P(E|\neg H)**: Given that many fields could potentially lead to the observed personality sketch, we'll assume \( P(E|\neg H) \) is distributed over many other fields. Let's estimate it as 0.0125 (considering many other fields).
+
+\[ P(H|E)_{BA} \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.05 \cdot 0.15 = 0.0075 \]
+
+### Computer Science
+1. **P(H)**: The general prior probability that a graduate student in the U.S. is enrolled in computer science. This is a very common field. Let's estimate \( P(H) \) as 0.25.
+2. **P(E|H)**: Computer science students are often analytical, enjoy solving puzzles, and can be introspective. Adam's personality sketch fits well with these characteristics. Let's estimate \( P(E|H) \) as 0.2.
+3. **P(E|\neg H)**: Again, considering distribution across many other fields, let's estimate it as 0.0125.
+
+\[ P(H|E)_{CS} \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.2 \cdot 0.25 = 0.05 \]
+
+### Comparison and Normalization
+
+Since we only need a relative comparison and \( P(E) \) is a common factor:
+
+\[ \text{Normalized } P(H|E)_{BA} = \frac{0.0075}{0.0075 + 0.05} \approx 0.13 \]
+\[ \text{Normalized } P(H|E)_{CS} = \frac{0.05}{0.0075 + 0.05} \approx 0.87 \]
+
+### Result
+Given these calculations, we have:
+
+```json
+{
+  "business administration": 0.13,
+  "computer science": 0.87
+}
+```
+
+These values reflect the relative likelihoods of Adam being enrolled in business administration or computer science based on his personality sketch.

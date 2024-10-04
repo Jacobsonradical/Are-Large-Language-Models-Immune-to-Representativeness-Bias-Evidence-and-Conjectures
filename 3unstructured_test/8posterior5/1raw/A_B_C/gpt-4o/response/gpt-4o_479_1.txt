@@ -1,0 +1,89 @@
+To apply Bayes' Theorem in computing \(P(H|E)\), let's denote:
+
+- \(P(H)\) as the prior probability of Adam being enrolled in a particular field.
+- \(P(E|H)\) as the likelihood of Adam having the given personality sketch given that he is in a specific field.
+- \(P(E|\neg H)\) as the likelihood of Adam having the given personality sketch given he is not in that specific field.
+
+Finally, we use these to compute \(P(H|E)\), the posterior probability of Adam being enrolled in a specific field given his personality sketch. Recall Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \(P(E)\) can be computed as:
+\[P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\]
+
+Assume we are given:
+
+1. Agricultural and veterinary science (\(H_1\))
+2. Computer science (\(H_2\))
+3. Business administration (\(H_3\))
+
+Let's assign some plausible values based on the sketch provided.
+
+### Agricultural and Veterinary Science
+**P(H):**
+The likelihood of any graduate student in the U.S. being in agricultural and veterinary science might be relatively low compared to other fields.
+\[P(H_1) = 0.05\]
+
+**P(E|H):**
+Given Adam's personality sketch, his love for nature, plants, and animals fits well into this field.
+\[P(E|H_1) = 0.7\]
+
+**P(E|\neg H):**
+For fields that are not Agricultural and Veterinary Science, while some characteristics might hold, the match isn't perfect.
+\[P(E|\neg H_1) = 0.1\]
+
+### Computer Science
+**P(H):**
+The likelihood of any graduate student in the U.S. being in computer science is relatively higher.
+\[P(H_2) = 0.3\]
+
+**P(E|H):**
+Given his high intelligence and interest in solving puzzles, this could align with computer science.
+\[P(E|H_2) = 0.4\]
+
+**P(E|\neg H):**
+For fields that are not Computer Science, there might be some limited match.
+\[P(E|\neg H_2) = 0.1\]
+
+### Business Administration
+**P(H):**
+The likelihood of any graduate student in the U.S. being in business administration is higher or comparable to computer science, but still not overwhelming for his personality.
+\[P(H_3) = 0.2\]
+
+**P(E|H):**
+Given his strong understanding and appreciation for hard work and dedication, some traits might align here but not as strongly.
+\[P(E|H_3) = 0.2\]
+
+**P(E|\neg H):**
+For fields that are not Business Administration, there might be some match but less relevant.
+\[P(E|\neg H_3) = 0.15\]
+
+We now compute \(P(E)\) for each case:
+
+For Agricultural and Veterinary Science:
+\[P(E) = (0.7 \cdot 0.05) + (0.1 \cdot 0.95) = 0.035 + 0.095 = 0.13\]
+
+For Computer Science:
+\[P(E) = (0.4 \cdot 0.3) + (0.1 \cdot 0.7) = 0.12 + 0.07 = 0.19\]
+
+For Business Administration:
+\[P(E) = (0.2 \cdot 0.2) + (0.15 \cdot 0.8) = 0.04 + 0.12 = 0.16\]
+
+Applying Bayes' Theorem, we get:
+
+**Agricultural and Veterinary Science (\(H_1\)):**
+\[P(H_1|E) = \frac{0.7 \cdot 0.05}{0.13} = \frac{0.035}{0.13} \approx 0.269\]
+
+**Computer Science (\(H_2\)):**
+\[P(H_2|E) = \frac{0.4 \cdot 0.3}{0.19} = \frac{0.12}{0.19} \approx 0.632\]
+
+**Business Administration (\(H_3\)):**
+\[P(H_3|E) = \frac{0.2 \cdot 0.2}{0.16} = \frac{0.04}{0.16} = 0.25\]
+
+Final Answer:
+
+```json
+{
+  "agricultural and veterinary science": 0.27,
+  "computer science": 0.63,
+  "business administration": 0.25
+}
+```

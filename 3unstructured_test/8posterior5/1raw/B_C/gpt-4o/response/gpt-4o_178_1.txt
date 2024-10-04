@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) for each field, we use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given we're focusing on two hypotheses \( H \) (business administration and computer science), we need to estimate the following probabilities for each field:
+
+- \( P(H) \): The prior probability that Adam was enrolled in the field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given he was enrolled in the field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given he was not enrolled in the field.
+
+Since we don't have exact data, we will make reasonable assumptions based on the common traits and career choices associated with each field. Lastly, \( P(E) \) is the overall probability of observing Adam's personality sketch, which is a normalization factor and does not differ across fields.
+
+### Assumptions:
+
+#### Business Administration:
+
+- **P(H)**: Business Administration is a popular field among graduate students, but people with Adam's personality traits (curiosity about nature, love for animals) are less likely to choose this field.
+  - \( P(\text{Business Administration}) \approx 0.2 \)
+- **P(E|H)**: Given someone in Business Administration, the probability of having Adam's personality traits.
+  - \( P(E|\text{Business Administration}) \approx 0.1 \)
+- **P(E|\neg H)**: Given someone not in Business Administration, the probability of having Adam's personality traits.
+  - \( P(E|\neg \text{Business Administration}) \approx 0.9 \)
+
+#### Computer Science:
+
+- **P(H)**: Computer Science is also popular and attracts individuals who are good at solving puzzles and understanding abstract concepts, which fits Adam's profile well.
+  - \( P(\text{Computer Science}) \approx 0.3 \)
+- **P(E|H)**: Given someone in Computer Science, the probability of having Adam's personality traits.
+  - \( P(E|\text{Computer Science}) \approx 0.7 \)
+- **P(E|\neg H)**: Given someone not in Computer Science, the probability of having Adam's personality traits.
+  - \( P(E|\neg \text{Computer Science}) \approx 0.3 \)
+
+Since we lack \( P(E) \), we'll use the relative likelihood approach, focusing on the ratio \( P(E|H) \cdot P(H) \):
+
+### Calculation:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+#### Business Administration:
+
+\[ P(\text{Business Administration}|E) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+#### Computer Science:
+
+\[ P(\text{Computer Science}|E) \propto 0.7 \cdot 0.3 = 0.21 \]
+
+### Normalize the Probabilities:
+
+\[ P(\text{Business Administration}|E) = \frac{0.02}{0.02 + 0.21} = \frac{0.02}{0.23} \approx 0.087 \]
+
+\[ P(\text{Computer Science}|E) = \frac{0.21}{0.02 + 0.21} = \frac{0.21}{0.23} \approx 0.913 \]
+
+### Final Answer:
+
+```json
+{
+  "business administration": 0.087,
+  "computer science": 0.913
+}
+```

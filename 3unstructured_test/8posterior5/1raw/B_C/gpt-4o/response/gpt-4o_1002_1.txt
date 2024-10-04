@@ -1,0 +1,64 @@
+To compute \( P(H|E) \) using Bayes' Rule, we need the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in the given field.
+2. \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam was enrolled in the given field.
+3. \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam was not enrolled in the given field.
+
+Bayes' Rule states:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where \( P(E) \) can be derived from:
+
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+For simplicity, we will assume \( P(\neg H) = 1 - P(H) \). Let's make reasonable assumptions about each field:
+
+1. **Computer Science:**
+    - \( P(H_{\text{CS}}) \): The prior probability that a graduate student in the U.S. is enrolled in computer science.
+    - \( P(E|H_{\text{CS}}) \): The likelihood that a computer science student would have the personality traits described.
+    - \( P(E|\neg H_{\text{CS}}) \): The likelihood that a non-computer science student would have the personality traits described.
+
+2. **Business Administration:**
+    - \( P(H_{\text{BA}}) \): The prior probability that a graduate student in the U.S. is enrolled in business administration.
+    - \( P(E|H_{\text{BA}}) \): The likelihood that a business administration student would have the personality traits described.
+    - \( P(E|\neg H_{\text{BA}}) \): The likelihood that a non-business administration student would have the personality traits described.
+
+We will assume the following for each field.
+
+### Computer Science:
+- \( P(H_{\text{CS}}) = 0.2 \) (20% of graduate students might be in computer science).
+- \( P(E|H_{\text{CS}}) = 0.4 \) (40% chance that a student in computer science has this personality sketch).
+- \( P(E|\neg H_{\text{CS}}) = 0.1 \) (10% chance that a non-computer science student has this personality sketch).
+
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}})}
+\]
+\[
+P(H_{\text{CS}}|E) = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.1 \cdot 0.8} = \frac{0.08}{0.08 + 0.08} = \frac{0.08}{0.16} = 0.5
+\]
+
+### Business Administration:
+- \( P(H_{\text{BA}}) = 0.2 \) (20% of graduate students might be in business administration).
+- \( P(E|H_{\text{BA}}) = 0.1 \) (10% chance that a student in business administration has this personality sketch).
+- \( P(E|\neg H_{\text{BA}}) = 0.2 \) (20% chance that a non-business administration student has this personality sketch).
+
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})}
+\]
+\[
+P(H_{\text{BA}}|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.2 \cdot 0.8} = \frac{0.02}{0.02 + 0.16} = \frac{0.02}{0.18} \approx 0.111
+\]
+
+So, the probabilities that Adam is enrolled in each field given the personality sketch are as follows:
+
+```json
+{
+  "computer science": 0.5,
+  "business administration": 0.111
+}
+```

@@ -1,0 +1,58 @@
+To estimate \( P(H|E) \), the probability that Adam is enrolled in a particular field given his personality sketch, we need to use Bayes' rule which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote:
+- \( H_{\text{CS}} \): Adam is in computer science
+- \( H_{\text{BA}} \): Adam is in business administration
+
+### Assumptions and Estimates:
+
+#### Prior Probabilities \(P(H)\)
+- \( P(H_{\text{CS}}) \): The prior probability that a graduate student is enrolled in computer science.
+    - Computer science is a common field in graduate programs but not the most common. Let's assume \(P(H_{\text{CS}}) \approx 0.3\).
+- \( P(H_{\text{BA}}) \): The prior probability that a graduate student is enrolled in business administration.
+    - Business administration is also a popular field in graduate programs. Let's assume \(P(H_{\text{BA}}) \approx 0.25\).
+
+#### Likelihood \(P(E|H)\)
+- \( P(E|H_{\text{CS}}) \): The probability that Adam has the given personality sketch given he is in computer science.
+    - Adam's interest in nature, solving puzzles, intelligence, and understanding abstract concepts align well with traits typical for computer science students. Let's estimate \(P(E|H_{\text{CS}}) \approx 0.6\).
+- \( P(E|H_{\text{BA}}) \): The probability that Adam has the given personality sketch given he is in business administration.
+    - While empathy and appreciation for hard work might align with business administration, his strong curiosity about nature and love for animals are less typical. Let's estimate \(P(E|H_{\text{BA}}) \approx 0.2\).
+
+#### Complementary Likelihood \(P(E|\neg H)\)
+- \( P(E|\neg H_{\text{CS}}) \): The probability that Adam has the given personality sketch given he is NOT in computer science.
+    - Considering the variety of other fields, not all align well with Adam's personality sketch. Let's assume \(P(E|\neg H_{\text{CS}}) \approx 0.4\).
+- \( P(E|\neg H_{\text{BA}}) \): The probability that Adam has the given personality sketch given he is NOT in business administration.
+    - Fields other than business administration might align with the given sketch. Let's assume \(P(E|\neg H_{\text{BA}}) \approx 0.5\).
+
+### Calculating Posterior Probabilities \(P(H|E)\)
+
+Using Bayes' rule and estimates:
+
+#### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+Since \( P(E) \) is a normalization factor and doesn't affect relative probabilities, we can compute the unnormalized posterior:
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) \]
+\[ P(H_{\text{CS}}|E) \approx 0.6 \times 0.3 = 0.18 \]
+
+#### Business Administration
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+\[ P(H_{\text{BA}}|E) \approx 0.2 \times 0.25 = 0.05 \]
+
+### Normalizing Probabilities
+The total probability needs to be normalized. So, we need the sum of the unnormalized probabilities:
+\[ P(\text{total}) = 0.18 + 0.05 = 0.23 \]
+\[
+P(H_{\text{CS}}|E) = \frac{0.18}{0.23} \approx 0.783 \\
+P(H_{\text{BA}}|E) = \frac{0.05}{0.23} \approx 0.217
+\]
+
+### Results
+```json
+{
+  "computer science": 0.783,
+  "business administration": 0.217
+}
+```

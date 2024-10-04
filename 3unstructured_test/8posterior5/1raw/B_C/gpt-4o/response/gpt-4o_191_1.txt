@@ -1,0 +1,58 @@
+To compute the posterior probability of Adam being enrolled in each field given his personality sketch using Bayes' Theorem, we first need to assign probability values to the prior probability of each hypothesis (P(H)), the likelihood of the evidence given each hypothesis (P(E|H)), and the likelihood of the evidence given that the hypothesis is not true (P(E|\neg H)).
+
+Here's the reasoning for assigning the probabilities:
+
+1. **Prior Probability (P(H)):**
+   - Let's assume a relatively neutral prior probability for both fields, considering that a graduate student in the U.S can choose from a wide range of fields. For simplicity, let's assign:
+     - \( P(H_{BA}) = 0.2 \)
+     - \( P(H_{CS}) = 0.3 \)
+
+2. **Likelihood (P(E|H)):**
+   - **For Business Administration:**
+     - Business administration students are typically interested in business, finance, management, etc. Adam's genuine curiosity about nature, puzzles, empathy, and love for animals might be less aligned with a typical business administration profile.
+     - Therefore, \( P(E|H_{BA}) \) might be lower, say 0.1.
+   
+   - **For Computer Science:**
+     - Computer science students often work on puzzles (in the form of algorithms and problem-solving) and abstract concepts. However, Adam's interests in nature and animals might make this field less likely.
+     - Therefore, \( P(E|H_{CS}) \), although higher than for business administration, might still not be very high, say 0.4.
+
+3. **Likelihood (P(E|\neg H)):**
+   - This term represents the probability of observing Adam's characteristics given that he is not in the specific field.
+   - Since we assume there are many fields he might be in, the probability of his characteristics in fields other than business administration might be higher.
+     - So, for business administration: \( P(E|\neg H_{BA}) = 0.7 \).
+   - Similarly, the characteristics might be reasonably probable in fields other than computer science.
+     - For computer science: \( P(E|\neg H_{CS}) = 0.6 \).
+
+Using Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where \( P(E) \) can be computed as:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+For **business administration**:
+\[ P(E) = P(E|H_{BA})P(H_{BA}) + P(E|\neg H_{BA})P(\neg H_{BA}) \]
+\[ P(E) = (0.1 \times 0.2) + (0.7 \times 0.8) \]
+\[ P(E) = 0.02 + 0.56 = 0.58 \]
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA})P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) = \frac{0.1 \times 0.2}{0.58} \]
+\[ P(H_{BA}|E) = \frac{0.02}{0.58} \approx 0.0345 \]
+
+For **computer science**:
+\[ P(E) = P(E|H_{CS})P(H_{CS}) + P(E|\neg H_{CS})P(\neg H_{CS}) \]
+\[ P(E) = (0.4 \times 0.3) + (0.6 \times 0.7) \]
+\[ P(E) = 0.12 + 0.42 = 0.54 \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS})P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.4 \times 0.3}{0.54} \]
+\[ P(H_{CS}|E) = \frac{0.12}{0.54} \approx 0.2222 \]
+
+Thus the final probabilities are as follows:
+
+```json
+{
+  "business administration": 0.0345,
+  "computer science": 0.2222
+}
+```

@@ -1,0 +1,63 @@
+Let's use Bayes' Rule to compute the posterior probabilities of the hypotheses given the evidence. Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+In this analysis:
+- \( H \) represents the hypothesis for each field.
+- \( E \) represents the evidence from Adam's personality sketch.
+- \( \neg H \) represents the field not being the hypothesis.
+
+To estimate these probabilities, we need reasonable assumptions based on the given information and common sense.
+
+### Hypothesis 1: Agricultural and Veterinary Science
+- \( P(H) \): This is the prior probability that Adam was enrolled in Agricultural and Veterinary Science. Given that graduate students are distributed across many fields, we could estimate this prior as being relatively low but higher than more specialized fields.
+- \( P(E|H) \): This is the probability of seeing the personality sketch \( E \) if Adam was in Agricultural and Veterinary Science. Given Adam's interest in nature, plants, and animals, this probability would be quite high.
+- \( P(E|\neg H) \): This is the probability of seeing the personality sketch \( E \) if Adam was not in Agricultural and Veterinary Science. Given that his traits also align well with other fields like environmental sciences, biology, etc., this probability is moderately high.
+
+### Hypothesis 2: Business Administration
+- \( P(H) \): The prior probability that Adam was enrolled in Business Administration. This is likely to be moderate given how common the field is among graduate students.
+- \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam was in Business Administration is low. The traits described are less typical of a business student.
+- \( P(E|\neg H) \): The probability of seeing the personality sketch \( E \) if Adam was not in Business Administration. Given the alignment with more sciences-oriented fields, this probability would be moderately high.
+
+Let's assign some reasonable numerical values to these: (Note these are subjective estimates for illustration)
+
+- For Agricultural and Veterinary Science:
+  - \( P(H) = 0.1 \)
+  - \( P(E|H) = 0.8 \)
+  - \( P(E|\neg H) = 0.2 \)
+
+- For Business Administration:
+  - \( P(H) = 0.3 \)
+  - \( P(E|H) = 0.1 \)
+  - \( P(E|\neg H) = 0.5 \)
+
+We will use these to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Using \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \):
+
+### For Agricultural and Veterinary Science
+\[ 
+P(E) = (0.8 \cdot 0.1) + (0.2 \cdot 0.9) = 0.08 + 0.18 = 0.26 
+\]
+\[ 
+P(H|E) = \frac{0.8 \cdot 0.1}{0.26} = \frac{0.08}{0.26} \approx 0.308 
+\]
+
+### For Business Administration
+\[ 
+P(E) = (0.1 \cdot 0.3) + (0.5 \cdot 0.7) = 0.03 + 0.35 = 0.38 
+\]
+\[ 
+P(H|E) = \frac{0.1 \cdot 0.3}{0.38} = \frac{0.03}{0.38} \approx 0.079 
+\]
+
+So, based on these rough estimates, we have the following probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.308,
+  "business administration": 0.079
+}
+```

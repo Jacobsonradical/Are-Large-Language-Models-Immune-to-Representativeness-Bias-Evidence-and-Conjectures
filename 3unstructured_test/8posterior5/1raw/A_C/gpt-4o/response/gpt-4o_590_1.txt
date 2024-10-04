@@ -1,0 +1,44 @@
+To determine \( P(H \mid E) \) for each field of study given the personality sketch of Adam, we'll use Bayes' rule. According to Bayes' theorem:
+
+\[ P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)} \]
+
+Given the fields "computer science" and "agricultural and veterinary science," we'll need to estimate:
+1. \( P(H) \): The prior probability that Adam is enrolled in each field.
+2. \( P(E \mid H) \): The probability of observing the personality sketch \( E \) given that Adam is in that field.
+3. \( P(E \mid \neg H) \): The probability of observing the personality sketch \( E \) given that Adam is not in that field.
+4. \( P(E) \): The overall probability of observing the personality sketch \( E \).
+
+Since \( P(E) \) should be the sum of the probabilities of \( E \) given every possible field Adam could be enrolled in, which we don't explicitly have, we'll focus on the ratios provided by Bayes' rule and assume it constitutes a proxy for recalculating the relevant posteriors across our given fields.
+
+### Analysis for Each Field
+
+#### Computer Science
+- **\( P(H_{\text{CS}}) \)**: Let's assume the prior probability of Adam being a computer science graduate student is 0.2 (20%).
+- **\( P(E \mid H_{\text{CS}}) \)**: Given his curiosity about nature, love for animals, and solving puzzles:
+  - Empathy and deep love for animals are somewhat less typical for computer science but high intelligence and appreciation for abstract concepts are fitting. Assign \( P(E \mid H_{\text{CS}}) = 0.3 \) (30%).
+- **\( P(E \mid \neg H_{\text{CS}}) \)**: Let's assume the probability of observing the personality sketch given he's not in computer science (as a weighted average across other fields) is about \( 0.05 \) (5%).
+
+Using Bayes:
+\[ P(H_{\text{CS}} \mid E) \propto \frac{P(E \mid H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \approx \frac{0.3 \cdot 0.2}{\text{Normalization factor}} \approx 0.06 /\text{Normalization factor} \]
+
+#### Agricultural and Veterinary Science
+- **\( P(H_{\text{AgVet}}) \)**: Assume the prior probability is higher for someone with an apparent affinity for nature and animals, say 0.4 (40%).
+- **\( P(E \mid H_{\text{AgVet}}) \)**: This field strongly aligns with Adam’s love for animals, nature, and empathy (which is expected in this field). Assign \( P(E \mid H_{\text{AgVet}}) = 0.7 \) (70%).
+- **\( P(E \mid \neg H_{\text{AgVet}}) \)**: This would be a catch-all for fields not fitting his description, which may be lower, say 0.03 (3%).
+
+Using Bayes:
+\[ P(H_{\text{AgVet}} \mid E) \propto \frac{P(E \mid H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E)} \approx \frac{0.7 \cdot 0.4}{\text{Normalization factor}} \approx 0.28 /\text{Normalization factor} \]
+
+### Calculation
+Since the normalization factor \( P(E) \) will be the same for both fields, we compute the proportional values and then normalize them proportionally for comparison.
+
+Using these ratios, we get the two values:
+- Computer Science: ≈ 0.06
+- Agricultural and Veterinary Science: ≈ 0.28
+
+The normalized probabilities should offer a more comparable metric, so:
+
+{
+  "computer science": "0.18",  //(0.06 / (0.06 + 0.28))
+  "agricultural and veterinary science": "0.82"   //(0.28 / (0.06 + 0.28))
+}

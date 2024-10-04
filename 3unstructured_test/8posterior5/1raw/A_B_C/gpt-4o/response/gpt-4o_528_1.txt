@@ -1,0 +1,64 @@
+To apply Bayes' rule, we need to calculate the posterior probability \( P(H|E) \) for each field given the personality sketch \( E \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+For practical purposes, let's break it down step-by-step:
+
+1. \( P(H) \) - The prior probability of Adam being enrolled in a specific field.
+2. \( P(E|H) \) - The likelihood of observing the personality sketch \( E \) given that Adam is in that field.
+3. \( P(E|\neg H) \) - The likelihood of observing the personality sketch \( E \) given that Adam is not in that field.
+
+Let's make some reasonable assumptions for each field based on Adam's personality:
+
+### Computer Science
+
+- **P(H)**: Computer Science is a common field, but not everyone with a love for nature and animals chooses it. Let's assume \( P(H) = 0.2 \).
+- **P(E|H)**: Given his qualities like high intelligence, good understanding of abstract concepts, and enjoying solving puzzles, we'll set \( P(E|H) = 0.5 \).
+- **P(E|\neg H)**: Since this personality can fit many fields, we'll assume \( P(E|\neg H) = 0.2 \).
+
+### Business Administration
+
+- **P(H)**: Business Administration is also a common field. However, Adam's personality doesn't directly align with this field's typical traits. Let's assume \( P(H) = 0.15 \).
+- **P(E|H)**: The traits don’t strongly indicate a business orientation, so \( P(E|H) = 0.2 \).
+- **P(E|\neg H)**: Same general idea as for Computer Science, so \( P(E|\neg H) = 0.2 \).
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: Agricultural and Veterinary Science seems well-aligned with Adam's love for nature and animals. Let's assume \( P(H) = 0.1 \).
+- **P(E|H)**: Given his strong empathy, love for animals, and appreciation for hard work, we'll set \( P(E|H) = 0.7 \).
+- **P(E|\neg H)**: Same general idea as for Computer Science, so \( P(E|\neg H) = 0.2 \).
+
+### Calculation
+To compute \( P(H|E) \), we need the marginal likelihood \( P(E) \):
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+This needs to be computed for each field. However, since \( \neg H \) represents a mixture of various other fields, the calculation can generally simplify by normalizing the results at the end.
+
+#### Computer Science
+\[ P(E) = (0.5 \times 0.2) + (0.2 \times 0.8) = 0.1 + 0.16 = 0.26 \]
+\[ P(H|E) = \frac{0.5 \times 0.2}{0.26} = \frac{0.1}{0.26} \approx 0.385 \]
+
+#### Business Administration
+\[ P(E) = (0.2 \times 0.15) + (0.2 \times 0.85) = 0.03 + 0.17 = 0.2 \]
+\[ P(H|E) = \frac{0.2 \times 0.15}{0.2} = \frac{0.03}{0.2} = 0.15 \]
+
+#### Agricultural and Veterinary Science
+\[ P(E) = (0.7 \times 0.1) + (0.2 \times 0.9) = 0.07 + 0.18 = 0.25 \]
+\[ P(H|E) = \frac{0.7 \times 0.1}{0.25} = \frac{0.07}{0.25} = 0.28 \]
+
+Given the above calculations, we can normalize these values:
+
+{
+  "computer science": \( \frac{0.385}{0.385 + 0.15 + 0.28} \approx \frac{0.385}{0.815} \approx 0.472 \)
+  "business administration": \( \frac{0.15}{0.815} \approx 0.184 \)
+  "agricultural and veterinary science": \( \frac{0.28}{0.815} \approx 0.344 \)
+}
+
+So the final normalized estimates are:
+
+{
+  "computer science": 0.472,
+  "business administration": 0.184,
+  "agricultural and veterinary science": 0.344
+}

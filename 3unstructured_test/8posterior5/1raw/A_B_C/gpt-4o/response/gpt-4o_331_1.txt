@@ -1,0 +1,78 @@
+To solve the problem using Bayes' rule, we need to calculate the posterior probabilities \( P(H|E) \) for each field, given the personality sketch of Adam.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is in that field.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is not in that field.
+- \( P(E) \) is the overall probability of observing the personality sketch \( E \).
+
+To simplify, we'll assume the following prior probabilities \( P(H) \) for each field:
+- Business Administration: 0.25
+- Computer Science: 0.25
+- Agricultural and Veterinary Science: 0.5
+
+These priors are just reductions for simplification but can be altered based on known distributions.
+
+Next, we estimate \( P(E|H) \) for each field based on how well Adam's personality sketch fits the typical profile for each field. Similarly, we'll consider \( P(E|\neg H) \), which is the likelihood of the sketch given that Adam is not in that field.
+
+Let's estimate the values:
+- For Business Administration
+  - \( P(E|H) \) might be low because Adam's interests and attributes (curiosity about nature, love for animals) do not align strongly with business administration: let's say 0.1.
+  - \( P(E|\neg H) \): Given that Adam's personality does not strongly fit business admin, a reasonable value could be high: let's say 0.9.
+
+- For Computer Science
+  - \( P(E|H) \) might be moderate, as Adam’s intelligence, puzzle-solving skills really connect, but less so his empathy and love for nature: let's say 0.3.
+  - \( P(E|\neg H) \) would be still reasonable high because many other fields apart from CS could fit Adam's personality: let's say 0.7.
+
+- For Agricultural and Veterinary Science
+  - \( P(E|H) \) is expectedly high as Adam's love for animals, nature, and understanding hard work fit very well: let's say 0.9.
+  - \( P(E|\neg H) \) would be correspondingly low because filling vet science features with non-relevant fields would considerably diminishes fit:  let's say 0.1.
+
+Finally, to get \( P(H|E) \), we calculate as follows:
+\[ P(H|E) = \frac{P(E|H)P(H)}{\sum P(E|H_i)P(H_i)} \]
+We must normalize over all considered fields {business administration, computer science, agricultural and veterinary science}.
+
+Here we take first calculate our denominators (summation part).
+
+{
+  \[
+  D = \sum P(E|H_i)P(H_i) 
+  \]
+  = \(0.1*0.25 + 0.3*0.25 + 0.9*0.5\)
+  = \( 0.025 + 0.075 + 0.45 \)
+  = 0.55
+}
+
+
+And then apply Bayes' Theorem:
+
+\[
+{
+  "business administration": \( P(business administration|E) =  \frac{P(E|business administration) * P(business administration)}{D}\)
+  \]
+
+  = \( \frac{0.1*0.25}{0.55} \) 
+  = 0.045
+
+ \[
+ "computer science":  \( P(computer science|E) =  \frac{P(E|computer science) * P(computer science)}{D}\)
+ \]
+
+  = \( \frac{0.3*0.25}{0.55} \)
+  = 0.136
+
+\[
+"agricultural and veterinary science": \(P(agricultural and veterinary science|E)  =  \frac{P(E| agricultural and veterinary science)*P( agricultural and veterinary science)}{D}\)
+
+ = \frac{0.9*0.5}{0.55}) 
+ = 0.818
+\]
+
+{
+  "business administration": 0.045,
+  "computer science": 0.136,
+  "agricultural and veterinary science": 0.818
+}

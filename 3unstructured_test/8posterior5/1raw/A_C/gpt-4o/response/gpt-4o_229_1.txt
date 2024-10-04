@@ -1,0 +1,53 @@
+To use Bayes' rule, we need to estimate the following probabilities:
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam was enrolled in the field \( H \).
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam was not enrolled in the field \( H \).
+
+Finally, we use these to compute:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) is the marginal probability of observing the personality sketch \( E \).
+
+### Field: Agricultural and Veterinary Science
+
+- \( P(H_\text{agri\_vet}) \): The prior probability that Adam is enrolled in agricultural and veterinary science. Considering the various available graduate fields, let's assume a moderate baseline, e.g. 0.1.
+- \( P(E|H_\text{agri\_vet}) \): The likelihood of Adam having the given personality sketch given he is in agricultural and veterinary science. Given his deep love for animals and nature, let's assume a high value, e.g. 0.7.
+- \( P(E|\neg H_\text{agri\_vet}) \): The likelihood of Adam having the given personality sketch given he is not in agricultural and veterinary science. Let's assume a moderate value because some traits could fit in other fields, e.g. 0.3.
+
+By Bayes' rule:
+\[ P(H_\text{agri\_vet}|E) = \frac{0.7 \cdot 0.1}{P(E)} \]
+
+### Field: Computer Science
+
+- \( P(H_\text{cs}) \): The prior probability that Adam is enrolled in computer science. Considering the popularity of this field, let's assume a higher baseline, e.g. 0.2.
+- \( P(E|H_\text{cs}) \): The likelihood of Adam having the given personality sketch given he is in computer science. Considering his high intelligence and propensity for puzzles, let's assume a moderate value, e.g. 0.5.
+- \( P(E|\neg H_\text{cs}) \): The likelihood of Adam having the given personality sketch given he is not in computer science. Let's assume a lower value, e.g. 0.4.
+
+By Bayes' rule:
+\[ P(H_\text{cs}|E) = \frac(0.5 \cdot 0.2}{P(E)} \]
+
+Assuming \( P(E) \) is approximately the same for both cases, we can normalize these estimates to compare them relative to each other.
+
+Let's perform the calculations:
+
+For agricultural and veterinary science:
+\[ P(H_\text{agri\_vet}|E) = \frac{0.7 \cdot 0.1}{P(E)} = \frac{0.07}{P(E)} \]
+
+For computer science:
+\[ P(H_\text{cs}|E) = \frac{0.5 \cdot 0.2}{P(E)} = \frac{0.1}{P(E)} \]
+
+After normalizing these probabilities (ignoring \( P(E) \)):
+- Agricultural and Veterinary Science: 0.07
+- Computer Science: 0.1
+
+Now normalizing the values to sum to 1 for comparison (relative probabilities):
+\[ P(H_\text{agri\_vet}|E) = \frac{0.07}{0.07 + 0.1} \approx 0.41 \]
+\[ P(H_\text{cs}|E) = \frac{0.1}{0.07 + 0.1} \approx 0.59 \]
+
+Thus, the relative probabilities are:
+{
+  "agricultural and veterinary science": 0.41,
+  "computer science": 0.59
+}
+
+Keep in mind these are simplified estimations and in practical applications there may be more factors to consider, including a more accurate \( P(E) \).

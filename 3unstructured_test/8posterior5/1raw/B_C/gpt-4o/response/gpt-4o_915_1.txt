@@ -1,0 +1,42 @@
+To apply Bayes' rule to compute the probabilities of Adam being enrolled in business administration or computer science, we'll use the following equations:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+First, let's estimate each of the necessary probabilities:
+
+### Business Administration
+- **P(H):** The prior probability that a randomly chosen graduate student is in business administration. Let's assume, based on general graduate student distribution, this is around 0.10.
+- **P(E|H):** The likelihood of observing the personality sketch if Adam were a business administration student. It seems less likely given the details about nature, empathy, and curiosity about plants. We'll estimate this to be 0.10.
+- **P(E|¬H):** The likelihood of observing the personality sketch if Adam were not a business administration student. This would be higher given the details align more with other fields. Let's say this is around 0.05.
+
+### Computer Science
+- **P(H):** The prior probability that a randomly chosen graduate student is in computer science. Let's assume, based on general graduate student distribution, this is around 0.20.
+- **P(E|H):** The likelihood of observing the personality sketch if Adam were a computer science student. This is reasonably likely given his intelligence and puzzle-solving skills. We'll estimate this to be 0.60.
+- **P(E|¬H):** The likelihood of observing the personality sketch if Adam were not a computer science student. This would be lower since the sketch fits well with typical traits in computer science. We'll estimate 0.10.
+
+We need \( P(E) \) to apply Bayes' rule:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For business administration:
+\[ P(E) = (0.10 \times 0.10) + (0.05 \times (1 - 0.10)) = 0.01 + 0.045 = 0.055 \]
+
+For computer science:
+\[ P(E) = (0.60 \times 0.20) + (0.10 \times (1 - 0.20)) = 0.12 + 0.08 = 0.20 \]
+
+Now we can apply Bayes' rule:
+
+### Business Administration:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.10 \times 0.10}{0.055} \approx 0.018 \]
+
+### Computer Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.60 \times 0.20}{0.20} = \frac{0.12}{0.20} = 0.60 \]
+
+So, our estimates would be:
+
+```json
+{
+  "business administration": 0.018,
+  "computer science": 0.60
+}
+```

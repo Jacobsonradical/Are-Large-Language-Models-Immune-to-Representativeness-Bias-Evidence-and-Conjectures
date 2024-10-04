@@ -1,0 +1,46 @@
+Given the personality sketch E of Adam, we need to estimate the likelihoods and prior probabilities for each field to compute the posterior probability using Bayes' rule. Here's an approach to filling in the values:
+
+1. **P(H)**: The prior probability that Adam is enrolled in a given field, without knowing his personality sketch.
+2. **P(E|H)**: The probability of observing the personality sketch E given that Adam is enrolled in that field.
+3. **P(E|\neg H)**: The probability of observing the personality sketch E given that Adam is not enrolled in that field.
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: This can be considered as the prior probability of a graduate student being enrolled in agricultural and veterinary science, which is likely lower given the vast number of fields. Let's assume a value of 0.05.
+- **P(E|H)**: Given Adam’s curiosity about nature, love for animals, and high empathy, this fits well with the agricultural and veterinary science field. Let's assign a high probability of 0.9.
+- **P(E|\neg H)**: Given the unique attributes, it's less likely that a person not in this field would match the personality sketch as closely. Let's assume a value of 0.1.
+
+### Business Administration
+
+- **P(H)**: This can be considered as the prior probability of a graduate student being enrolled in business administration, which is relatively high given the popularity of the field. Let's assume a value of 0.2.
+- **P(E|H)**: The personality sketch does not align strongly with traits typical of business administration. Let's assign a moderate-to-low probability of 0.2.
+- **P(E|\neg H)**: Given that there are many fields outside business administration, it's somewhat likely that his personality could align with another field. Let's assume a value of 0.1.
+
+Now, we use Bayes' rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Calculating separately for each field:
+
+#### Agricultural and Veterinary Science
+
+\[ P(E)_{\text{ag}} = (0.9 \cdot 0.05) + (0.1 \cdot 0.95) = 0.045 + 0.095 = 0.14 \]
+
+\[ P(\text{H}_{\text{ag}} | E) = \frac{0.9 \cdot 0.05}{0.14} = \frac{0.045}{0.14} \approx 0.321 \]
+
+#### Business Administration
+
+\[ P(E)_{\text{bus}} = (0.2 \cdot 0.2) + (0.1 \cdot 0.8) = 0.04 + 0.08 = 0.12 \]
+
+\[ P(\text{H}_{\text{bus}} | E) = \frac{0.2 \cdot 0.2}{0.12} = \frac{0.04}{0.12} \approx 0.333 \]
+
+So, the posterior probabilities are roughly:
+
+{
+  "agricultural and veterinary science": 0.321,
+  "business administration": 0.333
+}
+
+It's important to note that these estimates can change depending on assumptions made for prior probabilities and likelihoods.

@@ -1,0 +1,67 @@
+To calculate the posterior probabilities \( P(H|E) \) for Adam being enrolled in either "agricultural and veterinary science" or "business administration" based on his personality sketch \( E \), we use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here’s how we break it down step-by-step:
+
+1. **Define Prior Probabilities \( P(H) \)**:
+   - \( P(\text{agricultural and veterinary science}) = P(A) \)
+   - \( P(\text{business administration}) = P(B) \)
+
+2. **Define Likelihoods \( P(E|H) \)**:
+   - \( P(E|\text{agricultural and veterinary science}) = P(E|A) \)
+   - \( P(E|\text{business administration}) = P(E|B) \)
+
+3. **Define Evidence \( P(E) \)**:
+   \[ P(E) = P(E|A) \cdot P(A) + P(E|B) \cdot P(B) + P(E|\neg A \cap \neg B) \cdot P(\neg A \cap \neg B) \]
+
+Since we are only considering two fields here, we will assume that \( P(\neg A \cap \neg B) \) is the prior probability of neither field and can be omitted for the conditional calculations:
+
+### Assumptions (subjective):
+- **Prior Probabilities**:
+  - \( P(A) \): Likelihood that any given graduate student is in agricultural and veterinary science.
+  - \( P(B) \): Likelihood that any given graduate student is in business administration.
+
+  Let’s assume:
+  - \( P(A) = 0.2 \)
+  - \( P(B) = 0.3 \)
+
+- **Likelihoods**:
+  - **For Agricultural and Veterinary Science**:
+    Adam fits well into this category based on his curiosity about nature, plants, love for animals, and empathy.
+    \[ P(E|A) = 0.9 \]
+
+  - **For Business Administration**:
+    Adam's warm heart, empathy, and appreciation for dedication are beneficial but less directly aligned with business administration.
+    \[ P(E|B) = 0.2 \]
+
+-** Complement Likelihoods**:
+  - For other fields not considered in \( A \) or \( B \), let's assume an average fit.
+    \[ P(E|\neg A \cap \neg B) = 0.5 \]
+
+### Calculation:
+
+1. **Total Probability \( P(E) \)**:
+   \[ P(E) = P(E|A) \cdot P(A) + P(E|B) \cdot P(B) + P(E|\neg A \cap \neg B) \cdot P(\neg A \cap \neg B) \]
+   \[ P(E) = (0.9 \cdot 0.2) + (0.2 \cdot 0.3) + (0.5 \cdot (1 - 0.2 - 0.3)) \]
+   \[ P(E) = 0.18 + 0.06 + 0.25 = 0.49 \]
+
+2. **Posterior Probabilities**:
+   - For Agricultural and Veterinary Science:
+     \[ P(A|E) = \frac{P(E|A) \cdot P(A)}{P(E)} \]
+     \[ P(A|E) = \frac{0.9 \cdot 0.2}{0.49} \]
+     \[ P(A|E) \approx 0.367 \]
+
+   - For Business Administration:
+     \[ P(B|E) = \frac{P(E|B) \cdot P(B)}{P(E)} \]
+     \[ P(B|E) = \frac{0.2 \cdot 0.3}{0.49} \]
+     \[ P(B|E) \approx 0.122 \]
+
+Resulting in:
+
+```json
+{
+  "agricultural and veterinary science": 0.367,
+  "business administration": 0.122
+}
+```

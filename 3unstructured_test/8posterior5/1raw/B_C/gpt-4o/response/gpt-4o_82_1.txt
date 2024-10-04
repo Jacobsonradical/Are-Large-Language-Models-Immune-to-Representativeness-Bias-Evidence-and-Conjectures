@@ -1,0 +1,89 @@
+To solve for \( P(H|E) \) for each field (business administration and computer science), we can use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since we are comparing two fields, \( P(E) \) will cancel out, and we can work with relative values for \( P(H|E) \) without needing to normalize them to sum to 1.
+
+Let's break this down step by step for both fields based on the provided sketch of Adam's personality. We'll make reasonable estimates based on his traits.
+
+### Business Administration
+
+1. **Prior Probability, \( P(H) \)**:
+   \[
+   P(H)_{BA} \approx 0.25
+   \]
+   Business administration is a common field, but it may be less likely given the specifics of Adam's personality sketch.
+
+2. **Likelihood, \( P(E|H) \)**:
+   \[
+   P(E|H)_{BA} \approx 0.1
+   \]
+   Business administration is typically more associated with managerial skills and less so with a deep love for nature and animals.
+
+3. **Probability of Evidence Given Not \( H \), \( P(E|\neg H) \)**:
+   \[
+   P(E|\neg H) \approx 0.9
+   \]
+   Adam's personality seems less aligned with business administration, so the likelihood given not \( H \) would be high.
+
+### Computer Science
+
+1. **Prior Probability, \( P(H) \)**:
+   \[
+   P(H)_{CS} \approx 0.35
+   \]
+   Computer science is a very common and wide field for graduate studies.
+
+2. **Likelihood, \( P(E|H) \)**:
+   \[
+   P(E|H)_{CS} \approx 0.6
+   \]
+   Adam's personality aligns well with the problem-solving and abstract thinking typical in computer science.
+
+3. **Probability of Evidence Given Not \( H \), \( P(E|\neg H) \)**:
+   \[
+   P(E|\neg H) \approx 0.4
+   \]
+   Since Adam's traits are relatively specific, they may be less likely to occur in a random field other than computer science.
+
+Using these estimates, we can now compute the posterior probabilities \( P(H|E) \):
+
+\[
+P(H|E)_{BA} = \frac{P(E|H)_{BA} P(H)_{BA}}{P(E)} \approx \frac{0.1 \times 0.25}{P(E)}
+\]
+
+\[
+P(H|E)_{CS} = \frac{P(E|H)_{CS} P(H)_{CS}}{P(E)} \approx \frac{0.6 \times 0.35}{P(E)}
+\]
+
+Since we don't need to compute \( P(E) \) explicitly for comparison, we can compare the numerators directly:
+
+\[
+P(Business Administration|E) \propto 0.1 \times 0.25 = 0.025
+\]
+
+\[
+P(Computer Science|E) \propto 0.6 \times 0.35 = 0.21
+\]
+
+### Normalized Probabilities (for comparison):
+To normalize these values to make them comparable:
+
+\[
+P(Business Administration|E) = \frac{0.025}{0.025 + 0.21} \approx \frac{0.025}{0.235} \approx 0.106
+\]
+
+\[
+P(Computer Science|E) = \frac{0.21}{0.025 + 0.21} \approx \frac{0.21}{0.235} \approx 0.894
+\]
+
+Converting these estimates to approximate values between 0 and 1:
+
+```json
+{
+  "business administration": 0.1,
+  "computer science": 0.9
+}
+```
+
+In conclusion, it is significantly more likely, given Adam's personality sketch, that he was enrolled in computer science rather than business administration in 2021.

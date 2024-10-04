@@ -1,0 +1,61 @@
+To determine the posterior probability \( P(H|E) \) for each field, we can use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E|H) \) is the probability of observing the evidence given that Adam is in the field.
+- \( P(E|\neg H) \) is the probability of observing the evidence given that Adam is not in the field.
+- \( P(E) \) is the overall probability of observing the evidence. 
+
+We'll assume the following priors based on general norms at universities:
+- There are many fields of study, so a reasonable prior \( P(H) \) for each is low. To simplify, let's assume \( P(H) = 0.1 \) as a placeholder.
+
+Next, we analyze \( P(E|H) \) and \( P(E|\neg H) \):
+
+1. **Computer Science:**
+    - \( P(E|H) \): Probability that the personality sketch matches a computer science student.
+        - Positive traits for judging: high intelligence, good at understanding abstract concepts, enjoys solving puzzles.
+        - Below average traits for judging: love for nature, plants, animals, warm heart, empathy.
+        - Given the mixed alignment of traits, let's assign \( P(E|H) = 0.5 \).
+
+    - \( P(E|\neg H) \): Probability that the personality sketch matches if Adam is not a computer science student.
+        - With many other fields, this could include nature-related fields, animal-related fields, and others.
+        - Let's assume \( P(E|\neg H) = 0.1 \) considering the mix but lower overall fit.
+
+    - \( P(E) \): General appearance of evidence:
+        - We'll approximate an overall probability aggregating all normalized fits.
+        - \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \)
+        - \( P(E) = 0.5 \cdot 0.1 + 0.1 \cdot 0.9 = 0.05 + 0.09 = 0.14 \)
+
+    - \( P(H|E) \) using Bayes' Rule:
+        - \( P(H|E) = \frac{0.5 \cdot 0.1}{0.14} = \frac{0.05}{0.14} \approx 0.357 \)
+
+
+2. **Business Administration:**
+    - \( P(E|H) \): Probability that the personality sketch fits a business administration student.
+        - Positive traits for judging: high intelligence, understanding hard work and dedication.
+        - Average analyst: problem-solving, understanding abstract concepts.
+        - Less correlated traits: nature, animals, warm heart.
+        - Let's assign a moderate \( P(E|H) = 0.2 \) since it's less fitting compared to CPU science's traits.
+
+    - \( P(E|\neg H) \): Probability that the personality sketch matches if Adam is not a business administration student.
+        - Similar to above, considering various fields.
+        - Assume similar fit \( P(E|\neg H) = 0.1 \).
+
+    - \( P(E) \): Overall probability of evidence remaining as approximated.
+        - \( P(E) = 0.14 \).
+
+    - \( P(H|E) \) using Bayes' Rule:
+        - \( P(H|E) = \frac{0.2 \cdot 0.1}{0.14} = \frac{0.02}{0.14} \approx 0.143 \).
+
+The results are based on assumptions but using the given format, here's the answered values:
+
+```json
+{
+  "computer science": 0.357,
+  "business administration": 0.143
+}
+```
+
+This indicates that given Adam’s personality sketch, it's relatively more likely he was enrolled in a computer science program compared to a business administration program.

@@ -1,0 +1,52 @@
+To apply Bayes' rule, we need to compute the posterior probability P(H|E) for each field of study given the personality sketch E. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \(P(H)\) is the prior probability of being enrolled in a given field.
+- \(P(E|H)\) is the likelihood of having the personality sketch given enrollment in that field.
+- \(P(E)\) is the overall probability of the personality sketch (which is a sum over all fields).
+
+For simplification, we assume prior probabilities \(P(H)\) for each field of study are equal unless specific information tells us otherwise. If another distribution is known, it should be used. Let's consider them equal for now. Additionally, note that \(P(E)\) is constant for all hypotheses, so it will not change the relative comparison; thus, only the numerators need to be computed and compared.
+
+### Judging the Likelihoods:
+
+- \( P(H) \):
+  - Since we assume equal prior probabilities, let’s assign them equally as 1/3 for each field since three fields are considered.
+
+- \( P(E|H) \):
+  - **Computer Science:** Adam's personality sketch is not directly aligned with typical computer science fields but could fit considering curiosity about systems and abstract thinking (medium likelihood). Let's assign a rough estimate of 0.4.
+  - **Business Administration:** The traits like love for nature, animals, and empathy don't align closely with typical business administration focus areas (low likelihood). Let’s estimate this at 0.2.
+  - **Agricultural and Veterinary Science:** Adam's traits of having a love for nature, animals, and understanding of hard work closely align with agricultural and veterinary sciences (high likelihood). Let’s assign a higher value of 0.8.
+
+- \( P(E|\neg H) \):
+  - This is the probability of the personality sketch given all fields other than a particular one. Since personality traits like empathy and love for animals don't strongly suggest computer science or business admin, \(P(E|\neg H)\) is higher for fields outside these.
+
+### Using Bayes Rule:
+
+Given equal priors and assuming overall distribution as per Bayes:
+
+1. **Computer Science:**
+\[ P(H|E)_{CS} \approx \frac{0.4 \times 1/3}{P(E)} \]
+
+2. **Business Administration:**
+\[ P(H|E)_{BA} \approx \frac{0.2 \times 1/3}{P(E)} \]
+
+3. **Agricultural and Veterinary Science:**
+\[ P(H|E)_{AVS} \approx \frac{0.8 \times 1/3}{P(E)} \]
+
+Since \( P(E) \) is the same for each field, it cancels out in relative comparisons:
+
+{
+  "computer science": \( \frac{0.4 \times 1/3}{(0.4 \times 1/3 + 0.2 \times 1/3 + 0.8 \times 1/3)} \approx 0.24 \),
+  "business administration": \( \frac{0.2 \times 1/3}{(0.4 \times 1/3 + 0.2 \times 1/3 + 0.8 \times 1/3)} \approx 0.12 \),
+  "agricultural and veterinary science": \( \frac{0.8 \times 1/3}{(0.4 \times 1/3 + 0.2 \times 1/3 + 0.8 \times 1/3)} \approx 0.64 \)
+}
+
+So, rounding off, we get:
+
+{
+  "computer science": 0.24,
+  "business administration": 0.12,
+  "agricultural and veterinary science": 0.64
+}

@@ -1,0 +1,80 @@
+To compute the probability \( P(H|E) \) for each field using Bayes' rule, we need the following probability estimates:
+
+1. **P(H)**: Prior probability that Adam is enrolled in a given field.
+2. **P(E|H)**: Probability of observing Adam's personality traits given he is enrolled in a specific field.
+3. **P(E|\neg H)**: Probability of observing Adam's personality traits given he is not enrolled in that specific field.
+4. **P(E)**: Overall probability of observing Adam's personality traits (however, in this case, it will be a normalizing factor).
+
+Let’s assign estimated probabilities.
+
+### Business Administration:
+1. **P(H_business)**: This could be a moderately common graduate field.
+   - Let's assume \( P(H_{\text{business}}) = 0.2 \).
+   
+2. **P(E|H_business)**: Business administration isn't strongly aligned with Adam's love for nature, animals, and puzzles.
+   - Let's assume \( P(E|H_{\text{business}}) = 0.1 \).
+   
+3. **P(E|\neg H_business)**: Probability of observing these traits in someone not studying business administration.
+   - Let's assume \( P(E|\neg H_{\text{business}}) = 0.6 \).
+
+### Agricultural and Veterinary Science:
+1. **P(H_agriculture)**: Less common than business but still relevant.
+   - Let's assume \( P(H_{\text{agriculture}}) = 0.1 \).
+   
+2. **P(E|H_agriculture)**: Highly aligned with Adam’s traits.
+   - Let's assume \( P(E|H_{\text{agriculture}}) = 0.9 \).
+   
+3. **P(E|\neg H_agriculture)**: Probability of having such traits when not in agriculture/vet profile.
+   - Let's assume \( P(E|\neg H_{\text{agriculture}}) = 0.3 \).
+
+### Computer Science:
+1. **P(H_computer_science)**: A common field.
+   - Let's assume \( P(H_{\text{computer_science}}) = 0.2 \).
+   
+2. **P(E|H_computer_science)**: Partially aligned with solving puzzles but not as much with nature and animals.
+   - Let's assume \( P(E|H_{\text{computer_science}}) = 0.4 \).
+   
+3. **P(E|\neg H_computer_science)**: Probability of such traits in someone not studying computer science.
+   - Let's assume \( P(E|\neg H_{\text{computer_science}}) = 0.5 \).
+
+Using these estimates, we can apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing factor and won't affect the relative probabilities, we compute:
+
+1. **Business Administration**:
+   \[
+   P(H|E)_{\text{business}} = \frac{P(E|H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)}
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   \[
+   P(H|E)_{\text{agriculture}} = \frac{P(E|H_{\text{agriculture}}) \cdot P(H_{\text{agriculture}})}{P(E)} = \frac{0.9 \cdot 0.1}{P(E)}
+   \]
+
+3. **Computer Science**:
+   \[
+   P(H|E)_{\text{computer_science}} = \frac{P(E|H_{\text{computer_science}}) \cdot P(H_{\text{computer_science}})}{P(E)} = \frac{0.4 \cdot 0.2}{P(E)}
+   \]
+
+Now, normalizing the values based on the assumed priors and likelihoods:
+
+\[
+P(E) = (\text{sum of all numerators})
+\]
+
+In more straightforward terms:
+- **Business Administration**: \( \frac{0.02}{(0.02 + 0.09 + 0.08)} = \frac{0.02}{0.19} \approx 0.105 \)
+- **Agricultural and Veterinary Science**: \( \frac{0.09}{(0.02 + 0.09 + 0.08)} = \frac{0.09}{0.19} \approx 0.474 \)
+- **Computer Science**: \( \frac{0.08}{(0.02 + 0.09 + 0.08)} = \frac{0.08}{0.19} \approx 0.421 \)
+
+So, the estimated probabilities are:
+
+```json
+{
+  "business administration": 0.105,
+  "agricultural and veterinary science": 0.474,
+  "computer science": 0.421
+}
+```

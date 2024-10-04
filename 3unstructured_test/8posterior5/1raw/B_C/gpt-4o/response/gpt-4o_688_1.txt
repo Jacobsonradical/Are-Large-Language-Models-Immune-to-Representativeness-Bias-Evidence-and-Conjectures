@@ -1,0 +1,65 @@
+To determine the probabilities \( P(H|E) \) for each field using Bayes' rule, we need to establish \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be calculated using:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplification, let's assume the prior probability \( P(H) \) of Adam being in each field is initially equal unless otherwise stated.
+
+### Business Administration:
+1. **Prior, \( P(H) \):**
+   - We assume there's a relatively equal distribution among various fields.
+   - Let's assume \( P(H_{BA}) = 0.05 \) (as business administration is a common field but not heavily aligned with the given personality traits).
+
+2. **Likelihood, \( P(E|H) \):**
+   - The likelihood of the personality traits fitting a business administration student is lower compared to other fields such as environmental studies or biology due to the high empathy and love for nature.
+   - Let's estimate \( P(E|H_{BA}) = 0.1 \).
+
+3. **Likelihood, \( P(E|\neg H) \):**
+   - For all other fields excluding business administration, the likelihood of having these traits might be higher as they align more with fields like biology, ecology, etc.
+   - Let's estimate \( P(E|\neg H_{BA}) = 0.5 \). 
+
+### Computer Science:
+1. **Prior, \( P(H) \):**
+   - Similarly, assume \( P(H_{CS}) = 0.05 \).
+
+2. **Likelihood, \( P(E|H) \):**
+   - Computer science can align with high intelligence and problem-solving, but love for nature and animals is less relevant.
+   - We estimate \( P(E|H_{CS}) = 0.1 \).
+
+3. **Likelihood, \( P(E|\neg H) \):**
+   - \( P(E|\neg H_{CS}) \approx 0.5 \), similar to business administration as it accounts for other fields.
+
+### Calculations:
+Let's compute \( P(H|E) \) for each field.
+
+1. **Business Administration:**
+\[ 
+P(E)_{BA} = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \\
+P(E)_{BA} = 0.1 \cdot 0.05 + 0.5 \cdot 0.95 = 0.005 + 0.475 = 0.48 
+\]
+\[ 
+P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.1 \cdot 0.05}{0.48} \approx 0.0104 
+\]
+
+2. **Computer Science:**
+\[ 
+P(E)_{CS} = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \\
+P(E)_{CS} = 0.1 \cdot 0.05 + 0.5 \cdot 0.95 = 0.005 + 0.475 = 0.48 
+\]
+\[ 
+P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.1 \cdot 0.05}{0.48} \approx 0.0104 
+\]
+
+Given the above estimates and computations, both calculated posterior probabilities are quite low, suggesting that neither business administration nor computer science is a strong fit based on the given personality traits of Adam.
+
+Hence the probabilities can be summarized as:
+
+```json
+{
+  "business administration": 0.0104,
+  "computer science": 0.0104
+}
+```

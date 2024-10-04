@@ -1,0 +1,97 @@
+To compute the probability \( P(H|E) \) that Adam was enrolled in a specific field given his personality sketch \( E \), we use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For both hypotheses \( H \), we need to estimate:
+- \( P(H) \): The prior probability that Adam was enrolled in that field.
+- \( P(E|H) \): The likelihood that his personality sketch matches what one might expect from a student in that field.
+- \( P(E|\neg H) \): The likelihood that his personality sketch matches what one might expect from a student not in that field.
+
+Given Adam's traits, let’s make the following assumptions:
+
+### Computer Science
+- \( P(H) \): We will assume that a moderate number of students choose computer science, so let’s estimate \( P(H) = 0.15 \).
+- \( P(E|H) \): Computer science students are typically curious, intelligent, and enjoy solving puzzles, fitting many aspects of Adam’s personality. Let’s estimate \( P(E|H) = 0.6 \).
+- \( P(E|\neg H) \): Given Adam’s personality traits, they might also fit students in other fields of study (such as biology or environmental science). We’ll say \( P(E|\neg H) = 0.3 \).
+
+### Business Administration
+- \( P(H) \): We will assume that a moderate number of students also choose business administration, so let’s estimate \( P(H) = 0.15 \).
+- \( P(E|H) \): Adam’s personality traits don’t strongly align with typical business administration profiles (which often emphasize leadership and management skills more). Let’s estimate \( P(E|H) = 0.1 \).
+- \( P(E|\neg H) \): Given the diverse range of non-business fields, we’ll say \( P(E|\neg H) = 0.4 \).
+
+Now, we need to calculate using Bayes' Rule.
+
+### For Computer Science:
+
+\[ 
+P(H|E) = \frac{P(E|H)P(H)}{P(E)} 
+\]
+
+Since \( P(E) \) can be calculated as:
+
+\[ 
+P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) 
+\]
+\[ 
+P(E) = (0.6 \times 0.15) + (0.3 \times 0.85) 
+\]
+\[ 
+P(E) = 0.09 + 0.255 
+\]
+\[ 
+P(E) = 0.345 
+\]
+
+Therefore:
+
+\[ 
+P(H|E) = \frac{0.6 \times 0.15}{0.345} 
+\]
+\[ 
+P(H|E) = \frac{0.09}{0.345} 
+\]
+\[ 
+P(H|E) \approx 0.26 
+\]
+
+### For Business Administration:
+
+\[ 
+P(H|E) = \frac{P(E|H)P(H)}{P(E)} 
+\]
+
+Since \( P(E) \) can be calculated as:
+
+\[ 
+P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) 
+\]
+\[ 
+P(E) = (0.1 \times 0.15) + (0.4 \times 0.85) 
+\]
+\[ 
+P(E) = 0.015 + 0.34 
+\]
+\[ 
+P(E) = 0.355 
+\]
+
+Therefore:
+
+\[ 
+P(H|E) = \frac{0.1 \times 0.15}{0.355} 
+\]
+\[ 
+P(H|E) = \frac{0.015}{0.355} 
+\]
+\[ 
+P(H|E) \approx 0.04 
+\]
+
+So, the final probabilities are:
+
+```json
+{
+  "computer science": 0.26,
+  "business administration": 0.04
+}
+```

@@ -1,0 +1,56 @@
+Let's use Bayes' Theorem to compute the probability of Adam being enrolled in each field given his personality sketch (E).
+
+Bayes' Theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the probability Adam is enrolled in the field given his personality sketch.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch if he is enrolled in that field.
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E) \) is the total probability of observing Adam's personality sketch across all fields.
+
+To calculate these probabilities, we need reasonable estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). We'll make some assumptions based on typical distributions of graduate students and the given personality traits. Note these are heuristic and not exact probabilities.
+
+1. **Business Administration**
+  - \( P(H) \): As business administration is a common field, let's assume \( P(H) = 0.2 \) (20% baseline probability).
+  - \( P(E|H) \): Given Adam's personality sketch, it's less likely for someone with strong empathy and love for nature and animals to be in business administration, so let's assume \( P(E|H) = 0.05 \).
+  - \( P(E|\neg H) \): Assuming roughly similar others, let's be conservative and say \( P(E|\neg H) = 0.1 \).
+
+2. **Agricultural and Veterinary Science**
+  - \( P(H) \): This field is less common than business but aligns well with Adam's interests, so assume \( P(H) = 0.1 \).
+  - \( P(E|H) \): Adam's personality strongly aligns with this field, so assume \( P(E|H) = 0.9 \).
+  - \( P(E|\neg H) \): Less likely elsewhere, but conservatively assume \( P(E|\neg H) = 0.1 \).
+
+3. **Computer Science**
+  - \( P(H) \): Common field, let's assume \( P(H) = 0.2 \).
+  - \( P(E|H) \): While computer science involves abstract thinking, it doesn’t align as well with the empathy and love for nature and animals, so assume \( P(E|H) = 0.3 \).
+  - \( P(E|\neg H) \): Assume \( P(E|\neg H) = 0.1 \).
+
+Now, calculate \( P(E) \):
+
+\[ P(E) = P(E|H_{\text{business}})P(H_{\text{business}}) + P(E|H_{\text{agricultural}})P(H_{\text{agricultural}}) + P(E|H_{\text{computer}})P(H_{\text{computer}}) + \text{other fields} \]
+
+Substitute the known values:
+\[ P(E) = (0.05 \times 0.2) + (0.9 \times 0.1) + (0.3 \times 0.2) + \text{other fields} \]
+\[ P(E) \approx 0.01 + 0.09 + 0.06 + \text{other fields} \]
+\[ P(E) \approx 0.16 + \text{other fields} \]
+
+Assuming "other fields" have minimal contribution, focus on these. Calculate \( P(H|E) \):
+
+For **Business Administration**:
+\[ P(H|E) = \frac{P(E|H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E)} = \frac{0.05 \times 0.2}{0.16} \approx 0.0625 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}})}{P(E)} = \frac{0.9 \times 0.1}{0.16} \approx 0.5625 \]
+
+For **Computer Science**:
+\[ P(H|E) = \frac{P(E|H_{\text{computer}}) \cdot P(H_{\text{computer}})}{P(E)} = \frac{0.3 \times 0.2}{0.16} \approx 0.375 \]
+
+Thus, the probabilities are approximated as follows:
+
+{
+  "business administration": 0.0625,
+  "agricultural and veterinary science": 0.5625,
+  "computer science": 0.375
+}

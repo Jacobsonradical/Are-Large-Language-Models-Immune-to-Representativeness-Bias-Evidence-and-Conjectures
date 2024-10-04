@@ -1,0 +1,43 @@
+To compute the probability \( P(H|E) \) for each of the fields (business administration and computer science) using Bayes' rule, we need to review:
+
+- \( P(H) \): The prior probability that Adam was enrolled in that field.
+- \( P(E|H) \): The probability of observing the evidence (the personality sketch) given that Adam was enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing the evidence given that Adam was not enrolled in that field.
+
+And then we use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and is the same for both fields, we focus on the numerator \( P(E|H) \cdot P(H) \).
+
+### 1. Business Administration
+
+- **\( P(H) \) for business administration**: Given that many students are enrolled in various graduate programs, let's assume \( P(H) \) is relatively low, around 0.1.
+- **\( P(E|H) \) for business administration**: Business administration typically doesn't require a strong curiosity about nature, love for animals, or high intelligence in understanding abstract concepts typically associated with Adam's personality sketch. Therefore, \( P(E|H) \) is quite low, say 0.1.
+- **\( P(E|\neg H) \)**: This represents the probability of seeing Adam's personality in fields other than business administration. Given the wide range of fields, it's relatively higher, around 0.5.
+
+\[ P(H|E)_{\text{business administration}} \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01 \]
+
+### 2. Computer Science
+
+- **\( P(H) \) for computer science**: Computer science is a popular field for graduate students. Let’s assume \( P(H) \) to be higher, say 0.2.
+- **\( P(E|H) \) for computer science**: The traits described fit computer science students well, as they often possess high intelligence, enjoy solving puzzles, and can appreciate hard work and dedication. Thus, \( P(E|H) \) is higher, around 0.6.
+- **\( P(E|\neg H) \)**: Similar to above, around 0.5.
+
+\[ P(H|E)_{\text{computer science}} \propto P(E|H) \cdot P(H) = 0.6 \cdot 0.2 = 0.12 \]
+
+### Normalizing the probabilities (optional step to ensure they sum to 1 across the given fields)
+
+Sum of the weights = 0.01 + 0.12 = 0.13
+
+Normalized:
+\[ P(H|E)_{\text{business administration}} = \frac{0.01}{0.13} \approx 0.077 \]
+\[ P(H|E)_{\text{computer science}} = \frac{0.12}{0.13} \approx 0.923 \]
+
+But the requirement was to report values between 0 and 1 without necessarily normalizing to 1 across fields, so we'll leave it without normalization.
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.12
+}
+```

@@ -1,0 +1,75 @@
+To compute the probability \( P(H|E) \) using Bayes Rule, we'll follow these calculative steps:
+
+1. Establish the prior probability \( P(H) \), which is the probability of Adam being enrolled in each field before considering his personality sketch.
+2. Determine \( P(E|H) \), the probability of Adam's personality sketch given that he is in a particular field.
+3. Determine \( P(E|\neg H) \), the probability of Adam's personality sketch given that he is not in that particular field.
+4. Apply Bayes Rule: 
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Given the limited information and to maintain a manageable complexity, let's assume uniform priors, assigning equal initial probabilities to each field. These might be adjusted based on real-world data or further context, but assuming uniformity simplifies the problem.
+
+### Computer Science
+
+1. **Prior Probability \( P(H_{\text{CS}}) \)**:
+   Let's start with an assumption of equal probability among all graduate fields, but we provide more weight to STEM fields for their proportion in overall graduate studies:
+   \[
+   P(H_{\text{CS}}) = 0.2
+   \]
+2. **Probability of the Evidence Given Computer Science \( P(E|H_{\text{CS}}) \)**:
+   - Adam's intelligence and ability to understand abstract concepts fits well with computer science (CS).
+   - Curiosity, problem-solving (puzzles), and a quiet demeanor may also align well with CS.
+   - However, empathy and love for animals are not strong indicators for or against.
+   Based on this alignment:
+   \[
+   P(E|H_{\text{CS}}) = 0.7
+   \]
+3. **Probability of the Evidence Given Not Computer Science \( P(E|\neg H_{\text{CS}}) \)**:
+   - Considering many graduate fields might share these personality traits, let's estimate:
+   \[
+   P(E|\neg H_{\text{CS}}) = 0.3
+   \]
+4. **Application of Bayes Rule**:
+   \[
+   P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}})}
+   \]
+   \[
+   P(H_{\text{CS}}|E) = \frac{0.7 \cdot 0.2}{0.7 \cdot 0.2 + 0.3 \cdot 0.8} = \frac{0.14}{0.14 + 0.24} = \frac{0.14}{0.38} \approx 0.368
+   \]
+
+### Business Administration
+
+1. **Prior Probability \( P(H_{\text{BA}}) \)**:
+   - We again start with an assumption of equal probability:
+   \[
+   P(H_{\text{BA}}) = 0.1
+   \]
+2. **Probability of the Evidence Given Business Administration \( P(E|H_{\text{BA}}) \)**:
+   - While Adam's intelligence and understanding align fairly well, his strong empathy and warm heart are more correlated with fields involving social interactions.
+   - However, the curiosity about nature, love for plants/animals, and problem-solving aren't strong indicators for Business Administration.
+   Based on these:
+   \[
+   P(E|H_{\text{BA}}) = 0.3
+   \]
+3. **Probability of the Evidence Given Not Business Administration \( P(E|\neg H_{\text{BA}}) \)**:
+   - The traits align broadly with many non-BA fields (STEM especially), so we estimate:
+   \[
+   P(E|\neg H_{\text{BA}}) = 0.35
+   \]
+4. **Application of Bayes Rule**:
+   \[
+   P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}})}
+   \]
+   \[
+   P(H_{\text{BA}}|E) = \frac{0.3 \cdot 0.1}{0.3 \cdot 0.1 + 0.35 \cdot 0.9} = \frac{0.03}{0.03 + 0.315} = \frac{0.03}{0.345} \approx 0.087
+   \]
+
+Final probabilities:
+```json
+{
+  "computer science": 0.368,
+  "business administration": 0.087
+}
+```

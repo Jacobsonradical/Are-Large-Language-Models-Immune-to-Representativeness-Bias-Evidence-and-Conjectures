@@ -1,0 +1,64 @@
+To compute \( P(H|E) \) using Bayes' Rule, we need to evaluate:
+
+1. \( P(H) \): Prior probability of Adam being enrolled in each field.
+2. \( P(E|H) \): Likelihood of observing E (Adam's personality traits) given H (that Adam is in that specific field).
+3. \( P(E|\neg H) \): Likelihood of observing E given that Adam is **not** in that specific field.
+
+Using Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is constant for all comparisons, we can focus on the numerator of Bayes' rule and later normalize the probabilities.
+
+### Agricultural and Veterinary Science
+1. **P(H):** Let's estimate a prior based on common knowledge. Say there's a relatively modest chance Adam is studying this field.
+   \[ P(H) = 0.1 \]
+2. **P(E|H):** The personality traits are highly compatible with this field (love for animals, curiosity about nature).
+   \[ P(E|H) = 0.9 \]
+3. **P(E|\neg H):** The chance these traits belong to someone not studying this field is lower.
+   \[ P(E|\neg H) = 0.3 \]
+
+### Computer Science
+1. **P(H):** Graduate degrees in computer science are fairly common.
+   \[ P(H) = 0.2 \]
+2. **P(E|H):** Adam's traits like intelligence and problem-solving are moderately compatible with computer science.
+   \[ P(E|H) = 0.6 \]
+3. **P(E|\neg H):** Many people with similar traits could possibly belong to other fields.
+   \[ P(E|\neg H) = 0.5 \]
+
+### Business Administration
+1. **P(H):** Business administration is also quite a common graduate field.
+   \[ P(H) = 0.2 \]
+2. **P(E|H):** The traits are less compatible with business fields as they emphasize different qualities.
+   \[ P(E|H) = 0.3 \]
+3. **P(E|\neg H):** The chance of traits belonging to people outside of this field are higher.
+   \[ P(E|\neg H) = 0.7 \]
+
+### Applying Bayes' Rule:
+We need to compute \( P(H|E) \) for each field:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) \propto 0.9 \cdot 0.1 = 0.09 \]
+
+#### Computer Science:
+\[ P(H|E) \propto 0.6 \cdot 0.2 = 0.12 \]
+
+#### Business Administration:
+\[ P(H|E) \propto 0.3 \cdot 0.2 = 0.06 \]
+
+#### Normalizing:
+\[ \text{Total} = 0.09 + 0.12 + 0.06 = 0.27 \]
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.09}{0.27} = 0.333 \]
+\[ P(\text{computer science}|E) = \frac{0.12}{0.27} = 0.444 \]
+\[ P(\text{business administration}|E) = \frac{0.06}{0.27} = 0.222 \]
+
+### Result:
+```json
+{
+  "agricultural and veterinary science": 0.333,
+  "computer science": 0.444,
+  "business administration": 0.222
+}
+```

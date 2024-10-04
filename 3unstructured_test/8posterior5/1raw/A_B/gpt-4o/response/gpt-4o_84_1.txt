@@ -1,0 +1,57 @@
+Let's use Bayes' theorem to calculate the probabilities \( P(H|E) \) for each field given the personality sketch of Adam.
+
+Bayes' theorem formula is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is NOT enrolled in that field.
+- \( P(E) \) is the overall probability of observing the personality sketch \( E \).
+
+For simplicity, we can assume that the overall probability \( P(E) \) is the same for both fields, as we are comparing relative probabilities.
+
+To compute \( P(H|E) \), we'll begin with qualitative assessments of these probabilities for each field:
+
+1. **Business administration**
+    - \( P(H)_{BA} \): The prior probability that Adam is enrolled in business administration can be considered relatively low given his strong affection for nature, animals, and abstract problem-solving, which are less directly related to business.
+    - \( P(E|H)_{BA} \): The likelihood of Adam fitting the profile given he is in business administration is also likely low because the traits listed are not typically associated with business administration students.
+    - \( P(E|\neg H)_{BA} \): The likelihood of fitting the profile given he is not in business administration can be considered higher as the traits fit better with fields like science or veterinary studies.
+
+    Given these qualitative assessments:
+    - \( P(H)_{BA} \approx 0.1 \)
+    - \( P(E|H)_{BA} \approx 0.1 \)
+    - \( P(E|\neg H)_{BA} \approx 0.5 \)
+
+    Let's calculate \( P(H|E)_{BA} \):
+    \[ P(H|E)_{BA} = \frac{0.1 \cdot 0.1}{P(E)} \]
+
+2. **Agricultural and veterinary science**
+    - \( P(H)_{AV} \): The prior probability that Adam is enrolled in agricultural and veterinary science can be considered higher as his personality description aligns well with this field.
+    - \( P(E|H)_{AV} \): The likelihood of Adam fitting the profile given he is in agricultural and veterinary science is very high, as his interests and traits are closely related to this field.
+    - \( P(E|\neg H)_{AV} \): The likelihood of fitting the profile given he is not in this field is lower than in field-specific assessments like business administration.
+
+    Given these qualitative assessments:
+    - \( P(H)_{AV} \approx 0.4 \)
+    - \( P(E|H)_{AV} \approx 0.8 \)
+    - \( P(E|\neg H)_{AV} \approx 0.3 \)
+
+    Let's calculate \( P(H|E)_{AV} \):
+    \[ P(H|E)_{AV} = \frac{0.4 \cdot 0.8}{P(E)} \]
+
+Given these assessments, we can make relative judgments of \( P(E) \) based on the normalization requirement comparing the two fields. Since \( P(E) \) is the same for both, the comparisons will look like:
+
+\[ P(H|E)_{BA} \propto 0.01 \]
+\[ P(H|E)_{AV} \propto 0.32 \]
+
+Normalizing these to obtain relative sizes, we consider:
+\[ \text{Normalization factor} \approx 0.33 \]
+
+Therefore, the final values normalized to fit a qualitative comparisons context are in the scale:
+
+```json
+{
+  "business administration": 0.03,
+  "agricultural and veterinary science": 0.97
+}
+```

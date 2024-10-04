@@ -1,0 +1,51 @@
+Sure, let's go through the reasoning and calculations for each field using Bayes' rule. 
+
+Bayes' rule states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, we don't need to compute \( P(E) \) explicitly for each field since we will be comparing the relative probabilities.
+
+### Business Administration
+
+1. **P(H)**: The prior probability that a random graduate student is enrolled in business administration. Suppose \( P(\text{business administration}) = 0.15 \) (as a rough estimate, because business administration is a popular field).
+2. **P(E|H)**: The likelihood that Adam's personality sketch fits someone in business administration. Given Adam's interests and personality traits, this is likely **low**. Let's estimate \( P(E|\text{business administration}) = 0.05 \). 
+3. **P(E|\neg H)**: The likelihood that Adam's personality sketch fits someone not in business administration. Let's consider the remaining fields, which we will detail more generally later. Suppose \( P(E|\neg \text{business administration}) = 0.50 \).
+
+### Computer Science
+
+1. **P(H)**: The prior probability that a random graduate student is enrolled in computer science. Suppose \( P(\text{computer science}) = 0.20 \) (since computer science is also a popular field).
+2. **P(E|H)**: The likelihood that Adam's personality sketch fits someone in computer science. Given Adam's intelligence, interest in solving puzzles, and understanding of abstract concepts, this is likely **high**. Let's estimate \( P(E|\text{computer science}) = 0.60 \). 
+3. **P(E|\neg H)**: The likelihood that Adam's personality sketch fits someone not in computer science. Suppose \( P(E|\neg \text{computer science}) = 0.30 \).
+
+### Computation
+
+Since we need \( P(E) \) to compute the exact values, we'll focus on relative probabilities using the formula:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Business Administration
+
+\[ P(H|E)_{\text{business administration}} \propto 0.05 \cdot 0.15 = 0.0075 \]
+
+### Computer Science
+
+\[ P(H|E)_{\text{computer science}} \propto 0.60 \cdot 0.20 = 0.12 \]
+
+### Normalization 
+
+To get the relative probabilities, we normalize:
+
+\[ P(H|E)_{\text{business administration}} = \frac{0.0075}{0.0075 + 0.12} \approx 0.059 \]
+\[ P(H|E)_{\text{computer science}} = \frac{0.12}{0.0075 + 0.12} \approx 0.941 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.059,
+  "computer science": 0.941
+}
+```
+
+These values reflect the relative likelihood of Adam being in each field given his personality sketch, with a strong indication towards computer science.

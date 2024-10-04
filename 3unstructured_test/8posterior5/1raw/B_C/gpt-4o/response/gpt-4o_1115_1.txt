@@ -1,0 +1,53 @@
+To apply Bayes' rule and compute the probabilities that Adam was enrolled in business administration or computer science given his personality sketch (E), we need to estimate the relevant probabilities.
+
+### Given Variables
+- **P(H)**: The prior probability that Adam is enrolled in a specific field.
+- **P(E|H)**: The probability of observing the personality sketch E given that Adam is in that field.
+- **P(E|\neg H)**: The probability of observing the personality sketch E given that Adam is not in that field.
+- **P(H|E)**: The posterior probability that Adam is enrolled in a specific field given the personality sketch E.
+
+### Assumptions
+Let's assume some prior probabilities for the sake of calculation. We will make an assumption that in the context of graduate studies in the U.S., the distribution of fields is somewhat proportional to their popularity. This is not exact but serves as a reasonable starting point.
+
+Let's assume:
+- P(H for business administration): 0.15 (15%)
+- P(H for computer science): 0.20 (20%)
+- P(E|\neg H): Let's assign a generic low value given Adam's specific personality characteristics.
+
+### Assessing Conditional Probabilities
+- P(E|H for business administration): Given Adam's love for nature, puzzles, and animals, which are not strongly aligned with typical business administration traits, we might evaluate this lower.
+- P(E|H for computer science): Given Adam's preference for solving puzzles and high intelligence in abstract concepts, this seems to align better with a computer science background.
+
+Given these assumptions, let's assign values:
+- P(E|H for business administration): 0.05
+- P(E|H for computer science): 0.30
+- P(E|\neg H): We must account for both fields plus others, say, 0.10 (assuming diffused probability across various fields)
+
+### Applying Bayes' Theorem
+Bayes' theorem is defined as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's calculate for each hypothesis:
+
+#### Business Administration
+\[ P(H for business administration|E) = \frac{0.05 \cdot 0.15}{(0.05 \cdot 0.15) + (0.10 \cdot 0.85)} \]
+\[ = \frac{0.0075}{0.0075 + 0.085} \]
+\[ = \frac{0.0075}{0.0925} \]
+\[ \approx 0.081 \]
+
+#### Computer Science
+\[ P(H for computer science|E) = \frac{0.30 \cdot 0.20}{(0.30 \cdot 0.20) + (0.10 \cdot 0.80)} \]
+\[ = \frac{0.06}{0.06 + 0.08} \]
+\[ = \frac{0.06}{0.14} \]
+\[ \approx 0.429 \]
+
+### Final Results
+```json
+{
+  "business administration": 0.081,
+  "computer science": 0.429
+}
+```

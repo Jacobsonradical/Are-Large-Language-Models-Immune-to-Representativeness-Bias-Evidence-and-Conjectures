@@ -1,0 +1,54 @@
+To estimate the posterior probability \( P(H|E) \) for each field of study, we need to apply Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let’s define our terms:
+- \( P(H) \): The prior probability of Adam being enrolled in that field.
+- \( P(E|H) \): The probability of observing the personality sketch given that Adam is enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam is not enrolled in that field.
+- \( P(E) \): The overall probability of observing the personality sketch (normalizing factor).
+
+We will consider the rough estimations of these probabilities and then compute \( P(H|E) \).
+
+### For Business Administration:
+- \( P(H_{\text{BA}}) \): Low, graduate students in this field typically have less overlap with Adam’s personality sketch (business administration is less likely).
+- \( P(E|H_{\text{BA}}) \): Low, because the areas of interest like nature, puzzles, empathy, and love for animals do not typically align with business administration students.
+- \( P(E|\neg H_{\text{BA}}) \): Higher than \( P(E|H_{\text{BA}}) \), as Adam's personality traits are more common in other fields.
+
+### For Agricultural and Veterinary Science:
+- \( P(H_{\text{AVS}}) \): Moderate to high, because this field is closely related to Adam’s interests in nature, plants, and animals.
+- \( P(E|H_{\text{AVS}}) \): High, his personality matches very well with typical students in this field (nature, plants, animals).
+- \( P(E|\neg H_{\text{AVS}}) \): Lower than \( P(E|H_{\text{AVS}}) \), since his traits are less common outside this field.
+
+### Rough Estimations:
+#### Business Administration:
+- \( P(H_{\text{BA}}) \approx 0.1 \) (graduate programs in business administration are fairly common but not highly likely for his described interests)
+- \( P(E|H_{\text{BA}}) \approx 0.05 \) (low matching)
+- \( P(E|\neg H_{\text{BA}}) \approx 0.2 \) (E is more common outside BA)
+
+#### Agricultural and Veterinary Science:
+- \( P(H_{\text{AVS}}) \approx 0.3 \) (reasonably probable for his interests)
+- \( P(E|H_{\text{AVS}}) \approx 0.7 \) (high matching)
+- \( P(E|\neg H_{\text{AVS}}) \approx 0.05 \) (lower outside this field)
+
+To apply Bayes' Rule, we approximate \( P(E) \):
+\[ P(E) \approx P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + \text{other fields} \]
+
+Given the numbers above:
+\[ P(E) \approx (0.05 * 0.1) + (0.7 * 0.3) + (\text{other fields contribution}) \]
+\[ P(E) \approx 0.005 + 0.21 + (\text{other fields}) \approx 0.215 \]
+
+#### Posterior for Business Administration:
+\[ P(H_{\text{BA}} | E) = \frac{0.05 \cdot 0.1}{0.215} \approx \frac{0.005}{0.215} \approx 0.023 \]
+
+#### Posterior for Agricultural and Veterinary Science:
+\[ P(H_{\text{AVS}} | E) = \frac{0.7 \cdot 0.3}{0.215} \approx \frac{0.21}{0.215} \approx 0.977 \]
+
+### Results:
+```json
+{
+  "business administration": 0.023,
+  "agricultural and veterinary science": 0.977
+}
+```
+
+This calculation suggests that, given his personality sketch, it is highly probable that Adam was enrolled in Agricultural and Veterinary Science over Business Administration.

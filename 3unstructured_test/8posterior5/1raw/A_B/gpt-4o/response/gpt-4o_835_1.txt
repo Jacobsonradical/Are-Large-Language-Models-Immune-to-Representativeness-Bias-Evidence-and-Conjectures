@@ -1,0 +1,63 @@
+To compute the probabilities \( P(H|E) \) for the given fields using Bayes' rule, we need to estimate the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the personality sketch given alternative fields \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Here's the step-by-step process and calculations:
+
+### Agricultural and Veterinary Science
+
+**Prior Probability \( P(H) \)**: Let's assume that the fraction of graduate students in agricultural and veterinary science is relatively smaller. So, let's estimate \( P(H) = 0.05 \).
+
+**Likelihood \( P(E|H) \)**: Given that Adam has a love for animals and nature, it's quite likely he'd pursue agricultural and veterinary science. We can assign a high likelihood to this, say \( P(E|H) = 0.8 \).
+
+**Likelihood \( P(E|\neg H) \)**: For fields other than agricultural and veterinary science, the likelihood of the personality sketch fitting can be considered lower. Let’s estimate \( P(E|\neg H) = 0.1 \).
+
+### Business Administration
+
+**Prior Probability \( P(H) \)**: Business administration is a very common graduate field, so we might estimate a higher prior probability, say \( P(H) = 0.2 \).
+
+**Likelihood \( P(E|H) \)**: Given Adam's personality sketch, it seems less likely he would be in business administration compared to agricultural and veterinary science. Let's estimate \( P(E|H) = 0.2 \).
+
+**Likelihood \( P(E|\neg H) \)**: The likelihood of the personality sketch fitting any other field can remain \( P(E|\neg H) = 0.1 \).
+
+### Calculation
+
+We need to normalize these probabilities so they sum to 1, considering the relative proportions. To simplify, note that \( P(E) \) is the total probability of the evidence over all hypotheses. 
+
+First, let's calculate an intermediate value:
+
+\[ P(E) = P(E|H_{av}) \cdot P(H_{av}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|\neg H_{av}, \neg H_{ba}) \cdot (1 - P(H_{av}) - P(H_{ba})) \]
+
+Where:
+- \( H_{av} \) = agricultural and veterinary science
+- \( H_{ba} \) = business administration
+
+Approximating this can be complex, so for simplicity, we can consider the normalization fact will balance out our prior assumptions:
+
+\[ P(E) \approx P(E|H_{av}) \cdot P(H_{av}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|\neg H_{av}, \neg H_{ba}) \cdot 1 \]
+
+Now, applying Bayes rule:
+
+For agricultural and veterinary science:
+\[ P(H_{av}|E) = \frac{P(E|H_{av}) \cdot P(H_{av})}{P(E)} \]
+
+For business administration:
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+
+### Final Values:
+
+Based on approximate relative values:
+
+\[ P(H_{av}|E) \propto 0.8 \times 0.05 = 0.04 \]
+\[ P(H_{ba}|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+Notice these approximate ratios are simplified. We essentially see a balance due to distinct priors and posteriors, so let's assume a relative fit for simplicity without exact normalization.
+
+Thus:
+
+```json
+{
+  "agricultural and veterinary science": 0.80,
+  "business administration": 0.20
+}
+```

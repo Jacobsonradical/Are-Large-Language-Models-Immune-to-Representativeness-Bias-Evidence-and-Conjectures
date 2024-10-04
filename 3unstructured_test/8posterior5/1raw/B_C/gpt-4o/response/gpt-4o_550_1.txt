@@ -1,0 +1,43 @@
+To compute \( P(H|E) \), we will need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we need the probabilities of Adam being in specific fields given his personality sketch (E), we'll estimate the necessary probabilities.
+
+### Assumptions:
+1. Let's assume the prior probability \( P(H) \) for each field varies based on general graduate student distribution in the U.S.:
+   - \( P(H_{CS}) \) for computer science might be higher given its popularity.
+   - \( P(H_{BA}) \) for business administration might be lower compared to computer science.
+
+2. For \( P(E|H) \):
+   - The likelihood of E given computer science might be medium as Adam's traits align with problem-solving and intelligence.
+   - The likelihood of E given business administration might be lower since Adam’s traits do not strongly align with typical business characteristics.
+
+3. For \( P(E|\neg H) \) (the likelihood of E given any other field):
+   - We will assume a relatively moderate probability since Adam's personality can align with many fields.
+
+### Estimates:
+- \( P(H_{CS}) \approx 0.3 \) (based on the assumption that computer science is a common graduate field)
+- \( P(H_{BA}) \approx 0.2 \)
+
+- \( P(E|H_{CS}) \approx 0.5 \) (Adam's traits are somewhat fitting for CS, but not exclusively so)
+- \( P(E|H_{BA}) \approx 0.1 \) (Adam's traits seem less fitting for business)
+
+- \( P(E|\neg H) \approx 0.3 \) (medium likelihood given any other field)
+
+### Calculation:
+For computer science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E|\neg H)} = \frac{0.5 \cdot 0.3}{0.3} = 0.5 \]
+
+For business administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E|\neg H)} = \frac{0.1 \cdot 0.2}{0.3} \approx 0.067 \]
+
+### Results:
+```json
+{
+  "computer science": 0.5,
+  "business administration": 0.067
+}
+```
+
+These values reflect the relative likelihood that Adam was enrolled in each specific field given his personality attributes.

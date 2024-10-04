@@ -1,0 +1,49 @@
+To determine the probability that Adam was enrolled in a specific graduate field given his personality sketch (E), we'll use Bayes' Theorem. We should calculate the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence under the complementary hypothesis \( P(E|\neg H) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is constant for both hypotheses, we can focus on the numerator:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+1. **Agricultural and Veterinary Science**
+   - **P(H)**: The prior probability that a random graduate student is enrolled in Agricultural and Veterinary Science. This is generally low considering the total number of graduate fields available.
+   - **P(E|H)**: The probability of the personality sketch (E) given that Adam is in Agricultural and Veterinary Science. This should be high because Adam's traits such as a love for nature, animals, and a quiet demeanor align well with this field.
+   - **P(E|\neg H)**: The probability of the personality sketch (E) given that Adam is not in Agricultural and Veterinary Science. This is relatively low because E is particular to interests and characteristics fitting this field.
+
+2. **Business Administration**
+   - **P(H)**: The prior probability that a random graduate student is enrolled in Business Administration. This is higher relative to many fields because Business Administration is a common graduate program.
+   - **P(E|H)**: The probability of the personality sketch (E) given that Adam is in Business Administration. This is relatively low as Adam's traits do not strongly align with the typical skills and interests associated with business administration.
+   - **P(E|\neg H)**: The probability of the personality sketch (E) given that Adam is not in Business Administration. This can be higher compared to P(E|H) as there are many other fields that might align with Adam's traits.
+
+Now implementing these considerations:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+- For Agricultural and Veterinary Science, let's assume:
+  - \( P(H) \approx 0.05 \)
+  - \( P(E|H) \approx 0.8 \)
+  - \( P(E|\neg H) \approx 0.2 \)
+
+\[ P(H|E)_{agricultural\_vet\_sci} \approx 0.8 \times 0.05 = 0.04 \]
+
+- For Business Administration, let's assume:
+  - \( P(H) \approx 0.15 \)
+  - \( P(E|H) \approx 0.1 \)
+  - \( P(E|\neg H) \approx 0.25 \)
+
+\[ P(H|E)_{business\_admin} \approx 0.1 \times 0.15 = 0.015 \]
+
+Normalizing these values:
+
+\[ P(H|E)_{agricultural\_vet\_sci} = \frac{0.04}{0.04 + 0.015} \approx 0.73 \]
+\[ P(H|E)_{business\_admin} = \frac{0.015}{0.04 + 0.015} \approx 0.27 \]
+
+So, the conditional probabilities for Adam being in each field, given his personality sketch, are:
+
+```json
+{
+  "agricultural and veterinary science": 0.73,
+  "business administration": 0.27
+}
+```

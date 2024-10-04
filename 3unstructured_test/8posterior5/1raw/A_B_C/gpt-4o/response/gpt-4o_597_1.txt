@@ -1,0 +1,63 @@
+To compute the posterior probabilities \( P(H|E) \) for each field using Bayes' Rule, we need to determine the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E|\neg H) \).
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Given Adam's personality sketch indicating a genuine curiosity about nature, love for animals, high intelligence, appreciation of hard work, and empathy, let's estimate the probabilities for each field of specialization:
+
+### Computer Science
+- **Prior Probability \( P(H) \)**: Assume a reasonable prior of graduate students studying computer science.
+- **Likelihood \( P(E|H) \)**: The personality traits listed are not particularly indicative of computer science.
+- **Marginal Likelihood \( P(E|\neg H) \)**: We assume the traits are somewhat general but telling for fields like agricultural and veterinary science.
+
+Assuming these are approximate values:
+- \( P(H) \) for computer science: 0.3
+- \( P(E|H) \) for computer science: 0.2 (traits are somewhat uncommon)
+- \( P(E|\neg H) \): Calculated considering the distribution across other fields (to be computed).
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \)**: Likely smaller than computer science.
+- **Likelihood \( P(E|H) \)**: The personality traits are strongly indicative of this field.
+- **Marginal Likelihood \( P(E|\neg H) \)**: Counter propensity in other fields.
+
+Assuming these are approximate values:
+- \( P(H) \) for agricultural and veterinary science: 0.1
+- \( P(E|H) \) for agricultural and veterinary science: 0.8 (traits are strongly indicative)
+- \( P(E|\neg H) \): Calculated considering the distribution across other fields (to be computed).
+
+### Business Administration
+- **Prior Probability \( P(H) \)**: Assume similar to agricultural and veterinary science.
+- **Likelihood \( P(E|H) \)**: The traits seem less indicative of business administration.
+- **Marginal Likelihood \( P(E|\neg H) \)**: Average.
+
+Assuming these are approximate values:
+- \( P(H) \) for business administration: 0.1
+- \( P(E|H) \) for business administration: 0.1 (traits are less indicative)
+- \( P(E|\neg H) \): Calculated considering the distribution across other fields (to be computed).
+
+Let's assume the simplifying scenario where the marginal likelihood \( P(E|\neg H) \) is average across the fields excluding the three given. For simplicity, assuming average overall instead of extended computation across all \( \neg H \):
+
+\[ P(E) = P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}}) + P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) \]
+\[ P(E) \approx (0.2 \cdot 0.3) + (0.8 \cdot 0.1) + (0.1 \cdot 0.1) = 0.06 + 0.08 + 0.01 = 0.15 \]
+
+Now using Bayes' Rule:
+1. **Computer Science**:
+\[ P(H_{\text{cs}}|E) = \frac{0.2 \times 0.3}{0.15} = \frac{0.06}{0.15} = 0.4 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(H_{\text{avs}}|E) = \frac{0.8 \times 0.1}{0.15} = \frac{0.08}{0.15} \approx 0.533 \]
+
+3. **Business Administration**:
+\[ P(H_{\text{ba}}|E) = \frac{0.1 \times 0.1}{0.15} = \frac{0.01}{0.15} \approx 0.067 \]
+
+Therefore, the final posterior probabilities are:
+```json
+{
+  "computer science": 0.4,
+  "agricultural and veterinary science": 0.533,
+  "business administration": 0.067
+}
+```

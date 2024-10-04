@@ -1,0 +1,70 @@
+To use Bayes' Rule to compute P(H|E) for each field, we need the prior probabilities (P(H)), the likelihood of E given H (P(E|H)), and the likelihood of E given not H (P(E|¬H)). Bayes' Rule is:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+While P(E) can be complex to compute without comprehensive data, we'll assume it's constant for simplicity and focus on the relative values:
+
+Given the information about Adam:
+
+- High intelligence and good at understanding abstract concepts
+- Genuine curiosity about nature and plants
+- Quiet, enjoys solving puzzles
+- Warm heart, strong empathy, deep love for animals
+- Strong understanding and appreciation for hard work and dedication
+
+Let's establish rough priors and likelihoods:
+
+### Computer Science
+#### P(H) 
+Assume a moderate prior because it's a common graduate field: 0.25
+#### P(E|H)
+Some traits like high intelligence and enjoying solving puzzles align well with computer science. However, love for nature and animals is less aligned. Let's assign a moderate likelihood: 0.4
+#### P(E|¬H)
+This represents the probability of having such traits if not in computer science. Given the diversity of fields, it's reasonable to assume a higher probability than 0.4 but not too high: 0.6
+
+### Agricultural and Veterinary Science
+#### P(H)
+Lower prior because it's a less common field relative to general graduate fields: 0.1
+#### P(E|H)
+Adam’s love for nature, plants, and animals, plus strong empathy and understanding of hard work, align very well. High likelihood: 0.8
+#### P(E|¬H)
+Traits align more closely than average across other fields, but not specific enough to give it very high value: 0.5
+
+### Business Administration
+#### P(H)
+Another common field, so assign a moderate prior: 0.2
+#### P(E|H)
+Traits like high intelligence and understanding of hard work align, but empathy and love for nature/animals not as much. Moderate likelihood: 0.3
+#### P(E|¬H)
+This represents the probability of having Adam's traits if not in business administration, probably higher: 0.7
+
+
+Now, let’s apply Bayes’ Rule for each field. As we assume P(E) is a constant factor, we can compute P(H|E) proportionally.
+
+### Computer Science
+\[ P(H|E)_{CS} \propto P(E|H) \cdot P(H) = 0.4 \cdot 0.25 = 0.1 \]
+
+### Agricultural and Veterinary Science
+\[ P(H|E)_{AVS} \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.1 = 0.08 \]
+
+### Business Administration
+\[ P(H|E)_{BA} \propto P(E|H) \cdot P(H) = 0.3 \cdot 0.2 = 0.06 \]
+
+These raw likelihoods must be normalized to provide probabilities between 0 and 1 by dividing each by the sum of all computed likelihoods.
+
+Sum = 0.1 + 0.08 + 0.06 = 0.24
+
+### Normalized Probabilities:
+\[P(H|E)_{CS} = \frac{0.1}{0.24} \approx 0.42\]
+\[P(H|E)_{AVS} = \frac{0.08}{0.24} \approx 0.33\]
+\[P(H|E)_{BA} = \frac{0.06}{0.24} \approx 0.25\]
+
+Thus, the probabilities are:
+
+```json
+{
+  "computer science": 0.42,
+  "agricultural and veterinary science": 0.33,
+  "business administration": 0.25
+}
+```

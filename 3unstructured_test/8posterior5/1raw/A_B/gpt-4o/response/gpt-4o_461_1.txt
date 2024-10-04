@@ -1,0 +1,54 @@
+In order to compute the posterior probabilities \( P(H|E) \) for each field H given the personality sketch \( E \), we need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) is the overall probability of the personality sketch, and since we are comparing two fields, \( P(E) \) can be considered a normalization factor. We'll focus on computing the numerators \( P(E|H) \cdot P(H) \) for each field to compare them.
+
+Let's start with the following assumptions:
+
+1. **P(H)**: This represents the prior probability of Adam enrolling in each field. While we do not have specific data for this, we can assume the general popularity of fields among graduate students. We'll assume a higher general probability for agricultural and veterinary science (considering Adam's interest in nature and animals) and a lower probability for business administration.
+
+2. **P(E|H)**: This represents the likelihood of Adam's given personality sketch if he were in a particular field.
+
+3. **P(E|\neg H)**: This represents the likelihood of Adam's personality sketch if he were not in a particular field.
+
+### Assigning Values:
+
+#### Agricultural and Veterinary Science
+- **P(H)**: We assume a moderate prior probability, say 0.3.
+- **P(E|H)**: Given Adam's personality sketch aligns well with this field (e.g., love for nature and animals, empathy, hard work), we'll assume a high likelihood, say 0.8.
+- **P(E|\neg H)**: This is the likelihood of Adam's personality sketch being observed if he were in any other field. It would likely be moderate since some traits are generalizable but not specific for agricultural and veterinary science, say 0.5.
+
+#### Business Administration
+- **P(H)**: We assume a lower prior probability because Adam's personality sketch does not traditionally align with business administration, say 0.1.
+- **P(E|H)**: The likelihood of Adam's personality sketch fitting business administration is low, given his empathy and love for nature are not strong indicators for this field, say 0.2.
+- **P(E|\neg H)**: This would be unaffected by negation and remain the same as for agricultural and veterinary science, say 0.5.
+
+### Computing \( P(H|E) \):
+
+For agricultural and veterinary science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.3}{P(E)} = \frac{0.24}{P(E)} \]
+
+For business administration:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} = \frac{0.02}{P(E)} \]
+
+Since \( P(E) \) is the same for normalization, we are interested in comparing the numerators:
+
+\[ \frac{0.24}{P(E)} \quad \text{vs} \quad \frac{0.02}{P(E)} \]
+
+### Normalized Posterior Probabilities:
+Given the above numerators, if we normalize them for comparability (denominator irrelevant for ratio comparison), the probabilities are:
+
+\[ P(H|E \text{ for agricultural and veterinary science}) = \frac{0.24}{0.26} \approx 0.923 \]
+\[ P(H|E \text{ for business administration}) = \frac{0.02}{0.26} \approx 0.077 \]
+
+So the final normalized posterior probabilities would be:
+
+```json
+{
+  "agricultural and veterinary science": 0.923,
+  "business administration": 0.077
+}
+```

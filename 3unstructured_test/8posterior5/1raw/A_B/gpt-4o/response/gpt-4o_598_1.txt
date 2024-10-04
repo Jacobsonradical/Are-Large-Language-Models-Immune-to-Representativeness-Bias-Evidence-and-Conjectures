@@ -1,0 +1,63 @@
+To apply Bayes' rule to compute the posterior probability \( P(H|E) \) for each field, we use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in that field.
+- \( P(E|H) \) is the probability of Adam's personality sketch given that he's enrolled in that field.
+- \( P(E|\neg H) \) is the probability of Adam's personality sketch given that he's not enrolled in that field.
+- \( P(E) \) is the overall probability of Adam's personality sketch, which can be computed using the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since we are not given specific numerical probabilities, I will use reasonable assumptions based on the descriptions provided. These values should be interpreted qualitively.
+
+### Assumptions:
+1. **Priors \(P(H)\):**
+   - In the general population of graduate students, let's assume the prior probability of each field.
+     - Business Administration \((P(H_{\text{BA}}))\): Assume a relatively high enrollment rate, e.g., 0.2.
+     - Agricultural & Veterinary Science \((P(H_{\text{AV}}))\): Assume a lower enrollment rate, e.g., 0.05.
+
+2. **Likelihoods \(P(E|H)\):**
+   - Given Adam's personality:
+     - \( P(E|H_{\text{BA}}) \): A lower matching with his love for nature, animals, and abstract thinking, e.g., 0.1.
+     - \( P(E|H_{\text{AV}}) \): A very high matching due to his traits that align well with this field, e.g., 0.8.
+
+3. **Complement likelihoods \(P(E|\neg H)\):**
+   - Refers to other fields that Adam might not be enrolled in:
+     - \( P(E|\neg H_{\text{BA}}) \): Considering other unrelated fields, might be higher, e.g., 0.3.
+     - \( P(E|\neg H_{\text{AV}}) \): More students might not fit the specific profile, hence lower, e.g., 0.15.
+
+Using these assumptions, we can compute \( P(E) \) for each field:
+
+#### Business Administration
+\[ P(E)_{\text{BA}} = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot P(\neg H_{\text{BA}}) \]
+\[ P(E)_{\text{BA}} = 0.1 \cdot 0.2 + 0.3 \cdot 0.8 \]
+\[ P(E)_{\text{BA}} = 0.02 + 0.24 \]
+\[ P(E)_{\text{BA}} = 0.26 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)_{\text{BA}}} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.1 \cdot 0.2}{0.26} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.02}{0.26} \]
+\[ P(H_{\text{BA}}|E) \approx 0.0769 \]
+
+#### Agricultural and Veterinary Science
+\[ P(E)_{\text{AV}} = P(E|H_{\text{AV}}) \cdot P(H_{\text{AV}}) + P(E|\neg H_{\text{AV}}) \cdot P(\neg H_{\text{AV}}) \]
+\[ P(E)_{\text{AV}} = 0.8 \cdot 0.05 + 0.15 \cdot 0.95 \]
+\[ P(E)_{\text{AV}} = 0.04 + 0.1425 \]
+\[ P(E)_{\text{AV}} = 0.1825 \]
+
+\[ P(H_{\text{AV}}|E) = \frac{P(E|H_{\text{AV}}) \cdot P(H_{\text{AV}})}{P(E)_{\text{AV}}} \]
+\[ P(H_{\text{AV}}|E) = \frac{0.8 \cdot 0.05}{0.1825} \]
+\[ P(H_{\text{AV}}|E) = \frac{0.04}{0.1825} \]
+\[ P(H_{\text{AV}}|E) \approx 0.2192 \]
+
+### Final Results:
+Considering the assumptions and calculations made, we get the following posterior probabilities for the given fields:
+
+```json
+{
+  "business administration": 0.0769,
+  "agricultural and veterinary science": 0.2192
+}
+```

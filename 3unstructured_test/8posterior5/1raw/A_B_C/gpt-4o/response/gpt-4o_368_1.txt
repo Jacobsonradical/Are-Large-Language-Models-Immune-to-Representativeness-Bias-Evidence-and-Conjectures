@@ -1,0 +1,79 @@
+To solve this problem using Bayes' theorem, we'll need to evaluate the following probabilities for each of the three fields:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \): The likelihood of the personality sketch \( E \) given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The likelihood of the personality sketch \( E \) given that Adam was not enrolled in that field.
+4. Finally, using Bayes' theorem: 
+   \[
+   P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+   \]
+
+Let's make some reasonable assumptions about these probabilities based on the personality sketch:
+
+### Computer Science
+1. \( P(H) \): Let's assume the percentage of students enrolled in computer science is relatively high in the U.S., but it's still one among many fields. Assume 10%.
+2. \( P(E|H) \): Given that Adam has strong intelligence and enjoys solving puzzles, it's moderate to high that he's in computer science. Assume 0.6.
+3. \( P(E|\neg H) \): Given that others can also have similar interests, we would set this lower than \( P(E|H) \). Assume 0.2.
+
+### Business Administration
+1. \( P(H) \): Assume 10% of graduate students are in business administration.
+2. \( P(E|H) \): Given his empathy and appreciation for hard work, it's lower that he’s in business administration, as this field often requires a different skill set and interest. Assume 0.2.
+3. \( P(E|\neg H) \): Assume 0.3, accounting for overlap with other fields.
+
+### Agricultural and Veterinary Science
+1. \( P(H) \): This field is less common, so let's assume 5%.
+2. \( P(E|H) \): Given his love for nature, animals, and empathy, it's quite high that he's in this field. Assume 0.8.
+3. \( P(E|\neg H) \): Assume 0.1, since the traits are less common in other fields.
+
+To compute \( P(H|E) \), we also need \( P(E) \), but since we're comparing \( P(H|E) \) relative to each other, we can ignore this and just compare the numerators:
+
+\[
+P(H|E) \propto P(E|H)P(H)
+\]
+
+So, we calculate as follows:
+
+### Computer Science
+\[
+P(H|E) \propto 0.6 \times 0.1 = 0.06
+\]
+
+### Business Administration
+\[
+P(H|E) \propto 0.2 \times 0.1 = 0.02
+\]
+
+### Agricultural and Veterinary Science
+\[
+P(H|E) \propto 0.8 \times 0.05 = 0.04
+\]
+
+Converting these proportional values to a normalized form, we get:
+
+\[
+\text{Sum} = 0.06 + 0.02 + 0.04 = 0.12
+\]
+
+Thus:
+
+\[
+P(\text{Computer Science}|E) = \frac{0.06}{0.12} = 0.5
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{0.02}{0.12} = 0.1667
+\]
+
+\[
+P(\text{Agricultural and Veterinary Science}|E) = \frac{0.04}{0.12} = 0.3333
+\]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.5,
+  "business administration": 0.1667,
+  "agricultural and veterinary science": 0.3333
+}
+```

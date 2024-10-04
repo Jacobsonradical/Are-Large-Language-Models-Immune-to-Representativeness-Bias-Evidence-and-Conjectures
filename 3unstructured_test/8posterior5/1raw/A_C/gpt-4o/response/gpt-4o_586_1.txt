@@ -1,0 +1,44 @@
+To apply Bayes' rule in this context, we first need to define the conditional probabilities for each field. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in a given field (H) given his personality sketch (E).
+- \( P(E|H) \) is the probability of observing Adam's personality sketch (E) given that he is enrolled in that field (H).
+- \( P(H) \) is the prior probability that Adam is enrolled in that field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch.
+
+Given we don’t have exact prior probabilities (\( P(H) \)) or the exact likelihoods (\( P(E|H) \) and \( P(E|\neg H) \)), we need to make educated estimates to proceed:
+
+1. **Computer Science**:
+   - \( P(H) \): Computer science is a common field for graduate students, so an arbitrary estimate might be 0.2.
+   - \( P(E|H) \): The probability that Adam, given his personality traits, would be a computer science student might be low because his interests (nature, animals) and characteristics (high empathy) seem less aligned with the stereotypical computer science profile. Let’s assume 0.05.
+   - \( P(E|\neg H) \): The probability of finding Adam’s personality sketch outside of computer science fields is higher. Let’s assume 0.8.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): Agricultural and veterinary science is less common than computer science but more aligned with Adam's interests in nature and animals. Let's estimate it at 0.05.
+   - \( P(E|H) \): Given Adam’s strong empathy and love for nature and animals, this probability is high, so we can assume 0.5.
+   - \( P(E|\neg H) \): The probability of observing Adam's traits outside this field would be lower. Let's estimate it at 0.3.
+
+By normalization against \( P(E) \) overall, which varies across contexts, we use relative comparisons:
+
+For **Computer Science**:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.05 \cdot 0.2}{P(E)} \]
+
+For **Agricultural and Veterinary Science**:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.5 \cdot 0.05}{P(E)} \]
+
+Relative weighting (ignoring common denominators):
+
+\[ P(H|E)_{CS} \approx 0.01 \]
+
+\[ P(H|E)_{\text{Agri}} \approx 0.025 \]
+
+Normalizing sum is greater, relative probabilities:
+
+{
+  "computer science": 0.01,
+  "agricultural and veterinary science": 0.025
+}

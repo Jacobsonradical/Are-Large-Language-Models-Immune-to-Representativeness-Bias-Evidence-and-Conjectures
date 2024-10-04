@@ -1,0 +1,48 @@
+First, let's assign some probabilities based on the information in the personality sketch and typical characteristics of students in those fields.
+
+**Agricultural and Veterinary Science:**
+- P(H1): This is the prior probability that Adam is enrolled in Agricultural and Veterinary Science. Given his genuine curiosity about nature, love for animals, and strong appreciation for hard work, we can say it's relatively high, but we don't have specific data. Let's assume:
+  P(H1) = 0.1
+- P(E|H1): This is the probability of observing Adam's personality sketch if he is in Agricultural and Veterinary Science. Given the strong match with his interests and empathy towards animals and nature:
+  P(E|H1) = 0.9
+- P(E|¬H1): This is the probability of observing Adam's personality sketch if he is NOT in Agricultural and Veterinary Science. Since his traits are less commonly aligned with other fields but still possible, let's assume:
+  P(E|¬H1) = 0.2
+
+**Computer Science:**
+- P(H2): This is the prior probability that Adam is enrolled in Computer Science. Given his high intelligence and enjoyment of solving puzzles, we can say it's also a reasonable hypothesis but less closely related to his love for nature and animals. Let's assume:
+  P(H2) = 0.15
+- P(E|H2): This is the probability of observing Adam's personality sketch if he is in Computer Science. Given his interest in abstract concepts and puzzles, but less alignment with nature and animals:
+  P(E|H2) = 0.5
+- P(E|¬H2): This is the probability of observing Adam's personality sketch if he is NOT in Computer Science. Since his traits fit many other fields as well:
+  P(E|¬H2) = 0.4
+
+Now, let's compute P(H|E) using Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+where
+\[ P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \]
+
+### For Agricultural and Veterinary Science:
+\[ P(E) = (P(E|H1) \times P(H1)) + (P(E|\neg H1) \times P(\neg H1)) \]
+\[ P(E) = (0.9 \times 0.1) + (0.2 \times 0.9) \]
+\[ P(E) = 0.09 + 0.18 = 0.27 \]
+
+\[ P(H1|E) = \frac{P(E|H1) \times P(H1)}{P(E)} \]
+\[ P(H1|E) = \frac{0.9 \times 0.1}{0.27} = \frac{0.09}{0.27} \approx 0.3333 \]
+
+### For Computer Science:
+\[ P(E) = (P(E|H2) \times P(H2)) + (P(E|\neg H2) \times P(\neg H2)) \]
+\[ P(E) = (0.5 \times 0.15) + (0.4 \times 0.85) \]
+\[ P(E) = 0.075 + 0.34 = 0.415 \]
+
+\[ P(H2|E) = \frac{P(E|H2) \times P(H2)}{P(E)} \]
+\[ P(H2|E) = \frac{0.5 \times 0.15}{0.415} = \frac{0.075}{0.415} \approx 0.1807 \]
+
+So our final probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.3333,
+  "computer science": 0.1807
+}
+```

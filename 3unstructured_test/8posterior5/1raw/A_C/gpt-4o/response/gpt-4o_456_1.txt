@@ -1,0 +1,54 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' Rule, we need to estimate the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood given the negation \( P(E|\neg H) \) for each field. Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is the same for all hypotheses, we can focus on the numerator and later normalize the results if needed. Let's start with the estimates:
+
+### Computer Science
+- **Prior Probability \( P(H) \):**
+  - Computer Science is a relatively popular field for graduate students in the U.S., but not overwhelmingly so. Let's estimate \( P(H) \) to be 0.10.
+- **Likelihood \( P(E|H) \):**
+  - Adam's characteristics, such as high intelligence, curiosity, and love for abstract concepts, align relatively well with fields in computer science. A reasonable estimate would be 0.60.
+- **Likelihood \( P(E|\neg H) \):**
+  - These characteristics also fit other fields well (for example, agricultural science). A possible estimate is 0.40.
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \):**
+  - Agricultural and Veterinary Science is less common compared to Computer Science but still a notable field for graduate studies. Let's estimate \( P(H) \) as 0.05.
+- **Likelihood \( P(E|H) \):**
+  - Adam’s interest in nature, plants, and animals fits extremely well with agricultural and veterinary science. A high likelihood estimate would be 0.80.
+- **Likelihood \( P(E|\neg H) \):**
+  - Since these behaviors can fit well in some but not all other fields, an appropriate estimate might be 0.30.
+
+#### Applying Bayes' Rule (unnormalized):
+
+- For **Computer Science**:
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.60 \times 0.10 = 0.06 \]
+
+- For **Agricultural and Veterinary Science**:
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.80 \times 0.05 = 0.04 \]
+
+### Normalizing (Optional):
+While not specifically required, if we want normalized posterior probabilities, we consider the sum of these unnormalized values, which is 0.06 + 0.04 = 0.10.
+
+Thus, normalized probabilities are:
+- **Computer Science**: \( \frac{0.06}{0.10} = 0.60 \)
+- **Agricultural and Veterinary Science**: \( \frac{0.04}{0.10} = 0.40 \)
+
+However, without normalization, here are the unnormalized values leading to the final hypothesis probability estimates:
+
+```json
+{
+  "computer science": 0.06,
+  "agricultural and veterinary science": 0.04
+}
+```
+
+Should you wish to normalize:
+
+```json
+{
+  "computer science": 0.60,
+  "agricultural and veterinary science": 0.40
+}
+```

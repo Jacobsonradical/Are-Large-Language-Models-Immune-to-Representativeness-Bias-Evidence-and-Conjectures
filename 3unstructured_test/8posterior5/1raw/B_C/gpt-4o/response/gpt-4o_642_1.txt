@@ -1,0 +1,37 @@
+To compute \( P(H|E) \) using Bayes' Rule, we need to estimate the following probabilities for each field (business administration and computer science):
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that specific field.
+2. \( P(E|H) \): The probability that Adam's personality sketch matches the profile of students typically found in that field.
+3. \( P(E|\neg H) \): The probability that Adam's personality sketch matches the profile of students not enrolled in that field.
+4. We then use Bayes' Rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+Given that we need to make reasonable estimates, we'll proceed as follows:
+
+**Business Administration**:
+- **P(H\_Bus.Admin)**: The prior probability that Adam is a business administration student. Let's assume this is relatively low because his interests and traits seem more aligned with fields that involve nature, puzzles, and abstract thinking, so \( P(H\_Bus.Admin) = 0.2 \).
+- **P(E|H\_Bus.Admin)**: The probability of Adam's personality sketch given he is in business administration. Business students may occasionally have these traits, but less likely compared to students in fields such as biology or environmental science. Let's estimate \( P(E|H\_Bus.Admin) = 0.4 \).
+- **P(E|\neg H\_Bus.Admin)**: The probability of Adam's personality sketch given he is not in business administration. Given that his sketch fits better with other fields, let's estimate this to be somewhat higher, \( P(E|\neg H\_Bus.Admin) = 0.6 \).
+
+**Computer Science**:
+- **P(H\_Comp.Sci)**: The prior probability that Adam is a computer science student. Given his traits of solving puzzles and understanding abstract concepts, this is more likely. Let's estimate \( P(H\_Comp.Sci) = 0.6 \).
+- **P(E|H\_Comp.Sci)**: The probability of Adam's personality sketch given he is in computer science. People with Adam's traits are common in computer science. Let's estimate \( P(E|H\_Comp.Sci) = 0.7 \).
+- **P(E|\neg H\_Comp.Sci)**: The probability of Adam's personality sketch given he is not in computer science. This is lower since these attributes are more characteristic of computer science students, so let's estimate \( P(E|\neg H\_Comp.Sci) = 0.5 \).
+
+Using these estimates:
+
+For **Business Administration**:
+\[ P(H\_Bus.Admin|E) = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.6 \cdot 0.8} \approx \frac{0.08}{0.08 + 0.48} \approx \frac{0.08}{0.56} \approx 0.143 \]
+
+For **Computer Science**:
+\[ P(H\_Comp.Sci|E) = \frac{0.7 \cdot 0.6}{0.7 \cdot 0.6 + 0.5 \cdot 0.4} \approx \frac{0.42}{0.42 + 0.20} \approx \frac{0.42}{0.62} \approx 0.677 \]
+
+So the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.143,
+  "computer science": 0.677
+}
+```

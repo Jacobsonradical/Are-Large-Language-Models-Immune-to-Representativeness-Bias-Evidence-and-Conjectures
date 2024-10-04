@@ -1,0 +1,66 @@
+Let's make some reasonable assumptions and estimates based on the given personality sketch and fields. 
+
+1. Agricultural and Veterinary Science (denoted as \(H_1\))
+2. Computer Science (denoted as \(H_2\))
+
+### Step 1: Prior Probability - \(P(H)\)
+Let's denote the prior probability that Adam is in these fields. Assume that being a graduate student in either of these fields is roughly equally likely in general, but since there are many graduate fields other than these two, we'll assign these priors moderately small.
+
+- \(P(H_1)\) ≈ 0.1 (agricultural and veterinary science)
+- \(P(H_2)\) ≈ 0.1 (computer science)
+
+### Step 2: Likelihood - \(P(E|H)\)
+Given the description of Adam:
+
+- For agricultural and veterinary science:
+  - Genuine curiosity about nature and various plants: likely high.
+  - Strong empathy and love for animals: likely very high.
+  Thus, \(P(E|H_1)\) is expected to be high.
+  \(P(E|H_1)\) ≈ 0.9
+
+- For computer science:
+  - High intelligence and good at understanding abstract concepts: likely high.
+  - Enjoy solving puzzles: likely high.
+  Thus, \(P(E|H_2)\) is expected to be moderately high.
+  \(P(E|H_2)\) ≈ 0.6
+
+### Step 3: Likelihood - \(P(E|\neg H)\)
+Let's compute the likelihood of the personality sketch given that Adam is in other fields. Given Adam's characteristics, let's assume the following moderate values:
+
+- \(P(E|\neg H_1)\) ≈ 0.3 
+- \(P(E|\neg H_2)\) ≈ 0.4 
+
+### Step 4: Compute Posterior using Bayes' Rule
+The formula for Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to compute \(P(E)\) for normalization. But since we are comparing relative probabilities, this normalization term cancels out. For simplicity, we can ignore exact normalization as we want relative comparison.
+
+So, we compute the unnormalized posteriors:
+
+- Agricultural and Veterinary Science:
+  \[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+  \[ P(H_1|E) \propto 0.9 \cdot 0.1 = 0.09 \]
+
+- Computer Science:
+  \[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+  \[ P(H_2|E) \propto 0.6 \cdot 0.1 = 0.06 \]
+
+By normalizing, assuming these two fields sum to one for simplicity:
+
+\[
+P(H_1|E) = \frac{0.09}{0.09 + 0.06} \approx 0.6
+\]
+\[
+P(H_2|E) = \frac{0.06}{0.09 + 0.06} \approx 0.4
+\]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.6,
+  "computer science": 0.4
+}
+```

@@ -1,0 +1,68 @@
+To apply Bayes' theorem, we need to estimate several probabilities. Here's the general formula for Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam is enrolled in a particular field given the personality sketch \(E\).
+- \( P(E|H) \) is the probability of the personality traits \(E\) given the hypothesis \(H\) that Adam is enrolled in a particular field.
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E) \) is the overall probability of the personality traits \(E\) occurring across all fields.
+
+Given the personality sketch of Adam, let's estimate these probabilities for each field:
+
+### Business Administration
+#### Prior Probability \(P(H)\):
+Business administration is a common field, but less likely for someone with a strong interest in nature, plants, and animals.
+- **Estimate: 0.2**
+
+#### Likelihood \(P(E|H)\):
+Personality traits like a genuine curiosity about nature, love for animals, and appreciation for hard work are not typically associated with business students.
+- **Estimate: 0.1**
+
+#### Complement Likelihood \(P(E|\neg H)\):
+This is the probability of the personality traits given that Adam is not in business administration. Given the traits, it's more likely he's not in business administration.
+- **Estimate: 0.7**
+
+### Agricultural and Veterinary Science
+#### Prior Probability \(P(H)\):
+Given Adam's personality sketch, it is more likely he is enrolled in a field that deals with nature, plants, and animals.
+- **Estimate: 0.3**
+
+#### Likelihood \(P(E|H)\):
+This field matches well with Adam's traits of curiosity about nature and love for animals.
+- **Estimate: 0.8**
+
+#### Complement Likelihood \(P(E|\neg H)\):
+If Adam is not in agricultural and veterinary science, the probability of these traits is lower given the traits don't align as well with other fields.
+- **Estimate: 0.4**
+
+Now, we can compute \( P(H|E) \) for each field using Bayes' rule. We assume that \( P(E) \) is the same for each field, which allows us to compare relative values without calculating \( P(E) \) directly.
+
+### Calculation
+For **business administration**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+For **agricultural and veterinary science**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.3}{P(E)} \]
+
+Since these are relative probabilities, we simplify by removing \( P(E) \):
+
+For business administration:
+\[ P(H|E) \propto 0.02 \]
+
+For agricultural and veterinary science:
+\[ P(H|E) \propto 0.24 \]
+
+Normalizing these to get relative percentages (so they sum to 1):
+\[ \text{Total} = 0.02 + 0.24 = 0.26 \]
+
+\[ P(\text{business administration}|E) = \frac{0.02}{0.26} \approx 0.077 \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.24}{0.26} \approx 0.923 \]
+
+### Final Answer
+```json
+{
+  "business administration": 0.077,
+  "agricultural and veterinary science": 0.923
+}
+```

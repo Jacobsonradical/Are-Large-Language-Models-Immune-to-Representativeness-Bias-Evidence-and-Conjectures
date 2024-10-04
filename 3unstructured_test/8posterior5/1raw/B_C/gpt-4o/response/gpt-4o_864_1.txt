@@ -1,0 +1,51 @@
+To compute \( P(H|E) \) for each field, we'll use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are comparing only business administration and computer science, we don't need to calculate the exact value of \( P(E) \). Instead, we can compare the relative values of \( P(E|H) \cdot P(H) \) for each hypothesis.
+
+Let's denote:
+- \( H_{BA} \) as Adam being enrolled in Business Administration.
+- \( H_{CS} \) as Adam being enrolled in Computer Science.
+
+**Step 1: Assign prior probabilities \( P(H_{BA}) \) and \( P(H_{CS}) \):**
+
+Without specific information, we can assume prior probabilities for simplicity:
+- \( P(H_{BA}) \approx 0.2 \)
+- \( P(H_{CS}) \approx 0.2 \)
+
+These priors are assumed to reflect the general distribution of graduate students across various fields.
+
+**Step 2: Assign likelihoods \( P(E|H_{BA}) \) and \( P(E|H_{CS}) \):**
+
+- For business administration, Adam's curiosity about nature, interest in puzzles, empathy, and love for animals may not be strongly aligned with typical business administration students. \( P(E|H_{BA}) \) might be low:
+  - \( P(E|H_{BA}) \approx 0.1 \)
+
+- For computer science, Adam's intelligence, problem-solving skills, and ability to understand abstract concepts align more closely with the field. \( P(E|H_{CS}) \) might be higher:
+  - \( P(E|H_{CS}) \approx 0.7 \)
+
+**Step 3: Compute the posterior probabilities \( P(H_{BA}|E) \) and \( P(H_{CS}|E) \):**
+
+With Bayes' theorem:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+
+First, compute the product of priors and likelihoods:
+- For \( H_{BA} \):
+  \[ P(E|H_{BA}) \cdot P(H_{BA}) = 0.1 \cdot 0.2 = 0.02 \]
+
+- For \( H_{CS} \):
+  \[ P(E|H_{CS}) \cdot P(H_{CS}) = 0.7 \cdot 0.2 = 0.14 \]
+
+Since these are relative values, the total probability \( P(E) \) can be ignored for comparison purposes.
+
+Normalize these values to sum to 1:
+- \( P(H_{BA}|E) = \frac{0.02}{0.02 + 0.14} = \frac{0.02}{0.16} = 0.125 \)
+- \( P(H_{CS}|E) = \frac{0.14}{0.02 + 0.14} = \frac{0.14}{0.16} = 0.875 \)
+
+**Final Results:**
+
+{
+  "business administration": 0.125,
+  "computer science": 0.875
+}

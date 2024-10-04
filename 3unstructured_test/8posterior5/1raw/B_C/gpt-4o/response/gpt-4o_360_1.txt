@@ -1,0 +1,42 @@
+To apply Bayes' rule and compute the probabilities P(H|E) for the fields of study given Adam's personality sketch, we need to estimate the prior probabilities P(H), the likelihoods P(E|H), and the likelihoods P(E|¬H). Then we will use Bayes' rule to compute the conditional probabilities P(H|E).
+
+Let's break it down step-by-step for each field.
+
+### Step 1: Estimate P(H) - Prior Probabilities
+- **Computer Science (CS)**: This field attracts individuals with strong analytical skills, curiosity, and problem-solving abilities, which fit Adam's traits. However, not everyone studying CS has a deep love for nature and animals. Let's reasonably estimate P(CS) = 0.15.
+- **Business Administration (BA)**: This field attracts individuals with leadership skills, strategic thinking, and often interest in entrepreneurship or management. Adam's traits suggest a different focus, so let's estimate P(BA) = 0.05.
+
+### Step 2: Estimate P(E|H) - Likelihood of Evidence Given Hypothesis
+- **Computer Science**: Given that Adam has high intelligence, enjoys solving puzzles, and understands abstract concepts, the likelihood P(E|CS) is relatively high. However, this field doesn't as directly align with his empathy and love for animals. Let's estimate P(E|CS) = 0.5.
+- **Business Administration**: Adam's traits of empathy and a warm heart are less common for a typical Business Administration student's profile. Let's estimate P(E|BA) = 0.1.
+
+### Step 3: Estimate P(E|¬H) - Likelihood of Evidence Given Not Hypothesis
+Given that there are multiple fields Adam could be enrolled in, we will approximate an average likelihood of encountering someone with his profile in non-CS and non-BA fields.
+- **P(E|¬CS)**: Let's approximate the average likelihood of Adam's profile fitting in other fields (excluding CS). Given his unique combination of traits, let's estimate P(E|¬CS) = 0.15.
+- **P(E|¬BA)**: Similarly, for non-BA fields, let's estimate the likelihood given his unique traits, P(E|¬BA) = 0.2.
+
+### Step 4: Apply Bayes' Rule
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) is the total probability of the evidence, calculated as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+#### For Computer Science:
+\[ P(E)_{CS} = (0.5 \cdot 0.15) + (0.15 \cdot 0.85) \]
+\[ P(E)_{CS} = 0.075 + 0.1275 = 0.2025 \]
+\[ P(CS|E) = \frac{0.5 \cdot 0.15}{0.2025} = \frac{0.075}{0.2025} \approx 0.37 \]
+
+#### For Business Administration:
+\[ P(E)_{BA} = (0.1 \cdot 0.05) + (0.2 \cdot 0.95) \]
+\[ P(E)_{BA} = 0.005 + 0.19 = 0.195 \]
+\[ P(BA|E) = \frac{0.1 \cdot 0.05}{0.195} = \frac{0.005}{0.195} \approx 0.0256 \]
+
+### Final Results
+```json
+{
+  "computer science": 0.37,
+  "business administration": 0.0256
+}
+```
+
+These results suggest that, given Adam's personality traits, he is more likely to be enrolled in a field like Computer Science than Business Administration.

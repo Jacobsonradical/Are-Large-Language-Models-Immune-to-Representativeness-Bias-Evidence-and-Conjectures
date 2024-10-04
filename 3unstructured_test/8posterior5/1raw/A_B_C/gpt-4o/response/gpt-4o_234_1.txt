@@ -1,0 +1,47 @@
+To compute the values, we need to estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field, then use Bayes' Rule to find \( P(H|E) \).
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is constant across all fields, to compare \( P(H|E) \) across different fields proportional to each other, we can ignore \( P(E) \) and focus on the numerator.
+
+Let's assume some reasonable estimations for each field:
+1. **computer science**:
+   - \( P(H) \): There are many graduate students in computer science, so let's say \( P(H) = 0.20 \).
+   - \( P(E|H) \): The personality sketch fits moderately with a computer science student (high intelligence, solving puzzles), so let's set \( P(E|H) = 0.50 \).
+   - \( P(E|\neg H) \): The sketch could fit students in other fields, so let's say \( P(E|\neg H) = 0.30 \).
+
+2. **agricultural and veterinary science**:
+   - \( P(H) \): This field is less common than computer science, so let's set \( P(H) = 0.05 \).
+   - \( P(E|H) \): The personality sketch fits very well (curiosity about nature, love for animals), so let’s set \( P(E|H) = 0.90 \).
+   - \( P(E|\neg H) \): The sketch less likely fits students not in this field, so let’s say \( P(E|\neg H) = 0.20 \).
+
+3. **business administration**:
+   - \( P(H) \): Many graduate students are in business administration, so let's set \( P(H) = 0.15 \).
+   - \( P(E|H) \): The personality sketch less likely fits because empathy and love for animals are not strong indicators, so let's set \( P(E|H) = 0.30 \).
+   - \( P(E|\neg H) \): The sketch fits moderately well with students in many other non-business fields, so let’s say \( P(E|\neg H) = 0.40 \).
+
+Now, we compute the numerators for Bayes' Rule:
+- For computer science:
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.50 \cdot 0.20 = 0.10 \]
+
+- For agricultural and veterinary science:
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.90 \cdot 0.05 = 0.045 \]
+
+- For business administration:
+  \[ P(H|E) \propto P(E|H) \cdot P(H) = 0.30 \cdot 0.15 = 0.045 \]
+
+To normalize these values so they sum to 1:
+- Total = \( 0.10 + 0.045 + 0.045 = 0.19 \)
+- Normalized values:
+  - Computer science: \[ \frac{0.10}{0.19} \approx 0.526 \]
+  - Agricultural and veterinary science: \[ \frac{0.045}{0.19} \approx 0.237 \]
+  - Business administration: \[ \frac{0.045}{0.19} \approx 0.237 \]
+
+Thus, the final probabilities are:
+
+{
+  "computer science": 0.526,
+  "agricultural and veterinary science": 0.237,
+  "business administration": 0.237
+}

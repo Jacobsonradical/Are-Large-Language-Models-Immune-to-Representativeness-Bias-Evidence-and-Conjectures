@@ -1,0 +1,73 @@
+Let's break this down step-by-step.
+
+Given:
+- E: The personality sketch of Adam
+- \( H \): The hypothesis that Adam was enrolled in a specific field
+
+The fields are:
+- Business Administration (BA)
+- Agricultural and Veterinary Science (AVS)
+- Computer Science (CS)
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to compute \( P(H|E) \) for each:
+
+1. **Business Administration**
+
+- **\( P(H) \)**: Prior probability of enrollment in Business Administration.
+  - Let’s assume this is relatively common and assign \( P(H) \approx 0.2 \).
+
+- **\( P(E|H) \)**: Probability of E given H (personality sketch given Business Administration).
+  - Business Administration may not have a strong emphasis on the traits like love for animals and curiosity about nature. Assign \( P(E|H) \approx 0.1 \).
+
+- **\( P(E|\neg H) \)**: Probability of E given not-H (personality sketch given not Business Administration).
+  - This would likely comprise other fields that might include his traits. Assign \( P(E|\neg H) \approx 0.3 \).
+
+2. **Agricultural and Veterinary Science**
+
+- **\( P(H) \)**: Prior probability of enrollment in Agricultural and Veterinary Science.
+  - Let’s assume this is less common. Assign \( P(H) \approx 0.1 \).
+
+- **\( P(E|H) \)**: Probability of E given H (personality sketch given Agricultural and Veterinary Science).
+  - This field aligns well with nature, animals, curiosity. Assign \( P(E|H) \approx 0.8 \).
+
+- **\( P(E|\neg H) \)**: Probability of E given not-H (personality sketch given not Agricultural and Veterinary Science).
+  - This would likely cover fields that don’t specifically align. Assign \( P(E|\neg H) \approx 0.2 \).
+
+3. **Computer Science**
+
+- **\( P(H) \)**: Prior probability of enrollment in Computer Science.
+  - This field is quite common among students. Assign \( P(H) \approx 0.3 \).
+
+- **\( P(E|H) \)**: Probability of E given H (personality sketch given Computer Science).
+  - Computer science can involve solving puzzles and high intelligence, but doesn’t typically involve love for nature or animals. Assign \( P(E|H) \approx 0.4 \).
+
+- **\( P(E|\neg H) \)**: Probability of E given not-H (personality sketch given not Computer Science).
+  - This encompasses other fields that might or might not align. Assign \( P(E|\neg H) \approx 0.3 \).
+
+We can now use Bayes' rule to compute \( P(H|E) \).
+
+Since \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \), let's simplify:
+\[ P(E) \approx 0.1 \cdot 0.2 + 0.3 \cdot 0.8 + 0.4 \cdot 0.3 = 0.1 \]
+(approximation, in reality this would be slightly more complex)
+
+Computing \( P(H|E) \):
+1. **Business Administration**:
+\[ P(BusinessAdministration|E) \approx \frac{0.1 \cdot 0.2}{0.1} = 0.2 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(AgriculturalAndVeterinaryScience|E) \approx \frac{0.8 \cdot 0.1}{0.1} = 0.8 \]
+
+3. **Computer Science**:
+\[ P(ComputerScience|E) \approx \frac{0.4 \cdot 0.3}{0.1} = 1.2  \]
+
+Since \( P(H|E) \) that are greater than 1 should be bound to 1, let's normalize to:
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8,
+  "computer science": 1
+}
+```

@@ -1,0 +1,49 @@
+To compute \( P(H|E) \) for each field, we need to use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We will assume \( P(H) \) based on a rough estimate of the distribution of graduate students across various fields. Then we will estimate \( P(E|H) \) based on how well Adam's personality sketch matches with typical students in each field. Finally, we'll estimate \( P(E|\neg H) \).
+
+Let's consider the fields one by one.
+
+### Business Administration
+1. **\( P(H_{business}) \)**: Given that business schools generally enroll a significant proportion of graduate students, let's assume \( P(H_{business}) = 0.20 \).
+2. **\( P(E|H_{business}) \)**: Business students might have general intelligence and empathy, but traits like a love for nature, solving puzzles, and animals are less typical. Let's estimate \( P(E|H_{business}) = 0.10 \). 
+3. **\( P(E|\neg H_{business}) \)**: Considering there are many other fields with varied personality traits, let's assume \( P(E|\neg H_{business}) = 0.40 \).
+
+### Agricultural and Veterinary Science
+1. **\( P(H_{ag_vet}) \)**: This field is less common than business, so let's assume \( P(H_{ag_vet}) = 0.05 \).
+2. **\( P(E|H_{ag_vet}) \)**: Adam's love for nature, animals, and empathy strongly matches this field. Let's estimate \( P(E|H_{ag_vet}) = 0.70 \). 
+3. **\( P(E|\neg H_{ag_vet}) \)**: Since fewer fields would strongly match Adam's personality as well as agricultural and veterinary science does, let's estimate \( P(E|\neg H_{ag_vet}) = 0.30 \).
+
+### Computer Science
+1. **\( P(H_{cs}) \)**: Computer science is a common graduate field, so let's assume \( P(H_{cs}) = 0.15 \).
+2. **\( P(E|H_{cs}) \)**: Understanding abstract concepts and solving puzzles fit computer science well, but love for nature and animals is less typical. Let's estimate \( P(E|H_{cs}) = 0.40 \).
+3. **\( P(E|\neg H_{cs}) \)**: This would be similar to above, considering the variety of other fields. Let's assume \( P(E|\neg H_{cs}) = 0.45 \).
+
+Now we can compute \( P(H|E) \) for each field using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is common across all fields, we can ignore it for proportional comparison and normalize the values later if needed.
+
+### Business Administration:
+\[ P(H_{business}|E) \approx \frac{0.10 \cdot 0.20}{0.40} = 0.05 \]
+
+### Agricultural and Veterinary Science:
+\[ P(H_{ag_vet}|E) \approx \frac{0.70 \cdot 0.05}{0.30} = 0.1167 \]
+
+### Computer Science:
+\[ P(H_{cs}|E) \approx \frac{0.40 \cdot 0.15}{0.45} = 0.1333 \]
+
+The final values normalized (if necessary) are:
+
+```json
+{
+  "business administration": 0.05,
+  "agricultural and veterinary science": 0.1167,
+  "computer science": 0.1333
+}
+```
+
+Note: These values are estimates and not definitive probabilities since they rely heavily on assumed priors and likelihoods.

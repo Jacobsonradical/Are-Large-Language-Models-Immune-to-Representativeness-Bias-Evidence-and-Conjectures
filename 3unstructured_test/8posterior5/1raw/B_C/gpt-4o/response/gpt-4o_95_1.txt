@@ -1,0 +1,58 @@
+To estimate \( P(H \mid E) \) for Adam being enrolled in either business administration or computer science, we need to estimate the prior probabilities \( P(H) \), the likelihoods \( P(E \mid H) \) and \( P(E \mid \neg H) \), and then apply Bayes' rule.
+
+Recall Bayes' rule:
+\[ P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)} \]
+
+However, because we are comparing \( P(H \mid E) \) for different hypotheses (fields of study), we don't need the exact value of \( P(E) \); we can compare the numerators directly, acknowledging that \( P(E) \) will be the same for both hypotheses.
+
+Let's break it down for each hypothesis:
+
+### Business Administration
+#### Prior Probability \( P(H) \)
+\( P(H_{\text{business administration}}) \): This is a common but not rare field; let’s assign it a moderate prior probability, say 0.15.
+
+#### Likelihood \( P(E \mid H) \)
+The personality sketch suggests a genuine curiosity about nature, empathy, and a love for animals, which are less aligned with typical interests in business administration. The connection is not strong. Let’s assume \( P(E \mid H_{\text{business administration}}) = 0.05 \).
+
+#### \( P(E \mid \neg H) \)
+This would depend on the sum of the likelihoods of all other possible fields, but for simplicity in estimation, let’s assume \( P(E \mid \neg H_{\text{business administration}}) = 0.1 \).
+
+### Computer Science
+#### Prior Probability \( P(H) \)
+\( P(H_{\text{computer science}}) \): This field is common among graduate students, especially for those with high intelligence and problem-solving skills. We will assign it a higher prior probability, say 0.25.
+
+#### Likelihood \( P(E \mid H) \)
+Considering Adam's enjoyment of solving puzzles and high intelligence in abstract concepts, the likelihood is significantly higher. Additionally, empathy and a quiet nature can be common among people in this field. So, we estimate \( P(E \mid H_{\text{computer science}}) = 0.4 \).
+
+#### \( P(E \mid \neg H) \)
+As above, we estimate this roughly the same, \( P(E \mid \neg H_{\text{computer science}}) = 0.1 \).
+
+Now, we compute \( P(H \mid E) \) using Bayes' rule proportional to the likelihoods and priors.
+
+For business administration:
+\[ P(H_{\text{business administration}} \mid E) \propto P(E \mid H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) = 0.05 \times 0.15 = 0.0075 \]
+
+For computer science:
+\[ P(H_{\text{computer science}} \mid E) \propto P(E \mid H_{\text{computer science}}) \cdot P(H_{\text{computer science}}) = 0.4 \times 0.25 = 0.1 \]
+
+In normalized proportions, given that the probabilities for other fields are excluded:
+\[ \text{business administration} : \text{computer science} = 0.0075 : 0.1 \]
+
+To calculate, normalize these values so that their sum doesn't need to be 1 (since other fields are involved):
+
+\[
+\text{Normalized Probability} \left( P(H_{\text{business administration}} \mid E) \right) = \frac{0.0075}{0.0075 + 0.1} = \frac{0.0075}{0.1075} \approx 0.07
+\]
+
+\[
+\text{Normalized Probability} \left( P(H_{\text{computer science}} \mid E) \right) = \frac{0.1}{0.0075 + 0.1} = \frac{0.1}{0.1075} \approx 0.93
+\]
+
+Hence the estimates are:
+
+```json
+{
+  "business administration": 0.07,
+  "computer science": 0.93
+}
+```

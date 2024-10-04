@@ -1,0 +1,63 @@
+To judge the probabilities, let's start with the prior probabilities \( P(H) \) considering the general distribution of graduate fields in the U.S. Generally, computer science, agricultural and veterinary science, and business administration are quite different fields. We have to evaluate how Adam's personality sketch influences these fields.
+
+### Prior Probabilities \( P(H) \)
+- **Computer Science (CS):** Computer science is a very popular field, especially among graduate students, due to career opportunities and technological advancement.
+- **Agricultural and Veterinary Science (AVS):** This field is less common but attracts individuals with a strong interest in nature and animals.
+- **Business Administration (BA):** Business administration is a broad and popular field, often pursued by those with leadership or organizational interests.
+
+Without specific data, I'll make some reasonable assumptions for the priors:
+- \( P(H_{CS}) = 0.35 \)
+- \( P(H_{AVS}) = 0.15 \)
+- \( P(H_{BA}) = 0.25 \)
+
+### Likelihood \( P(E|H) \)
+Next, let's estimate the likelihood of Adam's personality sketch given each field:
+- **CS:** While computer scientists can be empathetic and have a love for puzzles, the appreciation for nature and animals might be less relevant here.
+  - \( P(E|H_{CS}) \approx 0.4 \)
+- **AVS:** This field aligns well with Adam's interest in nature, plants, animals, and empathy.
+  - \( P(E|H_{AVS}) \approx 0.9 \)
+- **BA:** BA can suit intelligent individuals with strong empathy, but the nature and animal interest is less typical.
+  - \( P(E|H_{BA}) \approx 0.3 \)
+
+### P(E|\neg H)
+Here, we need \( P(E|\neg H) \), the probability of observing the personality sketch if Adam is not in the respective field. 
+- Likelihood \(\neg H\):
+  - For non-CS: Adam's interests are quite specific which might fit certain fields but less so CS.
+    - \( P(E|\neg H_{CS}) \approx 0.5 \)
+  - For non-AVS: It's less likely to find someone with Adam’s specific traits outside AVS.
+    - \( P(E|\neg H_{AVS}) \approx 0.3 \)
+  - For non-BA: The unique combination of traits might fit other fields but not as distinctly as AVS.
+    - \( P(E|\neg H_{BA}) \approx 0.4 \)
+
+### Posterior Probabilities \( P(H|E) \)
+
+Using Bayes' Rule: \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \), where \( P(E) \) is a normalizing factor.
+
+For simplicity, we compute the numerators:
+
+- **CS:** \( P(H_{CS}|E) = \frac{0.4 \cdot 0.35}{P(E)} = 0.14 / P(E) \)
+- **AVS:** \( P(H_{AVS}|E) = \frac{0.9 \cdot 0.15}{P(E)} = 0.135 / P(E) \)
+- **BA:**\( P(H_{BA}|E) = \frac{0.3 \cdot 0.25}{P(E)} = 0.075 / P(E) \)
+
+Normalizing factor \( P(E) \) = sum of numerators
+
+\[ P(E) = 0.14 + 0.135 + 0.075 = 0.35 \]
+
+Now normalize:
+
+\[
+P(H_{CS}|E) = \frac{0.14}{0.35} \approx 0.40
+\]
+\[
+P(H_{AVS}|E) = \frac{0.135}{0.35} \approx 0.39
+\]
+\[
+P(H_{BA}|E) = \frac{0.075}{0.35} \approx 0.21
+\]
+
+### Final Values:
+{
+  "computer science": 0.40,
+  "agricultural and veterinary science": 0.39,
+  "business administration": 0.21
+}

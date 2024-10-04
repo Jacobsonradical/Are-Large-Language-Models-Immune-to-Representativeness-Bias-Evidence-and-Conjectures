@@ -1,0 +1,42 @@
+To solve the problem using Bayes' theorem, we need to consider the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+2. \( P(E \mid H) \): The likelihood of observing Adam's personality sketch given that he is enrolled in a particular field.
+3. \( P(E \mid \neg H) \): The likelihood of observing Adam's personality sketch given that he is not enrolled in that field.
+4. \( P(H \mid E) \): The posterior probability that Adam was enrolled in a particular field given his personality sketch (what we aim to calculate).
+
+Using Bayes' theorem:
+\[ P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both fields and we're comparing ratios, we can ignore it and compare the values as:
+\[ P(H \mid E) \propto P(E \mid H) \cdot P(H) \]
+
+Let's consider each field and make reasonable estimations:
+1. **Agricultural and Veterinary Science (AV Science)**
+   - \( P(H) \): Assume this field has a moderate prior because it fits well with Adam's interests in nature, plants, and animals. Let’s assign a value of 0.2.
+   - \( P(E \mid H) \): High, because Adam's personality sketch (interest in nature, plants, and animals) closely aligns with the field. Let’s assign a value of 0.9.
+   - \( P(E \mid \neg H) \): Lower because those characteristics are less common in students of other fields. Let’s assign a value of 0.3.
+   - Hence, \( P(H \mid E) \propto P(E \mid H) \cdot P(H) = 0.9 \cdot 0.2 = 0.18 \).
+
+2. **Business Administration (BA)**
+   - \( P(H) \): Assume this field has a lower prior because it fits less well with Adam's interests. Let’s assign a value of 0.1.
+   - \( P(E \mid H) \): Lower, because Adam's personality sketch does not strongly align with typical characteristics of someone in business administration. Let’s assign a value of 0.2.
+   - \( P(E \mid \neg H) \): Higher, as those characteristics might be found in students of various other fields. Let’s assign a value of 0.7.
+   - Hence, \( P(H \mid E) \propto P(E \mid H) \cdot P(H) = 0.2 \cdot 0.1 = 0.02 \).
+
+Now we normalize the results to form a comparison:
+
+\[
+P(\text{AV Science} \mid E) = \frac{0.18}{0.18 + 0.02} \approx 0.9 
+\]
+\[
+P(\text{BA} \mid E) = \frac{0.02}{0.18 + 0.02} \approx 0.1 
+\]
+
+Given these estimations and calculations, we can make the following assertions:
+```json
+{
+  "agricultural and veterinary science": 0.9,
+  "business administration": 0.1
+}
+```

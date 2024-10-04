@@ -1,0 +1,65 @@
+To compute the probability \( P(H|E) \) using Bayes' rule, we need to start with the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the evidence \( P(E|\neg H) \) for each field. Here’s the formula for Bayes’ rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is constant for every hypothesis \( H \), for simplicity, we can compare the values of \( P(E|H) \cdot P(H) \) for the given fields. The absolute values will need normalization if you require probabilities to sum to 1, but for now, we'll directly compare the non-normalized scores.
+
+1. **Business Administration**:
+    - \( P(H) \): Prior probability of Adam being in business administration. It's reasonable to assume this is less common given the personality sketch.
+    - \( P(E|H) \): The likelihood of Adam having such a personality and being enrolled in business administration. This likelihood seems low because the personality traits (curiosity about nature, love for animals) do not align well with typical business administration interests.
+    - \( P(E|\neg H) \): Probability Adam fits E regardless of being in business administration. It’s higher because the personality traits lean more towards science fields.
+
+2. **Agricultural and Veterinary Science**:
+    - \( P(H) \): Prior probability Adam is in agricultural and veterinary science. Given his interests, this is relatively higher.
+    - \( P(E|H) \): The likelihood he has these traits if he’s in agricultural and veterinary science. This is high because his characteristics align well with this field.
+    - \( P(E|\neg H) \): Probability Adam fits E regardless of being in agricultural and veterinary science. It’s lower here, as his personality sketches seem specifically tailored to this field.
+
+Given these considerations, let's assign some reasonable but simplified probabilities and compute \( P(H|E) \).
+
+### Calculations and Adjustments:
+
+1. **Business Administration**:
+    - Assigning \( P(H) \) ≈ 0.1 (less likely choice)
+    - \( P(E|H) \) ≈ 0.1 (doesn’t align well)
+    - \( P(E|\neg H) \) ≈ 0.4 (quite broad but leaning towards science)
+
+    \[
+    P(H|E)_{BA} \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01
+    \]
+
+2. **Agricultural and Veterinary Science**:
+    - Assigning \( P(H) \) ≈ 0.3 (a more likely choice)
+    - \( P(E|H) \) ≈ 0.8 (very high alignment)
+    - \( P(E|\neg H) \) ≈ 0.3 (specific to this field)
+
+    \[
+    P(H|E)_{AVS} \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.3 = 0.24
+    \]
+
+### Normalization (Optional Step):
+
+To normalize:
+
+\[
+P(H|E)_{BA} = \frac{0.01}{0.01 + 0.24} \approx 0.04
+\]
+
+\[
+P(H|E)_{AVS} = \frac{0.24}{0.01 + 0.24} \approx 0.96
+\]
+
+So, the final calculations are:
+
+{
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.96
+}
+
+However, if not normalizing:
+
+{
+  "business administration": 0.01,
+  "agricultural and veterinary science": 0.24
+}
+
+These values suggest it's far more likely that Adam is enrolled in agricultural and veterinary science given his personality sketch.

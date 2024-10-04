@@ -1,0 +1,61 @@
+To apply Bayes' Rule and estimate the probabilities P(H|E) for each field, we'll first need to assign values to P(H), P(E|H), and P(E|¬H). These are subjective estimates based on the personality sketch provided.
+
+### Definitions
+- **P(H)**: Probability that Adam was enrolled in a specific field.
+- **P(E|H)**: Probability of observing Adam's personality sketch given he was enrolled in a specific field.
+- **P(E|¬H)**: Probability of observing Adam's personality sketch given he was not enrolled in a specific field.
+
+### Applying Bayes' Rule
+The formula for Bayes' Rule is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is the total probability of observing the evidence, which can be computed by:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+### Assigning Probabilities (subjective estimates):
+1. **Computer Science**
+   - P(H): 0.2 (since computer science is quite popular)
+   - P(E|H): 0.3 (Adam's traits could fit but aren't stereotypical for computer science)
+   - P(E|¬H): 0.05 (less likely outside the fields mentioned)
+
+2. **Business Administration**
+   - P(H): 0.1 (less common field for someone with Adam's traits)
+   - P(E|H): 0.1 (traits not strongly aligning with business administration)
+   - P(E|¬H): 0.15 (traits don’t directly contradict business administration)
+
+3. **Agricultural and Veterinary Science**
+   - P(H): 0.05 (field not as popular but fits his traits well)
+   - P(E|H): 0.9 (high probability of having such traits in this field)
+   - P(E|¬H): 0.1 (less likely outside this specialization given Adam's strong empathy and love for animals)
+
+### Total Evidence Probability
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+Since \( \neg H \) includes all fields not mentioned, let's assume the probability distributions reasonably encompass the other probabilities collectively with the above values. We'll normalize them if necessary.
+
+Now, calculate \( P(E) \):
+\[ P(E) = (0.3 \cdot 0.2) + (0.1 \cdot 0.8) + (0.1 \cdot 0.1) + (0.9 \cdot 0.05) + (0.1 \cdot 0.95) \]
+\[ P(E) \approx (0.06) + (0.08) + (0.01) + (0.045) + (0.095) \]
+\[ P(E) \approx 0.29 \]
+
+### Calculating P(H|E) for each field using Bayes' Rule:
+1. **Computer Science**
+   \[ P(H|E) = \frac{0.3 \cdot 0.2}{0.29} \approx \frac{0.06}{0.29} \approx 0.207 \]
+
+2. **Business Administration**
+   \[ P(H|E) = \frac{0.1 \cdot 0.1}{0.29} \approx \frac{0.01}{0.29} \approx 0.034 \]
+
+3. **Agricultural and Veterinary Science**
+   \[ P(H|E) = \frac{0.9 \cdot 0.05}{0.29} \approx \frac{0.045}{0.29} \approx 0.155 \]
+
+### Results
+Using the above calculations, the probabilities are estimated as:
+```json
+{
+  "computer science": 0.207,
+  "business administration": 0.034,
+  "agricultural and veterinary science": 0.155
+}
+```
+
+These subjective estimates suggest that given Adam's personality sketch, he has the highest likelihood of being in computer science, followed by agricultural and veterinary science, and least likely in business administration.

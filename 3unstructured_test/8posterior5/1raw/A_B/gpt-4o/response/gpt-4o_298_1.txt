@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) for each field, we need the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \): The probability of the personality sketch given that Adam was enrolled in a specific field.
+3. \( P(E|\neg H) \): The probability of the personality sketch given that Adam was not enrolled in that specific field.
+
+Using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a constant for both fields when comparing them, we can focus on the numerator \( P(E|H) \cdot P(H) \) to determine the relative probabilities \( P(H|E) \). 
+
+Let's assess each field:
+
+### Business Administration
+
+- **\( P(H_{BA}) \)**: Business administration is a common field, so let's assume a moderate prior, say 0.20.
+- **\( P(E|H_{BA}) \)**: The personality sketch suggests an interest in nature, warm heart, empathy, and love for animals, which might be less common traits for someone in business administration. Assign a lower value, like 0.10.
+- **\( P(E|\neg H_{BA}) \)**: This would be higher, similar traits found across a wider array of non-business fields. Assign a value of 0.30.
+
+### Agricultural and Veterinary Science
+
+- **\( P(H_{AVS}) \)**: Agricultural and veterinary science is less common than business administration, so let's assume a lower prior, say 0.10.
+- **\( P(E|H_{AVS}) \)**: The personality sketch aligns well with agricultural and veterinary science (curiosity about nature, empathy, love for animals). Assign a high value, like 0.90.
+- **\( P(E|\neg H_{AVS}) \)**: This would be moderately lower since traits match well with the field. Assign a value of 0.20.
+
+Using these assessments:
+
+### Business Administration
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+
+\[ P(H_{BA}|E) \propto 0.10 \cdot 0.20 = 0.02 \]
+
+### Agricultural and Veterinary Science
+
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+
+\[ P(H_{AVS}|E) \propto 0.90 \cdot 0.10 = 0.09 \]
+
+Now, let's normalize these to find the relative probabilities:
+
+\[ P(H_{total}) = 0.02 + 0.09 = 0.11 \]
+
+\[ P(H_{BA}|E) = \frac{0.02}{0.11} \approx 0.18 \]
+
+\[ P(H_{AVS}|E) = \frac{0.09}{0.11} \approx 0.82 \]
+
+Thus, the final probabilities are:
+
+```json
+{
+  "business administration": 0.18,
+  "agricultural and veterinary science": 0.82
+}
+```

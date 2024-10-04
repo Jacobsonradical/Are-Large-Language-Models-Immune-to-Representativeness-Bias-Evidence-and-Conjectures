@@ -1,0 +1,44 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' Rule, we need the following probabilities for each field:
+
+- \( P(H) \): The prior probability that Adam was enrolled in that field.
+- \( P(E|H) \): The likelihood of the personality sketch \( E \) given that Adam was enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of the personality sketch \( E \) given that Adam was not enrolled in that field.
+
+Given:
+\( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+Let's start with the field "agricultural and veterinary science":
+
+1. **Agricultural and Veterinary Science**:
+    - **Prior Probability \( P(H) \)**: Suppose we assume that out of all possible graduate fields, agricultural and veterinary science is not one of the more common choices, we might assign a prior probability of 0.1.
+    - **Likelihood \( P(E|H) \)**: The personality sketch fits well with someone involved in agricultural and veterinary sciences given Adam's love for nature, plants, and animals, with a strong understanding of hard work and dedication. Therefore, let's assign it a likelihood of 0.8.
+    - **Likelihood \( P(E|\neg H) \)**: The probability of the personality sketch given he's not in agricultural and veterinary science might be lower. Let's assume 0.2 as it's less likely to find these traits in other fields not related to nature and animals.
+    - **Posterior Probability \( P(H|E) \)**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.8 \cdot 0.1 = 0.08 \]
+
+2. **Business Administration**:
+    - **Prior Probability \( P(H) \)**: Given the popularity of this field, let's assume a prior probability of 0.2.
+    - **Likelihood \( P(E|H) \)**: The personality sketch does not align well with business administration, as it emphasizes nature, animals, and abstract concepts more than business traits. Let's assign it a likelihood of 0.1.
+    - **Likelihood \( P(E|\neg H) \)**: Let's assume 0.4 as there are more fields unrelated to nature and animals.
+    - **Posterior Probability \( P(H|E) \)**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+Summing up the scaled values:
+\[ P(E) \approx 0.08 + 0.02 = 0.10 \]
+
+Normalizing:
+\[ P_{agricultural\_and\_veterinary\_science|E} = \frac{0.08}{0.10} = 0.8 \]
+\[ P_{business\_administration|E} = \frac{0.02}{0.10} = 0.2 \]
+
+Thus the probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.8,
+  "business administration": 0.2
+}
+```

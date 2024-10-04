@@ -1,0 +1,71 @@
+To calculate \( P(H|E) \) for each hypothesis, we'll use Bayes' Theorem: 
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+We need to estimate:
+1. \( P(H) \): The prior probability that Adam chose each field.
+2. \( P(E|H) \): The probability of observing the personality sketch given that Adam is in each field.
+3. \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam is not in each field (necessary for calculating \( P(E) \)).
+
+Let's make reasonable assumptions for each:
+
+### Computer Science:
+- **\( P(H) \)**: Let's assume P(H) for computer science, being a popular field, is moderately high, say 0.2.
+- **\( P(E|H) \)**: Given his inclination towards puzzles and intelligence in abstract concepts, let's assume this is relatively high, say 0.3.
+- **\( P(E|\neg H) \)**: Likelihood of this personality sketch given not being in computer science. Let's set it to a lower value, since his other traits (nature, empathy) may not fit as well, perhaps 0.1.
+
+Using Bayes' Theorem:
+\[
+P(H|E) = \frac{0.3 \cdot 0.2}{(0.3 \cdot 0.2 + 0.1 \cdot 0.8)}
+\]
+
+### Business Administration:
+- **\( P(H) \)**: Let's assume P(H) for business administration is 0.2 (also a common field).
+- **\( P(E|H) \)**: Business typically doesn't align strongly with his sketch, so perhaps 0.1.
+- **\( P(E|\neg H) \)**: For being outside business administration, traits focusing on empathy and nature could be higher, say 0.3.
+
+Using Bayes' Theorem:
+\[
+P(H|E) = \frac{0.1 \cdot 0.2}{(0.1 \cdot 0.2 + 0.3 \cdot 0.8)}
+\]
+
+### Agricultural and Veterinary Science:
+- **\( P(H) \)**: Let's assume P(H) for agricultural and veterinary science, niche though it is, might be around 0.1.
+- **\( P(E|H) \)**: Strong alignment with his love for nature and animals, so assume high, say 0.5.
+- **\( P(E|\neg H) \)**: Personality sketch not in this field but fitting elements of nature and empathy, say 0.2.
+
+Using Bayes' Theorem:
+\[
+P(H|E) = \frac{0.5 \cdot 0.1}{(0.5 \cdot 0.1 + 0.2 \cdot 0.9)}
+\]
+
+Now, we calculate these values:
+
+#### Computer Science:
+\[
+P(H|E) = \frac{0.06}{0.14} \approx 0.428
+\]
+
+#### Business Administration:
+\[
+P(H|E) = \frac{0.02}{0.26} \approx 0.077
+\]
+
+#### Agricultural and Veterinary Science:
+\[
+P(H|E) = \frac{0.05}{0.23} \approx 0.217
+\]
+
+Here are the probabilities:
+
+```json
+{
+  "computer science": 0.428,
+  "business administration": 0.077,
+  "agricultural and veterinary science": 0.217
+}
+```
+
+These values highlight that based on the given personality sketch, Adam is most likely enrolled in Computer Science, with Agricultural and Veterinary Science as the second possibility and Business Administration being the least likely.

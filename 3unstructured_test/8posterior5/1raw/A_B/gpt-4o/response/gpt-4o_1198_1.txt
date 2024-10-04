@@ -1,0 +1,45 @@
+To determine the probabilities \( P(H|E) \), the probability of hypothesis \( H \) given evidence \( E \), we can use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of hypothesis \( H \) (the probability that Adam is in a particular field before considering the personality sketch).
+- \( P(E|H) \) is the likelihood (the probability of the evidence given that Adam is in the field).
+- \( P(E|\neg H) \) is the probability of the evidence given that Adam is not in the field.
+- \( P(E) \) is the total probability of the evidence, which can be expanded using the law of total probability: \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Given that \( P(E) \) serves as a normalizing constant and is the same for all fields, we can simplify our calculations by comparing only the numerators for different fields. Here’s the estimation for each field:
+
+1. **Business Administration:**
+   - \( P(H) \) denotes the fraction of graduate students in business administration. Let's approximate this as a common fraction (say, 0.1 or 10%).
+   - \( P(E|H) \) denotes the probability of Adam's personality sketch given he's in business administration. Curiosity about nature, empathy, love for animals, and interest in puzzles are less aligned with business administration, so this would be relatively low (say, 0.1).
+   - \( P(E|\neg H) \) denotes the probability of the personality sketch given that he's not in business administration. Given the nature-focused traits, this should be higher (say, 0.4).
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \) denotes the fraction of graduate students in agricultural and veterinary science. Let's approximate this as another common fraction (say, 0.1 or 10%).
+   - \( P(E|H) \) denotes the probability of Adam's personality sketch given he's in agricultural and veterinary science. Given the strong alignment with nature, animals, empathy, and interest in puzzles, this should be high (say, 0.9).
+   - \( P(E|\neg H) \) denotes the probability of the personality sketch given that he's not in agricultural and veterinary science. This probability should be lower than if he were, so (say, 0.2).
+
+Now, using these estimations:
+
+\[ P(H|E)_\text{business administration} \propto P(E|H)_\text{BA} \cdot P(H)_\text{BA} \]
+\[ P(H|E)_\text{agricultural and veterinary science} \propto P(E|H)_\text{AVS} \cdot P(H)_\text{AVS} \]
+
+Calculating these:
+
+\[ P(H|E)_\text{BA} = 0.1 \times 0.1 = 0.01 \]
+\[ P(H|E)_\text{AVS} = 0.9 \times 0.1 = 0.09 \]
+
+Normalizing these values to get probabilities that sum to 1:
+
+Let \( k \) be the normalizing constant:
+\[ k = 0.01 + 0.09 = 0.1 \]
+\[ P(H|E)_\text{BA} = \frac{0.01}{0.1} = 0.1 \]
+\[ P(H|E)_\text{AVS} = \frac{0.09}{0.1} = 0.9 \]
+
+Thus, the approximate probabilities are:
+
+{
+  "business administration": 0.1,
+  "agricultural and veterinary science": 0.9
+}

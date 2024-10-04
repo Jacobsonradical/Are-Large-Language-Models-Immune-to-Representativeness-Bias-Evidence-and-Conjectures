@@ -1,0 +1,62 @@
+To calculate \( P(H|E) \) for each field of study using Bayes' rule, we need to determine the following probabilities:
+
+1. \( P(H) \) — The prior probability that Adam was enrolled in each field.
+2. \( P(E|H) \) — The probability of Adam's personality sketch given that he was enrolled in each field.
+3. \( P(E|\neg H) \) — The probability of Adam's personality sketch given that he was not enrolled in each field.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We can compare \( P(H|E) \) across different fields without needing \( P(E) \) explicitly by using a normalization factor at the end.
+
+Let's estimate these probabilities for each field.
+
+### Computer Science
+1. \( P(H) \): Assuming a relatively high enrollment in computer science among graduate students, say 0.3.
+2. \( P(E|H) \): Given Adam's interest in puzzles and intelligence in abstract concepts, this might be moderately high, say 0.4.
+3. \( P(E|\neg H) \): The probability of anyone else (not in computer science) having his attributes could also be moderate, say 0.3.
+
+### Agricultural and Veterinary Science
+1. \( P(H) \): Assuming a lower enrollment, say 0.1.
+2. \( P(E|H) \): Given his love for nature, plants, animals, and empathy, this might be very high, say 0.8.
+3. \( P(E|\neg H) \): The probability of someone in other fields having his characteristics is lower, say 0.2.
+
+### Business Administration
+1. \( P(H) \): Assuming a high enrollment, say 0.3.
+2. \( P(E|H) \): Given his traits, this might be low, say 0.1.
+3. \( P(E|\neg H) \): The probability of anyone else (not in business administration) having his attributes could still be moderate, say 0.4.
+
+Now, let's calculate the unnormalized \( P(H|E) \) for each field and then normalize them.
+
+Using Bayes' Rule without needing \( P(E) \):
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Calculations:
+
+#### Computer Science:
+\[ P(H|E)_{CS} \propto 0.4 \times 0.3 = 0.12 \]
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E)_{Agri} \propto 0.8 \times 0.1 = 0.08 \]
+
+#### Business Administration:
+\[ P(H|E)_{BA} \propto 0.1 \times 0.3 = 0.03 \]
+
+Now, normalize these results by dividing each by the sum of all the above values:
+
+\[ P(H|E)_{CS} = \frac{0.12}{0.12 + 0.08 + 0.03} \approx 0.52 \]
+\[ P(H|E)_{Agri} = \frac{0.08}{0.12 + 0.08 + 0.03} \approx 0.35 \]
+\[ P(H|E)_{BA} = \frac{0.03}{0.12 + 0.08 + 0.03} \approx 0.13 \]
+
+So, the results are:
+
+```json
+{
+  "computer science": 0.52,
+  "agricultural and veterinary science": 0.35,
+  "business administration": 0.13
+}
+```
+
+Note: These probabilities are estimates based on assumptions, and actual prior information could lead to different values.

@@ -1,0 +1,58 @@
+To compute \( P(H|E) \) for each of the fields given, we need to consider the prior probability \( P(H) \) that Adam was enrolled in each field, the likelihood \( P(E|H) \) that he would have the observed personality traits if he were in that field, and the likelihood \( P(E|\neg H) \) that he would have these traits if he were not in that field.
+
+Given Adam's described personality, let's make reasoned estimates for the values:
+
+1. \( P(E|H) \) for each hypothesis based on how closely Adam's personality aligns with typical students in that field.
+2. \( P(E|\neg H) \) reflecting how well Adam's personality fits with students in other fields.
+
+Let's assume the following (subjectively reasonable) values:
+
+- Prior probabilities: Assume there's a rough distribution of graduate students in different fields.
+  - \( P(H_{business\ administration}) = 0.2 \)
+  - \( P(H_{computer\ science}) = 0.3 \)
+  - \( P(H_{agricultural\ and\ veterinary\ science}) = 0.2 \)
+
+- Likelihoods based on personality fit:
+  - \( P(E|H_{business\ administration}) = 0.2 \)
+  - \( P(E|H_{computer\ science}) = 0.4 \)
+  - \( P(E|H_{agricultural\ and\ veterinary\ science}) = 0.8 \)
+
+- Likelihoods of personality traits generally for other fields:
+  - \( P(E|\neg H_{business\ administration}) = 0.3 \)
+  - \( P(E|\neg H_{computer\ science}) = 0.4 \)
+  - \( P(E|\neg H_{agricultural\ and\ veterinary\ science}) = 0.2 \)
+
+Using Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where
+
+\[ P(E) = P(E|H_{business}) \cdot P(H_{business}) + P(E|H_{CS}) \cdot P(H_{CS}) + P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+
+Let's calculate \( P(E) \):
+
+\[ P(E) = 0.2 \cdot 0.2 + 0.4 \cdot 0.3 + 0.8 \cdot 0.2 \]
+\[ P(E) = 0.04 + 0.12 + 0.16 = 0.32 \]
+
+Now, applying Bayes' theorem for each field:
+
+1. Business Administration:
+\[ P(H_{business\ administration}|E) = \frac{0.2 \cdot 0.2}{0.32} = \frac{0.04}{0.32} = 0.125 \]
+
+2. Computer Science:
+\[ P(H_{computer\ science}|E) = \frac{0.4 \cdot 0.3}{0.32} = \frac{0.12}{0.32} = 0.375 \]
+
+3. Agricultural and Veterinary Science:
+\[ P(H_{agricultural\ and\ veterinary\ science}|E) = \frac{0.8 \cdot 0.2}{0.32} = \frac{0.16}{0.32} = 0.5 \]
+
+Thus, the results are:
+
+```json
+{
+  "business administration": 0.125,
+  "computer science": 0.375,
+  "agricultural and veterinary science": 0.5
+}
+```
+These values indicate the posterior probabilities of Adam being enrolled in each field based on the given personality sketch \(E\).

@@ -1,0 +1,62 @@
+To calculate the probability \( P(H|E) \) for each field, we'll use Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Here are the steps:
+1. Estimate \( P(H) \), the prior probability of Adam being in each field.
+2. Estimate \( P(E|H) \), the probability of observing Adam’s personality sketch given that he is in each field.
+3. Estimate \( P(E|\neg H) \), the probability of observing Adam’s personality sketch if he is not in each field.
+4. Use these estimates to compute \( P(H|E) \).
+
+### Agricultural and Veterinary Science
+- **P(H)**: Low since this is a relatively specialized field.
+- **P(E|H)**: High; Adam’s curiosity about nature, love for animals, and empathy fit this field well.
+- **P(E|\neg H)**: Lower; the personality traits are particularly aligned well with this field.
+
+### Computer Science
+- **P(H)**: Mid to high as it is a common field for graduates.
+- **P(E|H)**: Mid; puzzle-solving ability and intelligence fit well, but other traits are less aligned.
+- **P(E|\neg H)**: Higher; these traits, while fitting, are not specifically indicative of this field.
+
+### Business Administration
+- **P(H)**: Mid as it is another common field.
+- **P(E|H)**: Low; his traits are not typical for this field which generally favors interpersonal and managerial skills.
+- **P(E|\neg H)**: Higher; these traits are not typical for business administration.
+
+Next, we estimate the values:
+1. **Agricultural and Veterinary Science:**
+  - \( P(H) = 0.1 \) (low due to specialized nature)
+  - \( P(E|H) = 0.7 \) (high due to trait alignment)
+  - \( P(E|\neg H) = 0.3 \) (lower compared to inside field)
+
+2. **Computer Science:**
+  - \( P(H) = 0.25 \) (higher prevalence)
+  - \( P(E|H) = 0.5 \) (traits somewhat align)
+  - \( P(E|\neg H) = 0.4 \) (traits somewhat align outside)
+
+3. **Business Administration:**
+  - \( P(H) = 0.25 \)
+  - \( P(E|H) = 0.2 \) (low due to misalignment)
+  - \( P(E|\neg H) = 0.6 \) (higher misalignment within)
+
+Given Bayes’ Theorem and normalizing \( P(E) \) consistently:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|\neg H) \cdot P(\neg H)} \]
+
+### Computation:
+#### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{0.7 \cdot 0.1}{0.3 \cdot (1-0.1)} = \frac{0.07}{0.27} \approx 0.259 \]
+
+#### Computer Science
+\[ P(H|E) = \frac{0.5 \cdot 0.25}{0.4 \cdot (1-0.25)} = \frac{0.125}{0.3} \approx 0.417 \]
+
+#### Business Administration
+\[ P(H|E) = \frac{0.2 \cdot 0.25}{0.6 \cdot (1-0.25)} = \frac{0.05}{0.45} \approx 0.111 \]
+
+The probabilities can then be expressed as:
+```json
+{
+  "agricultural and veterinary science": 0.259,
+  "computer science": 0.417,
+  "business administration": 0.111
+}
+```
+
+These values suggest that, based on the given personality sketch, Adam is most likely to be enrolled in Computer Science, followed by Agricultural and Veterinary Science, with the lowest likelihood for Business Administration.

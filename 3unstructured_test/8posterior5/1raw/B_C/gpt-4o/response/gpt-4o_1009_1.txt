@@ -1,0 +1,72 @@
+To calculate the posterior probability \( P(H|E) \) using Bayes' theorem, we need to know the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complements \( P(E|\neg H) \). 
+
+### Bayes' Theorem
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, \( P(E) \) could be defined as:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Without detailed statistical information, we'll assume prior probabilities of enrollment in computer science and business administration based on general popularity. We should also consider how well each hypothesis aligns with the traits described in the personality sketch \( E \).
+
+### Assumptions
+
+1. **Priors \( P(H) \)**
+   - Prior probability \( P(H) \) for each field.
+   - Assume a slight favor towards more common fields.
+   
+2. **Likelihoods \( P(E|H) \)**
+   - How likely Adam's personality traits (\( E \)) fit with the hypotheses \( H \) for each field.
+   
+3. **Complement Likelihoods \( P(E|\neg H) \)**
+   - Assumes that Adam's traits (\( E \)) could fit well country-wide in fields other than \( H \).
+
+### Estimations
+
+#### Computer Science
+- **P(H = Computer Science)**: 
+  - Let's assume the prior probability \( P(H) \) is around 0.3.
+- **P(E|H)**:
+  - Given the traits, such as high intelligence, love for solving puzzles, and understanding abstract concepts, the likelihood \( P(E|H = Computer Science) \) is high, say 0.8.
+- **P(E|\neg H = Computer Science)**:
+  - For fields outside of computer science, similar traits might appear (considering other analytical or STEM fields), so assume a moderate likelihood of 0.5.
+
+#### Business Administration
+- **P(H = Business Administration)**:
+  - Assume a lower prior probability \( P(H) \), around 0.1, since the subject description seems less aligned with typical business traits.
+- **P(E|H)**:
+  - Given Adam's traits, the fit for business administration is lower, say 0.2.
+- **P(E|\neg H = Business Administration)**:
+  - For fields outside of business administration but fitting Adam's traits, assume a moderate likelihood of 0.6.
+
+### Calculations
+
+#### Posterior for Computer Science
+
+\[ P(H|E)_{CS} = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E) = 0.8 \cdot 0.3 + 0.5 \cdot (1 - 0.3) \]
+\[ P(E) = 0.24 + 0.35 \]
+\[ P(E) = 0.59 \]
+\[ P(H|E)_{CS} = \frac{0.8 \cdot 0.3}{0.59} \]
+\[ P(H|E)_{CS} \approx 0.41 \]
+
+#### Posterior for Business Administration
+
+\[ P(H|E)_{BA} = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) = 0.2 \cdot 0.1 + 0.6 \cdot (1 - 0.1) \]
+\[ P(E) = 0.02 + 0.54 \]
+\[ P(E) = 0.56 \]
+\[ P(H|E)_{BA} = \frac{0.2 \cdot 0.1}{0.56} \]
+\[ P(H|E)_{BA} \approx 0.04 \]
+
+Thus, the posteriors are:
+
+```json
+{
+  "computer science": 0.41,
+  "business administration": 0.04
+}
+```

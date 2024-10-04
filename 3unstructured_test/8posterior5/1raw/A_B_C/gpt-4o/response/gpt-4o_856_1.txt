@@ -1,0 +1,67 @@
+To compute the posterior probability \( P(H|E) \) through Bayes' rule, we follow these steps:
+
+1. **Bayes' Rule**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For the given hypotheses:
+- \( H_{\text{CS}} \): Adam was enrolled in Computer Science.
+- \( H_{\text{BA}} \): Adam was enrolled in Business Administration.
+- \( H_{\text{AVS}} \): Adam was enrolled in Agricultural and Veterinary Science.
+
+We need to estimate the following probabilities for each field:
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The likelihood of E given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The likelihood of E given that Adam was not enrolled in that field.
+
+We can start by assigning reasonable estimates.
+
+### Computer Science
+- \( P(H_{\text{CS}}) \): Computer Science is a popular field. Let's assume that 20% of graduate students are in Computer Science.
+- \( P(E|H_{\text{CS}}) \): Given the personality sketch of Adam, it's less likely for someone with a deep love for animals and strong empathy to be in Computer Science. Let's estimate this at 0.05.
+- \( P(E|\neg H_{\text{CS}}) \): Considering other fields could better match someone with Adam's personality sketch, let's estimate this at 0.15 (as there's a higher chance E aligns with non-computer science fields).
+
+### Business Administration
+- \( P(H_{\text{BA}}) \): Business Administration is also a popular field. Let's assume that 15% of graduate students are in Business Administration.
+- \( P(E|H_{\text{BA}}) \): Given Adam's traits, especially his love for nature and animals, it's unlikely. Let's estimate this at 0.02.
+- \( P(E|\neg H_{\text{BA}}) \): Similar to above, as more fitting fields remain likely, let's assume 0.15.
+
+### Agricultural and Veterinary Science
+- \( P(H_{\text{AVS}}) \): Agricultural and Veterinary Science is less popular than the above fields. Let's assume 5%.
+- \( P(E|H_{\text{AVS}}) \): This field aligns very well with Adam's love for nature, animals, and empathy. Let’s estimate this as quite high, at 0.8.
+- \( P(E|\neg H_{\text{AVS}}) \): As many fields likely don’t align with E as well as Agricultural and Veterinary Science, let’s put this at 0.10.
+
+### Using Bayes' Rule
+We now compute the posterior probabilities. 
+
+Firstly, for each field, \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}}) + \dots \]
+(sum of probabilities considering all fields)
+
+We’ll normalize P(E) for these scores:
+
+1. **Computer Science**
+   \[ P(H_{\text{CS}}|E) = \frac{0.05 \cdot 0.20}{0.05 \cdot 0.20 + 0.02 \cdot 0.15 + 0.8 \cdot 0.05} \]
+   \[ = \frac{0.01}{0.01 + 0.003 + 0.04} \]
+   \[ = \frac{0.01}{0.053} \approx 0.1887 \]
+
+2. **Business Administration**
+   \[ P(H_{\text{BA}}|E) = \frac{0.02 \cdot 0.15}{0.05 \cdot 0.20 + 0.02 \cdot 0.15 + 0.8 \cdot 0.05} \]
+   \[ = \frac{0.003}{0.053} \approx 0.0566 \]
+
+3. **Agricultural and Veterinary Science**
+   \[ P(H_{\text{AVS}}|E) = \frac{0.8 \cdot 0.05}{0.05 \cdot 0.20 + 0.02 \cdot 0.15 + 0.8 \cdot 0.05} \]
+   \[ = \frac{0.04}{0.053} \approx 0.7547 \]
+
+Thus the probabilities are:
+
+```json
+{
+  "computer science": 0.1887,
+  "business administration": 0.0566,
+  "agricultural and veterinary science": 0.7547
+}
+```
+
+This indicates a much higher posterior probability of Adam being in Agricultural and Veterinary Science, a moderate probability in Computer Science, and low in Business Administration given the personality sketch.

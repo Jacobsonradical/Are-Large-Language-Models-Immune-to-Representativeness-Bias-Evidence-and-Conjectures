@@ -1,0 +1,84 @@
+To determine the probability that Adam was enrolled in a specific field based on the given personality sketch, let's use Bayes' theorem. Bayes' theorem states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll need to estimate the probabilities for these terms:
+
+1. **P(H)**: The prior probability that Adam is enrolled in a given field.
+2. **P(E|H)**: The probability that Adam's personality traits (E) would be observed if he were in a given field (H).
+3. **P(E|\neg H)**: The probability that Adam's personality traits (E) would be observed if he were not in the given field.
+4. The denominator \( P(E) \) will be the normalization factor, which we actually don't need to calculate since we're interested in comparing between fields.
+
+### Hypotheses:
+
+- H1: Adam is in business administration.
+- H2: Adam is in agricultural and veterinary science.
+
+### Prior Probabilities (P(H)):
+Let's assign a very basic prior assuming equal likelihood initially among different fields. For simplicity, let’s assume a very simplified uniform prior across both fields.
+
+\[ P(H1) = P(H2) = 0.5 \] (as a naive approximation)
+
+### Likelihoods (P(E|H)):
+
+- **Business Administration (H1)**:
+- P(E|H1): Adam's traits include a love for nature, animals, and abstract problem-solving, which may not be highly typical but possible in business administration. Therefore, it is low.
+\[ P(E|H1) = 0.1 \]
+
+- **Agricultural and Veterinary Science (H2)**:
+- P(E|H2): Adam's traits align very well with studying agricultural and veterinary sciences.
+\[ P(E|H2) = 0.8 \]
+
+### Complement Likelihoods (P(E|¬H)):
+
+For non-business administration fields, Adam's traits may still be moderately likely because many other fields value abstract problem-solving, nature, and animals, such as biological sciences, environmental science, etc.
+\[ P(E|\neg H1) = 0.7 \]
+
+For non-agricultural and veterinary science fields, the same reasoning applies but to a lesser extent.
+\[ P(E|\neg H2) = 0.3 \]
+
+### Applying Bayes' Theorem:
+
+We compute the posterior probabilities (P(H|E)):
+
+- **Business Administration**:
+\[
+P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} 
+\]
+Since \( P(E) \) is the same for all hypotheses, let’s compare the numerator:
+
+\[
+P(H1|E) \propto P(E|H1) \cdot P(H1) 
+= 0.1 \times 0.5 
+= 0.05
+\]
+
+- **Agricultural and Veterinary Science**:
+\[
+P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} 
+\]
+Since \( P(E) \) is the same for all hypotheses, let’s compare the numerator:
+
+\[
+P(H2|E) \propto P(E|H2) \cdot P(H2) 
+= 0.8 \times 0.5 
+= 0.4
+\]
+
+Thus, normalizing these values:
+
+\[
+P(H1|E) = \frac{0.05}{0.05 + 0.4} \approx 0.111
+\]
+\[
+P(H2|E) = \frac{0.4}{0.05 + 0.4} \approx 0.889
+\]
+
+So, our probabilities should be:
+
+\[
+{
+"business administration": "0.111",
+"agricultural and veterinary science": "0.889"
+}
+\]

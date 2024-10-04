@@ -1,0 +1,64 @@
+To use Bayes' theorem to compute the probability of Adam being enrolled in a particular field given his personality sketch E, we need to estimate the following probabilities: 
+
+1. \( P(H) \), the prior probability of Adam being in that field.
+2. \( P(E|H) \), the probability of observing the characteristics in E if Adam were in that field.
+3. \( P(E|\neg H) \), the probability of observing the characteristics in E if Adam were not in that field.
+
+Then, using Bayes' theorem, the posterior probability \( P(H|E) \) is computed as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are only comparing two fields, we can denote \( P(E) \) implicitly through normalization.
+
+Let's proceed with the estimations:
+
+1. For **Business Administration**:
+    - **Prior Probability \( P(H) \)**: Assuming some baseline, we might estimate the probability of a typical graduate student being enrolled in business administration. Since this is a general estimate, let's say approximately 0.1 (10%).
+    
+    - **Likelihood \( P(E|H) \)**: Given Adam's personality traits like curiosity about nature, love for puzzles, empathy, etc., these are not commonly emphasized traits in business administration. Let's estimate this likelihood as relatively low, around 0.05.
+    
+    - **Complement likelihood \( P(E|\neg H) \)**: The probability of observing Adam's traits given he's in any other field. This is obscure, but let's presume it is higher due to the nature focuses on curiosity, puzzles, and empathy. A reasonable guess might be 0.2.
+
+2. For **Computer Science**:
+    - **Prior Probability \( P(H) \)**: Similar to above, estimated based on general enrollments, let's consider this around 0.15 (15%).
+    
+    - **Likelihood \( P(E|H) \)**: Traits like understanding abstract concepts and puzzles align well with computer science, so this likelihood might be higher, say 0.3.
+    
+    - **Complement likelihood \( P(E|\neg H) \)**: Given non-CS fields might not align as well with the traits, let's estimate it around 0.15.
+
+Now compute the posterior probabilities:
+
+1. For **Business Administration**:
+
+\[ P(H = \text{Business}) | E) \ = \frac{P(E|H = \text{Business}) \cdot P(H = \text{Business})}{P(E)} \]
+
+Since \( P(E) = P(E|H = \text{Business}) \cdot P(H = \text{Business}) + P(E|\neg H = \text{Business}) \cdot P(\neg H = \text{Business}) \):
+
+\[ P(E) \approx (0.05 \times 0.1) + (0.2 \times 0.9) \]
+\[ P(E) \approx 0.005 + 0.18 = 0.185 \]
+
+Hence:
+
+\[ P(H = \text{Business}) | E) = \frac{0.05 \times 0.1}{0.185} \approx \frac{0.005}{0.185} \approx 0.027 \]
+
+2. For **Computer Science**:
+
+\[ P(H = \text{CS}) | E) = \frac{P(E|H = \text{CS}) \cdot P(H = \text{CS})}{P(E)} \]
+
+Likewise:
+
+\[ P(E) \approx (0.3 \times 0.15) + (0.15 \times 0.85) \]
+\[ P(E) \approx 0.045 + 0.1275 = 0.1725 \]
+
+Hence:
+
+\[ P(H = \text{CS})| E) = \frac{0.3 \times 0.15}{0.1725} \approx \frac{0.045}{0.1725} \approx 0.261 \]
+
+Now compiling these values:
+
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.261
+}
+```

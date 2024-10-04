@@ -1,0 +1,63 @@
+Let's denote the hypotheses accordingly:
+
+- H(CS): Adam was enrolled in computer science.
+- H(BA): Adam was enrolled in business administration.
+
+First, let’s evaluate the probabilities given the provided information:
+
+### Computer Science (CS)
+1. **P(H(CS))**: General prior probability that a graduate student is enrolled in computer science. This could be roughly around 0.2 (20%) given the popularity of the field.
+   
+2. **P(E|H(CS))**: Probability of observing personality E given that Adam is in the computer science field. The sketch indicates that Adam is intelligent, good at abstract thinking, and enjoys puzzles. These traits align somewhat well with those of a typical computer science student. Thus, let's estimate this at about 0.6 (60%).
+
+3. **P(E|¬H(CS))**: Probability of observing personality E given that Adam is not in the computer science field. Since intelligence, empathy, and abstract thinking are not exclusive to computer science, let's estimate this at around 0.4 (40%).
+
+Using Bayes' rule:
+
+\[ P(H(CS|E)) = \frac{P(E|H(CS)) \cdot P(H(CS))}{P(E)} \]
+
+Where:
+
+\[ P(E) = P(E|H(CS)) \cdot P(H(CS)) + P(E|¬H(CS)) \cdot P(¬H(CS)) \]
+
+So,
+
+\[ P(E) = 0.6 \times 0.2 + 0.4 \times 0.8 = 0.12 + 0.32 = 0.44  \]
+
+Thus,
+
+\[ P(H(CS|E)) =  \frac{0.6 \times 0.2}{0.44} \approx 0.273 \]
+
+### Business Administration (BA)
+1. **P(H(BA))**: General probability that a graduate student is enrolled in business administration. This could be around 0.15 (15%).
+
+2. **P(E|H(BA))**: Probability of observing personality E given that Adam is in business administration. This is less likely than with CS. While some traits may apply, traits like an interest in nature and animals are less relevant to BA. Let's estimate this at around 0.3 (30%).
+
+3. **P(E|¬H(BA))**: Probability of observing personality E given that Adam is not in business administration can be estimated as 0.45 (45%) since the empathy and hard work traits are relatively common across various fields.
+
+Using Bayes' rule:
+
+\[ P(H(BA|E)) = \frac{P(E|H(BA)) \cdot P(H(BA))}{P(E)} \]
+
+Where:
+
+\[ P(E) = P(E|H(BA)) \cdot P(H(BA)) + P(E|¬H(BA)) \cdot P(¬H(BA)) \]
+
+So,
+
+\[ P(E) = 0.3 \times 0.15 + 0.45 \times 0.85 \approx 0.045 + 0.3825 = 0.4275 \]
+
+Thus,
+
+\[ P(H(BA|E)) \approx  \frac{0.3 \times 0.15}{0.4275} \approx 0.105 \]
+
+So the results will look like:
+
+```json
+{
+  "computer science": 0.273,
+  "business administration": 0.105
+}
+```
+
+These values indicate the posterior probabilities that Adam was enrolled in these specific fields given the personality sketch E.

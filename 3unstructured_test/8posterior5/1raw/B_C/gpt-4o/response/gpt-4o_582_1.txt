@@ -1,0 +1,75 @@
+To determine the probabilities \( P(H|E) \) for Adam being enrolled in either Business Administration or Computer Science, we start by estimating the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence given the negation of each hypothesis \( P(E|\neg H) \).
+
+### Prior Probabilities \( P(H) \)
+For simplicity, let's assume that the prior probability of Adam being enrolled in each field is equally likely across a vast array of possibilities. Considering the large number of different graduate programs, we can assign small and equal priors for each specific field, for example:
+
+- \( P(H_{\text{ba}}) \) (Business Administration) = 0.05
+- \( P(H_{\text{cs}}) \) (Computer Science) = 0.10
+
+### Likelihoods \( P(E|H) \)
+#### Business Administration
+- **Genuine curiosity about nature and plants**: Unlikely
+- **Quiet boy who enjoys solving puzzles**: Possible, but not a defining characteristic
+- **Warm heart, strong empathy, deep love for animals**: Unlikely
+- **High intelligence and understanding abstract concepts**: Possible
+- **Strong understanding and appreciation for hard work and dedication**: Relevant
+
+Thus,
+\( P(E|H_{\text{ba}}) \approx 0.2 \)
+
+#### Computer Science
+- **Genuine curiosity about nature and plants**: Unrelated
+- **Quiet boy who enjoys solving puzzles**: Highly likely
+- **Warm heart, strong empathy, deep love for animals**: Less likely but possible
+- **High intelligence and understanding abstract concepts**: Very likely
+- **Strong understanding and appreciation for hard work and dedication**: Relevant
+
+Thus,
+\( P(E|H_{\text{cs}}) \approx 0.7 \)
+
+### Likelihoods \( P(E|\neg H) \)
+For \( P(E|\neg H) \), let's estimate it as an average likelihood across all other fields. Given our scenario, it may be reasonable to assume:
+
+\( P(E|\neg H_{\text{ba}}) \approx 0.4 \)
+
+\( P(E|\neg H_{\text{cs}}) \approx 0.4 \)
+
+### Using Bayes' Rule
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+is the normalizing constant.
+
+#### For Business Administration:
+\[ P(E|H_{\text{ba}}) = 0.2 \]
+\[ P(H_{\text{ba}}) = 0.05 \]
+\[ P(E|\neg H_{\text{ba}}) = 0.4 \]
+
+Using the approximation that \( P(\neg H_{\text{ba}}) \approx 0.95 \):
+
+\[ P(E) = 0.2 \cdot 0.05 + 0.4 \cdot 0.95 \]
+\[ P(E) \approx 0.01 + 0.38 = 0.39 \]
+
+\[ P(H_{\text{ba}}|E) = \frac{0.2 \cdot 0.05}{0.39} \approx \frac{0.01}{0.39} \approx 0.0256 \]
+
+#### For Computer Science:
+\[ P(E|H_{\text{cs}}) = 0.7 \]
+\[ P(H_{\text{cs}}) = 0.10 \]
+\[ P(E|\neg H_{\text{cs}}) = 0.4 \]
+
+Using the approximation that \( P(\neg H_{\text{cs}}) \approx 0.90 \):
+
+\[ P(E) = 0.7 \cdot 0.10 + 0.4 \cdot 0.90 \]
+\[ P(E) \approx 0.07 + 0.36 = 0.43 \]
+
+\[ P(H_{\text{cs}}|E) = \frac{0.7 \cdot 0.10}{0.43} \approx \frac{0.07}{0.43} \approx 0.1628 \]
+
+Based on our calculations, the probabilities are:
+
+```json
+{
+  "business administration": 0.0256,
+  "computer science": 0.1628
+}
+```

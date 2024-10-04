@@ -1,0 +1,76 @@
+To evaluate the probability of Adam being enrolled in each field based on his personality sketch, we'll use Bayes' Theorem. Let's denote:
+- \( P(H_c) \) as the prior probability that Adam is enrolled in computer science.
+- \( P(H_a) \) as the prior probability that Adam is enrolled in agricultural and veterinary science.
+- \( P(H_b) \) as the prior probability that Adam is enrolled in business administration.
+- \( P(E | H_c) \) as the probability of observing Adam's personality sketch assuming he is in computer science.
+- \( P(E | H_a) \) as the probability of observing Adam's personality sketch assuming he is in agricultural and veterinary science.
+- \( P(E | H_b) \) as the probability of observing Adam's personality sketch assuming he is in business administration.
+- \( P(E | \neg H) \) as the probability of observing Adam's personality sketch assuming he is not in a given field.
+
+Given \( P(H) \) and \( P(E | H) \), we can apply Bayes' Theorem to find \( P(H | E) \):
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+However, we need to make some educated guesses to approximate the values due to lack of specific prior probabilities (\( P(H) \)) and domain-experts knowledge-based conditional probabilities (\( P(E|H) \)).
+
+### Estimations:
+
+1. **Computer Science**:
+   - \( P(H_c) \): Moderately high prior probability since computer science is a popular field.
+   - \( P(E | H_c) \): Lower probability because his traits don't strongly align with typical computer science personalities.
+   - \( P(E | \neg H_c) \): Higher probability given the diversity of non-CS fields.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_a) \): Moderate prior probability likely lower than computer science but above business administration.
+   - \( P(E | H_a) \): High probability since his love for nature, plants, and animals fits this field well.
+   - \( P(E | \neg H_a) \): Lower probability since his traits have a strong match to this field.
+
+3. **Business Administration**:
+   - \( P(H_b) \): Lower prior probability.
+   - \( P(E | H_b) \): Lower probability as his personality sketch does not align much with typical business administration traits.
+   - \( P(E | \neg H_b) \): Higher probability due to mismatch.
+
+### Approximate Values:
+
+Now let's assign ballpark numerical values for simplicity in the logical flow:
+
+- \( P(H_c) \approx 0.4 \)
+- \( P(E|H_c) \approx 0.2 \)
+- \( P(E|\neg H_c) \approx 0.6 \)
+
+- \( P(H_a) \approx 0.3 \)
+- \( P(E|H_a) \approx 0.7 \)
+- \( P(E|\neg H_a) \approx 0.3 \)
+
+- \( P(H_b) \approx 0.1 \)
+- \( P(E|H_b) \approx 0.1 \)
+- \( P(E|\neg H_b) \approx 0.6 \)
+
+### Bayesian Calculation:
+
+To find \( P(E) \):
+\[ P(E) = P(E|H_c)P(H_c) + P(E|H_a)P(H_a) + P(E|H_b)P(H_b) \]
+\[ P(E) \approx (0.2 \times 0.4) + (0.7 \times 0.3) + (0.1 \times 0.1) \]
+\[ P(E) \approx 0.08 + 0.21 + 0.01 \approx 0.30 \]
+
+Finally, compute \( P(H|E) \):
+
+- \( P(H_c|E) = \frac{P(E|H_c) \cdot P(H_c)}{P(E)} \)
+\[ P(H_c|E) \approx \frac{0.2 \times 0.4}{0.30} \approx 0.27 \]
+
+- \( P(H_a|E) = \frac{P(E|H_a) \cdot P(H_a)}{P(E)} \)
+\[ P(H_a|E) \approx \frac{0.7 \times 0.3}{0.30} \approx 0.70 \]
+
+- \( P(H_b|E) = \frac{P(E|H_b) \cdot P(H_b)}{P(E)} \)
+\[ P(H_b|E) \approx \frac{0.1 \times 0.1}{0.30} \approx 0.03 \]
+
+Result:
+```json
+{
+  "computer science": 0.27,
+  "agricultural and veterinary science": 0.70,
+  "business administration": 0.03
+}
+```
+
+These probabilities give us a quantitative understanding of the likelihood of Adam being in each field, with agricultural and veterinary science being the most probable.

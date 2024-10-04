@@ -1,0 +1,65 @@
+Given the personality sketch of Adam, let's consider the likelihood of him being enrolled in each of the specified fields.
+
+### Notations:
+- Let \( E \) be the event that Adam matches the given personality sketch.
+- Let \( H_{\text{ag-vet}} \) be the hypothesis that Adam was enrolled in agricultural and veterinary science.
+- Let \( H_{\text{cs}} \) be the hypothesis that Adam was enrolled in computer science.
+- Let \( H_{\text{ba}} \) be the hypothesis that Adam was enrolled in business administration.
+
+### Judgements:
+1. **Agricultural and Veterinary Science**:
+   - **P(H_{\text{ag-vet}})**: The prior probability that a graduate student chooses agricultural and veterinary science is relatively low, but not negligible.
+   - **P(E|H_{\text{ag-vet}})**: Given Adam's keen interest in nature, plants, animals, and his empathy, this field strongly matches the described personality.
+   - **P(E|\neg H_{\text{ag-vet}})**: The probability of finding Adam's personality in fields other than agricultural and veterinary science is lower.
+   
+   Hence:
+   - \( P(H_{\text{ag-vet}}) = 0.1 \)
+   - \( P(E|H_{\text{ag-vet}}) = 0.8 \)
+   - \( P(E|\neg H_{\text{ag-vet}}) = 0.2 \)
+
+2. **Computer Science**:
+   - **P(H_{\text{cs}})**: The prior probability that a graduate student chooses computer science is higher than that for agricultural and veterinary science.
+   - **P(E|H_{\text{cs}})**: While Adam's intelligence and affinity for solving puzzles are a fit, his interest in nature and animals doesn't strongly align with computer science.
+   - **P(E|\neg H_{\text{cs}})**: The probability of his personality sketch fitting non-computer science graduates is more consistent.
+   
+   Hence:
+   - \( P(H_{\text{cs}}) = 0.3 \)
+   - \( P(E|H_{\text{cs}}) = 0.4 \)
+   - \( P(E|\neg H_{\text{cs}}) = 0.6 \)
+   
+3. **Business Administration**:
+   - **P(H_{\text{ba}})**: The prior probability that a graduate student chooses business administration is moderately high.
+   - **P(E|H_{\text{ba}})**: Adam's interest in nature, plants, and animals, and his quiet and empathetic nature, do not strongly align with business administration.
+   - **P(E|\neg H_{\text{ba}})**: Similar to computer science, but possibly even less aligned.
+   
+   Hence:
+   - \( P(H_{\text{ba}}) = 0.2 \)
+   - \( P(E|H_{\text{ba}}) = 0.1 \)
+   - \( P(E|\neg H_{\text{ba}}) = 0.7 \)
+
+### Bayes' Rule Application:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To find \( P(E) \):
+\[ P(E) = P(E|H_{\text{ag-vet}}) \cdot P(H_{\text{ag-vet}}) + P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) \]
+\[ P(E) = 0.8 \cdot 0.1 + 0.4 \cdot 0.3 + 0.1 \cdot 0.2 = 0.08 + 0.12 + 0.02 = 0.22 \]
+
+Now, calculate each \( P(H|E) \):
+
+1. **Agricultural and Veterinary Science**:
+\[ P(H_{\text{ag-vet}}|E) = \frac{0.8 \cdot 0.1}{0.22} = \frac{0.08}{0.22} \approx 0.364 \]
+
+2. **Computer Science**:
+\[ P(H_{\text{cs}}|E) = \frac{0.4 \cdot 0.3}{0.22} = \frac{0.12}{0.22} \approx 0.545 \]
+
+3. **Business Administration**:
+\[ P(H_{\text{ba}}|E) = \frac{0.1 \cdot 0.2}{0.22} = \frac{0.02}{0.22} \approx 0.091 \]
+
+Final Probabilities:
+```json
+{
+  "agricultural and veterinary science": 0.364,
+  "computer science": 0.545,
+  "business administration": 0.091
+}
+```

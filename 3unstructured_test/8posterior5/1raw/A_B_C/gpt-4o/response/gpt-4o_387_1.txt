@@ -1,0 +1,53 @@
+To calculate \( P(H|E) \) for each hypothesis using Bayes' rule, we need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the probability of the evidence given that the hypothesis is true.
+- \( P(E|\neg H) \) is the probability of the evidence given that the hypothesis is false.
+- \( P(E) \) is the total probability of the evidence.
+
+Since the exact numbers are not provided, we will use educated guesses based on the description of Adam. Let's assign some reasonable values:
+
+1. **Computer Science**:
+   - \( P(H_{\text{CS}}) \): Graduate students in the U.S. can be broadly in various fields, so let's estimate this as 0.3 (30%).
+   - \( P(E|H_{\text{CS}}) \): Given Adam's interests and personality, it's less likely but still somewhat possible that he is in computer science, say 0.2 (20%).
+   - \( P(E|\neg H_{\text{CS}}) \): The probability of his personality sketch in fields other than computer science may be higher, say 0.8 (80%).
+
+2. **Business Administration**:
+   - \( P(H_{\text{BA}}) \): Let's estimate this as 0.2 (20%).
+   - \( P(E|H_{\text{BA}}) \): Given the personality sketch, it's quite unlikely that Adam is in business administration, so let's estimate this as 0.05 (5%).
+   - \( P(E|\neg H_{\text{BA}}) \): The probability of his personality sketch in other fields may be higher, say 0.9 (90%).
+
+3. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AVS}}) \): Let's estimate this as 0.1 (10%).
+   - \( P(E|H_{\text{AVS}}) \): Given Adam's interests and personality, it's highly probable that he is in agricultural and veterinary science, so let's estimate this as 0.9 (90%).
+   - \( P(E|\neg H_{\text{AVS}}) \): The probability of his personality sketch in other fields might be lower, say 0.7 (70%).
+
+Now, let's compute \( P(H|E) \) for each hypothesis. 
+
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) \]
+\[ P(E) = 0.2 \cdot 0.3 + 0.05 \cdot 0.2 + 0.9 \cdot 0.1 \]
+\[ P(E) = 0.06 + 0.01 + 0.09 = 0.16 \]
+
+Now, we can use Bayes' rule to compute \( P(H|E) \):
+
+### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.2 \cdot 0.3}{0.16} = \frac{0.06}{0.16} = 0.375 \]
+
+### Business Administration
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.05 \cdot 0.2}{0.16} = \frac{0.01}{0.16} = 0.0625 \]
+
+### Agricultural and Veterinary Science
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} = \frac{0.9 \cdot 0.1}{0.16} = \frac{0.09}{0.16} = 0.5625 \]
+
+So the results by field would be:
+
+```json
+{
+  "computer science": 0.375,
+  "business administration": 0.0625,
+  "agricultural and veterinary science": 0.5625
+}
+```

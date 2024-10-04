@@ -1,0 +1,66 @@
+To calculate \( P(H|E) \) for each field, we'll use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) is the overall probability of the evidence, but since we are comparing hypotheses, \( P(E) \) will be a normalization factor. I'll assume some reasonable values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Let's start by assuming some reasonable priors:
+
+- \( P(H_{\text{CS}}) \): The prior probability that Adam is enrolled in computer science.
+- \( P(H_{\text{BA}}) \): The prior probability that Adam is enrolled in business administration.
+- \( P(E|H_{\text{CS}}) \): The likelihood that Adam exhibits this personality sketch given he is in computer science.
+- \( P(E|H_{\text{BA}}) \): The likelihood that Adam exhibits this personality sketch given he is in business administration.
+
+### Assumptions
+
+#### Computer Science (H_{\text{CS}})
+- \( P(H_{\text{CS}}) \): Let's assume a 20% prior probability (\(0.20\)).
+- \( P(E|H_{\text{CS}}) \): Computer science students can exhibit these traits (curiosity, intelligence, abstract thinking), moderately high likelihood, say 0.5.
+- \( P(E|\neg H_{\text{CS}}) \): Suppose the likelihood of these traits in non-computer science students is lower, say 0.3.
+
+#### Business Administration (H_{\text{BA}})
+- \( P(H_{\text{BA}}) \): Let's assume a 10% prior probability (\(0.10\)).
+- \( P(E|H_{\text{BA}}) \): Business administration students are less likely to match this profile, moderately low likelihood, say 0.2.
+- \( P(E|\neg H_{\text{BA}}) \): Suppose the likelihood of these traits in non-business administration students is higher than business administration, say 0.4.
+
+### Calculations
+
+#### Computer Science
+- \( P(H_{\text{CS}}) = 0.20 \)
+- \( P(E|H_{\text{CS}}) = 0.50 \)
+- \( P(E|\neg H_{\text{CS}}) = 0.30 \)
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = \frac{0.50 \cdot 0.20}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = 0.10 / P(E) \]
+
+#### Business Administration
+- \( P(H_{\text{BA}}) = 0.10 \)
+- \( P(E|H_{\text{BA}}) = 0.20 \)
+- \( P(E|\neg H_{\text{BA}}) = 0.40 \)
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.20 \cdot 0.10}{P(E)} \]
+\[ P(H_{\text{BA}}|E) = 0.02 / P(E) \]
+
+Since \( P(E) \) is a normalizing constant, let's compare the unnormalized values and renormalize. The normalizing constant is:
+
+\[ P(E) \approx (P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})) + (P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})) \]
+\[ P(E) \approx 0.10 + 0.02 = 0.12 \]
+
+So the normalized probabilities are:
+
+#### Computer Science
+\[ P(H_{\text{CS}}|E) = \frac{0.10}{0.12} \approx 0.833 \]
+
+#### Business Administration
+\[ P(H_{\text{BA}}|E) = \frac{0.02}{0.12} \approx 0.167 \]
+
+### Final Output
+
+```json
+{
+  "computer science": 0.833,
+  "business administration": 0.167
+}
+```

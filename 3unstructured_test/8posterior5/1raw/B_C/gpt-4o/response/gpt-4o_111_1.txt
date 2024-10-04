@@ -1,0 +1,39 @@
+To calculate \(P(H|E)\) using Bayes' theorem, we need to first evaluate \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) for each field. 
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+
+- \(P(H|E)\) is the posterior probability that Adam was enrolled in the field given his personality sketch.
+- \(P(E|H)\) is the likelihood of observing Adam's personality sketch given he was enrolled in the field.
+- \(P(H)\) is the prior probability of Adam being enrolled in the field.
+- \(P(E)\) is the normalizing constant ensuring the probabilities sum to 1, which can be derived but isn't needed to compare ratios since we're comparing two fields directly.
+
+For simplicity, I'll assign plausible values based on common stereotypes and the given personality sketch.
+
+### Computer Science:
+
+- **\(P(H)\):** The likelihood of any given graduate student being in computer science might be reasonably high given the popularity of the field. Let's assume \(P(H) = 0.2\).
+- **\(P(E|H)\):** Computer science students are often intelligent, enjoy puzzles, and understand abstract concepts. However, empathy and love for animals might be less stereotypically associated. Let's assume \(P(E|H) = 0.3\).
+- **\(P(E|\neg H)\):** This value represents the likelihood of the personality sketch given Adam is not a computer science student. Given the traits are somewhat general but less associated with computer science specifically, let's assume \(P(E|\neg H) = 0.1\).
+
+\[ P(H|E)_{\text{CS}} = \frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.1 \cdot 0.8} = \frac{0.06}{0.06 + 0.08} = \frac{0.06}{0.14} \approx 0.429 \]
+
+### Business Administration:
+
+- **\(P(H)\):** Business administration is also a popular graduate field, so let's assume \(P(H) = 0.2\).
+- **\(P(E|H):** Business students may have strong empathy and appreciation for hard work, but the other traits might be less associated with the field. Let's say \(P(E|H) = 0.15\).
+- **\(P(E|\neg H)\):** Similar to before, evaluating non-business administration fields with similar traits, let's assume \(P(E|\neg H) = 0.1\).
+
+\[ P(H|E)_{\text{BA}} = \frac{0.15 \cdot 0.2}{0.15 \cdot 0.2 + 0.1 \cdot 0.8} = \frac{0.03}{0.03 + 0.08} = \frac{0.03}{0.11} \approx 0.273 \]
+
+Combining these results, we obtain:
+
+```json
+{
+  "computer science": 0.429,
+  "business administration": 0.273
+}
+```

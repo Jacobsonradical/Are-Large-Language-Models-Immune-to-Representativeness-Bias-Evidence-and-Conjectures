@@ -1,0 +1,79 @@
+To compute the posterior probabilities \( P(H|E) \) for each hypothesis (i.e., Adam's field of study), we use Bayes' theorem:
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+However, we need to estimate some initial probabilities (prior probabilities \( P(H) \)) and conditional probabilities (\( P(E|H) \) and \( P(E|\neg H) \)). \( P(E) \) is constant across all hypotheses, so we only need to correctly evaluate the relative probabilities to rank the fields.
+
+Here are the general estimates given the personality sketch of Adam:
+
+### Business Administration
+1. **Prior (\( P(H) \))**: Moderate, as business administration is a common field.
+2. **Conditional Probability (\( P(E|H) \))**: Low, as the personality sketch doesn't align well with the typical interests and personality traits of someone in business administration.
+3. **Conditional Probability (\( P(E|\neg H) \))**: Likely higher because the traits mentioned don't particularly indicate business administration.
+
+### Agricultural and Veterinary Science
+1. **Prior (\( P(H) \))**: Moderate, as this is a less common graduate field.
+2. **Conditional Probability (\( P(E|H) \))**: High, as Adam's love for nature, plants, animals, and a warm heart aligns strongly with this field.
+3. **Conditional Probability (\( P(E|\neg H) \))**: Lower, as these traits are less indicative of other fields compared to agricultural and veterinary science.
+
+### Computer Science
+1. **Prior (\( P(H) \))**: Moderate to high, as computer science is a highly popular field.
+2. **Conditional Probability (\( P(E|H) \))**: Moderate, as his skills in puzzles, high intelligence, and understanding of abstract concepts could fit well with computer science.
+3. **Conditional Probability (\( P(E|\neg H) \))**: Still substantial but lower than while considering computer science directly.
+
+Let's estimate these values more precisely, although the actual numbers are rough estimates:
+
+### Rough Probability Estimates
+- **Business Administration:**
+  - \( P(H) \approx 0.2 \)
+  - \( P(E|H) \approx 0.1 \)
+  - \( P(E|\neg H) \approx 0.3 \)
+
+- **Agricultural and Veterinary Science:**
+  - \( P(H) \approx 0.1 \)
+  - \( P(E|H) \approx 0.6 \)
+  - \( P(E|\neg H) \approx 0.2 \)
+
+- **Computer Science:**
+  - \( P(H) \approx 0.3 \)
+  - \( P(E|H) \approx 0.3 \)
+  - \( P(E|\neg H) \approx 0.25 \)
+
+### Applying Bayes' Rule
+Using Bayes' rule:
+
+\[
+P(H|E) \propto P(E|H)P(H)
+\]
+
+We normalize these probabilities later, but to rank them, we can use the multiplication results directly:
+
+- **Business Administration:**
+  - \( P(H|E) \propto 0.1 \times 0.2 = 0.02 \)
+
+- **Agricultural and Veterinary Science:**
+  - \( P(H|E) \propto 0.6 \times 0.1 = 0.06 \)
+
+- **Computer Science:**
+  - \( P(H|E) \propto 0.3 \times 0.3 = 0.09 \)
+
+### Normalizing
+The sum is \( 0.02 + 0.06 + 0.09 = 0.17 \).
+
+Thus, to normalize:
+- **Business Administration:**
+  - \( P(H|E) = \frac{0.02}{0.17} \approx 0.118 \)
+
+- **Agricultural and Veterinary Science:**
+  - \( P(H|E) = \frac{0.06}{0.17} \approx 0.353 \)
+
+- **Computer Science:**
+  - \( P(H|E) = \frac{0.09}{0.17} \approx 0.529 \)
+
+{
+  "business administration": 0.118,
+  "agricultural and veterinary science": 0.353,
+  "computer science": 0.529
+}

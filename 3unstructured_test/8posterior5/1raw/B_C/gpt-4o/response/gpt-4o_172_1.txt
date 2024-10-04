@@ -1,0 +1,76 @@
+Sure, let's start by assigning probabilities for each field based on the given personality sketch and then compute the posterior probabilities using Bayes' rule.
+
+Let's assume the following:
+
+- \( P(H_{\text{business}}) \): Prior probability that Adam is enrolled in business administration.
+- \( P(H_{\text{comp_sci}}) \): Prior probability that Adam is enrolled in computer science.
+- \( P(E | H_{\text{business}}) \): Probability of observing the personality sketch given that Adam is in business administration.
+- \( P(E | H_{\text{comp_sci}}) \): Probability of observing the personality sketch given that Adam is in computer science.
+- \( P(E | \neg H_{\text{business}}) \): Probability of observing the personality sketch given that Adam is not in business administration.
+- \( P(E | \neg H_{\text{comp_sci}}) \): Probability of observing the personality sketch given that Adam is not in computer science.
+- \( P(H_{\text{business}} | E) \): Posterior probability that Adam is in business administration given the personality sketch.
+- \( P(H_{\text{comp_sci}} | E) \): Posterior probability that Adam is in computer science given the personality sketch.
+
+### Assumptions and Prior Probabilities
+Assume we do not have any specific reason to believe the prior probabilities are vastly different, so we might assign:
+- \( P(H_{\text{business}}) = 0.1 \)
+- \( P(H_{\text{comp_sci}}) = 0.1 \)
+
+### Likelihood
+Based on the personality sketch:
+- Adam has a genuine curiosity about nature and enjoys solving puzzles.
+- Adam has a warm heart, strong empathy, deep love for animals, and intelligence.
+
+These characteristics are more commonly associated with fields that involve a deep understanding of nature or abstract concepts, like computer science. They are less typical for business administration, which generally attracts individuals with a different set of interests and characteristics.
+
+Thus, we can assign:
+- \( P(E | H_{\text{business}}) \) relatively low.
+- \( P(E | H_{\text{comp_sci}}) \) relatively higher.
+
+Let's use the following estimates:
+- \( P(E | H_{\text{business}}) = 0.05 \)
+- \( P(E | H_{\text{comp_sci}}) = 0.3 \)
+
+Since \( P(E | \neg H_{\text{business}}) \) and \( P(E | \neg H_{\text{comp_sci}}) \) would average the likelihood over all other fields, we might assume:
+- \( P(E | \neg H_{\text{business}}) = 0.2 \)
+- \( P(E | \neg H_{\text{comp_sci}}) = 0.2 \)
+
+### Bayes' Rule Calculations
+Using Bayes' rule:
+
+\[
+P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)}
+\]
+
+where \( P(E) \) can be estimated as:
+\[
+P(E) = P(E | H) \cdot P(H) + P(E | \neg H) \cdot P(\neg H)
+\]
+
+Now calculate \( P(H | E) \):
+
+#### For Business Administration (BA):
+\[
+P(E)_{\text{BA}} = (0.05 \cdot 0.1) + (0.2 \cdot 0.9) = 0.005 + 0.18 = 0.185
+\]
+\[
+P(H_{\text{business}} | E) = \frac{0.05 \cdot 0.1}{0.185} \approx 0.027
+\]
+
+#### For Computer Science (CS):
+\[
+P(E)_{\text{CS}} = (0.3 \cdot 0.1) + (0.2 \cdot 0.9) = 0.03 + 0.18 = 0.21
+\]
+\[
+P(H_{\text{comp_sci}} | E) = \frac{0.3 \cdot 0.1}{0.21} \approx 0.143
+\]
+
+### Results
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.143
+}
+```
+
+These results suggest that given the personality sketch, it is more likely that Adam is enrolled in computer science compared to business administration.

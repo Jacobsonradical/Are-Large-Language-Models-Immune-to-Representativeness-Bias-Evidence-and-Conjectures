@@ -1,0 +1,53 @@
+To determine the likelihood that Adam was enrolled in either business administration or computer science based on his personality sketch, we can use Bayes' theorem. Let's denote:
+- \( H_{BA} \): Hypothesis that Adam was enrolled in business administration.
+- \( H_{CS} \): Hypothesis that Adam was enrolled in computer science.
+
+We need the following probabilities:
+- \( P(H_{BA}) \), \( P(H_{CS}) \): Prior probabilities of Adam being in business administration or computer science, respectively.
+- \( P(E|H_{BA}) \), \( P(E|H_{CS}) \): Likelihood of Adam’s personality sketch given he is in business administration or computer science.
+- \( P(E|\neg H_{BA}) \), \( P(E|\neg H_{CS}) \): Likelihood of Adam’s personality sketch given he is not in business administration or computer science.
+- \( P(E) \): Total probability of Adam’s personality sketch.
+
+We assume uniform prior \( P(H_{BA}) = P(H_{CS}) \approx 0.1 \) since many other fields exist and we consider business administration and computer science being two among many potential fields.
+
+### Evaluating likelihoods
+Given Adam's interests and traits:
+- **Business administration:** Not particularly characterized by curiosity about nature, empathy, or solving puzzles. Focused more on management, operations, economics, and finance.
+  - Therefore, \( P(E|H_{BA}) \) might be relatively low.
+- **Computer Science:** Requires high intelligence and understanding of abstract concepts. Puzzles and problem-solving are core aspects. Interest in nature and empathy might not be related but doesn’t strongly detract from CS traits.
+  - Therefore, \( P(E|H_{CS}) \) might be relatively high.
+
+We also need reasonable estimates for \( P(E|\neg H_{BA}) \) and \( P(E|\neg H_{CS}) \), which are average likelihoods of having such personality traits given they are not in business administration or computer science respectively.
+
+### Estimates
+- \( P(H_{BA}) = 0.1 \)
+- \( P(H_{CS}) = 0.1 \)
+- \( P(E|H_{BA}) = 0.05 \)
+- \( P(E|H_{CS}) = 0.2 \)
+- \( P(E|\neg H_{BA}) = 0.2 \)
+- \( P(E|\neg H_{CS}) = 0.1 \)
+
+### Apply Bayes' theorem
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+
+However, instead, we can make simplified adjustments because probabilities for other fields might share similarities:
+\[ P(E) \approx P(E| H_{BA}) \cdot 0.1 + P(E|H_{CS}) \cdot 0.1 + 0.8 \cdot avg(P(E|\neg H_{BA}), P(E|\neg H_{CS})) \]
+
+For simplicity, we can skip specific \( P(E) \) and compete directly relative:
+- Suppose \( P(E) \approx 0.1 \), normalization might not change relative significantly.
+
+### Results:
+**Business administration:**
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \approx \frac{0.05 \cdot 0.1}{0.2} = 0.025 \]
+**Computer science:**
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \approx \frac{0.2 \cdot 0.1}{0.2} = 0.1 \]
+
+Therefore, the more likely field given the personality sketch of Adam being:
+
+```json
+{
+  "business administration": "0.025",
+  "computer science": "0.1"
+}
+```

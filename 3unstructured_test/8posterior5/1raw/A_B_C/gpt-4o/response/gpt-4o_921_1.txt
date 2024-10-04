@@ -1,0 +1,64 @@
+To calculate \(P(H|E)\), we need to use Bayes' theorem. Bayes' theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \(P(H|E)\) is the posterior probability (probability of hypothesis \(H\) given evidence \(E\)).
+- \(P(E|H)\) is the likelihood (probability of evidence \(E\) given hypothesis \(H\)).
+- \(P(H)\) is the prior probability (initial probability of hypothesis \(H\) before evidence \(E\)).
+- \(P(E)\) is the marginal likelihood (total probability of evidence \(E\)).
+
+Now, let's evaluate for each field based on the given personality sketch.
+
+1. **Computer Science**
+
+### Judgements
+- \(P(H_{\text{CS}})\): Let's assume some arbitrary value for the number of graduate students in computer science, e.g., \(0.2\) (20%).
+- \(P(E|H_{\text{CS}})\): The personality sketch of Adam suggests he enjoys solving puzzles and understands abstract concepts, which fits well with computer science but less strongly matches his love for nature and animals. Let's assume \(0.5\).
+- \(P(E|\neg H_{\text{CS}})\): This is the probability of observing the given traits in someone who is not a computer science student. Let's estimate it as \(0.8\) due to the overall commonality of such traits among other fields.
+
+### Calculation
+\[ P(H_{\text{CS}}|E) = \frac{0.5 \cdot 0.2}{P(E)} \]
+
+2. **Business Administration**
+
+### Judgements
+- \(P(H_{\text{BA}})\): Assuming business administration students make up, let's say, \(0.2\) of the student population.
+- \(P(E|H_{\text{BA}})\): The personality traits described do not strongly align with the typical characteristics seen in business administration. Let's assume \(0.2\).
+- \(P(E|\neg H_{\text{BA}})\): The probability of these traits appearing in non-business fields is still somewhat high, say \(0.8\).
+
+### Calculation
+\[ P(H_{\text{BA}}|E) = \frac{0.2 \cdot 0.2}{P(E)} \]
+
+3. **Agricultural and Veterinary Science**
+
+### Judgements
+- \(P(H_{\text{AgVS}})\): Let's assume that agricultural and veterinary science students make up \(0.1\) of the student population.
+- \(P(E|H_{\text{AgVS}})\): The given traits strongly match with agricultural and veterinary science, especially the love for nature and animals. Let's assume \(0.9\).
+- \(P(E|\neg H_{\text{AgVS}})\): The probability of these traits appearing in non-agriculture/vet science fields is still quite high, let's say \(0.7\).
+
+### Calculation
+\[ P(H_{\text{AgVS}}|E) = \frac{0.9 \cdot 0.1}{P(E)} \]
+
+We now need to find \(P(E)\).
+
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{AgVS}}) \cdot P(H_{\text{AgVS}}) \]
+\[ P(E) = (0.5 \cdot 0.2) + (0.2 \cdot 0.2) + (0.9 \cdot 0.1) \]
+\[ P(E) = 0.1 + 0.04 + 0.09 \]
+\[ P(E) = 0.23 \]
+
+Finally, the posterior probabilities are:
+
+\[ P(H_{\text{CS}}|E) = \frac{0.1}{0.23} \approx 0.435 \]
+\[ P(H_{\text{BA}}|E) = \frac{0.04}{0.23} \approx 0.174 \]
+\[ P(H_{\text{AgVS}}|E) = \frac{0.09}{0.23} \approx 0.391 \]
+
+Thus the results are:
+
+```json
+{
+  "computer science": 0.435,
+  "business administration": 0.174,
+  "agricultural and veterinary science": 0.391
+}
+```

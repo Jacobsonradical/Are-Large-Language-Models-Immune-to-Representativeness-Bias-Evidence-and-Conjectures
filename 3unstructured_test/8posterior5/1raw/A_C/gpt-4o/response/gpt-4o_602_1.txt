@@ -1,0 +1,50 @@
+To determine the probabilities requested, we start with an understanding of the given data about Adam and apply Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Computer Science
+
+1. **P(H)**: This is the prior probability that Adam is enrolled in computer science. Given the number of students in various fields, let's assume:
+   \[ P(\text{CS}) = 0.2 \] (CS is a common graduate field)
+
+2. **P(E|H)**: This is the probability of observing Adam's personality sketch given that he is in computer science. Considering his attributes of curiosity, intelligence, and affinity for solving puzzles, but perhaps less alignment with empathy and animals:
+   \[ P(E|\text{CS}) = 0.3 \]
+
+3. **P(E|\neg H)**: This is the probability of observing Adam's personality given that he is not in computer science. Given his personality, he may be more suited to fields related to his empathy, animals, and nature:
+   \[ P(E|\neg \text{CS}) = 0.8 \]
+
+### Agricultural and Veterinary Science
+
+1. **P(H)**: This is the prior probability that Adam is enrolled in agricultural and veterinary science. Let's also assume:
+   \[ P(\text{AgVet}) = 0.1 \] (a less common but relevant field)
+
+2. **P(E|H)**: This is the probability of observing Adam's personality sketch given that he is in agricultural and veterinary science. Considering his interest in nature, plants, animals, empathy, and dedication:
+   \[ P(E|\text{AgVet}) = 0.7 \]
+
+3. **P(E|\neg H)**: This is the probability of observing Adam's personality given that he is not in agricultural and veterinary science. Given his attributes, this is less likely if he is in another field:
+   \[ P(E|\neg \text{AgVet}) = 0.5 \]
+
+### Using Bayes’ Rule
+
+#### Computer Science
+\[ P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E|\text{CS}) \cdot P(\text{CS}) + P(E|\neg \text{CS}) \cdot P(\neg \text{CS})} \]
+\[ P(\text{CS}|E) = \frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.8 \cdot 0.8} \]
+\[ P(\text{CS}|E) = \frac{0.06}{0.06 + 0.64} \]
+\[ P(\text{CS}|E) = \frac{0.06}{0.7} \]
+\[ P(\text{CS}|E) \approx 0.086 \]
+
+#### Agricultural and Veterinary Science
+\[ P(\text{AgVet}|E) = \frac{P(E|\text{AgVet}) \cdot P(\text{AgVet})}{P(E|\text{AgVet}) \cdot P(\text{AgVet}) + P(E|\neg \text{AgVet}) \cdot P(\neg \text{AgVet})} \]
+\[ P(\text{AgVet}|E) = \frac{0.7 \cdot 0.1}{0.7 \cdot 0.1 + 0.5 \cdot 0.9} \]
+\[ P(\text{AgVet}|E) = \frac{0.07}{0.07 + 0.45} \]
+\[ P(\text{AgVet}|E) = \frac{0.07}{0.52} \]
+\[ P(\text{AgVet}|E) \approx 0.135 \]
+
+Therefore, based on the calculations:
+
+```json
+{
+  "computer science": 0.086,
+  "agricultural and veterinary science": 0.135
+}
+```

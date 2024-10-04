@@ -1,0 +1,58 @@
+To solve this problem, we need to apply Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the problem, we need to assess the likelihoods and priors for each hypothesis (field of study) to compute the posterior probabilities \( P(H|E) \).
+
+Let's break this down for each field:
+
+### Business Administration
+1. **P(H)** (prior): The probability that any given graduate student in the U.S. is studying Business Administration.
+   - This can be relatively common as a graduate field, so let's assume \( P(H) = 0.2 \) (20%).
+
+2. **P(E|H)** (likelihood): The probability of Adam's personality sketch given that he is in Business Administration.
+   - Business Administration might attract people who are empathetic, hardworking, and intelligent but might not strongly correlate with a deep curiosity in nature and solving puzzles. Therefore, let's assume \( P(E|H) = 0.1 \) (10%).
+
+3. **P(E|\(\neg\)H)** (likelihood): The probability of Adam's personality sketch given that he is not in Business Administration.
+   - For all other fields combined, let's guess \( P(E|\neg H) = 0.05 \) (5%).
+
+### Computer Science
+1. **P(H)** (prior): The probability that any given graduate student in the U.S. is studying Computer Science.
+   - Computer Science is also a common graduate field, so let's assume \( P(H) = 0.2 \) (20%).
+
+2. **P(E|H)** (likelihood): The probability of Adam's personality sketch given that he is in Computer Science.
+   - Computer Science might attract people who are intelligent, love solving puzzles, and have a deep curiosity, but might be less likely for those into nature. So let's assume \( P(E|H) = 0.3 \) (30%).
+
+3. **P(E|\(\neg\)H)** (likelihood): The probability of Adam's personality sketch given that he is not in Computer Science.
+   - For all other fields combined, let's assume \( P(E|\neg H) = 0.05 \) (5%).
+
+### Computing Posterior Probabilities
+Using Bayes' rule for each hypothesis:
+
+1. **Business Administration**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+\( P(E) \) (total probability of evidence):
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H) \cdot P(\neg H) \]
+Assuming priors sum to 1:
+\[ P(\neg H) = 1 - P(H_{BA}) - P(H_{CS}) = 0.6 \]
+\[ P(E) = (0.1 \cdot 0.2) + (0.3 \cdot 0.2) + (0.05 \cdot 0.6) = 0.02 + 0.06 + 0.03 = 0.11 \]
+
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{0.11} = \frac{0.02}{0.11} \approx 0.18 \]
+
+2. **Computer Science**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.3 \cdot 0.2}{P(E)} \]
+
+Using same \( P(E) \):
+\[ P(H|E)_{CS} = \frac{0.3 \cdot 0.2}{0.11} = \frac{0.06}{0.11} \approx 0.55 \]
+
+So, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.18,
+  "computer science": 0.55
+}
+```
+
+These are the probabilities that Adam was enrolled in Business Administration or Computer Science, given his personality sketch.

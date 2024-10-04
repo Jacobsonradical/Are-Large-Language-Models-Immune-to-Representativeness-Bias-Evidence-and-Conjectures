@@ -1,0 +1,47 @@
+To calculate the posterior probabilities \(P(H|E)\) using Bayes' Rule, we need to compute \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) for each hypothesis \(H\), and then use these to find \(P(H|E)\).
+
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to evaluate the likelihood of the information in Adam's personality sketch given each field of study (i.e., \(P(E|H)\)), the prior probabilities of being in each field (\(P(H)\)), and the likelihood of the personality sketch characteristics regardless of the field (\(P(E|\neg H)\)).
+
+### 1. Agricultural and Veterinary Science
+
+- **P(H):** The prior probability that Adam was enrolled in Agricultural and Veterinary Science. This is generally low because fewer students overall are in this field. Let's assume \(P(H) = 0.05\).
+
+- **P(E|H):** Given the personality sketch, it seems very likely Adam could be in this field. His love for nature, plants, animals, and a warm empathetic nature fits well. Let's assume \(P(E|H) = 0.8\).
+
+- **P(E|\neg H):** The probability of the personality sketch given that Adam is not in Agricultural and Veterinary Science. Since the personality traits are relatively more likely in this specific field, but also possible in other fields, let's assume \(P(E|\neg H) = 0.2\).
+
+### 2. Business Administration
+
+- **P(H):** The prior probability that Adam was enrolled in Business Administration. This field is very popular, so let's assume \(P(H) = 0.2\).
+
+- **P(E|H):** Given the personality sketch, it seems less likely but still possible that Adam could be in Business Administration. His traits align more with science than business. Let's assume \(P(E|H) = 0.1\).
+
+- **P(E|\neg H):** The probability of the personality sketch given that Adam is not in Business Administration. Since the traits are less likely in business administration but more likely in other fields, let's assume \(P(E|\neg H) = 0.7\).
+
+### Calculation using Bayes' Theorem
+
+To avoid the complication of calculating \(P(E)\) and because we only need the proportional constants, we simplify the calculation to a comparative level:
+
+For **Agricultural and Veterinary Science**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.8 \cdot 0.05 = 0.04 \]
+
+For **Business Administration**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+Because we only care about the relative probabilities here, we normalize them:
+\[ P(H_1|E) = \frac{0.04}{0.04 + 0.02} = \frac{0.04}{0.06} = \frac{2}{3} \approx 0.67 \]
+\[ P(H_2|E) = \frac{0.02}{0.04 + 0.02} = \frac{0.02}{0.06} = \frac{1}{3} \approx 0.33 \]
+
+So, the final estimated probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.67,
+  "business administration": 0.33
+}
+```

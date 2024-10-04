@@ -1,0 +1,60 @@
+To evaluate the likelihood of Adam being enrolled in either "business administration" or "agricultural and veterinary science," we'll use Bayesian inference.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Given \( E \) is the personality sketch of Adam, we need to estimate the following probabilities:
+
+- \( P(H) \): The prior probability of Adam being in a given field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch if he belongs to the given field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch if he does not belong to the given field.
+- \( P(E) \): The probability of observing Adam's personality sketch in general, which can be derived from the other probabilities.
+
+To simplify, we'll focus on the relative probabilities, assuming \( P(E) \) is constant across both hypotheses. Therefore:
+\[ P(H|E) \propto P(E|H)P(H) \]
+
+### 1. Business Administration:
+
+- \( P(H) \): The prior probability of Adam being enrolled in business administration. Since Adam's personality traits don't strongly align with typical business administration students, let's consider business administration is an average choice.
+- \( P(E|H) \): Adam's traits (curiosity about nature, quiet, empathetic, love for animals) are less common in business administration students, so this probability is lower.
+- \( P(E|\neg H) \): Adam's traits are more likely to occur outside business administration fields.
+
+Estimating these vaguely:
+- \( P(H) \approx 0.2 \)
+- \( P(E|H) \approx 0.1 \)
+
+### 2. Agricultural and Veterinary Science:
+
+- \( P(H) \): The prior probability of Adam being enrolled in agricultural and veterinary science. Given Adam's love for nature and animals, this prior probability should be higher.
+- \( P(E|H) \): Adam's specified traits strongly align with this field, so this probability is higher.
+- \( P(E|\neg H) \): Adam's traits are less likely outside this field.
+
+Estimating these:
+- \( P(H) \approx 0.3 \)
+- \( P(E|H) \approx 0.5 \)
+
+### Calculations:
+Given \( P(E) \) cancels out in the ratio, we only compare \( P(E|H)P(H) \).
+
+#### For Business Administration:
+\[ P(E|H)P(H) \approx 0.1 \times 0.2 = 0.02 \]
+
+#### For Agricultural and Veterinary Science:
+\[ P(E|H)P(H) \approx 0.5 \times 0.3 = 0.15 \]
+
+Relative probabilities (not normalized):
+- Business Administration: 0.02
+- Agricultural and Veterinary Science: 0.15
+
+Normalize by dividing by sum of these unnormalized values (\( 0.02 + 0.15 = 0.17 \)):
+
+- \( P(\text{Business Administration}|E) = \frac{0.02}{0.17} \approx 0.1176 \)
+- \( P(\text{Agricultural and Veterinary Science}|E) = \frac{0.15}{0.17} \approx 0.8824 \)
+
+### Final Result:
+```json
+{
+  "business administration": 0.1176,
+  "agricultural and veterinary science": 0.8824
+}
+```

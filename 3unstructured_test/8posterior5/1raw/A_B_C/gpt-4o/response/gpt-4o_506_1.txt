@@ -1,0 +1,65 @@
+To compute \( P(H|E) \) using Bayes' rule, where \( H \) is the hypothesis that Adam was enrolled in a specific field, we need the following probabilities:
+
+- \( P(H) \): The prior probability of Adam being in each respective field.
+- \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given that Adam is in the field \( H \).
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch \( E \) given that Adam is not in the field \( H \).
+
+Bayes’ rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) \) is constant for all hypotheses, we only need to compare the numerators \( P(E|H) \cdot P(H) \) to estimate \( P(H|E) \). For simplicity, let's assume \( P(H) \) for each field reflects general trends in graduate student enrollments in the U.S.
+
+### Assumptions:
+
+1. **Computer Science** (\( H = \text{CS} \)):
+   - \( P(H) \approx 0.3 \) (since computer science is a very popular graduate field).
+   - \( P(E|H) \approx 0.2 \) (less likely to have a personality sketch with strong empathy and deep love for animals).
+   - \( P(E|\neg H) \approx 0.35 \) (more common in fields other than computer science).
+
+2. **Agricultural and Veterinary Science** (\( H = \text{AVS} \)):
+   - \( P(H) \approx 0.05 \) (less common field compared to computer science).
+   - \( P(E|H) \approx 0.8 \) (highly consistent with personality traits related to nature, animals, and empathy).
+   - \( P(E|\neg H) \approx 0.25 \) (less common in fields other than AVS).
+
+3. **Business Administration** (\( H = \text{BA} \)):
+   - \( P(H) \approx 0.2 \) (popular but not as much as CS, especially in graduate programs).
+   - \( P(E|H) \approx 0.1 \) (not very consistent with the personality sketch).
+   - \( P(E|\neg H) \approx 0.35 \) (this personality is more likely to be seen in other fields)
+
+### Calculations:
+
+#### Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.3 = 0.06 \]
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.05 = 0.04 \]
+
+#### Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02 \]
+
+### Normalization:
+To get the posterior probabilities, normalize the values:
+
+Sum of the probabilities = \( 0.06 + 0.04 + 0.02 = 0.12 \)
+
+Normalized probabilities:
+
+- Computer Science:
+\[ P(H|E) = \frac{0.06}{0.12} = 0.5 \]
+
+- Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{0.04}{0.12} = 0.333 \]
+
+- Business Administration:
+\[ P(H|E) = \frac{0.02}{0.12} = 0.167 \]
+
+Therefore, the conditional probabilities \( P(H|E) \) for each field are:
+
+```json
+{
+  "computer science": 0.5,
+  "agricultural and veterinary science": 0.333,
+  "business administration": 0.167
+}
+```

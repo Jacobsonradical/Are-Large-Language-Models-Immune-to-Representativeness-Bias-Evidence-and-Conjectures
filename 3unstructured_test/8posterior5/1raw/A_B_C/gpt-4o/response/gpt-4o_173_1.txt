@@ -1,0 +1,52 @@
+To calculate P(H|E) for each of the fields, we can use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis.
+- \( P(E) \) is the marginal likelihood of the evidence.
+
+Let's analyze each field one by one:
+
+1. **Business Administration**:
+   - \( P(H) \): Assume that it is a common field, so we might assign a moderate prior probability, say 0.2.
+   - \( P(E|H) \): Adam's personality sketch (E) doesn't strongly match typical characteristics for business administration (less emphasis on nature, plants, animals). So it might be relatively low, let's assume 0.1.
+   - \( P(E|\neg H) \): To represent other fields (like Agricultural and Veterinary Science or Computer Science) fitting better, let's assume it's higher, say 0.25.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \): Assume this field is less common, but given the nature focus, we assign a moderate prior probability, let's take 0.1.
+   - \( P(E|H) \): Adam's curiosity about nature, love for animals, and appreciation for hard work are strong matches, so let's assume it is high, say 0.9.
+   - \( P(E|\neg H) \): Since other fields often don't emphasize these traits as strongly, assign a lower value, say 0.2.
+
+3. **Computer Science**:
+   - \( P(H) \): Assume it is fairly common, so assign a moderate, 0.3.
+   - \( P(E|H) \): Adam’s intelligence and enjoyment of solving puzzles fit well with computer science, but his interest in nature and animals does not strongly correlate, so assign a moderate value, say 0.5.
+   - \( P(E|\neg H) \): Other fields may also partially fit, so assume 0.25.
+
+Calculate the values:
+
+1. **Business Administration**:
+   \[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{P(E)} \]
+   Normalizing constant \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) = 0.1 \cdot 0.2 + 0.25 \cdot 0.8  = 0.02 + 0.2 = 0.22 \)
+   
+   Thus:
+   \[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{0.22} = \frac{0.02}{0.22} \approx 0.091 \]
+
+2. **Agricultural and Veterinary Science**:
+   \[ P(H|E)_{Agri} = \frac{0.9 \cdot 0.1}{P(E)} \]
+   Use the same normalization constant:
+   \[ P(E) = 0.22 \]
+   
+   Thus:
+   \[ P(H|E)_{Agri} = \frac{0.9 \cdot 0.1}{0.22} = \frac{0.09}{0.22} \approx 0.409 \]
+
+3. **Computer Science**:
+   \[ P(H|E)_{CS} = \frac{0.5 \cdot 0.3}{P(E)} = 0.15 / 0.22 \approx 0.682 \]
+
+Given estimates suit:
+{
+  "business administration": 0.09,
+  "agricultural and veterinary science": 0.409,
+  "computer science": 0.682
+}

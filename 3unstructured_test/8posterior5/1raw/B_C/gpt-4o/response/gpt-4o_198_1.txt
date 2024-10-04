@@ -1,0 +1,46 @@
+Let's begin by assessing the probabilities for the hypotheses that Adam was enrolled in either computer science (H_cs) or business administration (H_ba). We'll use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to estimate:
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The likelihood that the personality sketch E matches a student in that field.
+- \( P(E|\neg H) \): The likelihood that the personality sketch E matches a student in any other field.
+- \( P(E) \): The overall probability of observing the personality sketch E.
+
+Using these estimates, we can compute the posterior probabilities \( P(H_{cs}|E) \) and \( P(H_{ba}|E) \).
+
+### Computer Science
+
+1. **P(H_cs)**: Let's assume an initial roughly equal distribution of graduate students across fields, say about 20% (0.2) are in computer science.
+2. **P(E|H_cs)**: Adam’s profile fits reasonably well with a computer science student, due to his high intelligence and love for solving puzzles. However, empathy and love for nature are not particularly indicative of computer science alone. Suppose \( P(E|H_cs) \approx 0.5 \).
+3. **P(E|\neg H_cs)**: The likelihood of the personality sketch fitting students in fields other than computer science might be varied. Since empathy, love for nature, and understanding of hard work could apply to various fields, suppose \( P(E|\neg H_cs) \approx 0.3 \).
+
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.5 \cdot 0.2}{P(E)} \]
+
+### Business Administration
+
+1. **P(H_ba)**: Approximately 15% (0.15) of graduate students are in business administration.
+2. **P(E|H_ba)**: Adam's love for nature, empathy, and high intelligence don't strongly match a typical business administration profile. Suppose \( P(E|H_ba) \approx 0.2 \).
+3. **P(E|\neg H_ba)**: Since 85% of students are not in business administration, we estimate \( P(E|\neg H_ba) \approx 0.35 \).
+
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.2 \cdot 0.15}{P(E)} \]
+
+Since \( P(E) \) remains the same for both hypotheses:
+
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot (1 - P(H_{cs})) \approx 0.5 \cdot 0.2 + 0.3 \cdot 0.8 \]
+
+\[ P(E) = 0.1 + 0.24 = 0.34 \]
+
+Now we can compute each probability as follows:
+
+\[ P(H_{cs}|E) \approx \frac{0.5 \cdot 0.2}{0.34} \approx 0.29 \]
+
+\[ P(H_{ba}|E) \approx \frac{0.2 \cdot 0.15}{0.34} \approx 0.088 \]
+
+So, based on our rough estimates and given conditional probabilities, we have:
+
+{
+  "computer science": 0.29,
+  "business administration": 0.088
+}

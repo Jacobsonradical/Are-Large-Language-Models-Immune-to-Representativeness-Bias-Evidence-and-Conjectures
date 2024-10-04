@@ -1,0 +1,44 @@
+To determine \( P(H|E) \), the posterior probability that Adam was enrolled in a specific field given his personality sketch, we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+As \( P(E) \) is constant for both fields, we only need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+**Computer Science:**
+
+1. **Prior Probability (P(H)):**
+   - Computer science is a popular field of study, but not dominating the entire graduate student population. We can assume some moderate prior around \( 0.2 \) (this is a subjective estimate).
+
+2. **Likelihood (P(E|H)):**
+   - Adam's intelligence and ability to understand abstract concepts fit well, but his traits like empathy, love for animals, and appreciation for hard work might not be as strongly related. So, let's say \( 0.3 \).
+
+3. **Likelihood of E not given H (P(E|\neg H)):**
+   - Given the multitude of other fields (liberal arts, natural sciences, etc.), Adam’s traits might suggest an interest in fields directly related to nature or animals more than computer science: \( 0.6 \).
+
+**Agricultural and Veterinary Science:**
+
+1. **Prior Probability (P(H)):**
+   - This field is less popular than computer science but still notable. We may assume a smaller prior around \( 0.1 \).
+
+2. **Likelihood (P(E|H)):**
+   - Adam’s personality traits of curiosity about nature, empathy, love for animals, strong heart, and appreciation for hard work align very well. So, let's assign \( 0.8 \).
+
+3. **Likelihood of E not given H (P(E|\neg H)):**
+   - His profile still fits other fields better than computer science, but given veterinary or agricultural alignment, \( 0.5 \).
+
+To apply Bayes' Rule, we have:
+
+- For Computer Science:
+  \[ P(\text{CS}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}})} = \frac{0.3 \cdot 0.2}{0.3 \cdot 0.2 + 0.6 \cdot 0.8} = \frac{0.06}{0.06 + 0.48} = \frac{0.06}{0.54} \approx 0.11 \]
+
+- For Agricultural and Veterinary Science:
+  \[ P(\text{AgVet}|E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) + P(E|\neg H_{\text{AgVet}}) \cdot P(\neg H_{\text{AgVet}})} = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.5 \cdot 0.9} = \frac{0.08}{0.08 + 0.45} = \frac{0.08}{0.53} \approx 0.15 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.11,
+  "agricultural and veterinary science": 0.15
+}
+```

@@ -1,0 +1,51 @@
+To calculate the posterior probability P(H|E) that Adam was enrolled in a specific field given his personality sketch (E) using Bayes' rule, we start with the following:
+
+Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to estimate:
+1. P(H): The prior probability that Adam was enrolled in the field.
+2. P(E|H): The likelihood of observing the personality traits given that Adam was enrolled in the field.
+3. P(E|¬H): The likelihood of observing the personality traits given that Adam was not enrolled in the field.
+
+Let's denote the prior probability P(H) for each field intuitively, based on general prevalence of graduate students in those fields. 
+
+Additionally, we need to estimate how likely the personality traits (E) are if Adam is, or is not, enrolled in each field (P(E|H) and P(E|¬H)).
+
+Finally, our focus is on the relative comparisons using these heuristics, rather than exact values. For simplicity, we will for now assume P(E) is constant across different fields.
+
+### Agricultural and Veterinary Science
+- **P(H):** Let's assume that there is a relatively moderate chance Adam is in this field given his interests in nature, plants, and animals. Let P(H ~ 0.2).
+- **P(E|H):** The traits (genuine curiosity about nature, empathy, love for animals) strongly align with this field. Let's estimate P(E|H ~ 0.9).
+- **P(E|¬H):** It is less likely for someone with his traits to be outside this field, but not impossible. Let's assume P(E|¬H ~ 0.2).
+
+### Business Administration
+- **P(H):** There is a relatively lower chance given that Adam's traits don't particularly align with typical traits of business graduates. Let P(H ~ 0.1).
+- **P(E|H):** Adam’s traits are less likely for a business administration student. Let's estimate P(E|H ~ 0.2).
+- **P(E|¬H):** Given that Adam's traits favor other fields, it is more probable he is not in business administration. Let’s assume P(E|¬H ~ 0.8).
+
+Now, we calculate the posterior probabilities using these estimates:
+
+### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.9 \cdot 0.2}{P(E)} \]
+
+### Business Administration
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+Because we are focusing on relative comparison and assuming P(E) is constant for the sake of estimation, the proportional values will be:
+
+```json
+{
+  "agricultural and veterinary science": 0.9 * 0.2,
+  "business administration": 0.2 * 0.1
+}
+```
+
+```
+{
+  "agricultural and veterinary science": 0.18,
+  "business administration": 0.02
+}
+```
+
+These values suggest that, based on the given personality sketch, it is significantly more likely that Adam was enrolled in agricultural and veterinary science than in business administration in 2021.

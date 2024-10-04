@@ -1,0 +1,73 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in each of the specified fields given his personality sketch \( E \), we will utilize Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is enrolled in the given field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is enrolled in the given field.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is not enrolled in the given field.
+- \( P(E) \) can be derived as a normalizing constant that ensures the overall probabilities sum to 1 (but this is not necessary if we're only interested in comparing the relative probabilities).
+
+Let's break down each field:
+
+### 1. Business Administration
+- **Prior \( P(H) \)**: Assume moderate enrollment in Business Administration among graduate students. Let's take \( P(H) = 0.2 \).
+- **Likelihood \( P(E|H) \)**: Given that Adam's personality sketch doesn't strongly match typical traits required or expected in business administration (less focus on nature, animals, empathy, etc.), let's assume a lower likelihood. \( P(E|H) = 0.1 \).
+- **Likelihood \( P(E|\neg H) \)**: This is the probability of observing Adam's traits in graduate students outside of Business Administration. Since many fields other than Business Administration might include students with Adam's interests, let's assume this probability is higher. \( P(E|\neg H) = 0.4 \).
+
+### 2. Computer Science
+- **Prior \( P(H) \)**: Assume strong enrollment in Computer Science among graduate students. Let's take \( P(H) = 0.3 \).
+- **Likelihood \( P(E|H) \)**: Adam's interest in puzzles and high intelligence fits well with Computer Science, but his love for nature and animals isn't typical for this field. \( P(E|H) = 0.25 \).
+- **Likelihood \( P(E|\neg H) \)**: The probability of seeing such a personality in any field outside of Computer Science is moderate. \( P(E|\neg H) = 0.35 \).
+
+### 3. Agricultural and Veterinary Science
+- **Prior \( P(H) \)**: Assume moderate enrollment in Agricultural and Veterinary Science. Let's take \( P(H) = 0.2 \).
+- **Likelihood \( P(E|H) \)**: Adam's characteristics strongly align with the focus of Agricultural and Veterinary Science. \( P(E|H) = 0.7 \).
+- **Likelihood \( P(E|\neg H) \)**: The probability of finding such an alignment in any field outside of Agricultural and Veterinary Science is lower. \( P(E|\neg H) = 0.3 \).
+
+Now let's calculate \( P(H|E) \):
+
+For business administration:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+For computer science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.25 \cdot 0.3}{P(E)} \]
+
+For agricultural and veterinary science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.7 \cdot 0.2}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant, we don't calculate it directly but rather use it to compare the relative probabilities. The computed values before normalization are:
+
+For business administration:
+\[ P(H|E) \propto 0.02 \]
+
+For computer science:
+\[ P(H|E) \propto 0.075 \]
+
+For agricultural and veterinary science:
+\[ P(H|E) \propto 0.14 \]
+
+Normalizing these:
+
+Sum = \( 0.02 + 0.075 + 0.14 = 0.235 \)
+
+Normalized probabilities:
+
+For business administration:
+\[ P(H|E) = \frac{0.02}{0.235} \approx 0.085 \]
+
+For computer science:
+\[ P(H|E) = \frac{0.075}{0.235} \approx 0.319 \]
+
+For agricultural and veterinary science:
+\[ P(H|E) = \frac{0.14}{0.235} \approx 0.596 \]
+
+So, the final answers can be summed up as:
+
+```json
+{
+  "business administration": 0.085,
+  "computer science": 0.319,
+  "agricultural and veterinary science": 0.596
+}
+```

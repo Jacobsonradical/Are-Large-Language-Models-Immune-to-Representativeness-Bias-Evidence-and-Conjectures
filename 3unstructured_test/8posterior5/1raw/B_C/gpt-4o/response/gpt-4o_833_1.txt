@@ -1,0 +1,66 @@
+To compute the probabilities \(P(H|E)\) for each field, we'll use Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \(P(H)\) is the prior probability of hypothesis \(H\) (the likelihood that Adam was enrolled in a specific field before considering the evidence).
+- \(P(E|H)\) is the likelihood of observing the evidence given hypothesis \(H\).
+- \(P(E)\) is the total probability of the evidence.
+
+### Business Administration
+
+#### P(H)
+Given that business administration is a common field of study, we'll assume a moderately high \(P(H)\).
+\[ P(H_{\text{business administration}}) = 0.2 \]
+
+#### P(E|H)
+The description of Adam shows he has a strong appreciation for hard work and dedication, which aligns reasonably well with business administration, though it is not directly related to his love for nature and animals.
+\[ P(E|H_{\text{business administration}}) = 0.3 \]
+
+#### P(E|\neg H)
+This represents the probability of evidence given that Adam is not in business administration. Given his strong affinity for nature, animals, and puzzles, other fields like natural sciences or psychology may be more fitting.
+\[ P(E|\neg H_{\text{business administration}}) = 0.8 \]
+
+### Computer Science
+
+#### P(H)
+Computer science is another common field, with a high enrollment rate.
+\[ P(H_{\text{computer science}}) = 0.2 \]
+
+#### P(E|H)
+Adam enjoys solving puzzles and has high intelligence, which fits well with computer science.
+\[ P(E|H_{\text{computer science}}) = 0.6 \]
+
+#### P(E|\neg H)
+Again, given his traits, it's more likely for Adam to be in a field directly related to his love for nature and abstract thinking.
+\[ P(E|\neg H_{\text{computer science}}) = 0.7 \]
+
+To compute \( P(E) \):
+\[ P(E) = P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) + P(E|\neg H_{\text{business administration}}) \cdot P(\neg H_{\text{business administration}}) + P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}}) + P(E|\neg H_{\text{computer science}}) \cdot P(\neg H_{\text{computer science}}) \]
+
+Since \( P(\neg H) \approx 1 - P(H) \) and we have multiple hypotheses:
+\[ P(\neg H_{\text{business administration}}) = 1 - 0.2 = 0.8 \]
+\[ P(\neg H_{\text{computer science}}) = 1 - 0.2 = 0.8 \]
+
+Let's simplify and calculate:
+\[ P(E) \approx 0.3 \times 0.2 + 0.8 \times 0.8 + 0.6 \times 0.2 + 0.7 \times 0.8 \]
+
+\[ P(E) \approx 0.06 + 0.64 + 0.12 + 0.56 \]
+\[ P(E) \approx 1.38 \]
+
+Using Bayes' Rule:
+
+\[ P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \]
+\[ P(H_{\text{business administration}}|E) \approx \frac{0.3 \times 0.2}{1.38} \approx \frac{0.06}{1.38} \approx 0.043 \]
+
+\[ P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \]
+\[ P(H_{\text{computer science}}|E) \approx \frac{0.6 \times 0.2}{1.38} \approx \frac{0.12}{1.38} \approx 0.087 \]
+
+Therefore, the posterior probabilities are approximately:
+
+```json
+{
+  "business administration": 0.043,
+  "computer science": 0.087
+}
+```

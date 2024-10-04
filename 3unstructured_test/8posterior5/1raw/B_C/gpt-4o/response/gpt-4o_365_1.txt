@@ -1,0 +1,41 @@
+To use Bayes' theorem to compute the posterior probabilities P(H|E) for each field (business administration and computer science), we'll need to make subjective assessments for the prior probabilities (P(H)), the likelihoods (P(E|H)), and the complement likelihoods (P(E|¬H)).
+
+The formula for Bayes' theorem is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are given only two choices, the normalization constant \(P(E)\) will ensure that the total posterior probabilities sum to 1 for these two fields. Let's start by estimating the necessary values.
+
+### Business Administration
+- **P(H)**: The prior probability that Adam is studying business administration. Given that there are many possible fields and business administration isn't typically associated with the specific personality traits described, we'll assume P(H) is relatively low. Let's say P(H) = 0.1.
+- **P(E|H)**: The likelihood of the provided personality traits given that Adam is studying business administration. Those traits such as curiosity about nature, solving puzzles, empathy, and love for animals might be less common in this field. Let's estimate P(E|H) = 0.2.
+- **P(E|¬H)**: The likelihood of the provided personality traits given that Adam is not studying business administration. Given many other fields could match better, P(E|¬H) = 0.8.
+
+### Computer Science
+- **P(H)**: The prior probability that Adam is studying computer science. Considering traits like intelligence, abstract concepts, and puzzle-solving, this seems more likely. Let's say P(H) = 0.3.
+- **P(E|H)**: The likelihood of the provided personality traits given that Adam is studying computer science. These characteristics are common in the field, so let's estimate P(E|H) = 0.7.
+- **P(E|¬H)**: The likelihood of the provided personality traits given that Adam is not studying computer science. Given other fields can also match partially, P(E|¬H) = 0.5.
+
+Now, we can compute the posterior probabilities using Bayesian inference. We calculate P(E) as a normalization factor. 
+
+Let's normalize:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E| \neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) = (0.2 \cdot 0.1) + (0.7 \cdot 0.3) = 0.02 + 0.21 = 0.23 \]
+
+For Business Administration:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.2 \cdot 0.1}{0.23} = \frac{0.02}{0.23} \approx 0.087 \]
+
+For Computer Science:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.7 \cdot 0.3}{0.23} = \frac{0.21}{0.23} \approx 0.913 \]
+
+So, the updated probabilities after applying Bayes' theorem are:
+
+{
+  "business administration": 0.087,
+  "computer science": 0.913
+}
+
+Note that these are subjective estimates and different assumptions might lead to different results.

@@ -1,0 +1,49 @@
+Sure, we'll use Bayes' theorem to compute \( P(H|E) \) for each field given the personality sketch \( E \) of Adam.
+
+Bayes' theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We need to estimate the following for each field:
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field before considering the personality sketch.
+- \( P(E|H) \): The probability of observing the personality sketch given that Adam was enrolled in a specific field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam was not enrolled in a specific field.
+
+Let's make some approximations:
+
+1. **Business Administration**
+   - \( P(H) \) (prior probability): Business administration is a common graduate field, but not necessarily dominant among individuals with Adam's personality traits. Let's assume \( P(H) = 0.1 \) (10%).
+   - \( P(E|H) \) (likelihood): People in business administration might have some of Adam's traits, such as high intelligence and appreciation for hard work, but not necessarily all the traits like a deep love for animals and nature. Let's assume \( P(E|H) = 0.2 \) (20%).
+   - \( P(E|\neg H) \) (likelihood if not in business administration): Given that Adam's personality is quite specific to fields that appreciate nature and abstract thinking, we can assume that the likelihood of him having these traits in other fields is moderate. So, let's estimate \( P(E|\neg H) = 0.3 \) (30%).
+
+2. **Computer Science**
+   - \( P(H) \) (prior probability): Computer science is also a common graduate field. Given Adam's interest in puzzles and high intelligence, this field might be more likely. Let's assume \( P(H) = 0.2 \) (20%).
+   - \( P(E|H) \) (likelihood): People in computer science often have high intelligence and enjoy solving puzzles, which aligns well with some of Adam's traits. Let's assume \( P(E|H) = 0.5 \) (50%).
+   - \( P(E|\neg H) \) (likelihood if not in computer science): Given Adam's personality is quite specific, the likelihood of having these traits in other fields might be moderate. So, let's estimate \( P(E|\neg H) = 0.3 \) (30%).
+
+Next, let's compute \( P(E) \) for both cases:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+For **business administration**:
+\[ P(E) = (0.2 \times 0.1) + (0.3 \times 0.9) = 0.02 + 0.27 = 0.29 \]
+
+For **computer science**:
+\[ P(E) = (0.5 \times 0.2) + (0.3 \times 0.8) = 0.1 + 0.24 = 0.34 \]
+
+Then, we apply Bayes' theorem:
+
+For **business administration**:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.2 \times 0.1}{0.29} \approx 0.069 \]
+
+For **computer science**:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.5 \times 0.2}{0.34} \approx 0.294 \]
+
+Hence, the probabilities are:
+
+```json
+{
+  "business administration": 0.069,
+  "computer science": 0.294
+}
+```

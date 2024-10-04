@@ -1,0 +1,51 @@
+To apply Bayes' rule to compute \( P(H|E) \), we need to have estimates for \( P(H) \) (the prior probability of Adam being enrolled in a particular field), \( P(E|H) \) (the probability of observing the evidence given the particular field), and \( P(E|\neg H) \) (the probability of observing the evidence given other fields).
+
+Here’s the general form of Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+Since we don't know \( P(E) \), we can ignore it for the purpose of comparing the likelihood of Adam being in each field. Instead, we need to compare the numerators directly:
+
+\[ P(H|E) \propto P(E|H) P(H) \]
+
+### Assumptions:
+
+1. **Business Administration**:
+   - **P(H)**: This is generally less likely given Adam's personality sketch, which focuses more on nature, animals, empathy, and abstract concepts. We will assume \( P(H) \) as relatively low.
+     \[ P(H) \approx 0.1 \]
+   - **P(E|H)**: The personality traits for Business Administration (generally more competitive, leadership-oriented) don't perfectly align with Adam's traits.
+     \[ P(E|H) \approx 0.2 \]
+   - **P(E|\neg H)**: Given that Adam has a specific personality more aligned with science-oriented fields, the probability of observing his traits given that he's not in Business Administration is reasonable.
+     \[ P(E|\neg H) \approx 0.8 \]
+
+2. **Computer Science**:
+   - **P(H)**: Given Adam's traits (high intelligence, abstract thinking, puzzles), Computer Science is more likely.
+     \[ P(H) \approx 0.4 \]
+   - **P(E|H)**: The traits align well with Computer Science.
+     \[ P(E|H) \approx 0.8 \]
+   - **P(E|\neg H)**: The probability that Adam's traits would be observed if he is not in Computer Science includes a broader range of fields.
+     \[ P(E|\neg H) \approx 0.2 \]
+
+### Calculations:
+
+For Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \times 0.1 = 0.02 \]
+
+For Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \times 0.4 = 0.32 \]
+
+Now normalizing by the total probabilities considered:
+Total \( P \) is \( 0.02 + 0.32 = 0.34 \)
+
+Normalized probabilities:
+\[ P(\text{Business Administration} | E) = \frac{0.02}{0.34} \approx 0.059 \]
+\[ P(\text{Computer Science} | E) = \frac{0.32}{0.34} \approx 0.941 \]
+
+These provide approximate values given the arguments:
+
+```json
+{
+  "business administration": 0.059,
+  "computer science": 0.941
+}
+```

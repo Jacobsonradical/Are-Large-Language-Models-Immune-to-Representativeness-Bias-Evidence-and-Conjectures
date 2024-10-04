@@ -1,0 +1,58 @@
+To apply Bayes' rule in computing the posterior probabilities \( P(H|E) \) for each hypothesis given the personality sketch of Adam, we should firstly analyze each hypothesis:
+
+1. **Hypothesis \( H \): Adam was enrolled in business administration.**
+2. **Hypothesis \( H \): Adam was enrolled in agricultural and veterinary science.**
+
+For each hypothesis, we need to estimate the following:
+- **\( P(H) \)**: The prior probability that Adam was enrolled in the field.
+- **\( P(E|H) \)**: The likelihood that Adam fits the personality sketch given that he was enrolled in that field.
+- **\( P(E|\neg H) \)**: The likelihood that Adam fits the personality sketch given that he was not enrolled in that field.
+
+Putting these together using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) can be calculated as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's make some reasonable estimates for each of these probabilities:
+
+### Business Administration:
+- **\( P(H_{\text{business}}) \)**:
+  Graduate students in business administration likely represent a sizable portion of the graduate student population. Let’s generously estimate this probability as \( 0.1 \) (10%).
+
+- **\( P(E|H_{\text{business}}) \)**:
+  Given Adam's characteristics, it seems less likely that he would be in business administration, but not impossible. We can estimate this probability as \( 0.1 \) (10%).
+
+- **\( P(E|\neg H_{\text{business}}) \)**:
+  Considering the total pool of graduate students not in business administration, Adam's profile is more likely to fit one of the other fields. Let's estimate this as \( 0.2 \) (20%).
+
+### Agricultural and Veterinary Science:
+- **\( P(H_{\text{agriculture}}) \)**:
+  Graduate students in agricultural and veterinary sciences might constitute a smaller portion relative to business administration but still significant. Let's estimate this as \( 0.05 \) (5%).
+
+- **\( P(E|H_{\text{agriculture}}) \)**:
+  Given Adam's strong match with the profile expected in agricultural and veterinary sciences, we estimate this as \( 0.8 \) (80%).
+
+- **\( P(E|\neg H_{\text{agriculture}}) \)**:
+  For the total pool of graduate students not in agricultural and veterinary sciences, Adam’s profile is less likely to fit as closely. Let’s estimate this as \( 0.25 \) (25%).
+
+Now, calculating the values:
+
+### Business Administration:
+\[ P(E) = (0.1 \times 0.1) + (0.9 \times 0.2) = 0.01 + 0.18 = 0.19 \]
+\[ P(H_{\text{business}}|E) = \frac{0.1 \times 0.1}{0.19} = \frac{0.01}{0.19} \approx 0.053 \]
+
+### Agricultural and Veterinary Science:
+\[ P(E) = (0.8 \times 0.05) + (0.95 \times 0.25) = 0.04 + 0.2375 = 0.2775 \]
+\[ P(H_{\text{agriculture}}|E) = \frac{0.8 \times 0.05}{0.2775} = \frac{0.04}{0.2775} \approx 0.144 \]
+
+So, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.053,
+  "agricultural and veterinary science": 0.144
+}
+```
+
+These values reflect how likely Adam is to be enrolled in each field, given his personality sketch.

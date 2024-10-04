@@ -1,0 +1,53 @@
+To compute the posterior probability \( P(H|E) \) for each field \( H \), we first need to assess the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence under the negation of the hypothesis \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where \( P(E) \) can be derived using the law of total probability:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+However, since we are only comparing two hypotheses and are interested in their relative likelihoods, we can simplify our calculations by comparing \( P(H|E) \) for each hypothesis directly relative to each other.
+
+### Priors and Likelihoods
+
+**Agricultural and veterinary science**:
+- \( P(H) \) (Prior): Let's assume the prior probability of being in agricultural and veterinary science is relatively low compared to other fields, given the overall distribution of graduate students. We might set \( P(H) \approx 0.05 \).
+- \( P(E|H) \) (Likelihood): This field aligns well with Adam's interests and personality sketch since it involves nature, plants, and animals. Thus, we set \( P(E|H) \approx 0.8 \).
+- \( P(E|\neg H) \) (Likelihood for negation): Most other fields won’t align as well with Adam's detailed interests. We might set \( P(E|\neg H) \approx 0.1 \).
+
+**Business administration**:
+- \( P(H) \) (Prior): The prior probability of being in business administration is higher due to the general popularity of the field. We might set \( P(H) \approx 0.2 \).
+- \( P(E|H) \) (Likelihood): This field does not closely align with Adam's interests and personality sketch, including nature, plants, and animals. We might set \( P(E|H) \approx 0.1 \).
+- \( P(E|\neg H) \) (Likelihood for negation): Most other fields might align similarly poorly with Adam’s interests. We could set \( P(E|\neg H) \approx 0.15 \).
+
+### Calculations
+
+Using Bayes' rule, we can compute for each field:
+
+1. **Agricultural and veterinary science**:
+   \[
+   P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.8 \times 0.05}{0.8 \times 0.05 + 0.1 \times (1 - 0.05)}
+   \]
+   \[
+   P(H|E) = \frac{0.04}{0.04 + 0.095} = \frac{0.04}{0.135} \approx 0.296
+   \]
+
+2. **Business administration**:
+   \[
+   P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.15 \times (1 - 0.2)}
+   \]
+   \[
+   P(H|E) = \frac{0.02}{0.02 + 0.12} = \frac{0.02}{0.14} \approx 0.143
+   \]
+
+### Summary
+
+Based on our calculations, the values are as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.296,
+  "business administration": 0.143
+}
+```
+These results suggest that Adam is more likely to be in agricultural and veterinary science compared to business administration, given his personality sketch.

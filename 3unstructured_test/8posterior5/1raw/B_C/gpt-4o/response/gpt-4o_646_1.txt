@@ -1,0 +1,76 @@
+To determine \( P(H|E) \) for Adam's enrollment in either "business administration" or "computer science," we can use Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a given field (business administration or computer science).
+- \( P(E|H) \) is the likelihood of Adam's described personality sketch given he is enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of Adam's described personality sketch given he is not enrolled in that field.
+- \( P(E) \) is the overall probability of Adam's described personality sketch.
+
+For convenience, we'll assume \( P(E) \) is constant across evaluations, allowing us to focus on the relative values of \( P(H) \) and \( P(E|H) \).
+
+### Assumptions:
+1. \( P(H) \): The choice of prior probabilities \( P(H) \) can be challenging. Generally, graduate students may be more likely to be in fields like business administration and computer science compared to many other fields.
+  
+   Without specific data, we'll use reasonable priors. I'll choose:
+   - \( P(\text{business administration}) = 0.1 \)
+   - \( P(\text{computer science}) = 0.2 \)
+
+2. \( P(E|H) \) and \( P(E|\neg H) \): How well Adam's personality sketch fits with typical students in these fields.
+
+   - For business administration:
+     - \( P(E|\text{business administration}) \): Business administration students might generally have empathy and appreciation for hard work and dedication but might not commonly have a strong interest in nature, animals, or puzzles.
+     - Let's estimate \( P(E|\text{business administration}) = 0.05 \).
+   
+   - For computer science:
+     - \( P(E|\text{computer science}) \): Computer science students often have a high intelligence, enjoy solving puzzles, and sometimes have an interest in abstract concepts and nature (though not as much as empirical sciences).
+     - Let's estimate \( P(E|\text{computer science}) = 0.15 \).
+
+Now, we compute \( P(H|E) \):
+
+For business administration,
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.05 \cdot 0.1}{P(E)}
+\]
+
+For computer science,
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.15 \cdot 0.2}{P(E)}
+\]
+
+Since \( P(E) \) is common, we can compare relative values:
+
+\[
+\frac{0.05 \cdot 0.1}{0.15 \cdot 0.2}
+\]
+
+So in relative terms:
+
+\[
+\frac{P(\text{business administration}|E)}{P(\text{computer science}|E)} = \frac{0.005}{0.03} \approx 0.167
+\]
+
+The relative likelihood for computer science versus business administration given Adam's personality sketch is higher for computer science.
+
+### Normalized Scores:
+To normalize these scores to represent probabilities:
+
+Sum = \( 0.005 + 0.03 \) = 0.035
+
+\[
+P(\text{business administration}|E) = \frac{0.005}{0.035} \approx 0.143
+\]
+\[
+P(\text{computer science}|E) = \frac{0.03}{0.035} \approx 0.857
+\]
+
+### Final Answer:
+```json
+{
+  "business administration": 0.143,
+  "computer science": 0.857
+}
+```

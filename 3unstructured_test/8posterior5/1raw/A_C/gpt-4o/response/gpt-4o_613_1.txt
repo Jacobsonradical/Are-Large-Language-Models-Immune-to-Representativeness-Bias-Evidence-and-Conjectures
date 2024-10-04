@@ -1,0 +1,76 @@
+To solve this using Bayes' Theorem, given the personality sketch \(E\) of Adam, we need to estimate the following probabilities:
+
+1. **\(P(H)\)**: The prior probability that Adam is enrolled in a given field.
+2. **\(P(E|H)\)**: The probability of observing Adam's personality sketch if he is enrolled in a given field.
+3. **\(P(E|\neg H)\)**: The probability of observing Adam's personality sketch if he is not enrolled in a given field.
+
+For both fields, we will denote these as follows:
+- \(H_{\text{Ag&VetSci}}\): Adam is enrolled in agricultural and veterinary science.
+- \(H_{\text{CompSci}}\): Adam is enrolled in computer science.
+
+### Estimation Process:
+
+1. **Prior Probability (\(P(H)\))**:
+   - \(P(H_{\text{Ag&VetSci}})\): Let's assume the prior probability for this field is moderately low given the general student distribution.
+     - \(\approx 0.05\)
+   - \(P(H_{\text{CompSci}})\): Computer science is a very popular graduate field, so we'll give it a higher prior probability.
+     - \(\approx 0.15\)
+
+2. **Likelihood (\(P(E|H)\))** for each field given the personality sketch \(E\):
+   - \(P(E|H_{\text{Ag&VetSci}})\): Highly compatible with Adam's traits like curiosity about nature, love for animals, and empathy.
+     - \(\approx 0.8\)
+   - \(P(E|H_{\text{CompSci}})\): Moderate compatibility, considering Adam's intelligence and problem-solving skills.
+     - \(\approx 0.4\)
+
+3. **Probability of Evidence (\(P(E|\neg H)\))**:
+   - \(P(E|\neg H_{\text{Ag&VetSci}})\): The probability of Adam's personality sketch in graduate students not in agricultural and veterinary science might be lower.
+     - \(\approx 0.3\)
+   - \(P(E|\neg H_{\text{CompSci}})\): The probability of Adam's personality sketch in graduate students not in computer science might be similar, as empathy and nature love are less correlated.
+     - \(\approx 0.6\)
+
+### Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+We'll approximate \(P(E)\) based on the given categories and prior likelihoods.
+
+### Calculation:
+
+#### Agricultural and Veterinary Science:
+\[ P(E|H_{\text{Ag&VetSci}}) = 0.8 \]
+\[ P(H_{\text{Ag&VetSci}}) = 0.05 \]
+\[ P(E|\neg H_{\text{Ag&VetSci}}) = 0.3 \]
+\[ P(\neg H_{\text{Ag&VetSci}}) = 0.95 \]
+
+\[
+P(E) = (0.8 \times 0.05) + (0.3 \times 0.95) \approx 0.04 + 0.285 \approx 0.325
+\]
+
+\[
+P(H_{\text{Ag&VetSci}}|E) = \frac{0.8 \times 0.05}{0.325} \approx \frac{0.04}{0.325} \approx 0.123
+\]
+
+#### Computer Science:
+\[ P(E|H_{\text{CompSci}}) = 0.4 \]
+\[ P(H_{\text{CompSci}}) = 0.15 \]
+\[ P(E|\neg H_{\text{CompSci}}) = 0.6 \]
+\[ P(\neg H_{\text{CompSci}}) = 0.85 \]
+
+\[
+P(E) = (0.4 \times 0.15) + (0.6 \times 0.85) \approx 0.06 + 0.51 \approx 0.57
+\]
+
+\[
+P(H_{\text{CompSci}}|E) = \frac{0.4 \times 0.15}{0.57} \approx \frac{0.06}{0.57} \approx 0.105
+\]
+
+### Final Results:
+\[
+\{
+  "agricultural and veterinary science": 0.123,
+  "computer science": 0.105
+\}
+\]

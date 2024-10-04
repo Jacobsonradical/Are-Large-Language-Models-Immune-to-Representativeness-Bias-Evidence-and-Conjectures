@@ -1,0 +1,78 @@
+To calculate the probability that Adam was enrolled in a specific field given his personality sketch (denoted as \( P(H|E) \)), we will use Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote the probabilities for each involved term:
+
+- \( P(H) \): The prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given he is in that field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given he is not in that field.
+
+We'll assume:
+- \( P(E) \): The overall probability of Adam's personality sketch. Since we only compare relative probabilities, \( P(E) \) can remain as a constant denominator and thus won't affect relative rankings.
+
+### Computer Science
+**Prior Probability, \( P(H) \)**: 
+Graduate students in computer science fields are relatively numerous. A rough guess might be around 10%.
+
+**Probability of Personality Sketch Given Field, \( P(E|H) \)**:
+- Nature curiosity: Lower
+- Puzzles: Higher
+- Empathy for animals and warm-hearted: Lower
+- Abstract concepts: Higher
+- Hard work and dedication: Neutral
+
+Given these traits, \( P(E|H) \) might be moderately low.
+
+**Probability of Personality Sketch Given Not in Field, \( P(E|\neg H) \)**:
+Assume that personality traits like Adam's are more typical in non-computer science fields.
+
+### Agricultural and Veterinary Science
+**Prior Probability, \( P(H) \)**: 
+There are fewer graduate students in agricultural and veterinary programs, so we might guess closer to 5%.
+
+**Probability of Personality Sketch Given Field, \( P(E|H) \)**:
+- Nature curiosity: Very high
+- Puzzles: Neutral
+- Empathy for animals and warm-hearted: Very high
+- Abstract concepts: Neutral to higher
+- Hard work and dedication: High
+
+Given these traits, \( P(E|H) \) might be quite high.
+
+**Probability of Personality Sketch Given Not in Field, \( P(E|\neg H) \)**:
+Assume that Adam's personality is less typical in non-agricultural and non-veterinary fields.
+
+### Calculations
+We'll estimate:
+- \( P(E|H_{\text{CS}}) = 0.2 \)
+- \( P(E|\neg H_{\text{CS}}) = 0.8 \)
+- \( P(E|H_{\text{AgVet}}) = 0.8 \)
+- \( P(E|\neg H_{\text{AgVet}}) = 0.5 \)
+
+Given the priors:
+- \( P(H_{\text{CS}}) = 0.1 \)
+- \( P(H_{\text{AgVet}}) = 0.05 \)
+
+We calculate:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+\[ P(H_{\text{AgVet}}|E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E)} = \frac{0.8 \cdot 0.05}{P(E)} \]
+
+To determine relative probabilities without needing \( P(E) \):
+
+\[ \frac{P(H_{\text{CS}}|E)}{P(H_{\text{AgVet}}|E)} = \frac{0.2 \times 0.1}{0.8 \times 0.05} = \frac{0.02}{0.04} = 0.5 \]
+
+Hence, the relative likelihoods are:
+
+{
+  "computer science": "0.5 * p, where p > 0",
+  "agricultural and veterinary science": "p, where p > 0"
+}
+
+Given the relative measure \( p \), adjusting to intuitive numerical values:
+
+{
+  "computer science": 0.33,
+  "agricultural and veterinary science": 0.67
+}

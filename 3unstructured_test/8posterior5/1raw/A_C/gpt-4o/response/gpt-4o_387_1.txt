@@ -1,0 +1,48 @@
+To solve for \( P(H|E) \) for each field using Bayes' rule, we need the following probabilities:
+- \( P(H) \): The prior probability that Adam is enrolled in a particular field.
+- \( P(E|H) \): The probability of observing the personality sketch given that Adam is enrolled in a particular field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam is not enrolled in a particular field.
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Since \( P(E) \) is a normalizing constant that is the same for all fields, you can compare \( P(H|E) \) values by comparing \( P(E|H) \cdot P(H) \).
+
+### Assumptions:
+- \( P(H) \) for each field is assumed to be equal for simplicity though it doesn't have to be.
+- We will need \( P(E|H) \) and \( P(E|\neg H) \) values based on how well the personality sketch matches typical students in those fields.
+
+Given that Adam is curious about nature and its plants, enjoys solving puzzles, has empathy, and loves animals, it's reasonable to say that his personality and interests would better align with Agricultural and Veterinary Science compared to Computer Science.
+
+Let's assume:
+- \( P(H) = 0.1 \) for each field since we are only given two fields out of many possible ones.
+
+Now let's estimate \( P(E|H) \) for each field:
+- \( P(E|Computer Science) \) might be low, given that the personality sketch emphasizes a love for nature, animals, and empathy, which isn't necessarily common in Computer Science.
+  Let's take \( P(E|Computer Science) = 0.2 \).
+
+- \( P(E|Agricultural and Veterinary Science) \) is likely very high, as the traits such as curiosity about nature and love for animals directly align with this field.
+  Let's take \( P(E|Agricultural and Veterinary Science) = 0.9 \).
+
+Lastly, let's consider \( P(E|\neg H) \):
+- \( P(E|\neg Computer Science) \): Probability that someone not in Computer Science would have such traits, might be higher.
+  Let's take \( P(E|\neg Computer Science) = 0.6 \).
+
+- \( P(E|\neg Agricultural and Veterinary Science) \): Given the nature of the sketch, it's less likely for someone outside Agricultural and Veterinary Science to have these traits compared to other fields.
+  Let's take \( P(E|\neg Agricultural and Veterinary Science) = 0.3 \).
+
+We apply Bayes' rule in its comparative form:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Calculation:
+For Computer Science:
+\[ P(H|E)_{CS} \propto 0.2 \times 0.1 = 0.02 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E)_{AgriVet} \propto 0.9 \times 0.1 = 0.09 \]
+
+Of course, the total probabilities are normalized over all possible fields, but for simplicity, in our comparative analysis:
+
+{
+  "computer science": 0.02,
+  "agricultural and veterinary science": 0.09
+}

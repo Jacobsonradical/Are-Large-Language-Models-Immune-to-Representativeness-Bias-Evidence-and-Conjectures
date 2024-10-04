@@ -1,0 +1,50 @@
+To compute \( P(H|E) \) for each field, we need the following components:
+
+1. \( P(H) \) - The prior probability of Adam being enrolled in that field.
+2. \( P(E|H) \) - The probability of observing the personality sketch \( E \) given that Adam is enrolled in that field.
+3. \( P(E|\neg H) \) - The probability of observing the personality sketch \( E \) given that Adam is not enrolled in that field.
+
+We can assume the following rough estimates:
+
+1. **Business Administration:**
+   - \( P(H_{\text{BA}}) \): The base rate for Business Administration students among all graduate fields, let's assume roughly 0.2 (20%).
+   - \( P(E|H_{\text{BA}}) \): Given Adam's personality traits, Business Administration is less likely. Maybe around 0.1 (10%).
+   - \( P(E|\neg H_{\text{BA}}) \): The probability of having those traits in other fields. Since Adam's traits fit well in non-business fields, let's estimate it at 0.6 (60%).
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H_{\text{AgVet}}) \): The base rate for Agricultural and Veterinary Science students among all graduate fields, let's assume roughly 0.05 (5%).
+   - \( P(E|H_{\text{AgVet}}) \): Given Adam's traits, it fits well, so let's assign 0.7 (70%).
+   - \( P(E|\neg H_{\text{AgVet}}) \): Again, traits fitting better in non-business fields, so 0.6 (60%).
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+### For Business Administration:
+\[ P(E) = P(E|H_{\text{BA}}) P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) P(\neg H_{\text{BA}}) \]
+\[ P(E) = (0.1 \cdot 0.2) + (0.6 \cdot 0.8) \]
+\[ P(E) = 0.02 + 0.48 \]
+\[ P(E) = 0.5 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{0.1 \cdot 0.2}{0.5} \]
+\[ P(H_{\text{BA}}|E) = 0.04 \]
+
+### For Agricultural and Veterinary Science:
+\[ P(E) = P(E|H_{\text{AgVet}}) P(H_{\text{AgVet}}) + P(E|\neg H_{\text{AgVet}}) P(\neg H_{\text{AgVet}}) \]
+\[ P(E) = (0.7 \cdot 0.05) + (0.6 \cdot 0.95) \]
+\[ P(E) = 0.035 + 0.57 \]
+\[ P(E) = 0.605 \]
+
+\[ P(H_{\text{AgVet}}|E) = \frac{0.7 \cdot 0.05}{0.605} \]
+\[ P(H_{\text{AgVet}}|E) = \frac{0.035}{0.605} \]
+\[ P(H_{\text{AgVet}}|E) \approx 0.058 \]
+
+Here's the final answer using the given format:
+```json
+{
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.058
+}
+```

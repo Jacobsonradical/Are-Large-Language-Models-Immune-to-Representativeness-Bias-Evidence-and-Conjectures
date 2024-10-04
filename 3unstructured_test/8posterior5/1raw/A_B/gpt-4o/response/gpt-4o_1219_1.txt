@@ -1,0 +1,50 @@
+We can assess the probabilities required for using Bayes' rule to compute \( P(H|E) \). Here's the outline of required probabilities and the application:
+
+1. **Business Administration:**
+   - \( P(H) \): The prior probability that Adam is enrolled in business administration, which we will denote as \( P(B) \).
+   - \( P(E|H) \): The probability of observing Adam's personality sketch given that he is in business administration.
+   - \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not in business administration.
+   - \( P(B|E) \): The probability that Adam is in business administration given the personality sketch.
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): The prior probability that Adam is enrolled in agricultural and veterinary science, which we will denote as \( P(A) \).
+   - \( P(E|H) \): The probability of observing Adam's personality sketch given that he is in agricultural and veterinary science.
+   - \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not in agricultural and veterinary science.
+   - \( P(A|E) \): The probability that Adam is in agricultural and veterinary science given the personality sketch.
+
+### Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To break it down further:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's make some assumptions based on common insights:
+1. Prior probabilities
+   - \( P(B) \approx 0.1 \): A reasonable guess for a diverse set of graduate fields.
+   - \( P(A) \approx 0.02 \): Agricultural and veterinary science is more specialized and less common.
+
+2. Likelihoods given background:
+   - For business administration:
+     - \( P(E|B) \approx 0.01 \): People in business administration are less likely to fit Adam's personality sketch as they are typically less focused on nature and animals.
+   - For agricultural and veterinary science:
+     - \( P(E|A) \approx 0.6 \): Adam's interests and personality sketch strongly suggest a fit with agricultural and veterinary science.
+
+3. Likelihoods for not fitting fields:
+   - \( P(E|\neg B) \approx 0.7 \): Reflects the higher probability of his profile fitting other fields better including not excluding agricultural sciences.
+   - \( P(E|\neg A) \approx 0.2 \): Reflects most fields excluding agricultural and veterinary science.
+
+Consequently,
+\[ P(E) \approx P(E|B) \cdot P(B) + P(E|\neg B) \cdot P(\neg B) \approx 0.01 \cdot 0.1 + 0.7 \cdot 0.9 = 0.001 + 0.63 = 0.631 \]
+\[ P(B|E) = \frac{P(E|B) \cdot P(B)}{P(E)} = \frac{0.01 \cdot 0.1}{0.631} \approx 0.0016 \]
+
+Similarly,
+\[ P(E) \approx P(E|A) \cdot P(A) + P(E|\neg A) \cdot P(\neg A) \approx 0.6 \cdot 0.02 + 0.2 \cdot 0.98 \approx 0.012 + 0.196 = 0.208 \]
+\[ P(A|E) = \frac{P(E|A) \cdot P(A)}{P(E)} = \frac{0.6 \cdot 0.02}{0.208} \approx 0.0577 \]
+
+Thus, combining these values, the final probabilities are:
+```json
+{
+  "business administration": 0.0016,
+  "agricultural and veterinary science": 0.0577
+}
+```

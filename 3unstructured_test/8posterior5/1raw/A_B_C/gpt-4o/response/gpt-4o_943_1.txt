@@ -1,0 +1,54 @@
+To compute \(P(H|E)\) using Bayes' Rule, we need to determine:
+
+1. **\(P(H)\)**: The prior probability of Adam enrolling in each field.
+2. **\(P(E|H)\)**: The likelihood of the personality sketch given the field.
+3. **\(P(E|\neg H)\)**: The likelihood of the personality sketch not given the field.
+
+Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \(P(E)\) is the total probability of the evidence \(E\).
+
+### Assumptions and Estimations:
+- **Prior Probabilities \(P(H)\)**: Assuming equal priors for simplicity given the lack of additional information about the general distribution of graduate students across fields.
+
+1. **Agricultural and Veterinary Science**:
+    - **\(P(H_{\text{agri}})\)**: Moderate, let's assume 0.2, given the number of students in this field generally.
+    - **\(P(E|H_{\text{agri}})\)**: Given Adam's love for nature, animals, empathy, and more, this is high. Let's assume 0.8.
+    - **\(P(E|\neg H_{\text{agri}})\)**: The likelihood of having the same personality sketch outside agricultural/vet science would be lower, let's assume 0.3.
+
+2. **Business Administration**:
+    - **\(P(H_{\text{business}})\)**: Moderate, let's assume 0.2, given the number of students in this field generally.
+    - **\(P(E|H_{\text{business}})\)**: Adam's traits don't align well with traditional business fields, so it's lower, let's assume 0.2.
+    - **\(P(E|\neg H_{\text{business}})\)**: The likelihood of someone with different personality traits outside business could be higher, let's assume 0.7.
+
+3. **Computer Science**:
+    - **\(P(H_{\text{cs}})\)**: Higher, let's assume 0.3, given the popularity of the field.
+    - **\(P(E|H_{\text{cs}})\)**: His analytical skill fits, but less so his love for nature and animals. Let's assume 0.4.
+    - **\(P(E|\neg H_{\text{cs}})\)**: Chances outside CS would be relatively lower. Let’s assume 0.5.
+
+Now calculating \(P(H|E)\):
+
+### Agricultural and Veterinary Science:
+\[ P(H_{\text{agri}}|E) = \frac{0.8 \cdot 0.2}{P(E)} \]
+\[ P(E) = P(E|H_{\text{agri}})P(H_{\text{agri}}) + P(E|H_{\text{business}})P(H_{\text{business}}) + P(E|H_{\text{cs}})P(H_{\text{cs}}) \]
+\[ P(E) = 0.8 \cdot 0.2 + 0.2 \cdot 0.2 + 0.4 \cdot 0.3 = 0.16 + 0.04 + 0.12 = 0.32 \]
+\[ P(H_{\text{agri}}|E) = \frac{0.8 \cdot 0.2}{0.32} = \frac{0.16}{0.32} = 0.5 \]
+
+### Business Administration:
+\[ P(H_{\text{business}}|E) = \frac{0.2 \cdot 0.2}{0.32} = \frac{0.04}{0.32} = 0.125 \]
+
+### Computer Science:
+\[ P(H_{\text{cs}}|E) = \frac{0.4 \cdot 0.3}{0.32} = \frac{0.12}{0.32} = 0.375 \]
+
+So, we have the following results:
+
+```json
+{
+  "agricultural and veterinary science": 0.5,
+  "business administration": 0.125,
+  "computer science": 0.375
+}
+```

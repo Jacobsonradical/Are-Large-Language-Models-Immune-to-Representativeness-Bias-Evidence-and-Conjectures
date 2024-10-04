@@ -1,0 +1,43 @@
+To solve this using Bayes' theorem, we need the following probabilities for each field:
+
+1. **P(H)** - the prior probability that Adam was enrolled in a specific field.
+2. **P(E|H)** - the likelihood of observing E given that Adam is enrolled in H.
+3. **P(E|¬H)** - the likelihood of observing E given that Adam is not enrolled in H.
+
+Given Adam's personality sketch, we can make some educated guesses about these probabilities. Note that these are guesses, and in a more rigorous setting, they would be based on data.
+
+### Computer Science:
+1. **P(H)**: Let's assume the prior probability that any given graduate student is in computer science is relatively moderate due to its popularity and diversity in subjects (let's say 0.2).
+2. **P(E|H)**: Adam being in computer science is somewhat plausible given "high intelligence" and "good at understanding abstract concepts," but perhaps less so given his "strong empathy," "warm heart," and "deep love for animals" (let's say 0.3).
+3. **P(E|¬H)**: Adam's traits might more commonly be found in fields emphasizing empathy and nature, reducing the likelihood of these traits in non-CS students slightly (let's say 0.1).
+
+Using Bayes' theorem,
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+Where P(E) is the normalizing constant. Since we are comparing only two hypotheses, P(E) can be set proportionally to ensure relative comparisons:
+
+\[ P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \]
+Given that \(\neg H\) encompasses all other fields, we set it to a large number.
+
+### Business Administration:
+1. **P(H)**: The prior probability for business administration compared to all graduates might be lower (let's say 0.05).
+2. **P(E|H)**: Unlikely given the traits described; business administration doesn't typically require strong empathy and love for nature (let's say 0.05).
+3. **P(E|¬H)**: More likely for traits seen in non-business fields (let's say 0.12).
+
+### Calculating Probabilities:
+
+For **Computer Science**:
+\[ P(H|E) = \frac{0.3 \times 0.2}{(0.3 \times 0.2) + (0.1 \times 0.8)} \approx \frac{0.06}{0.14} \approx 0.428 \]
+
+For **Business Administration**:
+\[ P(H|E) = \frac{0.05 \times 0.05}{(0.05 \times 0.05) + (0.12 \times 0.95)} \approx \frac{0.0025}{0.116} \approx 0.0216 \]
+
+Putting these together, we get:
+
+```json
+{
+  "computer science": 0.428,
+  "business administration": 0.0216
+}
+```
+
+

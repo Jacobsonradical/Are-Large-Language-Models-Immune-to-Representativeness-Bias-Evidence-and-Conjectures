@@ -1,0 +1,65 @@
+To solve this problem using Bayes' rule, we need to estimate the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E) \). However, since \( P(E) \) is the same across fields, we can focus on the relative likelihoods and priors to determine \( P(H|E) \).
+
+### Computer Science:
+
+1. **Prior Probability \( P(H) \)**:
+   - Assume there is a reasonable distribution of graduate students among various fields roughly proportional to the availability and popularity of those programs.
+   - Computer Science is a popular graduate field, so assume \( P(H) \) is relatively high.
+   - Let’s assume \( P(H) = 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   - Does the personality sketch fit a typical computer science graduate student?
+   - Curiosity about nature and various plants is not particularly indicative of computer science.
+   - Enjoying puzzles fits well.
+   - High intelligence and understanding abstract concepts are strongly indicative.
+   - Overall, mixed fit.
+   - Let’s assume \( P(E|H) = 0.5 \).
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - To approximate, consider the likelihood that a randomly chosen non-computer science student at the graduate level matches Adam's profile.
+   - Suppose there are many fields and many will match parts of Adam's personality.
+   - Let’s assume \( P(E|\neg H) = 0.3 \).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+For comparison purposes, we can simplify:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(\text{computer science}|E) \propto 0.5 \cdot 0.2 = 0.1 \]
+
+### Business Administration:
+
+1. **Prior Probability \( P(H) \)**:
+   - Business Administration is also a popular graduate field, with many students.
+   - Therefore, we might assign a similar prior probability.
+   - Let’s assume \( P(H) = 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   - Does the personality sketch fit a typical business administration graduate student?
+   - Strong empathy, appreciation for hard work and dedication fits well.
+   - Curiosity about nature and a deep love for animals and solving puzzles might not be the most common traits.
+   - Let’s assume \( P(E|H) = 0.3 \).
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - As before, the likelihood that non-business administration students match Adam's profile.
+   - Let’s assume \( P(E|\neg H) = 0.3 \).
+
+Using the same Bayes' rule dependency:
+\[ P(\text{business administration}|E) \propto P(E|H) \cdot P(H) \]
+\[ P(\text{business administration}|E) \propto 0.3 \cdot 0.2 = 0.06 \]
+
+### Normalizing the Results:
+
+For comparative purposes:
+- Computer Science: \( 0.1 \)
+- Business Administration: \( 0.06 \)
+
+However, these values should be treated as relative probabilities for this exercise, implying the likelihood that Adam is a computer science student is higher compared to being a business administration student.
+
+```json
+{
+  "computer science": 0.1,
+  "business administration": 0.06
+}
+```
+
+Keep in mind that more extensive data on the distribution of graduate students and a more nuanced personality fit across fields would yield more precise results, and the actual Bayesian updating would also require the total probability \( P(E) \). Here, we've used proportional reasoning to simplify the comparison.

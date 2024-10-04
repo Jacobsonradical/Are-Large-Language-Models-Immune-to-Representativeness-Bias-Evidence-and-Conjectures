@@ -1,0 +1,40 @@
+To apply Bayes' rule \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \), we first need to assign some initial probabilities and conditional probabilities based on the personality sketch of Adam. Here are the steps to make those judgments:
+
+1. **Prior Probability \(P(H)\)**: This is the initial general likelihood that a graduate student in the U.S. is in a given field.
+   - For business administration, let's assume that 15% of graduate students choose this field. Hence, \(P(H_{\text{business administration}}) = 0.15\).
+   - For agricultural and veterinary science, let's assume that 5% of graduate students choose this field. Hence, \(P(H_{\text{agricultural and veterinary science}}) = 0.05\).
+
+2. **Conditional Probability \(P(E|H)\)**: This is the likelihood that a student with Adam's personality traits would be in a given field.
+   - Adam has a deep love for nature and animals, strong empathy, and appreciates hard work. These traits align well with agricultural and veterinary science. Let's set \(P(E|H_{\text{agricultural and veterinary science}}) = 0.9\).
+   - While problem-solving and intelligence are valuable in business administration, the specific traits outlined (love for animals, nature, empathy) do not perfectly align. Let's set \(P(E|H_{\text{business administration}}) = 0.2\).
+
+3. **Complementary Conditional Probability \(P(E |\neg H)\)**: This is the likelihood that Adam's personality traits would fit students from other fields not specified.
+   - Given the specificity of his traits, let’s say he is less likely to possess these traits if he is not in agricultural and veterinary science. We might set \(P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.2\).
+   - For business administration, traits like problem-solving intellect can be fairly common across other fields. Hence, let's set \(P(E|\neg H_{\text{business administration}}) = 0.3\).
+
+Using Bayes' rule, we compute \(P(H|E)\):
+
+For business administration:
+\[ P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \]
+
+For agricultural and veterinary science:
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}{P(E)} \]
+
+Assuming \(P(E)\) is the same for both fields (simplifying our division terms cancel out proportionally):
+
+\[ P(H_{\text{business administration}}|E) = k \cdot 0.2 \cdot 0.15 \]
+\[ P(H_{\text{agricultural and veterinary science}}|E) = k \cdot 0.9 \cdot 0.05 \]
+
+Now we normalize these via basic rescaling:
+
+For simplicity, let's establish proportional values:
+\[k \cdot 0.2 \cdot 0.15 = 0.03k \]
+\[k \cdot 0.9 \cdot 0.05 = 0.045k \]
+
+These proportions then give:
+\[
+{
+  "business administration": \frac{0.03 }{ 0.03 + 0.045 } = 0.4,
+  "agricultural and veterinary science": \frac{0.045 }{ 0.03 + 0.045 } = 0.6
+}
+\]

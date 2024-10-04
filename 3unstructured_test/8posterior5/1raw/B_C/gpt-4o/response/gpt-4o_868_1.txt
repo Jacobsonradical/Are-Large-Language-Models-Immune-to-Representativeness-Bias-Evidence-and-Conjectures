@@ -1,0 +1,80 @@
+To calculate the probabilities \( P(H|E) \) using Bayes' rule, we'll consider the following:
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to make some assumptions or reasoned estimates for each field:
+
+1. **Prior Probability \( P(H) \)**: We assume the prior probability for each field before considering the evidence provided by the personality sketch. This can be informed by general knowledge about the distribution of graduate students across different fields.
+  
+2. **Likelihood \( P(E|H) \)**: The probability of observing the evidence given that Adam is in the specified field. This requires judging how well the personality sketch matches typical students in each field.
+
+3. **Complement Likelihood \( P(E|\neg H) \)**: The probability of observing the evidence given that Adam is not in the specified field.
+
+### Computer Science
+
+1. **Prior Probability \( P(H) \)**:
+   - There are many graduate students in computer science, so let's assign a prior of \( P(\text{Computer Science}) = 0.2 \) (assuming it's a less common field compared to all possible fields).
+
+2. **Likelihood \( P(E|H) \)**:
+   - Adam's love for problem-solving and high intelligence could match with computer science, but his strong empathy and love for animals are less typical for this field. Let's estimate \( P(E|\text{Computer Science}) = 0.3 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**:
+   - Given the evidence does not strongly suggest computer science as compared to other fields like biology or psychology, we could estimate \( P(E|\neg \text{Computer Science}) = 0.7 \).
+
+### Business Administration
+
+1. **Prior Probability \( P(H) \)**:
+   - Business administration is another common field, so let's assign a prior of \( P(\text{Business Administration}) = 0.15 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   - Adam’s traits of empathy and strong understanding of hard work could fit someone in business administration, but his love for nature and animals does not typically align with this field. Let's estimate \( P(E|\text{Business Administration}) = 0.2 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**:
+   - Given the evidence, which points towards perhaps a more scientific field compared to business administration, let's estimate \( P(E|\neg \text{Business Administration}) = 0.8 \).
+
+### Now, let's calculate \( P(H|E) \) for each field:
+
+#### Computer Science
+
+\[ 
+P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)}
+\]
+
+Assuming \( P(E) \) is a normalization constant:
+\[ 
+P(\text{Computer Science}|E) \propto 0.3 \cdot 0.2 / P(E) 
+\]
+
+#### Business Administration
+
+\[ 
+P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)}
+\]
+
+Assuming \( P(E) \) is a normalization constant:
+\[ 
+P(\text{Business Administration}|E) \propto 0.2 \cdot 0.15 / P(E) 
+\]
+
+### Overall Calculation:
+
+Since \( P(E) \) is the same for both:
+\[ 
+P(\text{Computer Science}|E) \approx 0.06
+\]
+\[ 
+P(\text{Business Administration}|E) \approx 0.03 
+\]
+
+### Conclusion:
+Putting them in a comparative format:
+
+```json
+{
+  "computer science": 0.06,
+  "business administration": 0.03
+}
+```
+
+Note, these are proportional values, meaning they indicate the relative likelihoods compared to one another and do not reflect the absolute probability out of 1. To get the exact values, further normalization would be required, considering all possible fields.

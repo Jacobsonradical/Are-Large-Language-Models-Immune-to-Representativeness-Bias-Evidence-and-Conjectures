@@ -1,0 +1,97 @@
+To apply Bayes' theorem, we need to use the following formula to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+
+- \( P(H) \) is the prior probability of the hypothesis (i.e., Adam being enrolled in a particular field).
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis (i.e., the chances of Adam's personality sketch being that way if he is indeed in that field).
+- \( P(E|\neg H) \) is the likelihood of observing the evidence given that the hypothesis is not true.
+- \( P(E) \) is the overall probability of the evidence.
+
+Since \( P(E) \) is the same for all fields, we can use the relative likelihood for comparison among the hypotheses.
+
+Let us denote the values as follows:
+
+- \( P(E) \) = General probability of the evidence (personality sketch of Adam).
+- \( P(H|E) \) = Probability that Adam is in a specific field given his personality sketch.
+
+  ### Computer Science
+  
+  - \( P(H) \): Assuming some prior belief that a random graduate student might be in computer science, let's assume \( P(H) \) = 0.2.
+  - \( P(E|H) \): Given Adam's attributes (high intelligence, good at solving puzzles, understanding abstract concepts), there is a reasonable fit (0.5).
+  - \( P(E|\neg H) \): This depends on Adam's personality and could be more common in other fields (assuming 0.3).
+
+  Calculation: 
+  \[
+  P(\text{computer science}|E) = \frac{0.5 \times 0.2}{P(E)}
+  \]
+
+  ### Agricultural and Veterinary Science
+  
+  - \( P(H) \): Let’s assume \( P(H) \) = 0.1.
+  - \( P(E|H) \): This is quite a good fit considering his love for nature and animals (0.8).
+  - \( P(E|\neg H) \): Likely to be less common outside this field given these traits (assuming 0.3).
+
+  Calculation: 
+  \[
+  P(\text{agricultural and veterinary science}|E) = \frac{0.8 \times 0.1}{P(E)}
+  \]
+
+  ### Business Administration
+  
+  - \( P(H) \): Assuming \( P(H) \) = 0.3.
+  - \( P(E|H) \): Less characteristic based on his profile (0.2).
+  - \( P(E|\neg H) \): More common outside the business field given these traits (0.3).
+
+  Calculation:
+  \[
+  P(\text{business administration}|E) = \frac{0.2 \times 0.3}{P(E)}
+  \]
+
+Let's plug in these numbers proportionately without resolving for the precise denominator (as we are comparing probabilities relative to each other):
+
+- For computer science:
+  \[
+  P(\text{computer science}|E) = \frac{0.5 \times 0.2}{P(E)} = 0.1/P(E)
+  \]
+
+- For agricultural and veterinary science:
+  \[
+  P(\text{agricultural and veterinary science}|E) = \frac{0.8 \times 0.1}{P(E)} = 0.08/P(E)
+  \]
+
+- For business administration:
+  \[
+  P(\text{business administration}|E) = \frac{0.2 \times 0.3}{P(E)} = 0.06/P(E)
+  \]
+
+Combining these results:
+
+```json
+{
+  "computer science": 0.1 / (0.1 + 0.08 + 0.06),
+  "agricultural and veterinary science": 0.08 / (0.1 + 0.08 + 0.06),
+  "business administration": 0.06 / (0.1 + 0.08 + 0.06)
+}
+```
+
+That simplifies to approximately:
+
+```json
+{
+  "computer science": 0.4348,
+  "agricultural and veterinary science": 0.3478,
+  "business administration": 0.2609
+}
+```
+
+Multiplying by a common factor for better readability (not necessary as they sum, but for conventional presentation):
+
+```json
+{
+  "computer science": 0.43,
+  "agricultural and veterinary science": 0.34,
+  "business administration": 0.26
+}
+```

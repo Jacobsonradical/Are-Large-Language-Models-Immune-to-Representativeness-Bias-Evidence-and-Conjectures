@@ -1,0 +1,49 @@
+To apply Bayes' rule and compute the probabilities P(H|E) for each field, we need to evaluate three quantities for each field: P(H), P(E|H), and P(E|\neg H).
+
+For simplicity, let's make some educated guesses about these probabilities based on the information given:
+
+**Assumptions and Reasoning**:
+
+1. **P(H)**: This is the prior probability of a graduate student being in that field.
+   - Business Administration is a relatively common field.
+   - Computer Science is also a popular choice for graduate students.
+
+2. **P(E|H)**: This is the probability of observing Adam's personality sketch E given he is in that specific field.
+   - Business Administration: Not typically associated with curiosity about nature, puzzles, high empathy, or love for animals.
+   - Computer Science: Higher likelihood of an individual who enjoys solving puzzles and has a high intelligence level. 
+
+3. **P(E|\neg H)**: This is the probability of observing Adam's personality sketch E given he is not in that field.
+   - For fields other than Business Administration or Computer Science, it's more likely to find someone with Adam's characteristics in fields like biology or environmental science.
+   
+### Business Administration:
+
+- **P(H) for business administration (H1)**: Let's assume P(H1) = 0.2.
+- **P(E|H1)**: This might be low given the personality isn't strongly aligned with the field. Let's assume P(E|H1) = 0.1.
+- **P(E|¬H1)**: Given Adam's characteristics, the sketch is more likely in a non-business field. Let's assume P(E|¬H1) = 0.7.
+
+Using Bayes' Rule:
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E|H1) \cdot P(H1) + P(E|\neg H1) \cdot P(\neg H1)} \]
+\[ P(H1|E) = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.7 \cdot 0.8} \]
+\[ P(H1|E) = \frac{0.02}{0.02 + 0.56} \]
+\[ P(H1|E) = \frac{0.02}{0.58} \approx 0.0345 \]
+
+### Computer Science:
+
+- **P(H) for computer science (H2)**: Let's assume P(H2) = 0.3.
+- **P(E|H2)**: Relatively high, given the correlation with puzzles and high intelligence. Let's assume P(E|H2) = 0.5.
+- **P(E|¬H2)**: Higher than for business administration but still lower than if Adam were in a nature-oriented field. Let's assume P(E|¬H2) = 0.6.
+
+Using Bayes' Rule:
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E|H2) \cdot P(H2) + P(E|\neg H2) \cdot P(\neg H2)} \]
+\[ P(H2|E) = \frac{0.5 \cdot 0.3}{0.5 \cdot 0.3 + 0.6 \cdot 0.7} \]
+\[ P(H2|E) = \frac{0.15}{0.15 + 0.42} \]
+\[ P(H2|E) = \frac{0.15}{0.57} \approx 0.2632 \]
+
+Using these rough estimates, here is the computed probability using Bayes' Rule:
+
+```json
+{
+  "business administration": 0.0345,
+  "computer science": 0.2632
+}
+```

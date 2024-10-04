@@ -1,0 +1,75 @@
+To apply Bayes' Rule for each field, we'll need to assess the prior probabilities \(\ P(H)\), the likelihoods \( \ P(E|H)\), and the likelihoods under the complement hypothesis \( \ P(E|\neg H) \). Then, we can calculate the posterior probabilities \(\ P(H|E) \).
+
+Let's assign estimates for these probabilities based on the personality sketch of Adam.
+
+### Given Prior Probabilities, P(H):
+- \(\ P(H_{\text{computer science}}) \): Let's assume it's 0.2 because computer science is a popular field for high intelligence students.
+- \(\ P(H_{\text{business administration}}) \): Let's assume it's 0.1, considering that Adam’s traits don’t strongly suggest a business inclination.
+- \(\ P(H_{\text{agricultural and veterinary science}}) \): Let's assume it's 0.1, given Adam's love for nature and animals, this might be a reasonable field.
+
+### Likelihoods, P(E|H):
+- \(\ P(E|H_{\text{computer science}}) \) (Probability that Adam fits his personality sketch if he's in Computer Science): 0.3. Abstract thinking and intelligence align well, but nature and animals are not strongly related.
+- \(\ P(E|H_{\text{business administration}}) \): 0.1. Empathy and puzzle-solving skills are useful, but not strongly linked.
+- \(\ P(E|H_{\text{agricultural and veterinary science}}) \): 0.8. Strongly aligns with Adam’s love for nature, animals, empathy, and dedication.
+
+### Likelihoods under complement hypothesis, P(E|\neg H):
+This requires summing the likelihood of the evidence given that Adam is in one of the other graduate fields other than the specified one.
+
+- \(\ P(E| \neg H_{\text{computer science}})\): Assuming alternative fields include Business Administration, Agricultural and Veterinary Science, and others, Adam's traits fit better with the latter. Estimate: 0.6.
+- \(\ P(E| \neg H_{\text{business administration}})\): 0.7. The evidence fits better with fields that relate to nature/animals.
+- \(\ P(E| \neg H_{\text{agricultural and veterinary science}})\): 0.2. Adam’s traits are more naturally aligned with agricultural and veterinary science.
+
+### Applying Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) (total probability of evidence) is difficult to compute exactly without all field probabilities, we'll use the normalization approach after computing the non-normalized posteriors \( P(E|H) \cdot P(H) \):
+
+\[
+P(H_{\text{computer science}}|E) \propto P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})
+\]
+\[ 
+P(H_{\text{business administration}}|E) \propto P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})
+\]
+\[ 
+P(H_{\text{agricultural and veterinary science}}|E) \propto P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})
+\]
+
+Substituting the values: 
+\[
+P(H_{\text{computer science}}|E) \propto 0.3 \times 0.2 = 0.06
+\]
+\[
+P(H_{\text{business administration}}|E) \propto 0.1 \times 0.1 = 0.01
+\]
+\[
+P(H_{\text{agricultural and veterinary science}}|E) \propto 0.8 \times 0.1 = 0.08
+\]
+
+### Normalization:
+To get the normalized probabilities, we sum these intermediate values:
+
+\[
+\text{Total} = 0.06 + 0.01 + 0.08 = 0.15
+\]
+
+Then, we divide each by the total to get the posterior probabilities:
+
+\[
+P(H_{\text{computer science}}|E) = \frac{0.06}{0.15} \approx 0.4
+\]
+\[
+P(H_{\text{business administration}}|E) = \frac{0.01}{0.15} \approx 0.067
+\]
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.08}{0.15} \approx 0.533
+\]
+
+So, our final probabilities are:
+```json
+{
+  "computer science": 0.4,
+  "business administration": 0.067,
+  "agricultural and veterinary science": 0.533
+}
+```
+These values represent our best estimates for the probabilities, based on Adam’s personality sketch and the prior assumptions regarding the distribution of graduate students across these fields.

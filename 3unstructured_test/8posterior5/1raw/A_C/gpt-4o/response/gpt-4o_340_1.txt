@@ -1,0 +1,68 @@
+To compute the posterior probability \( P(H|E) \), we use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis \( H \)
+- \( P(E|H) \) is the likelihood of the evidence \( E \) given the hypothesis \( H \)
+- \( P(E) \) is the overall probability of the evidence \( E \)
+
+Since \( P(E) \) will cancel out when comparing relative probabilities among different hypotheses, we'll focus on the numerator:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Now let's judge the values for each field and apply Bayes' Rule:
+
+### For Computer Science:
+
+1. **Prior probability \( P(H_{CS}) \)**: 
+   Graduate students in computer science are fairly common, so let's assume \( P(H_{CS}) = 0.2 \).
+
+2. **Likelihood \( P(E|H_{CS}) \)**:
+   Given Adam’s traits:
+   - Curiosity about nature and plants: Not highly relevant
+   - Quiet, enjoys solving puzzles: Relevant
+   - Warm heart, empathy, animals: Not highly relevant
+   - High intelligence, appreciates hard work: Relevant
+   We can assume \( P(E|H_{CS}) = 0.3 \).
+
+### For Agricultural and Veterinary Science:
+
+1. **Prior probability \( P(H_{AgVet}) \)**: 
+   Fewer students might be in this field compared to computer science, so let's assume \( P(H_{AgVet}) = 0.1 \).
+
+2. **Likelihood \( P(E|H_{AgVet}) \)**:
+   Given Adam’s traits:
+   - Curiosity about nature and plants: Highly relevant
+   - Quiet, enjoys solving puzzles: Neutral
+   - Warm heart, empathy, animals: Highly relevant
+   - High intelligence, appreciates hard work: Highly relevant
+   We can assume \( P(E|H_{AgVet}) = 0.8 \).
+
+### Normalize the Posterior Probabilities:
+Now, let's compute the unnormalized posterior probabilities and then normalize them:
+
+For **Computer Science**:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.3 \times 0.2 = 0.06 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_{AgVet}|E) \propto P(E|H_{AgVet}) \cdot P(H_{AgVet}) = 0.8 \times 0.1 = 0.08 \]
+
+### Normalize to give relative probabilities:
+Total = 0.06 + 0.08 = 0.14
+
+For **Computer Science**:
+\[ P(H_{CS}|E) = \frac{0.06}{0.14} \approx 0.429 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_{AgVet}|E) = \frac{0.08}{0.14} \approx 0.571 \]
+
+### Final Answer:
+```json
+{
+  "computer science": 0.429,
+  "agricultural and veterinary science": 0.571
+}
+```
+
+These probabilities indicate that based on Adam’s personality traits, it is more likely that he was enrolled in Agricultural and Veterinary Science rather than Computer Science.

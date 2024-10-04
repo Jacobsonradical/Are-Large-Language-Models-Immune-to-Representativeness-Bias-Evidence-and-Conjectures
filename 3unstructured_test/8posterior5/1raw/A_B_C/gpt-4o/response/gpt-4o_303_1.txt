@@ -1,0 +1,81 @@
+To start with, let’s assign some subjective probabilities to each field based on the personality sketch of Adam.
+
+1. **Agricultural and Veterinary Science (H₁)**
+2. **Business Administration (H₂)**
+3. **Computer Science (H₃)**
+
+### Step 1: Assign Initial Probabilities (P(H))
+- \( P(H₁) \): Agricultural and Veterinary Science. Given Adam's love for animals, nature, and plants, it seems relatively likely.
+- \( P(H₂) \): Business Administration. This choice seems less likely given Adam's personality, but not impossible.
+- \( P(H₃) \): Computer Science. Given Adam's intelligence and enjoyment in solving puzzles, this seems reasonably likely.
+
+For example’s sake:
+- \( P(H₁) \) = 0.4
+- \( P(H₂) \) = 0.1
+- \( P(H₃) \) = 0.3
+
+### Step 2: Assign Likelihoods (P(E|H))
+- \( P(E|H₁) \): Given Adam's traits, it is highly likely he would fit this field.
+- \( P(E|H₂) \): It is less likely, considering business administration doesn’t align strongly with his love for animals and nature.
+- \( P(E|H₃) \): This is also quite likely, especially because of his intelligence and interest in puzzles.
+
+For example’s sake:
+- \( P(E|H₁) = 0.9 \)
+- \( P(E|H₂) = 0.2 \)
+- \( P(E|H₃) = 0.7 \)
+
+### Step 3: Assign Prior Not-Hypothesis Probabilities (P(E|¬H))
+For each \( P(E|\neg H) \), it's the probability of E given that the hypothesis is not true.
+
+- \( P(E|\neg H₁) = \) The probability of having Adam’s traits if he is not in Agricultural/Veterinary
+- \( P(E|\neg H₂) = \) The probability of having Adam’s traits if he is not in Business Administration
+- \( P(E|\neg H₃) = \) The probability of having Adam’s traits if he is not in Computer Science
+
+Given his traits:
+- \( P(E|\neg H₁) \approx 0.4 \)
+- \( P(E|\neg H₂) \approx 0.7 \)
+- \( P(E|\neg H₃) \approx 0.5 \)
+
+### Step 4: Bayesian Update (Compute P(H|E))
+
+Bayes' Theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = \sum_{i} P(E|H_{i}) \cdot P(H_{i}) \approx P(E|H₁)P(H₁) + P(E|H₂)P(H₂) + P(E|H₃)P(H₃) \)
+
+\[ P(E) = (0.9 \times 0.4) + (0.2 \times 0.1) + (0.7 \times 0.3) \]
+\[ P(E) = 0.36 + 0.02 + 0.21 \]
+\[ P(E) = 0.59 \]
+
+Now, for each hypothesis:
+
+#### Agricultural and Veterinary Science (H₁)
+\[ P(H₁|E) = \frac{P(E|H₁) \cdot P(H₁)}{P(E)} \]
+\[ P(H₁|E) = \frac{0.9 \times 0.4}{0.59} \]
+\[ P(H₁|E) = \frac{0.36}{0.59} \]
+\[ P(H₁|E) = 0.61 \]
+
+#### Business Administration (H₂)
+\[ P(H₂|E) = \frac{P(E|H₂) \cdot P(H₂)}{P(E)} \]
+\[ P(H₂|E) = \frac{0.2 \times 0.1}{0.59} \]
+\[ P(H₂|E) = \frac{0.02}{0.59} \]
+\[ P(H₂|E) = 0.034 \]
+
+#### Computer Science (H₃)
+\[ P(H₃|E) = \frac{P(E|H₃) \cdot P(H₃)}{P(E)} \]
+\[ P(H₃|E) = \frac{0.7 \times 0.3}{0.59} \]
+\[ P(H₃|E) = \frac{0.21}{0.59} \]
+\[ P(H₃|E) = 0.36 \]
+
+### Summary:
+- Agricultural and Veterinary Science: \( P(H₁|E) = 0.61 \)
+- Business Administration: \( P(H₂|E) = 0.034 \)
+- Computer Science: \( P(H₃|E) = 0.36 \)
+
+```json
+{
+  "agricultural and veterinary science": 0.61,
+  "business administration": 0.034,
+  "computer science": 0.36
+}
+```

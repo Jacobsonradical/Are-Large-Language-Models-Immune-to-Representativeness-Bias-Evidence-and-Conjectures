@@ -1,0 +1,49 @@
+Let's compute the conditional probabilities for each field and then update them using Bayes' rule. 
+
+Given the personality sketch of Adam (E), we estimate the following probabilities:
+
+**1. Computer Science:**  
+- P(H): The prior probability of a graduate student being in computer science could be estimated based on enrollment statistics. Let's assume P(H) = 0.3 (30%).
+- P(E|H): Given Adam’s traits are curiosity about nature, problem-solving skills, and high intelligence, it’s plausible but not strongly indicative that he's in this field. Let's roughly estimate P(E|H) = 0.2 (20%).
+- P(E|¬H): We consider the probability of observing Adam's traits given he's in any other field. Since there are many fields where curiosity, problem-solving skills, and high intelligence are relevant, let’s estimate P(E|¬H) = 0.4 (40%).
+
+**2. Agricultural and Veterinary Science:**  
+- P(H): Prior probability, based on general graduate enrollment statistics, let's assume P(H) = 0.05 (5%).
+- P(E|H): Adam’s traits like curiosity about nature, empathy for animals, and appreciation for hard work are very indicative of this field. Let's estimate P(E|H) = 0.6 (60%).
+- P(E|¬H): As before, the probability of these traits existing in any other field remains the same, P(E|¬H) = 0.4 (40%).
+
+**3. Business Administration:**
+- P(H): Prior probability based on enrollment statistics, let's assume P(H) = 0.25 (25%).
+- P(E|H): Adam’s traits do not strongly suggest a fit for business administration. Let's estimate P(E|H) = 0.1 (10%).
+- P(E|¬H): Once again, P(E|¬H) stays consistent, P(E|¬H) = 0.4 (40%).
+
+Next, we use Bayes' rule to update the probabilities. Here's the Bayes' rule formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is computed as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+For each field:
+
+1. **Computer Science:**
+\[ P(E) = (0.2 \cdot 0.3) + (0.4 \cdot 0.7) = 0.06 + 0.28 = 0.34 \]
+\[ P(H|E) = \frac{0.2 \cdot 0.3}{0.34} = \frac{0.06}{0.34} \approx 0.176 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(E) = (0.6 \cdot 0.05) + (0.4 \cdot 0.95) = 0.03 + 0.38 = 0.41 \]
+\[ P(H|E) = \frac{0.6 \cdot 0.05}{0.41} = \frac{0.03}{0.41} \approx 0.073 \]
+
+3. **Business Administration:**
+\[ P(E) = (0.1 \cdot 0.25) + (0.4 \cdot 0.75) = 0.025 + 0.3 = 0.325 \]
+\[ P(H|E) = \frac{0.1 \cdot 0.25}{0.325} = \frac{0.025}{0.325} \approx 0.077 \]
+
+So, the updated probabilities \( P(H|E) \) for each field are:
+
+{
+  "computer science": 0.176,
+  "agricultural and veterinary science": 0.073,
+  "business administration": 0.077
+}
+
+This suggests that, given Adam's personality sketch, he is slightly more likely to be a computer science graduate student compared to the other fields provided, but he could still be in other specialized fields that were not considered.

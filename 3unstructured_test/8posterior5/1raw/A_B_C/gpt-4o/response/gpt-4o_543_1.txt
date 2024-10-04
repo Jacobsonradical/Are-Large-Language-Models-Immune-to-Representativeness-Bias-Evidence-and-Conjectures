@@ -1,0 +1,42 @@
+To compute the probability that Adam was enrolled in each field given his personality sketch (E), we'll use Bayes' rule: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll make some assumptions to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Let's denote:
+- \( P(H) \): The prior probability that Adam is enrolled in a particular field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in a particular field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in that particular field.
+
+Assumptions:
+1. \( P(H) \): Assume equal base rates for enrollment in each field due to lack of specific data.
+ - \( P(H_{\text{business administration}}) = 0.2 \)
+ - \( P(H_{\text{agricultural and veterinary science}}) = 0.2 \)
+ - \( P(H_{\text{computer science}}) = 0.2 \)
+2. \( P(E|H) \):
+ - For business administration, Adam’s personality sketch (E) does not strongly align with traditional MBA traits (business acumen, leadership, etc.).
+   - \( P(E|H_{\text{business administration}}) \approx 0.1 \)
+ - For agricultural and veterinary science, Adam’s love for nature, animals, and empathy strongly align.
+   - \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.7 \)
+ - For computer science, Adam’s interest in solving puzzles and understanding abstract concepts align moderately well.
+   - \( P(E|H_{\text{computer science}}) \approx 0.4 \)
+3. \( P(E|\neg H) \): Averaging the non-specific cases and their probabilities.
+ - \( P(E|\neg H_{\text{business administration}}) = 0.4 \)
+ - \( P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.3 \)
+ - \( P(E|\neg H_{\text{computer science}}) = 0.3 \)
+
+Using Bayes' rule computations:
+
+1. **Business Administration**:
+   \[ P(H_{\text{business administration}}|E) = \frac{0.1 \times 0.2}{0.4} = \frac{0.02}{0.4} = 0.05 \]
+2. **Agricultural and Veterinary Science**:
+   \[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.7 \times 0.2}{0.3} = \frac{0.14}{0.3} \approx 0.467 \]
+3. **Computer Science**:
+   \[ P(H_{\text{computer science}}|E) = \frac{0.4 \times 0.2}{0.3} = \frac{0.08}{0.3} \approx 0.267 \]
+
+The final outcome looks like:
+
+{
+  "business administration": 0.05,
+  "agricultural and veterinary science": 0.467,
+  "computer science": 0.267
+}

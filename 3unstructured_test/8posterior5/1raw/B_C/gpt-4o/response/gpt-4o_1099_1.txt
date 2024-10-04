@@ -1,0 +1,61 @@
+Alright, let's analyze the given information and compute the probabilities:
+
+### Hypotheses:
+- **H(CS)**: Adam was enrolled in Computer Science.
+- **H(BA)**: Adam was enrolled in Business Administration.
+
+### Given Information:
+- **E**: Personality sketch of Adam.
+
+### Prior Probabilities:
+- **P(H(CS))**: Estimated prior probability that Adam was enrolled in Computer Science.
+- **P(H(BA))**: Estimated prior probability that Adam was enrolled in Business Administration.
+
+Since there are many fields Adam could be enrolled in, let's assume these are just two possible careers and use reasonable priors for graduate fields in the U.S.:
+
+- Let’s assume **P(H(CS)) = 0.2** as Computer Science is a popular field.
+- And **P(H(BA)) = 0.15** for Business Administration.
+
+### Likelihoods:
+- **P(E|H(CS))**: Probability of the personality sketch given that Adam is in Computer Science.
+- **P(E|H(BA))**: Probability of the personality sketch given that Adam is in Business Administration.
+
+Given the personality sketch:
+- Adam has a genuine curiosity about nature and various plants – aligns with fields like biology, environmental sciences more than computer science or business administration.
+- Enjoys solving puzzles – this aligns with Computer Science due to problem-solving elements.
+- Warm heart, strong empathy, deep love for animals – less strong connection to Computer Science and Business Administration.
+- High intelligence and understanding abstract concepts – aligns with both fields, but the other traits make CS more likely.
+
+Let’s estimate:
+- **P(E|H(CS)) = 0.3**: Some alignment with puzzles and high intelligence make the fit plausible but not perfect.
+- **P(E|H(BA)) = 0.1**: Less alignment with the traits given.
+
+### Complementary Likelihoods:
+- **P(E|\neg H(CS))**: Probability of the personality sketch given that Adam is not in Computer Science. Estimated as supplementary likelihoods spread across all other fields.
+- **P(E|\neg H(BA))**: Probability of the personality sketch given that Adam is not in Business Administration.
+
+Assume:
+- **P(E|\neg H(CS)) = 0.7**
+- **P(E|\neg H(BA)) = 0.9**
+
+### Bayesian Update:
+
+1. **Computer Science**:
+\[ P(H(CS|E)) = \frac{P(E|H(CS)) * P(H(CS))}{P(E|H(CS)) * P(H(CS)) + P(E|\neg H(CS)) * P(\neg H(CS))} \]
+\[ P(H(CS|E)) = \frac{0.3 * 0.2}{0.3 * 0.2 + 0.7 * 0.8} \]
+\[ P(H(CS|E)) = \frac{0.06}{0.06 + 0.56} \]
+\[ P(H(CS|E)) = \frac{0.06}{0.62} \]
+\[ P(H(CS|E)) = 0.097 \]
+
+2. **Business Administration**:
+\[ P(H(BA|E)) = \frac{P(E|H(BA)) * P(H(BA))}{P(E|H(BA)) * P(H(BA)) + P(E|\neg H(BA)) * P(\neg H(BA))} \]
+\[ P(H(BA|E)) = \frac{0.1 * 0.15}{0.1 * 0.15 + 0.9 * 0.85} \]
+\[ P(H(BA|E)) = \frac{0.015}{0.015 + 0.765} \]
+\[ P(H(BA|E)) = \frac{0.015}{0.78} \]
+\[ P(H(BA|E)) = 0.019 \]
+
+### Final Answer:
+{
+  "computer science": 0.097,
+  "business administration": 0.019
+}

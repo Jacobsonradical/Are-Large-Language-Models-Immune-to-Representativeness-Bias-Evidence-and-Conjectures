@@ -1,0 +1,51 @@
+Let's apply Bayes' Rule to solve for \( P(H|E) \), the posterior probability that Adam was enrolled in a given field given his personality sketch E. 
+
+Bayes' Rule is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in a given field.
+- \( P(E|H) \) is the likelihood of Adam having the personality traits given he is in a specific field.
+- \( P(E) \) is the overall probability of Adam having these personality traits, which can be decomposed using the law of total probability.
+
+We'll assume the following for the two fields:
+
+1. **Business Administration:**
+   - \( P(H) \): Let's assume the probability that Adam was in business administration as a prior. (e.g., \( P(\text{Business Administration}) = 0.15 \), assuming this is a relatively popular field but not the most common one for someone with his traits).
+   - \( P(E|H) \): Given Adam's personality traits, the likelihood that he is in business administration. (e.g., \( P(E|\text{Business Administration}) \approx 0.10 \), since his traits do not strongly align with the typical traits of someone in business administration).
+   - \( P(E|\neg H) \): The probability that someone not in business administration has these traits. (This could be relatively high, given the variety of fields. e.g., \( P(E|\neg \text{Business Administration}) \approx 0.90 \)).
+
+2. **Computer Science:**
+   - \( P(H) \): Let's assume the prior probability that Adam was in computer science. (e.g., \( P(\text{Computer Science}) = 0.30 \), considering this is often a popular field among high-intelligence individuals).
+   - \( P(E|H) \): Given Adam’s traits, the likelihood he is in computer science. (e.g., \( P(E|\text{Computer Science}) = 0.50 \), as his traits such as high intelligence, abstract thinking, and enjoying puzzles line up well with computer science).
+   - \( P(E|\neg H) \): The probability that someone not in computer science has these traits. (Given our prior assumptions, this might be around \( P(E|\neg \text{Computer Science}) = 0.70 \)).
+
+To find \( P(H|E) \), we can use hypothetical probabilities given these assumptions:
+
+For **Business Administration**:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H)\cdot P(\neg H) \]
+Substituting:
+\[ P(E)_{\text{BA}} = (0.10 \times 0.15) + (0.90 \times 0.85) \]
+\[ P(E)_{\text{BA}} = 0.015 + 0.765 = 0.78 \]
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)_{\text{BA}}} \]
+\[ P(H|E)_{\text{BA}} = \frac{0.10 \times 0.15}{0.78} \]
+\[ P(H|E)_{\text{BA}} = \frac{0.015}{0.78} \approx 0.0192 \]
+
+For **Computer Science**:
+\[ P(E)_{\text{CS}} = (0.50 \times 0.30) + (0.70 \times 0.70) \]
+\[ P(E)_{\text{CS}} = 0.15 + 0.49 = 0.64 \]
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)_{\text{CS}}} \]
+\[ P(H|E)_{\text{CS}} = \frac{0.50 \times 0.30}{0.64} \]
+\[ P(H|E)_{\text{CS}} = \frac{0.15}{0.64} \approx 0.2344 \]
+
+Based on the calculations, the probabilities that Adam was enrolled in each field given his personality sketch are approximately:
+
+```json
+{
+  "business administration": 0.0192,
+  "computer science": 0.2344
+}
+```

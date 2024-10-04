@@ -1,0 +1,69 @@
+Let's go through this problem step by step. Bayes' Rule for the posterior probability \( P(H|E) \) is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(E) \) is the total probability of the evidence \( E \).
+
+For simplicity, since we are comparing two fields, we don't need to calculate the exact probability \( P(E) \). We will focus on the relative comparison. 
+
+### Field 1: Business Administration
+
+#### Prior Probability \( P(H) \) for Business Administration
+Without additional context, we'll assume a fairly neutral prior for Adam being enrolled in Business Administration or Computer Science. Let's hypothesize an equal chance of 0.5 for both fields.
+
+- \( P(\text{Business Administration}) = 0.5 \)
+
+#### Likelihood \( P(E|H) \) for Business Administration
+Given Adam’s personality traits, we need to assess how likely it is that someone with these traits would be in Business Administration. Adam's curiosity about nature, empathy, and love for animals seem less aligned with a typical Business Administration profile, but not impossible.
+
+- Let's assume \( P(E|\text{Business Administration}) = 0.2 \)
+
+#### Likelihood \( P(E|\neg H) \) for Business Administration
+This represents the likelihood of Adam's personality sketch given that he is not in Business Administration. Since we have two fields, \(\neg H\) for Business Administration correlates to Computer Science.
+
+- Let's assume \( P(E|\neg \text{Business Administration}) = P(E|\text{Computer Science}) = 0.8 \) (since CS aligns better with curiosity and abstract thinking).
+
+We can write:
+\[ P(\text{Business Administration}|E) = \frac{P(E|\text{Business Administration}) \cdot P(\text{Business Administration})}{P(E)} \]
+
+Where \( P(E) \) can be computed, but for our comparison, we normalize relative values.
+
+### Field 2: Computer Science
+
+#### Prior Probability \( P(H) \) for Computer Science
+
+- \( P(\text{Computer Science}) = 0.5 \)
+
+#### Likelihood \( P(E|H) \) for Computer Science
+Adam's traits align well with Computer Science, specifically his intelligence, abstract thinking, puzzle-solving skills, and appreciation for hard work, even though not perfectly (given his love for nature and animals).
+
+- Let's assume \( P(E|\text{Computer Science}) = 0.8 \)
+
+#### Likelihood \( P(E|\neg H) \) for Computer Science
+This represents the likelihood of Adam's personality sketch given that he is not in Computer Science. This correlates to Business Administration here.
+
+- \( P(E|\neg \text{Computer Science}) = P(E|\text{Business Administration}) = 0.2 \)
+
+Using the same steps as before:
+\[ P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)} \]
+
+Ignoring \( P(E) \) for relative comparison:
+
+Let's denote K as a normalizing constant:
+- For Business Administration: \( P(E|H) \cdot P(H) = 0.2 \times 0.5 = 0.1 \)
+- For Computer Science: \( P(E|H) \cdot P(H) = 0.8 \times 0.5 = 0.4 \)
+
+Normalize by dividing each by the sum (0.1 + 0.4 = 0.5)
+- \( P(\text{Business Administration}|E) = \frac{0.1}{0.5} = 0.2 \)
+- \( P(\text{Computer Science}|E) = \frac{0.4}{0.5} = 0.8 \)
+
+So the probabilities are:
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

@@ -1,0 +1,73 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to apply the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For both fields mentioned, "computer science" and "business administration," we'll need to estimate the following:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The likelihood of the personality sketch given that Adam was enrolled in the field.
+3. \( P(E|\neg H) \): The likelihood of the personality sketch given that Adam was not enrolled in the field.
+4. \( P(E) \): The overall probability of observing the personality sketch (this can be derived from \( P(E|H) \), \( P(H) \), and \( P(E|\neg H) \)).
+
+For simplicity, we will assume a uniform prior \( P(H) \) for all fields since no specific information is provided about Adam's likelihood of choosing a particular field.
+
+### Computer Science:
+
+1. **P(H_computer_science)**: Assume a reasonable prior probability that Adam might be enrolled in computer science, which is fairly high given the popularity of the field.
+   \[ P(H_{\text{computer_science}}) = 0.2 \]
+
+2. **P(E|H_computer_science)**: Considering his traits (curiosity about nature, love for solving puzzles, high intelligence, understanding of abstract concepts):
+   \[ P(E|H_{\text{computer_science}}) = 0.6 \]
+
+3. **P(E|\neg H_computer_science)**: The probability of the personality characteristics given that he is not studying computer science. Given that these traits are somewhat common across many fields:
+   \[ P(E|\neg H_{\text{computer_science}}) = 0.4 \]
+
+### Business Administration:
+
+1. **P(H_business_administration)**: Assume a lower prior probability that Adam was enrolled in business administration, considering his interest and empathy towards nature and animals.
+   \[ P(H_{\text{business_administration}}) = 0.05 \]
+
+2. **P(E|H_business_administration)**: Likelihood considering his specific traits are somewhat less aligned with typical business administration students:
+   \[ P(E|H_{\text{business_administration}}) = 0.2 \]
+
+3. **P(E|\neg H_business_administration)**: Similar to the above, would be the likelihood of the personality sketch given he is not in business administration:
+   \[ P(E|\neg H_{\text{business_administration}}) = 0.5 \]
+
+To calculate \( P(E) \):
+
+\[ P(E) = P(E|H_{\text{computer_science}}) \cdot P(H_{\text{computer_science}}) + P(E|\neg H_{\text{computer_science}}) \cdot P(\neg H_{\text{computer_science}}) \]
+
+\[ P(E) = (0.6 \cdot 0.2) + (0.4 \cdot 0.8) \]
+\[ P(E) = 0.12 + 0.32 \]
+\[ P(E) = 0.44 \]
+
+Similarly for business administration:
+
+\[ P(E) = P(E|H_{\text{business_administration}}) \cdot P(H_{\text{business_administration}}) + P(E|\neg H_{\text{business_administration}}) \cdot P(\neg H_{\text{business_administration}}) \]
+
+\[ P(E) = (0.2 \cdot 0.05) + (0.5 \cdot 0.95) \]
+\[ P(E) = 0.01 + 0.475 \]
+\[ P(E) = 0.485 \]
+
+Now, we apply Bayes' rule to find \( P(H|E) \):
+
+### Computer Science:
+
+\[ P(H_{\text{computer_science}}|E) = \frac{P(E|H_{\text{computer_science}}) \cdot P(H_{\text{computer_science}})}{P(E)} \]
+\[ P(H_{\text{computer_science}}|E) = \frac{0.6 \cdot 0.2}{0.44} \]
+\[ P(H_{\text{computer_science}}|E) \approx 0.273 \]
+
+### Business Administration:
+
+\[ P(H_{\text{business_administration}}|E) = \frac{P(E|H_{\text{business_administration}}) \cdot P(H_{\text{business_administration}})}{P(E)} \]
+\[ P(H_{\text{business_administration}}|E) = \frac{0.2 \cdot 0.05}{0.485} \]
+\[ P(H_{\text{business_administration}}|E) \approx 0.021 \]
+
+Thus, the posterior probabilities would be:
+
+```json
+{
+  "computer science": 0.273,
+  "business administration": 0.021
+}
+```

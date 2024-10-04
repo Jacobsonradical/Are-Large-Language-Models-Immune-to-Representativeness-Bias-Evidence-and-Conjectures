@@ -1,0 +1,66 @@
+To calculate \( P(H|E) \) for each field, we need to use Bayes' Theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are only comparing \( P(H|E) \) among the given fields and not concentrating on the absolute values, we can ignore \( P(E) \) because it will be the same for all fields. Thus, we need to calculate the relative values of \( P(E|H) \cdot P(H) \) for each field.
+
+### Assumptions and Initial Values
+- \( P(H) \): The prior probability that Adam was enrolled in that field.
+- \( P(E|H) \): The likelihood that Adam has the characteristics described in the sketch given he was enrolled in that field.
+- \( P(E|\neg H) \): The likelihood that Adam has the characteristics described in the sketch given he was not enrolled in that field.
+
+Let's make some reasonable assumptions for calculations:
+
+1. **Computer Science (CS)**
+   - \( P(H_{CS}) \): Medium prior probability, assume 0.3 (based on a balanced spread of interests among graduate students).
+   - \( P(E|H_{CS}) \): Lower likelihood since CS focuses more on abstract concepts rather than empathy and love for animals, assume 0.2.
+   - \( P(E|\neg H_{CS}) \): Higher because empathy and a love for nature might be more common outside CS, assume 0.6.
+
+2. **Business Administration (BA)**
+   - \( P(H_{BA}) \): Medium, perhaps slightly lower interest given the personality sketch focusing on nature and empathy, assume 0.2.
+   - \( P(E|H_{BA}) \): Low likelihood because the subject's traits are less aligned with typical BA profiles, assume 0.1.
+   - \( P(E|\neg H_{BA}) \): Higher since subjects with these traits are less common in BA, assume 0.7.
+
+3. **Agricultural and Veterinary Science (AVS)**
+   - \( P(H_{AVS}) \): Medium, possibly higher due to strong alignment with empathy, love for animals, and nature, assume 0.5.
+   - \( P(E|H_{AVS}) \): High likelihood because the traits are strongly aligned with the field, assume 0.8.
+   - \( P(E|\neg H_{AVS}) \): Lower, assume 0.3.
+
+Now compute the values for \( P(H|E) \) using Bayes' rule (up to proportionality):
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Computation
+
+1. **Computer Science**
+   \[
+   P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.2 \cdot 0.3 = 0.06
+   \]
+
+2. **Business Administration**
+   \[
+   P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.1 \cdot 0.2 = 0.02
+   \]
+
+3. **Agricultural and Veterinary Science**
+   \[
+   P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.8 \cdot 0.5 = 0.4
+   \]
+
+### Result
+Normalizing the values for comparison:
+
+- Computer Science: \( \frac{0.06}{0.06 + 0.02 + 0.4} \approx 0.13 \)
+- Business Administration: \( \frac{0.02}{0.06 + 0.02 + 0.4} \approx 0.04 \)
+- Agricultural and Veterinary Science: \( \frac{0.4}{0.06 + 0.02 + 0.4} \approx 0.83 \)
+
+
+```json
+{
+  "computer science": 0.13,
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.83
+}
+```
+
+These probabilities suggest that it's most likely Adam was enrolled in Agricultural and Veterinary Science given the described personality traits.

@@ -1,0 +1,60 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' Theorem, we need to estimate the following probabilities:
+
+1. \( P(H) \), the prior probability of Adam being enrolled in each field.
+2. \( P(E|H) \), the likelihood of the personality sketch \( E \) given that Adam is in that field.
+3. \( P(E|\neg H) \), the likelihood of the personality sketch \( E \) given that Adam is not in that field.
+4. \( P(E) \), the overall probability of the personality sketch \( E \).
+
+Bayes' Theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+Since \( P(E) \) involves the total probability including all other possible fields, it is generally easier to compare the relative \( P(H|E) \) values between fields directly.
+
+Assuming the following:
+- \( P(H) \) for both fields is equal initially, say 0.5 for simplicity.
+- A strong fit of Adam’s characteristics to the field increases \( P(E|H) \).
+- The more general nature of the field would adjust \( P(E|\neg H) \).
+
+### For Computer Science:
+- **\( P(H) \)**: Let's assume a reasonable prior of 0.5.
+- **\( P(E|H) \)**: Adam's characteristics somewhat align with interests in puzzles and high intelligence, which may be more typical in computer science, yet not strongly aligned with love for nature and animals.
+  Let's assign \( P(E|H) = 0.3 \).
+- **\( P(E|\neg H) \)**: Not necessarily significant characteristics outside computer science, let's say \( P(E|\neg H) = 0.2 \).
+
+### For Agricultural and Veterinary Science:
+- **\( P(H) \)**: Prior might also start as 0.5.
+- **\( P(E|H) \)**: Strong alignment with love for nature, plants, animals, and appreciation for hard work.
+  Outcome might be \( P(E|H) = 0.8 \).
+- **\( P(E|\neg H) \)**: this becomes broader, thus \( P(E|\neg H) = 0.4 \).
+
+From this:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+So:
+- **Computer Science**:
+  \[
+  P(H|E) \propto 0.3 \cdot 0.5 = 0.15
+  \]
+- **Agricultural and Veterinary Science**:
+  \[
+  P(H|E) \propto 0.8 \cdot 0.5 = 0.4
+  \]
+
+Finally, normalizing these values to compare:
+\[
+P(H|E)_\text{CS} = \frac{0.15}{0.15+0.4} = \frac{0.15}{0.55} \approx 0.27
+\]
+\[
+P(H|E)_\text{AVS} = \frac{0.4}{0.55} \approx 0.73
+\]
+
+Thus, the probabilities are:
+
+```json
+{
+  "computer science": 0.27,
+  "agricultural and veterinary science": 0.73
+}
+```

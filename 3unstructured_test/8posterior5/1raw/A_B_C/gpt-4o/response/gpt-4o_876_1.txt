@@ -1,0 +1,45 @@
+To compute the probability \( P(H|E) \) for each field, we need to employ Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assuming that \( P(E) \) is constant across all fields, it suffices to compare the relative values of \( P(E|H) \cdot P(H) \) across different fields.
+
+Let's first consider the prior probabilities \( P(H) \) for various fields:
+
+- **Agricultural and veterinary science**: Since Adam has a genuine curiosity about nature and a love for animals, it's reasonable to assume he may be more likely to enroll in this field. Let's assign \( P(H) = 0.2 \).
+- **Computer science**: Adam enjoys solving puzzles and is good at understanding abstract concepts, making it somewhat probable that he could be in this field. We'll set \( P(H) = 0.1 \).
+- **Business administration**: Although Adam appreciates hard work and dedication, there's limited direct evidence connecting his personality sketch to this field. We'll assign \( P(H) = 0.05 \).
+
+Next, we'll determine the likelihoods \( P(E|H) \) based on how well Adam's traits fit with each field:
+
+- **Agricultural and veterinary science**: Adam's curiosity about nature, love for animals, and empathy strongly fit this field. We'll assign \( P(E|H) = 0.9 \).
+- **Computer science**: Adam's interest in solving puzzles and understanding abstract concepts fits well, but not as perfectly as the previous field. We'll set \( P(E|H) = 0.6 \).
+- **Business administration**: Although appreciation for hard work is relevant, the other traits are less aligned. We'll assign \( P(E|H) = 0.3 \).
+
+Finally, let's consider \( P(E|\neg H) \), which is the likelihood of Adam's personality sketch given he is not in the field. For simplicity, let's assume the following values for \( P(E|\neg H) \):
+
+- **Agricultural and veterinary science**: \( P(E|\neg H) = 0.1 \)
+- **Computer science**: \( P(E|\neg H) = 0.3 \)
+- **Business administration**: \( P(E|\neg H) = 0.4 \)
+
+Now we can calculate \( P(H|E) \) for each field by weighing \( P(E|H) \cdot P(H) \):
+
+- \( P(H | E)_{\text{agricultural and veterinary science}} = \frac{0.9 \cdot 0.2}{P(E)} \)
+- \( P(H | E)_{\text{computer science}} = \frac{0.6 \cdot 0.1}{P(E)} \)
+- \( P(H | E)_{\text{business administration}} = \frac{0.3 \cdot 0.05}{P(E)} \)
+
+Given \( P(E) \) is a normalizing constant across all fields, we can simplify:
+
+- Agricultural and veterinary science: \( 0.9 \times 0.2 = 0.18 \)
+- Computer science: \( 0.6 \times 0.1 = 0.06 \)
+- Business administration: \( 0.3 \times 0.05 = 0.015 \)
+
+Given these values, the unnormalized posterior probabilities \( P(H|E) \) can be compared as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.18,
+  "computer science": 0.06,
+  "business administration": 0.015
+}
+```

@@ -1,0 +1,50 @@
+To compute the posterior probability \(P(H|E)\) using Bayes' Rule, we proceed as follows:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Given that:
+- \(P(H)\): the prior probability of Adam being enrolled in the field.
+- \(P(E|H)\): the probability of observing the evidence given that Adam is enrolled in the field.
+- \(P(E)\): the overall probability of observing the evidence.
+- \(P(E|\neg H)\): the probability of observing the evidence given that Adam is not enrolled in the field.
+
+We know that:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+Let's make some educated assumptions for these probabilities:
+
+### Agricultural and Veterinary Science
+- \(P(H)\): There's a fair amount of students in this field, especially those with a strong interest in nature and animals. So let's say \( P(H) = 0.1 \).
+- \(P(E|H)\): Adam's qualities closely align with what we might expect from someone in this field: curiosity about nature, love for animals, intelligence, empathy, etc. This will be high, say \( P(E|H) = 0.9 \).
+- \(P(E|\neg H)\): While these qualities can be found in individuals in other fields, they aren't as aligned as with Agricultural and Veterinary Science. So let's say \( P(E|\neg H) = 0.1 \).
+
+### Business Administration
+- \(P(H)\): There's a moderate probability of choosing this field, but not as aligned with Adam's interests. Let's say \( P(H) = 0.15 \).
+- \(P(E|H)\): Business Administration may not heavily emphasize Adam's defining traits (curiosity about nature, love for animals). So let's say \( P(E|H) = 0.05 \).
+- \(P(E|\neg H)\): The probability of these personality traits aligning with another field might be low, but not exceedingly so. So, let’s say \( P(E|\neg H) = 0.2 \).
+
+Now, we compute \(P(E)\) for each:
+
+#### Agricultural and Veterinary Science:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = (0.9 \times 0.1) + (0.1 \times 0.9) = 0.09 + 0.09 = 0.18 \]
+
+#### Business Administration:
+\[ P(E) = (0.05 \times 0.15) + (0.2 \times 0.85) = 0.0075 + 0.17 = 0.1775 \]
+
+Finally, apply Bayes' Rule:
+
+### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.9 \times 0.1}{0.18} \approx 0.5 \]
+
+### Business Administration
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.05 \times 0.15}{0.1775} \approx 0.0423 \]
+
+The result is:
+
+```json
+{
+  "agricultural and veterinary science": 0.5,
+  "business administration": 0.0423
+}
+```

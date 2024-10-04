@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to evaluate the prior probabilities \( P(H) \) for each hypothesis, the likelihoods \( P(E|H) \), and the likelihood of the evidence not given the hypothesis \( P(E|\neg H) \). Then, we can apply Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Here, \( P(E) \) is the total probability of the evidence across all possible hypotheses. However, since we're comparing only two specific hypotheses, we can use a relative comparison without computing \( P(E) \):
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H)
+\]
+
+Let's assign values based on the personality sketch of Adam:
+
+### Business Administration
+
+1. **Prior Probability \( P(H) \):** Assume the prior probability of a graduate student being in business administration is moderate, say 0.2.
+2. **Likelihood \( P(E|H) \):** The personality sketch (interest in nature, plants, empathy, love for animals) seems less typical for a business administration student. Thus, let's assume 0.1.
+3. **Likelihood \( P(E|\neg H) \):** This is the probability of seeing this evidence when Adam is not in business administration. Because these traits are common in non-business fields, let’s assume a higher value, say 0.7.
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability \( P(H) \):** Assume the prior probability of a graduate student being in agricultural and veterinary science is lower, say 0.05 (based on general prevalence).
+2. **Likelihood \( P(E|H) \):** The personality sketch is very fitting for a student in this field. Thus, let’s assume 0.8.
+3. **Likelihood \( P(E|\neg H) \):** The traits described are less common in fields outside veterinary and agricultural science, say 0.2.
+
+### Calculations
+
+#### Business Administration
+
+\[
+P(\text{Business Admin} | E) \propto P(E|\text{Business Admin}) \cdot P(\text{Business Admin})
+\]
+\[
+\propto 0.1 \cdot 0.2 = 0.02
+\]
+
+#### Agricultural and Veterinary Science
+
+\[
+P(\text{Agri & Vet Science} | E) \propto P(E|\text{Agri & Vet Science}) \cdot P(\text{Agri & Vet Science})
+\]
+\[
+\propto 0.8 \cdot 0.05 = 0.04
+\]
+
+### Normalizing (Optional)
+
+While we won't normalize to ensure the values sum to 1, the relative probabilities indicate that Agricultural and Veterinary Science is more likely.
+
+### Result
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.04
+}
+```
+
+These values suggest that given Adam’s personality sketch, it is more probable that he was enrolled in Agricultural and Veterinary Science than in Business Administration.

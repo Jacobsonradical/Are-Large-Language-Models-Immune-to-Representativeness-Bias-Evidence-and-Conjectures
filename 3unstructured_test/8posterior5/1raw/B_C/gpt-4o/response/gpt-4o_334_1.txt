@@ -1,0 +1,72 @@
+To apply Bayes' Rule, we need to calculate the posterior probability \( P(H|E) \) for each hypothesis \( H \) given the evidence \( E \).
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the probability of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the total probability of the evidence.
+
+Given:
+- \( E \) = Personality sketch of Adam.
+- \( H \) = Hypothesis about Adam's field of study.
+- \( \neg H \) = All other fields except the one being hypothesized.
+
+### Business Administration
+
+#### Step 1: Assess Prior Probability, \( P(H) \)
+We need an estimate of how likely it is, in general, for a graduate student to be enrolled in Business Administration. For simplicity, let's assume the distribution:
+- \( P(\text{Business Administration}) = 0.20 \)
+
+#### Step 2: Assess Likelihood, \( P(E|H) \)
+Given Adam's personality sketch, it is less likely but not impossible for him to be in Business Administration, as his interests in nature, animals, and solving puzzles don't directly relate:
+- \( P(E|\text{Business Administration}) = 0.10 \)
+
+#### Step 3: Assess the Complement Likelihood, \( P(E|\neg H) \)
+For all other fields (assuming many diverse fields):
+- \( P(E|\neg \text{Business Administration}) = 0.90 \)
+
+### Computer Science
+
+#### Step 1: Assess Prior Probability, \( P(H) \)
+For Computer Science:
+- \( P(\text{Computer Science}) = 0.25 \)
+
+#### Step 2: Assess Likelihood, \( P(E|H) \)
+Given Adam's high intelligence, curiosity, and love for solving puzzles, this field fits well:
+- \( P(E|\text{Computer Science}) = 0.70 \)
+
+#### Step 3: Assess the Complement Likelihood, \( P(E|\neg H) \)
+For fields that are not Computer Science:
+- \( P(E|\neg \text{Computer Science}) = 0.30 \)
+
+### Calculation using Bayes’ Rule
+
+#### Business Administration
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+As \( P(E) \) is the same across both hypotheses and can be seen as a normalizing constant, we can focus on the numerator:
+
+\[ P(\text{Business Administration}|E) \propto P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) \]
+\[ P(\text{Business Administration}|E) \propto 0.10 \cdot 0.20 = 0.02 \]
+
+#### Computer Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(\text{Computer Science}|E) \propto P(E|\text{Computer Science}) \cdot P(\text{Computer Science}) \]
+\[ P(\text{Computer Science}|E) \propto 0.70 \cdot 0.25 = 0.175 \]
+
+### Normalizing Constant
+To get the final probabilities, we need to normalize these values:
+\[ P(E) \propto 0.02 + 0.175 = 0.195 \]
+
+### Normalized Probabilities
+\[ P(\text{Business Administration}|E) = \frac{0.02}{0.195} \approx 0.103 \]
+\[ P(\text{Computer Science}|E) = \frac{0.175}{0.195} \approx 0.897 \]
+
+Thus, the answers are:
+
+{
+  "business administration": 0.103,
+  "computer science": 0.897
+}

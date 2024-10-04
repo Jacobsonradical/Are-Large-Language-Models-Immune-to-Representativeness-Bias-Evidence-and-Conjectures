@@ -1,0 +1,60 @@
+To determine the likelihood that Adam was enrolled in specific fields based on his personality sketch \( E \) and using Bayes' theorem \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \), we need to estimate the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Let's define each hypothesis \( H \):
+
+- \( H_1 \): Adam was enrolled in business administration.
+- \( H_2 \): Adam was enrolled in agricultural and veterinary science.
+
+### Estimations:
+
+#### Business Administration
+
+- \( P(H_1) \): The prior probability that any random graduate student is in business administration. As a rough estimate, let's assume \( P(H_1) = 0.2 \) (20%).
+- \( P(E|H_1) \): The likelihood that a student in business administration fits Adam's personality sketch. Given his strong empathy, love for animals and nature, it's relatively less likely, so \( P(E|H_1) \approx 0.1 \).
+- \( P(E|\neg H_1) \): The likelihood of Adam's personality sketch among students not in business administration. Given his traits align more with other fields, the probability might be higher, say \( P(E|\neg H_1) = 0.5 \).
+
+#### Agricultural and Veterinary Science
+
+- \( P(H_2) \): The prior probability that any random graduate student is in agricultural and veterinary science. Let's assume \( P(H_2) = 0.1 \) (10%).
+- \( P(E|H_2) \): The likelihood that a student in agricultural and veterinary science fits Adam's personality sketch. This greatly aligns with his interests and traits, so \( P(E|H_2) \approx 0.8 \).
+- \( P(E|\neg H_2) \): The likelihood of Adam's personality sketch among students not in agricultural and veterinary science. Let’s assume \( P(E|\neg H_2) \approx 0.3 \).
+
+### Calculation Using Bayes' Theorem
+
+#### Business Administration
+\[ 
+P(H_1|E) = \frac{P(E|H_1)P(H_1)}{P(E)} 
+\]
+Given that we don't know \( P(E) \), it’s easier to understand \( P(H_1|E) \) in terms of relative comparison:
+\[ 
+P(H_1|E) \propto P(E|H_1)P(H_1) = 0.1 \times 0.2 = 0.02
+\]
+
+#### Agricultural and Veterinary Science
+\[ 
+P(H_2|E) = \frac{P(E|H_2)P(H_2)}{P(E)} 
+\]
+\[ 
+P(H_2|E) \propto P(E|H_2)P(H_2) = 0.8 \times 0.1 = 0.08
+\]
+
+### Normalized Values
+To provide normalized values:
+\[
+\text{Total Weight} = 0.02 + 0.08 = 0.10
+\]
+\[ 
+P(H_1|E) = \frac{0.02}{0.10} = 0.2 
+\]
+\[ 
+P(H_2|E) = \frac{0.08}{0.10} = 0.8 
+\]
+
+### Final Answer
+
+```json
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}
+```

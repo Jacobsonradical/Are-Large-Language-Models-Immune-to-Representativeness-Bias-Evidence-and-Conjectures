@@ -1,0 +1,82 @@
+In order to compute the probabilities using Bayes' rule, we need to estimate the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in the given field.
+2. \( P(E|H) \): The likelihood of observing the evidence \( E \) given that Adam was enrolled in the given field.
+3. \( P(E|\neg H) \): The likelihood of observing the evidence \( E \) given that Adam was not enrolled in the given field.
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+However, since calculating \( P(E) \) would require a complete probability distribution over all possible fields of study, we can focus on the relative likelihoods and use normalized values for comparison purposes.
+
+Let's start with the priors and likelihoods for each field based on Adam's personality sketch.
+
+### Business Administration
+
+1. **Prior \( P(H_{ba}) \):** Business administration is a common field of study, so we can assume a moderate prior.
+   \[
+   P(H_{ba}) \approx 0.20
+   \]
+
+2. **Likelihood \( P(E|H_{ba}) \):** The evidence \( E \) includes curiosity about nature, empathy, love for animals, and intelligence. These traits are not particularly aligned with business administration, so the likelihood is relatively low compared to fields more directly related to such traits.
+   \[
+   P(E|H_{ba}) \approx 0.05
+   \]
+
+3. **Likelihood \( P(E|\neg H_{ba}) \):** This would be high since the traits Adam exhibits are more common in other fields.
+   \[
+   P(E|\neg H_{ba}) \approx 0.95
+   \]
+
+### Computer Science
+
+1. **Prior \( P(H_{cs}) \):** Computer science is another common field of study, hence a moderate prior similar to business administration.
+   \[
+   P(H_{cs}) \approx 0.20
+   \]
+
+2. **Likelihood \( P(E|H_{cs}) \):** Adam enjoys solving puzzles and is good at understanding abstract concepts, both of which are highly relevant to computer science. Thus, the likelihood is high.
+   \[
+   P(E|H_{cs}) \approx 0.70
+   \]
+
+3. **Likelihood \( P(E|\neg H_{cs}) \):** The traits are less likely outside computer science fields, though still possible, given his interest in nature and empathy.
+   \[
+   P(E|\neg H_{cs}) \approx 0.30
+   \]
+
+Now, we approximate the marginal \( P(E) \) based on these fields, but since we are only comparing relative likelihoods, we can focus on the numerator of Bayes' rule:
+
+1. **Business Administration:** 
+   \[
+   P(H_{ba}|E) \propto P(E|H_{ba}) \times P(H_{ba}) \approx 0.05 \times 0.20 = 0.01
+   \]
+
+2. **Computer Science:** 
+   \[
+   P(H_{cs}|E) \propto P(E|H_{cs}) \times P(H_{cs}) \approx 0.70 \times 0.20 = 0.14
+   \]
+
+After calculating these, we can normalize them so their sum adds up to 1 (for practical comparison):
+
+Sum of unnormalized \( P(H|E) \): 
+\[
+0.01 + 0.14 = 0.15
+\]
+
+Normalize each:
+\[
+P(H_{ba}|E) = \frac{0.01}{0.15} \approx 0.067
+\]
+\[
+P(H_{cs}|E) = \frac{0.14}{0.15} \approx 0.933
+\]
+
+Thus, the final probabilities, in normalized form for the given fields, are:
+
+```json
+{
+  "business administration": 0.067,
+  "computer science": 0.933
+}
+```

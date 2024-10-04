@@ -1,0 +1,55 @@
+To determine the posterior probabilities \( P(H|E) \) for each field given the personality sketch \( E \), we can use Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) is a normalizing constant, but since we are comparing the probabilities for two different hypotheses, we do not need to compute it explicitly. Instead, we focus on the relative values of \( P(E|H) \cdot P(H) \).
+
+### Business Administration
+- **P(H)**: The prior probability that Adam is enrolled in business administration. Let's assume a general prior probability for this field. Graduate students in business administration might form, for example, around 10% of the graduate student population.
+  \[ P(\text{H}_{\text{BA}}) \approx 0.10 \]
+
+- **P(E|H)**: The likelihood of observing the personality traits given that Adam is enrolled in business administration. Business administration typically involves skills in management, economics, and organizational behavior, which might align less closely with Adam's described curiosity about nature and love for animals.
+  \[ P(E|\text{H}_{\text{BA}}) \approx 0.1 \]
+
+- **P(E|\neg H)**: The likelihood of observing the personality traits given that Adam is not enrolled in business administration. Since there are many other fields that might fit Adam's traits better, we can assume a higher probability.
+  \[ P(E|\neg \text{H}_{\text{BA}}) \approx 0.5 \]
+
+### Agricultural and Veterinary Science
+- **P(H)**: The prior probability that Adam is enrolled in agricultural and veterinary science. Let's assume this field is less common but still represented in the graduate population, perhaps around 5%.
+  \[ P(\text{H}_{\text{AVS}}) \approx 0.05 \]
+
+- **P(E|H)**: The likelihood of observing the personality traits given that Adam is enrolled in agricultural and veterinary science. This aligns closely with Adam's love for nature, plants, and animals.
+  \[ P(E|\text{H}_{\text{AVS}}) \approx 0.9 \]
+
+- **P(E|\neg H)**: The likelihood of observing the personality traits given that Adam is not enrolled in agricultural and veterinary science. Given his specific interests, fewer other fields would match these traits closely.
+  \[ P(E|\neg \text{H}_{\text{AVS}}) \approx 0.2 \]
+
+### Applying Bayes' Rule
+
+Let's compute the relative probabilities:
+
+1. **Business Administration**:
+   \[ P(\text{H}_{\text{BA}}|E) \propto P(E|\text{H}_{\text{BA}}) \cdot P(\text{H}_{\text{BA}}) \]
+   \[ \propto 0.1 \cdot 0.10 = 0.01 \]
+
+2. **Agricultural and Veterinary Science**:
+   \[ P(\text{H}_{\text{AVS}}|E) \propto P(E|\text{H}_{\text{AVS}}) \cdot P(\text{H}_{\text{AVS}}) \]
+   \[ \propto 0.9 \cdot 0.05 = 0.045 \]
+
+### Normalizing
+The total unnormalized probability:
+\[ 0.01 + 0.045 = 0.055 \]
+
+Normalized probabilities:
+1. **Business Administration**:
+   \[ P(\text{H}_{\text{BA}}|E) = \frac{0.01}{0.055} \approx 0.18 \]
+
+2. **Agricultural and Veterinary Science**:
+   \[ P(\text{H}_{\text{AVS}}|E) = \frac{0.045}{0.055} \approx 0.82 \]
+
+### Result
+```json
+{
+  "business administration": "0.18",
+  "agricultural and veterinary science": "0.82"
+}
+```

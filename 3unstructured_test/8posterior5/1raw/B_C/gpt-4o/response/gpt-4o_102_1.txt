@@ -1,0 +1,59 @@
+To use Bayes' rule for calculating the probability that Adam was enrolled in a given field based on his personality sketch, we need to determine the following:
+
+1. **P(H)**: The prior probability that Adam was enrolled in a specific field.
+2. **P(E|H)**: The likelihood of observing the personality sketch given that Adam was enrolled in that field.
+3. **P(E|¬H)**: The likelihood of observing the personality sketch given that Adam was not enrolled in that field.
+4. **P(H|E)**: The posterior probability that Adam was enrolled in the given field given his personality sketch.
+
+For simplicity, we assume the following approximate estimates:
+
+1. **P(H)** for business administration and computer science. Since these numbers can vary based on typical enrollment stats, let's use the following rough estimates:
+    - P(H|business administration) = 0.1 (10% of graduate students could be in business administration)
+    - P(H|computer science) = 0.1 (10% of graduate students could be in computer science)
+
+2. **P(E|H)** estimates based on Adam's characteristics. Here are some rational estimates:
+    - P(E|business administration): Business administration students might occasionally have curiosity about nature but less likely to have a deep love for animals. Let's estimate this at 0.1.
+    - P(E|computer science): Computer science students often have high intelligence and enjoy solving puzzles, which is strongly aligned with Adam's profile. Let’s estimate this at 0.5.
+
+3. **P(E|¬H)**: The probability of observing the personality sketch given that Adam was not enrolled in that field. This generally captures how likely Adam's characteristics are across all other fields.
+    - For simplicity, let's estimate this at 0.2 for both fields, recognizing there are many varied fields outside of these two.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We need to find P(E), which involves summing over all possible hypotheses:
+\[ P(E) = P(E|H)P(H) + P(E|¬H)P(¬H) \]
+
+For business administration:
+\[ P(E|H_{BA}) = 0.1 \]
+\[ P(H_{BA}) = 0.1 \]
+\[ P(E|¬H_{BA}) = 0.2 \]
+\[ P(¬H_{BA}) = 1 - P(H_{BA}) = 0.9 \]
+
+\[ P(E) = P(E|H_{BA})P(H_{BA}) + P(E|¬H_{BA})P(¬H_{BA}) \]
+\[ = (0.1 \times 0.1) + (0.2 \times 0.9) \]
+\[ = 0.01 + 0.18 \]
+\[ = 0.19 \]
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA})P(H_{BA})}{P(E)} = \frac{0.1 \times 0.1}{0.19} \approx 0.0526 \]
+
+For computer science:
+\[ P(E|H_{CS}) = 0.5 \]
+\[ P(H_{CS}) = 0.1 \]
+\[ P(E|¬H_{CS}) = 0.2 \]
+\[ P(¬H_{CS}) = 1 - P(H_{CS}) = 0.9 \]
+
+\[ P(E) = P(E|H_{CS})P(H_{CS}) + P(E|¬H_{CS})P(¬H_{CS}) \]
+\[ = (0.5 \times 0.1) + (0.2 \times 0.9) \]
+\[ = 0.05 + 0.18 \]
+\[ = 0.23 \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS})P(H_{CS})}{P(E)} = \frac{0.5 \times 0.1}{0.23} \approx 0.217 \]
+
+Thus, our final estimates using Bayes' rule are:
+```json
+{
+  "business administration": 0.0526,
+  "computer science": 0.217
+}
+```

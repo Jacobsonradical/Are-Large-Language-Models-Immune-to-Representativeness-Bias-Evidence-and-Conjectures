@@ -1,0 +1,55 @@
+To use Bayes' rule to compute the probabilities of Adam being enrolled in computer science or agricultural and veterinary science, we need to estimate:
+
+1. \( P(H) \) - The prior probability of Adam being enrolled in each field.
+2. \( P(E|H) \) - The likelihood of observing the personality sketch if Adam is in the field.
+3. \( P(E|\neg H) \) - The likelihood of observing the personality sketch if Adam is not in the field.
+4. \( P(E) \) - The overall probability of observing the personality sketch (can be derived from priors and likelihoods).
+
+Given the context, we can make some reasonable assumptions about these values.
+
+1. **Prior Probabilities:**
+   - For simplicity, let's assume the priors \( P(H) \) for each field are equal and fairly low unless there is a known dominance of certain fields among graduate students.
+
+2. **Likelihoods:**
+   - \( P(E|H) \) represents how likely the personality sketch is if Adam is enrolled in the field.
+   - \( P(E|\neg H) \) represents how likely the personality sketch is if Adam is not enrolled in the field.
+   
+Here's a breakdown:
+
+- **Computer Science**:
+  - Quiet, enjoys puzzles, high intelligence, good with abstract concepts could fit a computer science background.
+  - Empathy and love for animals don't strongly point to computer science but don't negate it either.
+  - \( P(H_{CS}) \approx 0.1 \) (assuming computer science is a common graduate field)
+  - \( P(E|H_{CS}) \approx 0.3 \)
+  - \( P(E|\neg H_{CS}) \) could be viewed as the baseline probability of the traits, perhaps \( \approx 0.2 \).
+
+- **Agricultural and Veterinary Science**:
+  - Curiosity about nature, love for animals, and appreciation for hard work strongly fit this field.
+  - Quiet, puzzles, and abstract concepts don't preclude it.
+  - \( P(H_{AVS}) \approx 0.05 \) (assuming this is less common)
+  - \( P(E|H_{AVS}) \approx 0.6 \)
+  - \( P(E|\neg H_{AVS}) \approx 0.2 \) (similar baseline probability).
+
+Now, we apply Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, we don't need \( P(E) \) explicitly since we are comparing fields.
+
+### Computational Steps:
+1. **Computer Science:**
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.3 \cdot 0.1 = 0.03 \]
+
+2. **Agricultural and Veterinary Science:**
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.6 \cdot 0.05 = 0.03 \]
+
+Now normalize to compare probabilities:
+\[ P(H_{CS}|E) = \frac{0.03}{0.03 + 0.03} = 0.5 \]
+\[ P(H_{AVS}|E) = \frac{0.03}{0.03 + 0.03} = 0.5 \]
+
+### Final Answer (normalized probabilities):
+{
+  "computer science": 0.5,
+  "agricultural and veterinary science": 0.5
+}
+
+Note: These results may be counterintuitive due to the assumed priors and likelihoods; adjusting these values based on more specific data could refine the results significantly.

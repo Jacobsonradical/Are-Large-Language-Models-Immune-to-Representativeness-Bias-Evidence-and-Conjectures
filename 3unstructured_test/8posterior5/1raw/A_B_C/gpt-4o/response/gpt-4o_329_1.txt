@@ -1,0 +1,51 @@
+To compute the posterior probability \( P(H|E) \) for each field, we use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that it might be challenging to estimate the exact probabilities without further data, we can provide reasonable qualitative estimates and compute approximate values. Here is the breakdown of our reasoning:
+
+1. **Business Administration:**
+   - **P(H):** The prior probability that a student is enrolled in Business Administration (this can be considered relatively high given the popularity of the field) might be around 0.15.
+   - **P(E|H):** The likelihood of E given H (Adam's personality sketch fitting a Business Administration student) might be low due to the mismatch between his interests (nature, animals, empathy) and typical attributes of this field. A rough estimate could be 0.05.
+   - **P(E|\neg H):** The probability of E given not Business Administration can be considered relatively high compared to P(E|H) because his traits fit better with other fields. Estimate: 0.1.
+   
+   Using Bayes' theorem:
+   \[ P(H|E) = \frac{0.05 \times 0.15}{P(E)} \]
+
+2. **Computer Science:**
+   - **P(H):** The prior probability that a student is enrolled in Computer Science might be around 0.20 given its popularity.
+   - **P(E|H):** Adam’s traits like high intelligence and solving puzzles fit Computer Science moderately well, but his strong empathy and love for nature might be outliers. Estimate: 0.3.
+   - **P(E|\neg H):** Considerable likelihood because other fields might naturally align with his described personality. Estimate: 0.15.
+   
+   Using Bayes' theorem:
+   \[ P(H|E) = \frac{0.3 \times 0.2}{P(E)} \]
+
+3. **Agricultural and Veterinary Science:**
+   - **P(H):** The prior probability of enrolling in Agricultural and Veterinary Science might be around 0.05 due to lower overall enrollment compared to other fields.
+   - **P(E|H):** Adam’s interests align very closely with this field (nature, plants, animals, empathy). Estimate: 0.9.
+   - **P(E|\neg H):** Likelihood of E given not Agricultural and Veterinary Science is relatively lower given his strong fit with this field. Estimate: 0.05.
+
+   Using Bayes' theorem:
+   \[ P(H|E) = \frac{0.9 \times 0.05}{P(E)} \]
+
+To find \( P(E) \), we sum up the weighted probabilities. However, we'll use qualitative comparison to assign relative posterior values:
+
+```json
+{
+  "business administration": 0.05 * 0.15,
+  "computer science": 0.3 * 0.2,
+  "agricultural and veterinary science": 0.9 * 0.05
+}
+```
+
+By normalizing these values, we can approximate posterior probabilities as follows:
+
+```json
+{
+  "business administration": 0.0075,
+  "computer science": 0.06,
+  "agricultural and veterinary science": 0.045
+}
+```
+
+Thus, the relative posteriors indicate that Adam is more likely to be in Computer Science, followed by Agricultural and Veterinary Science, and least likely in Business Administration.

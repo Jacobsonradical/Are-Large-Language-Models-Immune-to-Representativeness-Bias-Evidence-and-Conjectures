@@ -1,0 +1,63 @@
+To estimate the probabilities given the personality sketch of Adam, we'll use Bayes' Theorem, which is stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we do not know \(P(E)\), we'll focus on estimating relative probabilities instead of absolute values.
+
+Here are our assumptions and the steps involved:
+
+1. **Prior Probability \(P(H)\)**: This is the likelihood of Adam being in a specific field without any additional information. Given the general popularity of fields and the context of graduate studies, we might make educated guesses. Let's assume:
+
+   - \( P(\text{business administration}) = 0.2 \)
+   - \( P(\text{computer science}) = 0.3 \)
+
+2. **Likelihood \(P(E|H)\)**: This is the likelihood of having the given personality sketch if Adam is in a specific field. 
+
+   - For business administration, interests in solving puzzles, nature, abstract concepts, and strong empathy might be less directly associated with typical business administration traits, but it could be reasonably possible.
+     Let's say: \( P(E|\text{business administration}) = 0.2 \)
+   
+   - For computer science, interests in solving puzzles, nature, and understanding abstract concepts fit well with typical traits of students in this field.
+     Let's estimate: \( P(E|\text{computer science}) = 0.6 \)
+
+3. **Likelihood \(P(E|\neg H)\)**: This is the likelihood of having the personality sketch if Adam is not in that specific field. This can be tricky without additional context, but we can assume it considers a broad array of other fields where the sketch might fit. Let's generalize:
+
+   - For business administration, let's assume \( P(E|\neg\text{business administration}) = 0.4 \)
+   - For computer science, let's assume \( P(E|\neg\text{computer science}) = 0.3 \)
+
+Now apply Bayes' Theorem:
+
+### Business Administration
+
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+Since \( P(E) \) is the same across both fields for comparison purposes:
+
+\[ P(\text{business administration}|E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) \]
+
+Using our values:
+
+\[ P(\text{business administration}|E) \propto 0.2 \cdot 0.2 = 0.04 \]
+
+### Computer Science
+
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+
+\[ P(\text{computer science}|E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) \]
+
+Using our values:
+
+\[ P(\text{computer science}|E) \propto 0.6 \cdot 0.3 = 0.18 \]
+
+### Normalize for Comparison
+
+To normalize the probabilities for comparison between these fields, we convert them into relative probabilities:
+
+- For business administration: \( \frac{0.04}{0.04 + 0.18} \approx 0.18 \)
+- For computer science: \( \frac{0.18}{0.04 + 0.18} \approx 0.82 \)
+
+Based on these calculations, the relative probabilities are:
+
+{
+  "business administration": 0.18,
+  "computer science": 0.82
+}

@@ -1,0 +1,42 @@
+To compute the probabilities \( P(H|E) \) for each field, we need to first evaluate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complement likelihoods \( P(E|\neg H) \). Then, we can apply Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since we only need to compute relative values and not absolute probabilities, we can focus on comparing the nominator \( P(E|H) \cdot P(H) \) for both fields.
+
+1. **Computer Science**:
+   - \( P(H) \): Prior probability of being a computer science student.
+     - Let's assume the prior probability \( P(\text{computer science}) = 0.1 \) (a reasonable assumption given the popularity and availability of the field).
+   - \( P(E|H) \): Probability of having Adam's personality if he is a computer science student.
+     - High intelligence and puzzle-solving skills fit well with computer science, so let's assume \( P(E|\text{computer science}) = 0.6 \).
+   - \( P(E|\neg H) \): Probability of having Adam's personality if he is not a computer science student.
+     - This is more uncertain, but considering many fields involve intelligence and puzzle-solving, let's estimate \( P(E|\neg \text{computer science}) = 0.4 \).
+
+2. **Business Administration**:
+   - \( P(H) \): Prior probability of being a business administration student.
+     - Assume \( P(\text{business administration}) = 0.08 \).
+   - \( P(E|H) \): Probability of having Adam's personality if he is a business administration student.
+     - Business students might not commonly have a deep love for animals or nature, so we can estimate \( P(E|\text{business administration}) = 0.2 \).
+   - \( P(E|\neg H) \): Probability of having Adam's personality if he is not a business administration student.
+     - This could stay the same as for computer science, so \( P(E|\neg \text{business administration}) = 0.4 \).
+
+Now let's compute \( P(H|E) \) for both fields using the relative values:
+
+For computer science:
+\[
+P(\text{computer science}|E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) = 0.6 \cdot 0.1 = 0.06
+\]
+
+For business administration:
+\[
+P(\text{business administration}|E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) = 0.2 \cdot 0.08 = 0.016
+\]
+
+Given that these are relative probabilities and not absolute, we can present them as:
+
+{
+  "computer science": 0.06,
+  "business administration": 0.016
+}

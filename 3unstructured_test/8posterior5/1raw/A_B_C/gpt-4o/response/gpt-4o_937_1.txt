@@ -1,0 +1,52 @@
+Let's walk through the application of Bayes' theorem to compute \( P(H|E) \) for each of the fields of study given Adam's personality sketch. Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, since \( P(E) \) is the same across all fields, we can ignore it in the relative comparison and focus on computing the numerator for each field.
+
+We'll make some educated guesses about the prior probabilities (\( P(H) \)) that a graduate student could be in each of these fields:
+- \( P(\text{computer science}) \) = 0.2 (assuming a high demand and popularity of the field)
+- \( P(\text{business administration}) \) = 0.2 (another popular choice)
+- \( P(\text{agricultural and veterinary science}) \) = 0.1 (a relatively specialized field)
+
+Next, we need to estimate \( P(E|H) \), the likelihood that Adam's personality sketch matches each field's typical student.
+- For computer science (\( P(E|\text{computer science}) \)):
+  - Adam's deep love for nature and animals, as well as his empathy, might be less relevant, but his puzzle-solving skills and high intelligence fit well.
+  - We'll estimate \( P(E|\text{computer science}) = 0.3 \).
+
+- For business administration (\( P(E|\text{business administration}) \)):
+  - Adam's empathy and understanding of dedication could be a plus, but his deep love for plants and animals is less of a fit.
+  - We'll estimate \( P(E|\text{business administration}) = 0.2 \).
+
+- For agricultural and veterinary science (\( P(E|\text{agricultural and veterinary science}) \)):
+  - The description fits Adam almost perfectly, aligning closely with his love for nature, animals, and empathy.
+  - We'll estimate \( P(E|\text{agricultural and veterinary science}) = 0.7 \).
+
+We need to estimate \( P(E|\neg H) \), the likelihood of Adam’s personality sketch assuming he is not in that field. We can take an average of the likelihoods for other fields, assuming each is equally likely among those not listed. This is more complicated in the real world but will be simplified here:
+- For computer science: \( P(E|\neg \text{computer science}) = 0.3 \)
+- For business administration: \( P(E|\neg \text{business administration}) = 0.3 \)
+- For agricultural and veterinary science: \( P(E|\neg \text{agricultural and veterinary science}) = 0.3 \)
+
+Sliding these into Bayes' theorem:
+
+1. Computer Science:
+\[ P(\text{computer science}|E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) \]
+\[ P(\text{computer science}|E) \approx 0.3 \cdot 0.2 = 0.06 \]
+
+2. Business Administration:
+\[ P(\text{business administration}|E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) \]
+\[ P(\text{business administration}|E) \approx 0.2 \cdot 0.2 = 0.04 \]
+
+3. Agricultural and Veterinary Science:
+\[ P(\text{agricultural and veterinary science}|E) \propto P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) \]
+\[ P(\text{agricultural and veterinary science}|E) \approx 0.7 \cdot 0.1 = 0.07 \]
+
+Summarizing:
+```json
+{
+  "computer science": 0.06,
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.07
+}
+```
+These results suggest that given Adam's personality, he is most likely to be in agricultural and veterinary science, followed by computer science, and least likely to be in business administration.

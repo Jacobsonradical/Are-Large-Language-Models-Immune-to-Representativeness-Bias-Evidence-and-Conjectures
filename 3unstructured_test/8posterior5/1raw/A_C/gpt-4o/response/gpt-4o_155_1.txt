@@ -1,0 +1,63 @@
+To use Bayes' rule to compute the probability that Adam is enrolled in a specific field given his personality sketch, we'll need to follow these steps:
+
+1. Define the prior probability \( P(H) \) for each field \( H \).
+2. Define the likelihood \( P(E|H) \) for each field \( H \).
+3. Define the likelihood \( P(E|\neg H) \) for each field \( H \).
+4. Use Bayes' rule to compute the posterior probability \( P(H|E) \) for each field \( H \).
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all fields, we can focus on the numerator \( P(E|H) \cdot P(H) \) and normalize these values at the end if needed.
+
+### Computer Science
+
+1. **Prior Probability, \( P(H_{\text{CS}}) \)**: The proportion of graduate students in computer science.
+   \[ P(H_{\text{CS}}) = 0.20 \] (assuming 20% of graduate students are in computer science for this example)
+
+2. **Likelihood, \( P(E|H_{\text{CS}}) \)**: How likely Adam's characteristics fit a computer science student.
+   \[ P(E|H_{\text{CS}}) = 0.10 \] (low relative to the personality sketch)
+
+3. **Likelihood, \( P(E|\neg H_{\text{CS}}) \)**: How likely Adam's characteristics fit if he is not a computer science student.
+   \[ P(E|\neg H_{\text{CS}}) = 0.90 \] (since Adam's sketch seems less typical for computer science, this value is higher)
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability, \( P(H_{\text{AgriVet}}) \)**: The proportion of graduate students in agricultural and veterinary science.
+   \[ P(H_{\text{AgriVet}}) = 0.05 \] (assuming 5% of graduate students are in this field for this example)
+
+2. **Likelihood, \( P(E|H_{\text{AgriVet}}) \)**: How likely Adam's characteristics fit an agricultural and veterinary science student.
+   \[ P(E|H_{\text{AgriVet}}) = 0.90 \] (high relative to the personality sketch)
+
+3. **Likelihood, \( P(E|\neg H_{\text{AgriVet}}) \)**: How likely Adam's characteristics fit if he is not an agricultural and veterinary science student.
+   \[ P(E|\neg H_{\text{AgriVet}}) = 0.10 \] (since the characteristics are quite fitting for AgriVet, this value is lower)
+
+Now we use Bayes' rule to compute the posterior probabilities:
+
+For Computer Science:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.10 \cdot 0.20}{P(E)} \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{\text{AgriVet}}|E) = \frac{P(E|H_{\text{AgriVet}}) \cdot P(H_{\text{AgriVet}})}{P(E)} = \frac{0.90 \cdot 0.05}{P(E)} \]
+
+Since \( P(E) \) is the sum of all such probabilities for each field:
+\[ P(E) = (0.10 \cdot 0.20) + (0.90 \cdot 0.05) \]
+
+\[ P(E) = 0.02 + 0.045 = 0.065 \]
+
+Now we can plug this into the formulas:
+
+For Computer Science:
+\[ P(H_{\text{CS}}|E) = \frac{0.10 \cdot 0.20}{0.065} = \frac{0.02}{0.065} \approx 0.3077 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{\text{AgriVet}}|E) = \frac{0.90 \cdot 0.05}{0.065} = \frac{0.045}{0.065} \approx 0.6923 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.3077,
+  "agricultural and veterinary science": 0.6923
+}
+```

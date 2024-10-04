@@ -1,0 +1,62 @@
+To tackle this problem, we'll use Bayes' theorem to compute \( P(H|E) \) for each field \( H \) given the personality sketch \( E \) of Adam. Bayes' theorem is stated as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are only comparing two fields, we don't need the exact value of \( P(E) \); we need to evaluate the relative probabilities. However, for completeness, we should still consider the likelihood of observing the sketch given each hypothesis and the prior probabilities.
+
+Let's start by estimating the necessary probabilities:
+
+### 1. Agricultural and Veterinary Science
+
+- **\( P(H) \)**: The prior probability that any given graduate student is studying agricultural and veterinary science. Given the broad array of fields, let's estimate the prior probability:
+  - **\( P(H_{\text{ag}}) \approx 0.05 \)** (5%).
+
+- **\( P(E|H) \)**: The probability of Adam's personality sketch given he is studying agricultural and veterinary science:
+  - Adam's curiosity about nature and love for animals strongly align with this field. High empathy can also correlate with veterinary care.
+  - **\( P(E|H_{\text{ag}}) \approx 0.8 \)**.
+
+- **\( P(E|\neg H) \)**: The probability of Adam's personality sketch given he is not studying agricultural and veterinary science. Since his traits are quite specific to nature and animals but can also apply to a few other fields, this probability might be lower:
+  - **\( P(E|\neg H_{\text{ag}}) \approx 0.3 \)**.
+
+### 2. Business Administration
+
+- **\( P(H) \)**: The prior probability that any given graduate student is studying business administration:
+  - **\( P(H_{\text{ba}}) \approx 0.1 \)** (10%).
+
+- **\( P(E|H) \)**: The probability of Adam's personality sketch given he is studying business administration:
+  - Adam's sketch does not strongly align with typical traits for business administration which tends to emphasize leadership, organizational skills, and less emphasis on nature and animals.
+  - **\( P(E|H_{\text{ba}}) \approx 0.05 \)**.
+
+- **\( P(E|\neg H) \)**: The probability of Adam's personality sketch given he is not studying business administration. Since his traits are strongly against what’s typical of business administration:
+  - **\( P(E|\neg H_{\text{ba}}) \approx 0.5 \)**.
+
+### Applying Bayes' Rule:
+
+We are ultimately interested in the relative values, so normalization is not necessary as long as we maintain consistency in our approach.
+
+#### Agricultural and Veterinary Science:
+
+\[ P(H_{\text{ag}}|E) \approx \frac{P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}})}{P(E)} \]
+\[ \approx \frac{0.8 \times 0.05}{P(E)} \]
+\[ \approx 0.04 / P(E) \]
+
+#### Business Administration:
+
+\[ P(H_{\text{ba}}|E) \approx \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E)} \]
+\[ \approx \frac{0.05 \times 0.1}{P(E)} \]
+\[ \approx 0.005 / P(E) \]
+
+Since we are comparing relative probabilities and \( P(E) \) is a common denominator:
+
+\[ \frac{P(H_{\text{ag}}|E)}{P(H_{\text{ba}}|E)} = \frac{0.04 / P(E)}{0.005 / P(E)} = \frac{0.04}{0.005} = 8 \]
+
+Thus, based on our estimates, the probability of Adam being enrolled in agricultural and veterinary science is significantly higher than being enrolled in business administration.
+
+To give relative values between 0 and 1:
+
+{
+  "agricultural and veterinary science": "0.8",
+  "business administration": "0.1"
+}
+
+These numbers indicate the strengths of the fields in explaining Adam's traits; they don't sum to 1 as there are other potential fields not considered.

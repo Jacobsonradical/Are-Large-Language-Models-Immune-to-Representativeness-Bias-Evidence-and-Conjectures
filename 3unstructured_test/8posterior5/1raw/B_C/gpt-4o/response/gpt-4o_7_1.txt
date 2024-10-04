@@ -1,0 +1,44 @@
+To compute \( P(H|E) \) for both "computer science" and "business administration," we can use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing two fields and not considering all possible fields, we can focus on the relative likelihoods rather than absolute probabilities. For simplicity, we'll assume \( P(E) \) is the same for both fields.
+
+### Assumptions
+- \( P(H) \) (the prior probability of Adam being enrolled in each field) should initially be considered equal since we don't have any specific prior information favoring one field over the other. So, let's assume \( P(H) = 0.5 \) for both fields.
+- \( P(E|H) \) (the probability of observing the personality sketch given each field) will be subjective based on how well Adam’s traits fit each field.
+- \( P(E|\neg H) \) depends on all other fields combined and is challenging to estimate. However, it will be similar for both hypotheses if we assume Adam's traits are neutral relative to fields not mentioned.
+
+### Estimations Based on Personality Sketch
+1. **Computer Science:**
+   - Adam's intelligence, love for solving puzzles, and understanding abstract concepts fit well within the computer science field.
+   - \( P(E|H_{\text{cs}}) \) could be reasonably high, say around 0.7.
+   - \( P(E|\neg H_{\text{cs}}) \) could be moderate, perhaps around 0.4, considering that intelligence and puzzle-solving could fit other fields too.
+
+2. **Business Administration:**
+   - While problem-solving and empathy could relate to business administration, the strong curiosity about nature and love for animals are less directly relevant.
+   - \( P(E|H_{\text{ba}}) \) might be lower, around 0.3.
+   - \( P(E|\neg H_{\text{ba}}) \) could be higher, maybe around 0.6, given that the traits fit better with other fields less related to business administration.
+
+### Applying Bayes' Theorem
+Let's compute \( P(H|E) \) relative to each other. Given similar \( P(E) \), we can ignore it in the relative comparison.
+
+For computer science:
+\[ P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) = 0.7 \times 0.5 = 0.35 \]
+
+For business administration:
+\[ P(H_{\text{ba}}|E) \propto P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) = 0.3 \times 0.5 = 0.15 \]
+
+Normalizing these:
+\[ P(H_{\text{cs}}|E) = \frac{0.35}{0.35 + 0.15} \approx 0.7 \]
+\[ P(H_{\text{ba}}|E) = \frac{0.15}{0.35 + 0.15} \approx 0.3 \]
+
+### Result
+Therefore, the relative probabilities are:
+
+```json
+{
+  "computer science": 0.7,
+  "business administration": 0.3
+}
+```

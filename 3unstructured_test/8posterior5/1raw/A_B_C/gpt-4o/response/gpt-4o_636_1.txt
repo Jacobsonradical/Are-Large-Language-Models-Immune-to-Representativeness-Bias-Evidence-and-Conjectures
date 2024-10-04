@@ -1,0 +1,64 @@
+To calculate the probabilities, we need to make some educated estimations based on the given personality traits of Adam and how they align with each field. Let’s step through each field:
+
+1. **Computer Science (CS)**:
+   - **P(H)**: The general probability of a graduate student being in CS.
+   - **P(E|H)**: The probability of observing Adam's personality traits if he is in CS.
+   - **P(E|\neg H)**: The probability of observing Adam's personality traits if he is not in CS.
+
+2. **Business Administration (BA)**:
+   - **P(H)**: The general probability of a graduate student being in BA.
+   - **P(E|H)**: The probability of observing Adam's personality traits if he is in BA.
+   - **P(E|\neg H)**: The probability of observing Adam's personality traits if he is not in BA.
+
+3. **Agricultural and Veterinary Science (AVS)**:
+   - **P(H)**: The general probability of a graduate student being in AVS.
+   - **P(E|H)**: The probability of observing Adam's personality traits if he is in AVS.
+   - **P(E|\neg H)**: The probability of observing Adam's personality traits if he is not in AVS.
+
+Assumptions:
+1. To proceed, we must make assumptions for P(H) based on the typical distribution of graduate students across fields.
+2. Additionally, we must estimate P(E|H) and P(E|\neg H) based on how well Adam’s traits align with each field.
+
+Let's assume:
+- **P(CS)** = 0.30 (30% of graduate students might be in CS)
+- **P(BA)** = 0.25 (25% of graduate students might be in BA)
+- **P(AVS)** = 0.15 (15% of graduate students might be in AVS)
+
+Given Adam's personality traits:
+1. **P(E|CS)**: Adam's traits partially align with solving puzzles and abstract concepts, but not as strongly with empathy and animals – let's estimate this to be 0.50.
+2. **P(E|BA)**: His traits do not strongly align with business administration roles which are more extroverted and competitive typically – let's estimate 0.10.
+3. **P(E|AVS)**: His traits (empathy, love for animals, appreciation for hard work) strongly align with AVS – let's estimate this to be 0.90.
+
+- **P(E|\neg CS)**: Average distribution among non-CS fields – let's estimate this to be 0.30.
+- **P(E|\neg BA)**: Average distribution among non-BA fields – let's estimate this to be 0.50.
+- **P(E|\neg AVS)**: Average distribution among non-AVS fields – let's estimate this to be 0.30.
+
+Given these assumptions, use Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where P(E) can be computed as the sum of P(E|H) * P(H) across all possibilities.
+
+### Calculations:
+1. **Computer Science (CS)**
+\[ P(\text{CS}|E) = \frac{P(E|\text{CS}) \cdot P(\text{CS})}{P(E)} \]
+\[ P(E) = P(E|\text{CS}) \cdot P(\text{CS}) + P(E|\text{BA}) \cdot P(\text{BA}) + P(E|\text{AVS}) \cdot P(\text{AVS}) \]
+\[ P(E) = 0.50 \cdot 0.30 + 0.10 \cdot 0.25 + 0.90 \cdot 0.15 \]
+\[ P(E) = 0.15 + 0.025 + 0.135 = 0.31 \]
+\[ P(\text{CS}|E) = \frac{0.50 \cdot 0.30}{0.31} \approx 0.48 \]
+
+2. **Business Administration (BA)**
+\[ P(\text{BA}|E) = \frac{P(E|\text{BA}) \cdot P(\text{BA})}{P(E)} \]
+\[ P(\text{BA}|E) = \frac{0.10 \cdot 0.25}{0.31} \approx 0.08 \]
+
+3. **Agricultural and Veterinary Science (AVS)**
+\[ P(\text{AVS}|E) = \frac{P(E|\text{AVS}) \cdot P(\text{AVS})}{P(E)} \]
+\[ P(\text{AVS}|E) = \frac{0.90 \cdot 0.15}{0.31} \approx 0.44 \]
+
+Final results:
+```json
+{
+  "computer science": 0.48,
+  "business administration": 0.08,
+  "agricultural and veterinary science": 0.44
+}
+```

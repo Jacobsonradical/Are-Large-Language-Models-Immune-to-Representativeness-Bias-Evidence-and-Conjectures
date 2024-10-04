@@ -1,0 +1,45 @@
+To apply Bayesian reasoning to determine how likely Adam is enrolled in a specific field based on his personality sketch, we need to compute the posterior probabilities \( P(H|E) \) for each field using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \(P(E)\) is the same for both fields and we're comparing the likelihoods, we can focus on the numerator \( P(E|H) \cdot P(H) \). We'll estimate:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \): The probability that the personality sketch \(E\) matches if Adam is enrolled in the specific field.
+3. \( P(E|\neg H) \): The probability that the personality sketch \(E\) matches if Adam is not enrolled in the specific field.
+
+Here are the steps for each field:
+
+### Computer Science
+
+1. \(P(H)\): Estimate the prior probability of a graduate student being in computer science. Let's say it's relatively common, so around 0.2.
+2. \(P(E|H)\): Given the personality traits (curiosity, intelligence, puzzle-solving skills), it seems somewhat likely he is in computer science. Let's estimate 0.4.
+3. \(P(E|\neg H)\): We need to consider how common these personality traits are in other fields. Given Adam's traits, they are quite broad and could fit well into many fields. Suppose around 0.3.
+
+Using Bayes' formula without denominators for simplicity:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.4 * 0.2 = 0.08 \]
+
+### Agricultural and Veterinary Science
+
+1. \(P(H)\): Estimate the prior probability of a graduate student being in agricultural and veterinary science. It is less common, so around 0.05.
+2. \(P(E|H)\): Given the personality traits (curiosity about nature, empathy, love for animals), it seems quite likely Adam could be in this field. Let’s estimate 0.6.
+3. \(P(E|\neg H)\): Considering how common these personality traits are in other fields, they align particularly well with this one. Suppose around 0.1.
+
+Using Bayes' formula without denominators for simplicity:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.6 * 0.05 = 0.03 \]
+
+Now, normalizing these numbers relative to each other (since \(P(E)\) is same for all):
+For computer science:
+\[ P(H|E)_{CS} = \frac{0.08}{0.08 + 0.03} \approx 0.727 \]
+
+For agricultural and veterinary science:
+\[ P(H|E)_{AVS} = \frac{0.03}{0.08 + 0.03} \approx 0.273 \]
+
+So, the values we get are:
+
+```json
+{
+  "computer science": 0.727,
+  "agricultural and veterinary science": 0.273
+}
+```

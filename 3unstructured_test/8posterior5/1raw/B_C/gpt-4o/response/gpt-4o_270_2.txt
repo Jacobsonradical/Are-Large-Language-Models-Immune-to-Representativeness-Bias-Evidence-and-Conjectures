@@ -1,0 +1,50 @@
+To compute \( P(H|E) \) for both fields (business administration and computer science), we'll use Bayes' Theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we need \( P(H) \) (the prior probability of Adam being in a particular field), we'll assume reasonable values based on average enrollment distributions in graduate programs. We also need \( P(E|H) \) (the probability of Adam's personality sketch given his enrollment in that field) and \( P(E|\neg H) \) (the probability of Adam's personality sketch given he is not in that field). 
+
+We'll first assign reasonable probabilities based on the given data and general perceptions:
+
+For **business administration**:
+- \( P(H_{BA}) \): Let's assume 0.15 for enrollment in business administration (15% of students might be in this field).
+- \( P(E|H_{BA}) \): Let's assume 0.02 based on the personality sketch, as business administration students might generally have a lower likelihood to exhibit Adam's traits.
+- \( P(\neg H_{BA}) \): An average value, assuming the remaining student populations in other fields do not strongly exhibit Adam's personality sketch specifically, could be 0.10.
+
+For **computer science**:
+- \( P(H_{CS}) \): Let's assume 0.20 for computer science (20% of students might be in this field).
+- \( P(E|H_{CS}) \): Considering problem-solving skills and high intelligence are more aligned with computer science traits, let's assume 0.10.
+- \( P(\neg H_{CS}) \): Using the average again, 0.10.
+
+Now, calculating \( P(E) \):
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H) \cdot P(\neg H) \]
+
+Using average \( P(\neg H) = 0.65 \):
+
+\[ P(E) = (0.02 \times 0.15) + (0.10 \times 0.20) + (0.10 \times 0.65) \]
+\[ P(E) = 0.003 + 0.02 + 0.065 \]
+\[ P(E) = 0.088 \]
+
+Now applying Bayes' Theorem:
+
+For business administration:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) = \frac{0.02 \times 0.15}{0.088} \]
+\[ P(H_{BA}|E) \approx 0.034 \]
+
+For computer science:
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.10 \times 0.20}{0.088} \]
+\[ P(H_{CS}|E) \approx 0.227 \]
+
+So, our final result is:
+
+```json
+{
+  "business administration": 0.034,
+  "computer science": 0.227
+}
+```

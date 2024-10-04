@@ -1,0 +1,52 @@
+To compute the probabilities \( P(H|E) \) for the different fields given Adam's personality sketch \( E \), we will use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+But since \( P(E) \) is the same across all fields and we are only interested in comparing the probabilities, we can use the proportional version of Bayes' rule:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's go through each field.
+
+### Business Administration
+- **P(H):** The prior probability that any random graduate student is enrolled in business administration. Let's assume it's moderately popular, so \(\approx 0.20\).
+- **P(E|H):** The probability of observing Adam's personality sketch given he is in business administration. Given his strong empathy, curiosity about nature, and love for animals, it's somewhat less likely compared to other fields. Assign a lower value: \(\approx 0.05\).
+- **P(E|\neg H):** The probability of observing Adam's personality sketch given he is not in business administration. This is higher, as these traits fit better with other fields: \(\approx 0.15\).
+
+### Computer Science
+- **P(H):** The prior probability that any random graduate student is enrolled in computer science. Also moderately popular, so \(\approx 0.20\).
+- **P(E|H):** The probability of observing Adam's personality sketch given he's in computer science. Given his high intelligence and puzzle-solving ability, there's a moderate fit: \(\approx 0.20\).
+- **P(E|\neg H):** The probability of observing Adam's personality sketch given he is not in computer science. This is lower because the puzzle-solving skills are particularly strong indicators for computer science: \(\approx 0.10\).
+
+### Agricultural and Veterinary Science
+- **P(H):** The prior probability that any random graduate student is enrolled in agricultural and veterinary science. Less common but fits Adam's interests well, so \(\approx 0.10\).
+- **P(E|H):** The probability of observing Adam's personality sketch given he's in agricultural and veterinary science. Very high fit given his love for animals and nature: \(\approx 0.80\).
+- **P(E|\neg H):** The probability of observing Adam's personality sketch given he is not in agricultural and veterinary science. This is much lower since these traits are very indicative of this field: \(\approx 0.05\).
+
+Given these subjective estimates, applying Bayes' rule proportionality for comparison:
+
+\( P(H|E) \propto P(E|H) \cdot P(H) \)
+
+- **Business Administration:** \( \approx 0.05 \cdot 0.20 = 0.01 \)
+- **Computer Science:** \( \approx 0.20 \cdot 0.20 = 0.04 \)
+- **Agricultural and Veterinary Science:** \( \approx 0.80 \cdot 0.10 = 0.08 \)
+
+Normalizing these probabilities for comparison:
+
+Total = \( 0.01 + 0.04 + 0.08 = 0.13 \)
+
+\[
+P(H|E) \propto \frac{0.01}{0.13} \approx 0.077 \\
+P(H|E) \propto \frac{0.04}{0.13} \approx 0.308 \\
+P(H|E) \propto \frac{0.08}{0.13} \approx 0.615 
+\]
+
+So, the probabilities are approximately:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.308,
+  "agricultural and veterinary science": 0.615
+}
+```

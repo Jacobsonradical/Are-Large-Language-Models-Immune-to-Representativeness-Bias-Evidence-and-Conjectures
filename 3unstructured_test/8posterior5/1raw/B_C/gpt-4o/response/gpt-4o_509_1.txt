@@ -1,0 +1,61 @@
+To compute the posterior probability \( P(H|E) \), we can use Bayes' theorem, which is given by:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Given that we need to judge the probabilities subjectively, let's outline the components for each hypothesis:
+
+1. **Business Administration (BA):**
+   - **P(H):** The prior probability that Adam was enrolled in Business Administration. Let's assume this to be relatively lower given his traits and interests mentioned.
+     \[ P(\text{BA}) = 0.1 \]
+
+   - **P(E|H):** The probability that Adam's personality sketch \( E \) aligns with someone studying Business Administration. This may not align strongly with BA, especially given his interest in nature, puzzles, and deep empathy.
+     \[ P(E|\text{BA}) = 0.05 \]
+
+   - **P(E| \neg H):** The probability that Adam's personality sketch \( E \) aligns with someone not enrolled in Business Administration. This value will be assessed considering other fields might be more fitting.
+     \[ P(E|\neg \text{BA}) = 0.2 \]
+
+2. **Computer Science (CS):**
+   - **P(H):** The prior probability that Adam was enrolled in Computer Science. Let's assume this to be relatively higher given his intelligence, puzzle-solving skills, and good understanding of abstract concepts.
+     \[ P(\text{CS}) = 0.3 \]
+
+   - **P(E|H):** The probability that Adam's personality sketch \( E \) aligns with someone studying Computer Science. This is relatively high considering his interests in puzzles and abstract concepts.
+     \[ P(E|\text{CS}) = 0.6 \]
+
+   - **P(E| \neg H):** The probability that Adam's personality sketch \( E \) aligns with someone not enrolled in Computer Science. This value assumes that many other fields are less fitting.
+     \[ P(E|\neg \text{CS}) = 0.2 \]
+
+Now, let’s compute the posterior probabilities \( P(H|E) \):
+
+### For Business Administration:
+\[ P(\text{BA}|E) = \frac{P(E|\text{BA}) P(\text{BA})}{P(E)} \]
+
+Here, \( P(E) \) is summed over all possible hypotheses, but for simplicity, we can exclude it in comparison:
+
+\[ P(\text{BA}|E) \propto P(E|\text{BA}) P(\text{BA}) \]
+\[ P(\text{BA}|E) \propto 0.05 \times 0.1 \]
+\[ P(\text{BA}|E) = 0.005 \]
+
+### For Computer Science:
+\[ P(\text{CS}|E) = \frac{P(E|\text{CS}) P(\text{CS})}{P(E)} \]
+
+Again, simplifying without \( P(E) \):
+
+\[ P(\text{CS}|E) \propto P(E|\text{CS}) P(\text{CS}) \]
+\[ P(\text{CS}|E) \propto 0.6 \times 0.3 \]
+\[ P(\text{CS}|E) = 0.18 \]
+
+Now we normalize these to actual probabilities by considering the sum:
+
+\[ P(\text{BA}|E) + P(\text{CS}|E) = 0.005 + 0.18 = 0.185 \]
+
+\[ P(\text{BA}|E) = \frac{0.005}{0.185} \approx 0.027 \]
+\[ P(\text{CS}|E) = \frac{0.18}{0.185} \approx 0.973 \]
+
+Therefore, the approximate probabilities are:
+
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.973
+}
+```

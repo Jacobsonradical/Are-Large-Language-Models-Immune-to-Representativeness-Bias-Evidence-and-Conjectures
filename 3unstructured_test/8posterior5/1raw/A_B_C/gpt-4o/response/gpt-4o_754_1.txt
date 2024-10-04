@@ -1,0 +1,59 @@
+To calculate the probabilities, we need to consider \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) for each field. 
+
+**Prior probabilities \((P(H))\)**:
+These are general probabilities for a graduate student being in each of these fields. For simplicity, we can assume relatively equal priors since specific statistics are not given.
+
+- Business Administration: 0.2
+- Computer Science: 0.3
+- Agricultural and Veterinary Science: 0.1
+
+**Likelihoods \((P(E|H))\)**:
+These represent the probability of Adam's personality sketch being true given he is in the specific field.
+
+- Business Administration: 0.1 (because Adam's characteristics do not align well with a typical business administration profile)
+- Computer Science: 0.3 (Adam’s intelligence and abstract thinking support this field, but his strong empathy and love for animals are less typical)
+- Agricultural and Veterinary Science: 0.8 (Adam's curiosity about nature, empathy, and love for animals align very well)
+
+**Complementary probability \((P(E|\neg H))\)**:
+This is trickier as it involves considering Adam’s traits not aligning with other possible fields. Without specific details, we assume a complementary probability that doesn’t depend heavily on the specific nature of negation but on a rough alignment of personality not fitting generally as well.
+
+For simplicity:
+- Assume \(P(E|\neg H)\) = 0.2 for all fields since none other than the target fields is given.
+
+Now use Bayes' Rule to calculate \(P(H|E)\):
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+\(P(E)\) is the normalization factor. Since we are calculating this for comparison and the exact value isn't required, we can drop it as it will be consistent across fields. Thus, we are focusing on the numerator of Bayes' Rule.
+
+Let's plug in the numbers and normalize them afterwards:
+- \( P(H|E) \propto P(E|H) \cdot P(H) \)
+
+**Business Administration**:
+\[ P(H|E) \propto 0.1 \cdot 0.2 = 0.02 \]
+
+**Computer Science**:
+\[ P(H|E) \propto 0.3 \cdot 0.3 = 0.09 \]
+
+**Agricultural and Veterinary Science**:
+\[ P(H|E) \propto 0.8 \cdot 0.1 = 0.08 \]
+
+Now normalize these to sum up to 1 for the proportional probabilities:
+
+Sum = 0.02 + 0.09 + 0.08 = 0.19
+
+Normalized probabilities:
+
+\[ P(H|E)_{\text{business administration}} = \frac{0.02}{0.19} \approx 0.105 \]
+\[ P(H|E)_{\text{computer science}} = \frac{0.09}{0.19} \approx 0.474 \]
+\[ P(H|E)_{\text{agricultural and veterinary science}} = \frac{0.08}{0.19} \approx 0.421 \]
+
+Result:
+```json
+{
+  "business administration": 0.105,
+  "computer science": 0.474,
+  "agricultural and veterinary science": 0.421
+}
+```
+This indicates based on Adam's personality sketch, he is most likely to be in Computer Science, followed closely by Agricultural and Veterinary Science, with Business Administration being less likely.

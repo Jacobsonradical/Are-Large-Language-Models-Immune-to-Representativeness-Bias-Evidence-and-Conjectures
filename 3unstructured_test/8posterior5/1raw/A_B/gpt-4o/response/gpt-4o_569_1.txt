@@ -1,0 +1,63 @@
+To apply Bayes' rule to compute the probability \( P(H|E) \) for each hypothesis \( H \) regarding Adam's field of study, given the personality sketch \( E \), we need to consider the following:
+
+1. \( P(H) \): The prior probability that Adam is in a given field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch, assuming he is in the given field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch, assuming he is not in the given field.
+
+Given:
+- \( P(E) \) can be interpreted as the sum of the probabilities of \( E \) given any field, weighted by the prior probabilities of those fields.
+
+### Prior Probability \( P(H) \):
+We make some initial assumptions:
+- There is no specific reason to initially favor one field over another without additional context, so we can assume equal prior probabilities for simplicity.
+  - \( P(H_{\text{business administration}}) \approx 0.1 \)
+  - \( P(H_{\text{agricultural and veterinary science}}) \approx 0.1 \)
+  - Note: These values are hypothetical and for illustrative purposes only.
+
+### Likelihood \( P(E|H) \):
+Based on the personality sketch \( E \):
+- For business administration (\( H_{\text{business administration}} \)):
+  - The alignment with curiosity about nature, solving puzzles, empathy, animals, etc., is moderate but not highly likely.
+  - Let \( P(E|H_{\text{business administration}}) \approx 0.2 \)
+ 
+- For agricultural and veterinary science (\( H_{\text{agricultural and veterinary science}} \)):
+  - The characteristics of curiosity about nature, empathy, understanding of dedication, and love for animals align very well with this field.
+  - Let \( P(E|H_{\text{agricultural and veterinary science}}) \approx 0.8 \)
+
+### Complementary Likelihood \( P(E|\neg H) \):
+- This involves aggregating beliefs across all other fields:
+  - \( P(E|\neg H_{\text{business administration}}) \approx 0.6 \) given the presence of science fields.
+  - \( P(E|\neg H_{\text{agricultural and veterinary science}}) \approx 0.2 \) lower likely due to mismatch with more common fields.
+
+### Applying Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For business administration:
+\[ P(H_{\text{business administration}}|E) = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+For agricultural and veterinary science:
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+Where \( P(E) \) is the normalizing constant, summing over all possible fields.
+
+\[ P(E) = P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) + P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}}) + \ldots \]
+
+Consider normalizing constant approximation for this example
+\[ P(E) \approx  (0.2 \cdot 0.1)  +  (0.8 \cdot 0.1)+0.2 =0.01+0.08 +0.2 =0.29\]
+
+
+\[ P(H_{\text{business administration}}|E) = \frac{0.2 \cdot 0.1}{0.29} \approx 0.068 \]
+
+\[ P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \cdot 0.1}{0.29} \approx 0.276 \]
+
+Output:
+
+```json
+{
+  "business administration": 0.068,
+  "agricultural and veterinary science": 0.276
+
+}
+```
+Keeping the scaling about 0-1, this summing of probabilities allows prioritizing the closest suited field hypothesis based on Bayesian Inference.

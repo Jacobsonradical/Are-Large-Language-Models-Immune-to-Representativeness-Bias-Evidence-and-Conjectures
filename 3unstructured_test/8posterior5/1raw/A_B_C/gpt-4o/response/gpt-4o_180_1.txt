@@ -1,0 +1,75 @@
+To calculate the posterior probability \( P(H|E) \) for each field, we use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For this specific personality sketch \( E \):
+
+1. Prior probability \( P(H) \): This represents the initial belief about the likelihood of Adam being enrolled in a certain field without knowing his personality traits.
+    - Agricultural and veterinary science (\( H_1 \)): This field is somewhat less populated compared to business or computer science, so let's assume \( P(H_1) = 0.15 \).
+    - Business administration (\( H_2 \)): A more common field, so we assume \( P(H_2) = 0.35 \).
+    - Computer science (\( H_3 \)): Another commonly chosen field, so assume \( P(H_3) = 0.35 \).
+
+2. \( P(E|H) \): This is the likelihood of observing the personality sketch \( E \) if Adam was enrolled in a specific field \( H \):
+    - Agricultural and veterinary science (\( H_1 \)): Due to his deep love for animals and nature, his curiosity about plants, and his warm heart and empathy, \( P(E|H_1) \) is quite high. We can assume \( P(E|H_1) = 0.7 \).
+    - Business administration (\( H_2 \)): These traits are less directly related to this field, making \( P(E|H_2) \) lower, say \( P(E|H_2) = 0.2 \).
+    - Computer science (\( H_3 \)): While his skills in puzzles and abstract concepts are suitable, his other traits are less aligned with higher chances. So, \( P(E|H_3) = 0.3 \).
+
+3. \( P(E|\neg H) \): This is the likelihood of \( E \) given that Adam is not enrolled in the specific field \( H \):
+    - For fields that contain other possible graduate programs:
+      - \( P(E|\neg H_1) \): 0.3 (since other fields might fit some parts of his description but not as well as agricultural and veterinary science).
+      - \( P(E|\neg H_2) \): 0.5 (since many non-business fields fit his traits better).
+      - \( P(E|\neg H_3) \): 0.5 (since many non-computer science fields fit his traits better).
+
+To compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is common for all calculations:
+
+\[ P(H) \cdot P(E|H) = P(E) \cdot P(H|E) \]
+
+So:
+
+- For agricultural and veterinary science:
+
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} = \frac{0.7 \cdot 0.15}{P(E)} \]
+
+- For business administration:
+
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} = \frac{0.2 \cdot 0.35}{P(E)} \]
+
+- For computer science:
+
+\[ P(H_3|E) = \frac{P(E|H_3) \cdot P(H_3)}{P(E)} = \frac{0.3 \cdot 0.35}{P(E)} \]
+
+If we denote:
+
+\[ P(E) = (P(E|H_1) \cdot P(H_1)) + (P(E|H_2) \cdot P(H_2)) + (P(E|H_3) \cdot P(H_3)) + ... \]
+
+Which we don't need to compute because it's a common factor, so ratios would remain consistent. For simplicity:
+
+\[ P(E) = k \]
+
+Now adjust by normalization (so values sum somewhat close to 1 for these three fields):
+
+{
+  "agricultural and veterinary science": \(\frac{0.7 \cdot 0.15}{k}\),
+  "business administration": \(\frac{0.2 \cdot 0.35}{k}\),
+  "computer science": \(\frac{0.3 \cdot 0.35}{k}\)
+}
+
+This simplifies relatively:
+
+{
+  "agricultural and veterinary science": \( \frac{0.105}{k} \),
+  "business administration": \( \frac{0.07}{k} \),
+  "computer science": \( \frac{0.105}{k} \)
+}
+
+Each value normalized:
+
+{
+  "agricultural and veterinary science": 0.48,
+  "business administration": 0.16,
+  "computer science": 0.36
+}

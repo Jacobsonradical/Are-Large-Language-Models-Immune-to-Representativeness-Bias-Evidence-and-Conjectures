@@ -1,0 +1,50 @@
+To calculate the posterior probabilities \( P(H|E) \) using Bayes' theorem, we need to establish the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the complement likelihoods \( P(E|\neg H) \).
+
+Bayes' theorem formula:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that we don't have absolute numbers, we'll need to make educated guesses based on the personality sketch.
+
+### Prior Probabilities \( P(H) \)
+The prior probability \( P(H) \) reflects how common it is to be in a given field among all graduate fields. We'll denote these as follows (assuming a uniform distribution among various fields just for simplicity):
+
+- \( P(\text{agricultural and veterinary science}) = 0.1 \)
+- \( P(\text{business administration}) = 0.1 \)
+
+### Likelihoods \( P(E|H) \)
+Next, let's estimate how likely it is that Adam, with his described personality traits, would be enrolled in each field:
+
+- Agricultural and Veterinary Science: Given Adam's genuine curiosity about nature, love for animals, and empathy, it seems highly likely.
+  - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+  
+- Business Administration: Adam’s traits don’t strongly align with a typical business administration profile, which often emphasizes skills like leadership, management, and strategic thinking over a love for animals and nature.
+  - \( P(E|\text{business administration}) = 0.2 \)
+
+### Complement Likelihoods \( P(E|\neg H) \)
+We'll estimate the likelihood of Adam's personality fit across all other fields, given that he is not in the specified field. Given the rarity of specific traits aligning exactly, I will use the following estimates:
+
+- \( P(E|\neg \text{agricultural and veterinary science}) = 0.4 \)
+- \( P(E|\neg \text{business administration}) = 0.6 \)
+
+### Posterior Probabilities \( P(H|E) \)
+To compute the posterior probabilities, we use Bayes' theorem.
+
+For Agricultural and Veterinary Science:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\( P(E) \) cancels out as we are comparing relative probabilities.
+
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.4 \cdot 0.9} = \frac{0.08}{0.08 + 0.36} = \frac{0.08}{0.44} \approx 0.182 \]
+
+For Business Administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+
+\[ P(\text{business administration}|E) = \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.6 \cdot 0.9} = \frac{0.02}{0.02 + 0.54} = \frac{0.02}{0.56} \approx 0.036 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.182,
+  "business administration": 0.036
+}
+```

@@ -1,0 +1,49 @@
+To solve this problem using Bayes' Rule, we need to estimate the probabilities involved. Let's go through the steps for both fields.
+
+### Step 1: Defining the Hypotheses
+- \( H_1 \): Adam was enrolled in computer science
+- \( H_2 \): Adam was enrolled in agricultural and veterinary science
+
+### Step 2: Estimating the Probabilities
+- \( P(H_1) \): Prior probability of Adam being enrolled in computer science
+- \( P(H_2) \): Prior probability of Adam being enrolled in agricultural and veterinary science
+
+### Step 3: Estimating Likelihoods Given the Personality Sketch
+- \( P(E|H_1) \): Probability of the personality sketch given Adam was enrolled in computer science
+- \( P(E|H_2) \): Probability of the personality sketch given Adam was enrolled in agricultural and veterinary science
+- \( P(E|\neg H_1) \): Probability of the personality sketch given Adam was not enrolled in computer science
+- \( P(E|\neg H_2) \): Probability of the personality sketch given Adam was not enrolled in agricultural and veterinary science
+
+### Step 4: Applying Bayes' Rule
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \), the marginal likelihood, can be found using:
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1) \]
+
+Given the personality sketch, let's assume the following probabilities:
+
+#### For Computer Science
+- \( P(H_1) \approx 0.3 \): Prior probability that Adam was studying computer science (assuming a moderate interest among graduate students)
+- \( P(E|H_1) \approx 0.2 \): Probability of having Adam's personality traits if he was in computer science, as computer science doesn't necessarily attract students with strong empathy or love for animals.
+- \( P(E|\neg H_1) \approx 0.7 \): Probability of having his personality traits if he was not in computer science, because fields such as agricultural and veterinary science are more likely given his personality sketch.
+
+Applying these to Bayes' rule:
+\[ P(H_1|E) = \frac{0.2 \cdot 0.3}{0.2 \cdot 0.3 + 0.7 \cdot 0.7} = \frac{0.06}{0.06 + 0.49} = \frac{0.06}{0.55} \approx 0.109 \]
+
+#### For Agricultural and Veterinary Science
+- \( P(H_2) \approx 0.1 \): Prior probability of being enrolled in this field among all possibilities.
+- \( P(E|H_2) \approx 0.6 \): High likelihood of having Adam's personality traits in this field.
+- \( P(E|\neg H_2) \approx 0.4 \): Lower probability of having these traits if not in agricultural and veterinary science.
+
+Applying these to Bayes' rule:
+\[ P(H_2|E) = \frac{0.6 \cdot 0.1}{0.6 \cdot 0.1 + 0.4 \cdot 0.9} = \frac{0.06}{0.06 + 0.36} = \frac{0.06}{0.42} \approx 0.143 \]
+
+### Final Results
+```json
+{
+  "computer science": 0.109,
+  "agricultural and veterinary science": 0.143
+}
+```
+
+These results suggest Adam is more likely to be studying agricultural and veterinary science than computer science, given his personality sketch.

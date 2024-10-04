@@ -1,0 +1,82 @@
+To compute \( P(H|E) \), which is the probability that Adam was enrolled in a specific field given the personality sketch (E), we will use Bayes' theorem which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To use Bayes' theorem effectively, we need to estimate the following probabilities for each field:
+
+1. \( P(H) \) - The prior probability that Adam was enrolled in each specific field.
+2. \( P(E|H) \) - The probability of observing the personality sketch given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \) - The probability of observing the personality sketch given that Adam was not enrolled in that specific field (we can consider the average probability across other fields for simplicity).
+
+We will assume equal distribution across various graduate fields for simplicity, even though it might not be the case. It means that \( P(H) \) could be approximated as a uniform distribution unless we have specific statistics.
+
+Let's assume \( P(H) \approx 0.1 \) for each field due to many fields and limited data. To summarize our approach:
+
+- **Agricultural and Veterinary Science**:
+  - \( P(H) \): Given that it is 1 of many possible fields, we assume \( P(H) \approx 0.1 \).
+  - \( P(E|H) \): Given Adam's love for animals, plants, and nature, this probability is high. Let's approximate \( P(E|H) \approx 0.8 \).
+  - \( P(E|\neg H) \): Average probability, let's approximate \( P(E|\neg H) \approx 0.3 \).
+
+- **Computer Science**:
+  - \( P(H) \): Same reasoning, \( P(H) \approx 0.1 \).
+  - \( P(E|H) \): Being good at abstract concepts and puzzles fits well, let's say \( P(E|H) \approx 0.6 \).
+  - \( P(E|\neg H) \): Average probability, \( P(E|\neg H) \approx 0.3 \).
+
+- **Business Administration**:
+  - \( P(H) \): Same reasoning, \( P(H) \approx 0.1 \).
+  - \( P(E|H) \): Less fit for the given personality sketch, maybe \( P(E|H) \approx 0.3 \).
+  - \( P(E|\neg H) \): Average probability, \( P(E|\neg H) \approx 0.3 \).
+
+The probability \( P(E) \) could be treated as normalization constant to ensure all posterior probabilities sum to 1, but for relative comparison, we can ignore this constant.
+
+Now calculating \( P(H|E) \):
+
+1. **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.8 \cdot 0.1}{P(E)} \]
+
+2. **Computer Science**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.6 \cdot 0.1}{P(E)} \]
+
+3. **Business Administration**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.3 \cdot 0.1}{P(E)} \]
+
+Ignoring \( P(E) \) for relative comparison:
+
+\[
+\begin{aligned}
+P(H|E) &\propto P(E|H) \cdot P(H) \\
+&\propto \left\{
+\begin{array}{ll}
+0.8 \cdot 0.1 & \text{Agricultural and Veterinary Science} \\
+0.6 \cdot 0.1 & \text{Computer Science} \\
+0.3 \cdot 0.1 & \text{Business Administration}
+\end{array}
+\right.
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+&\propto \left\{
+\begin{array}{ll}
+0.08 & \text{Agricultural and Veterinary Science} \\
+0.06 & \text{Computer Science} \\
+0.03 & \text{Business Administration}
+\end{array}
+\right.
+\end{aligned}
+\]
+
+Thus, our respective values would be:
+
+\[
+\begin{aligned}
+{
+  "agricultural and veterinary science": "0.8",
+  "computer science": "0.6",
+  "business administration": "0.3"
+}
+\end{aligned}
+\]
+
+Note that these values are relative and not actual probabilities unless normalized to sum to 1. They give us the relative likelihood given the personality sketch (E).

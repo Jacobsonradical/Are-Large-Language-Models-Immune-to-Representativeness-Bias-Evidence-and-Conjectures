@@ -1,0 +1,47 @@
+To compute the probability \( P(H|E) \) for each field, we can use Bayes' rule, which is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We will denote the hypotheses as follows:
+- \( H_1 \): Adam was enrolled in business administration.
+- \( H_2 \): Adam was enrolled in computer science.
+
+Given the information in Adam's personality sketch \(E\), we can make educated guesses about the probabilities needed for the computations.
+
+### Step-by-Step Breakdown:
+1. **Prior Probabilities \( P(H) \) for Both Fields:**
+   - \( P(H_1) \) (business administration): Let's assume a generic prior for business administration for a random graduate student. Business administration could have moderate enrollment rates. Let's set \( P(H_1) \) = 0.1.
+   - \( P(H_2) \) (computer science): Computer science is a very popular and rapidly growing field, often attracting highly intelligent and abstract thinkers. Let's set \( P(H_2) \) = 0.2.
+
+2. **Likelihood \( P(E|H) \) of Adam’s Personality Sketch Given the Field:**
+   - \( P(E|H_1) \) (business administration): While a curiosity about nature, empathy, and a love for animals could be present in business administration, these traits are not typical attributes strongly associated with this field. Let's set \( P(E|H_1) \) = 0.05.
+   - \( P(E|H_2) \) (computer science): A high level of intelligence, abstract thinking, solving puzzles, and empathy can be common traits in individuals pursuing computer science. Let's set \( P(E|H_2) \) = 0.3.
+
+3. **Likelihood \( P(E|\neg H) \) of Adam’s Personality Sketch Given He’s Not in the Field:**
+   - This represents the likelihood of Adam's personality traits fitting any field other than the given ones. Since we are not considering all possible fields, computing this exactly might be complex, but we can provide a general range instead:
+   - Let's approximate that \( P(E|\neg H_1) \approx 0.1 \).
+   - Let's approximate \( P(E|\neg H_2) \approx 0.1 \).
+
+4. **Normalization Constant \( P(E) \):**
+   - This would commonly be calculated using the total probability theorem, but since we are only considering two fields, this might be impractical. Let’s instead directly apply relative likelihoods for comparison.
+
+Now, we can use Bayes' rule to find \( P(H_1|E) \) and \( P(H_2|E) \).
+
+### Applying Bayes' Rule:
+
+**For business administration:**
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \approx \frac{0.05 \cdot 0.1}{0.05 \cdot 0.1 + 0.3 \cdot 0.2} \approx \frac{0.005}{0.065} \approx 0.0769 \]
+
+**For computer science:**
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \approx \frac{0.3 \cdot 0.2}{0.05 \cdot 0.1 + 0.3 \cdot 0.2} \approx \frac{0.06}{0.065} \approx 0.9231 \]
+
+### Final Probability Estimates:
+
+```json
+{
+  "business administration": 0.0769,
+  "computer science": 0.9231
+}
+```
+
+These values imply that given Adam's personality traits, it is significantly more likely that he was enrolled in computer science compared to business administration.

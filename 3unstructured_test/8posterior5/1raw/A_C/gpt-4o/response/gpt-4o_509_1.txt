@@ -1,0 +1,45 @@
+To calculate \( P(H|E) \) (the probability that Adam was enrolled in a specific field, given his personality sketch), we'll use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is in a particular field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality characteristics if he were in that field.
+- \( P(E| \neg H) \) is the likelihood of observing Adam's personality characteristics if he were not in that field.
+
+We do not have sufficient statistics, so we will approach this with reasonable assumptions.
+
+### For Computer Science:
+- **P(H)** (prior probability for computer science): Let's assume about 1 in 5 graduate students are in computer science, so \( P(H) \approx 0.20 \).
+- **P(E|H)** (likelihood of Adam's traits if he is in computer science): Given his intelligence, problem-solving abilities, and appreciation for hard work, computer science field is quite plausible, though it lacks natural aspects. Let's assume \( P(E|H) \approx 0.3 \).
+- **P(E|\neg H)** (likelihood of Adam's traits if he is not in computer science): A graduate student not in computer science but sharing these traits can occur in other fields too. Let's say \( P(E|\neg H) \approx 0.1 \).
+
+### For Agricultural and Veterinary Science:
+- **P(H)** (prior probability for agricultural and veterinary science): Let's assume about 1 in 20 graduate students are in this field, so \( P(H) \approx 0.05 \).
+- **P(E|H)** (likelihood of Adam's traits if he is in agricultural and veterinary science): Given his strong empathy, love for animals, and appreciation for nature, this field aligns very well with his traits. Let's assume \( P(E|H) \approx 0.8 \).
+- **P(E|\neg H)** (likelihood of Adam's traits if he is not in agricultural and veterinary science): Similar traits may be present in other sciences as well, though less emphasized. Let's assume \( P(E|\neg H) \approx 0.2 \).
+
+Now let's calculate \( P(H|E) \) for both fields using Bayes' rule.
+
+#### Computer Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.3 \cdot 0.20}{P(E)} = \frac{0.06}{P(E)} \]
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.8 \cdot 0.05}{P(E)} = \frac{0.04}{P(E)} \]
+
+To normalize these, we can compute a proportional value such that their sum is treated relative:
+
+### Proportional Calculation:
+\[ P(H|E)_{\text{CS}} = \frac{0.06}{0.06 + 0.04} = \frac{0.06}{0.10} = 0.6 \]
+\[ P(H|E)_{\text{AVS}} = \frac{0.04}{0.06 + 0.04} = \frac{0.04}{0.10} = 0.4 \]
+
+This yields the relative posterior probabilities:
+
+```json
+{
+  "computer science": "0.6",
+  "agricultural and veterinary science": "0.4"
+}
+```

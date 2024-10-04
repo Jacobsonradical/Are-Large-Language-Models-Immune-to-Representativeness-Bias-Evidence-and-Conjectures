@@ -1,0 +1,48 @@
+Sure, let's apply Bayes' Rule to compute the probabilities that Adam was enrolled in either business administration or computer science based on the given personality sketch E.
+
+Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in the field given his personality sketch.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch if he was enrolled in that field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the total probability of observing the personality sketch \( E \) across all possible fields.
+
+We will estimate the individual probabilities based on typical characteristics of students in these fields.
+
+Assumptions:
+1. Prior probabilities (\( P(H) \)):
+    - Let's assume \( P(H) \) for business administration and computer science are 0.1 each, reflecting that there are many graduate fields of specialization.
+2. Likelihood of the personality sketch (\( P(E|H) \)):
+    - For business administration: Given the typical characteristics of business administration students, let's assume \( P(E|H) \) is 0.02 because the traits described match less well (e.g., quietness, love for animals).
+    - For computer science: Given the typical characteristics of computer science students, let's assume \( P(E|H) \) is 0.2 because the traits described align better (e.g., high intelligence, understanding abstract concepts, love for puzzles).
+3. The overall probability of the personality traits (\( P(E) \)) can be treated as a normalizing constant across all fields.
+
+Let's compute \( P(H|E) \) for each field.
+
+### Business Administration:
+\[ P(H|E)_{\text{BA}} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.02 \cdot 0.1}{P(E)} \]
+
+### Computer Science:
+\[ P(H|E)_{\text{CS}} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+### Normalize \( P(E) \):
+\[ P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + \text{(other fields)} \]
+
+Assuming other fields contribute equally and their influence cancel out relatively:
+\[ P(E) \approx (0.02 \cdot 0.1) + (0.2 \cdot 0.1) = 0.002 + 0.02 = 0.022 \]
+
+### Update Calculation:
+\[ P(H|E)_{\text{BA}} = \frac{0.002}{0.022} \approx 0.0909 \]
+\[ P(H|E)_{\text{CS}} = \frac{0.02}{0.022} \approx 0.909 \]
+
+Here are the computed probabilities:
+
+```json
+{
+  "business administration": 0.0909,
+  "computer science": 0.9091
+}
+```

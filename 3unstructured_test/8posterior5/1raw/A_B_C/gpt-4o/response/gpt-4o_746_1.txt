@@ -1,0 +1,58 @@
+To calculate the probability of Adam being enrolled in each of these fields based on the personality sketch (E), we use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) remains constant across all hypotheses (fields), we can use proportional reasoning to simplify the task to finding relative values.
+
+1. **Business Administration (BA)**:
+   - **P(H)**: Assume this as the baseline chance that any graduate student is in BA, roughly \( P(BA) \approx 0.2 \).
+   - **P(E|H)**: How well Adam's personality fits BA: Low, since BA often requires extroversion, leadership, and business acumen, not typically matching Adam's empathy, curiosity about nature, or love for animals. \( P(E|BA) \approx 0.1 \).
+   - **P(E| \neg H)**: Average compatibility of Adam's personality with other fields, with rough probabilities balancing: \( P(E| \neg BA) = 0.5 \).
+
+   \[
+   P(BA|E) \propto P(E|BA) \cdot P(BA) = 0.1 \cdot 0.2 = 0.02
+   \]
+
+2. **Agricultural and Veterinary Science (AVS)**:
+   - **P(H)**: Assume the baseline chance of a graduate student in AVS \( P(AVS) \approx 0.05 \).
+   - **P(E|H)**: Adam perfectly matches this field: curiosity about nature, love for animals, empathy. \( P(E|AVS) \approx 0.9 \).
+   - **P(E| \neg H)**: Average compatibility: \( P(E| \neg AVS) = 0.5 \).
+
+   \[
+   P(AVS|E) \propto P(E|AVS) \cdot P(AVS) = 0.9 \cdot 0.05 = 0.045
+   \]
+
+3. **Computer Science (CS)**:
+   - **P(H)**: Assume baseline chance of CS students \( P(CS) \approx 0.4 \).
+   - **P(E|H)**: Adam's traits mildly fit CS (intelligence, puzzle-solving), though not as strong as AVS. \( P(E|CS) \approx 0.4 \).
+   - **P(E| \neg H)**: Average compatibility: \( P(E| \neg CS) = 0.5 \).
+
+   \[
+   P(CS|E) \propto P(E|CS) \cdot P(CS) = 0.4 \cdot 0.4 = 0.16
+   \]
+
+Now, to normalize for our estimated probabilities:
+
+\[
+\text{Sum of all proportional values} = 0.02 + 0.045 + 0.16 = 0.225
+\]
+
+Hence,
+
+\[
+\begin{align*}
+P(BA|E) & = \frac{0.02}{0.225} \approx 0.089 \\
+P(AVS|E) & = \frac{0.045}{0.225} \approx 0.200 \\
+P(CS|E) & = \frac{0.16}{0.225} \approx 0.711
+\end{align*}
+\]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.089,
+  "agricultural and veterinary science": 0.200,
+  "computer science": 0.711
+}
+```

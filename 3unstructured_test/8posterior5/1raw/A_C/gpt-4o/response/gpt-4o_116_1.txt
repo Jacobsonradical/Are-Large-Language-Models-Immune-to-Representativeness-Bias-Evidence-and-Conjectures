@@ -1,0 +1,55 @@
+To apply Bayes' theorem to compute the probabilities, we have the following inputs:
+
+- \( P(H) \): The prior probability that Adam is enrolled in each of those fields.
+- \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam is in each field.
+- \( P(E|\neg H) \): The probability of the personality sketch \( E \) given that Adam is not in each field.
+
+Given:
+- \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+Since \( P(E) \) is a constant for both fields, we will focus on comparing the products of \( P(E|H) \cdot P(H) \).
+
+Let's estimate these probabilities:
+
+### Computer Science:
+1. **Prior Probability \( P(H) \)**:
+   Given the popularity of computer science in graduate programs, let's assume \( P(H) = 0.1 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   Adam's intelligence and knack for solving puzzles may fit well within computer science, but his strong empathy, love for nature, and animals do not strongly align with this field. So, let's assume \( P(E|H) = 0.2 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**:
+   Given that computer science is one among many fields, the probability of observing Adam's traits in the population outside computer science might be similarly average, let's assume \( P(E|\neg H) = 0.3 \).
+
+### Agricultural and Veterinary Science:
+1. **Prior Probability \( P(H) \)**:
+   Agricultural and veterinary science is a less common field compared to computer science, but given his love for nature and animals, it fits better. Let's assume \( P(H) = 0.05 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   Adam's traits seem to align very well with a student in agricultural and veterinary science. So, let's assume \( P(E|H) = 0.7 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**:
+   For the population not in this field, it’s less likely to have the same combination of traits. So, let's assume \( P(E|\neg H) = 0.2 \).
+
+Now applying Bayes' theorem, we'll compare the products:
+
+### Computer Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{ P(E)}  = \frac{0.2 \cdot 0.1}{P(E)} = 0.02 / P(E) \]
+
+### Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{ P(E)}  = \frac{0.7 \cdot 0.05}{P(E)} = 0.035 / P(E) \]
+
+Given that \( P(E) \) is a normalization factor common across both hypotheses, we just need to weigh the relative likelihoods:
+
+\[ P(H|E) \text{ (computer science)} = \frac{0.02}{0.02 + 0.035} \approx 0.36 \]
+
+\[ P(H|E) \text{ (agricultural and veterinary science)} = \frac{0.035}{0.02 + 0.035} \approx 0.64 \]
+
+Based on these calculations, we have:
+
+```json
+{
+  "computer science": 0.36,
+  "agricultural and veterinary science": 0.64
+}
+```

@@ -1,0 +1,68 @@
+To compute \( P(H|E) \) using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We judge the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field given the provided personality sketch of Adam.
+
+### Agricultural and Veterinary Science
+
+1. **P(H)**: This is the prior probability that Adam, as a graduate student, is enrolled in agricultural and veterinary science. Let's assume this is moderately likely given his interests in nature and animals.
+
+   \( P(H_{\text{agriculture}}) \approx 0.2 \)
+
+2. **P(E|H)**: This is the probability that the personality sketch E would be observed given that Adam is in agricultural and veterinary science. This aligns well with his characteristics (interest in nature and animals, empathy).
+
+   \( P(E|H_{\text{agriculture}}) \approx 0.8 \)
+
+3. **P(E|\neg H)**: This is the probability that the personality sketch E would be observed given that Adam is not in agricultural and veterinary science. Although such traits can be found in other fields, they are less directly aligned compared to agricultural and veterinary science.
+
+   \( P(E|\neg H_{\text{agriculture}}) \approx 0.2 \)
+
+### Business Administration
+
+1. **P(H)**: This is the prior probability that Adam, as a graduate student, is enrolled in business administration. Given his characteristics, it's less likely but not impossible.
+
+   \( P(H_{\text{business}}) \approx 0.1 \)
+
+2. **P(E|H)**: This is the probability that the personality sketch E would be observed given that Adam is in business administration. The traits listed don't strongly align with typical business administration traits.
+
+   \( P(E|H_{\text{business}}) \approx 0.2 \)
+
+3. **P(E|\neg H)**: This is the probability that the personality sketch E would be observed given that Adam is not in business administration. Considering E fits much better with another field (like agriculture), this is higher.
+
+   \( P(E|\neg H_{\text{business}}) \approx 0.6 \) 
+
+To proceed, we can approximate \( P(E) \). Since \( P(E) \) can be expressed as:
+
+\[ P(E) = P(E|H_{\text{agriculture}}) \cdot P(H_{\text{agriculture}}) + P(E|H_{\text{business}}) \cdot P(H_{\text{business}}) + P(E|\neg H) \cdot P(\neg H) \]
+
+We need to consider \( P(\neg H) = 1 - P(H) \), but the exact value depends on the other possible fields Adam could be in.
+
+However, for simplicity, let's assume a simpler model where \( P(\neg H) \) is roughly balanced between these and other fields, thus the total probability \( P(E) \) is dominated primarily by these two hypotheses for illustrative purposes.
+
+Substituting reasonable assumptions:
+
+\[ P(E) \approx 0.8 \cdot 0.2 + 0.2 \cdot 0.1 + 0.2 \cdot 0.7 \]
+
+Computing \( P(E) \):
+
+\[ P(E) \approx 0.16 + 0.02 + 0.14 = 0.32 \]
+
+Now we can compute \( P(H|E) \) for each field.
+
+For agricultural and veterinary science:
+
+\[ P(H_{\text{agriculture}}|E) = \frac{0.8 \cdot 0.2}{0.32} \approx 0.5 \]
+
+For business administration:
+
+\[ P(H_{\text{business}}|E) = \frac{0.2 \cdot 0.1}{0.32} \approx 0.0625 \]
+
+So the results are:
+
+```json
+{
+  "agricultural and veterinary science": 0.5,
+  "business administration": 0.0625
+}
+```

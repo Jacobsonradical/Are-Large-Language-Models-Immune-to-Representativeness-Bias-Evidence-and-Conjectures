@@ -1,0 +1,57 @@
+To estimate the probabilities, we'll need to consider several factors:
+
+1. P(H): The prior probability that Adam was enrolled in each field.
+2. P(E|H): The likelihood of observing Adam’s personality traits given each specific field.
+3. P(E|¬H): The likelihood of observing Adam’s personality traits given that he is not in that specific field.
+
+Let's estimate these based on the information given:
+
+1. P(H):
+   - Prior probabilities can be based on general enrollment numbers in graduate fields. These values are heuristic and would ideally come from actual enrollment data.
+
+   - Agricultural and veterinary science: While important, these fields tend to have fewer students compared to more common fields. Let's assume P(H) ≈ 0.1.
+   - Computer science: A very popular field with high enrollment numbers. Assume P(H) ≈ 0.25.
+   - Business administration: Another very popular field with high enrollment. Assume P(H) ≈ 0.3.
+
+2. P(E|H):
+   - Agricultural and veterinary science: Adam’s traits of a love for nature, animals, and empathy fit very well. P(E|H) ≈ 0.7.
+   - Computer science: High intelligence and problem-solving fit well, but not necessarily the love for nature and animals. P(E|H) ≈ 0.4.
+   - Business administration: Traits don’t strongly align, especially love for nature and animals. P(E|H) ≈ 0.2.
+
+3. P(E|¬H):
+   For these fields, we calculate the aggregated likelihood of these personality traits occurring in fields other than the one specified. Since Adam's traits are somewhat unique, we'll assume:
+   - P(E|¬H) for agricultural and veterinary science ≈ 0.4
+   - P(E|¬H) for computer science ≈ 0.5
+   - P(E|¬H) for business administration ≈ 0.6
+
+Now, applying Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Where \( P(E) = P(E|H)P(H) + P(E|¬H)P(¬H) \)
+
+### Calculations:
+1. **Agricultural and veterinary science**:
+   \[
+   P(H|E) = \frac{0.7 \times 0.1}{0.7 \times 0.1 + 0.4 \times 0.9} = \frac{0.07}{0.07 + 0.36} = \frac{0.07}{0.43} \approx 0.163
+   \]
+
+2. **Computer science**:
+   \[
+   P(H|E) = \frac{0.4 \times 0.25}{0.4 \times 0.25 + 0.5 \times 0.75} = \frac{0.1}{0.1 + 0.375} = \frac{0.1}{0.475} \approx 0.211
+   \]
+
+3. **Business administration**:
+   \[
+   P(H|E) = \frac{0.2 \times 0.3}{0.2 \times 0.3 + 0.6 \times 0.7} = \frac{0.06}{0.06 + 0.42} = \frac{0.06}{0.48} \approx 0.125
+   \]
+
+Summarizing these probabilities gives us:
+
+```json
+{
+  "agricultural and veterinary science": 0.163,
+  "computer science": 0.211,
+  "business administration": 0.125
+}
+```
+These values suggest that, based on Adam's personality traits, he is most likely to be enrolled in computer science among the three given fields, though agricultural and veterinary science is also a plausible field considering his interests and traits.

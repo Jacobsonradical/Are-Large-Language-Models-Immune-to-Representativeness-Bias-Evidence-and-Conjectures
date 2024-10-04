@@ -1,0 +1,65 @@
+To solve this problem using Bayes' theorem, we need to calculate the posterior probability \( P(H|E) \) for each hypothesis, given the personality sketch \( E \). The formula for Bayes' theorem is:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of observing the evidence given the hypothesis.
+- \( P(E) \) is the overall probability of observing the evidence.
+- \( P(E|\neg H) \) is the likelihood of observing the evidence given the hypothesis is false.
+
+We don't have precise numerical values for \( P(E) \), but we can make a qualitative assessment based on the personality sketch.
+
+Let's denote:
+- \( H_{\text{agricultural}} \) to be the hypothesis that Adam was enrolled in agricultural and veterinary science.
+- \( H_{\text{computer}} \) to be the hypothesis that Adam was enrolled in computer science.
+
+### Agricultural and Veterinary Science
+1. **P(H)**: The prior probability that a random graduate student is enrolled in agricultural and veterinary science isn't particularly high, as fewer students choose this field compared to some others. Let's assume \( P(H_{\text{agricultural}}) = 0.05 \).
+
+2. **P(E|H)**: Given the information that Adam has a deep love for animals, a genuine curiosity about nature, and a strong appreciation for hard work, the probability of observing this evidence if he's in agricultural and veterinary science is relatively high. Let's assume \( P(E|H_{\text{agricultural}}) = 0.9 \).
+
+3. **P(E|\neg H)**: The probability of observing this evidence given he's not in agricultural and veterinary science could still be reasonably high since students in other fields may also exhibit these traits, although likely less frequently. Let's assume \( P(E|\neg H_{\text{agricultural}}) = 0.4 \).
+
+### Computer Science
+1. **P(H)**: The prior probability that a random graduate student is enrolled in computer science is higher since this is a popular field. Let's assume \( P(H_{\text{computer}}) = 0.2 \).
+
+2. **P(E|H)**: Given Adam's enjoyment in solving puzzles and his high intelligence in understanding abstract concepts, the probability of observing this evidence if he's in computer science could be high. Let's assume \( P(E|H_{\text{computer}}) = 0.7 \).
+
+3. **P(E|\neg H)**: The probability of observing this evidence given he's not in computer science could also be high since students in other fields may also enjoy solving puzzles and understanding abstract concepts. Let's assume \( P(E|\neg H_{\text{computer}}) = 0.5 \).
+
+### Calculating P(E)
+
+We can estimate \( P(E) \) as a weighted average of \( P(E|H) \) and \( P(E|\neg H) \), though accurate values would require more detailed information:
+\[
+P(E) \approx \sum_i P(E|H_i)P(H_i) + P(E|\neg H_i)(1-P(H_i))
+\]
+
+Since we are evaluating in relative terms, we can ignore \( P(E) \) as a normalization constant and work directly with the likelihoods and priors.
+
+### Calculating P(H|E)
+
+1. **Agricultural and Veterinary Science**:
+\[
+P(H_{\text{agricultural}}|E) = \frac{P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}})}{P(E)} = \frac{0.9 \cdot 0.05}{P(E)} = 0.045/P(E)
+\]
+
+2. **Computer Science**:
+\[
+P(H_{\text{computer}}|E) = \frac{P(E|H_{\text{computer}}) \cdot P(H_{\text{computer}})}{P(E)} = \frac{0.7 \cdot 0.2}{P(E)} = 0.14/P(E)
+\]
+
+Since \( P(E) \) is the same for both calculations, for comparative purposes we can omit it and directly compare \( 0.045 \) with \( 0.14 \).
+
+### Result
+
+Given the higher value for computer science, it appears more likely given the personality sketch.
+
+```json
+{
+  "agricultural and veterinary science": 0.045,
+  "computer science": 0.14
+}
+```

@@ -1,0 +1,66 @@
+To apply Bayes' rule, we need to start by estimating the various probabilities for each field (H). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the specific field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam is enrolled in that field.
+- \( P(E|\neg H) \) is the probability of observing the personality sketch given that Adam is not enrolled in that field.
+- \( P(E) \) is the overall probability of observing the personality sketch, which can be computed using the law of total probability.
+
+Since we are dealing with three fields, we'll need to collectively estimate:
+
+### Business Administration (H1)
+- \( P(H1) \): The prior probability that Adam was enrolled in Business Administration.
+  - Business Administration programs are common but considering Adam's interest in nature, animals, and empathy, a low prior seems appropriate.
+  - Let's assume \( P(H1) = 0.1 \).
+
+- \( P(E|H1) \): The likelihood of observing Adam's personality sketch given Business Administration.
+  - Business Administration might not heavily align with Adam's traits.
+  - Let's estimate \( P(E|H1) = 0.2 \).
+
+### Agricultural and Veterinary Science (H2)
+- \( P(H2) \): The prior probability that Adam was enrolled in Agricultural and Veterinary Science.
+  - Given Adam's deep love for nature and animals, this field seems highly plausible.
+  - Let's assume \( P(H2) = 0.4 \).
+
+- \( P(E|H2) \): The likelihood of observing Adam's personality sketch given Agricultural and Veterinary Science.
+  - The traits align very well with this field.
+  - Let's estimate \( P(E|H2) = 0.8 \).
+
+### Computer Science (H3)
+- \( P(H3) \): The prior probability that Adam was enrolled in Computer Science.
+  - Computer Science is a common graduate field, however, it does not align closely with Adam’s deep love for nature and animals, though his intelligence and puzzle-solving abilities do fit.
+  - Let’s assume \( P(H3) = 0.3 \).
+
+- \( P(E|H3) \): The likelihood of observing Adam's personality sketch given Computer Science.
+  - While problem solving aligns, nature and animals do not as much.
+  - Let’s estimate \( P(E|H3) = 0.4 \).
+
+### Compute \( P(E) \)
+Using the law of total probability,
+\[ P(E) = P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) + P(E|H3) \cdot P(H3) + P(E|\neg(H1, H2, H3)) \cdot P(\neg(H1, H2, H3)) \]
+
+If we assume the remaining fields contribute minimal probability compared to the three considered,
+\[ P(E) \approx P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) + P(E|H3) \cdot P(H3) \]
+\[ P(E) \approx 0.2 \cdot 0.1 + 0.8 \cdot 0.4 + 0.4 \cdot 0.3 = 0.02 + 0.32 + 0.12 = 0.46 \]
+
+### Compute \( P(H|E) \)
+Using Bayes' rule:
+
+- For Business Administration:
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} = \frac{0.2 \cdot 0.1}{0.46} \approx 0.0435 \]
+
+- For Agricultural and Veterinary Science:
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} = \frac{0.8 \cdot 0.4}{0.46} \approx 0.6957 \]
+
+- For Computer Science:
+\[ P(H3|E) = \frac{P(E|H3) \cdot P(H3)}{P(E)} = \frac{0.4 \cdot 0.3}{0.46} \approx 0.2609 \]
+
+Here’s the final formatting of the computed probabilities:
+
+{
+  "business administration": 0.0435,
+  "agricultural and veterinary science": 0.6957,
+  "computer science": 0.2609
+}

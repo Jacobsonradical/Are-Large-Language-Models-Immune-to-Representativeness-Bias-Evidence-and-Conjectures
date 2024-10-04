@@ -1,0 +1,49 @@
+Let's begin by assessing the relevant probabilities for each field:
+
+1. **Computer Science**
+   - \( P(H) \): This represents the overall prior probability that Adam was enrolled in a Computer Science graduate program. Let's assume it's a fairly common choice, say 0.2 (or 20%).
+   - \( P(E|H) \): This is the probability of observing Adam's personality sketch given that he is a computer science student. Considering Adam's high intelligence and good understanding of abstract concepts, combined with his interest in puzzles, it's quite reasonable. However, his strong empathy and love for nature are not typically aligned with the stereotype for this field. Therefore, let's rate this at 0.4 (or 40%).
+   - \( P(E|\neg H) \): This is the probability of observing Adam's personality sketch given that he is not a computer science student. Given the diverse range of other fields that could match this sketch, let's assume 0.5 (or 50%).
+
+2. **Business Administration**
+   - \( P(H) \): This represents the overall prior probability that Adam was enrolled in a Business Administration program. Let's assume this is also a reasonably common choice but slightly less so than Computer Science, say 0.15 (or 15%).
+   - \( P(E|H) \): This is the probability of observing Adam's personality sketch given that he is a business administration student. While empathy and understanding are valuable in business, the deep love for animals and nature might not be as strong a fit. Therefore, let's rate this at 0.3 (or 30%).
+   - \( P(E|\neg H) \): This is the probability of observing Adam's personality sketch given that he is not a business administration student. Given the diverse range of other fields that could match this sketch, let’s assume 0.5 (or 50%).
+
+We can now compute the posterior probabilities using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be broken down for multiple hypotheses:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity, we'll assume \( P(\neg H) = 1 - P(H) \) and consider the normalization factor implicit. We will be comparing the relative probabilities.
+
+### Calculations
+
+#### Computer Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+\[ P(H|E)_{CS} = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.5 \cdot (1 - 0.2)} \]
+\[ P(H|E)_{CS} = \frac{0.08}{0.08 + 0.4} \]
+\[ P(H|E)_{CS} = \frac{0.08}{0.48} \]
+\[ P(H|E)_{CS} = 0.17 \]
+
+#### Business Administration
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+\[ P(H|E)_{BA} = \frac{0.3 \cdot 0.15}{0.3 \cdot 0.15 + 0.5 \cdot (1 - 0.15)} \]
+\[ P(H|E)_{BA} = \frac{0.045}{0.045 + 0.425} \]
+\[ P(H|E)_{BA} = \frac{0.045}{0.47} \]
+\[ P(H|E)_{BA} = 0.096 \]
+
+### Final Results
+Here are the calculated posterior probabilities:
+
+```json
+{
+  "computer science": 0.17,
+  "business administration": 0.096
+}
+```
+
+These values suggest that, given the personality sketch, Adam is more likely to be enrolled in Computer Science rather than Business Administration.

@@ -1,0 +1,64 @@
+To solve this using Bayes' theorem, we need to use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+We will need estimates for:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in a certain field.
+2. \( P(E|H) \): The probability of observing the personality sketch given that Adam is enrolled in the field.
+3. \( P(E|\neg H) \): The probability of observing the personality sketch given that Adam is not enrolled in the field.
+
+For simplicity, I'll denote "agricultural and veterinary science" as AVS and "computer science" as CS.
+
+We will need to make some reasonable assumptions to estimate these probabilities.
+
+### Agricultural and Veterinary Science (AVS)
+
+1. **P(H_AVS)**:
+   - This is the probability that a random graduate student is studying AVS. Assuming that a moderate proportion of graduate students is in this field, \( P(H_AVS) \) might be around 0.05 (5%).
+
+2. **P(E|H_AVS)**:
+   - Given that Adam has a strong interest in nature, love for animals, and empathy, it's very likely he fits well in AVS. So, let's set \( P(E|H_AVS) \approx 0.8 \) or 80%.
+
+3. **P(E|\neg H_AVS)**:
+   - This is the probability of observing Adam’s characteristics if he was not in AVS. Since these traits can still be found in other fields, I'll estimate \( P(E|\neg H_AVS) \approx 0.2 \) or 20%.
+
+### Computer Science (CS)
+
+1. **P(H_CS)**:
+   - This is the probability that a random graduate student is studying CS. CS is a popular field with many graduate students, so \( P(H_CS) \) might be around 0.15 (15%).
+
+2. **P(E|H_CS)**:
+   - Given Adam’s intelligence and love for solving puzzles, these can be relevant to CS, but not as strong a match as AVS. So, let's set \( P(E|H_CS) \approx 0.4 \) or 40%.
+
+3. **P(E|\neg H_CS)**:
+   - This is the probability of Adam’s characteristics if he was not in CS. Since these traits are generalized and applicable across many fields, I'll estimate \( P(E|\neg H_CS) \approx 0.5 \) or 50%.
+
+Now, we need to calculate \( P(H|E) \).
+
+### Calculations
+
+1. **For AVS**:
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \times P(H_{AVS})}{P(E)} \]
+
+To normalize our probabilities, we will compute them relative to each field and then infer the posteriors qualitatively:
+
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \times P(H_{AVS}) \approx 0.8 \times 0.05 = 0.04 \]
+
+2. **For CS**:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \times P(H_{CS})}{P(E)} \]
+
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \times P(H_{CS}) \approx 0.4 \times 0.15 = 0.06 \]
+
+### Results
+
+After normalizing based on our assumptions, we can conclude the probabilities. For simplicity, the actual posterior values are represented as relative probabilities, but our results indicate that the graduate field of CS has a higher posterior probability than AVS given Adam’s personality traits.
+
+```json
+{
+  "agricultural and veterinary science": 0.04,
+  "computer science": 0.06
+}
+```
+
+This indicates that Adam is more likely to be enrolled in Computer Science than Agricultural and Veterinary Science based on his personality and provided assumptions.

@@ -1,0 +1,77 @@
+In order to compute the probabilities \(P(H|E)\) for each field using Bayes' rule, we follow the steps below:
+
+1. Define the prior probability \(P(H)\) for each hypothesis.
+2. Define the likelihood \(P(E|H)\) for each hypothesis.
+3. Define the likelihood \(P(E|\neg H)\) for each hypothesis.
+4. Apply Bayes' rule: \(P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\).
+
+Since we don’t have exact numbers, let's use rough estimates based on the provided personality sketch and typical enrollment statistics.
+
+### Hypothesis 1: Business Administration
+
+1. **Prior Probability \(P(H)\)**:
+   - Business administration programs are quite popular, so let's assume there is a significant percentage of graduate students in this field.
+   - Estimate: \(P(H_{\text{BA}}) \approx 0.25\).
+
+2. **Likelihood \(P(E|H)\)**:
+   - The personality sketch doesn't strongly match typical traits associated with business administration students; however, it’s not impossible.
+   - Estimate: \(P(E|H_{\text{BA}}) \approx 0.05\).
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - Given that there are many other fields Adam could be in, we’ll balance the probabilities that E could be found in these other fields.
+   - Estimate: \(P(E|\neg H_{\text{BA}}) \approx 0.95\).
+
+### Hypothesis 2: Agricultural and Veterinary Science
+
+1. **Prior Probability \(P(H)\)**:
+   - Agricultural and veterinary science is less common than business administration but is closely aligned with the personality sketch.
+   - Estimate: \(P(H_{\text{AVS}}) \approx 0.1\).
+
+2. **Likelihood \(P(E|H)\)**:
+   - Adam's personality fits very well with agricultural and veterinary science due to his interest in nature, plants, animals, and dedication.
+   - Estimate: \(P(E|H_{\text{AVS}}) \approx 0.9\).
+
+3. **Likelihood \(P(E|\neg H)\)**:
+   - Considering that this personality sketch is less common in other fields, particularly non-science fields.
+   - Estimate: \(P(E|\neg H_{\text{AVS}}) \approx 0.4\).
+
+Now we compute \(P(H|E)\) for each hypothesis using Bayes' rule:
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}.
+\]
+
+Since \(P(E)\) (total probability of E) is typically hard to compute without additional information, in comparative scenarios, we can compare the numerators directly as they are proportional to the desired posterior probabilities \(P(H|E)\).
+
+### Business Administration
+
+\[ 
+P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.05 \times 0.25 = 0.0125.
+\]
+
+### Agricultural and Veterinary Science
+
+\[ 
+P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 0.9 \times 0.1 = 0.09.
+\]
+
+Comparing these proportions directly,
+
+{
+  "business administration": 0.0125 / (0.0125 + 0.09),
+  "agricultural and veterinary science": 0.09 / (0.0125 + 0.09)
+}
+
+Simplifying these,
+
+{
+  "business administration": 0.0125 / 0.1025 ≈ 0.122,
+  "agricultural and veterinary science": 0.09 / 0.1025 ≈ 0.878
+}
+
+So the final estimates are:
+
+{
+  "business administration": 0.122,
+  "agricultural and veterinary science": 0.878
+}

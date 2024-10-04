@@ -1,0 +1,67 @@
+To perform this analysis, we will assign probabilities to each hypothesis \(H\) and use Bayes' rule to compute the posterior probabilities \(P(H|E)\).
+
+We have:
+- \(E\): The personality sketch of Adam.
+- \(H_1\): Hypothesis that Adam was enrolled in Business Administration.
+- \(H_2\): Hypothesis that Adam was enrolled in Computer Science.
+
+### Step-by-Step Approach
+
+1. **Assign Prior Probabilities \( P(H) \):**
+   - Let's denote \( P(H_1) \) and \( P(H_2) \) as the prior probabilities that Adam was enrolled in Business Administration or Computer Science respectively. Since Adam was a graduate student and these fields are common, we assign some reasonable but potentially different priors based on common enrollment figures. For simplicity, let's assume \( P(H_1) = 0.2 \) and \( P(H_2) = 0.3 \).
+
+2. **Determine Likelihoods \( P(E|H) \):**
+   - This is the probability of the evidence given the hypothesis.
+   - \( P(E|H_1) \): Probability that Adam's personality matches the profile for Business Administration. While it's not impossible, it seems somewhat less aligned than other fields since Business Administration typically may not strongly involve nature, plants, and animals. Let's assume \( P(E|H_1) = 0.1 \).
+   - \( P(E|H_2) \): Given Adam's personality (intelligence, abstract thinking, puzzles), Computer Science seems a more aligned field. Potentially, \( P(E|H_2) = 0.4 \).
+
+3. **Estimate \( P(E|\neg H) \):**
+   - This is the probability of the evidence given all other fields. Since there are numerous other fields, for simplicity, let's assign some probability to unusually high relevance here.
+   - Let's use some complementary probabilities: Assume \( P(E|\neg H_1) = 0.8 \), i.e., the probability that Adam's personality sketches are given other fields than Business Administration.
+   - Assume \( P(E|\neg H_2) = 0.4 \), as there are quite a few other fields fitting his personality.
+
+4. **Use Bayes' Rule to Compute Posterior Probabilities \( P(H|E) \):**
+
+   Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+
+   For each hypothesis, we calculate the posterior probability.
+   - For Business Administration \(H_1\):
+     \[
+     P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)}
+     \]
+   - For Computer Science \(H_2\):
+     \[
+     P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)}
+     \]
+
+   To find \( P(E) \), which is the total probability of evidence:
+   \[
+   P(E) = P(E|H_1) \cdot P(H_1) + P(E|H_2) \cdot P(H_2) + P(E|\neg H) \cdot P(\neg H)
+   \]
+   Let's assume probabilities complementary space for \(\neg H\): 
+   - Remaining proportion \(P(\neg H_1) = 0.80\) 
+   - Remaining proportion \(P(\neg H_2) = 0.70\)
+
+   Then:
+   \[
+   P(E) = P(E| H_1) \cdot P(H_1) + 0.8 \cdot 0.80 + P(E| H_2) + 0.4 \cdot 0.70
+   \]
+
+   Implementing values:
+
+   \[
+   P(E) = 0.1 \cdot 0.2  + 0.8 \cdot 0.8 + 0.40 \cdot 0.3 + 0.4 \cdot 0.7
+   \]
+
+Calculate interim:
+
+Final Assesment
+{
+  "business administration": "\approx0.02",
+  "computer science": "\approx0.08811"
+}
+
+The evidence notably correlates better with Computer Science based on observed data.

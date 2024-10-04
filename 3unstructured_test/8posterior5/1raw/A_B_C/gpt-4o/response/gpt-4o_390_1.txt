@@ -1,0 +1,69 @@
+To compute the probability \( P(H|E) \) (the probability that Adam was enrolled in a specific field given the personality sketch E), we need to apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in a particular field,
+- \( P(E|H) \) is the probability of observing the personality sketch given that Adam is in that field,
+- \( P(E|\neg H) \) is the probability of observing the personality sketch given that Adam is not in that field.
+
+Since we need to find \( P(H|E) \) for multiple fields, we'll focus on the relative values rather than exact absolute probabilities, assuming that \( P(E) \) (the likelihood of the personality sketch overall) remains constant across our field samples for simplicity. 
+
+### Step-by-Step Breakdown
+
+1. **Business Administration**
+
+    - **\( P(H_{BA}) \)**: Let’s assume the prior probability that Adam is enrolled in business administration is moderate; this field is common, but the sketch doesn't particularly align. Say \( P(H_{BA}) = 0.2 \).
+    - **\( P(E|H_{BA}) \)**: The probability of observing the personality sketch given Adam is in business administration may be relatively low. Business administration may not deeply engage in nature and animals. Say \( P(E|H_{BA}) = 0.05 \).
+    - **\( P(E|\neg H_{BA}) \)**: The probability of observing the personality sketch given Adam is not in business administration. This field covers all other potential fields.
+    
+2. **Computer Science**
+
+    - **\( P(H_{CS}) \)**: Computer science is a common graduate field. Let’s assign a moderate prior probability. Say \( P(H_{CS}) = 0.3 \).
+    - **\( P(E|H_{CS}) \)**: Probability of observing E given H, here, might be moderate because while intelligence and puzzles align, nature and empathy might not be strong fits. Say \( P(E|H_{CS}) = 0.15 \).
+    
+3. **Agricultural and Veterinary Science**
+
+    - **\( P(H_{AVS}) \)**: Given Adam’s personality sketch aligns strongly with this field, let’s assign a high prior probability. Say \( P(H_{AVS}) = 0.1 \).
+    - **\( P(E|H_{AVS}) \)**: Strong probability since the sketch matches well with this field. Say \( P(E|H_{AVS}) = 0.7 \).
+
+### Calculations Using Bayes' Rule
+
+For simplicity, I will use the values computed above and normalize them relative to each other.
+
+#### Business Administration
+
+\[ P(H|E)_{BA} = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \approx \frac{0.05 \cdot 0.2}{P(E)} = 0.01 \]
+
+#### Computer Science
+
+\[ P(H|E)_{CS} = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \approx \frac{0.15 \cdot 0.3}{P(E)} = 0.045 \]
+
+#### Agricultural and Veterinary Science
+
+\[ P(H|E)_{AVS} = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \approx \frac{0.7 \cdot 0.1}{P(E)} = 0.07 \]
+
+### Final Normalized Probabilities
+Here, we'll ignore the denominator \( P(E) \) because it is constant across our calculations:
+
+\[
+\begin{aligned}
+&\text{Relative Probability for Business Administration:} \quad 0.01, \\
+&\text{Relative Probability for Computer Science:} \quad 0.045, \\
+&\text{Relative Probability for Agricultural and Veterinary Science:} \quad 0.07.
+\end{aligned}
+\]
+
+### Normalization
+
+We do not need exact total normalization here due to the values for P(E) being omitted as constants. So the estimates are:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.045,
+  "agricultural and veterinary science": 0.07
+}
+```
+
+Since these numbers are relative, we imply that given Adam's personality sketch, he is most likely studying Agricultural and Veterinary Science, followed by Computer Science, and least likely to be in Business Administration.

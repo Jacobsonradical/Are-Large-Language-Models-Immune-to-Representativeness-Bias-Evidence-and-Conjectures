@@ -1,0 +1,67 @@
+To estimate the posterior probability \( P(H|E) \) using Bayes' Rule, we'll use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( P(H) \): The prior probability of Adam enrolling in the field.
+- \( P(E|H) \): The likelihood of the personality sketch given Adam is enrolled in the field.
+- \( P(E|\neg H) \): The likelihood of the personality sketch given Adam is not enrolled in the field.
+
+Bayes' Rule simplifies to:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+We need to specify realistic estimations for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field: business administration, computer science, and agricultural and veterinary science.
+
+### Assumptions:
+1. Prior probabilities \( P(H) \) for each field are relatively equal due to lack of detailed demographic or enrollment data.
+2. Given Adam's personality sketch:
+   - \( P(E|H) \) is high for agricultural and veterinary science due to his interest and empathy towards nature and animals.
+   - \( P(E|H) \) is moderate for computer science due to his intelligence and enjoyment of solving puzzles.
+   - \( P(E|H) \) is low for business administration as his traits don't align as closely with traditional characteristics of business students.
+3. \( P(E|\neg H) \) is assumed to be lower as Adam's profile is somewhat specialized. 
+
+### Estimations:
+
+Let's assume:
+- For simplicity, we'll assume \( P(H) = 0.03 \) for each field equally, since detailed enrollment data isn't provided.
+- \( P(E|H) \) for each field:
+  - Business Administration: 0.1
+  - Computer Science: 0.4
+  - Agricultural and Veterinary Science: 0.9
+- \( P(E|\neg H) \) for all other unspecified fields: 0.05
+
+With these assumptions, we can calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Just approximating \( P(E) \) using the highest \( P(E|H) \) values:
+- \( P(E) = P(E|BA) \cdot P(BA) + P(E|CS) \cdot P(CS) + P(E|AV) \cdot P(AV) \)
+- Simplifying and assuming all "neg H" fields have about the same likelihood: 
+\[ P(E) \approx 0.03 \times 0.9 + 0.03 \times 0.4 + 0.03 \times 0.1 + 0.91 \times 0.05 \]
+
+Then:
+\[ P(E) \approx 0.027 + 0.012 + 0.003 + 0.0455 \]
+\[ P(E) \approx 0.0875 \]
+
+Finally, applying Bayes' Rule:
+
+For Business Administration:
+\[ P(BA|E) = \frac{0.1 \times 0.03}{0.0875} \approx 0.034 \]
+
+For Computer Science:
+\[ P(CS|E) = \frac{0.4 \times 0.03}{0.0875} \approx 0.137 \]
+
+For Agricultural and Veterinary Science:
+\[ P(AV|E) = \frac{0.9 \times 0.03}{0.0875} \approx 0.309 \]
+
+So, the estimated probabilities are:
+
+```json
+{
+  "business administration": 0.034,
+  "computer science": 0.137,
+  "agricultural and veterinary science": 0.309
+}
+```

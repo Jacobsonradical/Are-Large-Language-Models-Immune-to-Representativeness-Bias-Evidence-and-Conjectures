@@ -1,0 +1,76 @@
+First, let's establish our prior probabilities \( P(H) \) for each field. Without specific data, we might assume these are roughly equal, though it's common knowledge that business administration programs generally have higher enrollment, so we could assume a slightly higher prior for business administration.
+
+For the sake of estimation:
+- \( P(H_{\text{business administration}}) = 0.6 \)
+- \( P(H_{\text{agricultural and veterinary science}}) = 0.4 \)
+
+Next, let's assess \( P(E|H) \), the probability of observing Adam's characteristics given enrollment in each field.
+
+### Business Administration:
+- \( P(E|H_{\text{business administration}}) \)
+  - Genuine curiosity about nature and plants: low correlation
+  - Quiet and enjoys solving puzzles: reasonable correlation
+  - Warm heart, strong empathy, and love for animals: not typical
+  - High intelligence and understanding abstract concepts: generally applicable
+  - Strong understanding and appreciation for hard work: likely
+  
+  Overall, \( P(E|H_{\text{business administration}}) \) seems low.
+
+Let's assign \( P(E|H_{\text{business administration}}) = 0.1 \).
+
+### Agricultural and Veterinary Science:
+- \( P(E|H_{\text{agricultural and veterinary science}}) \)
+  - Genuine curiosity about nature and plants: very high correlation
+  - Quiet and enjoys solving puzzles: reasonable correlation
+  - Warm heart, strong empathy, and love for animals: very high correlation
+  - High intelligence and understanding abstract concepts: generally applicable
+  - Strong understanding and appreciation for hard work: very high correlation
+
+  Overall, \( P(E|H_{\text{agricultural and veterinary science}}) \) seems very high.
+
+Let's assign \( P(E|H_{\text{agricultural and veterinary science}}) = 0.9 \).
+
+### Negation Probabilities:
+We also need \( P(E|\neg H) \):
+
+- For Business Administration:
+  - \( P(E|\neg H_{\text{business administration}}) \): Since E fits well with agricultural or veterinary science, we assume it's reasonably higher than for business administration.
+
+  We might assign \( P(E|\neg H_{\text{business administration}}) = 0.5 \).
+
+- For Agricultural and Veterinary Science:
+  - \( P(E|\neg H_{\text{agricultural and veterinary science}}) \): Since E doesn't fit as well with fields outside agricultural/veterinary sciences, we'll assume it's lower.
+
+  We might assign \( P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.2 \).
+
+### Bayes Rule Application:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+Where \( P(E) \) can be calculated from:
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+#### For Business Administration:
+\[
+P(E) = 0.1 \cdot 0.6 + 0.5 \cdot 0.4 = 0.06 + 0.2 = 0.26
+\]
+\[
+P(H_{\text{business administration}}|E) = \frac{0.1 \cdot 0.6}{0.26} \approx 0.231
+\]
+
+#### For Agricultural and Veterinary Science:
+\[
+P(E) = 0.9 \cdot 0.4 + 0.2 \cdot 0.6 = 0.36 + 0.12 = 0.48
+\]
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.9 \cdot 0.4}{0.48} \approx 0.75
+\]
+
+So the probabilities are:
+
+{
+  "business administration": "0.231",
+  "agricultural and veterinary science": "0.75"
+}

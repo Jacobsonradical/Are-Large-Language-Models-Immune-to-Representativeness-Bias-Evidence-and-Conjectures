@@ -1,0 +1,54 @@
+Certainly! To use Bayes Rule to compute \( P(H|E) \), we need the following probabilities:
+
+1. **Prior Probability \( P(H) \)**: The likelihood of Adam being enrolled in the respective field without considering the personality sketch.
+2. **Likelihood \( P(E|H) \)**: The probability of the personality description \( E \) given that Adam is enrolled in the respective field.
+3. **Complement Likelihood \( P(E|\neg H) \)**: The probability of the personality description \( E \) given that Adam is not enrolled in the respective field.
+
+Lastly, we can compute \( P(H|E) \), the posterior probability, using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is constant for both fields and thus it will cancel out for our comparison, we can focus on:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### 1. Agricultural and Veterinary Science
+
+- **Prior \( P(H_{\text{AgVet}}) \)**: Moderate given Adam's love for nature, plants, and animals.
+- **Likelihood \( P(E|H_{\text{AgVet}}) \)**: High because his traits match well with those needed in this field.
+- **Complement Likelihood \( P(E|\neg H_{\text{AgVet}}) \)**: Lower, as fewer fields would strongly align with his described traits.
+
+Let's estimate:
+- \( P(H_{\text{AgVet}}) = 0.2 \)
+- \( P(E|H_{\text{AgVet}}) = 0.9 \)
+- \( P(E|\neg H_{\text{AgVet}}) = 0.3 \)
+
+Thus, \( P(H_{\text{AgVet}}|E) \propto 0.9 \times 0.2 = 0.18 \).
+
+### 2. Business Administration
+
+- **Prior \( P(H_{\text{BizAdmin}}) \)**: Lower given Adam's strong natural science inclination.
+- **Likelihood \( P(E|H_{\text{BizAdmin}}) \)**: Lower, as his traits don't closely match typical business administration profiles.
+- **Complement Likelihood \( P(E|\neg H_{\text{BizAdmin}}) \)**: Higher, as his traits fit non-business fields better.
+
+Let's estimate:
+- \( P(H_{\text{BizAdmin}}) = 0.1 \)
+- \( P(E|H_{\text{BizAdmin}}) = 0.3 \)
+- \( P(E|\neg H_{\text{BizAdmin}}) = 0.7 \)
+
+Thus, \( P(H_{\text{BizAdmin}}|E) \propto 0.3 \times 0.1 = 0.03 \).
+
+### Normalizing
+
+To determine the relative probabilities, we normalize the proportional probabilities:
+
+Sum = 0.18 + 0.03 = 0.21
+- \( P(H_{\text{AgVet}}|E) = \frac{0.18}{0.21} \approx 0.857 \)
+- \( P(H_{\text{BizAdmin}}|E) = \frac{0.03}{0.21} \approx 0.143 \)
+
+With these calculations, we get:
+
+```json
+{
+  "agricultural and veterinary science": 0.857,
+  "business administration": 0.143
+}
+```

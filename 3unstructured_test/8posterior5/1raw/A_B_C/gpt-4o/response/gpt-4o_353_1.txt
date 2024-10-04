@@ -1,0 +1,62 @@
+To apply Bayes' theorem, we need to determine the probabilities involved. Bayes' theorem is given by the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:  
+- \( P(H|E) \) is the probability that Adam was enrolled in the field \( H \) given his personality sketch \( E \).
+- \( P(E|H) \) is the probability of observing the personality sketch \( E \) given that Adam was enrolled in field \( H \).
+- \( P(H) \) is the prior probability that Adam was enrolled in field \( H \).
+- \( P(E) \) is the overall probability of observing the personality sketch \( E \).
+
+### Estimates:
+
+1. **Business Administration (BA)**:
+   - **P(HBA)**: Prior probability someone is enrolled in business administration. Let's assume the prior probability for BA is moderate, around 0.2.
+   - **P(E|HBA)**: Probability of observing the personality sketch \( E \) if Adam was in business administration (considering his traits). Given his empathy and appreciation for hard work, it's possible but not as aligned with a business persona. I'll assume it's relatively low, around 0.1.
+   - **P(E|\neg HBA)**: Probability of observing \( E \) if Adam was not in business administration. This number would be higher because many other fields might be consistent with his qualities. Let's assume it's 0.5.
+
+2. **Computer Science (CS)**:
+   - **P(HCS)**: Prior probability someone is enrolled in computer science. Given the popularity of CS, let's assume this is around 0.25.
+   - **P(E|HCS)**: Probability of observing the personality sketch \( E \) if Adam was in computer science. His intelligence and puzzle-solving skills fit well, but other traits (empathy, love for animals) are less typical. I'll estimate this at 0.2.
+   - **P(E|\neg HCS)**: Similar to above, many non-CS students might exhibit those traits, so let's assume 0.4.
+
+3. **Agricultural and Veterinary Science (AVS)**:
+   - **P(HAVS)**: Prior probability someone is enrolled in agricultural and veterinary science. This is a more specialized field, so I'll set this lower, around 0.1.
+   - **P(E|HAVS)**: Probability of observing the personality sketch \( E \) if Adam was in AVS. This fits very well, given his love for nature, animals, and empathy traits. I'll set this high, at 0.8.
+   - **P(E|\neg HAVS)**: Since these traits are less common in other fields, I'll estimate this at 0.3.
+
+### Application of Bayes' Theorem:
+
+Since \( P(E) \) is the same across fields, it can be viewed as a normalizing constant and does not need explicit computation for comparison purposes:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's calculate \( P(H|E) \) for each field:
+
+1. **Business Administration**:
+   \[
+   P(HBA|E) \propto P(E|HBA) \cdot P(HBA) = 0.1 \cdot 0.2 = 0.02
+   \]
+
+2. **Computer Science**:
+   \[
+   P(HCS|E) \propto P(E|HCS) \cdot P(HCS) = 0.2 \cdot 0.25 = 0.05
+   \]
+
+3. **Agricultural and Veterinary Science**:
+   \[
+   P(HAVS|E) \propto P(E|HAVS) \cdot P(HAVS) = 0.8 \cdot 0.1 = 0.08
+   \]
+
+### Result: 
+
+After normalizing, we see that Agricultural and Veterinary Science is the most probable field given Adam's personality sketch.
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.05,
+  "agricultural and veterinary science": 0.08
+}
+```
+Note: The actual \( P(H|E) \) values would require normalizing these proportions by their sum, but the relative comparison indicates Agricultural and Veterinary Science is most likely.

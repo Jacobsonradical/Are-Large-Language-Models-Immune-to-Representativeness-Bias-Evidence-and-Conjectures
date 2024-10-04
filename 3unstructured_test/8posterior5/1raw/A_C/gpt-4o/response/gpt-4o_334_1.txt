@@ -1,0 +1,51 @@
+To estimate the probabilities, we'll need to make some educated guesses based on Adam's personality sketch and the fields in question. Let's break it down.
+
+1. **Computer Science (CS)**
+   - **P(H_cs):** The prior probability that Adam is in computer science, considering general trends in graduate students choosing this field. Let's assume P(H_cs) = 0.2 (20%).
+   
+   - **P(E|H_cs):** The probability of experiencing Adam's personality sketch given that he is in computer science. Given Adam's high intelligence and capability of understanding abstract concepts, his problem-solving skills fit well, though the connection to nature and animals might be less common. Let's assume P(E|H_cs) = 0.5 (50%).
+   
+   - **P(E|¬H_cs):** The probability of Adam's personality sketch given that he is not in computer science. Considering there are many fields that could fit Adam's interests even better, we'll estimate a lower probability. Let's assume P(E|¬H_cs) = 0.3 (30%).
+
+2. **Agricultural and Veterinary Science (AVS)**
+   - **P(H_avs):** The prior probability that Adam is in agricultural and veterinary science, given trends in graduate enrollment in this field. Let's assume P(H_avs) = 0.1 (10%).
+   
+   - **P(E|H_avs):** The probability of Adam having this personality sketch given that he is in agricultural and veterinary science. His love for nature, plants, and animals strongly aligns with this field. Let's estimate P(E|H_avs) = 0.8 (80%).
+   
+   - **P(E|¬H_avs):** The probability of Adam's personality sketch given that he is not in agricultural and veterinary science. Given his interests, it might still be relatively high but not as high as P(E|H_avs). Let's assume P(E|¬H_avs) = 0.4 (40%).
+
+Now let's apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+### For Computer Science (CS)
+
+\[ P(E) \text{ for CS} = P(E|H_cs)P(H_cs) + P(E|¬H_cs)P(¬H_cs) \]
+\[ P(E) \text{ for CS} = (0.5 \times 0.2) + (0.3 \times 0.8) \]
+\[ P(E) \text{ for CS} = 0.1 + 0.24 = 0.34 \]
+
+\[ P(H_cs|E) = \frac{P(E|H_cs) \cdot P(H_cs)}{P(E)} \]
+\[ P(H_cs|E) = \frac{0.5 \times 0.2}{0.34} \]
+\[ P(H_cs|E) = \frac{0.1}{0.34} \approx 0.294 \]
+
+### For Agricultural and Veterinary Science (AVS)
+
+\[ P(E) \text{ for AVS} = P(E|H_avs)P(H_avs) + P(E|¬H_avs)P(¬H_avs) \]
+\[ P(E) \text{ for AVS} = (0.8 \times 0.1) + (0.4 \times 0.9) \]
+\[ P(E) \text{ for AVS} = 0.08 + 0.36 = 0.44 \]
+
+\[ P(H_avs|E) = \frac{P(E|H_avs) \cdot P(H_avs)}{P(E)} \]
+\[ P(H_avs|E) = \frac{0.8 \times 0.1}{0.44} \]
+\[ P(H_avs|E) = \frac{0.08}{0.44} \approx 0.182 \]
+
+Putting it all together:
+
+```json
+{
+  "computer science": 0.294,
+  "agricultural and veterinary science": 0.182
+}
+```
+
+These values are based on the assumptions made about the probabilities. Real values would depend on actual data.

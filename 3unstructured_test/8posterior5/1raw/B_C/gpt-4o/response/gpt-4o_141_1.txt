@@ -1,0 +1,53 @@
+To apply Bayes' Rule to estimate \( P(H|E) \), we need to have values or reasonable estimates of:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a given graduate field.
+2. \( P(E|H) \): The likelihood of the personality sketch \( E \) given that Adam was enrolled in a specific field.
+3. \( P(E|\neg H) \): The likelihood of the personality sketch \( E \) given that Adam was not enrolled in the specific field.
+4. \( P(E) \): The overall probability of the personality sketch \( E \).
+
+Bayes' Rule is stated as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) \) is constant across both fields for comparison purposes, we can focus on the numerator \( P(E|H) \cdot P(H) \). We only need relative proportions, so we don't need the exact value of \( P(E) \).
+
+Let's break down estimates for each field based on the given personality sketch:
+
+### Computer Science
+
+1. **\( P(H_{cs}) \)**: Given the number of students enrolled in computer science programs, a rough estimation might be around \( 0.15 \) (15%).
+2. **\( P(E|H_{cs}) \)**: Given Adam's love for puzzles, high intelligence, and ability to understand abstract concepts, computer science seems fairly fitting. We will assign a likelihood of \( 0.3 \) (30%).
+3. **\( P(E|\neg H_{cs}) \)**: This is more complicated but assuming that other fields are not drastically different in contrasting Adam's traits, we might estimate this as \( 0.2 \) (20%).
+
+### Business Administration
+
+1. **\( P(H_{ba}) \)**: Similarly, given the popularity of business administration, a rough estimation might be around \( 0.15 \) (15%).
+2. **\( P(E|H_{ba}) \)**: Adam's traits match less well with a business administration profile, which often prefers outgoing and high-energy personalities with strong social skills, so let's assign a likelihood of \( 0.1 \) (10%).
+3. **\( P(E|\neg H_{ba}) \)**: Using the same logic as before, we might estimate this as \( 0.2 \) (20%).
+
+Now let’s compute the posterior probabilities:
+
+#### For Computer Science:
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+\[ P(H_{cs}|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) \]
+\[ P(H_{cs}|E) \propto 0.3 \cdot 0.15 \]
+\[ P(H_{cs}|E) \propto 0.045 \]
+
+#### For Business Administration:
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+\[ P(H_{ba}|E) \propto P(E|H_{ba}) \cdot P(H_{ba}) \]
+\[ P(H_{ba}|E) \propto 0.1 \cdot 0.15 \]
+\[ P(H_{ba}|E) \propto 0.015 \]
+
+Normalizing:
+\[ P(H_{cs}|E) + P(H_{ba}|E) = 0.045 + 0.015 = 0.06 \]
+
+So:
+\[ P(H_{cs}|E) = \frac{0.045}{0.06} = 0.75 \]
+\[ P(H_{ba}|E) = \frac{0.015}{0.06} = 0.25 \]
+
+Using these proportions, the final values are:
+
+{
+  "computer science": 0.75,
+  "business administration": 0.25
+}

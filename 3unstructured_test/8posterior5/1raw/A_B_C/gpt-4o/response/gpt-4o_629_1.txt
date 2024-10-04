@@ -1,0 +1,75 @@
+To determine the probabilities that Adam was enrolled in business administration, computer science, or agricultural and veterinary science given the personality sketch, we can use Bayes' Theorem in the following way:
+
+Bayes' Theorem states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a particular field given the personality sketch (E).
+- \( P(E|H) \) is the probability of the personality sketch given that Adam was enrolled in a particular field.
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E) \) is the overall probability of the personality sketch.
+
+Given the personality sketch, let's denote the probabilities as follows:
+
+- \( P(H)\) represents the prior probability for each field based on popularity and general enrollment statistics.
+- \( P(E|H) \) is the likelihood of a person in that field having the personality characteristics described.
+- \( P(E|\neg H) \) represents the likelihood of a person not in that field having the personality characteristics described.
+
+For simplicity, we will assume that the base rates (priors) \( P(H) \) for each field are roughly equivalent (around 0.33, given there are three fields). However, these can be adjusted if there are known enrollment statistics.
+
+Let’s assess the remaining probabilities based on the given traits:
+
+1. **Business Administration**:
+   - Typical traits for business administration do not prominently include a deep love for nature, animals, and quiet curiosity, etc.
+   - \( P(E|H_{\text{BA}}) \): Low.
+   - \( P(E|\neg H_{\text{BA}}) \): Moderate.
+   
+   Therefore:
+   - \( P(E|H_{\text{BA}}) \approx 0.1 \)
+   - \( P(E|\neg H_{\text{BA}}) \approx 0.5 \)
+
+2. **Computer Science**:
+   - Problem-solving and high intelligence align with computer science, but deep love for nature, animals, and empathy are less typical.
+  - \( P(E|H_{\text{CS}}) \): Moderate.
+  - \( P(E|\neg H_{\text{CS}}) \): Moderate.
+
+  Therefore:
+   - \( P(E|H_{\text{CS}}) \approx 0.4 \)
+   - \( P(E|\neg H_{\text{CS}}) \approx 0.4 \)
+
+3. **Agricultural and Veterinary Science**:
+   - Traits such as love for nature, plants, animals, and strong empathy align very well.
+   - \( P(E|H_{\text{AVS}}) \): High.
+   - \( P(E|\neg H_{\text{AVS}}) \): Low.
+
+   Therefore:
+   - \( P(E|H_{\text{AVS}}) \approx 0.9 \)
+   - \( P(E|\neg H_{\text{AVS}}) \approx 0.2 \)
+
+Given that \( P(H) \approx 0.33 \) for each field, we can now calculate \( P(H|E) \):
+
+For **Business Administration**:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \approx \frac{0.1 \cdot 0.33}{P(E)} \]
+
+For **Computer Science**:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \approx \frac{0.4 \cdot 0.33}{P(E)} \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \approx \frac{0.9 \cdot 0.33}{P(E)} \]
+
+Since \( P(E) \) is a common denominator, we can focus on the numerators to compare:
+
+{
+  "business administration": \(\approx \frac{0.1 \cdot 0.33}{0.1 \cdot 0.33 + 0.4 \cdot 0.33 + 0.9 \cdot 0.33} \approx \frac{0.033}{0.49} \approx 0.067\),
+  "computer science": \(\approx \frac{0.4 \cdot 0.33}{0.49} \approx \frac{0.132}{0.49} \approx 0.27\),
+  "agricultural and veterinary science": \(\approx \frac{0.9 \cdot 0.33}{0.49} \approx \frac{0.297}{0.49} \approx 0.606\)
+}
+
+Therefore, the computed conditional probabilities are as follows:
+
+{
+  "business administration": 0.067,
+  "computer science": 0.27,
+  "agricultural and veterinary science": 0.606
+}

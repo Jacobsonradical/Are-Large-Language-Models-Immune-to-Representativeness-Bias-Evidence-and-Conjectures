@@ -1,0 +1,80 @@
+To compute the posterior probabilities \( P(H|E) \) for each hypothesis \( H \) (the field of study) given the evidence \( E \) (the personality sketch of Adam), we need to use Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where \( P(E) \) can be computed using the law of total probability:
+
+\[
+P(E) = P(E|H_{1}) \cdot P(H_{1}) + P(E|H_{2}) \cdot P(H_{2}) + P(E|H_{3}) \cdot P(H_{3}) + \ldots
+\]
+
+For each hypothesis, let's denote:
+- \( P(H) \) as the prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \) as the likelihood of observing Adam's personality traits given that he is enrolled in that particular field.
+- \( P(E|\neg H) \) as the likelihood of observing Adam's traits given that he is not enrolled in that field.
+
+While exact probabilities can be subjective without specific data, we can make informed estimates based on the personality sketch provided. Let's make the following educated guesses:
+
+### Priors: \( P(H) \)
+- The priors for each field could be based on the general distribution of graduate students in those fields.
+  - Business Administration might have a higher prior due to popularity.
+  - Agricultural and Veterinary Science might have a lower prior due to specialization.
+  - Computer Science might have a moderately high prior due to demand in the tech industry.
+
+Assumed Priors:
+- \( P(\text{business administration}) = 0.2 \)
+- \( P(\text{agricultural and veterinary science}) = 0.15 \)
+- \( P(\text{computer science}) = 0.2 \)
+
+### Likelihoods: \( P(E|H) \)
+- Given Adam's characteristics:
+  - For Business Administration:
+    - Traits fit moderately well but not exceptionally. Puzzles and abstract concepts are not as aligned.
+  - For Agricultural and Veterinary Science:
+    - Traits fit very well (nature, empathy, animals).
+  - For Computer Science:
+    - Traits fit reasonably well (puzzles, abstract concepts).
+
+Assumed Likelihoods:
+- \( P(E|\text{business administration}) = 0.2 \)
+- \( P(E|\text{agricultural and veterinary science}) = 0.5 \)
+- \( P(E|\text{computer science}) = 0.4 \)
+
+### Evidence: \( P(E) \)
+- Let's compute \( P(E) \):
+\[
+P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\text{computer science}) \cdot P(\text{computer science})
+\]
+\[
+P(E) = 0.2 \cdot 0.2 + 0.5 \cdot 0.15 + 0.4 \cdot 0.2 = 0.04 + 0.075 + 0.08 = 0.195
+\]
+
+### Posterior: \( P(H|E) \)
+Let's compute each posterior accordingly.
+
+#### Business Administration:
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.2 \cdot 0.2}{0.195} \approx 0.205
+\]
+
+#### Agricultural and Veterinary Science:
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} = \frac{0.5 \cdot 0.15}{0.195} \approx 0.385
+\]
+
+#### Computer Science:
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.4 \cdot 0.2}{0.195} \approx 0.410
+\]
+
+Given these calculations, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.205,
+  "agricultural and veterinary science": 0.385,
+  "computer science": 0.410
+}
+```

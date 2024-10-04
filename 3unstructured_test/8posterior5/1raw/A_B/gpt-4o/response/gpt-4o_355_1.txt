@@ -1,0 +1,61 @@
+To compute the posterior probabilities \( P(H|E) \) (i.e., the probability that Adam was enrolled in a given field given his personality sketch) using Bayes' Rule, we need to consider the following probabilities for each field \( H \):
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam was not enrolled in that field.
+
+We can use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are comparing two probabilities, we can omit \( P(E) \) because it's a normalizing constant and we're only interested in relative comparisons.
+
+### Calculations
+
+#### Agricultural and Veterinary Science
+
+- \( P(H) \) (Prior for Agricultural and Veterinary Science): This is likely to be relatively low compared to the number of possible fields, but let's assume it's somewhat higher than average due to Adam's interests. I'll assign it a value of 0.1 for simplicity.
+  
+- \( P(E|H) \) (Probability of his traits if he’s in this field): Given Adam's love for nature, animals, and appreciation for hard work—the traits seem quite consistent with a background in agricultural and veterinary science. I'll assign it a high value, say 0.9.
+
+- \( P(E|\neg H) \) (Probability of his traits if he’s not in this field): This would account for how likely Adam's personality could be if he were in any other field. Given the specific nature of his traits, let’s assign it a lower value, say 0.2.
+
+#### Business Administration
+
+- \( P(H) \) (Prior for Business Administration): This field is quite common among graduate students, so let's set this value at 0.15.
+
+- \( P(E|H) \) (Probability of his traits if he’s in this field): Adam's traits do not strongly align with Business Administration, as it doesn’t inherently involve nature, animals, or the specific type of empathy noted. Let's assign it a low value, say 0.1.
+
+- \( P(E|\neg H) \) (Probability of his traits if he’s not in this field): Similar to the previous case, let's also use a wider estimate of 0.2.
+
+### Applying Bayes' Rule
+
+The posterior probability is given by:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+##### For Agricultural and Veterinary Science:
+
+\[ P(H|E) \propto 0.9 \times 0.1 = 0.09 \]
+
+##### For Business Administration:
+
+\[ P(H|E) \propto 0.1 \times 0.15 = 0.015 \]
+
+When normalizing (i.e., sum to 1) across these options:
+
+1. Total un-normalized: \( 0.09 + 0.015 = 0.105 \)
+
+2. Normalized:
+
+- Agricultural and Veterinary Science: \( \frac{0.09}{0.105} \approx 0.857 \)
+- Business Administration: \( \frac{0.015}{0.105} \approx 0.143 \)
+
+Here's the final values summarized:
+
+```json
+{
+  "agricultural and veterinary science": 0.857,
+  "business administration": 0.143
+}
+```

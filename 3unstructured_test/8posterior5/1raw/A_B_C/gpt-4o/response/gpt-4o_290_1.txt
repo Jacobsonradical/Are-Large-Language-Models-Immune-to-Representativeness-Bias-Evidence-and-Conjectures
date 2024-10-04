@@ -1,0 +1,64 @@
+To use Bayes' Rule to compute \( P(H|E) \), we need the following steps:
+
+1. \( P(H) \) - The prior probability that Adam was enrolled in a given field.
+2. \( P(E|H) \) - The probability of the evidence given that Adam was enrolled in that particular field.
+3. \( P(E|\neg H) \) - The probability of the evidence given that Adam was not enrolled in that particular field.
+4. \( P(E) \) - The total probability of the evidence, which can be computed using the law of total probability.
+
+Bayesian formula:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+For simplicity, we will assume \( P(E) \) is a normalizing constant and will focus on the relative values of \( P(E|H) \cdot P(H) \).
+
+### Assumptions:
+
+- Without specific enrollment data, assume uniform priors for all fields because there's no reason to inherently prefer one over the other based on the info we have. So, we assume \( P(H) \) is equal for all fields.
+- Let \( P(E|\neg H) \) for a specific field be an aggregated average of \( P(E|H) \) from other fields.
+
+### Compute the Values:
+
+1. **Computer Science**:
+    - **\( P(H) \approx \text{ uniform prior} \)**: We assume an equal prior, so \( P(H) = \frac{1}{N} \) where \( N \) is the number of possible fields. For simplicity, assume \( P(H) \approx 0.33 \).
+    - **\( P(E|H) \)**: Adam's personality suggests a preference for nature, animals, and abstract thinking. While abstract thinking fits, empathy and love for nature do not strongly fit computer science.
+       - Assume \( P(E|H) = 0.1 \)
+
+2. **Business Administration**:
+    - **\( P(H) \approx \text{ uniform prior} \)**: \( P(H) = \frac{1}{N} \) or \( P(H) \approx 0.33 \).
+    - **\( P(E|H) \)**: The traits of empathy and understanding hard work could fit business administration well, but the specifics of nature and love for animals do not strongly fit.
+        - Assume \( P(E|H) = 0.2 \)
+
+3. **Agricultural and Veterinary Science**:
+    - **\( P(H) \approx \text{ uniform prior} \)**: \( P(H) = \frac{1}{N} \) or \( P(H) \approx 0.33 \).
+    - **\( P(E|H) \)**: This field aligns very well with Adam's interests in nature, animals, empathy, and appreciation for hard work.
+        - Assume \( P(E|H) = 0.7 \)
+
+\(\neg H\) reflects Adam is not in the specific field listed and is instead in one of the other fields under study.
+
+\[ P(E|\neg H \text{ for CS}) = \frac{P(E|BA) + P(E|AVS)}{2} \approx \frac{0.2 + 0.7}{2} = 0.45 \]
+\[ P(E|\neg H \text{ for BA}) = \frac{P(E|CS) + P(E|AVS)}{2} \approx \frac{0.1 + 0.7}{2} = 0.4 \]
+\[ P(E|\neg H \text{ for AVS}) = \frac{P(E|CS) + P(E|BA)}{2} \approx \frac{0.1 + 0.2}{2} = 0.15 \]
+
+### Bayes' Rule Calculation:
+
+\[ P(CS|E) = \frac{P(E|CS) \cdot P(CS)}{P(E|CS) \cdot P(CS) + P(E|BA) \cdot P(BA) + P(E|AVS) \cdot P(AVS)} \]
+\[ P(E) = P(E|CS) \cdot P(CS) + P(E|BA) \cdot P(BA) + P(E|AVS) \cdot P(AVS) \approx 0.1 \cdot 0.33 + 0.2 \cdot 0.33 + 0.7 \cdot 0.33 \]
+
+\[ P(E) \approx 0.033 + 0.066 + 0.231 = 0.33 \]
+
+Then:
+
+\[ P(CS|E) = \frac{0.033}{0.33} \approx 0.1 \]
+\[ P(BA|E) = \frac{0.066}{0.33} \approx 0.2 \]
+\[ P(AVS|E) = \frac{0.231}{0.33} \approx 0.7 \]
+
+### Final Probability:
+
+```json
+{
+  "computer science": 0.1,
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.7
+}
+```

@@ -1,0 +1,109 @@
+To determine the probabilities, we will use Bayes' Theorem: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality sketch if he is enrolled in the given field.
+- \( P(E|\neg H) \) is the likelihood of observing Adam's personality sketch if he is not enrolled in the given field.
+
+We need to first make subjective estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+### 1. Business Administration
+
+- **P(H)**: The probability of any given graduate student being enrolled in Business Administration. Given a broad range of fields, let's estimate:
+  \[
+  P(H_{\text{business administration}}) = 0.2
+  \]
+
+- **P(E|H)**: The likelihood of Adam having his personality traits if he were in Business Administration.
+  Considering that Adam shows traits of curiosity about nature, a love for animals, and empathy which are not typically associated closely with business administration:
+  \[
+  P(E|H_{\text{business administration}}) = 0.1
+  \]
+
+- **P(E|\neg H)**: The likelihood of Adam having his personality traits if he were not in Business Administration.
+  Since his traits might be more commonly associated with other fields like agricultural sciences:
+  \[
+  P(E|\neg H_{\text{business administration}}) = 0.6
+  \]
+
+Using Bayes' Theorem:
+\[
+P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)}
+\]
+
+### 2. Computer Science
+
+- **P(H)**: The probability of any given graduate student being enrolled in Computer Science:
+  \[
+  P(H_{\text{computer science}}) = 0.3
+  \]
+
+- **P(E|H)**: The likelihood of Adam having his personality traits if he were in Computer Science.
+  Adam is quiet and enjoys solving puzzles, which is more associated with computer science:
+  \[
+  P(E|H_{\text{computer science}}) = 0.4
+  \]
+
+- **P(E|\neg H)**: The likelihood of Adam having his personality traits if he were not in Computer Science:
+  \[
+  P(E|\neg H_{\text{computer science}}) = 0.3
+  \]
+
+### 3. Agricultural and Veterinary Science
+
+- **P(H)**: The probability of any given graduate student being enrolled in Agricultural and Veterinary Science:
+  \[
+  P(H_{\text{agricultural and veterinary science}}) = 0.1
+  \]
+
+- **P(E|H)**: The likelihood of Adam having his personality traits if he were in Agricultural and Veterinary Science. This field matches well with his love for nature and animals:
+  \[
+  P(E|H_{\text{agricultural and veterinary science}}) = 0.8
+  \]
+
+- **P(E|\neg H)**: The likelihood of Adam having his personality traits if he were not in Agricultural and Veterinary Science:
+  \[
+  P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.3
+  \]
+
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}{P(E)}
+\]
+
+Now, note that \[
+P(E) = P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}}) + P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}}) + P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})
+\]
+
+Which leads to calculations:
+
+For simplicity and without exact normalization:
+\[
+P(E) = (0.1 \cdot 0.2) + (0.4 \cdot 0.3) + (0.8 \cdot 0.1) = 0.02 + 0.12 + 0.08 = 0.22
+\]
+
+Calculating the posterior probability for each field:
+
+- Business Administration:
+\[
+P(H_{\text{business administration}}|E) = \frac{0.1 \cdot 0.2}{0.22} \approx 0.09
+\]
+
+- Computer Science:
+\[
+P(H_{\text{computer science}}|E) = \frac{0.4 \cdot 0.3}{0.22} \approx 0.55
+\]
+
+- Agricultural and Veterinary Science:
+\[
+P(H_{\text{agricultural and veterinary science}}|E) = \frac{0.8 \cdot 0.1}{0.22} \approx 0.36
+\]
+
+Final answer in the given format:
+
+{
+  "business administration": 0.09,
+  "computer science": 0.55,
+  "agricultural and veterinary science": 0.36
+}

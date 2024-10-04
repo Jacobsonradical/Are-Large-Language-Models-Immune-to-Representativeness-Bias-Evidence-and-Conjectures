@@ -1,0 +1,59 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in a particular field based on his personality sketch \( E \), we can apply Bayes' rule:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+However, we don't have \( P(E) \). Therefore, we calculate the numerator for each hypothesis and then normalize them to a common scale for comparison.
+
+Firstly, let's assign reasonable values to \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field:
+
+### Business Administration
+
+1. **\( P(H) \):** The prior probability that Adam was enrolled in Business Administration. Let's assume this has moderate base rate prevalence among graduate students, so \( P(H) = 0.2 \).
+  
+2. **\( P(E|H) \):** The probability of Adam having the personality sketch \( E \) if he were in Business Administration. Given that his interests and personality traits (empathy, love for nature, solving puzzles, etc.) are somewhat less stereotypical for business administration students, this might be low. Let's say \( P(E|H) = 0.05 \).
+  
+3. **\( P(E|\neg H) \):** The probability of Adam having personality sketch \( E \) if he were not in Business Administration. This is more common and likely given his description, so let's say \( P(E|\neg H) = 0.3 \).
+
+### Agricultural and Veterinary Science
+
+1. **\( P(H) \):** The prior probability that Adam was enrolled in Agricultural and Veterinary Science. This field seems more aligned with his interests, so let’s assume a moderate base probability, say \( P(H) = 0.1 \).
+  
+2. **\( P(E|H) \):** The probability of Adam having the personality sketch \( E \) if he were in Agricultural and Veterinary Science. Given this field aligns very well with his personality traits and interests, this would be high, so let’s say \( P(E|H) = 0.7 \).
+  
+3. **\( P(E|\neg H) \):** The probability of Adam having personality sketch \( E \) if he were not in Agricultural and Veterinary Science. This is wider and likely, but not as specific, so let's say \( P(E|\neg H) = 0.2 \).
+
+Now, compute the numerator for Bayes' rule:
+
+### Business Administration
+\[
+P(E|H) \cdot P(H) = 0.05 \cdot 0.2 = 0.01
+\]
+
+### Agricultural and Veterinary Science
+\[
+P(E|H) \cdot P(H) = 0.7 \cdot 0.1 = 0.07
+\]
+
+Next, normalize these to get the posterior probabilities:
+
+- Sum of the numerators: \( 0.01 + 0.07 = 0.08 \)
+- Normalize each field:
+
+### Posterior for Business Administration:
+\[
+P(H|E) = \frac{0.01}{0.08} = 0.125
+\]
+
+### Posterior for Agricultural and Veterinary Science:
+\[
+P(H|E) = \frac{0.07}{0.08} = 0.875
+\]
+
+Thus, the probabilities are:
+
+```json
+{
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.875
+}
+```

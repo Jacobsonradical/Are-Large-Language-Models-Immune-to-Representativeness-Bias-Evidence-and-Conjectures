@@ -1,0 +1,67 @@
+To compute the probability that Adam was enrolled in each field of specialization given the personality sketch, we will use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a given field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is enrolled in the field \( H \).
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch \( E \) given that Adam is not enrolled in the field \( H \).
+- \( P(E) \) is the probability of observing the personality sketch \( E \).
+
+We will make some reasonable assumptions to facilitate the calculations.
+
+### Probability Estimations
+
+1. **Agricultural and Veterinary Science:**
+
+   - **\( P(H) \)**: Let's assume the prior probability \( P(H) \) is 0.05 (5%) because agricultural and veterinary science is less commonly chosen as a graduate field compared to others.
+   - **\( P(E|H) \)**: Given Adam’s love for nature, plants, and animals, we assume a high probability for the personality sketch to fit, estimated at 0.8.
+   - **\( P(E|\neg H) \)**: Given the sketch, it is less probable to randomly fit another student, so let's estimate this at 0.1.
+
+2. **Computer Science:**
+
+   - **\( P(H) \)**: Let's assume the prior probability \( P(H) \) is 0.20 (20%) because computer science is a popular graduate field.
+   - **\( P(E|H) \)**: Adam is good at solving puzzles and understanding abstract concepts, which fits somewhat, estimated at 0.4.
+   - **\( P(E|\neg H) \)**: The personality sketch could fit someone else not in computer science, so let's estimate this at 0.3.
+
+3. **Business Administration:**
+
+   - **\( P(H) \)**: Let's assume the prior probability \( P(H) \) is 0.15 (15%) due to its popularity.
+   - **\( P(E|H) \)**: The sketch does not strongly correlate with typical business administration traits, so estimated at 0.2.
+   - **\( P(E|\neg H) \)**: The personality sketch could fit someone else not in business administration, so let's estimate this at 0.3.
+
+### Applying Bayes Rule
+
+We calculate \( P(E) \) as a normalization constant:
+
+\[ P(E) = P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}}) + P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}}) + P(E|\neg H_{\text{agri}}) \cdot P(\neg H_{\text{agri}}) + P(E|\neg H_{\text{cs}}) \cdot P(\neg H_{\text{cs}}) + P(E|\neg H_{\text{bus}}) \cdot P(\neg H_{\text{bus}}) \]
+
+For simplicity, let’s consider only the mentioned fields and assume the probabilities of the other fields are distributed equally.
+
+### Calculated Probabilities
+(Note: Actual values may need normalization, but this gives a good relative sense.)
+
+```json
+{
+  "agricultural and veterinary science": 0.8 * 0.05 / (0.8 * 0.05 + 0.4 * 0.20 + 0.2 * 0.15),
+  "computer science": 0.4 * 0.20 / (0.8 * 0.05 + 0.4 * 0.20 + 0.2 * 0.15),
+  "business administration": 0.2 * 0.15 / (0.8 * 0.05 + 0.4 * 0.20 + 0.2 * 0.15)
+}
+```
+
+Upon calculating the above, we get:
+
+- Agricultural and Veterinary Science: Approx. 0.2857
+- Computer Science: Approx. 0.5714
+- Business Administration: Approx. 0.1429
+
+Rounded values:
+
+```json
+{
+  "agricultural and veterinary science": 0.29,
+  "computer science": 0.57,
+  "business administration": 0.14
+}
+```
+These values suggest that it is more likely Adam was studying Computer Science based on his personality sketch and the probabilities we assumed. These values give a comparative sense but assume specific prior and conditional probabilities that might need adjustment with more precise data.

@@ -1,0 +1,72 @@
+To compute the posterior probabilities \(P(H|E)\) for each field using Bayes' rule, we need the following probabilities:
+
+1. \(P(H)\) - The prior probability that Adam was enrolled in each respective field.
+2. \(P(E|H)\) - The likelihood of observing the personality sketch given that Adam was enrolled in each respective field.
+3. \(P(E|\neg H)\) - The likelihood of observing the personality sketch given that Adam was not enrolled in each respective field.
+
+Bayes' rule states that:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \(P(E)\) is the overall probability of observing the evidence \(E\).
+
+Given that the total does not need to add up to 1 and we are just comparing relative probabilities, we can compare the products \(P(E|H) \cdot P(H)\) for each field. 
+
+Let's assess each field based on the personality sketch:
+
+### Computer Science
+- **P(H):** Assuming computer science is among the most common graduate fields, a moderate prior probability, let's say \(0.3\).
+- **P(E|H):** Given Adam's interest in solving puzzles and high intelligence, these characteristics fit well, so a relatively high likelihood, let's say \(0.6\).
+- **P(E|\neg H):** The likelihood of having Adam’s traits in fields other than computer science might be moderate, say \(0.4\).
+
+\[
+P(\text{computer science}|E) = \frac{0.6 \cdot 0.3}{P(E)}
+\]
+
+### Business Administration
+- **P(H):** This field is also common, so a moderate prior probability, let's say \(0.25\).
+- **P(E|H):** Adam's empathy and appreciation for hard work might fit somewhat, but not as strongly as his intelligence and nature-related interests, so a lower likelihood, say \(0.2\).
+- **P(E|\neg H):** Likelihood of these traits in non-business fields, let’s assume moderate, say \(0.4\).
+
+\[
+P(\text{business administration}|E) = \frac{0.2 \cdot 0.25}{P(E)}
+\]
+
+### Agricultural and Veterinary Science
+- **P(H):** This field is less common, so a lower prior probability, let's say \(0.15\).
+- **P(E|H):** Given Adam's love of nature, plants, and animals, these characteristics align strongly, so a high likelihood, let’s say \(0.8\).
+- **P(E|\neg H):** Likelihood of these traits in non-agricultural/veterinary sciences would be moderate to low, say \(0.3\).
+
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{0.8 \cdot 0.15}{P(E)}
+\]
+
+To make the comparison easier, we will ignore the common term \(P(E)\) as it is the same for all fields and only look at the numerators. 
+
+Now, calculate \(P(H|E) \cdot P(E)\):
+
+- **Computer Science:** \(0.6 \cdot 0.3 = 0.18\)
+- **Business Administration:** \(0.2 \cdot 0.25 = 0.05\)
+- **Agricultural and Veterinary Science:** \(0.8 \cdot 0.15 = 0.12\)
+
+Normalize these values so they fall between 0 and 1.
+
+- Sum of values = \(0.18 + 0.05 + 0.12 = 0.35\)
+
+Probability for each field:
+
+\[
+P(\text{computer science}|E) = \frac{0.18}{0.35} \approx 0.51
+\]
+\[
+P(\text{business administration}|E) = \frac{0.05}{0.35} \approx 0.14
+\]
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{0.12}{0.35} \approx 0.34
+\]
+
+```json
+{
+  "computer science": 0.51,
+  "business administration": 0.14,
+  "agricultural and veterinary science": 0.34
+}
+```

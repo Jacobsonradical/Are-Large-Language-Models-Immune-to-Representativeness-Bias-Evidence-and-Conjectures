@@ -1,0 +1,49 @@
+To solve this using Bayes Rule, we need to compute the conditional probability P(H|E) for each field given the personality sketch E. Bayes Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing across different fields, the denominator \( P(E) \) is a normalizing constant and doesn't affect the relative likelihoods. We'll focus on \( P(E|H) \cdot P(H) \).
+
+### Key Steps:
+1. **Initial Probability \( P(H) \)**: This is the prior probability of Adam being enrolled in each field.
+2. **Likelihood \( P(E|H) \)**: This is the probability of observing the personality sketch E if Adam is in a given field.
+3. **Complementary Likelihood \( P(E| \neg H) \)**: This is the probability of observing the personality sketch E if Adam is not in the given field.
+
+### For Business Administration:
+- **P(H)**: Likelihood of a graduate student being in Business Administration. Let's assume a generic value, say 0.2 (20%).
+- **P(E|H)**: Likelihood of a Business Administration student fitting Adam’s personality sketch. A Business Administration student is less likely to have a strong curiosity in nature and deep love for animals. We'll assume it to be low, say 0.1 (10%).
+- **P(E| \neg H)**: Likelihood of fitting the profile but being in another field. Given that Adam's personality is more aligned with fields like agricultural science, let's assume this probability is higher, say 0.5 (50%).
+
+\[ P(H|E)_{BA} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)} \]
+
+### For Agricultural and Veterinary Science:
+- **P(H)**: Likelihood of a graduate student being in Agricultural and Veterinary Science. Let's assume a generic value, say 0.1 (10%).
+- **P(E|H)**: Given Adam’s personality sketch, it is highly likely he fits here. Let's assume it's high, say 0.8 (80%).
+- **P(E| \neg H)**: Likelihood of fitting the profile but not being in Agricultural and Veterinary Science. Given that nature-oriented students might be in slightly overlapping fields but fewer, let's say 0.3 (30%).
+
+\[ P(H|E)_{AgriVet} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+### Normalizing and Computing:
+The values for \( P(E) \) in both are different but since we are relatively comparing:
+
+1. For Business Administration:
+\[ P(H|E)_{BA} = \frac{0.1 \times 0.2}{P(E)} = \frac{0.02}{P(E)} \]
+
+2. For Agricultural and Veterinary Science:
+\[ P(H|E)_{AgriVet} = \frac{0.8 \times 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+Since \( P(E) \) is the same in both and used for normalization:
+\[ \frac{P(H|E)_{AgriVet}}{P(H|E)_{BA}} = \frac{0.08}{0.02} = 4 \]
+
+Thus, Adam is significantly more likely to be in Agricultural and Veterinary Science compared to Business Administration.
+
+Now, considering normalization makes computation easier, final values would look something like below:
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.08
+}
+```
+
+These values are not necessarily probabilities summing to 1 but reflect relative likelihoods for comparison, indicating Agricultural and Veterinary Science aligns much more with Adam's profile.

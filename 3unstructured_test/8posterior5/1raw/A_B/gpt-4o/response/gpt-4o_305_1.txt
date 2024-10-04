@@ -1,0 +1,61 @@
+In order to calculate \(P(H|E)\) for each field using Bayes' rule, we'll first need to estimate the probabilities:
+
+- \(P(H)\): The prior probability that Adam is enrolled in each respective field.
+- \(P(E|H)\): The probability of observing the personality sketch \(E\) given that Adam is enrolled in each respective field.
+- \(P(E|\neg H)\): The probability of observing the personality sketch \(E\) given that Adam is not enrolled in each respective field.
+
+Bayes' rule can be expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's estimate the probabilities based on common sense and typical characteristics of students in those fields:
+
+1. **Business Administration**
+   - \(P(H)\): A decent number of students are in business administration programs.
+   - \(P(E|H)\): The personality traits described (curiosity about nature, love for animals, empathy, appreciation for hard work) are less common in business administration students but not entirely absent.
+   - \(P(E|\neg H)\): These traits are more likely in non-business fields, especially in fields like agricultural and veterinary science.
+
+2. **Agricultural and Veterinary Science**
+   - \(P(H)\): Fewer students enroll in these fields compared to business administration.
+   - \(P(E|H)\): The traits match well with students in agricultural and veterinary science (nature, plants, animals, empathy).
+   - \(P(E|\neg H)\): Lower likelihood compared to those in agricultural and veterinary science.
+
+Now let's assign approximate values based on these considerations:
+
+1. Business Administration:
+   - \(P(H) \approx 0.2\)
+   - \(P(E|H) \approx 0.1\)
+   - \(P(E|\neg H) \approx 0.4\)
+
+2. Agricultural and Veterinary Science:
+   - \(P(H) \approx 0.1\)
+   - \(P(E|H) \approx 0.6\)
+   - \(P(E|\neg H) \approx 0.25\)
+
+We'll use these values in Bayes' rule. Note that \(P(E)\) will be calculated differently for each hypothesis, but to simplify and follow the format, we will not explicitly compute it this time as Bayes' rule serves to normalize the probabilities.
+
+### Calculations:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For *Business Administration*:
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.4 \cdot 0.8} = \frac{0.02}{0.34} \approx 0.059 \]
+
+For *Agricultural and Veterinary Science*:
+\[ P(H|E)_{AVS} = \frac{0.6 \cdot 0.1}{0.6 \cdot 0.1 + 0.25 \cdot 0.9} = \frac{0.06}{0.285} \approx 0.211 \]
+
+Given these results, we can compare the conditional probabilities.
+
+The approximate values based on the earlier assumptions would be:
+
+```json
+{
+  "business administration": 0.059,
+  "agricultural and veterinary science": 0.211
+}
+```
+
+These values suggest that it is more likely that Adam is enrolled in Agricultural and Veterinary Science based on his personality sketch.

@@ -1,0 +1,86 @@
+To solve this, we will use Bayes' rule. Bayes' theorem relates the conditional and marginal probabilities of random events in the following way:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of hypothesis \(H\) given the evidence \(E\).
+- \( P(E|H) \) is the probability of observing evidence \(E\) given that hypothesis \(H\) is true.
+- \( P(H) \) is the prior probability of hypothesis \(H\).
+- \( P(E) \) is the total probability of evidence \(E\) under all hypotheses.
+
+Let’s denote:
+- \( H_1 \) : Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \) : Adam was enrolled in business administration.
+- \( P(E|H_1) \): Probability of observing Adam's personality sketch given he was enrolled in agricultural and veterinary science.
+- \( P(E|H_2) \): Probability of observing Adam's personality sketch given he was enrolled in business administration.
+
+### Step 1: Estimate the Probabilities
+
+**1. Prior Probabilities, \( P(H_1) \) and \( P(H_2) \):**
+- We assume there are many fields, so let's assume a relatively even distribution of students across the different graduate fields. For simplicity, we might use a low prior to start since we're considering only two fields among many possible ones.
+ 
+  Let’s say:
+  \[
+  P(H_1) = 0.1
+  \]
+  \[
+  P(H_2) = 0.1
+  \]
+
+**2. Conditional Probabilities, \( P(E|H_1) \) and \( P(E|H_2) \):**
+- \( P(E|H_1) \): Adam has characteristics that align well with someone interested in agricultural and veterinary science (curiosity about nature, love for animals, empathy). Let’s assign a high probability.
+  \[
+  P(E|H_1) = 0.8
+  \]
+
+- \( P(E|H_2) \): Adam’s personality profile does not closely fit the stereotypical characteristics of someone studying business administration (such as less emphasis on nature and animals). Let’s assign a lower probability.
+  \[
+  P(E|H_2) = 0.1
+  \]
+
+**3. Probability of Evidence, \( P(E) \):**
+- This is more complex to compute directly, but we don't need the exact value to make relative comparisons. We will instead use that it is a normalization factor ensuring the probabilities \(P(H|E)\) sum to 1.
+
+### Step 2: Compute posterior probabilities \( P(H_1|E) \) and \( P(H_2|E) \)
+
+Using Bayes' rule:
+\[
+P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)}
+\]
+\[
+P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)}
+\]
+
+The denominator \( P(E) \) is the same for both, so we’re interested in the relative magnitude.
+
+
+### Step 3: Calculate
+
+- For agricultural and veterinary science:
+\[
+P(H_1|E) \propto 0.8 \cdot 0.1 = 0.08
+\]
+
+- For business administration:
+\[
+P(H_2|E) \propto 0.1 \cdot 0.1 = 0.01
+\]
+ 
+### Normalizing Step
+
+The normalized values will be:
+\[
+P(H_1|E) = \frac{0.08}{0.08 + 0.01} = \frac{0.08}{0.09} \approx 0.89
+\]
+\[
+P(H_2|E) = \frac{0.01}{0.08 + 0.01} = \frac{0.01}{0.09} \approx 0.11
+\]
+
+So, the computed posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.89,
+  "business administration": 0.11
+}
+```

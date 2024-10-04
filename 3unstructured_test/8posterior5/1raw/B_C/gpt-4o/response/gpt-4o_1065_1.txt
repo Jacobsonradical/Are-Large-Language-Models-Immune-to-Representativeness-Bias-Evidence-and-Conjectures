@@ -1,0 +1,41 @@
+To solve this, we need to make reasonable guesses based on the personality sketch of Adam. 
+
+Firstly, let's state what’s given:
+- Personality Sketch (E): Adam is curious about nature and plants, quiet, enjoys puzzles, empathetic, loves animals, intelligent, and good at understanding abstract concepts.
+
+Considering the fields of business administration and computer science, we now need to judge P(H), P(E|H), and P(E|¬H). Here is how they can be assessed:
+
+1. **Business Administration**:
+   - P(H): Let's assume the probability that any random graduate student in the U.S. is enrolled in business administration is approximately 0.2 (20%).
+   - P(E|H): Given Adam’s traits, it seems less likely as business administration often requires extroversion and networking skills. Let’s assume 0.1.
+   - P(E|¬H): The probability that Adam has such traits if he’s not in business administration is likely higher, since quite a few of his traits align more with other fields such as science-related fields. Let's assume this to be 0.4.
+
+2. **Computer Science**:
+   - P(H): Let's assume the probability that any random graduate student in the U.S. is enrolled in computer science is approximately 0.15 (15%).
+   - P(E|H): Given Adam’s interest in puzzles and intelligence, this seems moderately likely. Let's assume this to be 0.6.
+   - P(E|¬H): The probability that someone not in computer science has these traits can be considered broader among many other possible fields. Let’s assume this to be 0.3.
+
+Next, we use Bayes' rule to compute P(H|E):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+Let’s compute these step-by-step:
+
+1. **Business Administration**:
+   \[ P(H|E)_{BA} = \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.4 \times (1 - 0.2)} \]
+   \[ P(H|E)_{BA} = \frac{0.02}{0.02 + 0.32} \]
+   \[ P(H|E)_{BA} = \frac{0.02}{0.34} \approx 0.0588 \]
+
+2. **Computer Science**:
+   \[ P(H|E)_{CS} = \frac{0.6 \times 0.15}{0.6 \times 0.15 + 0.3 \times (1 - 0.15)} \]
+   \[ P(H|E)_{CS} = \frac{0.09}{0.09 + 0.255} \]
+   \[ P(H|E)_{CS} = \frac{0.09}{0.345} \approx 0.2609 \]
+
+Using these calculations, we get:
+
+```json
+{
+  "business administration": 0.0588,
+  "computer science": 0.2609
+}
+```

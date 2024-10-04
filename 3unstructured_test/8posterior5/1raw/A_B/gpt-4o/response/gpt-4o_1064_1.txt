@@ -1,0 +1,99 @@
+To solve for \( P(H|E) \) using Bayes' rule, we need to compute:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+However, since \( P(E) \) is the same for all fields and mainly used for normalization across different fields, we can ignore it when comparing relative probabilities.
+
+### Hypothesis: Business Administration
+
+#### P(H): Prior probability that Adam is enrolled in Business Administration.
+Given that Business Administration is one of many fields, let's assume a moderate prior. Let's say:
+
+\[
+P(H_{\text{BA}}) = 0.2
+\]
+
+#### P(E|H): Probability of observing E given H.
+E describes someone with curiosity about nature, solving puzzles, and love for animals—traits not typically aligned with a Business Administration background. Thus, \( P(E|H_{\text{BA}}) \) could be relatively low:
+
+\[
+P(E|H_{\text{BA}}) = 0.1
+\]
+
+#### P(E|\neg H): Probability of observing E given \(\neg\)H.
+This is the likelihood of seeing E in any field other than Business Administration. Let's assume this is moderately high since the described traits are more common in other fields:
+
+\[
+P(E|\neg H_{\text{BA}}) = 0.8
+\]
+
+Using Bayes' rule:
+
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \approx \frac{0.1 \times 0.2}{P(E)}
+\]
+
+### Hypothesis: Agricultural and Veterinary Science
+
+#### P(H): Prior probability that Adam is enrolled in Agricultural and Veterinary Science.
+Given Adam’s love for nature and animals, let's assume this prior probability is higher:
+
+\[
+P(H_{\text{AgVet}}) = 0.3
+\]
+
+#### P(E|H): Probability of observing E given H.
+The traits closely match someone in Agricultural and Veterinary Science:
+
+\[
+P(E|H_{\text{AgVet}}) = 0.9
+\]
+
+#### P(E|\neg H): Probability of observing E given \(\neg\)H.
+This likelihood is moderately lower since the specific traits match Agricultural and Veterinary Science closely:
+
+\[
+P(E|\neg H_{\text{AgVet}}) = 0.3
+\]
+
+Using Bayes' rule:
+
+\[
+P(H_{\text{AgVet}}|E) = \frac{P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}})}{P(E)} \approx \frac{0.9 \times 0.3}{P(E)}
+\]
+
+### Calculating Relative Values
+
+We are comparing the numerator of the Bayes rule ratios since \( P(E) \) is common to both and thus can be ignored for relative comparisons.
+
+For Business Administration:
+\[
+P(H_{\text{BA}}|E) \propto 0.1 \times 0.2 = 0.02
+\]
+
+For Agricultural and Veterinary Science:
+\[
+P(H_{\text{AgVet}}|E) \propto 0.9 \times 0.3 = 0.27
+\]
+
+Normalizing these values to get them between 0 and 1:
+\[
+\text{Sum} = 0.02 + 0.27 = 0.29
+\]
+\[
+P(H_{\text{BA}}|E) = \frac{0.02}{0.29} \approx 0.069
+\]
+\[
+P(H_{\text{AgVet}}|E) = \frac{0.27}{0.29} \approx 0.931
+\]
+
+So the final relative probabilities are:
+
+```json
+{
+  "business administration": 0.069,
+  "agricultural and veterinary science": 0.931
+}
+```

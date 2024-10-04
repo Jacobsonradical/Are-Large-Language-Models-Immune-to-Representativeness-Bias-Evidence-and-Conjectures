@@ -1,0 +1,47 @@
+Let's denote the following values:
+
+- P(H_CS) and P(H_BA) are the prior probabilities that Adam was enrolled in computer science and business administration, respectively.
+- P(E|H_CS) and P(E|H_BA) are the likelihoods of observing the personality sketch E given that Adam was enrolled in computer science and business administration, respectively.
+- P(E|\neg H_CS) and P(E|\neg H_BA) are the likelihoods of observing the personality sketch E given that Adam was not enrolled in computer science and business administration, respectively.
+- P(H_CS|E) and P(H_BA|E) are the posterior probabilities that Adam was enrolled in computer science and business administration, respectively, given the personality sketch E.
+
+Given the provided information, we'll assume equal priors for simplicity: P(H_CS) = P(H_BA) = 0.5. 
+
+### For Computer Science:
+1. P(E|H_CS): Given Adam's traits (quiet, enjoys puzzles, high intelligence, strong understanding of abstract concepts), it's likely that these qualities align well with a computer science student.
+   Let's assume a higher likelihood for this: P(E|H_CS) = 0.7.
+
+2. P(E|\neg H_CS): This is the probability of observing E if Adam is in any other field aside from computer science. Since numerous fields might match his qualities (e.g., natural sciences, psychology), we'll assume a broader range. Let's assign a moderate value for this likelihood: P(E|\neg H_CS) = 0.4.
+
+### For Business Administration:
+1. P(E|H_BA): Given Adam's traits, business administration might seem less likely since it typically involves more interpersonal interaction and might not align as closely with his personality sketch.
+   We'll assign a lower likelihood for this: P(E|H_BA) = 0.2.
+
+2. P(E|\neg H_BA): Similar to the above calculation, Adam's traits could fit into many fields aside from business administration. We'll assume this to be moderately broad as well. P(E|\neg H_BA) = 0.4.
+
+### Bayesian Computation:
+Bayes' rule: \(P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\)
+where \(P(E)\) is the normalizing constant, which ensures probabilities add up to 1 when all hypotheses are considered. However, we don't need the exact value of \(P(E)\) if we only want a relative measure.
+
+#### For Computer Science:
+\[ P(H_CS|E) = \frac{P(E|H_CS) P(H_CS)}{P(E|H_CS) P(H_CS) + P(E|\neg H_CS) P(\neg H_CS)} \]
+
+\[ P(H_CS|E) = \frac{0.7 \cdot 0.5}{0.7 \cdot 0.5 + 0.4 \cdot 0.5} \]
+
+\[ P(H_CS|E) = \frac{0.35}{0.35 + 0.2} = \frac{0.35}{0.55} \approx 0.636 \]
+
+#### For Business Administration:
+\[ P(H_BA|E) = \frac{P(E|H_BA) P(H_BA)}{P(E|H_BA) P(H_BA) + P(E|\neg H_BA) P(\neg H_BA)} \]
+
+\[ P(H_BA|E) = \frac{0.2 \cdot 0.5}{0.2 \cdot 0.5 + 0.4 \cdot 0.5} \]
+
+\[ P(H_BA|E) = \frac{0.1}{0.1 + 0.2} = \frac{0.1}{0.3} \approx 0.333 \]
+
+Based on these calculations, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.636,
+  "business administration": 0.333
+}
+```

@@ -1,0 +1,64 @@
+To determine \( P(H|E) \) for each of the fields using Bayes' Rule, we need to make educated guesses for each of the probabilities involved: \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) P(H)}{P(E)} \]
+
+However, since \( P(E) = P(E|H) P(H) + P(E|\neg H) P(\neg H) \), we can compute \( P(H|E) \) for each field.
+
+Here is the structured approach:
+
+1. **Business Administration**:
+    - \( P(H) \): Probability that Adam is enrolled in business administration.
+    - \( P(E|H) \): Probability of the personality sketch \( E \) given that Adam is in business administration.
+    - \( P(E|\neg H) \): Probability of the personality sketch \( E \) given that Adam is not in business administration.
+
+2. **Agricultural and Veterinary Science**:
+    - \( P(H) \): Probability that Adam is enrolled in agricultural and veterinary science.
+    - \( P(E|H) \): Probability of the personality sketch \( E \) given that Adam is in agricultural and veterinary science.
+    - \( P(E|\neg H) \): Probability of the personality sketch \( E \) given that Adam is not in agricultural and veterinary science.
+
+Given the details of the personality sketch, we should assign probabilities that make sense relative to the context:
+
+### Business Administration
+- \( P(H_{BA}) \): Low (Business Administration typically attracts different personality traits).
+- \( P(E|H_{BA}) \): Low (The personality sketch does not align well with typical business administration characteristics).
+- \( P(E|\neg H_{BA}) \): Higher (Since Adam's traits would fit better into other fields).
+
+### Agricultural and Veterinary Science
+- \( P(H_{AV}) \): Moderate to High (Fields like agricultural and veterinary sciences attract people with love for nature and animals).
+- \( P(E|H_{AV}) \): High (The personality sketch aligns very well with these fields).
+- \( P(E|\neg H_{AV}) \): Lower (Given his characteristics, they are less likely if he were not in this field).
+
+Assigning some rough values:
+- \( P(H_{BA}) = 0.1 \)
+- \( P(E|H_{BA}) = 0.1 \)
+- \( P(E|\neg H_{BA}) = 0.5 \)
+
+- \( P(H_{AV}) = 0.3 \)
+- \( P(E|H_{AV}) = 0.8 \)
+- \( P(E|\neg H_{AV}) = 0.2 \)
+
+Using Bayes' Rule:
+1. **Business Administration**:
+   \[
+   P(H_{BA}|E) = \frac{P(E|H_{BA}) P(H_{BA})}{P(E|H_{BA}) P(H_{BA}) + P(E|\neg H_{BA}) P(\neg H_{BA})}
+   \]
+   \[
+   P(H_{BA}|E) = \frac{(0.1)(0.1)}{(0.1)(0.1) + (0.5)(0.9)} = \frac{0.01}{0.01 + 0.45} \approx 0.021
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   \[
+   P(H_{AV}|E) = \frac{P(E|H_{AV}) P(H_{AV})}{P(E|H_{AV}) P(H_{AV}) + P(E|\neg H_{AV}) P(\neg H_{AV})}
+   \]
+   \[
+   P(H_{AV}|E) = \frac{(0.8)(0.3)}{(0.8)(0.3) + (0.2)(0.7)} = \frac{0.24}{0.24 + 0.14} = \frac{0.24}{0.38} \approx 0.632
+   \]
+
+So the final rounded results are:
+```json
+{
+  "business administration": 0.021,
+  "agricultural and veterinary science": 0.632
+}
+```

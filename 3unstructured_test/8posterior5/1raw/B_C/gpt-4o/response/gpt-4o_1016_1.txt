@@ -1,0 +1,60 @@
+To apply Bayes' Rule and compute \( P(H|E) \), we need to consider the following parameters:
+
+- \( P(H) \): The prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \): The likelihood that Adam exhibits the given personality traits if he is enrolled in the given field.
+- \( P(E|\neg H) \): The likelihood that Adam exhibits the given personality traits if he is not enrolled in the given field.
+- \( P(H|E) \): The posterior probability that Adam is enrolled in the given field given his personality traits.
+
+We can express Bayes' Rule as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) can be derived from:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+### Estimations
+
+Let's start by estimating the probabilities:
+
+#### Computer Science 
+- \( P(H_{cs}) \): Prior probability of a graduate student being in computer science. Given the prevalence of computer science programs in the U.S., let's say it’s about 0.15.
+- \( P(E|H_{cs}) \): Likelihood that a computer science student would exhibit Adam’s personality traits. Natural curiosity, intelligence and problem-solving align well with computer science, but empathy and warm-heartedness are not strictly limited to this field. Let’s estimate this to be about 0.45.
+- \( P(E|\neg H_{cs}) \): Likelihood that a non-computer science student would exhibit these traits. These traits are fairly common among graduate students in various fields, so let’s estimate this to be about 0.30.
+
+#### Business Administration
+- \( P(H_{ba}) \): Prior probability of a graduate student being in business administration. Let's estimate this to be about 0.10.
+- \( P(E|H_{ba}) \): Likelihood that a business administration student would exhibit Adam’s personality traits. While empathy and appreciation for hard work fit well, curiosity about nature and love for solving puzzles might be less common. Let’s estimate this to be about 0.20.
+- \( P(E|\neg H_{ba}) \): Likelihood that a non-business administration student would exhibit these traits. Using a similar logic, let’s estimate this to be about 0.35.
+
+Now, we apply Bayes' Rule for each field.
+
+### Calculations
+
+#### Computer Science
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+where 
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot P(\neg H_{cs}) \]
+\[ P(E) = (0.45 \cdot 0.15) + (0.30 \cdot 0.85) \]
+\[ P(E) = 0.0675 + 0.255 = 0.3225 \]
+\[ P(H_{cs}|E) = \frac{0.45 \cdot 0.15}{0.3225} \]
+\[ P(H_{cs}|E) \approx 0.209 \]
+
+#### Business Administration
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+where 
+\[ P(E) = P(E|H_{ba}) \cdot P(H_{ba}) + P(E|\neg H_{ba}) \cdot P(\neg H_{ba}) \]
+\[ P(E) = (0.20 \cdot 0.10) + (0.35 \cdot 0.90) \]
+\[ P(E) = 0.02 + 0.315 = 0.335 \]
+\[ P(H_{ba}|E) = \frac{0.20 \cdot 0.10}{0.335} \]
+\[ P(H_{ba}|E) \approx 0.060 \]
+
+### Results
+
+Based on the calculations, the posterior probabilities for Adam being enrolled in each field are:
+
+```json
+{
+  "computer science": 0.209,
+  "business administration": 0.060
+}
+```
+
+These are the computed probabilities that Adam was enrolled in each field given his personality traits.

@@ -1,0 +1,63 @@
+Given Adam's personality sketch and the fields of study, let's assess the relevant probabilities and then apply Bayes' Rule.
+
+Let:
+- \( H_{CS} \) be the hypothesis that Adam is enrolled in Computer Science.
+- \( H_{AgriVet} \) be the hypothesis that Adam is enrolled in Agricultural and Veterinary Science.
+- \( E \) be the personality sketch of Adam.
+
+### Computer Science
+
+1. **P(H):** This represents the prior probability that Adam is enrolled in Computer Science before taking into account his personality sketch.
+   - Computer Science is a popular field, so we might estimate that, let's say, 20% of graduate students are in Computer Science.
+   - \( P(H_{CS}) = 0.20 \)
+
+2. **P(E|H):** This is the probability of Adam having his personality sketch given that he is in Computer Science.
+   - The personality sketch indicates interest in nature, empathy, and love for animals, which are less characteristic of typical computer science students.
+   - Let's estimate \( P(E|H_{CS}) = 0.05 \).
+
+3. **P(E|\neg H):** This is the probability of having Adam's personality sketch given he is not in Computer Science.
+   - This includes all other fields, so it's harder to estimate precisely. Let's assume that other fields combined exhibit Adam's traits with a likelihood of \( 0.20 \).
+   - \( P(E|\neg H_{CS}) = 0.20 \)
+
+Now, apply Bayes' Rule:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+Where \( P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \).
+
+\[ P(E) = (0.05 \cdot 0.20) + (0.20 \cdot 0.80) = 0.01 + 0.16 = 0.17 \]
+
+\[ P(H_{CS}|E) = \frac{0.05 \cdot 0.20}{0.17} = \frac{0.01}{0.17} \approx 0.059 \]
+
+### Agricultural and Veterinary Science
+
+1. **P(H):** This represents the prior probability that Adam is enrolled in Agricultural and Veterinary Science before considering his personality sketch.
+   - This field is less popular than Computer Science, let's assume 5% of graduate students.
+   - \( P(H_{AgriVet}) = 0.05 \)
+
+2. **P(E|H):** This is the probability of having Adam's personality sketch given he is in Agricultural and Veterinary Science.
+   - His interests and traits highly align with this field.
+   - Let's estimate \( P(E|H_{AgriVet}) = 0.80 \).
+
+3. **P(E|\neg H):** This is the probability of having Adam's personality sketch given he is not in Agricultural and Veterinary Science.
+   - Using the total student's characteristic again with a likelihood of \( 0.20 \).
+   - \( P(E|\neg H_{AgriVet}) = 0.20 \)
+
+Now, apply Bayes' Rule:
+\[ P(H_{AgriVet}|E) = \frac{P(E|H_{AgriVet}) \cdot P(H_{AgriVet})}{P(E)} \]
+
+Where \( P(E) = P(E|H_{AgriVet}) \cdot P(H_{AgriVet}) + P(E|\neg H_{AgriVet}) \cdot P(\neg H_{AgriVet}) \).
+
+\[ P(E) = (0.80 \cdot 0.05) + (0.20 \cdot 0.95) = 0.04 + 0.19 = 0.23 \]
+
+\[ P(H_{AgriVet}|E) = \frac{0.80 \cdot 0.05}{0.23} = \frac{0.04}{0.23} \approx 0.174 \]
+
+### Final Probabilities
+
+So, the approximate probabilities are:
+```json
+{
+  "computer science": 0.059,
+  "agricultural and veterinary science": 0.174
+}
+```
+
+These values reflect the calculated likelihood that Adam is in each respective field given his personality sketch.

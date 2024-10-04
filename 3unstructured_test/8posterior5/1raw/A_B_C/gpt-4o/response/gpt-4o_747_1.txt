@@ -1,0 +1,52 @@
+To apply Bayes' theorem to compute \( P(H|E) \) for each field, we'll need to estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each hypothesis.
+
+Firstly, let's identify what each term means in this context:
+- \( P(H) \): The prior probability that Adam is enrolled in a particular field.
+- \( P(E|H) \): The probability of Adam having the described personality sketch given he is in that field.
+- \( P(E|\neg H) \): The probability of Adam having the described personality sketch given he is not in that field.
+- \( P(H|E) \): The posterior probability that Adam is enrolled in the field given the personality sketch.
+
+We should note that \( P(E) \) can be computed using the law of total probability but since we are not asked to combine these we can focus on the direct application of the Bayes' theorem.
+
+Given the personality sketch and some commonsense assumptions, we can roughly estimate the probabilities. Let's start with some rough estimates:
+
+1. **Business Administration**
+   - \( P(H) \): Maybe around 0.2; this is an arbitrary prior estimate considering the wide range of graduate fields.
+   - \( P(E|H) \): Likely lower, around 0.1, since curiosity about nature, a love for animals, and empathy are less strongly associated with this field.
+   - \( P(E|\neg H) \): Higher than \( P(E|H) \), let's say around 0.3, because those traits are more likely in other fields.
+
+2. **Computer Science**
+   - \( P(H) \): Perhaps around 0.2; reflecting a similar arbitrary prior to Business Administration.
+   - \( P(E|H) \): Likely moderate, around 0.3, as curiosity and solving puzzles align well but not the rest of the traits such as empathy/love for animals.
+   - \( P(E|\neg H) \): Similar logic, maybe 0.2.
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H) \): Maybe 0.1; lower as it’s a more specialized field but still good because of Adam love's for animals.
+   - \( P(E|H) \): High, maybe around 0.8, given his strong affinity for nature and animals.
+   - \( P(E|\neg H) \): Lower, around 0.1, as these traits are less common in other fields.
+
+Using Bayes' Theorem, we need to calculate:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+where
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+However, since we are only asked for ratios rather than actual numerical probability sums, we can simplify the comparison.
+
+After calculating all together:
+
+{
+  "business administration": \( \frac{0.1 \times 0.2}{0.1 \times 0.2 + 0.3 \times 0.8} = \frac{0.02}{0.02 + 0.24} \approx 0.077 \),
+  "computer science": \( \frac{0.3 \times 0.2}{0.3 \times 0.2 + 0.2 \times 0.8} = \frac{0.06}{0.06 + 0.16} \approx 0.188 \),
+  "agricultural and veterinary science": \( \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.1 \times 0.9} = \frac{0.08}{0.08+0.09} \approx 0.471 \).
+}
+
+Thus our results in readable output are:
+{
+  "business administration": 0.077,
+  "computer science": 0.188,
+  "agricultural and veterinary science": 0.471
+}

@@ -1,0 +1,59 @@
+To compute \( P(H|E) \), which is the probability that Adam was enrolled in a specific field given his personality sketch (E), we will use Bayes’ Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To estimate \( P(H|E) \) for each field, we need:
+
+1. \( P(H) \) - the prior probability that Adam was enrolled in the field.
+2. \( P(E|H) \) - the likelihood that Adam's personality sketch would be true given that he was enrolled in the field.
+3. \( P(E|\neg H) \) - the likelihood that Adam's personality sketch would be true given that he was not enrolled in the field.
+4. \( P(E) \) - the overall probability of the personality sketch, which can be derived from \( P(E|H) \) and \( P(H) \) values across different fields.
+
+Since without exact data, we need to make educated estimates for each of these probabilities.
+
+### Estimations
+
+#### Agricultural and Veterinary Science
+- **\( P(H_{\text{AVS}}) \)**: The probability that a graduate student in the U.S. is enrolled in Agricultural and Veterinary Science. Let's assume U.S. graduate students in this field to be about 10%, so \( P(H_{\text{AVS}}) \approx 0.10 \).
+- **\( P(E|H_{\text{AVS}}) \)**: Given Adam's interests and personality traits, this seems highly consistent with a student in Agricultural and Veterinary Science. Say \( P(E|H_{\text{AVS}}) \approx 0.80 \).
+- **\( P(E|\neg H_{\text{AVS}}) \)**: We have to consider students in all other fields. Given that empathy, love for animals, and curiosity about nature aren't extremely rare, but less pronounced, say \( P(E|\neg H_{\text{AVS}}) \approx 0.40 \).
+
+#### Computer Science
+- **\( P(H_{\text{CS}}) \)**: The probability that a graduate student in the U.S. is enrolled in Computer Science. Let's assume U.S. graduate students in this field to be about 15%, so \( P(H_{\text{CS}}) \approx 0.15 \).
+- **\( P(E|H_{\text{CS}}) \)**: While the intelligence and abstract thinking fit, the other interests are less common in CS. Say \( P(E|H_{\text{CS}}) \approx 0.20 \).
+- **\( P(E|\neg H_{\text{CS}}) \)**: Conversely, these traits are more common outside CS, so assume \( P(E|\neg H_{\text{CS}}) \approx 0.60 \).
+
+### Calculations
+
+1. **Agricultural and Veterinary Science**
+
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+
+Let's approximate \( P(E) \) by the weighted average:
+
+\[ P(E) \approx P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{AVS}} \cap \neg H_{\text{CS}}) \cdot P(\neg H_{\text{AVS}} \cap \neg H_{\text{CS}}) \]
+
+Assuming the non-AVS non-CS fields cover 75%, with some weighted P(E|non-AVS non-CS) averaging 0.30. 
+   
+\[ P(E) \approx 0.80 \cdot 0.10 + 0.20 \cdot 0.15 + 0.30 \cdot 0.75 = 0.08 + 0.03 + 0.225 = 0.335 \]
+
+Now, calculate \( P(H_{\text{AVS}}|E) \):
+
+\[ P(H_{\text{AVS}}|E) = \frac{0.80 \cdot 0.10}{0.335} \approx 0.239 \]
+
+2. **Computer Science**
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.20 \cdot 0.15}{0.335} \approx 0.089 \]
+
+### Final Results
+
+```json
+{
+  "agricultural and veterinary science": 0.239,
+  "computer science": 0.089
+}
+```
+
+These are our best estimates based on the given information and educated guesses on the likelihoods and prior probabilities.

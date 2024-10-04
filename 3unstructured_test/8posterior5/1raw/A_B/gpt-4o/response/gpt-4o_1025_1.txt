@@ -1,0 +1,69 @@
+Let's break down the components of Bayes' theorem first:
+
+Bayes' theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given our two hypotheses:
+
+1. H = Adam was enrolled in a business administration program.
+2. H = Adam was enrolled in an agricultural and veterinary science program.
+
+We will estimate:
+- \( P(H) \): Prior probability of Adam being enrolled in either field.
+- \( P(E|H) \): Likelihood of the evidence given the hypothesis.
+- \( P(E|\neg H) \): Likelihood of the evidence given the negation of the hypothesis.
+
+### Business Administration
+
+- **P(H)**: It is common for students to pursue business administration, but given Adam's personality sketch focused on nature, empathy, and animals, we might assign this a lower prior probability, say \( P(H) = 0.1 \).
+- **P(E|H)**: The likelihood that Adam would have such a personality if he were in business administration is relatively low, considering his interests and empathy, say \( P(E|H) = 0.1 \).
+- **P(E|\neg H)**: The likelihood of Adam having this personality sketch if he were not in business administration seems moderate since his traits could be more aligned with something else, say \( P(E|\neg H) = 0.5 \).
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: Given Adam’s love for nature, plants, and animals, the prior probability that he is in this field is higher, say \( P(H) = 0.3 \).
+- **P(E|H)**: The likelihood of the evidence given that Adam is in agricultural and veterinary science is quite high, say \( P(E|H) = 0.8 \).
+- **P(E|\neg H)**: This would be lower than the previous case due to the strong match between his interests and the field, say \( P(E|\neg H) = 0.3 \).
+
+Now, we can use Bayes’ rule to compute \( P(H|E) \) for each hypothesis:
+
+### Business Administration
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplification, we'll assume only these two fields significantly contribute to \( P(E) \). Thus:
+
+\[ P(E) = (0.1 \cdot 0.1) + (0.5 \cdot 0.9) \]
+\[ P(E) = 0.01 + 0.45 \]
+\[ P(E) = 0.46 \]
+
+\[ P(H|E) = \frac{0.1 \cdot 0.1}{0.46} \]
+\[ P(H|E) = \frac{0.01}{0.46} \]
+\[ P(H|E) \approx 0.022 \]
+
+### Agricultural and Veterinary Science
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplification, we'll assume:
+\[ P(E) = (0.8 \cdot 0.3) + (0.3 \cdot 0.7) \]
+\[ P(E) = 0.24 + 0.21 \]
+\[ P(E) = 0.45 \]
+
+\[ P(H|E) = \frac{0.8 \cdot 0.3}{0.45} \]
+\[ P(H|E) = \frac{0.24}{0.45} \]
+\[ P(H|E) \approx 0.533 \]
+
+Combining the answers:
+
+```json
+{
+  "business administration": 0.022,
+  "agricultural and veterinary science": 0.533
+}
+```

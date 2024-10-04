@@ -1,0 +1,85 @@
+To compute the posterior probabilities \( P(H|E) \) for each hypothesis \( H \) using Bayes' Rule, we first need to consider the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the evidence \( P(E|\neg H) \). 
+
+### Step-by-step process:
+
+1. **Prior Probability \( P(H) \)**:
+   - \( P(H) \) represents the initial probability of Adam being enrolled in a given field without knowing his personality sketch.
+   - Let's assume that the prior probability for Adam to be enrolled in any specific field is equal, as we lack further information.
+
+2. **Likelihood \( P(E|H) \)**:
+   - \( P(E|H) \) is the probability of observing Adam's personality sketch given he was enrolled in a particular field. This value should reflect how well Adam's traits match the typical traits of someone in that field.
+
+3. **Probability of Evidence \( P(E|\neg H) \)**:
+   - \( P(E|\neg H) \) is the probability of observing the personality sketch \( E \) given that Adam is not enrolled in field \( H \).
+
+4. **Bayes' Rule**:
+   - Finally, we use Bayes' rule to compute the posterior probability \( P(H|E) \):
+
+     \[
+     P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+     \]
+
+   where \( P(E) \) is the total probability of the evidence and can be computed as:
+  
+     \[
+     P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+     \]
+
+### Estimating Values:
+
+**For Agricultural and Veterinary Science:**
+
+- **P(H)**: Assuming equal prior probabilities, let's set \(P(H) = 0.1\).
+- **P(E|H)**: Given Adam's traits (love for nature, plants, animals, empathy), likelihood is high. Let's set \(P(E|H) = 0.8\).
+- **P(E|\neg H)**: Considering how numerous other fields might not perfectly align with Adam's traits, this is likely lower. Let's set this at \(P(E|\neg H) = 0.2\).
+
+**For Computer Science:**
+
+- **P(H)**: Assuming equal prior probabilities, let's set \(P(H) = 0.1\).
+- **P(E|H)**: Given Adam's traits (intelligence, enjoys puzzles), likelihood is moderate. Let’s set \(P(E|H) = 0.4\).
+- **P(E|\neg H)**: As the traits for most other fields likely wouldn't match as specifically, let's set this moderately. \(P(E|\neg H) = 0.3\).
+
+### Computing Posteriors:
+
+**For Agricultural and Veterinary Science:**
+
+1. Calculate \( P(E) \):
+   \[
+   P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+   \]
+   Given \(P(H) = 0.1 \), \( P(E|H) = 0.8 \), \( P(\neg H) = 0.9 \), \( P(E|\neg H) = 0.2 \):
+   \[
+   P(E) = 0.8 \cdot 0.1 + 0.2 \cdot 0.9 = 0.08 + 0.18 = 0.26
+   \]
+
+2. Calculate \( P(H|E) \):
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{0.26} = \frac{0.08}{0.26} \approx 0.3077
+   \]
+
+**For Computer Science:**
+
+1. Calculate \(P(E)\):
+   \[
+   P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+   \]
+   Given \(P(H) = 0.1 \), \( P(E|H) = 0.4 \), \( P(\neg H) = 0.9 \), \( P(E|\neg H) = 0.3 \):
+   \[
+   P(E) = 0.4 \cdot 0.1 + 0.3 \cdot 0.9 = 0.04 + 0.27 = 0.31
+   \]
+
+2. Calculate \( P(H|E) \):
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.4 \cdot 0.1}{0.31} = \frac{0.04}{0.31} \approx 0.129
+   \]
+
+### Results:
+
+```json
+{
+  "agricultural and veterinary science": 0.3077,
+  "computer science": 0.129
+}
+```
+
+These calculations suggest that given Adam's personality sketch, he is more likely to be enrolled in agricultural and veterinary science than in computer science, based on the provided estimates.

@@ -1,0 +1,51 @@
+Sure, let's start by defining the relevant probabilities for each field of study and then compute \( P(H|E) \) using Bayes' rule.
+
+First, we need to think about the prior probabilities \( P(H) \). These represent the likelihood that any given graduate student is enrolled in a given field before considering any specific information about Adam. Generally, in the U.S., there are fewer students in agricultural and veterinary science than in business administration and computer science. Therefore:
+
+- \(P(H_{\text{agricultural and veterinary science}})\) is relatively low.
+- \(P(H_{\text{business administration}})\) is relatively higher.
+- \(P(H_{\text{computer science}})\) is also relatively higher but less than business administration.
+
+For simplicity, let's assign some ballpark figures:
+
+- \( P(H_{\text{agricultural and veterinary science}}) = 0.05 \)
+- \( P(H_{\text{business administration}}) = 0.30 \)
+- \( P(H_{\text{computer science}}) = 0.20 \)
+
+Next, consider the likelihoods \( P(E|H) \) which represent how well Adam's personality sketch matches students typically found in each field of study:
+
+- For agricultural and veterinary science, Adam's traits such as curiosity about nature and a deep love for animals are highly relevant, so \( P(E|H_{\text{agricultural and veterinary science}}) \) is high. Let's say \( 0.8 \).
+  
+- For business administration, Adam's traits don't map as closely, particularly given his interest in nature and animals. \( P(E|H_{\text{business administration}}) \) is lower. Let's say \( 0.1 \).
+  
+- For computer science, Adam's high intelligence and problem-solving abilities are relevant, but his interest in nature and animals is less aligned. \( P(E|H_{\text{computer science}}) \) might be moderate. Let's say \( 0.4 \).
+
+Finally, consider the complement likelihoods \( P(E|\neg H) \):
+
+- For agricultural and veterinary science, excluding those fields, Adam’s traits such as problem-solving might still be present in other fields, but his specialized interests aren’t as common, so \( P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.2 \).
+  
+- For business administration, excluding this field, many fields do match Adam’s abstract thinking and problem-solving skills, making \( P(E|\neg H_{\text{business administration}}) = 0.6 \).
+  
+- For computer science, other fields also require problem-solving and intelligence, therefore, \( P(E|\neg H_{\text{computer science}}) = 0.5 \).
+
+Let's use Bayes' rule to calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, we can ignore the normalization factor \( P(E) \) as we're providing the relative scores.
+
+So:
+
+{
+  "agricultural and veterinary science": \( \frac{0.8 \cdot 0.05}{0.8 \cdot 0.05 + 0.1 \cdot 0.30 + 0.4 \cdot 0.20} = \frac{0.04}{0.04 + 0.03 + 0.08} = \frac{0.04}{0.15} = 0.27 \),
+  "business administration": \( \frac{0.1 \cdot 0.30}{0.8 \cdot 0.05 + 0.1 \cdot 0.30 + 0.4 \cdot 0.20} = \frac{0.03}{0.04 + 0.03 + 0.08} = \frac{0.03}{0.15} = 0.20 \),
+  "computer science": \( \frac{0.4 \cdot 0.20}{0.8 \cdot 0.05 + 0.1 \cdot 0.30 + 0.4 \cdot 0.20} = \frac{0.08}{0.04 + 0.03 + 0.08} = \frac{0.08}{0.15} = 0.53 \)
+}
+
+So the relative probabilities, not normalized to 1, suggest that Adam is most likely specializing in:
+
+{
+  "agricultural and veterinary science": 0.27,
+  "business administration": 0.20,
+  "computer science": 0.53
+}

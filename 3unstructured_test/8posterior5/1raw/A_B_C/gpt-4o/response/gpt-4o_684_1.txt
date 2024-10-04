@@ -1,0 +1,62 @@
+To calculate \( P(H|E) \), we need to apply Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here:
+- \( P(H) \) is the prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam was enrolled in that field.
+- \( P(E|\neg H) \) is the likelihood of observing the personality sketch given that Adam was not enrolled in that field.
+- \( P(E) \) can be considered as a normalizing constant and is equivalent for all fields for comparison purposes.
+
+To make this calculation, we will need to make educated assumptions about the probabilities.
+
+**Assumptions about \( P(H) \)**:
+- Business Administration: Let's assume graduate students in business administration could make up about 0.20 (20%) of the overall graduate population.
+- Computer Science: Assume graduate students in computer science make up about 0.25 (25%) of the overall graduate population.
+- Agricultural and Veterinary Science: Assume graduate students in this field make up about 0.10 (10%) of the overall graduate population.
+
+**Assumptions about \( P(E|H) \)**:
+- Given Adam's interests and personality, these are subjective but likely:
+  - For Business Administration: Since Adam's traits do not strongly align with typical business administration traits (less likely warm-hearted nature appreciator), let's assign a value of 0.10 (10%).
+  - For Computer Science: He enjoys solving puzzles and has high intelligence, which aligns well with computer science, so let's assign a value of 0.50 (50%).
+  - For Agricultural and Veterinary Science: His love for nature, plants, and animals fits well, so let's assign a value of 0.80 (80%).
+
+**Assumptions about \( P(E|\neg H) \)**:
+- Assuming that \( P(E|\neg H) \) would be lower compared to \( P(E|H) \) considering that Adam’s personality appears highly specific, let's assign a uniform likelihood here as an approximation: 
+- Let’s assume that across all other fields not specified, \( P(E|\neg H) \) is about 0.15 (15%).
+
+Now let's calculate the values:
+
+**Business Administration**:
+\[ P(H) = 0.20 \]
+\[ P(E|H) = 0.10 \]
+\[ P(E) \approx \sum_{\text{all fields}} P(E|H) \cdot P(H) + \sum_{\text{not these fields}} P(E|\neg H) \cdot P(\neg H) \]
+
+First, calculate:
+\[ \text{Normalizer} P(E) \approx (0.10 \cdot 0.20 + 0.50 \cdot 0.25 + 0.80 \cdot 0.10) + (\text{other non-these fields with } 0.15 \text{ likelihood}) \]
+\[ \text{Approximate P(E)} \approx (0.02 + 0.125 + 0.08) + (0.15 \times 0.45) = 0.225 + 0.0675 \approx  0.2925 \]
+
+Now:
+\[ P(H|E)_{\text{business admin}} = \frac{0.10 \cdot 0.20}{0.2925} \approx \frac{0.02}{0.2925} \approx 0.0684 \]
+
+**Computer Science**:
+\[ P(H) = 0.25 \]
+\[ P(E|H) = 0.50 \]
+
+\[ P(H|E)_{\text{computer science}} = \frac{0.50 \cdot 0.25}{0.2925} \approx \frac{0.125}{0.2925} \approx 0.4276 \]
+
+**Agricultural and Veterinary Science**:
+\[ P(H) = 0.10 \]
+\[ P(E|H) = 0.80 \]
+
+\[ P(H|E)_{\text{agri/vet}} = \frac{0.80 \cdot 0.10}{0.2925} \approx \frac{0.08}{0.2925} \approx 0.2736 \]
+
+Putting it all together:
+
+```json
+{
+  "business administration": 0.0684,
+  "computer science": 0.4276,
+  "agricultural and veterinary science": 0.2736
+}
+```

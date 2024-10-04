@@ -1,0 +1,77 @@
+To solve this problem using Bayesian statistics, we need to assign values to the prior probability \(P(H)\), the likelihood \(P(E|H)\), and the marginal likelihood \(P(E)\) or alternatively the probability of evidence given the negation \(P(E|\neg H)\). 
+
+Let's denote the following fields:
+
+- \(H_{BA}\): Hypothesis that Adam was enrolled in Business Administration.
+- \(H_{CS}\): Hypothesis that Adam was enrolled in Computer Science.
+- \(H_{AVS}\): Hypothesis that Adam was enrolled in Agricultural and Veterinary Science.
+
+We'll use the following steps:
+
+1. **Estimate priors \(P(H)\)**:
+   - These are the prior probabilities that Adam is enrolled in each of these fields. We don't have precise data here, but we can assume general statistics or some heuristic reasoning about the popularity of these fields.
+
+2. **Estimate likelihoods \(P(E|H)\)**:
+   - These are the probabilities of observing the evidence given that Adam is in each field. We'll use the personality sketch to evaluate these.
+
+3. **Estimate \(P(E|\neg H)\)****:
+   - This is the weighted sum of the likelihoods for all other fields Adam might be enrolled in, but given we are focusing only on one field at a time, we can approximate this based on intuition and information available.
+
+4. **Bayes' Rule Application**:
+   - We use \(P(H|E) = \frac{P(E|H)P(H)}{P(E)}\). Since \(P(E)\) is usually a normalization constant over all hypotheses, we can simplify this for comparative purposes as \(P(H|E) \propto P(E|H)P(H)\).
+
+### Assumptions and Estimations
+
+Let's assign some probative values for our independent fields based on known general data and intuitive estimations.
+
+#### Business Administration:
+
+- \(P(H_{BA})\): Business Administration is a common graduate field, but let's assume a generic prior probability. Assume 0.2.
+- \(P(E|H_{BA})\): The evidence (Adam's personality sketch) suggests a strong inclination toward nature and animals, more aligned with another field. Assume a very low value, say 0.05.
+- \(P(E|\neg H_{BA})\): Assume the complement; let's say \(P(E|\neg H_{BA}) = 0.75\) since the nature-loving characteristic doesn't fit most business students.
+
+#### Computer Science:
+
+- \(P(H_{CS})\): Also a popular graduate field. Assume 0.25 for the prior probability.
+- \(P(E|H_{CS})\): The personality sketch aligns partially due to analytical and problem-solving traits. Assume a moderate value, say 0.3.
+- \(P(E|\neg H_{CS})\): Let's assume the remaining students have a higher probability of fitting Adam's nature-loving trait, say 0.6.
+
+#### Agricultural and Veterinary Science:
+
+- \(P(H_{AVS})\): This field aligns well with Adam's traits. Assume 0.15 for the prior probability.
+- \(P(E|H_{AVS})\): The evidence strongly suggests this field, so we'll assume a high value, say 0.8.
+- \(P(E|\neg H_{AVS})\): The likelihood for other fields given Adam's nature-loving trait is less, assume 0.5.
+
+### Calculations Using Bayes' Rule
+
+1. **Business Administration**
+   \(P(H_{BA}|E) \propto P(E|H_{BA}) P(H_{BA}) = 0.05 \times 0.2 = 0.01\)
+
+2. **Computer Science**
+   \(P(H_{CS}|E) \propto P(E|H_{CS}) P(H_{CS}) = 0.3 \times 0.25 = 0.075\)
+
+3. **Agricultural and Veterinary Science**
+   \(P(H_{AVS}|E) \propto P(E|H_{AVS}) P(H_{AVS}) = 0.8 \times 0.15 = 0.12\)
+
+Normalization is not strictly necessary for comparative purposes here, but it would involve summing all calculated probabilities: 
+
+Total = 0.01 + 0.075 + 0.12 = 0.205, and dividing each by this total to get normalized posterior probabilities:
+
+{
+  "business administration": \( \frac{0.01}{0.205} \approx 0.0488\),
+  "computer science": \( \frac{0.075}{0.205} \approx 0.3659\),
+  "agricultural and veterinary science": \( \frac{0.12}{0.205} \approx 0.5854\)
+}
+
+Thus, the final estimates would be:
+
+```json
+{
+  "business administration": 0.0488,
+  "computer science": 0.3659,
+  "agricultural and veterinary science": 0.5854
+}
+```
+
+
+

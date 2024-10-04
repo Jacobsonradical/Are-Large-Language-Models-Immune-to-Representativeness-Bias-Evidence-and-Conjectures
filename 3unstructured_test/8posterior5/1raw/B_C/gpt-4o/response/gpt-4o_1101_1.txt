@@ -1,0 +1,55 @@
+To compute the probability \( P(H|E) \) using Bayes' rule, we need to determine the following values for each field:
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The probability of the evidence given that Adam was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of the evidence given that Adam was not enrolled in that field.
+
+Bayes' rule is given by:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since we are comparing the relative probabilities and the exact value of \( P(E) \) (the total probability of the evidence) is hard to determine without more information, we can focus on the relative comparisons using the prior and likelihoods.
+
+Let's make an educated guess for each component:
+
+1. **Computer Science:**
+   - \( P(H) \): The prior probability of Adam being a computer science student. Given the popularity of the field in the U.S. and that many high intelligence individuals gravitate towards it, let's set \( P(H)_{\text{cs}} = 0.2 \).
+   - \( P(E|H) \): Given Adam's traits (curiosity, puzzle-solving, high intelligence), this aligns well with a computer science student, so let's say \( P(E|H)_{\text{cs}} = 0.8 \).
+   - \( P(E|\neg H) \): The probability of these traits existing in students outside computer science. Given these traits can be common in many high-achieving students but not as tailored as a fit, let's set \( P(E|\neg H)_{\text{cs}} = 0.4 \).
+
+2. **Business Administration:**
+   - \( P(H) \): The prior probability of Adam being a business administration student. Given the variety of backgrounds in this field, let's set \( P(H)_{\text{ba}} = 0.15 \).
+   - \( P(E|H) \): Adam's traits somewhat fit, especially strong empathy and understanding of hard work, but perhaps not as perfectly as with computer science. So we might set \( P(E|H)_{\text{ba}} = 0.6 \).
+   - \( P(E|\neg H) \): The probability of these traits existing outside business administration. Given empathy and understanding are common, let's set \( P(E|\neg H)_{\text{ba}} = 0.5 \).
+
+Now we apply Bayes' rule relatively:
+
+1. **Computer Science:**
+\[
+P(H|E)_{\text{cs}} = \frac{P(E|H)_{\text{cs}} \cdot P(H)_{\text{cs}}}{P(E)_{\text{cs}}}
+\]
+
+Noting that \( P(E)_{\text{cs}} = P(E|H)_{\text{cs}} \cdot P(H)_{\text{cs}} + P(E|\neg H)_{\text{cs}} \cdot P(\neg H)_{\text{cs}} \), but for relative comparison, we simplify:
+\[
+P(H|E)_{\text{cs}} \propto 0.8 \cdot 0.2 = 0.16
+\]
+
+2. **Business Administration:**
+\[
+P(H|E)_{\text{ba}} = \frac{P(E|H)_{\text{ba}} \cdot P(H)_{\text{ba}}}{P(E)_{\text{ba}}}
+\]
+
+\[
+P(H|E)_{\text{ba}} \propto 0.6 \cdot 0.15 = 0.09
+\]
+
+To present it as a probability between 0 and 1 without requiring full normalization:
+
+\[
+{
+  "computer science": "0.16",
+  "business administration": "0.09"
+}
+\]
+
+These values reflect the relative likelihoods which still need normalization to form probabilities but indicate a higher likelihood for Adam being in computer science based on his traits described.

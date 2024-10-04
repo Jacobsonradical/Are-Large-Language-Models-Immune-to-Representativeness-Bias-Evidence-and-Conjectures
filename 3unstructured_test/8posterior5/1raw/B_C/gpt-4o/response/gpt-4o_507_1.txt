@@ -1,0 +1,77 @@
+To calculate the probability that Adam is enrolled in a specific field given his personality traits using Bayes' rule, we need to evaluate the relevant probabilities: \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Here's what these terms mean:
+
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch given that he is enrolled in that field.
+- \( P(E|\neg H) \) is the probability of observing Adam's personality sketch given that he is not enrolled in that field.
+
+Using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be computed by using the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H)) \]
+
+Since we are dealing with two fields (computer science and business administration), we will assume that we need to primarily distinguish between them.
+
+### Hypothesis 1: Computer Science
+
+1. **Prior Probability \( P(H) \)**
+   - Estimate the likelihood of a graduate student being in computer science. Let's assume it is moderate.
+   - \( P(H_{\text{CS}}) = 0.3 \) 
+
+2. **Likelihood \( P(E|H) \)**
+   - Given Adam's traits (curiosity about nature, enjoys solving puzzles, high intelligence, abstract thinking), computer science seems a fit especially due to the puzzle-solving nature and focus on abstract thinking.
+   - \( P(E|H_{\text{CS}}) = 0.6 \)
+
+3. **Probability of evidence \(P(E|\neg H)\)**
+   - How likely is Adam's personality sketch among students not in computer science (including all other fields)?
+   - Assume it is less likely than if he were in CS.
+   - \( P(E|\neg H_{\text{CS}}) = 0.3 \)
+
+### Hypothesis 2: Business Administration
+
+1. **Prior Probability \( P(H) \)**
+    - Estimate the likelihood of a graduate student being in business administration.
+    - \( P(H_{\text{BA}}) = 0.2 \)
+
+2. **Likelihood \( P(E|H) \)**
+   - Adam's traits do not particularly align with the typical traits needed for business administration, although strong empathy and understanding abstract concepts might be helpful.
+   - \( P(E|H_{\text{BA}}) = 0.2 \)
+
+3. **Probability of evidence \(P(E|\neg H)\)**
+   - How likely is Adam's personality sketch among students not in business administration?
+   - Assume it is about a medium likelihood overall.
+   - \( P(E|\neg H_{\text{BA}}) = 0.4 \)
+
+### Applying Bayes' Rule
+
+#### For Computer Science:
+
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}})) \]
+
+\[ P(E) = 0.6 \times 0.3 + 0.3 \times 0.7 = 0.18 + 0.21 = 0.39 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.6 \times 0.3}{0.39} = \frac{0.18}{0.39} \approx 0.462 \]
+
+#### For Business Administration:
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+
+\[ P(E) = P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot (1 - P(H_{\text{BA}})) \]
+
+\[ P(E) = 0.2 \times 0.2 + 0.4 \times 0.8 = 0.04 + 0.32 = 0.36 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{0.2 \times 0.2}{0.36} = \frac{0.04}{0.36} \approx 0.111 \]
+
+
+### Results in JSON Format:
+
+```json
+{
+  "computer science": 0.462,
+  "business administration": 0.111
+}
+```

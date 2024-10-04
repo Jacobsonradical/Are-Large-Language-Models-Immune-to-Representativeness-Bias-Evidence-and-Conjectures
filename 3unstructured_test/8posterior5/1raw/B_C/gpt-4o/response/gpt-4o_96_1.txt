@@ -1,0 +1,66 @@
+To determine the probability that Adam was enrolled in either business administration or computer science given his personality sketch (\(E\)), we need to consider the following probabilities for each field: 
+
+1. \( P(H) \): The prior probability that Adam was enrolled in the field without considering his personality.
+2. \( P(E|H) \): The likelihood of observing Adam's personality if he were enrolled in the given field.
+3. \( P(E|\neg H) \): The likelihood of observing Adam's personality if he were not enrolled in the given field.
+
+Then we use Bayes' Rule: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, \( P(E) \) can be viewed as a normalizing constant later. We will focus on comparing the relative probabilities \( P(H|E) \) for each hypothesis.
+
+Let's consider each field in turn:
+
+### Business Administration:
+
+1. **\( P(H) \)**: The prior probability of Adam being enrolled in business administration - let's assume this is moderately low relative to the fact that graduate programs have a wide range of fields (say around \(0.05\)).
+2. **\( P(E|H) \)**: The likelihood of Adam having his described personality traits if he were in business administration. Some traits overlap (e.g., high intelligence, understanding dedication), but other traits (love for nature, animals, solving puzzles) seem less aligned. I'll assume this probability is moderate (say \(0.3\)).
+3. **\( P(E|\neg H) \)**: The likelihood of Adam having his personality if he were not in business administration. Given the large number of other fields that might fit better, this would be higher (say \(0.7\)).
+
+### Computer Science:
+
+1. **\( P(H) \)**: The prior probability of Adam being enrolled in computer science. This field is quite broad and includes many sub-fields that align with Adam’s traits (say \(0.15\)).
+2. **\( P(E|H) \)**: The likelihood of Adam having his described personality traits if he were in computer science. Traits like high intelligence, abstract thinking, and solving puzzles align very well here (say \(0.7\)).
+3. **\( P(E|\neg H) \)**: The likelihood of Adam having his personality if he were not in computer science. This is harder to estimate but would be relatively high considering the broad range of other fields (say \(0.5\)).
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) will serve as a normalizing constant and we're only interested in the relative comparisons:
+
+For business administration:
+
+\[ P(\text{Business Administration}|E) \approx \frac{0.3 \times 0.05}{P(E)} \]
+
+For computer science:
+
+\[ P(\text{Computer Science}|E) \approx \frac{0.7 \times 0.15}{P(E)} \]
+
+Note: \( P(E) \) cancels out in relative comparison.
+
+Now evaluating these:
+
+For business administration:
+
+\[ \approx \frac{0.015}{P(E)} \]
+
+For computer science:
+
+\[ \approx \frac{0.105}{P(E)} \]
+
+Upon relative comparison, we normalize these probabilities:
+
+\[ P(\text{Business Administration}|E) \approx \frac{0.015}{0.015 + 0.105} \approx \frac{0.015}{0.12} \approx 0.125 \]
+
+\[ P(\text{Computer Science}|E) \approx \frac{0.105}{0.12} \approx 0.875 \]
+
+Thus:
+
+```json
+{
+  "business administration": 0.125,
+  "computer science": 0.875
+}
+```

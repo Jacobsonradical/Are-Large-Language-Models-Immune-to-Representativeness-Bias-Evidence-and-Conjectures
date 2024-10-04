@@ -1,0 +1,72 @@
+To use Bayes' rule, we need to compute the posterior probability \( P(H|E) \) that Adam was enrolled in a specific field given his personality sketch \( E \). This is calculated using:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since \( P(E) \) is a normalizing factor that would be the same for each hypothesis, we can ignore it for relative comparisons.
+
+Let’s denote:
+- \( P(H) \): Prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): Probability of evidence \( E \) given hypothesis \( H \).
+- \( P(E|\neg H) \): Probability of evidence \( E \) given that Adam was not enrolled in this field.
+
+Assumptions:
+- \( P(H_{\text{agri}}) \): Prior probability that Adam was enrolled in agricultural and veterinary science.
+- \( P(H_{\text{biz}}) \): Prior probability that Adam was enrolled in business administration.
+- \( P(E|H_{\text{agri}}) \): Likelihood of Adam’s personality sketch given he was in agricultural and veterinary science.
+- \( P(E|H_{\text{biz}}) \): Likelihood of Adam’s personality sketch given he was in business administration.
+
+Given that Adam has a strong empathy and love for animals, a curiosity about nature, and an appreciation for hard work, these traits align more closely with individuals in agricultural and veterinary science than business administration.
+
+Thus, we can reason as follows:
+
+### Agricultural and Veterinary Science
+
+- \( P(H_{\text{agri}}) \): Prior probability might be moderate given various graduate fields. Let's assume 0.2.
+- \( P(E|H_{\text{agri}}) \): High likelihood given his traits are strongly aligned with this field. Let's assume 0.8.
+- \( P(E|\neg H_{\text{agri}}) \): Lower likelihood given these traits may not be as aligned with other fields. Let's assume 0.4.
+
+Using Bayes' rule we compute \( P(H_{\text{agri}}|E) \):
+\[
+P(H_{\text{agri}}|E) = \frac{P(E|H_{\text{agri}}) \cdot P(H_{\text{agri}})}{P(E)} = \frac{0.8 \cdot 0.2}{P(E)}
+\]
+
+Ignoring the normalizing constant \( P(E) \), we get:
+\[
+P(H_{\text{agri}}|E) \propto 0.8 \cdot 0.2 = 0.16
+\]
+
+### Business Administration
+
+- \( P(H_{\text{biz}}) \): Prior probability might also be moderate given various graduate fields. Let's assume 0.2.
+- \( P(E|H_{\text{biz}}) \): Lower likelihood as his personality traits do not strongly align. Let’s assume 0.1.
+- \( P(E|\neg H_{\text{biz}}) \): Moderate likelihood given these traits may be more common than business students. Let's assume 0.5.
+
+Using Bayes' rule we compute \( P(H_{\text{biz}}|E) \):
+\[
+P(H_{\text{biz}}|E) = \frac{P(E|H_{\text{biz}}) \cdot P(H_{\text{biz}})}{P(E)} = \frac{0.1 \cdot 0.2}{P(E)}
+\]
+
+Ignoring the normalizing constant \( P(E) \), we get:
+\[
+P(H_{\text{biz}}|E) \propto 0.1 \cdot 0.2 = 0.02
+\]
+
+Finally, normalizing these proportional values for comparison:
+
+\[
+P(H_{\text{agri}}|E) = \frac{0.16}{0.16 + 0.02} \approx 0.89
+\]
+\[
+P(H_{\text{biz}}|E) = \frac{0.02}{0.16 + 0.02} \approx 0.11
+\]
+
+Therefore, the probabilities are approximately:
+
+```json
+{
+  "agricultural and veterinary science": 0.89,
+  "business administration": 0.11
+}
+```

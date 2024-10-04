@@ -1,0 +1,69 @@
+Sure, let's apply Bayes' Rule to compute the posterior probabilities \( P(H|E) \) for each field given Adam's personality sketch \( E \).
+
+Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis \( H \) (i.e., Adam being in that field).
+- \( P(E|H) \) is the likelihood of observing the evidence \( E \) given the hypothesis \( H \).
+- \( P(E) \) is the marginal probability of the evidence \( E \).
+- \( P(E|\neg H) \) is the probability of the evidence given that \( H \) is not true.
+
+Assumptions:
+- \( P(H) \) can be assumed based on general enrollment statistics of graduate fields.
+- \( P(E|H) \) estimates how well the personality sketch matches the field.
+- \( P(E|\neg H) \) can be approximated if we know how common these traits are in general graduate students, not in the specific field.
+
+Let's start with estimating the priors:
+
+For simplicity, let's assume the prior probabilities based on general enrollment statistics:
+1. \( P(\text{computer science}) = 0.2 \)
+2. \( P(\text{business administration}) = 0.2 \)
+3. \( P(\text{agricultural and veterinary science}) = 0.1 \)
+
+Estimate \( P(E|H) \):
+
+1. For computer science: While high intelligence and understanding of abstract concepts match, interest in nature, plants, and animals, as well as strong empathy, does not align well.
+   \[ P(E|\text{computer science}) = 0.2 \]
+
+2. For business administration: The qualities described (empathy, warm heart) could suit management roles but don't align strongly with business administration's typical focus.
+   \[ P(E|\text{business administration}) = 0.1 \]
+
+3. For agricultural and veterinary science: Adam's deep love for animals, interest in nature, plants, and empathy fit almost perfectly.
+   \[ P(E|\text{agricultural and veterinary science}) = 0.9 \]
+
+Estimate \( P(E|\neg H) \):
+
+This is trickier, but we can assume that the combination of traits is relatively rare in the general graduate population:
+\[ P(E|\neg H) = 0.1 \]
+
+Now, calculate the marginal likelihood \( P(E) \):
+\[ P(E) = P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since the "neg H" term should include all other possible fields, we'll assume the sum of other fields' probabilities is around 0.5:
+\[ P(E) = 0.2 \cdot 0.2 + 0.1 \cdot 0.2 + 0.9 \cdot 0.1 + 0.1 \cdot 0.5 \]
+\[ P(E) = 0.04 + 0.02 + 0.09 + 0.05 \]
+\[ P(E) = 0.20 \]
+
+Finally, calculate \( P(H|E) \):
+
+1. For computer science:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+\[ P(\text{computer science}|E) = \frac{0.2 \cdot 0.2}{0.2} = 0.2 \]
+
+2. For business administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{0.1 \cdot 0.2}{0.2} = 0.1 \]
+
+3. For agricultural and veterinary science:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.9 \cdot 0.1}{0.2} = 0.45 \]
+
+So the results are:
+
+{
+  "computer science": 0.2,
+  "business administration": 0.1,
+  "agricultural and veterinary science": 0.45
+}

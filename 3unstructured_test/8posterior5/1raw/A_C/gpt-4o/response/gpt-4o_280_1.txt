@@ -1,0 +1,53 @@
+To compute \( P(H|E) \) using Bayes' rule, we start with:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we only need to compare the probabilities for "agricultural and veterinary science" and "computer science", we can skip the computation of \( P(E) \) as it will be the same for both fields and thus cancels out when comparing the two probabilities.
+
+Let's denote the field of "agricultural and veterinary science" as \( H_1 \) and "computer science" as \( H_2 \).
+
+First, we estimate \( P(H_1) \) and \( P(H_2) \):
+
+1. **\( P(H_1) \) (agricultural and veterinary science)**: Considering the number of graduate students who might be enrolled in this field relative to the general population.
+    - Given Adam's strong affinity for nature, plants, and animals, there's a reasonably good chance he chose this field. Let's say \( P(H_1) = 0.1 \).
+
+2. **\( P(H_2) \) (computer science)**: This is a very popular graduate field.
+    - While Adam's intelligence and problem-solving skills fit well with computer science, his pronounced love for nature and animals is less aligned with this field. Therefore, \( P(H_2) = 0.15 \) as it still could be a popular choice.
+
+Next, we estimate \( P(E|H_1) \) and \( P(E|H_2) \):
+
+1. **\( P(E|H_1) \) (Likelihood of Adam's sketch given agricultural and veterinary science)**:
+    - Very high as his interests and personality match well with this field. Let's say \( P(E|H_1) = 0.9 \).
+
+2. **\( P(E|H_2) \) (Likelihood of Adam's sketch given computer science)**:
+    - Moderate, as while some aspects of his personality (like intelligence and problem-solving skills) align with computer science, others (empathy for animals and love for nature) do not. Let's say \( P(E|H_2) = 0.2 \).
+
+Now, we also estimate \( P(E|\neg H_1) \) and \( P(E|\neg H_2) \):
+
+1. **\( P(E|\neg H_1) \)**: Probability that Adam's sketch fits other fields besides agricultural and veterinary science.
+    - Considering the large number of other fields, and how specialized Adam's interests are: let's say \( P(E|\neg H_1) = 0.2 \).
+
+2. **\( P(E|\neg H_2) \)**: Probability that Adam's sketch fits other fields besides computer science.
+    - Given his specific interests in nature and animals, many other fields might better match his profile than computer science: let's say \( P(E|\neg H_2) = 0.3 \).
+
+Using Bayes' rule:
+
+\[ P(H_1|E) \propto P(E|H_1) \cdot P(H_1) \]
+\[ P(H_2|E) \propto P(E|H_2) \cdot P(H_2) \]
+
+\[ P(H_1|E) \approx 0.9 \times 0.1 = 0.09 \]
+\[ P(H_2|E) \approx 0.2 \times 0.15 = 0.03 \]
+
+Normalizing these values for comparison:
+
+\[ P(H_1|E) = \frac{0.09}{0.09 + 0.03} = \frac{0.09}{0.12} = 0.75 \]
+\[ P(H_2|E) = \frac{0.03}{0.09 + 0.03} = \frac{0.03}{0.12} = 0.25 \]
+
+Thus, the final expressible probabilities (rounded to 2 decimal places for practicality):
+
+```json
+{
+  "agricultural and veterinary science": 0.75,
+  "computer science": 0.25
+}
+```

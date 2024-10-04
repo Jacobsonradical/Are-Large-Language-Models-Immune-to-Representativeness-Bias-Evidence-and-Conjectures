@@ -1,0 +1,86 @@
+To compute the posterior probabilities \(P(H|E)\) using Bayes' Rule, we'll follow the formula:
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+Where:
+- \(P(H)\) is the prior probability of the hypothesis.
+- \(P(E|H)\) is the likelihood of the evidence given the hypothesis.
+- \(P(E)\) is the marginal likelihood of the evidence.
+- \(P(E|\neg H)\) is the likelihood of the evidence given not the hypothesis.
+
+For simplicity, we consider \(P(E)\) to be common across all fields and focus on comparing the relative probabilities. Let’s assign rough estimates to these probabilities.
+
+### Hypotheses and Prior Probabilities
+
+- **Agricultural and Veterinary Science (H1)**:
+  - \(P(H1)\): The prior belief that a random graduate student is in this field. Let's assume it’s moderately likely: 0.2.
+  
+- **Business Administration (H2)**:
+  - \(P(H2)\): The prior belief that a random graduate student is in this field. Assuming it's common but not perfectly fitting Adam’s profile: 0.3.
+  
+- **Computer Science (H3)**:
+  - \(P(H3)\): The prior belief that a random graduate student is in this field. Also common: 0.3.
+
+### Likelihoods
+
+- **Agricultural and Veterinary Science (H1)**:
+  - \(P(E|H1)\): Adam’s personality traits (curiosity about nature, love for animals, empathy) strongly fit this field. Let's say 0.9.
+  - \(P(E|\neg H1)\): Suppose traits fitting for other random fields on average: 0.4.
+
+- **Business Administration (H2)**:
+  - \(P(E|H2)\): There is less of a direct match for traits like love for animals and empathy. Let's assign: 0.2.
+  - \(P(E|\neg H2)\): Higher than \(P(E|H2)\) due to a mismatch: 0.5.
+ 
+- **Computer Science (H3)**:
+  - \(P(E|H3)\): Fits traits of puzzle-solving and intelligence but not as much the nature and empathy aspect. Let’s assign: 0.5.
+  - \(P(E|\neg H3)\): Higher due to other fields possibly matching better: 0.3.
+
+### Computing Posterior Probabilities using Bayes' Rule
+
+For **Agricultural and Veterinary Science (H1)**:
+
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \]
+\[ P(H1|E) = \frac{0.9 \cdot 0.2}{P(E)} = \frac{0.18}{P(E)} \]
+
+For **Business Administration (H2)**:
+
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \]
+\[ P(H2|E) = \frac{0.2 \cdot 0.3}{P(E)} = \frac{0.06}{P(E)} \]
+
+For **Computer Science (H3)**:
+
+\[ P(H3|E) = \frac{P(E|H3) \cdot P(H3)}{P(E)} \]
+\[ P(H3|E) = \frac{0.5 \cdot 0.3}{P(E)} = \frac{0.15}{P(E)} \]
+
+Since \(P(E)\) is common:
+
+\[
+P(H1|E) : P(H2|E) : P(H3|E) = 0.18 : 0.06 : 0.15 
+= 3 : 1 : 2.5
+\]
+
+Normalizing these to sum to 1 for relative comparison:
+
+\[
+\text{Sum} = 3 + 1 + 2.5 = 6.5
+\]
+
+So,
+
+\[
+P(H1|E) = \frac{3}{6.5} \approx 0.46
+\]
+\[
+P(H2|E) = \frac{1}{6.5} \approx 0.15
+\]
+\[
+P(H3|E) = \frac{2.5}{6.5} \approx 0.38
+\]
+
+Thus:
+
+{
+  "agricultural and veterinary science": 0.46,
+  "business administration": 0.15,
+  "computer science": 0.38
+}

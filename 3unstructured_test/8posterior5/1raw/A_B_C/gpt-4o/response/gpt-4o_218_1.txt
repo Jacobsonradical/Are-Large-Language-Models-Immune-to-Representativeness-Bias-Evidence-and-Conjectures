@@ -1,0 +1,48 @@
+Let's break the problem down by first assigning probabilities based on the given personality sketch of Adam.
+
+1. **Computer Science (CS)**
+   - **P(H):** The prior probability that any random graduate student is in Computer Science. Let's assume approximately 15% (0.15) of graduate students are in this field.
+   - **P(E|H):** The probability of Adam's personality sketch given he is in Computer Science. Given his traits, the probability might be relatively moderate but not very high, say around 0.2, since curiosity about nature and plants, and a love for animals don't strongly correlate with CS.
+   - **P(E|¬H):** The probability of Adam's personality sketch given he is not in Computer Science. Since these traits don't lean heavily towards or against CS specifically, this can be set to around 0.8.
+
+2. **Agricultural and Veterinary Science (AgVet)**
+   - **P(H):** The prior probability of a graduate student in this field might be lower given the number of fields available. Let's assume 5% (0.05).
+   - **P(E|H):** The probability of Adam's personality sketch given he is in AgVet science. This is likely to be quite high, say 0.7, since curiosity about nature and plants and a love for animals align well with this field.
+   - **P(E|¬H):** The probability of Adam's personality sketch given he is not in AgVet science could be average, say around 0.6.
+
+3. **Business Administration (BA)**
+   - **P(H):** The prior probability of a graduate student in BA. Let's assume around 20% (0.20), as it's a popular field.
+   - **P(E|H):** The probability of Adam's personality sketch given he is in Business Administration could be relatively low, say around 0.1, since his traits don't align typically with what one might expect for this field.
+   - **P(E|¬H):** The probability of Adam's personality sketch given he is not in Business Administration might be higher, say around 0.7.
+
+Using Bayes' theorem to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote \( P(E) \) as the general probability of Adam's personality sketch. We can normalize results if needed, but let's calculate the raw values first:
+
+For Computer Science (CS):
+\[ P(H|E)_{CS} = \frac{0.2 \cdot 0.15}{P(E)} = \frac{0.03}{P(E)} \]
+
+For Agricultural and Veterinary Science (AgVet):
+\[ P(H|E)_{AgVet} = \frac{0.7 \cdot 0.05}{P(E)} = \frac{0.035}{P(E)} \]
+
+For Business Administration (BA):
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.20}{P(E)} = \frac{0.02}{P(E)} \]
+
+Normalizing these values (summing up the numerators and dividing each by the sum):
+\[ P(E) = 0.03 + 0.035 + 0.02 = 0.085 \]
+
+Normalized probabilities:
+\[ P(H|E)_{CS} = \frac{0.03}{0.085} \approx 0.353 \]
+\[ P(H|E)_{AgVet} = \frac{0.035}{0.085} \approx 0.412 \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.085} \approx 0.235 \]
+
+Final result:
+```json
+{
+  "computer science": 0.353,
+  "agricultural and veterinary science": 0.412,
+  "business administration": 0.235
+}
+```

@@ -1,0 +1,67 @@
+To assess the likelihood that Adam is enrolled in each of the given fields of study, we can use Bayes' Rule. Bayes' Rule is formulated as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, for simplicity, we'll assume \(P(E)\) is roughly the same for all fields in this example, and we'll just focus on the factors \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\).
+
+### Step 1: Define Probabilities
+
+#### General Prior Probability \(P(H)\):
+- \( P(H_{\text{agricultural and veterinary science}}) \): Let's assume this is relatively specific and less common than business or computer science. So perhaps: \(0.1\)
+- \( P(H_{\text{business administration}}) \): Likely a very common graduate field. So, maybe: \(0.3\)
+- \( P(H_{\text{computer science}}) \): Also a very common graduate field. So, maybe: \(0.4\)
+
+#### Likelihood \(P(E|H)\):
+- \( P(E|H_{\text{agricultural and veterinary science}}) \): Aligns very well with Adam's traits, such as curiosity about nature, love for animals. So probably about: \(0.8\)
+- \( P(E|H_{\text{business administration}}) \): Less likely given Adam's empathy, love for animals, and puzzle-solving nature, but it's still possible. So maybe: \(0.2\)
+- \( P(E|H_{\text{computer science}}) \): Matches with high intelligence, abstract concepts, and puzzles, but not as much with nature and animals: \(0.4\)
+
+#### Probability of Evidence given not Hypothesis \(P(E|\neg H)\):
+- \( P(E|\neg H_{\text{agricultural and veterinary science}}) \)
+- \( P(E|\neg H_{\text{business administration}}) \)
+- \( P(E|\neg H_{\text{computer science}}) \)
+
+We might have some rough averages for these fields. Since we are focusing on the relative strengths, we can equalize these or adjust from non-existing evidence:
+- \( P(E|\neg H_{\text{agricultural and veterinary science}}) \): Giving a generic balanced value: \(0.5\)
+- \( P(E|\neg H_{\text{business administration}}) \): Maybe less likely in non-business residents: \(0.6\)
+- \( P(E|\neg H_{\text{computer science}}) \): Possibly balancing out at: \(0.6\)
+
+### Step 2: Bayesian Updates
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E)_{\text{AVS}} = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+\[ P(H|E)_{\text{AVS}} \propto 0.8 * 0.1 = 0.08 \]
+
+#### Business Administration:
+\[ P(H|E)_{\text{BA}} = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H|E)_{\text{BA}} \propto 0.2 * 0.3 = 0.06 \]
+
+#### Computer Science:
+\[ P(H|E)_{\text{CS}} = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H|E)_{\text{CS}} \propto 0.4 * 0.4 = 0.16 \]
+
+These are not normalized, but they provide relative likelihoods.
+
+### Conclusion:
+\{
+  "agricultural and veterinary science": 0.08,
+  "business administration": 0.06,
+  "computer science": 0.16
+\}
+
+### Normalizing (Optional):
+
+To see how they compare:
+Total: \(0.08 + 0.06 + 0.16 = 0.30\)
+Normalized values:
+\{
+  "agricultural and veterinary science": \(\frac{0.08}{0.30} \approx 0.267\),
+  "business administration": \(\frac{0.06}{0.30} \approx 0.200\),
+  "computer science": \(\frac{0.16}{0.30} \approx 0.533\)
+\}
+
+Leaving the normalized step:
+\{
+  "agricultural and veterinary science": 0.08,
+  "business administration": 0.06,
+  "computer science": 0.16
+\}

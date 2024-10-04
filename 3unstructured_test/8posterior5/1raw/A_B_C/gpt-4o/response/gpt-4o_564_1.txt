@@ -1,0 +1,67 @@
+To compute the posterior probabilities \( P(H|E) \) for each hypothesis (field), we first assign our priors and likelihoods. Let's consider:
+
+\[ P(H) \] = Prior probability that Adam was in the field \( H \)
+\[ P(E|H) \] = Likelihood of the evidence \( E \) given that Adam was in the field \( H \)
+\[ P(E|\neg H) \] = Likelihood of the evidence \( E \) given that Adam was not in the field \( H \)
+
+These will be somewhat subjective estimates based on the information provided in the personality sketch. Here's a step-by-step approach for each field.
+
+### Computer Science
+
+- **P(H)**: Assume the prior probability that a random graduate student is in computer science. Let's say computer science is quite popular, so we'll assign \( P(H) \) a relatively high value.
+\[ P(H_{CS}) = 0.3 \]
+
+- **P(E|H)**: The likelihood of Adam having the described personality traits if he were in computer science.
+\[ P(E|H_{CS}) = 0.3 \]
+
+- **P(E|\neg H)**: The likelihood of Adam having these traits if he were not in computer science. Given the traits are more typical of other fields:
+\[ P(E|\neg H_{CS}) = 0.1 \]
+
+### Agricultural and Veterinary Science
+
+- **P(H)**: The prior probability that a random graduate student is in agricultural and veterinary science. This field is less common.
+\[ P(H_{AV}) = 0.1 \]
+
+- **P(E|H)**: The likelihood of Adam having these personality traits if he were in agricultural and veterinary science.
+\[ P(E|H_{AV}) = 0.8 \]
+
+- **P(E|\neg H)**: The likelihood of Adam having these traits if he were not in agricultural and veterinary science.
+\[ P(E|\neg H_{AV}) = 0.15 \]
+
+### Business Administration
+
+- **P(H)**: The prior probability that a random graduate student is in business administration. This field is also common.
+\[ P(H_{BA}) = 0.4 \]
+
+- **P(E|H)**: The likelihood of Adam having these personality traits if he were in business administration.
+\[ P(E|H_{BA}) = 0.2 \]
+
+- **P(E|\neg H)**: The likelihood of Adam having these traits if he were not in business administration.
+\[ P(E|\neg H_{BA}) = 0.12 \]
+
+Finally, using Bayes' Rule for each case, we compute:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Let’s assume \( P(E) \) is the same for all cases as normalization:
+
+### Computer Science
+
+\[ P(H_{CS}|E) = \frac{0.3 \times 0.3}{P(E)} = 0.09 / P(E) \]
+
+### Agricultural and Veterinary Science
+
+\[ P(H_{AV}|E) = \frac{0.8 \times 0.1}{P(E)} = 0.08 / P(E) \]
+
+### Business Administration
+
+\[ P(H_{BA}|E) = \frac{0.2 \times 0.4}{P(E)} = 0.08 / P(E) \]
+
+Since \( P(E) \) is common (considering the relative values):
+
+```json
+{
+  "computer science": 0.09,
+  "agricultural and veterinary science": 0.08,
+  "business administration": 0.08
+}
+```
+We can normalize these values if needed to make them sum to 1, but since the total probability for the three hypotheses does not need to sum to 1 (as there are other fields), these computed values provide a good relative indication.

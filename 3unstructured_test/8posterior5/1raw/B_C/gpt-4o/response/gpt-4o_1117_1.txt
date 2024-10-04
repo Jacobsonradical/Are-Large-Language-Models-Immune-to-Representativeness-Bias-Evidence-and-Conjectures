@@ -1,0 +1,70 @@
+Let's break down the probabilities that we need to estimate for each field (computer science, business administration):
+
+### Computer Science
+
+1. **P(H):** This is the prior probability that Adam was studying computer science as a graduate student. Without specific data, we might assume graduate students are somewhat evenly distributed across a variety of fields.
+
+    **Estimate:** Let's say 0.1 (10%).
+
+2. **P(E|H):** This is the probability of observing the personality sketch E given that Adam is a computer science student. Given the high intelligence, curiosity about nature, solving puzzles, and appreciation for hard work, these traits might align with many computer science students.
+
+    **Estimate:** Let's say 0.4 (40%).
+
+3. **P(E|\neg H):** This is the probability of observing personality sketch E given that Adam is not studying computer science. Since E describes traits that can be common in many fields, we need to estimate how likely these traits are to be present in general graduate students not in computer science.
+
+    **Estimate:** Let's say 0.2 (20%).
+
+4. **P(H|E):** Using Bayes' theorem, we get:
+
+   \[
+   P(H|E) = \frac{P(E|H) P(H)}{P(E)} 
+   \]
+
+   Since P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) and P(\neg H) = 1 - P(H):
+
+    \[
+    P(E) = (0.4 \times 0.1) + (0.2 \times 0.9) = 0.04 + 0.18 = 0.22
+    \]
+    
+    \[
+    P(H|E) = \frac{0.4 \times 0.1}{0.22} \approx 0.1818
+    \]
+
+### Business Administration
+
+1. **P(H):** Assume a similar prior probability that Adam was studying business administration.
+
+    **Estimate:** Let's say 0.1 (10%).
+
+2. **P(E|H):** This is the probability of observing the personality sketch E given that Adam is a business administration student. Traits like high intelligence, appreciation for hard work, and possibly empathy might fit a business admin student, but curiosity about nature and love for animals seem less aligned.
+
+    **Estimate:** Let's say 0.2 (20%).
+
+3. **P(E|\neg H):** Same as above since it represents the general population of non-business admin graduate students.
+
+    **Estimate:** Let's say 0.2 (20%).
+
+4. **P(H|E):** Using Bayes' theorem, we get:
+
+   \[
+   P(H|E) = \frac{P(E|H) P(H)}{P(E)} 
+   \]
+
+   Since P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) and P(\neg H) = 1 - P(H):
+
+    \[
+    P(E) = (0.2 \times 0.1) + (0.2 \times 0.9) = 0.02 + 0.18 = 0.2
+    \]
+    
+    \[
+    P(H|E) = \frac{0.2 \times 0.1}{0.2} = 0.1
+    \]
+
+Therefore, we get the posterior probabilities:
+
+```json
+{
+  "computer science": 0.1818,
+  "business administration": 0.1
+}
+```

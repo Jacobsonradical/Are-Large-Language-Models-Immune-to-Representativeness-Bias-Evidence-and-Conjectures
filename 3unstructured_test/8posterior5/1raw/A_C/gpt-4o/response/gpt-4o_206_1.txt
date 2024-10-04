@@ -1,0 +1,46 @@
+To compute \( P(H|E) \) (the probability that Adam was enrolled in a particular field given his personality sketch), we can use Bayes' rule. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( P(H) \) is the prior probability of Adam being enrolled in a particular field.
+- \( P(E|H) \) is the probability of observing Adam's personality sketch given he was enrolled in that field.
+- \( P(E|\neg H) \) is the probability of observing Adam's personality sketch given he was not enrolled in that field.
+- \( P(E) \) is the total probability of observing Adam's personality sketch.
+
+However, since \( P(E) \) is a normalization term and would be the same for all hypotheses, it won't affect the relative probabilities we are interested in comparing. We are more interested in the proportional likelihoods rather than their exact values. To estimate these values, first we'd need to subjectively asses each probability:
+
+For "agricultural and veterinary science":
+- \( P(H) \): The prior probability of a graduate student being in agricultural and veterinary sciences. Let's assume it's around 0.1 (as agricultural and veterinary sciences are not among the most common fields, but not extremely uncommon either).
+- \( P(E|H) \): The probability of Adam having his described personality sketch if he is in agricultural and veterinary science. Given his genuine curiosity about nature, love for animals, and appreciation of hard work, this is very likely, say 0.8.
+- \( P(E|\neg H) \): The probability of Adam having his described personality sketch if he is not in agricultural and veterinary science. While these traits do not exclude other fields, they fit particularly well with agricultural and veterinary science. Let's assume 0.2.
+
+For "computer science":
+- \( P(H) \): The prior probability of a graduate student being in computer science. Let's assume it's around 0.2 (as computer science is a very common field).
+- \( P(E|H) \): The probability of Adam having his described personality sketch if he is in computer science. While his interest in puzzles could align with computer science, the love for animals and nature may not fit as naturally. Let's assume 0.3.
+- \( P(E|\neg H) \): The probability of Adam having his described personality sketch if he is not in computer science. Given that his traits are less typical of computer science students, say 0.6.
+
+By Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is consistent across comparisons:
+
+For "agricultural and veterinary science":
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \times 0.1 = 0.08 \]
+
+For "computer science":
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.3 \times 0.2 = 0.06 \]
+
+Normalizing these to ensure they make sense comparatively:
+\( C = 0.08 + 0.06 = 0.14 \)
+
+Thus,
+- \( P(H|E) \) for agricultural and veterinary science \( \approx \frac{0.08}{0.14} = 0.57 \)
+- \( P(H|E) \) for computer science \( \approx \frac{0.06}{0.14} = 0.43 \)
+
+Therefore:
+
+{
+  "agricultural and veterinary science": 0.57,
+  "computer science": 0.43
+}

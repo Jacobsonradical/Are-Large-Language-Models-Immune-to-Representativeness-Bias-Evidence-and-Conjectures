@@ -1,0 +1,53 @@
+To use Bayes' rule for the two fields, we need to compute the posterior probability \( P(H|E) \), which is the probability that Adam was enrolled in that specific field given the personality sketch \( E \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll assume the following for simplicity:
+
+- Prior probabilities \( P(H) \): The general likelihood of a graduate student being in each field without any specific information about Adam.
+- Likelihood \( P(E|H) \): The likelihood of observing the personality sketch \( E \) given that Adam is in the specific field.
+- Complementary probabilities: The likelihood \( P(E|\neg H) \) for the negation of \( H \), where \( H \) is each field.
+
+Let's consider the following assumptions for our analysis:
+
+- \( P(H_{\text{bus. admin.}}) = 0.1 \): There are many fields of study, and business administration is one of them, so we assign a prior probability of 0.1.
+- \( P(H_{\text{agri. vet. sci.}}) = 0.05 \): Agricultural and veterinary science might be less common, so we assign a slightly lower prior probability.
+
+For the likelihoods:
+- \( P(E|H_{\text{bus. admin.}}) = 0.1 \): Business administration students are less likely to have a deep love for animals and nature, so this likelihood is low.
+- \( P(E|H_{\text{agri. vet. sci.}}) = 0.6 \): Agricultural and veterinary science students are more likely to share traits such as empathy for animals and curiosity about nature, so this likelihood is higher.
+
+For the complementary probabilities (assuming other fields don't strongly match Adam's personality sketch):
+- \( P(E|\neg H_{\text{bus. admin.}}) = 0.6 \)
+- \( P(E|\neg H_{\text{agri. vet. sci.}}) = 0.55 \)
+
+Now we can compute \( P(E) \) for each field with a weighted sum, where \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \).
+
+### For Business Administration:
+
+\[ P(E) = P(E|H_{\text{bus. admin.}}) \cdot P(H_{\text{bus. admin.}}) + P(E|\neg H_{\text{bus. admin.}}) \cdot P(\neg H_{\text{bus. admin.}}) \]
+\[ P(E) = 0.1 \cdot 0.1 + 0.6 \cdot 0.9 \]
+\[ P(E) = 0.01 + 0.54 = 0.55 \]
+
+\[ P(H_{\text{bus. admin.}}|E) = \frac{P(E|H_{\text{bus. admin.}}) \cdot P(H_{\text{bus. admin.}})}{P(E)} \]
+\[ P(H_{\text{bus. admin.}}|E) = \frac{0.1 \cdot 0.1}{0.55} \]
+\[ P(H_{\text{bus. admin.}}|E) \approx 0.018 \]
+
+### For Agricultural and Veterinary Science:
+
+\[ P(E) = P(E|H_{\text{agri. vet. sci.}}) \cdot P(H_{\text{agri. vet. sci.}}) + P(E|\neg H_{\text{agri. vet. sci.}}) \cdot P(\neg H_{\text{agri. vet. sci.}}) \]
+\[ P(E) = 0.6 \cdot 0.05 + 0.55 \cdot 0.95 \]
+\[ P(E) = 0.03 + 0.5225 = 0.5525 \]
+
+\[ P(H_{\text{agri. vet. sci.}}|E) = \frac{P(E|H_{\text{agri. vet. sci.}}) \cdot P(H_{\text{agri. vet. sci.}})}{P(E)} \]
+\[ P(H_{\text{agri. vet. sci.}}|E) = \frac{0.6 \cdot 0.05}{0.5525} \]
+\[ P(H_{\text{agri. vet. sci.}}|E) \approx 0.054 \]
+
+Putting everything together:
+
+```json
+{
+  "business administration": 0.018,
+  "agricultural and veterinary science": 0.054
+}
+```

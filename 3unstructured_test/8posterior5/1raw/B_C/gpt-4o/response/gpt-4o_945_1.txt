@@ -1,0 +1,52 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes’ rule, we need the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the evidence likelihoods \( P(E|\neg H) \). Here’s the process and assumptions for each field:
+
+### For Business Administration:
+- **Prior Probability \( P(H_{\text{business}}) \):** 
+  Let's assume that the prior probability of a graduate student being in Business Administration is relatively typical. While the specific value can be debated, we might assign a moderate prior, say \( P(H_{\text{business}}) = 0.1 \).
+
+- **Likelihood \( P(E|H_{\text{business}}) \):**
+  How likely is it that Adam has the described traits (curiosity about nature, empathy, love for animals, etc.) if he’s in Business Administration? This seems moderately unlikely since the traits don't strongly align with typical business subjects. We could set \( P(E|H_{\text{business}}) = 0.2 \).
+
+- **Evidence Likelihood \( P(E|\neg H_{\text{business}}) \):**
+  This is how likely it is for someone not in Business Administration to exhibit these traits. Given the traits align better with non-business fields (like the sciences or humanities), this would be higher. Let's set \( P(E|\neg H_{\text{business}}) = 0.7 \).
+
+### For Computer Science:
+- **Prior Probability \( P(H_{\text{cs}}) \):**
+  Assume a typical value for a student enrolled in Computer Science, say \( P(H_{\text{cs}}) = 0.2 \).
+
+- **Likelihood \( P(E|H_{\text{cs}}) \):**
+  Considering his interest in puzzles and abstract concepts, Adam seems more likely to be in Computer Science than in Business Administration. Nonetheless, empathy and love for animals are neutral to slightly positive in this context. Let's estimate \( P(E|H_{\text{cs}}) = 0.6 \).
+
+- **Evidence Likelihood \( P(E|\neg H_{\text{cs}}) \):**
+  This is how likely students in other fields exhibit these traits. Assuming accordingly, we might set \( P(E|\neg H_{\text{cs}}) = 0.5 \).
+
+### Computation using Bayes' Rule:
+#### Business Administration:
+\[ P(H_{\text{business}}|E) = \frac{P(E|H_{\text{business}}) P(H_{\text{business}})}{P(E)} \]
+
+where \( P(E) \) is the normalizing constant:
+\[ P(E) = P(E|H_{\text{business}}) P(H_{\text{business}}) + P(E|\neg H_{\text{business}}) P(\neg H_{\text{business}}) \]
+\[ P(E) = 0.2 * 0.1 + 0.7 * 0.9 = 0.02 + 0.63 = 0.65 \]
+
+So,
+\[ P(H_{\text{business}}|E) = \frac{0.2 * 0.1}{0.65} \approx 0.0308 \]
+\[ P(H_{\text{business}}|E) \approx 0.031 \]
+
+#### Computer Science:
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) P(H_{\text{cs}})}{P(E)} \]
+
+where \( P(E) \) is the normalizing constant:
+\[ P(E) = P(E|H_{\text{cs}}) P(H_{\text{cs}}) + P(E|\neg H_{\text{cs}}) P(\neg H_{\text{cs}}) \]
+\[ P(E) = 0.6 * 0.2 + 0.5 * 0.8 = 0.12 + 0.4 = 0.52 \]
+
+So,
+\[ P(H_{\text{cs}}|E) = \frac{0.6 * 0.2}{0.52} \approx 0.2308 \]
+\[ P(H_{\text{cs}}|E) \approx 0.231 \]
+
+### Summary of Posterior Probabilities:
+```json
+{
+  "business administration": 0.031,
+  "computer science": 0.231
+}
+```

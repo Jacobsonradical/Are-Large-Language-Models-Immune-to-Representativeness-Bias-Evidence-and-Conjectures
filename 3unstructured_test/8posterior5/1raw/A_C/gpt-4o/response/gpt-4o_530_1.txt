@@ -1,0 +1,57 @@
+Let's denote:
+- H_CS as the hypothesis that Adam was enrolled in computer science.
+- H_AVS as the hypothesis that Adam was enrolled in agricultural and veterinary science.
+
+Bayes’ Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are asked to estimate probabilities without exact numbers, we will work with qualitative estimates relative to each other.
+
+### Computer Science
+
+1. **Prior Probability \(P(H_{CS})\)**:
+   Given computer science is a common field for graduate students in the U.S., let's assign a moderate prior:
+   \[ P(H_{CS}) \approx 0.2 \]
+
+2. **Likelihood \(P(E|H_{CS})\)**:
+   Considering Adam's love for nature, plants, puzzles, high intelligence, and empathy, computer science doesn't quite perfectly align but isn't too far off either (high intelligence and solving puzzles could fit):
+   \[ P(E|H_{CS}) \approx 0.4 \]
+
+3. **Probability of the Evidence \(P(E|\neg H_{CS})\)**:
+   Since \(\neg H_{CS}\) encompasses all other fields, and many of them might better suit his personality (e.g., biology, environmental science):
+   \[ P(E|\neg H_{CS}) \approx 0.6 \]
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability \(P(H_{AVS})\)**:
+   This field is less common than computer science but fits Adam's personality sketch rather well. Let's assign a reasonable prior:
+   \[ P(H_{AVS}) \approx 0.1 \]
+
+2. **Likelihood \(P(E|H_{AVS})\)**:
+   This field is a better match for Adam's interests, such as nature, plants, animals, and empathy:
+   \[ P(E|H_{AVS}) \approx 0.8 \]
+
+3. **Probability of the Evidence \(P(E|\neg H_{AVS})\)**:
+   Given Adam's personality sketch, \(\neg H_{AVS}\) would include fields that may not align as closely (e.g., engineering, economics): 
+   \[ P(E|\neg H_{AVS}) \approx 0.5 \]
+
+### Applying Bayes' Rule
+
+We need a rough normalization term \(P(E)\), but since we only compare relative probabilities, we can proceed directly:
+
+#### P(H_CS|E):
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS})} \]
+\[ P(H_{CS}|E) = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.6 \cdot 0.8} \approx \frac{0.08}{0.08 + 0.48} \approx \frac{0.08}{0.56} \approx 0.143 \]
+
+#### P(H_AVS|E):
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E|H_{AVS}) \cdot P(H_{AVS}) + P(E|\neg H_{AVS}) \cdot P(\neg H_{AVS})} \]
+\[ P(H_{AVS}|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.5 \cdot 0.9} \approx \frac{0.08}{0.08 + 0.45} \approx \frac{0.08}{0.53} \approx 0.151 \]
+
+### Final Answer:
+
+```json
+{
+  "computer science": 0.143,
+  "agricultural and veterinary science": 0.151
+}
+```

@@ -1,0 +1,56 @@
+To compute \( P(H|E) \) using Bayes' rule, we require the following components:
+
+1. \( P(H) \): The prior probability that Adam is enrolled in a specific field.
+2. \( P(E|H) \): The probability of observing the evidence (personality sketch) given that Adam is enrolled in that specific field.
+3. \( P(E|\neg H) \): The probability of observing the evidence given that Adam is not enrolled in that specific field.
+
+Bayes' rule formula is: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Note: For simplicity, we can ignore \( P(E) \) since we are comparing the values rather than getting the exact posterior probabilities.
+
+1. **Computer Science**
+
+- \( P(H) \) (prior probability): Computer science is a relatively common field of graduate study. Let's assume a moderate prior of 0.2.
+  
+- \( P(E|H) \) (likelihood): Someone in computer science may have high intelligence and be good at solving puzzles. However, the strong empathy, love for animals, and interest in nature are less stereotypical. So, let's assign a lower likelihood of 0.2.
+  
+- \( P(E|\neg H) \) (likelihood of evidence given not that field): Considering all other graduate fields, empathy, a love for nature, and intelligence might be more common. So, we'll estimate this at 0.5.
+
+2. **Agricultural and Veterinary Science**
+
+- \( P(H) \) (prior probability): Agricultural and veterinary sciences are less common than computer science but still quite relevant. Let's assume a lower prior of 0.1.
+  
+- \( P(E|H) \) (likelihood): Adam’s curiosity about nature, love for animals, and empathy are highly consistent with this field. We'll assign a high likelihood of 0.8.
+  
+- \( P(E|\neg H) \) (likelihood of evidence given not that field): Same as above, considering all other fields, the probability remains 0.5.
+
+Using Bayes' rule:
+
+1. **Computer Science**:   
+   \[
+   P(\text{CS}|E) \propto P(E|\text{CS}) \cdot P(\text{CS}) = 0.2 \cdot 0.2 = 0.04
+   \]
+
+2. **Agricultural and Veterinary Science**:   
+   \[
+   P(\text{Ag/Vet}|E) \propto P(E|\text{Ag/Vet}) \cdot P(\text{Ag/Vet}) = 0.8 \cdot 0.1 = 0.08
+   \]
+
+Now, we normalize the probabilities to make them comparable:
+
+\[
+P(\text{CS}|E) = \frac{0.04}{0.04 + 0.08} = \frac{0.04}{0.12} \approx 0.333
+\]
+
+\[
+P(\text{Ag/Vet}|E) = \frac{0.08}{0.04 + 0.08} = \frac{0.08}{0.12} \approx 0.667
+\]
+
+Hence, the probabilities are:
+
+{
+  "computer science": 0.333,
+  "agricultural and veterinary science": 0.667
+}

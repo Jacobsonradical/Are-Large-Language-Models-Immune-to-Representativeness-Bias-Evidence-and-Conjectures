@@ -1,0 +1,36 @@
+To determine the probability \( P(H|E) \) for each field using Bayes' rule, we need to estimate \( P(H) \) (the prior probability of Adam being enrolled in the field), \( P(E|H) \) (the likelihood of observing the personality sketch given that Adam is in that field), and \( P(E|\neg H) \) (the probability of observing the personality sketch given that Adam is not in that field). Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For our purposes, \( P(E) \) is a normalizing factor that ensures the probabilities sum to 1 over all possible hypotheses, so we can directly compare \( P(H|E) \) values for our two fields without calculating \( P(E) \).
+
+Let's evaluate each field:
+
+1. **Computer Science**:
+   - \( P(H)\) (prior): This depends on general enrollment statistics. Let's assume 10% of graduate students are in computer science. So, \( P(H) \approx 0.10 \).
+   - \( P(E|H) \) (likelihood given computer science): The personality sketch includes traits like intelligence and understanding abstract concepts, which align with computer science. Traits like empathy and love for animals are less relevant. Estimate \( P(E|H) \approx 0.20 \).
+   - \( P(E|\neg H) \) (likelihood given not computer science): These personality traits are fairly general but may be slightly less common in other fields that don't focus on problem-solving to the same extent. Estimate \( P(E|\neg H) \approx 0.10 \).
+
+   Therefore, 
+   \[
+   P(\text{H|E})_{\text{CS}} \approx \frac{0.20 \cdot 0.10}{0.20 \cdot 0.10 + 0.10 \cdot 0.90} = \frac{0.02}{0.11} \approx 0.18
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \) (prior): Let's estimate about 5% of graduate students are in this field. So, \( P(H) \approx 0.05 \).
+   - \( P(E|H) \) (likelihood given agricultural/veterinary science): The personality traits—love for nature, plants, and animals—strongly align with this field. Estimate \( P(E|H) \approx 0.50 \).
+   - \( P(E|\neg H) \) (likelihood given not agricultural/veterinary science): These traits are generally less common in fields other than agricultural and veterinary sciences. Estimate \( P(E|\neg H) \approx 0.10 \).
+
+   Therefore, 
+   \[
+   P(\text{H|E})_{\text{AVS}} \approx \frac{0.50 \cdot 0.05}{0.50 \cdot 0.05 + 0.10 \cdot 0.95} = \frac{0.025}{0.025 + 0.095} \approx 0.20
+   \]
+
+So, combining these estimates:
+
+```json
+{
+  "computer science": 0.18,
+  "agricultural and veterinary science": 0.20
+}
+```

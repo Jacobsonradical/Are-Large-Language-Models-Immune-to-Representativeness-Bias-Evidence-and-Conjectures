@@ -1,0 +1,57 @@
+To start with, let's denote the following:
+
+- **H1**: Adam was enrolled in business administration.
+- **H2**: Adam was enrolled in computer science.
+- **E**: The personality sketch of Adam provided above.
+
+To compute the posterior probabilities \( P(H|E) \), we will use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E|H) \) is the likelihood of the personality sketch, given that Adam is enrolled in the field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch, given that Adam is not enrolled in the field.
+- \( P(E) \) is the marginal probability of the personality sketch.
+
+For simplicity, we assume that probabilities are initially distributed equally among various fields unless given specific information. So, if we assume equal priors among a large number of fields, each field might have an initial rough probability of, say, 0.02 (for illustration).
+
+Now, let’s estimate each probability:
+
+1. **Business Administration**:
+   - **P(H1)**: Assuming equal distribution: Approximately 0.02
+   - **P(E|H1)**: The sketch describes a quiet boy curious about nature and enjoying puzzles. These attributes may not be as strongly associated with business administration, though it might still align with empathy and high intelligence. This likelihood might be relatively low: Approximately 0.1
+   - **P(E|\neg H1)**: This would be higher because these characteristics are more common in areas outside business administration: Approximately 0.9
+   - **P(E)**: This is not directly necessary as it will cancel out in Bayes' formula for comparison purposes.
+
+2. **Computer Science**:
+   - **P(H2)**: Assuming equal distribution: Approximately 0.02
+   - **P(E|H2)**: These characteristics align quite well with many of the traits of computer science students (quiet, enjoying puzzles, high intelligence, empathy, etc.): Approximately 0.6
+   - **P(E|\neg H2)**: The likelihood of these traits outside of computer science might be relatively lower but is broadly distributed: Approximately 0.5
+   - **P(E)**: Similarly, this will cancel out for comparison.
+
+Now, compute \( P(H|E) \) for both fields:
+
+1. **Business Administration**:
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} = \frac{0.1 \cdot 0.02}{P(E)} \]
+
+2. **Computer Science**:
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} = \frac{0.6 \cdot 0.02}{P(E)} \]
+
+Since we are comparing them:
+\[ P(H1|E) = \frac{0.1 \cdot 0.02}{P(E)} = \frac{0.002}{P(E)} \]
+\[ P(H2|E) = \frac{0.6 \cdot 0.02}{P(E)} = \frac{0.012}{P(E)} \]
+
+They are in the ratio:
+\[ \frac{P(H2|E)}{P(H1|E)} = \frac{0.012/P(E)}{0.002/P(E)} = \frac{0.012}{0.002} = 6 \]
+
+Therefore:
+\[ P(H2|E) = 6 \cdot P(H1|E) \]
+Given this ratio, we can normalize:
+
+{
+  "business administration": "0.002",
+  "computer science": "0.012"
+}
+
+Note: These values do not sum to 1 nor should they, as there are other fields to consider.

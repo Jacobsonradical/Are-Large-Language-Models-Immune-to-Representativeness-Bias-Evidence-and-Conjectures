@@ -1,0 +1,62 @@
+To compute \( P(H|E) \) using Bayes’ rule, we need the following probabilities:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in the specific field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch given he is in that field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch given he is not in that field.
+
+We then use Bayes' rule as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) (the overall likelihood of observing Adam's personality sketch) is shared among all fields we're comparing, we can focus on the ratios of \( P(H) \cdot P(E|H) \) for each field in a relative comparison.
+
+For simplicity, we will make reasonable assumptions based on typical distributions and characteristics.
+
+### Business Administration
+
+**P(H):** Let's assume the baseline probability of any graduate student being in business administration is relatively modest. Let's set this to 0.15 (15%).
+
+**P(E|H):** The characteristics provided in E (genuine curiosity about nature, love for animals, solving puzzles, high intelligence, abstract concepts appreciation, empathy) are not strongly typical of a business administration candidate. Let's assign a lower probability, say 0.10 (10%).
+
+**P(E|¬H):** If Adam isn't in business administration, his personality sketch would generally align more with fields other than business administration. Given that, we'll assume a higher probability, say 0.90.
+
+### Computer Science
+
+**P(H):** Given the popularity and high enrollment rates in computer science, let's assume this is somewhat higher. Let's set it to 0.25 (25%).
+
+**P(E|H):** The characteristics in E (e.g., solving puzzles, high intelligence, understanding abstract concepts) mesh well with typical traits of a computer science student. Let's assign a high probability, say 0.60 (60%).
+
+**P(E|\neg H):** If Adam isn't in computer science, his personality sketch could still fit multiple other fields. We assume a slightly lower probability, say 0.60.
+
+### Calculation using Bayes' Rule (proportional comparison)
+
+For Business Administration:
+
+\[ P(H|E)_{BA} \propto P(E|H) \cdot P(H) = 0.10 \cdot 0.15 = 0.015 \]
+
+For Computer Science:
+
+\[ P(H|E)_{CS} \propto P(E|H) \cdot P(H) = 0.60 \cdot 0.25 = 0.15 \]
+
+### Normalized Posterior Probabilities
+
+To obtain the normalized probabilities, we sum the computed values for each field and divide each field's value by the total:
+
+Total Unnormalized = \( 0.015 + 0.15 = 0.165 \)
+
+For Business Administration:
+
+\[ P(H|E)_{BA} = \frac{0.015}{0.165} \approx 0.091 \]
+
+For Computer Science:
+
+\[ P(H|E)_{CS} = \frac{0.15}{0.165} \approx 0.909 \]
+
+Thus, based on the relative comparison and the assumptions made:
+
+```json
+{
+  "business administration": 0.091,
+  "computer science": 0.909
+}
+```

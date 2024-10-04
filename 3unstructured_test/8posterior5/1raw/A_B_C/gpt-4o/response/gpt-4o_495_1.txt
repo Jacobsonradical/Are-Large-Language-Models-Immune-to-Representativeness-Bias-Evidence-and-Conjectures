@@ -1,0 +1,47 @@
+To calculate \( P(H|E) \) for each field, we first need to estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+1. **\( P(H) \)**: The prior probability that a randomly chosen graduate student is enrolled in each particular field.
+   - Agricultural and veterinary science: Let's assume there's a moderate number of students in this field. \( P(H_{agri}) \approx 0.2 \).
+   - Computer science: Computer science programs are popular, so let's assume a higher prior probability. \( P(H_{CS}) \approx 0.3 \).
+   - Business administration: This is another very popular field. \( P(H_{BA}) \approx 0.3 \).
+
+2. **\( P(E|H) \)**: The probability of observing Adam’s personality traits given he is in each field.
+   - Agricultural and veterinary science: With Adam's love for nature, plants, and animals, he might very well fit into this field. \( P(E|H_{agri}) \approx 0.9 \).
+   - Computer science: Though Adam's curiosity and intelligence might suit computer science, the specific traits of empathy and love for animals are less directly related. \( P(E|H_{CS}) \approx 0.5 \).
+   - Business administration: Adam's personality traits don't strongly align with business administration, which often emphasizes other skills. \( P(E|H_{BA}) \approx 0.4 \).
+
+3. **\( P(E|\neg H) \)**: The probability of Adam’s personality traits given he is not in each respective field.
+   - Agricultural and veterinary science: Comparing this to the general graduate student population, the probability should be lower because not everyone has these specific traits. \( P(E|\neg H_{agri}) \approx 0.35 \).
+   - Computer science: Considering the diverse nature of students in computer science, the probability would still be moderate. \( P(E|\neg H_{CS}) \approx 0.5 \).
+   - Business administration: Similar logic applies, and empathy and love for animals are less emphasized. \( P(E|\neg H_{BA}) \approx 0.3 \).
+
+Using Bayes' rule:
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+Assuming \( P(E) \) is the same across all fields, we can compute the relative values to compare:
+
+1. **Agricultural and veterinary science**:
+   \[
+   P(H_{agri}|E) \propto P(E|H_{agri}) \cdot P(H_{agri}) = 0.9 \cdot 0.2 = 0.18
+   \]
+2. **Computer science**:
+   \[
+   P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.5 \cdot 0.3 = 0.15
+   \]
+3. **Business administration**:
+   \[
+   P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.4 \cdot 0.3 = 0.12
+   \]
+
+Combining the results and normalizing if desired:
+
+\[
+{
+  "agricultural and veterinary science": "0.18",
+  "computer science": "0.15",
+  "business administration": "0.12"
+}
+\]
+
+These values indicate the relative likelihood that Adam is enrolled in each field, given his personality sketch.

@@ -1,0 +1,73 @@
+To use Bayes' Rule to infer the probability that Adam was enrolled in a particular field based on his personality sketch \( E \), we need to understand the following probabilities:
+
+- \( P(H) \), the prior probability of Adam being in a particular field based on general data.
+- \( P(E|H) \), the likelihood of Adam's personality traits given that he is in that field.
+- \( P(E|\neg H) \), the likelihood of Adam's personality traits given that he is not in that field.
+- \( P(H|E) \), the posterior probability of Adam being in that field given his personality sketch.
+
+Let's denote:
+- \( H_{CS} \) as the hypothesis that Adam is in computer science.
+- \( H_{AVS} \) as the hypothesis that Adam is in agricultural and veterinary science.
+- \( \neg H_{CS} \) as the hypothesis that Adam is not in computer science.
+- \( \neg H_{AVS} \) as the hypothesis that Adam is not in agricultural and veterinary science.
+
+### Computer Science
+1. **P(H): Prior Probability**
+
+   Assuming a generalized baseline, the prior probability for a graduate student to be in computer science could be relatively high, since it is a popular field.
+
+   \( P(H_{CS}) = 0.15 \)
+
+2. **P(E|H): Likelihood**
+
+   The likelihood of Adam’s traits (curiosity about nature, love for animals, empathy, and intelligence in abstract concepts) given that he is in computer science might be moderate since these traits are not exclusive to or highly indicative of computer science.
+
+   \( P(E|H_{CS}) = 0.2 \)
+
+3. **P(E|\neg H): Likelihood in the complement**
+
+   The likelihood of Adam having these traits given he is not in computer science could also be moderate, as these traits could belong to many fields, including humanities, biological sciences, etc.
+
+   \( P(E|\neg H_{CS}) = 0.5 \)
+
+### Agricultural and Veterinary Science
+1. **P(H): Prior Probability**
+
+   Assuming a generalized expectation, the prior probability for a graduate student to be in agricultural and veterinary science might be lower than computer science due to less overall enrollment.
+
+   \( P(H_{AVS}) = 0.05 \)
+
+2. **P(E|H): Likelihood**
+
+   The likelihood of Adam’s traits given that he is in agricultural and veterinary science might be high since curiosity about nature, love for animals, and empathy directly align with this field.
+
+   \( P(E|H_{AVS}) = 0.6 \)
+
+3. **P(E|\neg H): Likelihood in the complement**
+
+   The likelihood of having such traits given he is not in agricultural and veterinary science could be moderate, as similar traits might exist in other related fields like biological sciences, environmental studies, etc.
+
+   \( P(E|\neg H_{AVS}) = 0.5 \)
+
+### Bayesian Inference
+
+Using Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+For computer science:
+\[ P(E) = (0.2 \times 0.15) + (0.5 \times 0.85) = 0.03 + 0.425 = 0.455 \]
+\[ P(H_{CS}|E) = \frac{0.2 \times 0.15}{0.455} \approx 0.066 \]
+
+For agricultural and veterinary science:
+\[ P(E) = (0.6 \times 0.05) + (0.5 \times 0.95) = 0.03 + 0.475 = 0.505 \]
+\[ P(H_{AVS}|E) = \frac{0.6 \times 0.05}{0.505} \approx 0.06 \]
+
+Summarizing the posteriors in the required format:
+
+{
+  "computer science": "0.066",
+  "agricultural and veterinary science": "0.06"
+}

@@ -1,0 +1,57 @@
+To compute the probabilities \( P(H|E) \) for Adam being enrolled in computer science and business administration, we use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H) \) is the prior probability that Adam is enrolled in a given field.
+- \( P(E|H) \) is the probability of observing the evidence given that Adam is in that field.
+- \( P(E|\neg H) \) is the probability of observing the evidence given that Adam is not in that field.
+- \( P(E) \) is the overall probability of observing the evidence, which can be simplified using the law of total probability.
+
+Firstly, let’s estimate \( P(H) \) based on general observations about graduate programs in the U.S.:
+- Computer science is a highly popular field, so \( P(\text{computer science}) \) might be estimated reasonably higher.
+- Business administration is also popular but appeals to different interests and skills that may not align well with Adam's personality sketch.
+
+We’ll consider arbitrary but reasonable prior probabilities for simplicity:
+- \( P(\text{computer science}) = 0.2 \)
+- \( P(\text{business administration}) = 0.1 \)
+
+Next, we need to consider \( P(E|H) \), i.e., how well Adam’s personality matches with students commonly found in those fields:
+- Computer science students often exhibit high intelligence, problem-solving skills, and interest in abstract concepts, which matches Adam well.
+  Thus, \( P(E|\text{computer science}) \) could be relatively high, say \( 0.7 \).
+- Business administration might not align as closely with Adam's interest in nature, animals, and empathy, so \( P(E|\text{business administration}) \) could be relatively lower, say \( 0.2 \).
+
+Then, \( P(E) \) (the overall probability of observing the personality sketch \( E \)), by law of total probability, is calculated considering the complement of each field.
+- \( P(E|\neg \text{computer science}) \) = 0.3 
+- \( P(E|\neg \text{business administration}) \) = 0.7
+
+We do not need exact \( P(E) \) to compare \( P(H|E) \), only to ensure consistency.
+
+Let's calculate those:
+
+For Computer Science:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.7 \cdot 0.2}{P(E)} \]
+
+For Business Administration:
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+To compare fairly, we drop \( P(E) \) as it cancels:
+- \[P(\text{computer science}|E) \propto 0.7 \cdot 0.2 = 0.14\]
+- \[P(\text{business administration}|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+Totaling:
+\[ \propto 0.14 (computer science) \]
+\[ \propto 0.02 (business administration) \]
+
+Normalizing these to use comparative values:
+- Computer Science: \[ \frac{0.14}{0.14+0.02} = \frac{0.14}{0.16} \approx 0.875 \]
+- Business Administration: \[ \frac{0.02}{0.14+0.02} = \frac{0.02}{0.16} \approx 0.125 \]
+
+Thus:
+
+```json
+{
+  "computer science": 0.875,
+  "business administration": 0.125
+}
+```

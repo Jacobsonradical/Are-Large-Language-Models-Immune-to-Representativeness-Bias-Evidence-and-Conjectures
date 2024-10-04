@@ -1,0 +1,74 @@
+To compute the probability P(H|E) that Adam was enrolled in either business administration or computer science given his personality sketch E, we need to follow these steps:
+
+1. Assess the prior probabilities P(H) for each field.
+2. Assess the likelihoods P(E|H) and P(E|\neg H).
+3. Use Bayes' rule to compute the posterior probabilities P(H|E).
+
+Let's consider each step for both fields:
+
+### Business Administration
+
+1. **Prior Probability: P(H)**
+   - Suppose business administration graduates make up 10% of the graduate population.
+   - P(H) for business administration = 0.1.
+
+2. **Likelihoods: P(E|H) and P(E|\neg H)**
+   - P(E|H) for business administration:
+     - Business administration students may have attributes like appreciation for hard work, but the rest (curiosity about nature, love for animals, solving puzzles) are less likely.
+     - P(E|H) for business administration, considering these factors, might be quite low.
+     - Let's hypothetically assign P(E|H) = 0.02.
+   - P(E|\neg H) overall is hard to estimate exactly, but should be adjusted for how common Adam's traits are among non-business students.
+     - P(E|\neg H) might be slightly higher given broad graduate student diversity.
+     - Let's hypothetically assign P(E|\neg H) = 0.15.
+
+3. **Bayes' rule: P(H|E)**
+\[
+P(H|E) = \frac{P(E|H) \times P(H)}{P(E)}
+\]
+   To get P(E), we use the law of total probability:
+\[
+P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H)
+\]
+\[
+P(E) = 0.02 \times 0.1 + 0.15 \times 0.9 = 0.02 \times 0.1 + 0.135 = 0.002 + 0.135 = 0.137
+\]
+\[
+P(H|E) = \frac{0.02 \times 0.1}{0.137} = \frac{0.002}{0.137} \approx 0.0146
+\]
+
+### Computer Science
+
+1. **Prior Probability: P(H)**
+   - Suppose computer science graduates make up 15% of the graduate population.
+   - P(H) for computer science = 0.15.
+
+2. **Likelihoods: P(E|H) and P(E|\neg H)**
+   - P(E|H) for computer science:
+     - Attributes like solving puzzles, high intelligence, understanding abstract concepts are very characteristic of computer science students.
+     - P(E|H) for computer science might be high.
+     - Let's hypothetically assign P(E|H) = 0.6.
+   - P(E|\neg H) general might be lower.
+     - Given previous levels, P(E|\neg H) might be around the same.
+     - Let's hypothetically assign P(E|\neg H) = 0.15.
+
+3. **Bayes' rule: P(H|E)**
+\[
+P(H|E) = \frac{P(E|H) \times P(H)}{P(E)}
+\]
+   To get P(E), use the same law of total probability:
+\[
+P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H)
+\]
+\[
+P(E) = 0.6 \times 0.15 + 0.15 \times 0.85 = 0.09 + 0.1275 = 0.2175
+\]
+\[
+P(H|E) = \frac{0.6 \times 0.15}{0.2175} = \frac{0.09}{0.2175} \approx 0.414
+\]
+
+Thus, the computed probabilities based on Bayes' rule for Adam's enrollment in each field given the personality sketch E are:
+
+{
+  "business administration": 0.0146,
+  "computer science": 0.414
+}

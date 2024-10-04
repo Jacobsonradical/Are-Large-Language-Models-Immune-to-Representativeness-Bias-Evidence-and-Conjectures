@@ -1,0 +1,47 @@
+Let's start by expressing Bayes' theorem in our context:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a field given his personality sketch.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field before considering the personality sketch.
+- \( P(E|H) \) is the likelihood that we would observe the personality sketch if Adam was enrolled in that field.
+- \( P(E) \) is the normalization constant to ensure probabilities sum to 1, but since we're only comparing two fields, \( P(E) \) doesn't need to be explicitly calculated as it will cancel out when comparing the two probabilities.
+
+We'll make reasonable assumptions for values by understanding the alignment between Adam's characteristics and the nature of the fields.
+
+1. **Business Administration**:
+   - \( P(H_{BA}) \): This is the prior probability that any given student might be in business administration. Let's assume this is \( 0.20 \) (since business administration is a common field).
+   - \( P(E|H_{BA}) \): The likelihood that Adam has the given personality sketch while studying business administration. Given his love for nature, animals, and puzzles, it's less aligned with a traditional business administration student. Let's assume this is \( 0.1 \).
+   - \( P(E|\neg H_{BA}) \): This is the probability of observing the personality sketch if Adam was not in business administration. He better fits other fields like agricultural and veterinary science. We'll assume this to be relatively higher, say \( 0.3 \).
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{AVS}) \): This is the prior probability that any given student might be in agricultural and veterinary science. Let's assume this is \( 0.05 \), as it is less common than business administration.
+   - \( P(E|H_{AVS}) \): The likelihood that Adam has the personality sketch while studying agricultural and veterinary science. Given his interest in animals and nature, it seems quite high. Let's assume this is \( 0.6 \).
+   - \( P(E|\neg H_{AVS}) \): This is the probability of observing the personality sketch if Adam was not in agricultural and veterinary science. Given his interests, he may still fit into fields unrelated to agricultural and veterinary science but similar in nature. We'll assume this to be \( 0.2 \).
+
+Now we can compute the posterior probabilities using Bayes' Rule.
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+
+Since we are only comparing two fields:
+
+\[ P(H_{BA}|E) \quad vs \quad P(H_{AVS}|E) \]
+
+\[ P(E) \text{ can be ignored as the constant as it will cancel out in the ratio} \]
+
+\[ \text{So, we can compare} \quad P(E|H_{BA}) \cdot P(H_{BA}) \quad \text{against} \quad P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+
+For business administration:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.1 \cdot 0.20 = 0.02 \]
+
+For agricultural and veterinary science:
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.6 \cdot 0.05 = 0.03 \]
+
+Since \( P(H_{AVS}|E) \) has a higher value compared to \( P(H_{BA}|E) \):
+
+{
+  "business administration": "0.02",
+  "agricultural and veterinary science": "0.03"
+}

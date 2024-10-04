@@ -1,0 +1,52 @@
+To compute the probability \( P(H|E) \), we use Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's break it down step-by-step for each field:
+
+1. **Computer Science**:
+   - **P(H\_CS)**: The prior probability that Adam is enrolled in computer science. This could vary, but we may assume a relatively moderate value for graduate students.
+   - **P(E|H\_CS)**: The probability that if Adam is in computer science, he has the characteristics described in E.
+   - **P(E|\neg H\_CS)**: The probability that if Adam is not in computer science, he has the characteristics described in E.
+
+2. **Agricultural and Veterinary Science**:
+   - **P(H\_AVS)**: The prior probability that Adam is enrolled in agricultural and veterinary science.
+   - **P(E|H\_AVS)**: The probability that if Adam is in agricultural and veterinary science, he has the characteristics described in E.
+   - **P(E|\neg H\_AVS)**: The probability that if Adam is not in agricultural and veterinary science, he has the characteristics described in E.
+
+Let's assign reasonable values based on the personality sketch:
+
+### Computer Science
+- **P(H\_CS)**: Computer science is a common graduate field, so we might assume P(H\_CS) is moderately high, let's say 0.3.
+- **P(E|H\_CS)**: Adam's love for animals and nature does not strongly align with the typical characteristics of computer science students. But his intelligence, problem-solving skills, and appreciation for hard work could fit. Let's estimate 0.2.
+- **P(E|\neg H\_CS)**: Given the many fields that could handle Adam's characteristics better, let's estimate this as a bit higher, say 0.6.
+
+### Agricultural and Veterinary Science
+- **P(H\_AVS)**: This field aligns well with Adam's love for nature and animals, but it’s generally less common than computer science. Let's assume 0.1.
+- **P(E|H\_AVS)**: Adam’s characteristics strongly align with this field. Let's estimate 0.9.
+- **P(E|\neg H\_AVS)**: Many fields don’t align with Adam's appreciation for nature and animals. Let’s estimate this as 0.3.
+
+With these values, we can calculate \( P(H|E) \) for both fields:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+For **Computer Science**:
+
+\[ P(H\_CS|E) = \frac{0.2 \times 0.3}{(0.2 \times 0.3) + (0.6 \times (1-0.3))} \]
+
+\[ P(H\_CS|E) = \frac{0.06}{0.06 + 0.42} = \frac{0.06}{0.48} \approx 0.125 \]
+
+For **Agricultural and Veterinary Science**:
+
+\[ P(H\_AVS|E) = \frac{0.9 \times 0.1}{(0.9 \times 0.1) + (0.3 \times (1-0.1))} \]
+
+\[ P(H\_AVS|E) = \frac{0.09}{0.09 + 0.27} = \frac{0.09}{0.36} = 0.25 \]
+
+So our answers are:
+
+```json
+{
+  "computer science": 0.125,
+  "agricultural and veterinary science": 0.25
+}
+```

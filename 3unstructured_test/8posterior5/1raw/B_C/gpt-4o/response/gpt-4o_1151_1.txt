@@ -1,0 +1,43 @@
+To compute \(P(H|E)\) using Bayes' rule, we need to estimate the following probabilities:
+
+1. \(P(H)\) — The prior probability of Adam being enrolled in a particular field.
+2. \(P(E|H)\) — The likelihood of Adam having the described personality sketch given that he is enrolled in that field.
+3. \(P(E|\neg H)\) — The likelihood of Adam having the described personality sketch given that he is not enrolled in that field.
+
+And the Bayes' rule formula we use is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Note that \(P(E)\) is the same for both hypotheses and will be simplified out if we are only comparing relative probabilities.
+
+Let's make some reasonable assumptions for the given fields.
+
+### Business Administration
+
+1. **\(P(H_{\text{BA}})\)**: The prior probability of a student being enrolled in Business Administration. Let's assume Business Administration is not extremely rare or common, so \(P(H_{\text{BA}}) = 0.1\) (10%).
+2. **\(P(E|H_{\text{BA}})\)**: The likelihood of Adam having a personality sketch like E given that he is studying Business Administration. Business Administration might not require high empathy or a deep love for animals, so let's assign a moderate-low probability, \(P(E|H_{\text{BA}}) = 0.2\).
+3. **\(P(E|\neg H_{\text{BA}})\)**: The likelihood of Adam having the personality sketch E given that he is not in Business Administration. Assume it as \(0.5\) since this personality could quite equally likely belong to many non-BA fields.
+
+### Computer Science
+
+1. **\(P(H_{\text{CS}})\)**: The prior probability of a student being enrolled in Computer Science. We'll assume it is slightly higher due to the popularity of the field, so \(P(H_{\text{CS}}) = 0.25\) (25%).
+2. **\(P(E|H_{\text{CS}})\)**: The likelihood of Adam having this personality sketch given that he is in Computer Science. Considering that Computer Science often requires high intelligence and aptitude for abstract concepts as well as problem-solving, let's assign a higher probability, say \(P(E|H_{\text{CS}}) = 0.6\).
+3. **\(P(E|\neg H_{\text{CS}})\)**: The likelihood of Adam having the given personality sketch given he is not in Computer Science. Assume it is around \(0.4\) since Computer Science-specific attributes are not essential.
+
+Now, applying Bayes' rule and simplifying relative probabilities:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For Business Administration:
+\[ P(H_{\text{BA}}|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+For Computer Science:
+\[ P(H_{\text{CS}}|E) \propto 0.6 \cdot 0.25 = 0.15 \]
+
+These proportions can be normalized, but here we are just interested in relative comparisons. Thus:
+
+{
+  "business administration": 0.02,
+  "computer science": 0.15
+}
+
+This indicates that, based on the given personality sketch, Adam is more likely to be enrolled in Computer Science than Business Administration.

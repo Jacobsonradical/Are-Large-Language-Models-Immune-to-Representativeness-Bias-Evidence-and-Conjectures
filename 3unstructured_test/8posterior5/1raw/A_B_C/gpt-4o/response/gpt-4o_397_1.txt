@@ -1,0 +1,72 @@
+First, let's define Bayes' rule for reference:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the overall probability of the evidence, which can be derived from the law of total probability.
+
+Given that the total don't need to add up to 1, we don't have to calculate \( P(E) \) exactly. Instead, we can focus on comparing the relative probabilities among the given fields.
+
+### Hypotheses:
+- \( H_{\text{cs}} \): Adam was enrolled in computer science.
+- \( H_{\text{ba}} \): Adam was enrolled in business administration.
+- \( H_{\text{avs}} \): Adam was enrolled in agricultural and veterinary science.
+
+### Prior Probabilities \( P(H) \):
+We will assume some reasonable prior probabilities for each field based on general knowledge about graduate study enrollment rates in these fields. For simplicity:
+- \( P(H_{\text{cs}}) \approx 0.3 \)  (A high but not dominant portion of STEM fields)
+- \( P(H_{\text{ba}}) \approx 0.2 \)  (Business schools are popular but not the most common)
+- \( P(H_{\text{avs}}) \approx 0.1 \)  (Less common than the others, but significant)
+
+### Likelihoods \( P(E|H) \):
+- \( P(E|H_{\text{cs}}) \): A curiosity about nature, solving puzzles, and high intelligence are a good fit, so:
+  - \( P(E|H_{\text{cs}}) \approx 0.6 \)
+  
+- \( P(E|H_{\text{ba}}) \): Business administration may attract people who appreciate hard work and can understand abstract concepts, but less likely to have strong empathy and love for animals:
+  - \( P(E|H_{\text{ba}}) \approx 0.2 \)
+  
+- \( P(E|H_{\text{avs}}) \): Strong empathy, love for animals, and curiosity about nature are highly relevant:
+  - \( P(E|H_{\text{avs}}) \approx 0.8 \)
+
+### Complement Likelihoods \( P(E|\neg H) \):
+It’s somewhat subjective, but for simplicity, let’s use the complement probabilities adjusted by considering the overall less specific likelihoods:
+- \( P(E|\neg H_{\text{cs}}) \approx 0.4 \)
+- \( P(E|\neg H_{\text{ba}}) \approx 0.6 \)
+- \( P(E|\neg H_{\text{avs}}) \approx 0.3 \)
+
+### Calculations:
+Now, let's calculate \( P(H|E) \) for each field using Bayes' rule.
+
+#### 1. Computer Science:
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|\neg H_{\text{cs}}) \cdot P(\neg H_{\text{cs}})} \]
+\[ = \frac{0.6 \times 0.3}{0.6 \times 0.3 + 0.4 \times 0.7} \]
+\[ = \frac{0.18}{0.18 + 0.28} \]
+\[ = \frac{0.18}{0.46} \]
+\[ \approx 0.39 \]
+
+#### 2. Business Administration:
+\[ P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) + P(E|\neg H_{\text{ba}}) \cdot P(\neg H_{\text{ba}})} \]
+\[ = \frac{0.2 \times 0.2}{0.2 \times 0.2 + 0.6 \times 0.8} \]
+\[ = \frac{0.04}{0.04 + 0.48} \]
+\[ = \frac{0.04}{0.52} \]
+\[ \approx 0.08 \]
+
+#### 3. Agricultural and Veterinary Science:
+\[ P(H_{\text{avs}}|E) = \frac{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}})}{P(E|H_{\text{avs}}) \cdot P(H_{\text{avs}}) + P(E|\neg H_{\text{avs}}) \cdot P(\neg H_{\text{avs}})} \]
+\[ = \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.3 \times 0.9} \]
+\[ = \frac{0.08}{0.08 + 0.27} \]
+\[ = \frac{0.08}{0.35} \]
+\[ \approx 0.23 \]
+
+Based on these calculations, the probabilities are:
+
+```json
+{
+  "computer science": 0.39,
+  "business administration": 0.08,
+  "agricultural and veterinary science": 0.23
+}
+```

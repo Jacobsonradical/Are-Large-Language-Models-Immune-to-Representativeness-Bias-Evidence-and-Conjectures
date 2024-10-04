@@ -1,0 +1,56 @@
+To compute \( P(H|E) \) for both fields of study, we need to utilize Bayes' theorem: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, we'll assume \( P(E) \) is constant across all fields, as it sums over all possible fields. Thus, our primary goal is to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Business Administration
+1. **P(H):** Estimate the prior probability that a randomly chosen graduate student is enrolled in business administration.
+   \[ P(H_{BA}) \approx 0.15 \] (Assuming business administration isn't one of the most common fields.)
+
+2. **P(E|H):** The likelihood of Adam's personality traits given that he's in business administration.
+   - Curiosity about nature and plants: Low relevance.
+   - Quiet, enjoys solving puzzles: Moderate relevance.
+   - Warm heart, empathy, love for animals: Low to moderate relevance.
+   - High intelligence, understanding abstract concepts: Relevant but common in various fields.
+   - Appreciation for hard work and dedication: Relevant.
+
+   \[ P(E|H_{BA}) \approx 0.2 \]
+   
+3. **P(E|\neg H):** The likelihood of Adam's personality traits given that he's *not* in business administration.
+   \[ P(E|\neg H_{BA}) \approx 0.1 \]
+
+### Computer Science
+1. **P(H):** Estimate the prior probability that a randomly chosen graduate student is enrolled in computer science.
+   \[ P(H_{CS}) \approx 0.25 \] (Assuming computer science is a relatively common field.)
+
+2. **P(E|H):** The likelihood of Adam's personality traits given that he's in computer science.
+   - Curiosity about nature and plants: Low relevance.
+   - Quiet, enjoys solving puzzles: High relevance.
+   - Warm heart, empathy, love for animals: Low relevance.
+   - High intelligence, understanding abstract concepts: Very relevant.
+   - Appreciation for hard work and dedication: Relevant.
+
+   \[ P(E|H_{CS}) \approx 0.5 \]
+   
+3. **P(E|\neg H):** The likelihood of Adam's personality traits given that he's *not* in computer science.
+   \[ P(E|\neg H_{CS}) \approx 0.1 \]
+
+### Application of Bayes' Theorem
+
+#### Business Administration
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(H_{BA}|E) \approx \frac{0.2 \times 0.15}{P(E)} = \frac{0.03}{P(E)} \]
+
+#### Computer Science
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) \approx \frac{0.5 \times 0.25}{P(E)} = \frac{0.125}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant that applies to all calculations equivalently, we are more interested in the relative values for comparison.
+
+{
+  "business administration": 0.03,
+  "computer science": 0.125
+}
+
+Thus, given the personality sketch, Adam is more likely to be enrolled in computer science than in business administration.

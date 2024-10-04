@@ -1,0 +1,57 @@
+To evaluate the probabilities P(H|E) for each field, we'll use Bayes' Rule, which is defined as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the problem, we'll need to estimate the different terms for each field:
+
+- \( P(H) \): The prior probability that Adam was enrolled in the given field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he was enrolled in the given field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he was not enrolled in the given field.
+- \( P(E) \): The total probability of observing Adam's personality sketch. This can be derived from the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+However, since we are considering multiple fields and computing relative probabilities, we might not have the exact \( P(E) \). Instead, we can compute the unnormalized probabilities and compare them.
+
+Let's make reasonable assumptions about these probabilities based on the given personality sketch E and the fields:
+
+1. **Computer Science**:
+   - \( P(H_{\text{CS}}) \): Let's assume there is a moderate chance someone could be in this field (say 0.2 or 20%).
+   - \( P(E|H_{\text{CS}}) \): A computer science student might be intelligent and good at abstract concepts but may not necessarily have strong inclinations towards nature or animals. Let's assume this probability is relatively low (say 0.2 or 20%).
+   - \( P(E|\neg H_{\text{CS}}) \): Considering the other fields and general population (being more likely to match E), let's assume this probability is relatively higher (say 0.6 or 60%).
+
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.2 \times 0.2 = 0.04 \]
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AgVet}}) \): Let's assume people interested in this field are less than in computer science but reasonable (say 0.1 or 10%).
+   - \( P(E|H_{\text{AgVet}}) \): This field highly aligns with Adam's personality sketch, assuming a high probability (say 0.8 or 80%).
+   - \( P(E|\neg H_{\text{AgVet}}) \): This would be lower due to specificity (say 0.4 or 40%).
+
+\[ P(H_{\text{AgVet}}|E) \propto P(E|H_{\text{AgVet}}) \cdot P(H_{\text{AgVet}}) = 0.8 \times 0.1 = 0.08 \]
+
+3. **Business Administration**:
+   - \( P(H_{\text{BusAdmin}}) \): This is another common field, so moderte likelihood for prior (say 0.2 or 20%).
+   - \( P(E|H_{\text{BusAdmin}}) \): Less directly related to the detailed nature/animal aspect of Adam's sketch, so a lower probability (say 0.1 or 10%).
+   - \( P(E|\neg H_{\text{BusAdmin}}) \): Still consider general likelihood higher than field-alignment (say 0.6 or 60%).
+
+\[ P(H_{\text{BusAdmin}}|E) \propto P(E|H_{\text{BusAdmin}}) \cdot P(H_{\text{BusAdmin}}) = 0.1 \times 0.2 = 0.02 \]
+
+Now normalizing these relative probabilities:
+
+\[ \text{Sum of unnormalized probabilities} = 0.04 + 0.08 + 0.02 = 0.14 \]
+
+Normalize each:
+
+\[ P(H_{\text{CS}}|E) = \frac{0.04}{0.14} \approx 0.286 \]
+\[ P(H_{\text{AgVet}}|E) = \frac{0.08}{0.14} \approx 0.571 \]
+\[ P(H_{\text{BusAdmin}}|E) = \frac{0.02}{0.14} \approx 0.143 \]
+
+Summarizing, the probabilities can be expressed as follows:
+
+```json
+{
+  "computer science": 0.286,
+  "agricultural and veterinary science": 0.571,
+  "business administration": 0.143
+}
+```

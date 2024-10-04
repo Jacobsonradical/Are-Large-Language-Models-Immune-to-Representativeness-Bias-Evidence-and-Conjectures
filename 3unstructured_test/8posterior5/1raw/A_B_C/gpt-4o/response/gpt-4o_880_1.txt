@@ -1,0 +1,46 @@
+To apply Bayes' rule, we use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the probability of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the probability of the evidence.
+
+Given the personality sketch of Adam, we will make reasonable assumptions about \( P(H) \) (the prior probability Adam was enrolled in each specific field), \( P(E|H) \) (the probability the personality sketch fits given enrollment in each field), and \( P(E|\neg H) \) (the probability the personality sketch fits given enrollment in a different field).
+
+We assume some typical prior probabilities:
+- Computer Science: \( P(H_\text{CS}) \approx 0.3 \)
+- Business Administration: \( P(H_\text{BA}) \approx 0.2 \)
+- Agricultural and Veterinary Science: \( P(H_\text{AVS}) \approx 0.1 \)
+
+For the likelihoods of the evidence given the hypothesis, we can estimate:
+- \( P(E|H_\text{CS}) \approx 0.2 \) (as his warm heart and empathy are less typical traits for computer science, despite the intelligence and problem-solving skills)
+- \( P(E|H_\text{BA}) \approx 0.1 \) (as his deep love for animals and nature seems less relevant to business administration)
+- \( P(E|H_\text{AVS}) \approx 0.8 \) (as his love for animals, curiosity about nature, and appreciation for hard work align well with this field)
+
+To estimate the probabilities of the evidence under these hypotheses, we need to approximate \( P(E) \). This can be calculated using:
+
+\[ P(E) = P(E|H_\text{CS}) \cdot P(H_\text{CS}) + P(E|H_\text{BA}) \cdot P(H_\text{BA}) + P(E|H_\text{AVS}) \cdot P(H_\text{AVS}) + P(E|\neg \{H_\text{CS}, H_\text{BA}, H_\text{AVS}\}) \cdot P(\neg \{H_\text{CS}, H_\text{BA}, H_\text{AVS}\}) \]
+
+However, for simplicity, we will approximate it assuming the other fields combined have a relatively low impact. We'll assume:
+
+- \( P(E|\neg H_\text{CS}) \approx 0.5 \)
+- \( P(E|\neg H_\text{BA}) \approx 0.5 \)
+- \( P(E|\neg H_\text{AVS}) \approx 0.5 \)
+
+Thus, using Bayes' theorem:
+- \( P(H|E)_\text{CS} = \frac{0.2 \times 0.3}{0.2 \times 0.3 + 0.1 \times 0.2 + 0.8 \times 0.1 + 0.5 \times 0.4} \approx \frac{0.06}{0.06 + 0.02 + 0.08 + 0.20} \approx \frac{0.06}{0.36} \approx 0.17 \)
+- \( P(H|E)_\text{BA} = \frac{0.1 \times 0.2}{0.2 \times 0.3 + 0.1 \times 0.2 + 0.8 \times 0.1 + 0.5 \times 0.4} \approx \frac{0.02}{0.36} \approx 0.06 \)
+- \( P(H|E)_\text{AVS} = \frac{0.8 \times 0.1}{0.2 \times 0.3 + 0.1 \times 0.2 + 0.8 \times 0.1 + 0.5 \times 0.4} \approx \frac{0.08}{0.36} \approx 0.22 \)
+
+So,
+
+```json
+{
+  "computer science": 0.17,
+  "business administration": 0.06,
+  "agricultural and veterinary science": 0.22
+}
+```

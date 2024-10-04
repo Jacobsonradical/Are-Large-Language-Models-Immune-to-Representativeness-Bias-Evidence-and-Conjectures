@@ -1,0 +1,33 @@
+To calculate the probabilities, we first need to consider the prior probabilities \( P(H) \) for each field. However, we'll proceed under the assumption that both fields have equal prior probabilities for simplicity, which we will denote as \( P(H) = 0.5 \) for both fields. This assumption can be adjusted if actual data on the distribution of graduate students among various fields is available.
+
+Next, we'll consider \( P(E|H) \), the probability of observing Adam's personality sketch given that he is in a particular field. 
+
+For business administration:
+- The traits described (genuine curiosity about nature, love for animals, empathy, and understanding of hard work) are less typical of the stereotype of a business administration student but not mutually exclusive.
+
+For agricultural and veterinary science:
+- These traits align well with someone studying agricultural or veterinary science, as such fields usually attract individuals with a strong interest in nature and animals and often require dedication and hard work.
+
+Given these considerations, we'll estimate \( P(E|H) \) for each field:
+- \( P(E|H_{business administration}) \): Let's assign it a relatively low value, say 0.1.
+- \( P(E|H_{agricultural and veterinary science}) \): Given the alignment, we'll assign this a higher value, say 0.8.
+
+Now, we consider \( P(E|\neg H) \), the probability of observing Adam's personality sketch given that he is not in the specified field. We'll assume equal likelihood among other fields, but we know that some fields might naturally fit his personality sketch. Assigning values here will depend heavily on assumptions due to lack of specific data:
+- Suppose that for business administration, \( P(E|\neg H_{business administration}) = 0.4 \).
+- For agricultural and veterinary science, with fields related to nature or empathy being more common, \( P(E|\neg H_{agricultural and veterinary science}) = 0.2 \).
+
+Applying Bayes' rule:
+- \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \).
+
+For business administration:
+- \( P(H|E_{\text{business administration}}) = \frac{0.1 \cdot 0.5}{0.1 \cdot 0.5 + 0.4 \cdot 0.5} = \frac{0.05}{0.05 + 0.2} = \frac{0.05}{0.25} = 0.2 \).
+
+For agricultural and veterinary science:
+- \( P(H|E_{\text{agricultural and veterinary science}}) = \frac{0.8 \cdot 0.5}{0.8 \cdot 0.5 + 0.2 \cdot 0.5} = \frac{0.4}{0.4 + 0.1} = \frac{0.4}{0.5} = 0.8 \).
+
+Hence, our estimates are:
+
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}

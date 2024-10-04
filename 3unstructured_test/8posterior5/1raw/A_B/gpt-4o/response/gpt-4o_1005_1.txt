@@ -1,0 +1,56 @@
+### Probabilities and Bayes Rule Calculations
+
+Let's denote the fields as follows:
+- **H1:** Adam was enrolled in business administration.
+- **H2:** Adam was enrolled in agricultural and veterinary science.
+
+Let’s organize the needed probabilities:
+- **P(H1):** Prior probability that Adam was enrolled in business administration.
+- **P(H2):** Prior probability that Adam was enrolled in agricultural and veterinary science.
+- **P(E | H1):** Probability of observing Adam's personality sketch if he were enrolled in business administration.
+- **P(E | H2):** Probability of observing Adam's personality sketch if he were enrolled in agricultural and veterinary science.
+- **P(E | ¬H1):** Probability of observing Adam's personality sketch if he were NOT enrolled in business administration.
+- **P(E | ¬H2):** Probability of observing Adam's personality sketch if he were NOT enrolled in agricultural and veterinary science.
+
+To compute the posterior probabilities of each hypothesis given E (Adam's personality sketch) using Bayes' rule:
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+However, since \(P(E)\) is constant for all computations and we are interested in relative probabilities, we can focus on the numerator:
+
+\[ P(H | E) \propto P(E | H) \cdot P(H) \]
+
+Let’s estimate these values:
+
+### Business Administration (H1)
+- **P(H1):** Let's assume 0.2 (20%) since business administration is a common graduate field.
+- **P(E | H1):** Considering Adam's personality traits (curiosity about nature, love for animals, empathy), these traits are less likely among business administration students. Let’s estimate it as 0.1 (10%).
+- **P(E | ¬H1):** If Adam is not in business administration, he could be in one of many other fields. Given his personality, the likelihood might be higher than being in business administration. Let’s assume 0.3 (30%).
+
+### Agricultural and Veterinary Science (H2)
+- **P(H2):**  Let’s assume 0.1 (10%) as it is a less common field compared to business administration but still a relevant one.
+- **P(E | H2):** Given Adam’s traits (interest in nature, plants, empathy, love for animals), these match very well with agricultural and veterinary science. Let’s estimate this as 0.8 (80%).
+- **P(E | ¬H2):** If not in agricultural and veterinary science, his traits are less common but could fit some other fields better than business administration. Let's assume 0.2 (20%).
+
+Now, compute the posterior probabilities:
+
+#### Business Administration
+\[ P(H1 | E) \propto P(E | H1) \cdot P(H1) = 0.1 \cdot 0.2 = 0.02 \]
+
+#### Agricultural and Veterinary Science
+\[ P(H2 | E) \propto P(E | H2) \cdot P(H2) = 0.8 \cdot 0.1 = 0.08 \]
+
+Normalize these values to get probabilities that sum to 1:
+
+Total unnormalized:
+\[ 0.02 + 0.08 = 0.10 \]
+
+Normalized probabilities:
+- Business administration: \(\frac{0.02}{0.10} = 0.2\)
+- Agricultural and veterinary science: \(\frac{0.08}{0.10} = 0.8\)
+
+### Final Result
+
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.8
+}

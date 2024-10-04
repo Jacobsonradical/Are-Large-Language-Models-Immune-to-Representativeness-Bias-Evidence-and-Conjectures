@@ -1,0 +1,46 @@
+To apply Bayes' rule, we need to asses probabilities as follows:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here \( P(H) \) is the prior probability that Adam was enrolled in a particular field, \( P(E|H) \) is the likelihood of Adam’s personality given that field, and \( P(E) \) is the overall probability of Adam’s personality sketch, which normalizes the result but is not required for comparison of different fields here.
+
+Let's break down the evaluation for each field:
+
+### Computer Science
+- **P(H), Prior Probability**: Assuming equal distribution among all graduate fields, computer science is common among high intelligence individuals, so let's assign a moderately high prior probability. We can estimate \( P(H_{\text{cs}}) = 0.10 \)
+
+- **P(E|H), Likelihood**: Given "the subject has a genuine curiosity about nature, enjoys solving puzzles, has high intelligence, and understands abstract concepts," this aligns well with the common traits of computer science students. \( P(E|H_{\text{cs}}) = 0.60 \)
+
+- **P(E|\neg H), Likelihood of Not Being Computer Science**:
+This is harder to estimate precisely—it’s the likelihood of such a personality given all other fields. Given his traits fit other fields too, let's estimate as \( P(E|\neg H_{\text{cs}}) = 0.40 \)
+
+Using Bayes' Rule:
+\[ P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) = 0.60 \cdot 0.10 = 0.06 \]
+
+### Business Administration
+- **P(H), Prior Probability**: Assuming equal distribution, but business administration students may typically show differents traits. So a lower prior. Estimate \( P(H_{\text{ba}}) = 0.05 \)
+
+- **P(E|H), Likelihood**: Traits like empathy and understanding hard work align with business administration but less about nature and puzzles. So \( P(E|H_{\text{ba}}) = 0.30 \)
+
+- **P(E|\neg H), Likelihood of Not Being Business Administration**:
+Similarly (opposite scenario), estimating \( P(E|\neg H_{\text{ba}}) = 0.50 \)
+
+Using Bayes' Rule:
+\[ P(H_{\text{ba}}|E) \propto P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) = 0.30 \cdot 0.05 = 0.015 \]
+
+Combining these results, normalized by the total proportional probability.
+
+\[
+\{
+  "computer science": \frac{0.06}{0.06+0.015}  \approx 0.80,
+  "business administration": \frac{0.015}{0.06+0.015} \approx 0.20
+}
+\]
+
+Thus the probability Adam was enrolled in:
+\[
+{
+  "computer science": 0.80,
+  "business administration": 0.20
+}
+\]

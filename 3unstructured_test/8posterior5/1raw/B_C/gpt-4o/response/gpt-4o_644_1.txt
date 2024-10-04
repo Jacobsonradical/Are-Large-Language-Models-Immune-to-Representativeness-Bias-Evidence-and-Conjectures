@@ -1,0 +1,45 @@
+To calculate the probabilities using Bayes' Rule, we need to consider the following:
+
+1. **P(H)**: The prior probability that Adam was enrolled in each field. 
+2. **P(E|H)**: The probability that Adam’s personality sketch (E) is observed given that he was enrolled in each field (H).
+3. **P(E|¬H)**: The probability that Adam's personality sketch (E) is observed given that he was not enrolled in the respective field (¬H).
+
+We are looking for **P(H|E)**, the posterior probability that Adam was enrolled in the given field, given his personality sketch.
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+We simplify by noting that \( P(E) \) is the same for both fields, as it is simply the probability of the evidence.
+
+Let's assume some reasonable values:
+
+1. **P(H) for each field**: The prior can be set based on the relative popularity of the graduate programs. Let's assume 10% for computer science (CS) and 10% for business administration (BA), as we do not have specific data.
+   - P(CS) = 0.1
+   - P(BA) = 0.1
+
+2. **P(E|H)**: This indicates how well the personality sketch fits with someone in each field.
+   - For computer science, Adam’s personality of curiosity about nature, problem-solving, and high intelligence is a good fit. Therefore, let's assign P(E|CS) a higher value, say 0.7.
+   - For business administration, empathy and understanding are valuable traits, but the strong focus on animals and nature is less relevant. So, let's assign P(E|BA) a lower value, say 0.3.
+
+3. **P(E|¬H)**: This general probability can be tough to pin down exactly without specific data, but let's assign it a reasonable value that reflects the null hypothesis not being specific to Adam's traits.
+   - P(E|¬CS) and P(E|¬BA) should be lower since they contrast with the personalities not fitting the fields as well.
+
+For simplification, we will assume:
+   - P(E|¬CS) = 0.2
+   - P(E|¬BA) = 0.2
+
+Now to compute:
+\[ P(CS|E) = \frac{P(E|CS) \times P(CS)}{P(E|CS) \times P(CS) + P(E|¬CS) \times P(¬CS)} \]
+\[ P(CS|E) = \frac{0.7 \times 0.1}{0.7 \times 0.1 + 0.2 \times 0.9} = \frac{0.07}{0.07 + 0.18} = \frac{0.07}{0.25} = 0.28 \]
+
+\[ P(BA|E) = \frac{P(E|BA) \times P(BA)}{P(E|BA) \times P(BA) + P(E|¬BA) \times P(¬BA)} \]
+\[ P(BA|E) = \frac{0.3 \times 0.1}{0.3 \times 0.1 + 0.2 \times 0.9} = \frac{0.03}{0.03 + 0.18} = \frac{0.03}{0.21} = 0.14 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.28,
+  "business administration": 0.14
+}
+```

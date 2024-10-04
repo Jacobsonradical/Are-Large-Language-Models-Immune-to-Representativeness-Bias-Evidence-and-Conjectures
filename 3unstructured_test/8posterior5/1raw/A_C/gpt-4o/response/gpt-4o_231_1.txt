@@ -1,0 +1,55 @@
+To compute the posterior probability \( P(H|E) \) for each field using Bayes' rule, we need to evaluate the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood given the negation \( P(E|\neg H) \).
+
+### Bayes' Rule
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Assumptions and Evaluations
+- **Prior Probability \( P(H) \)**:
+  - Since no specific prior probabilities are given, we'll assume the base rate probability that a graduate student (arbitrary) might be in a given field. Let's simplify and use equal priors for the fields under consideration.
+    - For Computer Science: \( P(\text{H}_{\text{cs}}) = 0.5 \)
+    - For Agricultural and Veterinary Science: \( P(\text{H}_{\text{avs}}) = 0.5 \)
+
+- **Likelihood \( P(E|H) \)**:
+  - Evaluation of how likely it is that Adam's personality sketch aligns with each academic field.
+    - **Computer Science**: While intelligence and abstract thinking align well, Adam's strong empathy, love for animals, and appreciation for nature don’t align as strongly.
+      - \( P(E|\text{H}_{\text{cs}}) = 0.2 \)
+    - **Agricultural and Veterinary Science**: Aligns well with curiosity for nature, love for animals, empathy, and appreciation for hard work.
+      - \( P(E|\text{H}_{\text{avs}}) = 0.7 \)
+
+- **Likelihood given negation \( P(E|\neg H) \)**:
+  - Evaluating the likelihood of Adam's personality sketch given he's NOT in that field.
+    - **Computer Science**: Given the field has little alignment with many of Adam's traits.
+      - \( P(E|\neg\text{H}_{\text{cs}}) = 0.8 \)
+    - **Agricultural and Veterinary Science**: Many traits inherent in these fields make it still probable despite any other outliers.
+      - \( P(E|\neg\text{H}_{\text{avs}}) = 0.3 \)
+
+### Calculations
+
+1. **Computer Science**:
+\[ P(\text{H}_{\text{cs}}|E) = \frac{P(E|\text{H}_{\text{cs}}) \cdot P(\text{H}_{\text{cs}})}{P(E)} = \frac{0.2 \cdot 0.5}{P(E)} \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(\text{H}_{\text{avs}}|E) = \frac{P(E|\text{H}_{\text{avs}}) \cdot P(\text{H}_{\text{avs}})}{P(E)} = \frac{0.7 \cdot 0.5}{P(E)} \]
+
+### Normalizing \( P(E) \):
+\[ P(E) = P(E|\text{H}_{\text{cs}}) \cdot P(\text{H}_{\text{cs}}) + P(E|\text{H}_{\text{avs}}) \cdot P(\text{H}_{\text{avs}}) + P(E|\neg\text{H}_{\text{cs}}) \cdot P(\neg\text{H}_{\text{cs}}) + P(E|\neg\text{H}_{\text{avs}}) \cdot P(\neg\text{H}_{\text{avs}}) \]
+\[ P(E) = (0.2 \cdot 0.5) + (0.7 \cdot 0.5) \]
+\[ P(E) = 0.1 + 0.35 \]
+\[ P(E) = 0.45 \]
+
+### Posterior Probabilities
+
+1. **Computer Science**:
+\[ P(\text{H}_{\text{cs}}|E) = \frac{0.2 \cdot 0.5}{0.45} \approx 0.222 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(\text{H}_{\text{avs}}|E) = \frac{0.7 \cdot 0.5}{0.45} \approx 0.778 \]
+
+### Results
+
+```json
+{
+  "computer science": 0.222,
+  "agricultural and veterinary science": 0.778
+}
+```

@@ -1,0 +1,45 @@
+To apply Bayes' Rule and compute \( P(H|E) \), we need to express the posterior probability \( P(H | E) \) (the probability of Adam being enrolled in a given field given his personality sketch) in terms of the prior probability \( P(H) \), the likelihood \( P(E | H) \) (the probability of his personality sketch given his major), and the marginal likelihood \( P(E) \) or its complement \( P(E | \neg H) \).
+
+Applying Bayes' Rule:
+\[ P(H | E) = \frac{P(E | H) * P(H)}{P(E)} \]
+
+First, let's estimate the priors \( P(H) \):
+- \( P(\text{business administration}) \): Business administration is a common field of study in graduate programs, especially in the U.S. A reasonable prior might be around 0.2.
+- \( P(\text{computer science}) \): Computer science is also a very popular field of study, particularly in the context of the U.S. A reasonable prior might be around 0.3.
+
+Now, let's consider the likelihoods \( P(E | H) \):
+- For business administration:
+  - Adam's curiosity about nature, empathy, and love for animals are not strong indicators of a typical business administration student, who might be more focused on human interactions, management, or finance.
+  - Therefore, \( P(E | \text{business administration}) \) might be comparatively lower. Suppose around 0.1.
+
+- For computer science:
+  - Adam’s enjoyment of solving puzzles, high intelligence, and understanding of abstract concepts align well with the skills and interests of computer science students.
+  - \( P(E | \text{computer science}) \) might therefore be higher. Suppose around 0.5.
+
+Finally, the marginal likelihood \( P(E) \) can be approximated using the total probability theorem, considering other graduate fields are fewer in our scope. However, for simplicity, we can treat it relatively similarly to the priors or a bit higher given his particular interests might be less widespread.
+
+Since \( P(E) = P(E | \text{business administration})*P(\text{business administration}) + P(E | \text{computer science})*P(\text{computer science}) + \sum_{\text{other fields}} P(E | H_{\text{other}})P(H_{\text{other}}) \):
+- We approximate \( P(E) \) by combining the two known fields. (Actual calculations become more precise if including more fields, but here keep it simpler.)
+
+Given the above considerations:
+- For business administration:
+  \[ P(E) \approx 0.1*0.2 + 0.5*0.3 + ... \approx 0.17 (simpler approximation)\]
+
+Plugging in the numbers, we calculate the posterior probabilities using the respective priors and likelihoods.
+
+For business administration:
+\[ P(\text{business administration} | E) = \frac{(0.1 * 0.2)}{0.17 } \approx 0.1176\]
+
+For computer science:
+\[ P(\text{computer science} | E) = \frac{(0.5 * 0.3)}{0.17 } \approx 0.8824 \]
+
+Thus,
+
+```json
+{
+  "business administration": 0.1176,
+  "computer science": 0.8824
+}
+```
+
+These values suggest Adam is far more likely to be a graduate student in computer science, given his personality sketch.

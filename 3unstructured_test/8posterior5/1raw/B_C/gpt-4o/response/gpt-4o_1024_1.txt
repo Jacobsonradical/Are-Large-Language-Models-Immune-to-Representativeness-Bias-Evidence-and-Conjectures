@@ -1,0 +1,57 @@
+Let's begin by defining the probability terms:
+
+- **P(H):** The prior probability that Adam was enrolled in a particular field.
+- **P(E|H):** The probability of observing Adam's personality sketch given he was enrolled in that field.
+- **P(E|\neg H):** The probability of observing Adam's personality sketch given he was not enrolled in that field.
+- **P(H|E):** The posterior probability that Adam was enrolled in a particular field given his personality sketch, which we want to compute.
+
+Let's denote the following actions:
+- Business Administration = H1
+- Computer Science = H2
+
+### Business Administration (H1)
+
+1. **P(H1)**: This is the prior probability that a typical graduate student might be in business administration. Let's assume this to be relatively common, say 0.2.
+  
+2. **P(E|H1)**: Given Adam’s interests (nature, plants, puzzles, animals, abstract concepts, empathy), these traits seem less aligned with business administration, which is typically more focused on commerce, management, and not as much on nature or abstract puzzles. Let's assign a value of 0.05.
+  
+3. **P(E|\neg H1)**: This is the probability of observing Adam's personality traits assuming he is not in business administration. Since business administration is just one field and Adam's interests seem more specific, this value can be higher. Let’s say 0.8.
+
+Using Bayes' rule, we calculate:
+
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \]
+
+Here, \( P(E) \) can be understood as a normalizing constant, but it isn't needed for comparative purposes. We'll compute the numerator and then same for other hypothesis.
+
+Let’s assign \( P(E) = P(E|H1) \cdot P(H1) + P(E|\neg H1) \cdot P(\neg H1) \):
+\[ P(E) = (0.05 \cdot 0.2) + (0.8 \cdot 0.8) \]
+\[ P(E) \approx 0.41 \]
+
+Finally:
+\[ P(H1|E) \approx \frac{0.05 \cdot 0.2}{0.41} \approx 0.024 \]
+
+### Computer Science (H2)
+
+1. **P(H2)**: Assume this also relatively common for graduate students, let's say 0.2.
+  
+2. **P(E|H2)**: Given Adam’s interests (solving puzzles, high intelligence, understanding abstract concepts) are strongly aligned with computer science, let's assign a value of 0.5.
+  
+3. **P(E|\neg H2)**: This is the probability of observing Adam's personality traits assuming he is not in computer science. It can be considered lower since his traits are highly specific to computer science and a few other fields. Let’s assign 0.4.
+
+Using Bayes' rule again:
+
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \]
+\[ P(E) = (0.5 \cdot 0.2) + (0.4 \cdot 0.8) \]
+\[ P(E) \approx 0.42 \]
+
+Finally:
+\[ P(H2|E) \approx \frac{0.5 \cdot 0.2}{0.42} \approx 0.238 \]
+
+Here's the comparative result:
+
+```json
+{
+  "business administration": 0.024,
+  "computer science": 0.238
+}
+```

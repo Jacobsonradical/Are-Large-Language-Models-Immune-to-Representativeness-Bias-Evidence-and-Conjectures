@@ -1,0 +1,81 @@
+To solve this problem, let's apply Bayes' theorem. According to Bayes' theorem,
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the probability of Adam being in a specific field given his personality sketch.
+- \( P(E|H) \) is the probability of the personality sketch \( E \) given that Adam is in a specific field.
+- \( P(H) \) is the prior probability of Adam being in that field.
+- \( P(E) \) is the overall probability of the personality sketch \( E \).
+
+Here is an estimation of these probabilities based on the given personality sketch \( E \):
+
+1. **Business Administration:**
+   - \( P(H) \): The prior probability that Adam is in business administration. This field is quite broad, and many students are in this field, so, a moderate prior probability might be reasonable.
+   - \( P(E|H) \): The probability of the personality traits given enrollment in business administration. These traits don't strongly align with typical business administration traits but also aren't exclusive of them.
+   - \( P(E|\neg H) \): The probability of the personality traits given Adam is not in business administration.
+
+2. **Computer Science:**
+   - \( P(H) \): The prior probability that Adam is in computer science. This is a fairly common field, so a moderate prior probability seems reasonable.
+   - \( P(E|H) \): The probability of the personality traits given enrollment in computer science. The high intelligence and problem-solving skills fit well with computer science traits.
+   - \( P(E|\neg H) \): The probability of the personality traits given Adam is not in computer science.
+ 
+3. **Agricultural and Veterinary Science:**
+   - \( P(H) \): The prior probability that Adam is in agricultural and veterinary science. This is a more specialized field and hence may have a lower prior probability.
+   - \( P(E|H) \): The probability of the personality traits given enrollment in agricultural and veterinary science. The curiosity about nature, empathy, and love for animals fit very well with this field.
+   - \( P(E|\neg H) \): The probability of the personality traits given Adam is not in agricultural and veterinary science.
+
+Now, let's assign approximate probabilities for each value:
+
+1. **Business Administration:**
+   - \( P(H) \): 0.2 (Moderate due to the commonality of the field)
+   - \( P(E|H) \): 0.2 (These traits are not typically associated with Business Administration)
+   - \( P(E|\neg H) \): 0.7 (High probability that someone not in Business Administration could still exhibit these traits)
+
+\[ P(\text{Business Administration}|E) = \frac{0.2 \times 0.2}{P(E)} \]
+
+2. **Computer Science:**
+   - \( P(H) \): 0.2 (Moderate due to the popularity of the field)
+   - \( P(E|H) \): 0.5 (Traits like intelligence and problem-solving fit well here)
+   - \( P(E|\neg H) \): 0.6 (High probability that someone not in Computer Science could fit these traits)
+
+\[ P(\text{Computer Science}|E) = \frac{0.2 \times 0.5}{P(E)} \]
+
+3. **Agricultural and Veterinary Science:**
+   - \( P(H) \): 0.1 (Less common compared to other fields)
+   - \( P(E|H) \): 0.7 (These traits align very well with Agricultural and Veterinary Science)
+   - \( P(E|\neg H) \): 0.3 (Lower probability that someone not in this field would fit these traits)
+
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.1 \times 0.7}{P(E)} \]
+
+Plugging these into the Bayes' formula:
+
+Given that \( P(E) \) (the overall probability of \( E \)) can be normalized across the different fields, we can denote each result with approximate values:
+
+\[ P(E) \approx 0.2 \]
+
+So, calculating the posteriors:
+
+1. Business Administration: 
+
+\[ \frac{0.04}{0.2} = 0.2 \]
+   
+2. Computer Science: 
+
+\[ \frac{0.1}{0.2} = 0.5 \]
+
+3. Agricultural and Veterinary Science: 
+
+\[ \frac{0.07}{0.2} = 0.35 \]
+
+So the resulting probabilities will be:
+
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.5,
+  "agricultural and veterinary science": 0.35
+}
+```
+
+Note that these values are approximate and can vary depending on more precise priors and likelihood estimations.

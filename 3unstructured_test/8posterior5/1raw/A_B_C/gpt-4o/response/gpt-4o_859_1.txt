@@ -1,0 +1,76 @@
+To compute the probabilities, we need to use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \) is the probability of observing the evidence given the hypothesis.
+- \( P(E|\neg H) \) is the probability of observing the evidence given that the hypothesis is not true.
+- \( P(E) \) is the total probability of the evidence.
+
+Since \( P(E) \) can be estimated using the law of total probability, and we are more focused on comparing the relative values, we can simplify it for comparison as:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+We will evaluate each term qualitatively and assign them values:
+
+1. **Computer Science**
+   - \( P(H) \): Prior probability that Adam is studying Computer Science. Let's consider that Computer Science is a popular field, so we may assign it a moderate prior.
+   - \( P(E|H) \): Adam's characteristics (curiosity, intelligence) fit reasonably well with a Computer Science profile but less so compared to other fields.
+   - \( P(E|\neg H) \): The evidence could plausibly be found in many other fields, not just Computer Science, so this might be high.
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H) \): Prior probability that Adam is studying Agricultural and Veterinary Science. This is less common than Computer Science but still plausible given his love for nature and animals.
+   - \( P(E|H) \): The evidence strongly matches the characteristics expected from someone in this field.
+   - \( P(E|\neg H) \): It’s less likely that we'd see such evidence in students from unrelated fields.
+
+3. **Business Administration**
+   - \( P(H) \): Prior probability that Adam is studying Business Administration. This is also a common field, so we assign it a moderate prior.
+   - \( P(E|H) \): The subject's warm heart and empathy can fit, but curiosity about nature and love for animals fit less with Business Administration.
+   - \( P(E|\neg H) \): Reasonably high, as many students in other fields can also show empathy and intelligence.
+
+Let's assign the following values (these are rough and qualitative assignments):
+
+- \( P(H) \) for all fields considered roughly equal for simplicity (though this may not be exact in the real world): \( 0.1 \)
+- \( P(E|\neg H) \): Approximate it equally across fields for simplicity: \( 0.7 \)
+
+Then:
+
+\[ P(E) = P(E|H_{\text{CS}})\cdot P(H_{\text{CS}}) + P(E|H_{\text{AVS}})\cdot P(H_{\text{AVS}}) + P(E|H_{\text{BA}})\cdot P(H_{\text{BA}}) + \text{Other fields} \times P(\text{Other fields}) \]
+
+### Computer Science:
+
+- \( P(E|H_{\text{CS}}) = 0.5 \)
+- \( P(E) \approx 0.5 \times 0.1 + 1.0 \times 0.1 + 0.4 \times 0.1 + \ldots \approx 0.1 \)
+
+So, 
+
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.5 \times 0.1 = 0.05 \]
+
+### Agricultural and Veterinary Science:
+
+- \( P(E|H_{\text{AVS}}) = 1.0 \)
+- \( P(E) \approx 0.5 \times 0.1 + 1.0 \times 0.1 + 0.4 \times 0.1 + \ldots \approx 0.1 \)
+
+So,
+
+\[ P(H_{\text{AVS}}|E) \propto P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) = 1.0 \times 0.1 = 0.1 \]
+
+### Business Administration:
+
+- \( P(E|H_{\text{BA}}) = 0.4 \)
+- \( P(E) \approx 0.5 \times 0.1 + 1.0 \times 0.1 + 0.4 \times 0.1 + \ldots \approx 0.1 \)
+
+So,
+
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.4 \times 0.1 = 0.04 \]
+
+Therefore, the relative probabilities are:
+
+```json
+{
+  "computer science": 0.05,
+  "agricultural and veterinary science": 0.1,
+  "business administration": 0.04
+}
+```

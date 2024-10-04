@@ -1,0 +1,60 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' rule, we need the following quantities:
+- \( P(H) \): The prior probability that Adam is enrolled in the field H.
+- \( P(E|H) \): The probability of observing the personality sketch E given that Adam is enrolled in H.
+- \( P(E|\neg H) \): The probability of observing the personality sketch E given that Adam is not enrolled in H.
+
+Bayes' rule states that:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \), we can plug in the values to compute \( P(H|E) \).
+
+Let's first make some reasonable assumptions for the priors and likelihoods.
+
+### Computer Science
+
+1. \( P(H_{\text{CS}}) \):
+   - This is the prior probability that Adam is a Computer Science student. Since Computer Science is a common field but not universally so, let's assume \( P(H_{\text{CS}}) = 0.15 \).
+
+2. \( P(E|H_{\text{CS}}) \):
+   - The personality sketch suggests a deep interest in nature, animals, and abstract concepts. While computer science involves abstract concepts, the interest in nature and animals doesn’t align strongly. Let's assume \( P(E|H_{\text{CS}}) = 0.2 \).
+
+3. \( P(E|\neg H_{\text{CS}}) \):
+   - This is the probability of observing the personality sketch given that Adam is not a Computer Science student. Given the number of other fields that may include interest in nature and animals, let's assume \( P(E|\neg H_{\text{CS}}) = 0.8 \).
+
+### Agricultural and Veterinary Science
+
+1. \( P(H_{\text{AVS}}) \):
+   - This is the prior probability that Adam is an Agricultural and Veterinary Science student. It’s a less common field than general science but aligns strongly with his interests. Let's assume \( P(H_{\text{AVS}}) = 0.05 \).
+
+2. \( P(E|H_{\text{AVS}}) \):
+   - This is the probability of observing the personality sketch given that Adam is an Agricultural and Veterinary Science student. This field aligns very well with his interests in nature, plants, and animals. Let's assume \( P(E|H_{\text{AVS}}) = 0.9 \).
+
+3. \( P(E|\neg H_{\text{AVS}}) \):
+   - This is the probability of observing the personality sketch given that Adam is not an Agricultural and Veterinary Science student. Given the fit with this specific field, let's assume \( P(E|\neg H_{\text{AVS}}) = 0.4 \).
+
+Now we use Bayes' rule to compute \( P(H|E) \).
+
+### Computations
+
+1. For computer science:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot P(\neg H_{\text{CS}}) \]
+\[ P(E) = (0.2 \cdot 0.15) + (0.8 \cdot 0.85) = 0.03 + 0.68 = 0.71 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.2 \cdot 0.15}{0.71} \approx 0.0423 \]
+
+2. For agricultural and veterinary science:
+\[ P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} \]
+
+\[ P(E) = P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|\neg H_{\text{AVS}}) \cdot P(\neg H_{\text{AVS}}) \]
+\[ P(E) = (0.9 \cdot 0.05) + (0.4 \cdot 0.95) = 0.045 + 0.38 = 0.425 \]
+
+\[ P(H_{\text{AVS}}|E) = \frac{0.9 \cdot 0.05}{0.425} \approx 0.1059 \]
+
+### Results
+
+{
+  "computer science": 0.0423,
+  "agricultural and veterinary science": 0.1059
+}

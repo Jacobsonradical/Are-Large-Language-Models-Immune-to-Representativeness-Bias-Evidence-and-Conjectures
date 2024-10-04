@@ -1,0 +1,52 @@
+To use Bayes' rule to compute the probability that Adam was enrolled in specific fields given his personality sketch, we need the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field (Business Administration or Computer Science).
+2. \( P(E|H) \): The probability of observing the evidence (personality sketch) given that Adam was enrolled in that specific field.
+3. \( P(E|\neg H) \): The probability of observing the evidence given that Adam was not enrolled in that specific field.
+
+We will then use Bayes' rule to find \( P(H|E) \): The probability that Adam was enrolled in the specific field given the evidence (personality sketch).
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For simplicity, we assume \( P(E) \) remains constant for both fields, making comparisons based on the relative values they offer.
+
+**Assigning prior probabilities \( P(H) \):**
+Let’s assume some reasonable generic priors:
+- Business Administration: \( P(H_{\text{BA}}) = 0.2 \)
+- Computer Science: \( P(H_{\text{CS}}) = 0.2 \)
+
+**Assessing \( P(E|H) \):**
+Given Adam's profile statistics:
+- Business Administration: His love for nature and animals, and high intelligence might not perfectly align with common traits for a typical Business Administration student. Therefore, \( P(E|H_{\text{BA}}) \approx 0.1 \).
+- Computer Science: His inclination for puzzles, high intelligence, and abstract concept understanding fit well with Computer Science students. Therefore, \( P(E|H_{\text{CS}}) \approx 0.6 \).
+
+**Assessing \( P(E|\neg H) \):**
+Given Adam’s personality, the likelihood of the evidence if he’s not in those fields would focus on other fields as references. This is more abstract but let’s estimate:
+- Business Administration: \( P(E|\neg H_{\text{BA}}) \approx 0.5 \)
+- Computer Science: \( P(E|\neg H_{\text{CS}}) \approx 0.3 \)
+
+**Computations:**
+
+For Business Administration:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}})P(H_{\text{BA}})}{P(E)} = \frac{0.1 \times 0.2}{P(E)} \approx 0.02/P(E) \]
+
+For Computer Science:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}})P(H_{\text{CS}})}{P(E)} = \frac{0.6 \times 0.2}{P(E)} \approx 0.12/P(E) \]
+
+Since Bayes' rule normalizes these probabilities, and we're comparing the relative values, we only need to compare the numerator contributions:
+
+\[
+\begin{aligned}
+P(H_{\text{BA}}|E) & \approx 0.02/P(E) \\
+P(H_{\text{CS}}|E) & \approx 0.12/P(E)
+\end{aligned}
+\]
+
+Given these figures, we see that Adam is more likely to be in Computer Science compared with Business Administration:
+
+```json
+{
+  "business administration": 0.02,
+  "computer science": 0.12
+}
+```

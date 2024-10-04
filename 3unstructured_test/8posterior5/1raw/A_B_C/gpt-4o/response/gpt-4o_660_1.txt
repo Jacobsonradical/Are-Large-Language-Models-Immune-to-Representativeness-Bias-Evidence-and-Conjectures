@@ -1,0 +1,58 @@
+To determine \( P(H|E) \) for each field using Bayes' rule, we need to consider the following probabilities:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam was enrolled in that specific field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam was not enrolled in that specific field.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) can be computed using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since the exact values for prior probabilities \( P(H) \) and the probabilities \( P(E|H) \) and \( P(E|\neg H) \) are not provided, estimates will need to be made based on reasonable assumptions. 
+
+I will make the following rough estimates:
+- \( P(H) \): Assuming equal priors initially:
+  - \( P(H_{\text{agricultural and veterinary science}}) = 0.05 \)
+  - \( P(H_{\text{business administration}}) = 0.20 \)
+  - \( P(H_{\text{computer science}}) = 0.25 \)
+- \( P(E|H) \): Based on compatibility of personality with field:
+  - \( P(E|H_{\text{agricultural and veterinary science}}) = 0.90 \) (high compatibility)
+  - \( P(E|H_{\text{business administration}}) = 0.05 \) (low compatibility)
+  - \( P(E|H_{\text{computer science}}) = 0.65 \) (moderate compatibility)
+- \( P(E|\neg H) \): Based on remaining fields:
+  - \( P(E|\neg H_{\text{agricultural and veterinary science}}) = 0.10 \)
+  - \( P(E|\neg H_{\text{business administration}}) = 0.20 \)
+  - \( P(E|\neg H_{\text{computer science}}) = 0.35 \)
+
+Now let’s compute \( P(H|E) \):
+1. \( P(H_{\text{agricultural and veterinary science}}|E) \):
+   \[
+   P(H_{\text{agricultural and veterinary science}}|E) = \frac{P(E|H_{\text{agricultural and veterinary science}}) \cdot P(H_{\text{agricultural and veterinary science}})}{P(E)} \approx \frac{0.90 \cdot 0.05}{0.90 \cdot 0.05 + 0.05 \cdot 0.20 + 0.65 \cdot 0.25}
+   \]
+
+2. \( P(H_{\text{business administration}}|E) \):
+   \[
+   P(H_{\text{business administration}}|E) = \frac{P(E|H_{\text{business administration}}) \cdot P(H_{\text{business administration}})}{P(E)} \approx \frac{0.05 \cdot 0.20}{0.90 \cdot 0.05 + 0.05 \cdot 0.20 + 0.65 \cdot 0.25}
+   \]
+
+3. \( P(H_{\text{computer science}}|E) \):
+   \[
+   P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \approx \frac{0.65 \cdot 0.25}{0.90 \cdot 0.05 + 0.05 \cdot 0.20 + 0.65 \cdot 0.25}
+   \]
+
+Calculating these values:
+
+1. \( P(H_{\text{agricultural and veterinary science}}|E) \approx \frac{0.045}{0.045 + 0.01 + 0.1625} \approx \frac{0.045}{0.2175} \approx 0.207 \)
+
+2. \( P(H_{\text{business administration}}|E) \approx \frac{0.01}{0.2175} \approx 0.046 \)
+
+3. \( P(H_{\text{computer science}}|E) \approx \frac{0.1625}{0.2175} \approx 0.747 \)
+
+Thus, the probabilities are:
+
+{
+  "agricultural and veterinary science": 0.207,
+  "business administration": 0.046,
+  "computer science": 0.747
+}

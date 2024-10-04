@@ -1,0 +1,88 @@
+To apply Bayes' rule, we need to calculate \( P(H|E) \) for each hypothesis \( H \), given the evidence \( E \). According to Bayes' rule, this can be computed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) (the overall probability of the evidence) is the same for each field and just acts as a normalizing constant, we can focus on the numerator \( P(E|H) \cdot P(H) \).
+
+Let's establish some reasonable prior probabilities for \( P(H) \) and then estimate \( P(E|H) \) and \( P(E|\neg H) \).
+
+### Prior Probabilities \( P(H) \)
+- **Agricultural and Veterinary Science**: This is less commonly chosen by graduate students, so let's assume \( P(H) \) = 0.1.
+- **Computer Science**: Quite popular among graduate students. Assume \( P(H) \) = 0.4.
+- **Business Administration**: Another popular choice. Assume \( P(H) \) = 0.3.
+
+### \( P(E|H) \) - Probability of Evidence given the Hypothesis
+Given Adam's profile:
+- **Agricultural and Veterinary Science**: High fit. Loves nature, plants, and animals. Let's assume \( P(E|H) = 0.8 \).
+- **Computer Science**: Medium fit. Good with puzzles and abstract concepts, but no strong indicators towards computing. Assume \( P(E|H) = 0.5 \).
+- **Business Administration**: Low fit. Profile does not suggest typical business traits. Assume \( P(E|H) = 0.2 \).
+
+### \( P(E|\neg H) \) - Probability of Evidence given not the Hypothesis
+Considering that multiple other fields could also potentially fit Adam:
+- **Agricultural and Veterinary Science**: Assume control \( P(E|\neg H) = 0.3 \).
+- **Computer Science**: Assume control \( P(E|\neg H) = 0.4 \).
+- **Business Administration**: Assume control \( P(E|\neg H) = 0.3 \).
+
+Now, let's calculate \( P(H|E) \):
+
+\[
+\text{For Agricultural and Veterinary Science:}
+\]
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{P(E)}
+\]
+
+\[
+\text{For Computer Science:}
+\]
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.5 \cdot 0.4}{P(E)}
+\]
+
+\[
+\text{For Business Administration:}
+\]
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.3}{P(E)}
+\]
+
+We do not need to compute \( P(E) \) directly because we are comparing proportions. Let's compare the numerators directly:
+
+For normalization, all numerator values are:
+
+\[
+\text{Agricultural and Veterinary Science:} \quad 0.8 \times 0.1 = 0.08
+\]
+\[
+\text{Computer Science:} \quad 0.5 \times 0.4 = 0.2
+\]
+\[
+\text{Business Administration:} \quad 0.2 \times 0.3 = 0.06
+\]
+
+The summed total comes out to:
+\[
+0.08 + 0.2 + 0.06 = 0.34
+\]
+
+Finally, normalizing these to probabilities:
+
+\[
+\text{Agricultural and Veterinary Science:} \quad \frac{0.08}{0.34} \approx 0.24
+\]
+\[
+\text{Computer Science:} \quad \frac{0.2}{0.34} \approx 0.59
+\]
+\[
+\text{Business Administration:} \quad \frac{0.06}{0.34} \approx 0.18
+\]
+
+So the estimated probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.24,
+  "computer science": 0.59,
+  "business administration": 0.18
+}
+```

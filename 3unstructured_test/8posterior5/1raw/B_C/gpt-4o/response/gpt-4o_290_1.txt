@@ -1,0 +1,70 @@
+To compute \( P(H|E) \) for each hypothesis \( H \) (with \( H \) being either "computer science" or "business administration"), we can apply Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given: 
+- \( E \) is the personality sketch of Adam.
+- \( \neg H \) is the scenario where Adam is not enrolled in these fields (i.e., any field other than computer science or business administration).
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E|H) \) is the probability of the personality sketch given that Adam is enrolled in the field.
+- \( P(E|\neg H) \) is the probability of the personality sketch given that Adam is not enrolled in the field.
+
+For the purpose of this example, we'll assume some general values.
+
+### For Computer Science:
+
+#### Assumptions:
+1. **Prior probability \( P(H) \)**:
+   - Let's assume \( P(ComputerScience) \approx 0.15 \) (assuming it's a somewhat popular field).
+
+2. **Conditional probability \( P(E|H) \)**:
+   - Adam’s traits (curiosity about nature, enjoys solving puzzles, high intelligence, understanding abstract concepts) align reasonably well with characteristics of students in computer science.
+   - Let's assume \( P(E|ComputerScience) \approx 0.60 \).
+
+3. **Conditional probability \( P(E|\neg H) \)**:
+   - This is the probability of Adam's personality sketch given he is in any field other than computer science. Since there are numerous fields, this might be lower.
+   - Let's assume \( P(E|\neg ComputerScience) \approx 0.30 \).
+
+#### Calculation:
+By Bayes’ theorem:
+
+\[ P(ComputerScience|E) = \frac{P(E|ComputerScience) \cdot P(ComputerScience)}{P(E)} \]
+
+\[ P(E) = P(E|ComputerScience) \cdot P(ComputerScience) + P(E|\neg ComputerScience) \cdot P(\neg ComputerScience) \]
+\[ P(E) = (0.60 \cdot 0.15) + (0.30 \cdot 0.85) \approx 0.09 + 0.255 = 0.345 \]
+
+So:
+\[ P(ComputerScience|E) = \frac{0.60 \cdot 0.15}{0.345} \approx \frac{0.09}{0.345} \approx 0.26 \]
+
+### For Business Administration:
+
+#### Assumptions:
+1. **Prior probability \( P(H) \)**:
+   - Let's assume \( P(BusinessAdministration) \approx 0.10 \).
+
+2. **Conditional probability \( P(E|H) \)**:
+   - Adam’s traits (warm heart, strong empathy, understanding and appreciation for dedication) align somewhat with characteristics of students in business administration.
+   - Let's assume \( P(E|BusinessAdministration) \approx 0.40 \).
+
+3. **Conditional probability \( P(E|\neg H) \)**:
+   - This is the probability of Adam's personality sketch given he is in any field other than business administration. Since there are numerous fields, this might be higher than earlier assumed. 
+   - Let's assume \( P(E|\neg BusinessAdministration) \approx 0.30 \).
+
+#### Calculation:
+By Bayes’ theorem:
+
+\[ P(BusinessAdministration|E) = \frac{P(E|BusinessAdministration) \cdot P(BusinessAdministration)}{P(E)} \]
+\[ P(E) = P(E|BusinessAdministration) \cdot P(BusinessAdministration) + P(E|\neg BusinessAdministration) \cdot P(\neg BusinessAdministration) \]
+\[ P(E) = (0.40 \cdot 0.10) + (0.30 \cdot 0.90) \approx 0.04 + 0.27 = 0.31 \]
+
+So:
+\[ P(BusinessAdministration|E) = \frac{0.40 \cdot 0.10}{0.31} \approx \frac{0.04}{0.31} \approx 0.13 \]
+
+Thus, the results are:
+
+```json
+{
+  "computer science": 0.26,
+  "business administration": 0.13
+}
+```

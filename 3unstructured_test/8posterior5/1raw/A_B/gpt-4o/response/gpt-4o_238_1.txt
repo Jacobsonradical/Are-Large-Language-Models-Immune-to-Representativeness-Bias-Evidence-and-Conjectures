@@ -1,0 +1,69 @@
+To compute the probability \(P(H|E)\), we need to use Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam enrolling in a particular field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch \( E \) given Adam is enrolled in that field.
+- \( P(E) \) is the overall probability of the personality sketch \( E \).
+
+For simplicity, we will use subjective estimations for the probabilities. Let's start with:
+
+### Agricultural and Veterinary Science:
+
+#### Prior Probability (\( P(H) \)):
+Assume some average prior probability that a graduate student enrolls in agricultural and veterinary science:
+\[ P(H) = 0.05 \]
+
+#### Likelihood of Personality Sketch (\( P(E|H) \)):
+Given that Adam has a genuine curiosity about nature, animals, and plants, the likelihood of this personality sketch given he is enrolled in agricultural and veterinary science is quite high:
+\[ P(E|H) = 0.7 \]
+
+#### Likelihood of Personality Sketch Not Given \( H \) (\( P(E|\neg H) \)):
+Considering general fields, students in other domains may not have the same high likelihood. We’ll estimate it lower:
+\[ P(E|\neg H) = 0.2 \]
+
+### Business Administration:
+
+#### Prior Probability (\( P(H) \)):
+Assume some average prior probability that a graduate student enrolls in business administration:
+\[ P(H) = 0.1 \]
+
+#### Likelihood of Personality Sketch (\( P(E|H) \)):
+Given the personality sketch focuses on nature and animals and less on business concepts, the likelihood is moderate:
+\[ P(E|H) = 0.1 \]
+
+#### Likelihood of Personality Sketch Not Given \( H \) (\( P(E|\neg H) \)):
+We consider the likelihood of such a personality sketch in non-business fields, but less likely in general:
+\[ P(E|\neg H) = 0.3 \]
+
+### Calculating \( P(H|E) \):
+
+1. **Agricultural and Veterinary Science:**
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.7 \cdot 0.05}{P(E)} = \frac{0.035}{P(E)} \]
+
+2. **Business Administration:**
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.1 \cdot 0.1}{P(E)} = \frac{0.01}{P(E)} \]
+
+Since \( P(E) \) is constant across all fields, we can focus on the relative proportions:
+
+Given these estimates, the probabilities are approximately:
+
+\[ P(\text{Agricultural and Veterinary Science}|E) \propto 0.035 \]
+\[ P(\text{Business Administration}|E) \propto 0.01 \]
+
+Normalizing these:
+
+\[ P(\text{Agricultural and Veterinary Science}|E) \approx \frac{0.035}{0.035 + 0.01} \approx 0.78 \]
+\[ P(\text{Business Administration}|E) \approx \frac{0.01}{0.035 + 0.01} \approx 0.22 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.78,
+  "business administration": 0.22
+}
+```

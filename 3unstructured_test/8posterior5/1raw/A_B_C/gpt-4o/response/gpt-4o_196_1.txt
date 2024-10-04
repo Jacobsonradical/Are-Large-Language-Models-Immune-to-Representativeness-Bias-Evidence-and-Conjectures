@@ -1,0 +1,63 @@
+To compute the posterior probabilities \( P(H|E) \), we'll use Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Here, \( P(H) \) is the prior probability of Adam being in a certain field, \( P(E|H) \) is the probability of observing E given that Adam is in a certain field, and \( P(E|\neg H) \) is the probability of observing E given that Adam is not in the field.
+
+To simplify, we'll use qualitative assessments and relative probabilities. We won't compute exact values but will use heuristics to judge their relative likelihoods.
+
+### Agricultural and Veterinary Science
+
+**Prior Probability (\( P(H) \))**: Assume a moderate prior, given that agricultural and veterinary science is not the most common graduate field overall. Let's take it as \( 0.2 \).
+
+**Likelihood (\( P(E|H) \))**: Given Adam’s curiosity about nature, love for animals, and empathy, this field aligns very well. Let's assume \( 0.9 \).
+
+**Complement Likelihood (\( P(E|\neg H) \))**: Given that E describes traits more common in non-business and non-computer fields, let this be lower. Assume \( 0.3 \).
+
+### Computer Science
+
+**Prior Probability (\( P(H) \))**: Higher because computer science is a popular field. Let’s assume \( 0.3 \).
+
+**Likelihood (\( P(E|H) \))**: Though Adam is intelligent and enjoys solving puzzles, his interests seem more aligned with nature and animals. Let's assume \( 0.2 \).
+
+**Complement Likelihood (\( P(E|\neg H) \))**: Higher given that many intelligent individuals with empathy do not choose computer science. Let’s take \( 0.6 \).
+
+### Business Administration
+
+**Prior Probability (\( P(H) \))**: Moderate, as business administration is common but not the most likely given Adam’s traits. Let’s assume \( 0.2 \).
+
+**Likelihood (\( P(E|H) \))**: Low, as Adam’s traits do not align well with typical business administration interests. Assume \( 0.1 \).
+
+**Complement Likelihood (\( P(E|\neg H) \))**: Higher given the high empathy and love for animals might suggest another field. Assume \( 0.7 \).
+
+### Compute Posterior Probabilities
+
+Now, let’s use Bayes' rule qualitatively to estimate \( P(H|E) \).
+
+For simplicity, let’s denote the constant \( P(E) \):
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+However, we don't need an exact value for \( P(E) \) since we are only interested in the relative values.
+
+Let's compute relative scores:
+
+\[ P(AGRIC|E) \propto P(E|AGRIC)P(AGRIC) = 0.9 \times 0.2 = 0.18 \]
+\[ P(CS|E) \propto P(E|CS)P(CS) = 0.2 \times 0.3 = 0.06 \]
+\[ P(BUS|E) \propto P(E|BUS)P(BUS) = 0.1 \times 0.2 = 0.02 \]
+
+Next, normalize these probabilities so they sum to 1:
+
+\[ total = 0.18 + 0.06 + 0.02 = 0.26 \]
+
+\[ P(AGRIC|E) = \frac{0.18}{0.26} \approx 0.69 \]
+\[ P(CS|E) = \frac{0.06}{0.26} \approx 0.23 \]
+\[ P(BUS|E) = \frac{0.02}{0.26} \approx 0.08 \]
+
+```json
+{
+  "agricultural and veterinary science": 0.69,
+  "computer science": 0.23,
+  "business administration": 0.08
+}
+```

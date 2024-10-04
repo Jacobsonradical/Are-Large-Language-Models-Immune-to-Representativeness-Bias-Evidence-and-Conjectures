@@ -1,0 +1,47 @@
+To calculate the probabilities of Adam being enrolled in either computer science or business administration based on his personality sketch, we'll follow Bayes' theorem. The Bayes' theorem formula is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to estimate the following:
+
+- \( P(H) \): The prior probability that Adam is enrolled in a given field (computer science or business administration).
+- \( P(E|H) \): The likelihood of the personality sketch given that Adam is in a specific field.
+- \( P(E|\neg H) \): The likelihood of the personality sketch given that Adam is not in the specific field.
+- \( P(E) \): The overall probability of the personality sketch (E).
+
+Since the overall probability \( P(E) \) will cancel out when comparing the relative probabilities for different fields, we can focus on the numerator of Bayes' theorem for our comparison.
+
+### Estimations:
+
+1. **Computer Science:**
+   - \( P(H_\text{CS}) \): The base rate of graduate students in computer science. Let's assume this is 0.1, acknowledging that not all graduate students are in computer science but a reasonable fraction are.
+   - \( P(E|H_\text{CS}) \): The likelihood that Adam's personality fits a computer science grad student. Considering his intelligence, puzzle-solving skills, and understanding of abstract concepts fit well, we might estimate this high, say 0.7.
+   - \( P(E|\neg H_\text{CS}) \): The likelihood of the personality sketch if Adam is not in computer science. This could be lower, since puzzle-solving and abstract thinking are less critical in non-technical fields. Suppose we estimate this at 0.2.
+
+2. **Business Administration:**
+   - \( P(H_\text{BA}) \): The base rate of graduate students in business administration. Let's assume this is similar to CS at 0.1.
+   - \( P(E|H_\text{BA}) \): The likelihood that Adam's personality fits a business administration grad student. Given business requires empathy and appreciation for hard work, but is less reliant on solving puzzles or abstract thinking, we might estimate this moderate, say 0.3.
+   - \( P(E|\neg H_\text{BA}) \): The likelihood of the personality sketch if Adam is not in business administration. Given that we estimated non-business fields could fit his personality moderately better, let's say this is around 0.4.
+
+### Calculations:
+
+For computer science:
+\[ P(H_\text{CS}|E) = \frac{P(E|H_\text{CS}) \cdot P(H_\text{CS})}{P(E)} \propto 0.7 \times 0.1 = 0.07 \]
+
+For business administration:
+\[ P(H_\text{BA}|E) = \frac{P(E|H_\text{BA}) \cdot P(H_\text{BA})}{P(E)} \propto 0.3 \times 0.1 = 0.03 \]
+
+### Normalization:
+
+To get relative probabilities:
+\[ P(H_\text{CS}|E) = \frac{0.07}{0.07 + 0.03} = 0.7 \]
+\[ P(H_\text{BA}|E) = \frac{0.03}{0.07 + 0.03} = 0.3 \]
+
+Thus, the relative probabilities are as follows:
+
+```json
+{
+  "computer science": 0.7,
+  "business administration": 0.3
+}
+```

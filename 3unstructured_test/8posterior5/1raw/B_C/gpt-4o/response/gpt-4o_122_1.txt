@@ -1,0 +1,44 @@
+To compute the probability \(P(H|E)\) that Adam was enrolled in a particular field given the personality sketch \(E\), we will use Bayes' rule. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, we won't compute \(P(E)\) because we only need the relative probabilities for each field to compare them. Thus, we need:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \): The likelihood of observing the personality sketch if Adam was enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch if Adam was not enrolled in that field.
+
+Let's analyze the given fields:
+
+1. **Computer Science (CS)**:
+   - \(P(H)\): Let's assume that the prior probability that any given student is in computer science is relatively high, as CS is a popular field. Let's say \(P(H) = 0.3\).
+   - \(P(E|H)\): Computer science students often have high intelligence and are good at solving puzzles, which matches Adam's characteristics. However, they may not necessarily have a deep love for nature and animals. Let's assign \(P(E|H) = 0.6\).
+   - \(P(E|\neg H)\): The likelihood of observing the personality sketch in non-CS students. Since Adam's personality seems to align well with a variety of fields but not specifically with CS, let's set this \(P(E|\neg H) = 0.4\).
+
+2. **Business Administration (BA)**:
+   - \(P(H)\): Business administration is also a common field for graduate studies, but it might be less common than CS in the U.S. Let's set \(P(H) = 0.2\).
+   - \(P(E|H)\): Business students may also have a strong understanding and appreciation for hard work and dedication, but may not typically exhibit high curiosity about nature or a deep love for animals. Let's assign this \(P(E|H) = 0.4\).
+   - \(P(E|\neg H)\): The likelihood of observing the personality sketch in non-BA students. Since students in other fields may align better with Adam's profile than BA students, let's set this \(P(E|\neg H) = 0.5\).
+
+Next, we compare the values of \( P(H|E) \) for each field:
+
+For computer science:
+\[ P(H|E)_{CS} \propto P(E|H)_{CS} \cdot P(H)_{CS} = 0.6 \cdot 0.3 = 0.18 \]
+
+For business administration:
+\[ P(H|E)_{BA} \propto P(E|H)_{BA} \cdot P(H)_{BA} = 0.4 \cdot 0.2 = 0.08 \]
+
+Normalizing to find relative probabilities (since total doesn't need to add up to 1):
+
+\[ P(H|E)_{CS} = \frac{0.18}{0.18 + 0.08} = \frac{0.18}{0.26} \approx 0.692 \]
+\[ P(H|E)_{BA} = \frac{0.08}{0.18 + 0.08} = \frac{0.08}{0.26} \approx 0.308 \]
+
+
+So, the computed probabilities should be presented as:
+
+```json
+{
+  "computer science": 0.692,
+  "business administration": 0.308
+}
+```

@@ -1,0 +1,59 @@
+Let's start with the Bayesian analysis for each field of study.
+
+### Computer Science
+- **P(H)**: The prior probability that Adam was enrolled in Computer Science. Let's assume a reasonable prior probability for a graduate student to be in Computer Science.
+- **P(E|H)**: The likelihood of the given personality sketch if Adam was indeed in Computer Science. Since Computer Science students can have diverse personalities, we'll assume this likelihood is moderate.
+- **P(E|¬H)**: The likelihood of the given personality sketch if Adam was not in Computer Science. Given Adam's strong empathy, deep love for animals, and curiosity about nature, traits not typically emphasized in the field, this would be lower.
+
+### Agricultural and Veterinary Science
+- **P(H)**: The prior probability that Adam was enrolled in Agricultural and Veterinary Science. This field might be less popular, so we'll assume a lower prior probability.
+- **P(E|H)**: The likelihood of the given personality sketch if Adam was in Agricultural and Veterinary Science. Given Adam's empathy, curiosity about nature and plants, and love for animals, this likelihood is quite high.
+- **P(E|¬H)**: The likelihood of the given personality sketch if Adam was not in Agricultural and Veterinary Science. Since these traits align well with the field, we'll consider this to be low.
+
+#### Specific values (Estimations):
+
+- For **Computer Science**:
+  - **P(H)** might be around 0.2, given the popularity of the field.
+  - **P(E|H)** might be around 0.3, considering that some traits align but aren't typical.
+  - **P(E|¬H)** might be around 0.6, considering the higher alignment of sketch traits with some other fields.
+
+- For **Agricultural and Veterinary Science**:
+  - **P(H)** might be around 0.05, given the relatively lower overall enrollment in this field.
+  - **P(E|H)** might be around 0.8, given high alignment with personality traits.
+  - **P(E|¬H)** might be around 0.2, indicating these traits are less common in other fields.
+
+Now, let's calculate **P(H|E)** using Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where:
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+#### For Computer Science:
+\[
+P(E) = (0.3 \cdot 0.2) + (0.6 \cdot 0.8) = 0.06 + 0.48 = 0.54
+\]
+\[
+P(H|E) = \frac{0.3 \cdot 0.2}{0.54} \approx 0.111
+\]
+
+#### For Agricultural and Veterinary Science:
+\[
+P(E) = (0.8 \cdot 0.05) + (0.2 \cdot 0.95) = 0.04 + 0.19 = 0.23
+\]
+\[
+P(H|E) = \frac{0.8 \cdot 0.05}{0.23} \approx 0.174
+\]
+
+So the Bayesian posterior probabilities would be:
+
+```json
+{
+  "computer science": 0.111,
+  "agricultural and veterinary science": 0.174
+}
+```

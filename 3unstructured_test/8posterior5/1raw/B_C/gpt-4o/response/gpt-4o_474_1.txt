@@ -1,0 +1,76 @@
+To compute the probability \( P(H|E) \) for each field, we need to apply Bayes' rule. Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in the given field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality given the field.
+- \( P(E|\neg H) \) is the likelihood of observing Adam's personality given any field other than \( H \).
+- \( P(E) \) is the overall probability of observing Adam's personality, which can be estimated but is not required if comparing relative probabilities. Instead, the normalization factor can be computed directly from the values.
+
+Let's make some qualitative estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each case, based on the given description of Adam and some reasonable assumptions about the distribution of graduate students in each field.
+
+### Business Administration
+
+1. **\( P(H) \)** (Prior probability):
+   - Business administration is a common field, but not necessarily the most common for someone with Adam's interests.
+   - Let's assume \( P(H) = 0.1 \).
+
+2. **\( P(E|H) \)** (Likelihood of Adam's personality given this field):
+   - Interests in nature, empathy, and love for animals do not strongly correlate with a typical business administration profile.
+   - Let's assume \( P(E|H) = 0.05 \).
+
+3. **\( P(E|\neg H) \)** (Likelihood of Adam's personality given any other field):
+   - Given that Adam's personality may align more with fields like biology or environmental science, the likelihood is higher for these fields.
+   - Let's assume \( P(E|\neg H) = 0.25 \).
+
+Using Bayes' rule, we compute:
+
+\[ P(H|E) = \frac{0.05 \times 0.1}{P(E)} \]
+
+Since \( P(E) \) is a normalization factor, it will be considered later for relative comparison.
+
+### Computer Science
+
+1. **\( P(H) \)** (Prior probability):
+   - Computer science is a popular field and might align with his intelligence and puzzle-solving interests.
+   - Let's assume \( P(H) = 0.2 \).
+
+2. **\( P(E|H) \)** (Likelihood of Adam's personality given this field):
+   - His intelligence and puzzle-solving skills are a good fit, but interests in nature and animals are not.
+   - Let's assume \( P(E|H) = 0.15 \).
+
+3. **\( P(E|\neg H) \)** (Likelihood of Adam's personality given any other field):
+   - Similar assumption as above, aligned more with non-technical fields.
+   - Let's assume \( P(E|\neg H) = 0.25 \).
+
+Using Bayes' rule, we compute:
+
+\[ P(H|E) = \frac{0.15 \times 0.2}{P(E)} \]
+
+Now, let's compute the relative values considering the normalization factor cancels out:
+
+- **Business Administration**: \( P(H|E) \propto 0.05 \times 0.1 = 0.005 \)
+- **Computer Science**: \( P(H|E) \propto 0.15 \times 0.2 = 0.03 \)
+
+Since \( P(E) \) is a common factor, it will be the same for both.
+
+### Normalized Relative Probabilities
+
+Let's normalize these to sum up to 1 for comparison (we only have two fields here):
+
+1. Calculate sum of these intermediate probabilities:
+   - Sum = \( 0.005 + 0.03 = 0.035 \)
+
+2. Normalize:
+   - Business Administration: \( \frac{0.005}{0.035} \approx 0.1429 \)
+   - Computer Science: \( \frac{0.03}{0.035} \approx 0.8571 \)
+
+So the final probabilities are approximately:
+
+```json
+{
+  "business administration": 0.1429,
+  "computer science": 0.8571
+}
+```

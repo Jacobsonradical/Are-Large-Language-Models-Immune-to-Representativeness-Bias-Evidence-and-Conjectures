@@ -1,0 +1,118 @@
+In order to compute \( P(H|E) \) for each field, we use Bayes' theorem:
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+Given that we don't have explicit values, we will use qualitative estimates for the probabilities based on the provided personality sketch and the nature of each field.
+
+### Hypotheses
+
+1. H (computer science)
+2. H (agricultural and veterinary science)
+3. H (business administration)
+
+### Prior Probabilities \( P(H) \)
+
+We don't have exact frequencies, but assuming a uniform prior given no specific information (initially equal likelihood for each field):
+
+\[
+P(H) = \frac{1}{3}
+\]
+
+### Likelihood \( P(E|H) \)
+
+- **Computer Science**: Adam enjoys solving puzzles and is of high intelligence, good at understanding abstract concepts, which are strong indicators for this field. However, his personality sketch emphasizes empathy, a love for animals, and nature, which might make this less likely compared to agricultural and veterinary science. Therefore, we give it a moderate likelihood.
+  
+  \[
+  P(E|H_{\text{computer science}}) \approx 0.5
+  \]
+
+- **Agricultural and Veterinary Science**: Adam has a genuine curiosity about nature and plants, a deep love for animals, and strong empathy, fitting very well with this field. Thus, we give it a high likelihood.
+  
+  \[
+  P(E|H_{\text{agricultural}}) \approx 0.9
+  \]
+
+- **Business Administration**: The personality sketch emphasizes empathy and a love for nature and animals, which isn't very indicative of business administration, typically associated with leadership, management, and organizational skills, rather than empathy and abstract concepts. Thus, we give it a lower likelihood.
+  
+  \[
+  P(E|H_{\text{business}}) \approx 0.3
+  \]
+
+### Complement Likelihood \( P(E|\neg H) \)
+
+This is tougher to estimate without knowing the entire set of possible graduate fields, but we still provide relative estimates:
+
+- **\( P(E|\neg \text{computer science}) \)**: Assuming other fields would have a higher alignment with Adam's traits than computer science.
+  
+  \[
+  P(E|\neg H_{\text{computer science}}) \approx 0.8
+  \]
+
+- **\( P(E|\neg \text{agricultural}) \)**: This field strongly matches Adam’s traits, so the likelihood of E given that he is in any other field is likely lower.
+  
+  \[
+  P(E|\neg H_{\text{agricultural}}) \approx 0.4
+  \]
+
+- **\( P(E|\neg \text{business}}) \)**: This doesn't align well with Adam's traits, so other fields might better represent his personality.
+  
+  \[
+  P(E|\neg H_{\text{business}}) \approx 0.7
+  \]
+
+### Posterior Probabilities \( P(H|E) \)
+
+Now using Bayes' theorem for each field:
+
+1. **Computer Science**:
+   
+\[
+P(H_{\text{computer science}}|E) = \frac{P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})}{P(E)} \propto P(E|H_{\text{computer science}}) \cdot P(H_{\text{computer science}})
+\]
+\[
+\propto 0.5 \cdot \frac{1}{3} = 0.1667
+\]
+
+2. **Agricultural and Veterinary Science**:
+   
+\[
+P(H_{\text{agricultural}}|E) = \frac{P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}})}{P(E)} \propto P(E|H_{\text{agricultural}}) \cdot P(H_{\text{agricultural}})
+\]
+\[
+\propto 0.9 \cdot \frac{1}{3} = 0.3
+\]
+
+3. **Business Administration**:
+   
+\[
+P(H_{\text{business}}|E) = \frac{P(E|H_{\text{business}}) \cdot P(H_{\text{business}})}{P(E)} \propto P(E|H_{\text{business}}) \cdot P(H_{\text{business}})
+\]
+\[
+\propto 0.3 \cdot \frac{1}{3} = 0.1
+\]
+
+Normalizing these values:
+
+\[
+P(H_{\text{computer science}}|E) \approx \frac{0.1667}{0.1667 + 0.3 + 0.1} = \frac{0.1667}{0.5667} \approx 0.294
+\]
+\[
+P(H_{\text{agricultural}}|E) \approx \frac{0.3}{0.5667} \approx 0.529
+\]
+\[
+P(H_{\text{business}}|E) \approx \frac{0.1}{0.5667} \approx 0.177
+\]
+
+### Result
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.294,
+  "agricultural and veterinary science": 0.529,
+  "business administration": 0.177
+}
+```

@@ -1,0 +1,40 @@
+To use Bayes' rule for computing \( P(H|E) \), we need to understand some probabilities, and we're going to make informed estimates for the sake of this exercise. Bayes’ rule is defined as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) = prior probability of the hypothesis \( H \)
+- \( P(E|H) \) = probability of evidence \( E \) given that hypothesis \( H \) is true
+- \( P(E|\neg{H}) \) = probability of evidence \( E \) given that hypothesis \( H \) is false
+- \( P(E) \) = total probability of evidence \( E \), computed as \( P(E|H) \cdot P(H) + P(E|\neg{H}) \cdot P(\neg{H}) \)
+
+Assumptions and estimates:
+
+1. **Computer Science (CS)**
+    - \( P(H) \): Prior probability of Adam being a CS student. Let's assume it's fairly common among graduate students, say 0.2.
+    - \( P(E|H) \): The likelihood of Adam having these personality traits if he were a CS student. Given his interest in puzzles and abstract concepts, we'd estimate it fairly high, maybe 0.6.
+    - \( P(E|\neg{H}) \): The likelihood of Adam having these traits if he were not a CS student. We’ll assume it's about 0.1 since CS students are specifically likely to have these traits.
+
+2. **Business Administration (BA)**
+    - \( P(H) \): Prior probability of Adam being a BA student. Let’s arbitrarily assume it’s about as common as CS, so 0.2.
+    - \( P(E|H) \): The likelihood of Adam having these traits if he were a BA student. Given his empathy and appreciation for hard work, this could be moderate, say 0.4.
+    - \( P(E|\neg{H}) \): As before, the likelihood if he were not a BA student. This could be estimated similarly to CS, say 0.1.
+
+Now, let’s compute \( P(H|E) \) for each field.
+
+1. **Computer Science**
+    - \( P(E) \): \( 0.6 \times 0.2 + 0.1 \times 0.8 = 0.12 + 0.08 = 0.20 \)
+    - \( P(H|E) \): \( \frac{0.6 \times 0.2}{0.20} = \frac{0.12}{0.20} = 0.6 \)
+
+2. **Business Administration**
+    - \( P(E) \): \( 0.4 \times 0.2 + 0.1 \times 0.8 = 0.08 + 0.08 = 0.16 \)
+    - \( P(H|E) \): \( \frac{0.4 \times 0.2}{0.16} = \frac{0.08}{0.16} = 0.5 \)
+
+Thus, the results would be:
+
+```json
+{
+  "computer science": 0.6,
+  "business administration": 0.5
+}
+```

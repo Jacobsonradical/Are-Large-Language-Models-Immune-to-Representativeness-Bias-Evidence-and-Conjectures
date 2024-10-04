@@ -1,0 +1,51 @@
+To apply Bayes' rule and compute the probability \( P(H|E) \) for each field, we will need to consider the probabilities involved. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, \( P(E) \) is common for all hypotheses and can thus be treated as a normalization factor. We will compare relative probabilities.
+
+### For Computer Science:
+- **\( P(H_{CS}) \) (Prior Probability)**: The probability that a student is enrolled in computer science. Let's assume this is a common field, so we might say it's moderately probable, \( ~0.3 \).
+- **\( P(E|H_{CS}) \)** (Likelihood): While Adam's personality might fit into computer science due to high intelligence and love of puzzles, his strong connection with animals and nature makes it less probable but not impossible, \( ~0.2 \).
+- **\( P(E|\neg H_{CS}) \) (Complement Likelihood)**: The likelihood that Adam's personality sketch fits if he's not in computer science. Since there are other fields where his traits are more fitting, this might be higher, \( ~0.8 \).
+
+### For Agricultural and Veterinary Science:
+- **\( P(H_{AV}) \) (Prior Probability)**: This field is less common than computer science, so let's estimate this prior probability at \( ~0.1 \).
+- **\( P(E|H_{AV}) \)** (Likelihood): Adam's traits deeply align with this field, given his curiosity about nature, empathy, and love for animals, \( ~0.9 \).
+- **\( P(E|\neg H_{AV}) \) (Complement Likelihood)**: The likelihood that Adam's personality sketch fits if he's not in agricultural and veterinary science. This is lower since his traits fit this field so well, \( ~0.2 \).
+
+### For Business Administration:
+- **\( P(H_{BA}) \) (Prior Probability)**: Business administration is common, so let's estimate the prior at \( ~0.2 \).
+- **\( P(E|H_{BA}) \)** (Likelihood): Adam's traits are least related to this field, as it primarily values different sets of skills, \( ~0.1 \).
+- **\( P(E|\neg H_{BA}) \) (Complement Likelihood)**: The likelihood that Adam's personality sketch fits if he's not in business administration. It's relatively high because his non-business traits suggest other fields, \( ~0.8 \).
+
+Now, using these assumptions and values:
+
+- To compute \( P(H|E) \), we could divide \( P(E|H) \cdot P(H) \) by a normalization constant, but since we want relative values, we don't need it.
+
+### Results:
+
+- \( P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \propto 0.2 \times 0.3 = 0.06 \)
+- \( P(H_{AV}|E) \propto P(E|H_{AV}) \cdot P(H_{AV}) \propto 0.9 \times 0.1 = 0.09 \)
+- \( P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \propto 0.1 \times 0.2 = 0.02 \)
+
+Normalizing (scaling) these values:
+
+\[
+\begin{align*}
+\text{Total Sum} &= 0.06 + 0.09 + 0.02 = 0.17 \\
+P(H_{CS}|E) &= \frac{0.06}{0.17} \approx 0.353 \\
+P(H_{AV}|E) &= \frac{0.09}{0.17} \approx 0.529 \\
+P(H_{BA}|E) &= \frac{0.02}{0.17} \approx 0.118 \\
+\end{align*}
+\]
+
+So, the probabilities in relative terms are:
+
+```json
+{
+  "computer science": 0.353,
+  "agricultural and veterinary science": 0.529,
+  "business administration": 0.118
+}
+```

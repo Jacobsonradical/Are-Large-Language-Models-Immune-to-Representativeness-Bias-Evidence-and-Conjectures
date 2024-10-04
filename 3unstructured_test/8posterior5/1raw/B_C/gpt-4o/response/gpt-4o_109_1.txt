@@ -1,0 +1,49 @@
+To apply Bayes' rule, let's first set up the context:
+
+1. **Hypotheses**: 
+   - H(CS): Adam was enrolled in computer science.
+   - H(BA): Adam was enrolled in business administration.
+   
+2. **Prior Probabilities** (\(P(H)\)):
+   - \(P(H(CS))\): Since computer science is a common field for those interested in puzzles and abstract concepts, let's assume a moderately high prior, say, 0.3.
+   - \(P(H(BA))\): Business administration might not correlate as strongly with Adam's described traits. Let's assign a lower prior, say, 0.1.
+
+3. **Likelihoods** (\(P(E|H)\)):
+   - \(P(E|H(CS))\): Given that Adam has interests in puzzles and abstract concepts, it's reasonable to think those in computer science might share these traits. Let's set this high, say, 0.7.
+   - \(P(E|H(BA))\): The alignment is weaker with business administration, though it's not impossible. We'll set it lower, perhaps 0.2.
+   
+4. **Complement Likelihood** (\(P(E|\neg H)\)): The overall features Adam demonstrates are more likely to be found in non-specific STEM fields or fields related to nature and animals.
+   - \(P(E|\neg H(CS))\): Considering the broad interest base in other fields, let's assume 0.4.
+   - \(P(E|\neg H(BA))\): Similar consideration as above, let's assume 0.5.
+
+Now, we can compute the posterior probabilities using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+
+For each hypothesis, the calculation of \(P(E)\):
+
+\[ P(E) = P(E|H) \times P(H) + P(E|\neg H) \times P(\neg H) \]
+
+#### Computer Science:
+\[ P(E)_{CS} = (0.7 \times 0.3) + (0.4 \times 0.7) \]
+\[ P(E)_{CS} = 0.21 + 0.28 \]
+\[ P(E)_{CS} = 0.49 \]
+\[ P(H|E)_{CS} = \frac{0.7 \times 0.3}{0.49} \]
+\[ P(H|E)_{CS} = \frac{0.21}{0.49} \]
+\[ P(H|E)_{CS} \approx 0.429 \]
+
+#### Business Administration:
+\[ P(E)_{BA} = (0.2 \times 0.1) + (0.5 \times 0.9) \]
+\[ P(E)_{BA} = 0.02 + 0.45 \]
+\[ P(E)_{BA} = 0.47 \]
+\[ P(H|E)_{BA} = \frac{0.2 \times 0.1}{0.47} \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.47} \]
+\[ P(H|E)_{BA} \approx 0.043 \]
+
+Here is the final answer:
+
+```json
+{
+  "computer science": 0.429,
+  "business administration": 0.043
+}
+```

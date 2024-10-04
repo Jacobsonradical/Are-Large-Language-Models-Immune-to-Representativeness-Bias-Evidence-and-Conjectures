@@ -1,0 +1,65 @@
+To compute the posterior probabilities \( P(H|E) \) for each field given the personality sketch \( E \) of Adam, we will use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's make some reasonable estimations for the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the likelihoods \( P(E|\neg H) \):
+
+### Assigning Priors
+
+1. **Business Administration** (\(P(H)\))
+   - Generally, let's say there's a 10% chance a random graduate student is in business administration: \( P(H) = 0.10 \).
+
+2. **Agricultural and Veterinary Science** (\(P(H)\))
+   - Generally, let's say there's a 5% chance a random graduate student is in agricultural and veterinary science: \( P(H) = 0.05 \).
+
+### Likelihoods
+
+1. **Business Administration** (\(P(E|H)\))
+   - Adam's traits like curiosity about nature, empathy, love for animals, and solving puzzles are not closely aligned with typical business administration characteristics, so let's assume \( P(E|H) = 0.01 \).
+   - \( P(E|\neg H) \) is the likelihood of observing such qualities in someone not in business administration. Given that many fields could exhibit these traits, let's assume \( P(E|\neg H) = 0.5 \).
+
+2. **Agricultural and Veterinary Science** (\(P(E|H)\))
+   - Adam's defined personality traits of curiosity about nature, warmth, empathy, love for animals, high intelligence in abstract concepts, and appreciation for dedication and hard work significantly align with agricultural and veterinary science. We'll assume \( P(E|H) = 0.7 \).
+   - \( P(E|\neg H) \) is the likelihood of observing these traits in someone not in agricultural and veterinary science. Considering these traits can align with some other science fields, we assign \( P(E|\neg H) = 0.1 \).
+
+### Computing Posterior Probabilities
+
+1. **Posterior for Business Administration**
+   - Using Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.01 \cdot 0.10}{P(E)}
+   \]
+   \[
+   P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) = (0.01 \cdot 0.10) + (0.5 \cdot 0.90)
+   \]
+   \[
+   P(E) = 0.001 + 0.45 = 0.451
+   \]
+   \[
+   P(H|E) = \frac{0.001}{0.451} \approx 0.0022
+   \]
+
+2. **Posterior for Agricultural and Veterinary Science**
+   - Using Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.7 \cdot 0.05}{P(E)}
+   \]
+   \[
+   P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) = (0.7 \cdot 0.05) + (0.1 \cdot 0.95)
+   \]
+   \[
+   P(E) = 0.035 + 0.095 = 0.13
+   \]
+   \[
+   P(H|E) = \frac{0.035}{0.13} \approx 0.2692
+   \]
+
+### Posterior Probabilities Summary
+
+```json
+{
+  "business administration": 0.0022,
+  "agricultural and veterinary science": 0.2692
+}
+```
+
+These values suggest it is far more likely that Adam is enrolled in agricultural and veterinary science rather than business administration, given his personality sketch.

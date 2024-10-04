@@ -1,0 +1,46 @@
+To utilize Bayesian inference to judge the probabilities, let’s first define our variables:
+
+- \( P(H) \) is the prior probability that Adam is enrolled in a given field.
+- \( P(E|H) \) is the probability of the personality sketch given Adam is in that field.
+- \( P(E|\neg H) \) is the probability of the personality sketch given Adam is not in that field.
+- \( P(H|E) \) is the posterior probability that Adam is enrolled in that field given the personality sketch.
+
+For simplification, assume uniform priors \( P(H) \) meaning we have no initial bias towards any field. Since there are numerous fields of graduate study, we could initially set \( P(H) \) to be relatively low (like 0.05), though the exact number isn't critical if uniform priors are assumed.
+
+### Business Administration
+
+1. **P(H)**: Assume a prior probability \( P(H_{\text{BA}}) \) which is 0.05.
+2. **P(E|H)**: The probability of E given H (business administration). Given Adam's love for nature, animals, and abstract concepts, it does not strongly match typical traits associated with business administration students. This might suggest a lower probability. Let's say \( P(E|H_{\text{BA}}) = 0.05 \).
+3. **P(E|\neg H)**: The probability of E given \(\neg H\). This might be somewhat higher since other fields (like biology or environmental science) might align better. Let's consider a moderate value such as \( P(E|\neg H_{\text{BA}}) = 0.15 \).
+
+Using Bayes’ theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where, \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+For business administration:
+\[ P(E) = 0.05 \cdot 0.05 + 0.15 \cdot 0.95 \]
+\[ P(E) \approx 0.1425 \]
+
+\[ P(H_{\text{BA}}|E) = \frac{0.05 \cdot 0.05}{0.1425} \approx 0.0175 \]
+
+### Computer Science
+
+1. **P(H)**: Assume a prior probability \( P(H_{\text{CS}}) \) which is 0.05.
+2. **P(E|H)**: For computer science, Adam's high intelligence, enjoyment in solving puzzles, and abstract thinking align well with the traits of a CS student. Hence, \( P(E|H_{\text{CS}}) = 0.2 \).
+3. **P(E|\neg H)**: Still moderate, considering disciplines like biology or environmental science could fit better. So, \( P(E|\neg H_{\text{CS}}) = 0.15 \).
+
+Similarly, for computer science:
+\[ P(E) = 0.2 \cdot 0.05 + 0.15 \cdot 0.95 \]
+\[ P(E) \approx 0.1575 \]
+
+\[ P(H_{\text{CS}}|E) = \frac{0.2 \cdot 0.05}{0.1575} \approx 0.0635 \]
+
+Summarizing the computed posterior probabilities:
+
+```json
+{
+  "business administration": 0.0175,
+  "computer science": 0.0635
+}
+```

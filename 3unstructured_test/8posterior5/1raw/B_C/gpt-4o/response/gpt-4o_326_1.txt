@@ -1,0 +1,61 @@
+Let's break down the steps needed for each field to compute \( P(H|E) \) using Bayes' Rule:
+
+Bayes' Rule states:
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is enrolled in the given field.
+- \( P(E | H) \) is the probability that E (the personality sketch) is true given that H is true.
+- \( P(E) \) is the total probability of E, which can be computed as \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \).
+
+Given that we don't have exact numbers, we have to make reasonable assumptions based on the personality sketch provided for Adam.
+
+### Business Administration
+
+Assumptions:
+- \( P(H) \): The probability that a graduate student is in business administration is moderately high, say around 0.15.
+- \( P(E | H) \): Business administration students might not typically have a warm heart, strong empathy, and a deep love for animals, but they could have a strong understanding and appreciation for hard work and dedication. Let's assume this probability to be 0.2.
+- \( P(E | \neg H) \): The probability of this personality sketch given that Adam is not in business administration might be a bit higher. Let's assume a value of 0.5, considering nature curiosity, empathy, etc., can be fitting to many other fields.
+
+### Computer Science
+
+Assumptions:
+- \( P(H) \): The probability that a graduate student is in computer science is quite high, say around 0.3.
+- \( P(E | H) \): Computer science students often display high intelligence, enjoy solving puzzles, and may have empathy and a deep love for animals. The probability can be reasonably high, say 0.7.
+- \( P(E | \neg H) \): The probability of this personality sketch given that Adam is not in computer science might be lower. Let's assume 0.4.
+
+Use these values to compute \( P(H | E) \).
+
+### Business Administration
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = (0.2 \times 0.15) + (0.5 \times 0.85) \]
+\[ P(E) = 0.03 + 0.425 = 0.455 \]
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+\[ P(H | E) = \frac{0.2 \times 0.15}{0.455} \]
+\[ P(H | E) = \frac{0.03}{0.455} \]
+\[ P(H | E) \approx 0.066 \]
+
+### Computer Science
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = (0.7 \times 0.3) + (0.4 \times 0.7) \]
+\[ P(E) = 0.21 + 0.28 = 0.49 \]
+
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+\[ P(H | E) = \frac{0.7 \times 0.3}{0.49} \]
+\[ P(H | E) = \frac{0.21}{0.49} \]
+\[ P(H | E) \approx 0.429 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.066,
+  "computer science": 0.429
+}
+```
+
+Note: These probabilities are approximations based on reasonable assumptions of the priors and likelihoods. Adjustments to these assumptions would change the resulting probabilities.

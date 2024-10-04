@@ -1,0 +1,55 @@
+To determine the probabilities, we need to apply Bayes' theorem, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability of hypothesis \( H \) given evidence \( E \).
+- \( P(E|H) \) is the likelihood of evidence \( E \) given hypothesis \( H \).
+- \( P(H) \) is the prior probability of hypothesis \( H \).
+- \( P(E) \) is the probability of evidence \( E \).
+
+For simplicity, let's assume:
+- \( P(H) \) values are estimated based on the distribution of graduate students.
+- \( P(E|H) \) and \( P(E|\neg H) \) are our estimations based on the personality sketch.
+
+### Business Administration:
+
+- **P(H):** The prior probability that a U.S. graduate student is enrolled in business administration is relatively common. Let's assume \( P(H) \approx 0.15 \).
+- **P(E|H):** Adam's interests and characteristics (curiosity about nature, love for animals, empathy) seem less aligned with business administration. We'll estimate \( P(E|H) \approx 0.05 \).
+- **P(E|\neg H):** People with Adam's profile are less likely to be in business than fields more closely aligned with his interests. Since \( P(E|\neg H) \) considers all other fields, let's give it a moderate value like \( 0.25 \).
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.05 \cdot 0.15}{P(E)} \]
+
+### Agricultural and Veterinary Science:
+
+- **P(H):** The prior probability that a U.S. graduate student is in agricultural and veterinary science is lower than business administration. Let's assume \( P(H) \approx 0.05 \).
+- **P(E|H):** Adam’s characteristics align well with this field (curiosity about nature, animals, empathy). We'll estimate \( P(E|H) \approx 0.7 \).
+- **P(E|\neg H):** The likelihood of such a profile being in other fields is lower than in agricultural science. Let's assign \( P(E|\neg H) \approx 0.15 \).
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.7 \cdot 0.05}{P(E)} \]
+
+Since \( P(E) \) is a common factor and the total should be divided among all fields, we don't need to assign an explicit value to \( P(E) \). We are only interested in the relative probabilities.
+
+Now, calculate and compare:
+
+- For **business administration**:
+  \[ P(H|E) \approx \frac{0.05 \cdot 0.15}{P(E)} = 0.0075/P(E) \]
+
+- For **agricultural and veterinary science**:
+  \[ P(H|E) \approx \frac{0.7 \cdot 0.05}{P(E)} = 0.035/P(E) \]
+
+Relative probabilities:
+- \( \frac{0.0075}{0.035} \approx 0.214 \)
+
+Let's normalize between the two:
+
+{
+  "business administration": 0.214/(0.214 + 1) = 0.176,
+  "agricultural and veterinary science": 1/(0.214 + 1) = 0.824
+}
+
+Therefore, based on the given information:
+{
+  "business administration": 0.176,
+  "agricultural and veterinary science": 0.824
+}

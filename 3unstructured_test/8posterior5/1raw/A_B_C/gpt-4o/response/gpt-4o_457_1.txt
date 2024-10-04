@@ -1,0 +1,60 @@
+To compute the probability that Adam was enrolled in each of the given fields based on the personality sketch provided, we can follow these steps:
+
+1. Assign prior probabilities \(P(H)\) for each field. These priors represent our initial beliefs about the likelihood of Adam being in each field before considering the personality sketch.
+2. Determine the likelihood \(P(E|H)\), which is the probability of observing the personality sketch if Adam is in the given field.
+3. Determine the likelihood \(P(E|\neg H)\), which is the probability of observing the personality sketch if Adam is not in the given field.
+4. Use Bayes' rule to compute the posterior probability \(P(H|E)\).
+
+Assuming we do not know much about graduate specialization distribution and treating them equally, we can assign equal priors initially. Let's assume \(P(H) = 1/3\) for each field.
+
+The likelihoods \(P(E|H)\) and \(P(E|\neg H)\) will be based on how well the personality sketch fits each field:
+
+- For **business administration**:
+  - \(P(E|H)\): Business students might not necessarily fit the personality sketch perfectly (curiosity about nature, love for animals), so a lower likelihood is assigned.
+  - \(P(E|\neg H)\): This is relatively higher since his traits do not align strongly with this field.
+
+- For **computer science**:
+  - \(P(E|H)\): Computer science students can be quiet, good at solving puzzles, and understanding abstract concepts, so this fits fairly well.
+  - \(P(E|\neg H)\): This is more neutral since some traits fit this field.
+
+- For **agricultural and veterinary science**:
+  - \(P(E|H)\): This field closely aligns with Adam’s interests in nature and love for animals.
+  - \(P(E|\neg H)\): This is lower as his traits strongly align with this field.
+
+After deciding on the likelihood estimates, we use Bayes’ rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \(P(E)\) is the normalization factor across all hypothesis.
+
+To simplify calculations, we can assume generic values for ease of comparison (and these don't need to be completely precise but should reflect the above logic):
+
+Let's assume:
+- \(P(E|H_{\text{business administration}})\) ≈ 0.2
+- \(P(E|\neg H_{\text{business administration}})\) ≈ 0.8
+- \(P(E|H_{\text{computer science}})\) ≈ 0.6
+- \(P(E|\neg H_{\text{computer science}})\) ≈ 0.4
+- \(P(E|H_{\text{agricultural and veterinary science}})\) ≈ 0.9
+- \(P(E|\neg H_{\text{agricultural and veterinary science}})\) ≈ 0.1
+
+Since \(P(H) = 1/3\) for each and assuming the prior likelihood weight cancels out uniformly, dropping \( \frac{1}{P(E)} \) which is normalization constant:
+
+The calculation of each posterior without the exact p(E):
+
+\[ P(\text{business administration}|E) = \frac{0.2 * \frac{1}{3}}{P(E)} \]
+\[ P(\text{computer science}|E) = \frac{0.6 * \frac{1}{3}}{P(E)} \]
+\[ P(\text{agricultural and veterinary science}|E) = \frac{0.9 * \frac{1}{3}}{P(E)} \]
+
+Relative posteriors (proportional based scores):
+
+{
+  "business administration": 0.2 / (0.2 + 0.6 + 0.9) = 0.2/1.7 ≈ 0.118,
+  "computer science": 0.6 / (0.2 + 0.6 + 0.9) = 0.6/1.7 ≈ 0.353,
+  "agricultural and veterinary science": 0.9 / (0.2 + 0.6 + 0.9) = 0.9/1.7 ≈ 0.529
+}
+
+Final answers:
+
+{
+  "business administration": 0.118,
+  "computer science": 0.353,
+  "agricultural and veterinary science": 0.529
+}

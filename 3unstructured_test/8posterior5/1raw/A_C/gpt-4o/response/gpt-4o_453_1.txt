@@ -1,0 +1,56 @@
+To determine \( P(H|E) \), where \( H \) represents the hypothesis that Adam was enrolled in a given field, we use Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since \( P(E) \) is a normalizing constant and can be factorized out from the comparison between fields, we focus on estimating \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field. Here are the estimates:
+
+1. **Agricultural and Veterinary Science**
+
+    - \( P(H) \): The prior probability that a randomly selected graduate student is in the agricultural and veterinary science field might not be very high, given that this is a more specialized and less common graduate field.
+    - \( P(E|H) \): High, since Adam demonstrates a genuine curiosity about nature, plants, and has a deep love for animals, all of which align well with this field.
+    - \( P(E|\neg H) \): Moderate, because even students in other fields might have strong empathy or a curiosity about nature, but they might not align with all aspects of the profile given.
+
+2. **Computer Science**
+
+    - \( P(H) \): The prior probability that a randomly selected graduate student is in computer science is relatively high, as this is a popular graduate field.
+    - \( P(E|H) \): Moderate to high, given that Adam enjoys solving puzzles and demonstrates high intelligence and understanding of abstract concepts, which are relevant for computer science. However, his interest in nature and animals is less directly connected to this field.
+    - \( P(E|\neg H) \): Moderate, since students in other dominant fields might also have high intelligence and puzzle-solving interests.
+
+Given these qualitative assessments, we can now estimate the conditional probabilities numerically and calculate \( P(H|E) \):
+
+- For **Agricultural and Veterinary Science**:
+  - \( P(H) \approx 0.05 \) (assuming a smaller enrollment in this field)
+  - \( P(E|H) \approx 0.9 \)
+  - \( P(E|\neg H) \approx 0.4 \)
+
+- For **Computer Science**:
+  - \( P(H) \approx 0.2 \) (assuming a larger enrollment in this field)
+  - \( P(E|H) \approx 0.6 \)
+  - \( P(E|\neg H) \approx 0.5 \)
+
+Using Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Estimating \( P(E) \) for normalization is not strictly necessary for comparison but approximating:
+
+\[
+\text{For Agricultural and Veterinary Science: } P(H|E) \approx \frac{0.9 \times 0.05}{0.9 \times 0.05 + 0.6 \times 0.2} = \frac{0.045}{0.045 + 0.12} = \frac{0.045}{0.165} \approx 0.273
+\]
+
+\[
+\text{For Computer Science: } P(H|E) \approx \frac{0.6 \times 0.2}{0.6 \times 0.2 + 0.9 \times 0.05} = \frac{0.12}{0.12 + 0.045} = \frac{0.12}{0.165} \approx 0.727
+\]
+
+These illustrate comparative probabilities without full sum normalization:
+
+```json
+{
+  "agricultural and veterinary science": 0.273,
+  "computer science": 0.727
+}
+```

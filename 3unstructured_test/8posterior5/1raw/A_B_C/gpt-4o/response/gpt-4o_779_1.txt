@@ -1,0 +1,65 @@
+To assess the probabilities, we will use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(H|E) \) is the posterior probability given the evidence (Adam's personality sketch), \( P(E|H) \) is the likelihood of the evidence given the hypothesis, \( P(H) \) is the prior probability of the hypothesis, and \( P(E) \) is the total probability of evidence.
+
+For simplicity, we won't calculate the exact values for \( P(E) \) and instead focus on comparing the ratios (the absolute values are less critical if we are only comparing relative probabilities for different hypotheses).
+
+Assumptions:
+1. \( P(H) \) (prior probability) will be considered equally plausible unless otherwise specified.
+2. \( P(E|H) \): The probability that Adam's profile matches if he is enrolled in a given field.
+3. \( P(E|\neg H) \): The probability that Adam's profile matches if he is not enrolled in that given field.
+
+Let's start with \( P(H) \). For simplicity, we assume each field initially has an equal probability, so \( P(H) = \frac{1}{3} \).
+
+### Business Administration
+- **P(H) (prior):** 0.33
+- **P(E|H) (likelihood):** Given Adam's personality (interest in nature, puzzles, empathy, animals), it seems less likely to overlap with typical business administration traits.
+  Estimate: 0.2
+- **P(E|\neg H):** 0.33 (assuming equally distributed)
+
+\[ P(H|E) = \frac{0.2 \cdot 0.33}{P(E)} \approx \frac{0.066}{P(E)} \]
+
+### Computer Science
+- **P(H) (prior):** 0.33
+- **P(E|H) (likelihood):** His intelligence and problem-solving skills fit well here, even if empathy and animal love are less central. 
+  Estimate: 0.4
+- **P(E|\neg H):** 0.33
+
+\[ P(H|E) = \frac{0.4 \cdot 0.33}{P(E)} \approx \frac{0.132}{P(E)} \]
+
+### Agricultural and Veterinary Science
+- **P(H) (prior):** 0.33
+- **P(E|H) (likelihood):** His love for nature, animals, empathy, and understanding of hard work strongly align. 
+  Estimate: 0.7
+- **P(E|\neg H):** 0.33
+
+\[ P(H|E) = \frac{0.7 \cdot 0.33}{P(E)} \approx \frac{0.231}{P(E)} \]
+
+### Comparisons:
+- \( \frac{0.066}{P(E)} \) for Business Administration
+- \( \frac{0.132}{P(E)} \) for Computer Science
+- \( \frac{0.231}{P(E)} \) for Agricultural and Veterinary Science
+
+Converting these ratios to probabilities:
+
+```json
+{
+  "business administration": 0.066 / (0.066 + 0.132 + 0.231),
+  "computer science": 0.132 / (0.066 + 0.132 + 0.231),
+  "agricultural and veterinary science": 0.231 / (0.066 + 0.132 + 0.231)
+}
+```
+
+Which evaluates to:
+
+```json
+{
+  "business administration": 0.14,
+  "computer science": 0.28,
+  "agricultural and veterinary science": 0.48
+}
+```
+
+Note: These values are normalized to make the total sum 1 for the sake of comparison. If you don't require them to sum to 1, the initial terms would be equally valid for pairwise comparisons.

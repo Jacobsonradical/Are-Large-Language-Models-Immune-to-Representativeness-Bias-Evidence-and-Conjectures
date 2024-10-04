@@ -1,0 +1,53 @@
+To compute the probabilities P(H|E) for Adam being enrolled in either computer science or agricultural and veterinary science based on the given personality sketch E, we need to follow the Bayesian formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we will be comparing the relative probabilities for both fields, we can focus on the proportional relationship without needing the denominator \(P(E)\). This leads us to consider:
+
+\[ P(H|E) \proportional P(E|H) \cdot P(H) \]
+
+We need some estimated values for \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\):
+
+1. **P(H)**: The prior probability that Adam is enrolled in a given field.
+2. **P(E|H)**: The likelihood of the personality sketch E given that Adam is enrolled in the field.
+3. **P(E|\neg H)**: The likelihood of the personality sketch E given that Adam is not enrolled in the field.
+
+**For Computer Science:**
+
+1. **P(H for Computer Science)**: Since computer science is a common graduate field, let's assign a moderate prior, say \(P(H) = 0.2\).
+2. **P(E|H for Computer Science)**: Given Adam's high intelligence and good understanding of abstract concepts, this likelihood is somewhat moderate, say \(P(E|H) = 0.3\).
+3. **P(E|\neg H for Computer Science)**: Given the personality sketch does not strongly indicate computer science, let's assign a lower value, say \(P(E|\neg H) = 0.1\).
+
+**For Agricultural and Veterinary Science:**
+
+1. **P(H for Agricultural and Veterinary Science)**: This field is less common but not rare, let's assign \(P(H) = 0.1\).
+2. **P(E|H for Agricultural and Veterinary Science)**: Given Adam's curiosity about nature, love for animals, and empathy, this likelihood is quite high, say \(P(E|H) = 0.7\).
+3. **P(E|\neg H for Agricultural and Veterinary Science)**: Given the personality sketch strongly matches this field, let's assign a lower probability for not fitting other fields, say \(P(E|\neg H) = 0.3\).
+
+Now, we calculate the posterior probabilities proportional to:
+
+For Computer Science:
+\[ P(H|E) \proportional P(E|H) \cdot P(H) = 0.3 \cdot 0.2 = 0.06 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \proportional P(E|H) \cdot P(H) = 0.7 \cdot 0.1 = 0.07 \]
+
+Despite not being normalized, these values give us relative strengths of the hypotheses.
+
+Given these, we can normalize the posterior probabilities to ensure they sum to 1 (considering only these two options):
+
+Propagating the constants, let's normalize roughly:
+
+\[ P(H|E \text{ for CS}) \approx \frac{0.06}{0.06 + 0.07} = 0.462 \]
+\[ P(H|E \text{ for Agriculture/Veterinary}) \approx \frac{0.07}{0.06 + 0.07} = 0.538 \]
+
+For simplicity:
+
+```json
+{
+  "computer science": 0.462,
+  "agricultural and veterinary science": 0.538
+}
+```
+
+These values indicate that, given Adam's personality sketch, it is slightly more likely that he was enrolled in agricultural and veterinary science than computer science.

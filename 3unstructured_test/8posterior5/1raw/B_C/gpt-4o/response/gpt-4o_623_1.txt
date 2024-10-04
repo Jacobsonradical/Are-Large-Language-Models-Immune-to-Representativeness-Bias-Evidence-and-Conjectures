@@ -1,0 +1,60 @@
+To compute the posterior probability \( P(H|E) \) for each hypothesis \( H \) given evidence \( E \) using Bayes' Rule, we apply the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E|\neg H) \) is the likelihood of the evidence given the negation of the hypothesis.
+- \( P(E) \) is the total probability of the evidence, which is calculated by summing over all possible hypotheses. However, for simplicity, considering only the two fields mentioned without normalizing:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+Given that the exact values of \( P(H) \) and \( P(E|H) \) are not explicitly provided in the prompt, I'll make reasonable assumptions based on typical distributions:
+
+1. **Business Administration**
+   - Adam’s traits do not strongly align with typical traits sought in business administration, such as leadership, managerial skills, or a focus on economic theory.
+   - Prior probability \( P(H)_{\text{biz}} \) could be moderate for a graduate field.
+   - Likelihood \( P(E|H)_{\text{biz}} \) could be quite low because the personality traits mentioned fit better into other fields.
+
+2. **Computer Science**
+   - Adam’s traits align quite well with computer science, especially his intelligence, problem-solving skills, and love for abstract concepts.
+   - Prior probability \( P(H)_{\text{cs}} \) could be relatively higher given the prevalence of students in this field.
+   - Likelihood \( P(E|H)_{\text{cs}} \) is relatively high due to the match in traits.
+
+Let's assign some reasonable values:
+
+### Business Administration
+- \( P(H)_{\text{biz}} = 0.2 \)
+- \( P(E|H)_{\text{biz}} = 0.1 \) 
+- \( P(E|\neg H)_{\text{biz}} = 0.4 \)
+
+### Computer Science
+- \( P(H)_{\text{cs}} = 0.3 \)
+- \( P(E|H)_{\text{cs}} = 0.7 \)
+- \( P(E|\neg H)_{\text{cs}} = 0.2 \)
+
+Now compute the posterior probabilities:
+
+### Business Administration
+\[ P(E)_{\text{biz}} = P(E|H)_{\text{biz}} \cdot P(H)_{\text{biz}} + P(E|\neg H)_{\text{biz}} \cdot P(\neg H)_{\text{biz}} \]
+\[ P(E)_{\text{biz}} = 0.1 \cdot 0.2 + 0.4 \cdot 0.8 = 0.02 + 0.32 = 0.34 \]
+
+\[ P(H|E)_{\text{biz}} = \frac{P(E|H)_{\text{biz}} \cdot P(H)_{\text{biz}}}{P(E)_{\text{biz}}} \]
+\[ P(H|E)_{\text{biz}} = \frac{0.1 \cdot 0.2}{0.34} \approx 0.0588 \]
+
+### Computer Science
+\[ P(E)_{\text{cs}} = P(E|H)_{\text{cs}} \cdot P(H)_{\text{cs}} + P(E|\neg H)_{\text{cs}} \cdot P(\neg H)_{\text{cs}} \]
+\[ P(E)_{\text{cs}} = 0.7 \cdot 0.3 + 0.2 \cdot 0.7 = 0.21 + 0.14 = 0.35 \]
+
+\[ P(H|E)_{\text{cs}} = \frac{P(E|H)_{\text{cs}} \cdot P(H)_{\text{cs}}}{P(E)_{\text{cs}}} \]
+\[ P(H|E)_{\text{cs}} = \frac{0.7 \cdot 0.3}{0.35} = 0.6 \]
+
+Thus:
+
+\[
+{
+  "business administration": 0.0588,
+  "computer science": 0.6
+}
+\]

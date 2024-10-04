@@ -1,0 +1,54 @@
+To use Bayes' theorem, we need to compute the posterior probability of each field given the personality sketch of Adam. Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in the field given the personality sketch (posterior probability).
+- \( P(E|H) \) is the probability of the personality sketch given that Adam was enrolled in the field (likelihood).
+- \( P(H) \) is the prior probability of Adam being enrolled in the field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch, which is a normalizing factor.
+
+Since \( P(E) \) is constant for all fields, we will focus on \( P(E|H) \cdot P(H) \).
+
+### Estimations:
+
+1. **Business Administration**:
+   - **Prior probability** (\( P(H) \)): A rough estimation could be based on general enrollments in graduate fields. Let's assume 10% of graduate students are in Business Administration.
+   - **Likelihood** (\( P(E|H) \)): Given Adam's personality (empathy, love for animals, interest in nature), these traits are not strongly aligned with typical characteristics needed for Business Administration. Let's estimate this as 0.1.
+   - **Complement likelihood** (\( P(E|\neg H) \)): This reflects how likely Adam's personality sketch is if he wasn't in Business Administration. Since Business Administration may not align well, we'll consider this to be higher than the likelihood. Let's estimate this as 0.3.
+
+2. **Computer Science**:
+   - **Prior probability** (\( P(H) \)): Let's estimate 15% of graduate students are in Computer Science.
+   - **Likelihood** (\( P(E|H) \)): Adam's traits like solving puzzles and understanding abstract concepts align well with Computer Science. Let's estimate this as 0.7.
+   - **Complement likelihood** (\( P(E|\neg H) \)): This reflects the likelihood of Adam's traits if he wasn't in Computer Science. Given the abstract and puzzle-solving traits are important in Computer Science but also valued in other fields, we estimate this as 0.3.
+
+### Bayes Rule Calculations:
+
+1. **Business Administration**:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   \[
+   P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01
+   \]
+
+2. **Computer Science**:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   \[
+   P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \cdot 0.15 = 0.105
+   \]
+
+After normalization, we can simply compare the values. The exact values are not as important as their relative size (since \( P(E) \) would be the same divisor for all hypotheses).
+
+By comparing 0.01 and 0.105:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.105
+}
+```
+
+Adam is much more likely to be enrolled in Computer Science than in Business Administration given his personality sketch.

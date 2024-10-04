@@ -1,0 +1,65 @@
+To compute \( P(H|E) \) for computer science (CS) and business administration (BA), we need to start with some estimated probabilities for the priors (\( P(H) \)), the likelihoods (\( P(E|H) \)), and the evidence given complement hypothesis (\( P(E|\neg H) \)).
+
+Here's a structured approach:
+
+1. **Prior Probability (\( P(H) \))**: 
+   - Given no specific prior information, a graduate student in the U.S. could be in a variety of fields. However, let's use some general estimates based on the prevalence of graduate students in these fields.
+
+2. **Likelihood (\( P(E|H) \))**:
+   - Here we assess how probable the evidence is if Adam is in the given field.
+
+3. **Evidence for the Complement Hypothesis (\( P(E|\neg H) \))**:
+   - This is the probability of the evidence given that Adam is not in the specified field but instead in any other field.
+
+4. **Bayes Rule**:
+   - \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))}
+   \]
+
+### Assumptions:
+1. **Prior Probability (\( P(H) \))**:
+   - \( P(H_{\text{CS}}) \approx 0.15 \)  (Since CS is a popular graduate field.)
+   - \( P(H_{\text{BA}}) \approx 0.10 \) (This is less common than CS but still significant.)
+   
+2. **Likelihood (\( P(E|H) \))**:
+   - For CS:
+     - Given Adam's characteristics, such as high intelligence and liking for solving puzzles, it's likely \( P(E|H_{\text{CS}}) \approx 0.70 \).
+   - For BA:
+     - Given Adam's characteristics, there is less direct alignment with the traits typical for business administration, so \( P(E|H_{\text{BA}}) \approx 0.30 \).
+
+3. **Evidence for Complement (\( P(E|\neg H) \))**:
+   - For the likelihood of these traits in other fields:
+     - We assume an average likelihood for such characteristics across other fields. This could be approximated as \( P(E|\neg H_{\text{CS}}) \approx 0.50 \) and \( P(E|\neg H_{\text{BA}}) \approx 0.50 \).
+
+Now, let's compute \( P(H|E) \) for each field using Bayes' rule.
+
+### For Computer Science:
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}}) \cdot (1 - P(H_{\text{CS}}))}
+\]
+
+Substituting in the values:
+
+\[
+P(H_{\text{CS}}|E) = \frac{0.70 \times 0.15}{0.70 \times 0.15 + 0.50 \times (1 - 0.15)} = \frac{0.105}{0.105 + 0.425} = \frac{0.105}{0.53} \approx 0.198
+\]
+
+### For Business Administration:
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot (1 - P(H_{\text{BA}}))}
+\]
+
+Substituting in the values:
+
+\[
+P(H_{\text{BA}}|E) = \frac{0.30 \times 0.10}{0.30 \times 0.10 + 0.50 \times (1 - 0.10)} = \frac{0.03}{0.03 + 0.45} = \frac{0.03}{0.48} \approx 0.0625
+\]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.198,
+  "business administration": 0.0625
+}
+```

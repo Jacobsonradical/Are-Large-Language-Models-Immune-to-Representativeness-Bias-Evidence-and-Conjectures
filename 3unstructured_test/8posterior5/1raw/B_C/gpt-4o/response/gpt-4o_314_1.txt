@@ -1,0 +1,42 @@
+To compute the posterior probability \( P(H|E) \) for each field of study given Adam's personality sketch, we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) P(H)}{\sum P(E|H_i) P(H_i)} \]
+
+However, since we're only interested in two fields and not the entire set of all possible graduate fields, we can simplify the calculation to focus on the relative likelihoods.
+
+Let's break this down step by step:
+
+1. **Assessing Prior Probabilities \( P(H) \)**:
+   - **Business Administration**: Prior probability can be considered relatively moderate among graduate fields. For simplicity, let's assign \( P(H) = 0.1 \).
+   - **Computer Science**: This field is currently very popular among graduate students. Let's assign \( P(H) = 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   - **Business Administration**: Adam's traits (curiosity about nature, solving puzzles, empathy, love for animals, abstract concepts, etc.) do not strongly align with a typical Business Administration profile. These traits might slightly align with strategy or analytical aspects of business, but it's weaker. Let's assign \( P(E|H) = 0.2 \).
+   - **Computer Science**: Adam's interest in solving puzzles, understanding abstract concepts, and high intelligence strongly align with traits beneficial for Computer Science. However, an interest in nature and animals is not directly relevant but not counter-indicative. Let's assign \( P(E|H) = 0.7 \).
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - This represents the likelihood that Adam has these traits given he is NOT in the specified field. It can be considered averaged over all other fields that Adam could be in.
+
+   - **Business Administration**: Let's assign a general likelihood, considering broad graduate fields. Assume \( P(E|\neg H) = 0.4 \).
+   - **Computer Science**: Given the alignment with many of his traits, we'll assign \( P(E|\neg H) = 0.3 \).
+
+Now we compute the posterior probabilities:
+
+1. **Business Administration**:
+   \[
+   P(H|E) = \frac{P(E|H) P(H)}{P(E|H) P(H) + P(E|\neg H) P(\neg H)} = \frac{0.2 \times 0.1}{0.2 \times 0.1 + 0.4 \times 0.9} = \frac{0.02}{0.02 + 0.36} = \frac{0.02}{0.38} \approx 0.0526
+   \]
+
+2. **Computer Science**:
+   \[
+   P(H|E) = \frac{P(E|H) P(H)}{P(E|H) P(H) + P(E|\neg H) P(\neg H)} = \frac{0.7 \times 0.2}{0.7 \times 0.2 + 0.3 \times 0.8} = \frac{0.14}{0.14 + 0.24} = \frac{0.14}{0.38} \approx 0.3684
+   \]
+
+So, here are the resulting posterior probabilities:
+
+```json
+{
+  "business administration": 0.0526,
+  "computer science": 0.3684
+}
+```

@@ -1,0 +1,57 @@
+To apply Bayes' Rule and compute the probabilities \(P(H|E)\), we need the following elements for each field of study:
+
+1. \(P(H)\): The prior probability that Adam is enrolled in the field.
+2. \(P(E|H)\): The likelihood of observing the personality sketch \(E\) given that Adam is enrolled in the field.
+3. \(P(E|\neg H)\): The likelihood of observing the personality sketch \(E\) given that Adam is not enrolled in the field.
+
+From Bayes' Rule, we have:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are comparing the probabilities across different fields relative to each other, computations involving the marginal probability \(P(E)\) are not necessary for ranking purposes. Therefore, we will compare \( P(E|H) \cdot P(H) \) for each field directly.
+
+Let's estimate:
+
+### Business Administration
+1. **\(P(H_{BA})\):** Prior probability Adam is enrolled in business administration. This field is quite common, but let's assume it's less likely given his personality.
+   - Estimate: \(0.1\) (10%)
+
+2. **\(P(E|H_{BA})\):** Likelihood of observing Adam's personality sketch in business administration. Given his attributes, it doesn't seem a perfect fit.
+   - Estimate: \(0.2\) (20%)
+
+3. **\(P(E|\neg H_{BA})\):** Likelihood of observing Adam's personality sketch in any field other than business administration. 
+   - Estimate: \(0.8\) (80%)
+
+### Agricultural and Veterinary Science
+1. **\(P(H_{AVS})\):** Prior probability Adam is enrolled in agricultural and veterinary science. This seems much more likely considering his personality.
+   - Estimate: \(0.05\) (5%)
+
+2. **\(P(E|H_{AVS})\):** Likelihood of observing Adam's personality sketch in agricultural and veterinary science. Given his love for nature and animals, this seems very fitting.
+   - Estimate: \(0.9\) (90%)
+
+3. **\(P(E|\neg H_{AVS})\):** Likelihood of observing Adam's personality sketch in any field other than agricultural and veterinary science. 
+   - Estimate: \(0.05\) (5%)
+
+### Applying Bayes' Rule
+We can substitute our estimates into Bayes' Rule:
+
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ \approx 0.2 \cdot 0.1 = 0.02 \]
+
+\[ P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) \]
+\[ \approx 0.9 \cdot 0.05 = 0.045 \]
+
+### Normalizing
+We don't need to normalize to a probability sum of 1 here, but for relative comparison, we see:
+
+\[ \text{Relative Likelihood (Business Administration)} \approx 0.02 \]
+\[ \text{Relative Likelihood (Agricultural and Veterinary Science)} \approx 0.045 \]
+
+These are our unnormalized probabilities but relative strengths.
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.045
+}
+```

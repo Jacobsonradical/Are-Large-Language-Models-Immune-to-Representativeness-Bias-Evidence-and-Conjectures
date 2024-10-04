@@ -1,0 +1,48 @@
+To compute the probability \( P(H|E) \) that Adam was enrolled in a given field of study based on the provided personality sketch, we can use Bayes' theorem, which is formulated as follows:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \) is the probability of observing the evidence (Adam's personality sketch) given that he was enrolled in a specific field.
+- \( P(E) \) is the total probability of observing the evidence (Adam's personality sketch).
+
+For simplicity, we do not need to calculate \( P(E) \) explicitly as we are comparing probabilities across different hypotheses.
+
+Let's make reasonable assumptions for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field:
+
+**Computer Science:**
+- \( P(H) \) - Computer Science is a common graduate field, so we'll assume \( P(H) = 0.25 \).
+- \( P(E|H) \) - The sketch describes Adam as interested in nature, plants, animals, and empathy, which are less typical for computer science. Thus, \( P(E|H) = 0.1 \).
+- \( P(E|\neg H) \) - Given Adam's traits, it is more likely that we would not find a Computer Science student with these traits, so we’ll set \( P(E|\neg H) = 0.8 \).
+
+**Business Administration:**
+- \( P(H) \) - Business Administration is also a common graduate field, so we'll assume \( P(H) = 0.2 \).
+- \( P(E|H) \) - The personality traits described seem less aligned with Business Administration. Thus, \( P(E|H) = 0.05 \).
+- \( P(E|\neg H) \) - Students in fields other than Business Administration are more likely to exhibit these traits, so we’ll set \( P(E|\neg H) = 0.75 \).
+
+**Agricultural and Veterinary Science:**
+- \( P(H) \) - This is a less common graduate field, so we'll assume \( P(H) = 0.05 \).
+- \( P(E|H) \) - Adam's sketch fits very well with this field (interest in nature, plants, animals). Thus, \( P(E|H) = 0.9 \).
+- \( P(E|\neg H) \) - It is unlikely that students not in this field would exhibit the same traits, thus we’ll set \( P(E|\neg H) = 0.2 \).
+
+We now compute \( P(H|E) \) for each field using Bayes' rule:
+
+**Computer Science:**
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.1 \times 0.25}{P(E)} = \frac{0.025}{P(E)} \]
+
+**Business Administration:**
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.05 \times 0.2}{P(E)} = \frac{0.01}{P(E)} \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} = \frac{0.9 \times 0.05}{P(E)} = \frac{0.045}{P(E)} \]
+
+The total probability \( P(E) \) is a normalizing constant, but we can directly compare the numerators to gauge relative probabilities.
+
+Given above calculations:
+
+{
+  "computer science": "0.025",
+  "business administration": "0.01",
+  "agricultural and veterinary science": "0.045"
+}

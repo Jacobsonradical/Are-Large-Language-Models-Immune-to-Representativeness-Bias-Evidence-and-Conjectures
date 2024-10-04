@@ -1,0 +1,73 @@
+To compute \( P(H|E) \) using Bayes' Rule, we need to first estimate the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each hypothesis \( H \), where \( H \) is either "business administration" or "computer science", we need to analyze the following:
+
+- \( P(H) \): The prior probability that Adam is enrolled in that field.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam is in that field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam is not in that field.
+
+Let's evaluate these probabilities for "business administration" and "computer science":
+
+### 1. Business Administration:
+
+- **\( P(H) \):** 
+  Since this field is one among many possible fields of study, let's assume \( P(H) \approx 0.1 \) (10%).
+
+- **\( P(E|H) \):**
+  The personality sketch mentions attributes like a deep love for animals, empathy, and a curiosity about nature, which do not strongly correlate with a typical business administration profile. Assume \( P(E|H) \approx 0.2 \) (20%).
+
+- **\( P(E|\neg H) \):**
+  Given that Adam has qualities that may be more common in other fields (like biology, environmental science, etc.), assume \( P(E|\neg H) \approx 0.3 \) (30%).
+
+
+### 2. Computer Science:
+
+- **\( P(H) \):** 
+  Considering that computer science is a highly popular field, let's assume \( P(H) \approx 0.2 \) (20%).
+
+- **\( P(E|H):**
+  Abstract thinking and problem-solving are closely related to computer science. However, empathy and a love for nature might not be as common. Let's assume \( P(E|H) \approx 0.3 \) (30%).
+
+- **\( P(E|\neg H):**
+  The sketch might fit better with other fields that involve working with animals or nature. Assume \( P(E|\neg H) \approx 0.4 \) (40%).
+
+Next, we compute the posterior probabilities \( P(H|E) \).
+
+Using Bayes' formula for each field:
+
+### Business Administration:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, let's denote \( P(E) \) as normalizing constant \( K \).
+
+\[ P(\text{business administration}|E) = \frac{0.2 \times 0.1}{K} \]
+
+### Computer Science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+\[ P(\text{computer science}|E) = \frac{0.3 \times 0.2}{K} \]
+
+Let's find \( K \) with the assumption that these two fields dominate:
+
+\[ K = P(E) \approx \sum \text{likelihoods} \times \text{priors} \approx (0.2 \times 0.1) + (0.3 \times 0.2) \]
+\[ K = 0.02 + 0.06 = 0.08 \]
+
+Given this normalizing constant \( K \):
+
+\[ P(\text{business administration}|E) = \frac{0.2 \times 0.1}{0.08} = \frac{0.02}{0.08} = 0.25 \]
+
+\[ P(\text{computer science}|E) = \frac{0.3 \times 0.2}{0.08} = \frac{0.06}{0.08} = 0.75 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.25,
+  "computer science": 0.75
+}
+```

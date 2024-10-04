@@ -1,0 +1,38 @@
+To compute \(P(H|E)\) using Bayes' rule, we will use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's denote the hypotheses as follows:
+- \( H_1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \): Adam was enrolled in business administration.
+
+### Agricultural and Veterinary Science
+- **P(H1)**: Assume graduate enrollment across all fields is roughly equal unless stated otherwise. Given Adam's interest in nature, plants, and animals, let's estimate a higher prior probability. Value = 0.2
+- **P(E|H1)**: Adam's personality sketch fits well with this field. Value = 0.8
+- **P(E|\neg H1)**: The probability of Adam's personality sketch given he was enrolled in any other field. Since he could match other non-related fields less well, value = 0.3
+
+\[ P(H1|E) \propto \frac{P(E|H1) \cdot P(H1)}{P(E)} = \frac{0.8 \cdot 0.2}{P(E)} \]
+
+### Business Administration
+- **P(H2)**: Assume graduate enrollment across all fields is roughly equal unless stated otherwise. Given Adam's interest doesn’t align well with business administration, let's estimate a lower prior probability. Value = 0.1
+- **P(E|H2)**: Adam's personality sketch does not align well with business administration. Value = 0.1
+- **P(E|\neg H2)**: As before, the probability of Adam's personality sketch given he was enrolled in any other field. Value = 0.3
+
+\[ P(H2|E) \propto \frac{P(E|H2) \cdot P(H2)}{P(E)} = \frac{0.1 \cdot 0.1}{P(E)} \]
+
+After computing these intermediate values, let’s normalize to obtain the final probabilities:
+
+\[ P(H1|E) = \frac{\frac{0.8 \cdot 0.2}{P(E)}}{\frac{0.8 \cdot 0.2}{P(E)} + \frac{0.1 \cdot 0.1}{P(E)}} = \frac{0.16}{0.16 + 0.01} = \frac{0.16}{0.17} \approx 0.94 \]
+
+\[ P(H2|E) = \frac{\frac{0.1 \cdot 0.1}{P(E)}}{\frac{0.8 \cdot 0.2}{P(E)} + \frac{0.1 \cdot 0.1}{P(E)}} = \frac{0.01}{0.16 + 0.01} = \frac{0.01}{0.17} \approx 0.06 \]
+
+Now, write the final answer in the requested format:
+
+```json
+{
+  "agricultural and veterinary science": 0.94,
+  "business administration": 0.06
+}
+```
+
+These values indicate that it is much more likely that Adam was enrolled in agricultural and veterinary science compared to business administration, given his personality sketch.

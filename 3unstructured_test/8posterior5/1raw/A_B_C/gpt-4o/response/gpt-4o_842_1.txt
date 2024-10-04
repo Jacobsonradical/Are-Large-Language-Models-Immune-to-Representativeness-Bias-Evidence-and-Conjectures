@@ -1,0 +1,71 @@
+To apply Bayes' Rule to this problem, we'll assess the prior probabilities \(P(H)\), the likelihoods \(P(E|H)\), and the likelihoods of the evidence given the alternative scenarios \(P(E|\neg H)\). Then we will use these values to compute \(P(H|E)\), which signifies the probability that Adam was enrolled in a specific field given his personality sketch \(E\).
+
+First, let's given an intuitive assessment of the probabilities:
+
+### Agricultural and Veterinary Science
+
+**Prior Probability \(P(H)\):**
+Agri-science and veterinary fields are specific niches; let's say there's a smaller probability that a random grad student is in this field.
+- \(P(H) = 0.05 \)
+
+**Likelihood \(P(E|H)\):**
+Given Adam's love for nature, plants, and animals, and his empathy and dedication, he fits well.
+- \(P(E|H) = 0.9\)
+
+**Likelihood \(P(E|\neg H)\):**
+Considering these traits are quite fitting in this field too, something slightly less considering other fields.
+- \(P(E|\neg H) = 0.1\)
+
+### Computer Science
+
+**Prior Probability \(P(H)\):**
+The field of computer science is quite broad and popular, thereby higher probability that a random graduate student is in this field.
+- \(P(H) = 0.3 \)
+
+**Likelihood \(P(E|H):**
+Adam's high intelligence and abstract thinking align somewhat with computer science.
+- \(P(E|H) = 0.4 \)
+
+**Likelihood \(P(E|\neg H)\):**
+His full personality doesn't entirely fit the stereotypical computer science profile since it misses nature and animal compassion. 
+- \(P(E|\neg H) = 0.25 \)
+
+### Business Administration
+
+**Prior Probability \(P(H)\):**
+Business administration is also quite a common field, so a decent probability.
+- \(P(H) = 0.25\)
+
+**Likelihood \(P(E|H):**
+Traits like empathy and dedication are useful but his nature and animal keywords don’t quite fit.
+- \(P(E|H) = 0.2 \)
+
+**Likelihood \(P(E|\neg H)\):**
+His personality sketch doesn't align much with business admin.
+- \(P(E|\neg H) = 0.3 \)
+
+Now using Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+Without going too cumbersome into exact computation of \(P(E)\), we intuitively evaluate \(P(H|E)\) based on relative values.
+
+\[
+\begin{align*}
+P(H|E)_{agri} &\propto \frac{0.9 \cdot 0.05}{0.9 \cdot 0.05 + 0.1 \cdot (1 - 0.05)} \\
+P(H|E)_{comp} &\propto \frac{0.4 \cdot 0.3}{0.4 \cdot 0.3 + 0.25 \cdot (1 - 0.3)} \\
+P(H|E)_{bus} &\propto \frac{0.2 \cdot 0.25}{0.2 \cdot 0.25 + 0.3 \cdot (1 - 0.25)} 
+\end{align*}
+\]
+
+After normalization (if required):
+
+\[
+{
+  "agricultural and veterinary science": 0.43,
+  "computer science": 0.25,
+  "business administration": 0.15
+}
+\]
+
+These values reflect relative probabilistic intuitions.

@@ -1,0 +1,45 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in a particular field \( H \) given the personality sketch \( E \), we use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all hypotheses and we are only interested in relative probabilities, we can ignore it for comparison purposes. What we need to estimate are:
+1. \( P(H) \) - the prior probability that Adam is enrolled in a particular field.
+2. \( P(E|H) \) - the likelihood of the personality sketch given the field.
+3. \( P(E|\neg H) \) - the likelihood of the personality sketch given other fields.
+
+Let's make educated guesses based on the personality sketch:
+
+### Business Administration
+- **Prior Probability \( P(H) \)**: Moderate, since business administration is a common graduate field.
+- **Likelihood \( P(E|H) \)**: Low, as the personality sketch focuses on nature, animals, and empathy - traits not typically emphasized in business administration.
+- **Likelihood \( P(E|\neg H) \)**: Higher, as the traits are general enough to fit many non-business fields.
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \)**: Lower than business administration, but still reasonable.
+- **Likelihood \( P(E|H) \)**: High, as the personality sketch aligns well with interests and traits typical of those studying agricultural and veterinary science.
+- **Likelihood \( P(E|\neg H) \)**: Lower, as specific interests in plants and animals are strong indicators for this field.
+
+Given these estimates:
+
+1. **Business Administration**
+\[ P(H) \approx 0.3 \]
+\[ P(E|H) \approx 0.1 \]
+\[ P(\neg H) \approx 0.7 \]
+\[ P(E|\neg H) \approx 0.5 \]
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.3 = 0.03 \]
+
+2. **Agricultural and Veterinary Science**
+\[ P(H) \approx 0.1 \]
+\[ P(E|H) \approx 0.9 \]
+\[ P(\neg H) \approx 0.9 \]
+\[ P(E|\neg H) \approx 0.3 \]
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \cdot 0.1 = 0.09 \]
+
+Since we are not normalizing, we can express our conclusions as they are:
+
+```json
+{
+  "business administration": 0.03,
+  "agricultural and veterinary science": 0.09
+}
+```

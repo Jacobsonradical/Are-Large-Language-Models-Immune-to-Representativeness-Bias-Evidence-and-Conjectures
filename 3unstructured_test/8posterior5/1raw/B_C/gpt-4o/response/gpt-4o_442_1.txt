@@ -1,0 +1,75 @@
+To compute the conditional probabilities \( P(H|E) \) for whether Adam was enrolled in either computer science or business administration given the personality sketch \( E \), we need to follow these steps:
+
+1. **Estimate the Prior Probability \( P(H) \)**: This is a rough estimate based on common enrollment numbers and the nature of the fields.
+2. **Estimate the Likelihood \( P(E|H) \)**: This is how likely the personality sketch fits students in these fields.
+3. **Estimate the Likelihood of the Personality Sketch Not Under the Given Hypothesis \( P(E|\neg H) \)**: This covers all other fields outside the given hypothesis.
+
+For simplicity, let's make the following rough assumptions for a typical U.S. graduate program:
+
+### Prior Probabilities
+
+- **Computer Science**: \( P(H) \) might be about 0.15 since it's a relatively common field.
+- **Business Administration**: \( P(H) \) might be about 0.10 given the popularity of MBA programs.
+
+### Likelihoods
+
+- **Computer Science**:
+  - \( P(E|H) \): Students in computer science often have strong intelligence and curiosity, but empathy and a love for nature and animals might be less common. Let's estimate this at 0.30.
+  - \( P(E|\neg H) \): The traits are somewhat broad and could fit many other fields. Let's estimate this at 0.50.
+
+- **Business Administration**:
+  - \( P(E|H) \): Business students may have strong empathy and appreciation for hard work, but might not typically exhibit as much love for nature and animals. Let's estimate this at 0.20.
+  - \( P(E|\neg H) \): Similar to above, let's estimate this at 0.50.
+
+### Applying Bayes' Rule
+
+Bayes' rule formula: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Since we are comparing two fields primarily, we will consider just these two fields for calculation purposes. 
+
+Given that:
+
+\[ P(\neg H) \approx 1 - \text{Probabilities of the other fields} \]
+
+Let's plug in the numbers.
+
+### Calculation for Computer Science
+
+\[ P(H) = 0.15 \]
+\[ P(E|H) = 0.30 \]
+\[ P(E|\neg H) = 0.50 \]
+\[ P(\neg H) \approx 0.90 \]
+
+\[ P(E) = (0.30 \cdot 0.15) + (0.50 \cdot 0.85) \]
+\[ P(E) = 0.045 + 0.425 = 0.47 \]
+
+\[ P(H|E) = \frac{0.30 \cdot 0.15}{0.47} \approx 0.0957 \]
+
+### Calculation for Business Administration
+
+\[ P(H) = 0.10 \]
+\[ P(E|H) = 0.20 \]
+\[ P(E|\neg H) = 0.50 \]
+\[ P(\neg H) \approx 0.90 \]
+
+\[ P(E) = (0.20 \cdot 0.10) + (0.50 \cdot 0.90) \]
+\[ P(E) = 0.02 + 0.45 = 0.47 \]
+
+\[ P(H|E) = \frac{0.20 \cdot 0.10}{0.47} \approx 0.0426 \]
+
+### Final Answer
+
+```json
+{
+  "computer science": 0.0957,
+  "business administration": 0.0426
+}
+```
+
+These results suggest that based on the given personality sketch, it is more likely that Adam might have been enrolled in a computer science program rather than a business administration program, though both probabilities are relatively low.

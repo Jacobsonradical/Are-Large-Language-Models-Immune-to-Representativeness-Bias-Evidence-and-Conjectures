@@ -1,0 +1,49 @@
+To compute the posterior probabilities \( P(H|E) \) for each field, we'll need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is the same for both hypotheses, we can focus on the numerator. We need to estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+**For Agricultural and Veterinary Science:**
+
+1. \( P(H) \): The prior probability of a graduate student being in Agricultural and Veterinary Science. Let's approximate a moderate prior of 0.2 (since it’s a specialized field but not extremely rare).
+2. \( P(E|H) \): Given Adam's personality sketch, this probability is high because his interests align well with Agricultural and Veterinary Science.
+   - Estimate: 0.8
+3. \( P(E|\neg H) \): The probability of Adam's personality sketch, given he is *not* in Agricultural and Veterinary Science. Given how well his interests fit this field, it would be fairly low.
+   - Estimate: 0.3
+
+**For Business Administration:**
+
+1. \( P(H) \): The prior probability of a graduate student being in Business Administration. This is higher due to the popularity of the field. Let's assume a higher prior of 0.4.
+2. \( P(E|H) \): Given Adam’s personality sketch, this probability is low since his interests are not typically aligned with Business Administration.
+   - Estimate: 0.2
+3. \( P(E|\neg H) \): The probability of Adam's personality sketch, given he is not in Business Administration. This might be moderate to high due to the field's general nature.
+   - Estimate: 0.6
+
+Calculating the unnormalized posterior probabilities: 
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto 0.8 \cdot 0.2 = 0.16 \]
+
+For Business Administration:
+\[ P(H|E) \propto 0.2 \cdot 0.4 = 0.08 \]
+
+Normalizing the probabilities:
+
+Total sum: 
+\[ 0.16 + 0.08 = 0.24 \]
+
+Normalized:
+\[ P(\text{Agricultural and Veterinary Science}|E) = \frac{0.16}{0.24} \approx 0.67 \]
+\[ P(\text{Business Administration}|E) = \frac{0.08}{0.24} \approx 0.33 \]
+
+Therefore, the result is:
+
+```json
+{
+  "agricultural and veterinary science": 0.67,
+  "business administration": 0.33
+}
+```

@@ -1,0 +1,60 @@
+To compute \(P(H|E)\) using Bayes' rule, we need the following probabilities for each field \(H\):
+
+1. \(P(H)\): The prior probability that Adam was enrolled in that field.
+2. \(P(E|H)\): The likelihood of observing the personality sketch \(E\) given that Adam was enrolled in that field.
+3. \(P(E|\neg H)\): The likelihood of observing the personality sketch \(E\) given that Adam was not enrolled in that field.
+
+We can use Bayes' rule to calculate \(P(H|E)\):
+
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Because \(P(E)\) is a normalizing constant that ensures the probabilities sum up to 1, we can compare the relative probability:
+
+\[P(H|E) \propto P(E|H) \cdot P(H)\]
+
+Let's make reasonable assumptions for these probabilities:
+
+1. **Business Administration**
+
+- \(P(H)\): Let's assume the prior probability that a graduate student is in business administration is low given Adam's interests and personality.
+- \(P(E|H)\): The likelihood that Adam fits into business administration given his personality (curiosity about nature, love for animals) is also low.
+- \(P(E|\neg H)\): The likelihood that Adam fits the personality sketch given he is not in business administration.
+
+2. **Computer Science**
+
+- \(P(H)\): The prior probability that a graduate student is in computer science could be relatively high in the general graduate student population.
+- \(P(E|H)\): The likelihood that Adam fits into computer science given his interests (puzzle-solving, high intelligence) is relatively high.
+- \(P(E|\neg H)\): The likelihood that Adam fits the personality sketch given he is not in computer science.
+
+Given these assumptions, let's assign values:
+- \(P(H)\): Prior probability.
+- \(P(E|H)\): Likelihood if in that field.
+- \(P(E|\neg H)\): Likelihood if not in that field.
+
+### Business Administration
+- \(P(H)\): 0.1 (Let's assume 10% probability).
+- \(P(E|H)\): 0.2 (Low likelihood given his interests).
+- \(P(E|\neg H)\): 0.7 (Higher likelihood if not in business).
+
+\[ P(H|E) \propto 0.2 \times 0.1 = 0.02 \]
+
+### Computer Science
+- \(P(H)\): 0.3 (Let's assume 30% probability because of the popularity of this field).
+- \(P(E|H)\): 0.8 (High likelihood given his abstract thinking and puzzle solving).
+- \(P(E|\neg H)\): 0.5 (Medium likelihood if not in computer science).
+
+\[ P(H|E) \propto 0.8 \times 0.3 = 0.24 \]
+
+Finally, the relative probabilities must be normalized. Normalization isn't necessary to compare magnitudes directly:
+
+\[ P(H|E)_\text{business} = 0.02 / (0.02 + 0.24) \approx 0.077 \]
+\[ P(H|E)_\text{computer} = 0.24 / (0.02 + 0.24) \approx 0.923 \]
+
+So, the final answer is:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.923
+}
+```

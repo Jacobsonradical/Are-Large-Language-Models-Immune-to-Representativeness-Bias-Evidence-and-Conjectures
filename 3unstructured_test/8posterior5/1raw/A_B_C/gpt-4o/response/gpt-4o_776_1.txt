@@ -1,0 +1,76 @@
+To compute the probabilities \( P(H|E) \) for each field, we'll use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given \( P(H) \) is the prior probability of Adam being in a particular field, \( P(H|E) \) is the posterior probability of Adam being in that field given his personality sketch \( E \). \( P(E|H) \) is the likelihood of the personality sketch given the hypothesis, and \( P(E|\neg H) \) is the likelihood of the sketch given the negation of the hypothesis.
+
+We will assume the following subjective estimates for initial priors:
+
+- \( P(\text{agricultural and veterinary science}) = 0.15 \)
+- \( P(\text{business administration}) = 0.2 \)
+- \( P(\text{computer science}) = 0.3 \)
+  
+We also need to estimate \( P(E|H) \) and \( P(E|\neg H) \) for each field:
+
+- \( P(E|\text{agricultural and veterinary science}) = 0.8 \) 
+- \( P(E|\text{business administration}) = 0.1 \)
+- \( P(E|\text{computer science}) = 0.4 \)
+
+For \( P(E|\neg H) \), we might want to consider how well the personality sketch fits in general to careers not considered in \( H \). Let's estimate the likelihood of Adam's personality sketch for all other fields combined:
+
+- \( P(E|\neg \text{agricultural and veterinary science}) = 0.2 \)
+- \( P(E|\neg \text{business administration}) = 0.9 \) 
+- \( P(E|\neg \text{computer science}) = 0.6 \)
+
+Given \( P(E) \) is a normalization factor, we can compute it after computing the numerators to make sure the total probability over all \( H \)'s sums to 1. However, for simplicity, you can report the unnormalized posterior probabilities.
+
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)}
+\]
+
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)}
+\]
+
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)}
+\]
+
+We don't need to calculate \( P(E) \) because we're comparing where Adam might likely belong. Here's how we compare the products of the likelihood and priors (i.e., unnormalized \( P(H|E) \)).
+
+Unnormalized:
+
+- For agricultural and veterinary science:
+
+\[ P(\text{agricultural and veterinary science}|E) \propto 0.8 \times 0.15 = 0.12 \]
+
+- For business administration:
+
+\[ P(\text{business administration}|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+- For computer science:
+
+\[ P(\text{computer science}|E) \propto 0.4 \times 0.3 = 0.12 \]
+
+Let's normalize these (summing them up as \( Z \)) to get actual probabilities, considering only these fields.
+
+\[ Z = 0.12 + 0.02 + 0.12 = 0.26 \]
+
+Normalized:
+
+- \( P(\text{agricultural and veterinary science}|E) = \frac{0.12}{0.26} \approx 0.46 \)
+
+- \( P(\text{business administration}|E) = \frac{0.02}{0.26} \approx 0.08 \)
+
+- \( P(\text{computer science}|E) = \frac{0.12}{0.26} \approx 0.46 \)
+
+Thus, the probabilities will be calculated approximately as:
+
+```json
+{
+  "agricultural and veterinary science": 0.46,
+  "business administration": 0.08,
+  "computer science": 0.46
+}
+```
+The values are rounded and normalized based on prior assumptions and estimates for better comparison. Note that since the probabilities are only relative comparisons, they do not sum to 1 when considering additional fields outside the provided ones.

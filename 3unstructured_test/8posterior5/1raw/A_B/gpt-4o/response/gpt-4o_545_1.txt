@@ -1,0 +1,54 @@
+To calculate \( P(H|E) \) for each field using Bayes' rule, we need to know the following:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a given field.
+2. \( P(E|H) \): The probability of Adam's personality sketch given that he was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of Adam's personality sketch given that he was not enrolled in that field.
+
+We will use these values to compute \( P(H|E) \) using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all calculated fields and focuses on comparison, it can be treated as a normalizing constant. Therefore, we actually need to compare \( P(E|H) \cdot P(H) \) between the fields.
+
+### Let's go through each field:
+
+1. **Business Administration:**
+    - **\( P(H) \)**: Low, as business administration is a broad field and typically not aligned with individuals who have a deep love for nature, plants, and animals.
+    - **\( P(E|H) \)**: Low, since the personality traits described (interest in nature, animals, etc.) don't strongly align with typical business administration students.
+    - **\( P(E|\neg H) \)**: Higher than \( P(E|H) \), but still not very high, as many other non-business fields could also fit the personality sketch.
+  
+2. **Agricultural and Veterinary Science:**
+    - **\( P(H) \)**: Comparatively high, as this field is closely aligned with Adam’s interests and traits (nature, plants, animals).
+    - **\( P(E|H) \)**: High, since the personality sketch strongly matches the typical traits of students in this field.
+    - **\( P(E|\neg H) \)**: Lower than \( P(E|H) \), as other fields are less likely to match these traits.
+
+Now let's assign some probable values:
+
+### Business Administration:
+- \( P(H) \): 0.1 (Low)
+- \( P(E|H) \): 0.1 (Low)
+- \( P(E|\neg H) \): 0.2 (Low, but higher than \( P(E|H) \))
+
+Using these, we get \( P(H|E) \):
+
+\[ P(H|E) \approx P(E|H) \cdot P(H) = 0.1 \cdot 0.1 = 0.01 \]
+
+### Agricultural and Veterinary Science:
+- \( P(H) \): 0.3 (Relatively High)
+- \( P(E|H) \): 0.8 (High)
+- \( P(E|\neg H) \): 0.1 (Low)
+
+Using these, we get \( P(H|E) \):
+
+\[ P(H|E) \approx P(E|H) \cdot P(H) = 0.8 \cdot 0.3 = 0.24 \]
+
+### Results:
+
+```json
+{
+  "business administration": 0.01,
+  "agricultural and veterinary science": 0.24
+}
+```
+
+These computed values suggest that, based on the given personality sketch, Adam is much more likely to be enrolled in Agricultural and Veterinary Science than in Business Administration.

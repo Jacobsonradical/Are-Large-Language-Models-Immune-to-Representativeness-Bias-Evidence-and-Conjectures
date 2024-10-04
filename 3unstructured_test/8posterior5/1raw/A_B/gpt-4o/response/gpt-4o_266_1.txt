@@ -1,0 +1,50 @@
+To solve this problem using Bayes' rule, let's analyze the given information step by step. Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, for the purposes of comparison among the two fields, we don't need the exact value of \( P(E) \) because it is a common denominator. Therefore, we can compare the relative posterior probabilities \( P(H|E) \).
+
+Let's denote:
+
+- \( H_1 \): Adam was enrolled in business administration.
+- \( H_2 \): Adam was enrolled in agricultural and veterinary science.
+
+We'll estimate the prior probabilities \( P(H_1) \) and \( P(H_2) \) based on our assumptions. Since we are not given specific data on the distribution of graduate students among various fields, we will make the following assumptions:
+
+- \( P(H_1) = 0.2 \) (assuming a relatively reasonable chance that a graduate student is studying business administration given the general popularity of this field).
+- \( P(H_2) = 0.2 \) (assuming that a smaller but reasonable fraction of students are in agricultural and veterinary sciences).
+
+Now, let's estimate the likelihoods \( P(E|H) \) based on the personality sketch \( E \):
+
+1. **Business Administration**:
+   - Adam's traits (curiosity about nature, love for animals, and solving puzzles) don't strongly correlate with typical business administration characteristics.
+   - \( P(E|H_1) \approx 0.05 \)
+
+2. **Agricultural and Veterinary Science**:
+   - Adam's traits (curiosity about nature and plants, love for animals) strongly correlate with this field of study.
+   - \( P(E|H_2) \approx 0.8 \)
+
+Now, we need to estimate \( P(E|\neg H) \), which is the likelihood of the evidence given that Adam is not enrolled in the specified field. We'll approximate that as follows:
+    
+   \( P(E|\neg H_1) \approx 0.3 \) (as there are many other fields that might match Adam's personality)
+   \( P(E|\neg H_2) \approx 0.1 \) (as few other fields fit Adam's personality as well)
+
+Using Bayes' rule to estimate the posterior probabilities:
+
+For **Business Administration**:
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1)} \]
+\[ P(H_1|E) = \frac{0.05 \cdot 0.2}{0.05 \cdot 0.2 + 0.3 \cdot 0.8} \]
+\[ P(H_1|E) = \frac{0.01}{0.01 + 0.24} \]
+\[ P(H_1|E) \approx 0.04 \]
+
+For **Agricultural and Veterinary Science**:
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E|H_2) \cdot P(H_2) + P(E|\neg H_2) \cdot P(\neg H_2)} \]
+\[ P(H_2|E) = \frac{0.8 \cdot 0.2}{0.8 \cdot 0.2 + 0.1 \cdot 0.8} \]
+\[ P(H_2|E) = \frac{0.16}{0.16 + 0.08} \]
+\[ P(H_2|E) = \frac{0.16}{0.24} \]
+\[ P(H_2|E) \approx 0.67 \]
+
+{
+  "business administration": "0.04",
+  "agricultural and veterinary science": "0.67"
+}

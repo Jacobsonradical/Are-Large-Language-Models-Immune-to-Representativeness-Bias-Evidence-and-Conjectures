@@ -1,0 +1,55 @@
+To apply Bayes' rule to determine the likelihood that Adam is enrolled in "Agricultural and Veterinary Science" versus "Business Administration," we need to estimate three probabilities for each field:
+
+1. \( P(H) \): The prior probability that he is enrolled in the particular field.
+2. \( P(E|H) \): The likelihood that Adam's personality sketch \( E \) describes someone enrolled in the field.
+3. \( P(E|\neg H) \): The likelihood that Adam's personality sketch \( E \) describes someone not enrolled in the field.
+
+Let's denote \( H_1 \) as "agricultural and veterinary science" and \( H_2 \) as "business administration."
+
+### Estimations:
+
+#### Agricultural and Veterinary Science:
+- \( P(H_1) \): There are varied graduate fields, but typically fewer students are enrolled in niche fields like agricultural and veterinary science compared to business administration. Let's estimate \( P(H_1) = 0.05 \).
+- \( P(E|H_1) \): Adam's interests in nature, plants, and animals seem highly compatible with agricultural and veterinary science. Let's say this is high, \( P(E|H_1) = 0.8 \).
+- \( P(E|\neg H_1) \): For students not in agricultural and veterinary science, the typical personality may not highly respect nature and animals. Let's estimate \( P(E|\neg H_1) = 0.3 \).
+
+#### Business Administration:
+- \( P(H_2) \): This is a more common graduate field with a higher enrollment rate. Let's estimate \( P(H_2) = 0.2 \) (twice the probability compared to a more niche field).
+- \( P(E|H_2) \): Adam's personality does not align closely with typical business administration profiles, which might emphasize leadership, management, and corporate strategy over nature and animal interests. We estimate \( P(E|H_2) = 0.1 \).
+- \( P(E|\neg H_2) \): For students not in business administration, personality could be randomly distributed across various interests, so we could estimate \( P(E|\neg H_2) = 0.7 \) given the diversity of graduate fields and interests.
+
+### Applying Bayes' Rule:
+
+Bayes' rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+We will calculate and compare \( P(H_1|E) \) and \( P(H_2|E) \):
+
+#### For Agricultural and Veterinary Science:
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot (1 - P(H_1)) \]
+\[ P(E) = (0.8 \cdot 0.05) + (0.3 \cdot 0.95) \]
+\[ P(E) = 0.04 + 0.285 = 0.325 \]
+
+\[ P(H_1|E) = \frac{0.8 \cdot 0.05}{0.325} \]
+\[ P(H_1|E) \approx \frac{0.04}{0.325} \]
+\[ P(H_1|E) \approx 0.123 \]
+
+#### For Business Administration:
+\[ P(E) = P(E|H_2) \cdot P(H_2) + P(E|\neg H_2) \cdot (1 - P(H_2)) \]
+\[ P(E) = (0.1 \cdot 0.2) + (0.7 \cdot 0.8) \]
+\[ P(E) = 0.02 + 0.56 = 0.58 \]
+
+\[ P(H_2|E) = \frac{0.1 \cdot 0.2}{0.58} \]
+\[ P(H_2|E) \approx \frac{0.02}{0.58} \]
+\[ P(H_2|E) \approx 0.034 \]
+
+### Final Results:
+
+```json
+{
+  "agricultural and veterinary science": 0.123,
+  "business administration": 0.034
+}
+```

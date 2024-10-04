@@ -1,0 +1,43 @@
+To evaluate the probabilities and apply Bayes' rule, we start by defining the prior probability \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence under the complement hypothesis \( P(E| \neg H) \). Let's assume the following:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \): The likelihood that Adam's personality sketch matches, given that he was enrolled in that field.
+- \( P(E| \neg H) \): The likelihood that Adam's personality sketch matches, given that he was not enrolled in that field.
+- \( P(H|E) \): The posterior probability that Adam was enrolled in that field given the evidence of the personality sketch.
+
+Assumptions:
+
+1. **Computer Science**:
+    - \( P(H): \) We're assuming here that prior probability that any graduate student is in Computer Science is moderate. Let’s say \( P(H_{cs}) = 0.20 \).
+    - \( P(E|H): \) Key traits that align with Computer Science include solving puzzles and high intelligence. Based on this, \( P(E|H_{cs}) \) could be approximately 0.70.
+    - \( P(E|\neg H) \): The probability of the personality sketch matching a random non-Computer Science student. Given the widespread nature of these traits, let’s assume \( P(E|\neg H_{cs}) = 0.40 \).
+
+2. **Business Administration**:
+    - \( P(H): \) Prior probability that any graduate student is in Business Administration. We assume \( P(H_{ba}) = 0.15 \).
+    - \( P(E|H): \) This field might align less well with traits like a deep love for animals and curiosity about nature. We might estimate \( P(E|H_{ba}) = 0.30 \).
+    - \( P(E|\neg H) \): Assuming that these attributes are less common among Business Administration students, we estimate \( P(E|\neg H_{ba}) = 0.50 \).
+
+Now, we apply Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+For **Computer Science**:
+
+\[ P(E_{cs}) = (0.70 \times 0.20) + (0.40 \times 0.80) = 0.14 + 0.32 = 0.46 \]
+\[ P(H_{cs}|E) = \frac{0.70 \times 0.20}{0.46} = \frac{0.14}{0.46} \approx 0.304 \]
+
+For **Business Administration**:
+
+\[ P(E_{ba}) = (0.30 \times 0.15) + (0.50 \times 0.85) = 0.045 + 0.425 = 0.47 \]
+\[ P(H_{ba}|E) = \frac{0.30 \times 0.15}{0.47} = \frac{0.045}{0.47} \approx 0.096 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "computer science": 0.304,
+  "business administration": 0.096
+}
+```

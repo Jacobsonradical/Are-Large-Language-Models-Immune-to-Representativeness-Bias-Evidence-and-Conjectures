@@ -1,0 +1,63 @@
+To compute P(H|E) for each field, we need to use Bayes' Law, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll go through the process step-by-step for both fields—Computer Science and Business Administration.
+
+### Computer Science
+
+1. **P(H_computer_science)**: 
+   Let's assume the prior probability of Adam being enrolled in Computer Science is 0.15 (a reasonable estimate as a good fraction of grad students are in Computer Science).
+
+2. **P(E|H_computer_science)**:
+   Considering Adam's personality sketch, it seems less likely for a Computer Science student to have a deep appreciation for nature, plants, and animals. However, his high intelligence and interest in solving puzzles do align with characteristics common in the field. Let's estimate this at 0.2.
+
+3. **P(E|\neg H_computer_science)**:
+   This is the probability of E given that Adam is not in Computer Science. A lot of fields might encourage curiosity about nature and animals, so he might still fit into another field similarly, albeit slightly higher. Let's estimate this at 0.3.
+
+### Business Administration
+
+1. **P(H_business_administration)**:
+   Let's assume the prior probability of Adam being enrolled in Business Administration is 0.1.
+
+2. **P(E|H_business_administration)**:
+   Business Administration students typically may not fit the personality sketch provided for Adam as closely. They might be more people-oriented and focus on business concepts. A strong empathy might fit but not curiosity about nature. Let's estimate this at 0.1.
+
+3. **P(E|\neg H_business_administration)**:
+   This is the probability of E given that Adam is not in Business Administration, which, similar to above, reflects the attractiveness of other fields which might fit better. Let’s keep this at 0.3.
+
+### Applying Bayes' Rule
+
+1. **Computer Science**:
+
+\[ P(H|E)_{cs} = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+Since exact values for \( P(E) \) are challenging to compute without further context, we can directly compare probabilities with a common denominator, recognizing that this simplification works for proportional comparison:
+
+\[ P(H|E)_{cs} \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.2 \cdot 0.15 = 0.03 \]
+
+2. **Business Administration**:
+
+\[ P(H|E)_{ba} = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+
+\[ P(H|E)_{ba} \propto P(E|H_{ba}) \cdot P(H_{ba}) = 0.1 \cdot 0.1 = 0.01 \]
+
+### Normalization 
+
+To turn these proportional values into comparable probabilities:
+
+\[ Total = 0.03 + 0.01 = 0.04 \]
+
+\[ P(H|E)_{cs} = \frac{0.03}{0.04} = 0.75 \]
+
+\[ P(H|E)_{ba} = \frac{0.01}{0.04} = 0.25 \]
+
+Note: Since these are derived in isolation from the universe of all possible study fields, actual absolute probabilities relative to *all fields* might be lower. These values express the comparison between the given alternatives.
+
+### Answer
+
+```json
+{
+  "computer science": 0.75,
+  "business administration": 0.25
+}
+```

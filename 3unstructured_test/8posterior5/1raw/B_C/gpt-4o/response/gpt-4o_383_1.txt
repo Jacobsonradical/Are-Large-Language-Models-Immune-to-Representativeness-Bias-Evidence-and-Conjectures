@@ -1,0 +1,69 @@
+To calculate the probability that Adam was enrolled in either Business Administration or Computer Science based on the given personality sketch, we need to follow these steps:
+
+1. **Evaluate the Prior Probability \(P(H)\) for both fields:**
+   - Given the context of graduate studies in the U.S., we might assume a somewhat balanced prior for both fields, but the exact priors could depend on additional context. For simplicity, we allocate:
+     - \(P(\text{business administration}) = 0.3\)
+     - \(P(\text{computer science}) = 0.3\)
+   (The remaining 0.4 would be distributed to other fields, which we do not need to specify here.)
+
+2. **Evaluate the Likelihood \(P(E|H)\):**
+   - This is the probability of observing the personality sketch \(E\) given that Adam is enrolled in a specific field.
+     - For Business Administration, it seems less likely that Adam's traits (love for nature, animals, solving puzzles) match the typical profile for this field. 
+       - \(P(E|\text{business administration}) = 0.1\)
+     - For Computer Science, Adam's traits (high intelligence, enjoy solving puzzles, abstract thinking) align quite well.
+       - \(P(E|\text{computer science}) = 0.7\)
+
+3. **Evaluate the Complement Likelihood \(P(E|\neg H)\):**
+   - This is the probability of observing Adam's traits given that he is *not* in the specified field.
+     - For Business Administration, given the wide range of other potential fields:
+       - \(P(E|\neg \text{business administration}) = 0.7\)
+     - For Computer Science:
+       - \(P(E|\neg \text{computer science}) = 0.3\)
+
+4. **Compute Posterior Probability \(P(H|E)\) using Bayes' Rule:**
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   Where:
+   \[
+   P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+   \]
+
+Let's calculate:
+
+### Business Administration:
+\[
+P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)}
+\]
+\[
+P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\neg \text{business administration}) \cdot P(\neg \text{business administration})
+\]
+\[
+P(E) = (0.1 \cdot 0.3) + (0.7 \cdot 0.7) = 0.03 + 0.49 = 0.52
+\]
+\[
+P(\text{business administration}|E) = \frac{0.1 \cdot 0.3}{0.52} = \frac{0.03}{0.52} \approx 0.0577
+\]
+
+### Computer Science:
+\[
+P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)}
+\]
+\[
+P(E) = P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\neg \text{computer science}) \cdot P(\neg \text{computer science})
+\]
+\[
+P(E) = (0.7 \cdot 0.3) + (0.3 \cdot 0.7) = 0.21 + 0.21 = 0.42
+\]
+\[
+P(\text{computer science}|E) = \frac{0.7 \cdot 0.3}{0.42} = \frac{0.21}{0.42} = 0.5
+\]
+
+Hence, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0577,
+  "computer science": 0.5
+}
+```

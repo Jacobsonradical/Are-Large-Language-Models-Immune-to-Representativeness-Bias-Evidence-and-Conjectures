@@ -1,0 +1,70 @@
+To compute the posterior probability \( P(H|E) \) that Adam was enrolled in a particular field, given his personality sketch \( E \), we will use Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+First, we need to judge the following for both fields:
+- \( P(H) \): The prior probability that a random graduate student is enrolled in a particular field.
+- \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in that field.
+
+Then using Bayes' rule, we can compute \( P(H|E) \).
+
+Let's assume the following reasonable values based on the description:
+
+1. **Agricultural and Veterinary Science**
+   - Prior probability \( P(H_{\text{ag}}) \): Given Adam's characteristics align well with this field, we might assign a moderately high prior, say, \( P(H_{\text{ag}}) = 0.2 \).
+   - Likelihood \( P(E|H_{\text{ag}}) \): Adam's interest in nature, empathy, and love for animals strongly suggest this field, so we set \( P(E|H_{\text{ag}}) = 0.8 \).
+   - Likelihood \( P(E|\neg H_{\text{ag}}) \): Adam's characteristics are somewhat common but not so strongly indicating exclusion from this field, let's say \( P(E|\neg H_{\text{ag}}) = 0.3 \).
+
+2. **Computer Science**
+   - Prior probability \( P(H_{\text{cs}}) \): Given the high number of graduate students in this field, we might assign a reasonable middle prior, say, \( P(H_{\text{cs}}) = 0.2 \).
+   - Likelihood \( P(E|H_{\text{cs}}) \): While some of Adam's traits (e.g., high intelligence, abstract thinking) align with this field, other traits (nature, animals) do not strongly, so \( P(E|H_{\text{cs}}) = 0.2 \).
+   - Likelihood \( P(E|\neg H_{\text{cs}}) \): Given Adam's characteristics are somewhat generic to exclude this field, let's again use \( P(E|\neg H_{\text{cs}}) = 0.3 \).
+
+Next, to compute \( P(H|E) \) using Bayes' rule:
+- Compute the normalization constant \( P(E) = P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}}) + P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) + P(E|\neg H) \cdot P(\neg H) \).
+  
+This constant ensures that probabilities sum to 1 over all hypotheses and the negation of the hypotheses. For simplicity, assume the prior for all other fields together, \( P(\neg H) = 1 - P(H_{\text{ag}}) - P(H_{\text{cs}}) \).
+
+Using these values, we can now calculate:
+
+1. For **Agricultural and Veterinary Science**:
+   \[
+   P(H_{\text{ag}}|E) = \frac{P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}})}{P(E)}
+   \]
+
+2. For **Computer Science**:
+   \[
+   P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)}
+   \]
+
+```json
+{
+  "agricultural and veterinary science": 0.5333,  // Example value, actual calculation necessary
+  "computer science": 0.1   // Example value, actual calculation necessary
+}
+```
+
+However, if more precision is required, you can calculate the exact values with the accurate fraction: 
+
+1. \( P(H_{\text{ag}}|E) \approx \frac{0.8 \times 0.2}{ (0.8 \times 0.2) + (0.2 \times 0.2) + (0.3 \times 0.6)} \)
+2. \( P(H_{\text{cs}}|E) \approx \frac{0.2 \times 0.2}{ (0.8 \times 0.2) + (0.2 \times 0.2) + (0.3 \times 0.6)} \)
+
+Simplifying calculations yield:
+\[
+P(H_{\text{ag}}|E) \approx \frac{0.16}{0.46} \approx 0.3478
+\]
+\[
+P(H_{\text{cs}}|E) \approx \frac{0.04}{0.46} \approx 0.087 \ 
+\]
+
+Thus,
+
+```json
+{
+  "agricultural and veterinary science": 0.3478,
+  "computer science": 0.087
+}
+```

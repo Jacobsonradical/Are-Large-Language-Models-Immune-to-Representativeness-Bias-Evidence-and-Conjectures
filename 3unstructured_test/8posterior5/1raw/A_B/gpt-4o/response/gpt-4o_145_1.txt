@@ -1,0 +1,38 @@
+To compute the probability that Adam was enrolled in a particular field of graduate study given his personality sketch (E), we'll apply Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field (business administration and agricultural and veterinary science), we need to estimate:
+- \( P(H) \): The prior probability that Adam is enrolled in that field.
+- \( P(E|H) \): The probability of observing E (personality sketch) given that Adam is enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing E given that Adam is not enrolled in that field.
+- \[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \].
+
+Since it's challenging to assign exact values without a large dataset, I will make reasonable assumptions based on the nature of the field and Adam's personality traits.
+
+### Business Administration
+- \( P(H_{BA}) \): The prior could be fairly common; let's say 0.15 for MBA programs being popular.
+- \( P(E|H_{BA}) \): Traits like empathy and intelligence can fit, but the strong curiosity about nature and love for animals might not match as closely; assume 0.2.
+- \( P(E|\neg H_{BA}) \): These traits are more likely in other fields (e.g., science), thus assume 0.8:
+\[ P(E_{BA}) = 0.2 \cdot 0.15 + 0.8 \cdot 0.85 \approx 0.70 \] 
+
+### Agricultural and Veterinary Science
+- \( P(H_{AGR}) \): The prior can be less common; assume 0.05 considering the rarity.
+- \( P(E|H_{AGR}) \): The personality sketch fits well with love for animals and nature; assume 0.9.
+- \( P(E|\neg H_{AGR}) \): Fits less likely in other fields; assume 0.6:
+\[ P(E_{AGR}) = 0.9 \cdot 0.05 + 0.6 \cdot 0.95 \approx 0.607 \] 
+
+Using Bayes' theorem:
+
+### Business Administration
+\[ P(H_{BA}|E) = \frac{0.2 \cdot 0.15}{0.70} = \frac{0.03}{0.70} \approx 0.043 \]
+
+### Agricultural and Veterinary Science
+\[ P(H_{AGR}|E) = \frac{0.9 \cdot 0.05}{0.607} = \frac{0.045}{0.607} \approx 0.074 \]
+
+So, the likelihoods are:
+
+{
+  "business administration": 0.043,
+  "agricultural and veterinary science": 0.074
+}

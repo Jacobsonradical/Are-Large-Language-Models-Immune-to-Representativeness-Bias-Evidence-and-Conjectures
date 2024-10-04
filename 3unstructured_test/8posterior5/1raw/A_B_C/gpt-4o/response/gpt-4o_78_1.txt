@@ -1,0 +1,71 @@
+To use Bayes' rule to compute the probabilities \( P(H|E) \) for each field, we need to follow these steps:
+
+1. Define the prior probability \( P(H) \) for each field.
+2. Define the likelihood \( P(E|H) \) for each field based on how likely the personality sketch \( E \) matches someone in that field.
+3. Define the likelihood \( P(E|\neg H) \), which is the likelihood of the personality sketch \( E \) given Adam is not in the particular field.
+4. Apply Bayes' rule: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that exact values are not provided and all fields considered, we will assume some reasonable estimates. 
+
+### Assumptions:
+1. \( P(H) \): Base rate or prior probability for each field.
+2. \( P(E|H) \): How well Adam’s personality sketch fits someone in that field.
+3. \( P(E|\neg H) \): General likelihood of the personality sketch outside the specified field.
+
+Since precise numerical values are not provided, we'll use relative qualitative assessments to approximate these probabilities.
+
+### Prior Probabilities \( P(H) \) Assumptions:
+- Business Administration: 0.3 (30%)
+- Agricultural and Veterinary Science: 0.2 (20%)
+- Computer Science: 0.5 (50%)
+
+### Likelihoods \( P(E|H) \) Assumptions:
+- Business Administration: Low (0.1)
+- Agricultural and Veterinary Science: High (0.8)
+- Computer Science: Moderate (0.6)
+
+### General Likelihood \( P(E|\neg H) \):
+- For Business Administration: (1 - 0.1)/2 = 0.45
+- For Agricultural and Veterinary Science: (1 - 0.8)/2 = 0.1
+- For Computer Science: (1 - 0.6)/2 = 0.2
+
+Now, let’s compute \( P(H|E) \) using Bayes' Rule:
+
+- Business Administration:
+  \[ P(H|E)_{BA} = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \approx \frac{0.1 \cdot 0.3}{P(E)} \]
+
+- Agricultural and Veterinary Science:
+  \[ P(H|E)_{AgVet} = \frac{P(E|H_{AgVet}) \cdot P(H_{AgVet})}{P(E)} \approx \frac{0.8 \cdot 0.2}{P(E)} \]
+
+- Computer Science:
+  \[ P(H|E)_{CS} = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \approx \frac{0.6 \cdot 0.5}{P(E)} \]
+
+To find \( P(E) \), we normalize:
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{AgVet}) \cdot P(H_{AgVet}) + P(E|H_{CS}) \cdot P(H_{CS}) \]
+
+\[ P(E) = (0.1 \cdot 0.3) + (0.8 \cdot 0.2) + (0.6 \cdot 0.5) \]
+\[ P(E) = 0.03 + 0.16 + 0.3 = 0.49 \]
+
+Finally, compute the posterior probabilities:
+
+- Business Administration:
+  \[ P(H|E)_{BA} = \frac{0.03}{0.49} \approx 0.061 \]
+
+- Agricultural and Veterinary Science:
+  \[ P(H|E)_{AgVet} = \frac{0.16}{0.49} \approx 0.327 \]
+
+- Computer Science:
+  \[ P(H|E)_{CS} = \frac{0.3}{0.49} \approx 0.612 \]
+
+So, the results are:
+
+```json
+{
+  "business administration": 0.061,
+  "agricultural and veterinary science": 0.327,
+  "computer science": 0.612
+}
+```

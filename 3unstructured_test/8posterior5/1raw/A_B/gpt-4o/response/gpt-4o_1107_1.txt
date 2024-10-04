@@ -1,0 +1,103 @@
+Let's break down the Bayesian computation step-by-step.
+
+1. **Prior Probability \( P(H) \):**
+   This represents how likely it is for a random graduate student to be enrolled in the given field, without any other information. 
+
+2. **Likelihood \( P(E|H) \):**
+   This represents how consistent Adam's personality sketch \( E \) is with being in the given field.
+
+3. **Complement Likelihood \( P(E|\neg H) \):**
+   This represents how consistent Adam's personality sketch \( E \) is with not being in the given field.
+
+Let's start with the first field:
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability \( P(H) \):**
+   Assigning a prior is subjective, but given that agricultural and veterinary sciences are specialized fields with fewer graduate students compared to business administration, we might give it a moderate value.
+   \[
+   P(H_{\text{agr}}) = 0.1
+   \]
+
+2. **Likelihood \( P(E|H) \):**
+   Adam's curiosity about nature, love for animals, and empathy are highly consistent with agricultural and veterinary science. Thus, the likelihood is high.
+   \[
+   P(E|H_{\text{agr}}) = 0.9
+   \]
+
+3. **Complement Likelihood \( P(E|\neg H) \):**
+   The probability that Adam's profile fits every other field except for agricultural and veterinary science is lower, though not negligible since traits like high intelligence and empathy can apply to other fields too.
+   \[
+   P(E|\neg H_{\text{agr}}) \approx 0.3
+   \]
+
+Using Bayes' Rule:
+
+\[
+P(H_{\text{agr}}|E) = \frac{P(E|H_{\text{agr}}) \cdot P(H_{\text{agr}})}{P(E)}
+\]
+
+Where \( P(E) \) can be computed using the law of total probability:
+\[
+P(E) = P(E|H_{\text{agr}}) \cdot P(H_{\text{agr}}) + P(E|\neg H_{\text{agr}}) \cdot P(\neg H_{\text{agr}})
+\]
+\[
+P(E) = (0.9 \cdot 0.1) + (0.3 \cdot 0.9) = 0.09 + 0.27 = 0.36
+\]
+
+Thus,
+
+\[
+P(H_{\text{agr}}|E) = \frac{0.9 \cdot 0.1}{0.36} = \frac{0.09}{0.36} = 0.25
+\]
+
+### Business Administration
+
+1. **Prior Probability \( P(H) \):**
+   Business administration is a very common field for graduate students, so we assign it a higher prior.
+   \[
+   P(H_{\text{bus}}) = 0.4
+   \]
+
+2. **Likelihood \( P(E|H) \):**
+   Adam's traits do not strongly align with typical business administration traits (e.g., interest in nature and animals).
+   \[
+   P(E|H_{\text{bus}}) = 0.2
+   \]
+
+3. **Complement Likelihood \( P(E|\neg H) \):**
+   This is higher as Adam’s personality fits better in other fields rather than business administration.
+   \[
+   P(E|\neg H_{\text{bus}}) \approx 0.4
+   \]
+
+Using Bayes' Rule:
+
+\[
+P(H_{\text{bus}}|E) = \frac{P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}})}{P(E)}
+\]
+
+Where \( P(E) \) is:
+\[
+P(E) = P(E|H_{\text{bus}}) \cdot P(H_{\text{bus}}) + P(E|\neg H_{\text{bus}}) \cdot P(\neg H_{\text{bus}})
+\]
+\[
+P(E) = (0.2 \cdot 0.4) + (0.4 \cdot 0.6) = 0.08 + 0.24 = 0.32
+\]
+
+Thus,
+
+\[
+P(H_{\text{bus}}|E) = \frac{0.2 \cdot 0.4}{0.32} = \frac{0.08}{0.32} = 0.25
+\]
+
+So, the results are:
+
+\[
+{
+  "agricultural and veterinary science": 0.25,
+  "business administration": 0.25
+}
+\]
+
+Note that both computed probabilities turned out the same despite different priors and likelihoods, due to the balance of the components in the calculations. This equal result may seem counterintuitive, but it shows the balance in contrasting the prior probabilities and likelihoods.

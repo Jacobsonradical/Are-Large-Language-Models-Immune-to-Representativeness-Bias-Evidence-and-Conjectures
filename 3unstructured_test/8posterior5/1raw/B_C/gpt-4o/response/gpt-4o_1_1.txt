@@ -1,0 +1,46 @@
+To solve this problem using Bayes' rule, we need to determine the posterior probabilities \( P(H|E) \) for each hypothesis \( H \), given the evidence \( E \). Here is the formula for Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, as \( P(E) \) is constant for all fields being compared, we can compare the relative probabilities by calculating the numerator \( P(E|H) \cdot P(H) \) for each field. For simplicity, we'll assume that \( P(H) \), the prior probability that Adam enrolled in a given field, is equal for both fields unless there are specific reasons otherwise. 
+
+Given the sketch of Adam, let's make reasonable estimates for \( P(E|H) \):
+
+1. **Business Administration**
+   - \( P(H): \) Assume each major is equally likely a priori. For simplicity, we will assign prior probabilities equally. In practical terms, say \( P(H) = 0.5 \) for both fields since we do not have specific prior information favoring one over the other.
+   - \( P(E|H): \) Estimate based on the personality sketch. Given Adam’s interests in nature, solving puzzles, warm heart, empathy, love for animals, high intelligence, and understanding of abstract concepts, it seems less likely he would gravitate to Business Administration, which often emphasizes different skills. Let's assume \( P(E|H) = 0.1 \).
+   - So, \( P(E|\neg H) \): For other fields outside Business Administration, assume an average. Perhaps \( P(E|\neg H) = 0.5 \).
+
+2. **Computer Science**
+   - \( P(H): \) The prior probability is still \( 0.5 \).
+   - \( P(E|H): \) Given Adam’s intelligence, puzzle-solving capability, and understanding of abstract concepts, Computer Science appears to fit well with his personality. So, let’s assume \( P(E|H) = 0.7 \).
+   - \( P(E|\neg H): \) For fields outside Computer Science, assume an average. Perhaps \( P(E|\neg H) = 0.5 \).
+
+Now, we apply Bayes' rule relatively:
+
+1. For Business Administration:
+   \[
+   P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.5 = 0.05
+   \]
+
+2. For Computer Science:
+   \[
+   P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \cdot 0.5 = 0.35
+   \]
+
+The posterior probabilities, normalized, will be:
+   \[
+   P(H|E)_{\text{Business Administration}} = \frac{0.05}{0.05 + 0.35} = \frac{0.05}{0.40} = 0.125
+   \]
+   \[
+   P(H|E)_{\text{Computer Science}} = \frac{0.35}{0.05 + 0.35} = \frac{0.35}{0.40} = 0.875
+   \]
+
+Thus, the posterior probabilities are:
+
+{
+  "business administration": 0.125,
+  "computer science": 0.875
+}
+
+These probabilities indicate that given the personality sketch, it is much more likely that Adam is enrolled in Computer Science compared to Business Administration.

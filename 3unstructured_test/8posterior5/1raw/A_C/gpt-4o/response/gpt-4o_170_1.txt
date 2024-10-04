@@ -1,0 +1,64 @@
+To compute \( P(H|E) \) for the given fields of study, we'll need to follow these steps:
+
+1. **Estimate \(P(H)\):** The prior probability that Adam is enrolled in that field.
+2. **Estimate \(P(E|H)\):** The probability of observing the evidence (his personality sketch) given that Adam is enrolled in that field.
+3. **Estimate \(P(E|\neg H)\):** The probability of observing the evidence given that Adam is not enrolled in that field.
+
+Finally, we'll use Bayes' rule to compute \(P(H|E)\):
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We'll assume that \( P(E) \) is the same for both hypotheses since it will cancel out in the relative comparison.
+
+Let's break it down for each field:
+
+### Agricultural and Veterinary Science
+
+**Estimating \(P(H)\):**
+Graduate fields such as agricultural and veterinary science are less commonly chosen than some others. Let's assume:
+\[ P(H_{\text{agri-vet}}) = 0.1 \]
+
+**Estimating \(P(E|H)\):**
+Adam's attributes align well with this field, especially given his curiosity about nature, empathy, and love for animals. 
+\[ P(E|H_{\text{agri-vet}}) = 0.8 \]
+
+**Estimating \(P(E|\neg H)\):**
+The probability of someone with Adam's personality sketch existing outside this field is perhaps lower, as not all fields guarantee such alignment.
+\[ P(E|\neg H_{\text{agri-vet}}) = 0.3 \]
+
+### Computer Science
+
+**Estimating \(P(H)\):**
+Computer science is a popular field among graduate students, so the prior probability is higher. Let's assume:
+\[ P(H_{\text{comp-sci}}) = 0.3 \]
+
+**Estimating \(P(E|H)\):**
+While Adam is intelligent and enjoys solving puzzles (abstract thinking), the rest of his interests in nature and animals doesn't strongly fit the stereotype of a computer science student.
+\[ P(E|H_{\text{comp-sci}}) = 0.4 \]
+
+**Estimating \(P(E|\neg H)\):**
+The probability that someone with Adam’s specific set of qualities being outside computer science might be comparatively higher given his nature.
+\[ P(E|\neg H_{\text{comp-sci}}) = 0.6 \]
+
+### Bayes Rule Calculation
+
+1. **Agricultural and Veterinary Science:**
+\[ P(H_{\text{agri-vet}}|E) = \frac{P(E|H_{\text{agri-vet}})P(H_{\text{agri-vet}})}{P(E)} \]
+
+For relative comparison, we don't need to compute \(P(E)\):
+\[ P(H_{\text{agri-vet}}|E) \propto P(E|H_{\text{agri-vet}})P(H_{\text{agri-vet}}) = 0.8 \times 0.1 = 0.08 \]
+
+2. **Computer Science:**
+\[ P(H_{\text{comp-sci}}|E) =  \frac{P(E|H_{\text{comp-sci}})P(H_{\text{comp-sci}})}{P(E)} \]
+
+\[ P(H_{\text{comp-sci}}|E) \propto P(E|H_{\text{comp-sci}})P(H_{\text{comp-sci}}) = 0.4 \times 0.3 = 0.12 \]
+
+Here is the result in the required format:
+
+```json
+{
+  "agricultural and veterinary science": 0.08,
+  "computer science": 0.12
+}
+```
+
+These numbers represent the unnormalized posterior probabilities. To interpret these correctly for decision-making, one would usually normalize them; however, since comparison is the goal here, these values reveal that Adam is more likely to be in computer science than in agricultural and veterinary science based on this personality sketch alone, but other fields might have even higher probabilities.

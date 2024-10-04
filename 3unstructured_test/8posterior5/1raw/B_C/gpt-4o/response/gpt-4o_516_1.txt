@@ -1,0 +1,55 @@
+Let's break down the probabilities step-by-step.
+
+**Step 1: Prior probability, \(P(H)\)**
+
+We need to consider the likelihood of a student specializing in business administration or computer science purely based on the number of students typically enrolled in those fields:
+- Business administration: Let’s assume that 10% of graduate students are in business administration.
+- Computer science: Let’s assume that 15% of graduate students are in computer science.
+
+So, \(P(H)\) might be:
+- \(P(H = \text{business administration}) = 0.10\)
+- \(P(H = \text{computer science}) = 0.15\)
+
+**Step 2: Likelihood, \(P(E|H)\)**
+
+Given the personality sketch \(E\), we need to estimate how likely Adam’s traits would be observed in each field:
+- Business administration: While curiosity, empathy, and intelligence are valuable, they might not be as closely associated with the typical business administration curriculum when compared to computer science.
+  \(P(E|H = \text{business administration}) \approx 0.2\)
+  
+- Computer science: Problem-solving skills, high intelligence, and an appreciation for abstract concepts are more likely associated with computer science.
+  \(P(E|H = \text{computer science}) \approx 0.6\)
+
+**Step 3: Likelihood of the evidence, \(P(E|\neg H)\)**
+
+This is the likelihood of observing the evidence given that Adam is not in the specific field:
+- For business administration:
+  \(P(E|\neg H = \text{business administration}) \approx 0.1\)
+
+- For computer science:
+  \(P(E|\neg H = \text{computer science}) \approx 0.4\)
+
+**Step 4: Posterior probability, \(P(H|E)\), using Bayes' Rule**
+
+Bayes' Rule formula:
+\[P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\]
+
+However, to simplify, we just need to compare the relative probabilities since we are only interested in ranking these two fields. \(P(E)\) cancels out in this comparison.
+
+So, for business administration we get:
+\[P(H = \text{business administration}|E) = \frac{P(E|H = \text{business administration}) \cdot P(H = \text{business administration})}{P(E|H = \text{business administration}) \cdot P(H = \text{business administration}) + P(E|H = \text{computer science}) \cdot P(H = \text{computer science})} \approx \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.6 \cdot 0.15}\]
+
+For computer science:
+\[P(H = \text{computer science}|E) = \frac{P(E|H = \text{computer science}) \cdot P(H = \text{computer science})}{P(E|H = \text{business administration}) \cdot P(H = \text{business administration}) + P(E|H = \text{computer science}) \cdot P(H = \text{computer science})} \approx \frac{0.6 \cdot 0.15}{0.2 \cdot 0.1 + 0.6 \cdot 0.15}\]
+
+
+Now, putting in the values:
+- Business administration: \[\approx \frac{0.02}{0.02 + 0.09} \approx \frac{0.02}{0.11} \approx 0.1818\]
+
+- Computer science: \[\approx \frac{0.09}{0.02 + 0.09} \approx \frac{0.09}{0.11} \approx 0.8182\]
+
+So, our final answer is:
+
+{
+  "business administration": 0.1818,
+  "computer science": 0.8182
+}

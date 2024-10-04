@@ -1,0 +1,62 @@
+To use Bayes' rule to compute the probabilities \( P(H|E) \) for each field of study, we need the following probabilities:
+
+- \( P(H) \) = the prior probability that Adam was enrolled in the given field.
+- \( P(E|H) \) = the probability of observing Adam's personality sketch given that he was enrolled in the given field.
+- \( P(E|\neg H) \) = the probability of observing Adam's personality sketch given that he was not enrolled in the given field.
+
+Here's the step-by-step approach:
+
+1. **Estimate Prior Probabilities \( P(H) \) for graduate fields:**
+    - Given that business administration and computer science are common fields, let's assume equal priors for simplicity.
+    - \( P(H_{business}) = 0.5 \)
+    - \( P(H_{computer}) = 0.5 \)
+
+2. **Estimate Likelihoods \( P(E|H) \):** 
+    - Adam's personality seems to align well with fields that involve curiosity, puzzles, and understanding abstract concepts. These attributes seem better suited to computer science than business administration.
+    - For business administration (\(H_{business}\)): \( P(E|H_{business}) = 0.2 \), as the attributes described are less commonly associated with business administration.
+    - For computer science (\(H_{computer}\)): \( P(E|H_{computer}) = 0.8 \), given the fit with his attributes like curiosity, intelligence, and problem-solving.
+
+3. **Estimate Likelihoods \( P(E|\neg H) \):** 
+    - We consider all other fields combined for this estimation. For simplicity and given the personality sketch, let's assume \(P(E|\neg H_{business})\) and \(P(E|\neg H_{computer})\) to be some average value.
+    - \( P(E|\neg H_{business}) = 0.6 \) 
+    - \( P(E|\neg H_{computer}) = 0.4 \) 
+
+4. **Apply Bayes’ Rule:**
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since we are computing relative probabilities, \(P(E)\) acts as a normalizing constant and can be ignored for comparison purposes between business administration and computer science.
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H)
+\]
+
+Let’s compute:
+
+\[
+P(H_{business}|E) \propto P(E|H_{business}) \cdot P(H_{business}) = 0.2 \cdot 0.5 = 0.1
+\]
+
+\[
+P(H_{computer}|E) \propto P(E|H_{computer}) \cdot P(H_{computer}) = 0.8 \cdot 0.5 = 0.4
+\]
+
+To normalize:
+
+\[
+P(H_{business}|E) = \frac{0.1}{0.1 + 0.4} = \frac{0.1}{0.5} = 0.2
+\]
+\[
+P(H_{computer}|E) = \frac{0.4}{0.1 + 0.4} = \frac{0.4}{0.5} = 0.8
+\]
+
+Final results:
+
+```json
+{
+  "business administration": 0.2,
+  "computer science": 0.8
+}
+```

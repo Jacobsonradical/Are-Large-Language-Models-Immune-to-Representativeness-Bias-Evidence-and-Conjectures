@@ -1,0 +1,53 @@
+To compute the probabilities, we need to make some assumptions and estimations for P(H), P(E|H), and P(E|¬H).
+
+1. **P(H)**: The prior probability that Adam is enrolled in a specific field, which we'll assume is roughly the prevalence of each field among graduate students.
+2. **P(E|H)**: The probability of the personality sketch given that Adam is enrolled in the field.
+3. **P(E|¬H)**: The probability of the personality sketch given that Adam is not enrolled in the field. 
+
+Here are some educated guesses and assumptions to help set these values:
+
+- **Business Administration**:
+  - **P(H):** Business Administration is a fairly common field among graduate students, so let's estimate P(H) = 0.2.
+  - **P(E|H):** Given the personality sketch, it's less likely that Adam is studying Business Administration since the sketch doesn't highlight typical interests or traits associated with that field. Let's estimate P(E|H) = 0.1.
+  - **P(E|¬H):** For someone not in Business Administration, the probability of having such traits could be more common. Estimate P(E|¬H) = 0.3.
+
+- **Agricultural and Veterinary Science**:
+  - **P(H):** This is a less common field among graduate students, so let's estimate P(H) = 0.1.
+  - **P(E|H):** Given Adam's traits like love for nature, plants, and animals, this field seems very fitting. Let's estimate P(E|H) = 0.6.
+  - **P(E|¬H):** For someone not in this field, the personality sketch is less likely, given the specific interests. Estimate P(E|¬H) = 0.2.
+
+- **Computer Science**:
+  - **P(H):** Computer Science is a common field among graduate students. Let's estimate P(H) = 0.25.
+  - **P(E|H):** While Computer Science students can be quiet and good at puzzles, the focus on nature and animals seems less typical. Let's estimate P(E|H) = 0.2.
+  - **P(E|¬H):** For someone not in Computer Science, the probability of having such traits is not drastically different but a bit higher. Estimate P(E|¬H) = 0.3.
+
+Using Bayes' Rule, \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \). Since the absolute value of \( P(E) \) can be tricky without full context, we simplify the comparison by essentially using relative numbers.
+
+**Business Administration:**
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02 \]
+
+**Agricultural and Veterinary Science:**
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.6 \cdot 0.1 = 0.06 \]
+
+**Computer Science:**
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.25 = 0.05 \]
+
+Now normalizing these values to fall between 0 and 1 while maintaining their relative proportions:
+
+* Sum of all proportional probabilities: 0.02 + 0.06 + 0.05 = 0.13
+  * Normalize for each:
+    * Business Administration: \( \frac{0.02}{0.13} \approx 0.15 \)
+    * Agricultural and Veterinary Science: \( \frac{0.06}{0.13} \approx 0.46 \)
+    * Computer Science: \( \frac{0.05}{0.13} \approx 0.39 \)
+
+Putting all this together:
+
+```json
+{
+  "business administration": 0.15,
+  "agricultural and veterinary science": 0.46,
+  "computer science": 0.39
+}
+```
+
+This analysis suggests that Adam is most likely to be enrolled in Agricultural and Veterinary Science based on the personality sketch provided.

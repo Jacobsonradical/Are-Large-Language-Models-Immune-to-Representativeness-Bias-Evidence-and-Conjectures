@@ -1,0 +1,61 @@
+First, let's calculate the probabilities analytically:
+
+1. **P(H)**: This is the prior probability of Adam being enrolled in a specific field without any other information. Typically, we don't have these exact probabilities, but for simplicity, we can assume equal prior probabilities for the three fields. Since there are many fields, we can assume the prior probabilities are quite low individually and roughly equal, maybe around 0.05 each.
+
+2. **P(E|H)**: This is the probability of the evidence given that Adam is in a specific field. We will interpret how well each of Adam's traits matches typical students in each field.
+   - **Computer Science (CS)**: High intelligence and abstract concept understanding are consistent with CS, but it's not strongly connected to nature, plants, animals, or empathy.
+   - **Agricultural and Veterinary Science**: Fits very well with his curiosity about nature, plants, empathy, and love for animals.
+   - **Business Administration**: Intelligence and understanding of hard work are relevant, but the connection to nature, plants, and animals is weak.
+
+3. **P(E|¬H)**: This is the probability of the evidence given that Adam is not in a specific field. It represents the aggregate probabilities across all other fields. Given the broadness, we can assume these are roughly equally probable around the average.
+
+Now, let's make numerical assumptions for simplicity:
+- P(H_CS) = 0.05
+- P(H_AVS) = 0.05
+- P(H_BA) = 0.05
+
+For likelihoods, let's assume:
+- P(E|H_CS) = 0.3 (moderately likely)
+- P(E|H_AVS) = 0.8 (very likely)
+- P(E|H_BA) = 0.2 (less likely)
+
+Assume the average likelihood across all other fields (`P(E|¬H)`) will be around 0.1 due to the wide distribution.
+
+Now using Bayes' Theorem:
+- **P(H|E)** = [P(E|H) * P(H)] / P(E)
+
+Since P(E) can be derived from the sums of individual probabilities and product rules, we will keep that as a normalizing factor:
+
+### Computation:
+1. **Computer Science**:
+   - P(E) ≈ Σ P(E|H_i) * P(H_i) across i fields
+   - For simplicity, let's assume P(E) normalization covers our primary fields well enough.
+
+   Therefore,
+   - P(H_CS|E) ≈ [0.3 * 0.05] / P(E) 
+   - ≈ 0.015 / P(E)
+
+2. **Agricultural and Veterinary Science (AVS)**:
+   - P(H_AVS|E) ≈ [0.8 * 0.05] / P(E)
+   - ≈ 0.04 / P(E)
+
+3. **Business Administration**:
+   - P(H_BA|E) ≈ [0.2 * 0.05] / P(E)
+   - ≈ 0.01 / P(E)
+
+### Normalized Calculation:
+Assume the normalizing factor simplifies the total (1);
+
+{
+  "computer science": 0.3 * 0.05 / (0.3 * 0.05 + 0.8 * 0.05 + 0.2 * 0.05) ≈ 0.15,
+  "agricultural and veterinary science": 0.8 * 0.05 / (0.3 * 0.05 + 0.8 * 0.05 + 0.2 * 0.05) ≈ 0.60,
+  "business administration": 0.2 * 0.05 / (0.3 * 0.05 + 0.8 * 0.05 + 0.2 * 0.05) ≈ 0.075
+}
+
+So, the updated probabilities are:
+
+{
+  "computer science": 0.15,
+  "agricultural and veterinary science": 0.60,
+  "business administration": 0.075
+}

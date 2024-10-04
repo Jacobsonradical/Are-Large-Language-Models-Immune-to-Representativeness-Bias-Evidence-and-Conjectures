@@ -1,0 +1,63 @@
+To estimate the probabilities, we can use Bayes' theorem, which states that:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the overall probability of the evidence.
+
+### Estimate the values:
+
+Let's make some reasonable assumptions:
+1. **Prior probabilities \( P(H) \)**: Given the vast number of fields in graduate school, I'll distribute some reasonable priors considering the popularity of the fields:
+    - Agricultural and veterinary science: 0.1
+    - Computer science: 0.2
+    - Business administration: 0.1
+
+2. **Evidence likelihood \( P(E|H) \)** based on the personality sketch:
+    - Agricultural and veterinary science: Considering Adam's love for nature, plants, and animals, and empathy, it's reasonable to think that \( P(E|H) \) is high, let's say 0.6.
+    - Computer science: Given Adam's intelligence and enjoyment of solving puzzles, \( P(E|H) \) can be moderately high, let's say 0.4.
+    - Business administration: Given the lack of direct connection to Adam's interests, \( P(E|H) \) is relatively low, let's say 0.2.
+
+3. **Overall probability \( P(E) \)**: This is a normalization factor. It sums the total evidence over all the hypotheses:
+\[ P(E) = P(E|H_{\text{Agri}}) \cdot P(H_{\text{Agri}}) + P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+
+Let's compute it:
+\[ P(E) = (0.6 \cdot 0.1) + (0.4 \cdot 0.2) + (0.2 \cdot 0.1) \]
+\[ P(E) = 0.06 + 0.08 + 0.02 \]
+\[ P(E) = 0.16 \]
+
+### Posterior probabilities:
+Using Bayes' theorem to update our beliefs:
+
+1. **Agricultural and veterinary science**:
+\[ P(H_{\text{Agri}}|E) = \frac{P(E|H_{\text{Agri}}) \cdot P(H_{\text{Agri}})}{P(E)} \]
+\[ P(H_{\text{Agri}}|E) = \frac{0.6 \cdot 0.1}{0.16} \]
+\[ P(H_{\text{Agri}}|E) = \frac{0.06}{0.16} \]
+\[ P(H_{\text{Agri}}|E) = 0.375 \]
+
+2. **Computer science**:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = \frac{0.4 \cdot 0.2}{0.16} \]
+\[ P(H_{\text{CS}}|E) = \frac{0.08}{0.16} \]
+\[ P(H_{\text{CS}}|E) = 0.5 \]
+
+3. **Business administration**:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.2 \cdot 0.1}{0.16} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.02}{0.16} \]
+\[ P(H_{\text{BA}}|E) = 0.125 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.375,
+  "computer science": 0.5,
+  "business administration": 0.125
+}
+```
+
+These probabilities provide a rational estimation based on the given personality sketch.

@@ -1,0 +1,104 @@
+To apply Bayes' rule and compute the probabilities that Adam was enrolled in each of the specified fields based on the given personality sketch \( E \), we'll follow these steps:
+
+1. **Make some reasonable assumptions:**
+
+   We'll assume P(H) (the prior probability) for each field, along with the likelihoods P(E|H) and P(E|\neg H).
+
+2. **Apply Bayes' Rule:**
+
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+
+   Since we have multiple fields, the normalization term \(P(E)\) can be computed, but for simplicity, we'll compare the relative scales directly.
+
+### Assumptions:
+
+1. **Prior Probabilities \(P(H)\):**
+
+   Given that Adam is a graduate student in the U.S., we can assume some rough prior probabilities:
+   - Agricultural and veterinary science might be less common generally.
+   - Computer science is a very popular graduate field.
+   - Business administration is also quite popular.
+
+   Let’s assume:
+   \[
+   P(\text{Ag. and Vet. Sci.}) = 0.1
+   \]
+   \[
+   P(\text{Comp. Sci.}) = 0.4
+   \]
+   \[
+   P(\text{Bus. Adm.}) = 0.3
+   \]
+
+2. **Likelihoods \(P(E|H)\):**
+
+   Given Adam's personality sketch:
+   - Agricultural and veterinary science fits well due to his curiosity about nature, plants, and love for animals.
+   - Computer science might fit moderately due to his intelligence and enjoyment of puzzles, but doesn’t directly correlate with his love for nature and animals.
+   - Business administration seems less fitting.
+
+   Let's assume:
+   \[
+   P(E|\text{Ag. and Vet. Sci.}) = 0.8
+   \]
+   \[
+   P(E|\text{Comp. Sci.}) = 0.5
+   \]
+   \[
+   P(E|\text{Bus. Adm.}) = 0.2
+   \]
+
+3. **Complement Likelihoods \(P(E|\neg H)\):**
+
+   This is a bit more complex, but generally, let's consider:
+   \[
+   P(E|\neg \text{Ag. and Vet. Sci.}) = 0.1
+   \]
+   \[
+   P(E|\neg \text{Comp. Sci.}) = 0.3
+   \]
+   \[
+   P(E|\neg \text{Bus. Adm.}) = 0.4
+   \]
+
+### Computation:
+
+Let's assume \(P(E)\) is a normalization constant, but treat the relative subsections directly.
+
+For each field:
+
+#### Agricultural and veterinary science:
+\[
+P(\text{Ag. and Vet. Sci.}|E) = \frac{0.8 * 0.1}{0.8 * 0.1 + 0.5 * 0.4 + 0.2 * 0.3}
+\]
+\[
+= \frac{0.08}{0.08 + 0.2 + 0.06} = \frac{0.08}{0.34} \approx 0.24
+\]
+
+#### Computer science:
+\[
+P(\text{Comp. Sci.}|E) = \frac{0.5 * 0.4}{0.8 * 0.1 + 0.5 * 0.4 + 0.2 * 0.3}
+\]
+\[
+= \frac{0.2}{0.08 + 0.2 + 0.06} = \frac{0.2}{0.34} \approx 0.59
+\]
+
+#### Business administration:
+\[
+P(\text{Bus. Adm.}|E) = \frac{0.2 * 0.3}{0.8 * 0.1 + 0.5 * 0.4 + 0.2 * 0.3}
+\]
+\[
+= \frac{0.06}{0.08+ 0.2 + 0.06} = \frac{0.06}{0.34} \approx 0.18
+\]
+
+Thus, our results are:
+
+```json
+{
+  "agricultural and veterinary science": 0.24,
+  "computer science": 0.59,
+  "business administration": 0.18
+}
+```

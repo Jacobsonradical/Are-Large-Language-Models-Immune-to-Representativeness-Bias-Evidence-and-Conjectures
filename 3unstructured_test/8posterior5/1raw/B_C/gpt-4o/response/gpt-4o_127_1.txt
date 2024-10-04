@@ -1,0 +1,59 @@
+To compute the posterior probabilities \( P(H|E) \) for each field given Adam's personality sketch \( E \), we'll use Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+where:
+- \( P(H) \) is the prior probability of Adam enrolling in each field.
+- \( P(E|H) \) is the likelihood of observing the personality sketch given that Adam is enrolled in that field.
+- \( P(E) \) is the marginal probability of observing the personality sketch.
+
+Since we're concerned only with the relative probabilities between the fields and not their absolute probabilities, we use a simplified form:
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H)
+\]
+
+Let's firstly assume some plausible values for \( P(H) \), given that computer science and business administration are common fields for graduate study in the U.S.
+
+- \( P(H_{\text{CS}}) \) (Computer Science): 0.3
+- \( P(H_{\text{BA}}) \) (Business Administration): 0.3
+
+Given Adam's personality sketch:
+- Curiosity about nature and plants, love for animals, empathy, appreciation for hard work, intelligence, abstract reasoning, and puzzle-solving are traits more aligned with a field that values analytical and observational skills.
+
+Let's estimate \( P(E|H) \):
+- For computer science, traits such as puzzle solving, high intelligence, understanding abstract concepts, and appreciation for hard work are highly appreciated.
+- For business administration, traits such as empathy and a warm heart are valuable, but curiosity about nature and love for animals are less directly relevant.
+
+Estimated \( P(E|H) \):
+- \( P(E|H_{\text{CS}}) \): 0.7 (Adam's traits are quite aligned with the skills needed in computer science)
+- \( P(E|H_{\text{BA}}) \): 0.4 (Adam's traits are somewhat aligned with business administration but less so than with computer science)
+
+Finally, let's apply these values to Bayes' Rule:
+
+\[
+P(H|E_{\text{CS}}) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.7 \cdot 0.3 = 0.21
+\]
+\[
+P(H|E_{\text{BA}}) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.4 \cdot 0.3 = 0.12
+\]
+
+We don't need to calculate \( P(E) \) since we only care about the relative probabilities. 
+
+Thus, after normalizing to sum up to 1 for these two hypotheses, we get:
+
+\[
+P(H|E_{\text{CS}}) = \frac{0.21}{0.21 + 0.12} = \frac{0.21}{0.33} \approx 0.636
+\]
+\[
+P(H|E_{\text{BA}}) = \frac{0.12}{0.21 + 0.12} = \frac{0.12}{0.33} \approx 0.364
+\]
+
+So our final answer after rounding:
+
+{
+  "computer science": 0.636,
+  "business administration": 0.364
+}

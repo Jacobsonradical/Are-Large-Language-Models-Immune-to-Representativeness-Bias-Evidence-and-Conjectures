@@ -1,0 +1,55 @@
+To assess \( P(H|E) \), let's compute it using Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We'll estimate \( P(H) \) (the prior probability that Adam is enrolled in a given field), \( P(E|H) \) (the probability that Adam has the personality sketch \(E\) given he is in a particular field), and \( P(E|\neg H) \) (the probability that Adam has the personality sketch \(E\) given he is not in a particular field). We won't compute \( P(E) \) directly, since it will factor into the relative probabilities for the two fields.
+
+### Computer Science
+
+1. **P(H)**: Choosing computer science:
+    - Computer science is a common graduate field, but not exclusive: let's estimate \( P(\text{CS}) \) around 0.15.
+
+2. **P(E|H)**: Probability of Adam having E given he's in computer science:
+    - High intelligence (common in CS): high probability, say 0.75.
+    - Enjoys solving puzzles (common in CS): high probability, say 0.75.
+    - Love for animals, deep curiosity about nature, strong empathy (less common in CS but not contradictory): moderate probability, say 0.4.
+    - Understanding of hard work and dedication: high probability, say 0.7.
+    - Combined, the overall \( P(E|H_{\text{CS}}) \approx 0.75 \times 0.75 \times 0.4 \times 0.7 = 0.1575 \).
+
+3. **P(E|\neg H)**: Probability of Adam having E given he's not in computer science:
+    - This is more spread across different fields, each contributing to varying degrees, but let's assume it to be moderate, say 0.3.
+
+### Business Administration
+
+1. **P(H)**: Choosing business administration:
+    - Business administration is another common graduate field, let's estimate \( P(\text{BA}) \) around 0.10.
+
+2. **P(E|H)**: Probability of Adam having E given he's in business administration:
+    - High intelligence: moderate probability, say 0.5.
+    - Enjoys solving puzzles (less common in BA): low probability, say 0.3.
+    - Love for animals, deep curiosity about nature, strong empathy (also less common in BA but possible): low probability, say 0.3.
+    - Understanding of hard work and dedication: high probability, say 0.7.
+    - Combined, the overall \( P(E|H_{\text{BA}}) \approx 0.5 \times 0.3 \times 0.3 \times 0.7 = 0.0315 \).
+
+3. **P(E|\neg H)**: Similar to CS, let's take it as 0.3 for relative comparison purposes.
+
+### Applying Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \approx \frac{P(E|H)P(H)}{P(E|H)\cdot P(H) + P(E|\neg H)\cdot P(\neg H)} \]
+
+#### For Computer Science:
+
+\[ P(H_{\text{CS}}|E) \approx \frac{0.1575 \times 0.15}{0.1575 \times 0.15 + 0.3 \times (1 - 0.15)} \approx \frac{0.023625}{0.023625 + 0.255} \approx \frac{0.023625}{0.278625} \approx 0.0848 \]
+
+#### For Business Administration:
+
+\[ P(H_{\text{BA}}|E) \approx \frac{0.0315 \times 0.10}{0.0315 \times 0.10 + 0.3 \times (1 - 0.10)} \approx \frac{0.00315}{0.00315 + 0.27} \approx \frac{0.00315}{0.27315} \approx 0.0115 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.0848,
+  "business administration": 0.0115
+}
+```

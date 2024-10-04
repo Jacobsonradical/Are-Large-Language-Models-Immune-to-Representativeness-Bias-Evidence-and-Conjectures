@@ -1,0 +1,54 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' Rule, we need to consider P(H), \( P(E|H) \), and \( P(E|\neg H) \). Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both fields, we can use the simplified form for comparison:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+### Business Administration (BA)
+
+1. **P(H):** The prior probability of Adam being enrolled in Business Administration.
+   - Given the diverse range of fields graduate students enroll in, let's assume a low initial probability for business administration. For simplicity, let's set \( P(H_{BA}) = 0.1 \).
+
+2. **P(E|H):** The probability of observing the personality traits (E) given that Adam is a BA student.
+   - The personality traits described (appreciation for nature, puzzles, empathy, animals, understanding abstract concepts) seem less aligned with typical traits for business administration students. Assume \( P(E|H_{BA}) = 0.05 \).
+
+3. **P(E|\neg H):** The probability of observing the personality traits if Adam is not a BA student.
+   - Given graduate students can come from a wide range of fields that might fit Adam's personality better (like sciences or humanities), let's assume a relatively higher probability for \( P(E|\neg H_{BA}) = 0.3 \).
+
+\[ P(H_{BA}|E) \propto 0.05 \times 0.1 = 0.005 \]
+
+### Agricultural and Veterinary Science (AVS)
+
+1. **P(H):** The prior probability of Adam being enrolled in Agricultural and Veterinary Science.
+   - Similarly, let's assume a low but slightly higher prior for AVS because it aligns a bit more with his interests. Set \( P(H_{AVS}) = 0.2 \).
+
+2. **P(E|H):** The probability of observing the personality traits (E) given that Adam is an AVS student.
+   - The personality traits are highly aligned with Agricultural and Veterinary Science. Assume \( P(E|H_{AVS}) = 0.8 \).
+
+3. **P(E|\neg H):** The probability of observing the personality traits if Adam is not an AVS student.
+   - Similar to before, assume \( P(E|\neg H_{AVS}) = 0.3 \).
+
+\[ P(H_{AVS}|E) \propto 0.8 \times 0.2 = 0.16 \]
+
+### Normalized Estimates
+
+To normalize and obtain comparable posterior probabilities:
+
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E_{total})} \]
+\[ P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E_{total})} \]
+
+\[ P(E_{total}) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{AVS}) \cdot P(H_{AVS}) + \text{other fields terms} \]
+
+For simplification, we assume the posterior probabilities difference is significant enough that:
+
+\[ P(H_{BA}|E) \approx \frac{0.005}{0.165} = \frac{0.005}{0.165} \approx 0.030 \]
+\[ P(H_{AVS}|E) \approx \frac{0.16}{0.165} = \frac{0.16}{0.165} \approx 0.970 \]
+
+```json
+{
+  "business administration": 0.030,
+  "agricultural and veterinary science": 0.970
+}
+```

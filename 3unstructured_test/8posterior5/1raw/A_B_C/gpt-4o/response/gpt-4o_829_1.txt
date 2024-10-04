@@ -1,0 +1,65 @@
+To apply Bayes' rule to compute \( P(H|E) \), we start with the following probabilities:
+- \( P(H) \): The prior probability that Adam was enrolled in a given field.
+- \( P(E|H) \): The likelihood of observing the personality sketch given that Adam was enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of observing the personality sketch given that Adam was not enrolled in that field.
+  
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Given the personality sketch E and the variables H for the hypotheses, the steps are as follows:
+
+1. **Computer Science**:
+   - \( P(H_{CS}) \): The general probability that a graduate student is in computer science.
+   - \( P(E|H_{CS}) \): The likelihood that Adam’s personality matches that of a computer science student.
+   - \( P(E|\neg H_{CS}) \): The likelihood of finding Adam’s personality traits in students not in computer science.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{Ag}) \): The general probability that a graduate student is in agricultural and veterinary science.
+   - \( P(E|H_{Ag}) \): The likelihood that Adam’s personality matches that of an agricultural and veterinary science student.
+   - \( P(E|\neg H_{Ag}) \): The likelihood of finding Adam’s personality traits in students not in agricultural and veterinary science.
+
+3. **Business Administration**:
+   - \( P(H_{BA}) \): The general probability that a graduate student is in business administration.
+   - \( P(E|H_{BA}) \): The likelihood that Adam’s personality matches that of a business administration student.
+   - \( P(E|\neg H_{BA}) \): The likelihood of finding Adam’s personality traits in students not in business administration.
+
+Assuming the following approximate values:
+- \( P(H_{CS}) = 0.2 \)
+- \( P(H_{Ag}) = 0.1 \)
+- \( P(H_{BA}) = 0.15 \)
+- \( P(E|H_{CS}) = 0.3 \) (less likely: focus on abstract concepts but not as much on nature or animals)
+- \( P(E|H_{Ag}) = 0.7 \) (very likely: nature, animals, empathy)
+- \( P(E|H_{BA}) = 0.2 \) (less likely: business doesn't fit well with nature or animals)
+
+To simplify computation, we treat \( P(E|\neg H) \) as an average case for graduates in other fields:
+- \( P(E|\neg H_{CS}) = 0.3 \)
+- \( P(E|\neg H_{Ag}) = 0.3 \)
+- \( P(E|\neg H_{BA}) = 0.3 \)
+
+Now, compute \( P(H|E) \):
+
+1. **Computer Science**:
+\[
+P(H_{CS}|E) = \frac{0.3 \cdot 0.2}{(0.3 \cdot 0.2 + 0.3 \cdot 0.8)} = \frac{0.06}{0.06 + 0.24} = \frac{0.06}{0.30} \approx 0.2
+\]
+
+2. **Agricultural and Veterinary Science**:
+\[
+P(H_{Ag}|E) = \frac{0.7 \cdot 0.1}{(0.7 \cdot 0.1 + 0.3 \cdot 0.9)} = \frac{0.07}{0.07 + 0.27} = \frac{0.07}{0.34} \approx 0.21
+\]
+
+3. **Business Administration**:
+\[
+P(H_{BA}|E) = \frac{0.2 \cdot 0.15}{(0.2 \cdot 0.15 + 0.3 \cdot 0.85)} = \frac{0.03}{0.03 + 0.255} = \frac{0.03}{0.285} \approx 0.105
+\]
+
+Thus, the values are:
+
+```json
+{
+  "computer science": 0.2,
+  "agricultural and veterinary science": 0.21,
+  "business administration": 0.105
+}
+```

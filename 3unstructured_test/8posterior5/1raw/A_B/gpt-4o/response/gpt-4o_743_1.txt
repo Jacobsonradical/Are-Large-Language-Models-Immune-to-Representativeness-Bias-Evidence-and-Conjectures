@@ -1,0 +1,56 @@
+To compute \( P(H|E) \) for each field given the personality sketch of Adam, we can use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam would be in a given field without knowing his personality sketch.
+- \( P(E|H) \) is the likelihood that Adam, given his personality, would be in that specific field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch given he is in any field other than the specified one.
+- \( P(E) \) essentially normalizes the results and can be thought of in relative terms.
+
+We’ll start by estimating the probabilities for each field:
+
+### Agricultural and Veterinary Science
+
+#### \( P(H) \):
+Since we'll assume that fields are generally equally likely when not given any specific information, the prior probability could be around 1/17, given that the National Center for Education Statistics categorizes graduate programs into 17 broad groups. For simplicity, let's denote it as 0.06.
+
+#### \( P(E|H) \):
+Adam's love for nature, plants, animals, his empathy, and appreciation for hard work make it very likely he's in agricultural and veterinary science. I would assign a high probability, say 0.8.
+
+#### \( P(E|\neg H) \):
+Given how specific his traits are to agricultural and veterinary science, if Adam were not in this field, the likelihood of him having these traits is relatively low. We could assign this a relatively low probability, say 0.2.
+
+### Business Administration
+
+#### \( P(H) \):
+Again, assuming equal likelihood, \( P(H) \) ≈ 0.06.
+
+#### \( P(E|H) \):
+Business administration students are not generally characterized by a strong love for nature, animals, and empathy. It's less likely Adam fits perfectly here based on his personality traits. I would assign a lower probability, say 0.2.
+
+#### \( P(E|\neg H) \):
+Given that the remaining possible fields are numerous, the likelihood of someone not in business administration having Adam's personality traits remains relatively average. Assign it 0.2.
+
+### Calculating Posteriors Using Relative Bayes' Rule
+
+We can use the relative values of the expressions \( P(E|H) \cdot P(H) \) to compare the probabilities of \( H \):
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot 0.06 = 0.048 \]
+
+#### Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot 0.06 = 0.012 \]
+
+Normalizing these to easily compare relative probabilities:
+\[ P(H|E \text{ for Ag/Vet}) = \frac{0.048}{0.048 + 0.012} = 0.80 \]
+\[ P(H|E \text{ for Business Admin}) = \frac{0.012}{0.048 + 0.012} = 0.20 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.80,
+  "business administration": 0.20
+}
+```

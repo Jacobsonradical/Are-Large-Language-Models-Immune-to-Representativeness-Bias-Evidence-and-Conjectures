@@ -1,0 +1,72 @@
+To compute the posterior probabilities, \( P(H|E) \), for Adam being enrolled in either "agricultural and veterinary science" or "computer science" given the personality sketch E, we need to apply Bayes' rule:
+
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+\]
+
+We have to estimate the following values for each field:
+- \( P(H) \), the prior probability of Adam being enrolled in the particular field.
+- \( P(E|H) \), the probability of observing Adam's personality sketch given he is enrolled in the particular field.
+- \( P(E|\neg H) \), the probability of observing Adam's personality sketch given he is not enrolled in the particular field.
+- \( P(E) \), the overall probability of observing Adam's personality sketch, which can be derived from \( P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+### Agricultural and Veterinary Science
+
+- \( P(H) \): We'll assume a relatively low prior probability as graduate programs in general are diverse and distributed among many fields. Let's say \( P(H) = 0.05 \).
+- \( P(E|H) \): Given Adam's interest in nature, plants, empathy, and animals, it is highly likely for someone with these traits to be in agricultural and veterinary science. Let's assume \( P(E|H) = 0.8 \).
+- \( P(E|\neg H) \): This needs to be relatively low because the described personality traits are more closely aligned with agricultural and veterinary science compared to other fields. We'll estimate \( P(E|\neg H) = 0.1 \).
+
+### Computer Science
+
+- \( P(H) \): Assuming similar distribution among fields, we take \( P(H) = 0.05 \).
+- \( P(E|H) \): Although Adam’s intelligence and problem-solving interest align with computer science, traits like empathy, love for animals, and interest in nature don't align as well. Let's say \( P(E|H) = 0.3 \).
+- \( P(E|\neg H) \): Assuming the general public's mismatch in traits, we'll estimate \( P(E|\neg H) = 0.1 \).
+
+Let's perform the calculations.
+
+#### Agricultural and Veterinary Science
+Using Bayes' rule:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+\[ 
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) 
+\]
+\[ 
+P(E) = (0.8 \cdot 0.05) + (0.1 \cdot 0.95)
+\]
+\[ 
+P(E) = 0.04 + 0.095 = 0.135
+\]
+\[ 
+P(H|E) = \frac{0.8 \cdot 0.05}{0.135} \approx 0.296
+\]
+
+#### Computer Science
+Using Bayes' rule:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+\[ 
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) 
+\]
+\[ 
+P(E) = (0.3 \cdot 0.05) + (0.1 \cdot 0.95)
+\]
+\[ 
+P(E) = 0.015 + 0.095 = 0.11
+\]
+\[ 
+P(H|E) = \frac{0.3 \cdot 0.05}{0.11} \approx 0.136
+\]
+
+### Final Calculations
+
+```json
+{
+  "agricultural and veterinary science": 0.296,
+  "computer science": 0.136
+}
+```
+
+These probabilities suggest that, based on the personality sketch provided, Adam is more likely to be enrolled in agricultural and veterinary science than in computer science.

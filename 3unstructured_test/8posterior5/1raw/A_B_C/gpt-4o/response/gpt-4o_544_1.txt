@@ -1,0 +1,51 @@
+Let's first outline our assumptions for \( P(H) \) (the prior probability of Adam being enrolled in each of the given fields), \( P(E|H) \) (the likelihood of the given personality traits in each field), and \( P(E|\neg H) \) (the likelihood of the given personality traits occurring if Adam is not in that field).
+
+### Business Administration
+1. **P(H) (prior probability)**: Let’s assume the prior probability for Adam being enrolled in business administration as relatively standard. We'll assign it 0.2.
+2. **P(E|H) (likelihood)**: The traits described for Adam do not strongly match the typical profile of a business administration student, so this value might be low. Let's set P(E|H) = 0.1.
+3. **P(E|\neg H) (complement likelihood)**: We'll consider this as a relatively standard opposite chance. For business administration, students not in this field might still exhibit similar traits but to a lesser likelihood. We'll set it at P(E|\neg H) = 0.4.
+
+### Agricultural and Veterinary Science
+1. **P(H) (prior probability)**: This seems like a strong match given Adam's curiosity about nature and love for animals. Let's set this at 0.3.
+2. **P(E|H) (likelihood)**: Given the personality sketch, these traits strongly align with agricultural and veterinary science, so P(E|H) will be higher, say, 0.7.
+3. **P(E|\neg H) (complement likelihood)**: The likelihood of someone exhibiting these traits and not being in agricultural and veterinary science might be lower. We'll set it at 0.2.
+
+### Computer Science
+1. **P(H) (prior probability)**: Computer science is a popular field so let's set the prior at 0.3.
+2. **P(E|H) (likelihood)**: The traits correspond in parts (high intelligence, liking for puzzles), but less so the empathy and love for nature. Let's set it at 0.2.
+3. **P(E|\neg H) (complement likelihood)**: More likely for such traits to appear outside Computer Science, say, 0.5.
+
+Now, let's compute \( P(H|E) \) using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+For simplicity, we’ll normalize at the end to ensure our results are comparable.
+
+1. **Business Administration**
+\[ P(E) = (0.1 \cdot 0.2) + (0.4 \cdot 0.8) = 0.02 + 0.32 = 0.34 \]
+\[ P(H|E) = \frac{(0.1 \cdot 0.2)}{0.34} = \frac{0.02}{0.34} \approx 0.059 \]
+
+2. **Agricultural and Veterinary Science**
+\[ P(E) = (0.7 \cdot 0.3) + (0.2 \cdot 0.7) = 0.21 + 0.14 = 0.35 \]
+\[ P(H|E) = \frac{(0.7 \cdot 0.3)}{0.35} = \frac{0.21}{0.35} = 0.6 \]
+
+3. **Computer Science**
+\[ P(E) = (0.2 \cdot 0.3) + (0.5 \cdot 0.7) = 0.06 + 0.35 = 0.41 \]
+\[ P(H|E) = \frac{(0.2 \cdot 0.3)}{0.41} = \frac{0.06}{0.41} \approx 0.146 \]
+
+Now we normalize the results:
+{
+  "business administration": \( \frac{0.059}{0.059 + 0.6 + 0.146} \approx 0.062 \),
+  "agricultural and veterinary science": \( \frac{0.6}{0.059 + 0.6 + 0.146} \approx 0.744 \),
+  "computer science": \( \frac{0.146}{0.059 + 0.6 + 0.146} \approx 0.181 \)
+}
+
+So the final answer is:
+
+{
+  "business administration": 0.062,
+  "agricultural and veterinary science": 0.744,
+  "computer science": 0.181
+}

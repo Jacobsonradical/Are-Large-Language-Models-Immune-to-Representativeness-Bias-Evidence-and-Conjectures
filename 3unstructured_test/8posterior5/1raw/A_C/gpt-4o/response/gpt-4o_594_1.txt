@@ -1,0 +1,63 @@
+To compute the probabilities \( P(H|E) \) using Bayes' rule, we will need to estimate the various probabilities involved. Here is the application of Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( H \) is the hypothesis that Adam was enrolled in a particular field.
+- \( E \) is the personality sketch of Adam.
+- \( P(H) \) is the prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \) is the probability of observing the personality sketch \( E \) given that Adam was enrolled in the field \( H \).
+- \( P(E|\neg H) \) is the probability of observing the personality sketch \( E \) given that Adam was not enrolled in the field \( H \). 
+- \( P(E) \) is the total probability of observing the personality sketch \( E \).
+
+For the purposes of our calculation, we will need to make reasonable estimates for these probabilities. 
+
+### Computer Science
+1. **Prior Probability \( P(H_{CS}) \)**
+   Graduate students in computer science are relatively common. Let's estimate \( P(H_{CS}) = 0.15 \).
+
+2. **Likelihood \( P(E|H_{CS}) \)**
+   The personality sketch describes characteristics such as intelligence and problem-solving which fit with computer science, but attributes like empathy and a love for nature and animals are less typical for this field. Let's estimate \( P(E|H_{CS}) = 0.30 \).
+
+3. **Likelihood \( P(E|\neg H_{CS}) \)**
+   For fields outside of computer science, Adam's personality traits may be more commonly aligned. Let's estimate \( P(E|\neg H_{CS}) = 0.60 \).
+
+### Agricultural and Veterinary Science
+1. **Prior Probability \( P(H_{AV}) \)**
+   Graduate students in agricultural and veterinary sciences are less common than those in computer science, but not extremely rare. Let's estimate \( P(H_{AV}) = 0.10 \).
+
+2. **Likelihood \( P(E|H_{AV}) \)**
+   Adam's traits seem highly compatible with agricultural and veterinary science (e.g., curiosity about nature, love for animals, empathy). Let's estimate \( P(E|H_{AV}) = 0.75 \).
+
+3. **Likelihood \( P(E|\neg H_{AV}) \)**
+   For fields outside of agricultural and veterinary science, Adam's traits might not align as well. Let's estimate \( P(E|\neg H_{AV}) = 0.50 \).
+
+### Calculation using Bayes' rule
+We need \( P(E) \):
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot (1 - P(H_{CS})) \]
+
+For Computer Science:
+\[ P(E) = 0.30 \cdot 0.15 + 0.60 \cdot 0.85 \]
+\[ P(E) = 0.045 + 0.51 = 0.555 \]
+
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(H_{CS}|E) = \frac{0.30 \cdot 0.15}{0.555} \]
+\[ P(H_{CS}|E) = \frac{0.045}{0.555} \]
+\[ P(H_{CS}|E) \approx 0.081 \]
+
+For Agricultural and Veterinary Science:
+\[ P(E) = 0.75 \cdot 0.10 + 0.50 \cdot 0.90 \]
+\[ P(E) = 0.075 + 0.45 = 0.525 \]
+
+\[ P(H_{AV}|E) = \frac{P(E|H_{AV}) \cdot P(H_{AV})}{P(E)} \]
+\[ P(H_{AV}|E) = \frac{0.75 \cdot 0.10}{0.525} \]
+\[ P(H_{AV}|E) = \frac{0.075}{0.525} \]
+\[ P(H_{AV}|E) \approx 0.143 \]
+
+Thus, the computed posterior probabilities are:
+```json
+{
+  "computer science": 0.081,
+  "agricultural and veterinary science": 0.143
+}
+```

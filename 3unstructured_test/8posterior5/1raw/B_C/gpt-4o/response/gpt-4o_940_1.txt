@@ -1,0 +1,66 @@
+To compute \(P(H|E)\) using Bayes' Rule, we need the following probabilities:
+- \(P(H)\): Prior probability of hypothesis \(H\) (i.e., the probability that Adam was enrolled in a specific field before knowing the personality sketch).
+- \(P(E|H)\): Likelihood of observing the personality sketch \(E\) given that hypothesis \(H\) is true.
+- \(P(E|\neg H)\): Likelihood of observing the personality sketch \(E\) given that hypothesis \(H\) is false.
+- \(P(E)\): Overall probability of observing the personality sketch \(E\).
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since the denominator \(P(E)\) is common for both hypotheses, it can be simplified by comparing the numerators directly for relative probabilities. Therefore, for relative comparison, we use:
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's address each field step-by-step.
+
+### Computer Science
+#### Prior Probability (\(P(H)\)):
+Given no specific information about Adam's likelihood of being in any field, we can assume the prior probability is equally probable among graduate fields. But computer science is a popular field, so we might give it a slightly higher prior.
+\[ P(H_{\text{CS}}) = 0.2 \]
+
+#### Likelihood (\(P(E|H_{\text{CS}}\))):
+Given the personality sketch, Adam has high intelligence and enjoys solving puzzles. These traits align well with computer science.
+\[ P(E|H_{\text{CS}}) = 0.7 \]
+
+#### Complement Likelihood (\(P(E|\neg H_{\text{CS}}\))):
+The likelihood of such a personality sketch in other fields might not be as high but still possible, especially in technical or analytical fields.
+\[ P(E|\neg H_{\text{CS}}) = 0.3 \]
+
+### Business Administration
+#### Prior Probability (\(P(H)\)):
+Business administration is also a common field, but given Adam's personality traits, it might not be the most aligned.
+\[ P(H_{\text{BA}}) = 0.1 \]
+
+#### Likelihood (\(P(E|H_{\text{BA}}\))):
+Adam's traits like empathy and understanding hard work could be a fit, but elements like a deep love for animals and interest in nature are less aligned.
+\[ P(E|H_{\text{BA}}) = 0.4 \]
+
+#### Complement Likelihood (\(P(E|\neg H_{\text{BA}}\))):
+Considering that business personalities might vary widely, the likelihood of observing the personality sketch in non-business fields is relatively higher.
+\[ P(E|\neg H_{\text{BA}}) = 0.6 \]
+
+### Calculation of \(P(H|E)\)
+Using the simplified form of Bayes' Rule:
+
+#### For Computer Science:
+\[ P(H_{\text{CS}}|E) \propto P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) = 0.7 \cdot 0.2 = 0.14 \]
+
+#### For Business Administration:
+\[ P(H_{\text{BA}}|E) \propto P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) = 0.4 \cdot 0.1 = 0.04 \]
+
+Since we now have relative probabilities, we normalize these to obtain probabilities between 0 and 1:
+
+#### Normalization:
+\[ P(H_{\text{total}}) = 0.14 + 0.04 = 0.18 \]
+\[ P(H_{\text{CS}}|E) = \frac{0.14}{0.18} \approx 0.78 \]
+\[ P(H_{\text{BA}}|E) = \frac{0.04}{0.18} \approx 0.22 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.78,
+  "business administration": 0.22
+}
+```
+
+Note: These values are calculated based on assumed priors and likelihoods and could vary with different assumptions.

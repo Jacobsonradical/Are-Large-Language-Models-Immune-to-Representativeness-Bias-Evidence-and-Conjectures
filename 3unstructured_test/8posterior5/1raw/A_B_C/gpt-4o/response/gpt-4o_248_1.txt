@@ -1,0 +1,52 @@
+To compute the posterior probability \( P(H|E) \) for each field of study given the personality sketch \( E \), we need to apply Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(H) \) is the prior probability of Adam being enrolled in a specific field, \( P(E|H) \) is the likelihood of the personality traits given that Adam is in a specific field, and \( P(E) \) is the overall probability of observing the personality traits.
+
+Let's estimate each probability step by step:
+
+### Computer Science
+- **Prior Probability \( P(H) \):** Assume a moderate prior probability for Adam being in computer science, as it is a common field. Let's say \(P(H) = 0.15\).
+- **Likelihood \( P(E|H):** Considering Adam's traits like high intelligence and good understanding of abstract concepts, yet perhaps lower for strong empathy and love for animals which are not typically highlighted for computer science students. So, let's rate it moderately \(P(E|H) = 0.3\).
+- **Complement Likelihood \( P(E|\neg H) \):** Traits such as curiosity about nature and animals are rare in computer science fields, so \(P(E|\neg H) = 0.1\).
+
+### Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \):** This is more specific, so let's set it as a moderate probability \(P(H) = 0.1\).
+- **Likelihood \( P(E|H):** Traits like curiosity about nature, love for animals, and empathy strongly suggest this field. Thus, a high likelihood \(P(E|H) = 0.8\).
+- **Complement Likelihood \( P(E|\neg H) \):** These traits are less common in other fields, so \(P(E|\neg H) = 0.2\).
+
+### Business Administration
+- **Prior Probability \( P(H) \):** Considering the popularity of this field, it could also be moderate \(P(H) = 0.2\).
+- **Likelihood \( P(E|H):** Business students might have intelligence and appreciation for hard work, but less likely to have strong empathy and love for animals, which is less typical. So, \(P(E|H) = 0.2\).
+- **Complement Likelihood \( P(E|\neg H):** These traits might be more common outside business fields, \(P(E|\neg H) = 0.3\).
+
+#### Computing Posterior Probability \( P(H|E) \)
+- **Overall Probability \( P(E):** This can be approximated considering all fields, let it be \( P(E) = 0.25 \) (sum of weighted probabilities for simplicity by estimating a combined scenario).
+
+Now we'll compute \( P(H|E) \):
+
+1. **Computer Science:**
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.3 \cdot 0.15}{0.25} = \frac{0.045}{0.25} = 0.18 
+\]
+
+2. **Agricultural and Veterinary Science:**
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{0.25} = \frac{0.08}{0.25} = 0.32 
+\]
+
+3. **Business Administration:**
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.2}{0.25} = \frac{0.04}{0.25} = 0.16 
+\]
+
+Based on these computations, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.18,
+  "agricultural and veterinary science": 0.32,
+  "business administration": 0.16
+}
+```

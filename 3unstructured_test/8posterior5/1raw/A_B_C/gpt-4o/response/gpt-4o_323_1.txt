@@ -1,0 +1,58 @@
+To determine \( P(H|E) \) for each field, we need to use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all fields and we are comparing relative probabilities, we can focus on the numerators \( P(E|H) \cdot P(H) \) without normalizing by \( P(E) \).
+
+Assumptions for initial probabilities:
+
+- Let \( P(H) \) for each field reflect a rough relative frequency of graduate students in those fields.
+- Assigning some reasonable intuitive probabilities:
+  - Computer Science is a common graduate field.
+  - Agricultural and Veterinary Science is less common but aligns well with Adam's interests.
+  - Business Administration is also common but does not align well with Adam's interests.
+
+Let's assume the following rough priors \( P(H) \):
+
+- \( P(\text{computer science}) = 0.3 \)
+- \( P(\text{agricultural and veterinary science}) = 0.1 \)
+- \( P(\text{business administration}) = 0.3 \)
+
+Next, assess \( P(E|H) \), the likelihood of Adam's personality sketch given these fields:
+
+- Due to Adam's strong empathy, love for animals, and appreciation for nature, he is more likely to be found in agricultural and veterinary science.
+- He has a high intelligence and enjoys solving puzzles, which is favorable for computer science.
+- His personality sketch seems less compatible with business administration.
+
+Estimate \( P(E|H) \):
+
+- \( P(E|\text{computer science}) = 0.4 \)
+- \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+- \( P(E|\text{business administration}) = 0.1 \)
+
+Given these values, compute \( P(H|E) \):
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+\[ P(H|E) \propto P(E|\text{computer science}) \cdot P(\text{computer science}) = 0.4 \times 0.3 = 0.12 \]
+\[ P(H|E) \propto P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science}) = 0.8 \times 0.1 = 0.08 \]
+\[ P(H|E) \propto P(E|\text{business administration}) \cdot P(\text{business administration}) = 0.1 \times 0.3 = 0.03 \]
+
+Now normalize to make the relative values comparable:
+
+- Sum of all computed values: \( 0.12 + 0.08 + 0.03 = 0.23 \)
+
+Normalized probabilities:
+
+- \( P(\text{computer science}|E) = 0.12 / 0.23 \approx 0.52 \)
+- \( P(\text{agricultural and veterinary science}|E) = 0.08 / 0.23 \approx 0.35 \)
+- \( P(\text{business administration}|E) = 0.03 / 0.23 \approx 0.13 \)
+
+Thus, the relative probabilities are:
+
+```json
+{
+  "computer science": 0.52,
+  "agricultural and veterinary science": 0.35,
+  "business administration": 0.13
+}
+```

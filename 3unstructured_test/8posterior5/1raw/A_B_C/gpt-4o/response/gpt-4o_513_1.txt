@@ -1,0 +1,73 @@
+To calculate \( P(H|E) \) for each field using Bayes' theorem, we need to understand the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E|\neg H) \). Here, \( E \) is Adam's personality sketch and \( H \) is the hypothesis that Adam was enrolled in a specific field.
+
+#### Prior Probabilities \( P(H) \)
+We need to estimate the prior probability that a randomly chosen graduate student is enrolled in each field:
+
+1. **Computer Science**: It is a common field, so let's assume \( P(\text{CS}) \approx 0.2 \).
+2. **Business Administration**: Also a common field, so let's assume \( P(\text{BA}) \approx 0.2 \).
+3. **Agricultural and Veterinary Science**: Less common, let's assume \( P(\text{AV}) \approx 0.1 \).
+
+#### Likelihoods \( P(E|H) \)
+We need to estimate how likely Adam's personality traits match someone in each field:
+
+1. **Computer Science**:
+   - Likely to have high intelligence and a love for solving puzzles.
+   - Lower likelihood of strong empathy and deep love for animals.
+   - So, let's set \( P(E|\text{CS}) \approx 0.3 \).
+
+2. **Business Administration**:
+   - Strong empathy can be useful, but curiosity about nature and love for animals are less relevant.
+   - Appreciation for hard work fits.
+   - So, let's set \( P(E|\text{BA}) \approx 0.2 \).
+
+3. **Agricultural and Veterinary Science**:
+   - High relevance of curiosity about nature, empathy, and love for animals.
+   - Fits well with Adam's personality sketch.
+   - So, let's set \( P(E|\text{AV}) \approx 0.7 \).
+
+#### Marginal Likelihoods \( P(E|\neg H) \)
+We estimate how likely Adam's personality sketch is for someone not in the specified field. Combining all other fields and the given personality:
+
+- **For Computer Science**: Other fields might fit better, so let's assume \( P(E|\neg \text{CS}) \approx 0.6 \).
+- **For Business Administration**: Less likely overall fit, so \( P(E|\neg \text{BA}) \approx 0.7 \).
+- **For Agricultural and Veterinary Science**: Assuming good fit overall for other fields, \( P(E|\neg \text{AV}) \approx 0.4 \).
+
+Now we calculate the posterior probabilities using Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, \( P(E) \) is constant for all hypotheses, so we only need the numerators for comparison.
+
+#### Calculation:
+
+1. **Computer Science**:
+   \[
+   P(\text{CS}|E) \propto P(E|\text{CS}) \cdot P(\text{CS}) = 0.3 \cdot 0.2 = 0.06
+   \]
+
+2. **Business Administration**:
+   \[
+   P(\text{BA}|E) \propto P(E|\text{BA}) \cdot P(\text{BA}) = 0.2 \cdot 0.2 = 0.04
+   \]
+
+3. **Agricultural and Veterinary Science**:
+   \[
+   P(\text{AV}|E) \propto P(E|\text{AV}) \cdot P(\text{AV}) = 0.7 \cdot 0.1 = 0.07
+   \]
+
+Normalizing these values (scaling them so that they sum to 1 for proportional reasoning):
+
+Total = \( 0.06 + 0.04 + 0.07 = 0.17 \)
+
+- Normalized:
+  - Computer Science: \( \frac{0.06}{0.17} \approx 0.353 \)
+  - Business Administration: \( \frac{0.04}{0.17} \approx 0.235 \)
+  - Agricultural and Veterinary Science: \( \frac{0.07}{0.17} \approx 0.412 \)
+
+Thus, the estimates for \( P(H|E) \) are:
+```json
+{
+  "computer science": 0.353,
+  "business administration": 0.235,
+  "agricultural and veterinary science": 0.412
+}
+```

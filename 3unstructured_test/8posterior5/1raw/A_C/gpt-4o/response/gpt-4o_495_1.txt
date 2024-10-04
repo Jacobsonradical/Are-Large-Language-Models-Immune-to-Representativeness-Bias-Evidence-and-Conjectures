@@ -1,0 +1,45 @@
+To compute the posterior probabilities \( P(H|E) \) through Bayes' rule, we use the following equation:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being enrolled in the given field.
+- \( P(E|H) \) is the likelihood of observing Adam's personality sketch given that he is enrolled in the field.
+- \( P(E|\neg H) \) is the likelihood of observing Adam's personality sketch given that he is not enrolled in the field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch.
+
+We make a few assumptions to approximate these values:
+
+1. **Priors \( P(H) \)**:
+   - Let's assume relatively equal priors but skewed slightly based on the common distribution of fields among graduate students. Arbitrarily, we'll assign:
+     - \( P(\text{computer science}) = 0.3 \)
+     - \( P(\text{agricultural and veterinary science}) = 0.1 \)
+
+2. **Likelihoods \( P(E|H) \)**:
+   - For computer science, given Adam's personality traits and interests, we might consider a lower likelihood since his strong empathy, deep love for animals, and curiosity about nature might be less common:
+     - \( P(E|\text{computer science}) = 0.3 \)
+   - For agricultural and veterinary science, Adam's traits seem a perfect fit; hence this likelihood would be high:
+     - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+
+3. **Overall likelihood \( P(E) \)**:
+   - \( P(E) \) can be derived but is simplified here. Given the selected fields, we'll assume:
+     - \( P(E) \approx 0.2 \) (a simplified approximation considering a broad distribution across all fields).
+
+Now, applying Bayes’ rule to compute \( P(H|E) \):
+
+For **computer science**:
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} = \frac{0.3 \cdot 0.3}{0.2} = 0.45 \]
+
+For **agricultural and veterinary science**:
+\[ P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)} = \frac{0.8 \cdot 0.1}{0.2} = 0.4 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "computer science": 0.45,
+  "agricultural and veterinary science": 0.4
+}
+```
+
+These values are approximations based on the given assumptions and may vary with more precise data.

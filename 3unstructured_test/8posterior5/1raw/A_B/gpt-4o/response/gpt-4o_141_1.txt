@@ -1,0 +1,48 @@
+To solve this problem, we'll first need to judge the probabilities associated with each field based on the personality sketch of Adam. Then we'll use Bayes' Rule to compute the posterior probabilities. Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability Adam was enrolled in a specific field given his personality sketch.
+- \( P(E|H) \) is the probability of the personality sketch given Adam was enrolled in that specific field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the probability of the personality sketch occurring.
+
+We'll assume the following:
+- \( P(H) \) values are the same for both fields, say 0.1 (undergrad assumption about equal distribution, given other fields exist too).
+- Personality sketch \( E \).
+
+First, let's analyze \( P(E|H) \) and \( P(E|\neg H) \):
+### Agricultural and Veterinary Science
+1. **P(H)**: Probability that Adam is enrolled in agricultural and veterinary science could be common about 0.1.
+2. **P(E|H)**: Given Adam’s personality sketch (love for nature, animals, empathy), he fits very well into this field. So, assign a high value, say 0.8.
+3. **P(E|\neg H)**: Among people not in agricultural and veterinary science, the probability of having this personality sketch might be lower, say 0.2.
+
+Using these, we can compute:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.1}{P(E)} \]
+
+### Business Administration
+1. **P(H)**: Probability that Adam is enrolled in business administration is also assumed to be 0.1.
+2. **P(E|H)**: Given Adam’s personality sketch, he doesn't fit as well into business administration. Assign a lower value, say 0.2.
+3. **P(E|\neg H)**: Among people not in business administration, the probability of having his personality sketch might be higher, say 0.5.
+
+Using these, we can compute:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)} \]
+
+### Normalizing Values
+The denominator \( P(E) \) equals to total probabilities across all hypotheses (including other fields). So we compare relative strengths:
+
+- Normalized value for agricultural and veterinary science:
+  \[ \frac{0.8 \cdot 0.1}{P(E)} = \frac{0.08}{P(E)} \]
+
+- Normalized value for business administration:
+  \[ \frac{0.2 \cdot 0.1}{P(E)} = \frac{0.02}{P(E)} \]
+
+The sum of probabilities is \(0.08 + 0.02 + \ldots = 0.1\) (normalize proportional factors):
+  
+{
+  "agricultural and veterinary science": 0.8, 
+  "business administration": 0.2
+}
+
+This reflects the relative weight of enrollment likelihood based on Adam's personality.

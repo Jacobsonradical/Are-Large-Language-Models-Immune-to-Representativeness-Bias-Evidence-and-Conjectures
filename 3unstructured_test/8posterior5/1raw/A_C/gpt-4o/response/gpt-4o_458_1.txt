@@ -1,0 +1,50 @@
+To compute the posterior probabilities \( P(H|E) \) for each field of study, we need to use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are only comparing the two fields of interest (agricultural and veterinary science, and computer science), we can simplify the problem by focusing on the relative likelihoods of \( P(E|H) \) and \( P(H) \) for each field.
+
+Let's denote:
+- \( H1 \): Adam was enrolled in agricultural and veterinary science.
+- \( H2 \): Adam was enrolled in computer science.
+
+We need to estimate the prior probabilities \( P(H1) \) and \( P(H2) \), as well as the likelihoods \( P(E|H1) \) and \( P(E|H2) \).
+
+### Agricultural and Veterinary Science (H1)
+- \( P(H1) \): This represents the prior probability that Adam was enrolled in agricultural and veterinary science.
+  - Since Adam has a genuine curiosity about nature and its plants, a deep love for animals, and strong empathy, these traits align well with someone in this field. Let's assume \( P(H1) = 0.2 \).
+- \( P(E|H1) \): This represents the probability of observing the personality sketch given that Adam is in this field.
+  - Given Adam's traits, it is highly likely that someone in agricultural and veterinary science would have these characteristics. Let's assume \( P(E|H1) = 0.9 \).
+
+### Computer Science (H2)
+- \( P(H2) \): This represents the prior probability that Adam was enrolled in computer science.
+  - Adam is of high intelligence and enjoys solving puzzles, which align well with someone in computer science. Let's assume \( P(H2) = 0.3 \).
+- \( P(E|H2) \): This represents the probability of observing the personality sketch given that Adam is in this field.
+  - While some traits align well (high intelligence and puzzle-solving), others (love for nature and animals) do not. Let's assume \( P(E|H2) = 0.5 \).
+
+### Computing \( P(H|E) \)
+
+Let's use Bayes' rule:
+
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2)} \]
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2)} \]
+
+#### Calculation
+
+Computing the denominators:
+\[ P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) = (0.9 \cdot 0.2) + (0.5 \cdot 0.3) = 0.18 + 0.15 = 0.33 \]
+
+Computing \( P(H1|E) \):
+\[ P(H1|E) = \frac{0.9 \cdot 0.2}{0.33} = \frac{0.18}{0.33} \approx 0.545 \]
+
+Computing \( P(H2|E) \):
+\[ P(H2|E) = \frac{0.5 \cdot 0.3}{0.33} = \frac{0.15}{0.33} \approx 0.455 \]
+
+Thus, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.545,
+  "computer science": 0.455
+}
+```

@@ -1,0 +1,57 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to follow these steps:
+
+1. **Estimate the prior \( P(H) \)**: The probability that Adam was enrolled in the respective field without knowing his personality sketch.
+2. **Estimate \( P(E|H) \)**: The probability of observing Adam's personality sketch given that he was enrolled in the respective field.
+3. **Estimate \( P(E|\neg H) \)**: The probability of observing Adam's personality sketch given that he was not enrolled in the respective field.
+
+**Bayes' rule** tells us:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We will assume \( P(E) \) to be a normalizing constant that makes sure our posteriors add up to 1 across all possible fields, but since we only need relative values to compare, we'll omit it from our calculations.
+
+Let’s break this down for each of the fields:
+
+### Business Administration (BA)
+
+- **P(H)**: Moderate probability, as Business Administration is a common graduate program.
+  - Estimated \( P(H) \approx 0.2 \)
+- **P(E|H)**: Lower probability that someone in Business Administration would have Adam's personality sketch, which is more focused on nature and empathy over business metrics.
+  - Estimated \( P(E|H) \approx 0.1 \)
+- **P(E|\neg H)**: Moderate probability of observing Adam's personality sketch if he were in other fields.
+  - Estimated \( P(E|\neg H) \approx 0.3 \)
+
+Applying Bayes' rule (ignoring \( P(E) \) as a constant):
+
+\[ P(H|E) = P(E|H) \cdot P(H) \]
+\[ P(H|E)_{BA} = 0.1 \cdot 0.2 = 0.02 \]
+
+### Agricultural and Veterinary Science (AVS)
+
+- **P(H)**: Moderate probability, less common than Business Administration but still significant.
+  - Estimated \( P(H) \approx 0.1 \)
+- **P(E|H)**: High probability that someone in AVS would have Adam's personality sketch, which fits well with nature, animals, empathy, and hard work.
+  - Estimated \( P(E|H) \approx 0.7 \)
+- **P(E|\neg H)**: This would be lower since fewer other fields align so perfectly with Adam’s interests and personality.
+  - Estimated \( P(E|\neg H) \approx 0.2 \)
+
+Applying Bayes' rule (ignoring \( P(E) \) as a constant):
+
+\[ P(H|E) = P(E|H) \cdot P(H) \]
+\[ P(H|E)_{AVS} = 0.7 \cdot 0.1 = 0.07 \]
+
+Now, normalizing (so the total considerations add up relatively):
+
+Business Administration: 
+\[ \frac{0.02}{0.02 + 0.07} = \frac{0.02}{0.09} \approx 0.222 \]
+
+Agricultural and Veterinary Science: 
+\[ \frac{0.07}{0.02 + 0.07} = \frac{0.07}{0.09} \approx 0.778 \]
+
+Thus, the normalized probabilities are:
+
+```json
+{
+  "business administration": 0.222,
+  "agricultural and veterinary science": 0.778
+}
+```

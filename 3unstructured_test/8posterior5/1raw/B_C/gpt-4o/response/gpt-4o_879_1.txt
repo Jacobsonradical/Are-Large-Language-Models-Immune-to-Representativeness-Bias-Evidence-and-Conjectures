@@ -1,0 +1,47 @@
+To utilize Bayes' Rule to compute \( P(H|E) \) for each field, we need to estimate:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \): The likelihood of Adam's personality sketch given that he was enrolled in that field.
+- \( P(E|\neg H) \): The likelihood of Adam's personality sketch given that he was not enrolled in that field.
+
+Next, we will use the formula:
+\[ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} \]
+where \( P(E) \) (the total probability of the evidence) can be derived from the law of total probability but is not necessary in this context as it will normalize the probabilities.
+
+Let's break it down for each field.
+
+### Business Administration
+1. **\( P(H) \)**: The prior probability that a graduate student would be enrolled in Business Administration. This can be considered reasonably common, so let's assume \( P(H)_{BA} \approx 0.1 \).
+2. **\( P(E|H) \)**: Whether Adam’s personality traits (interest in nature, animals, puzzles, empathy, and intelligence) are common among Business Administration students. These traits are not highly specific to Business Administration, so let's assume \( P(E|H)_{BA} \approx 0.2 \).
+3. **\( P(E|\neg H) \)**: The likelihood of Adam's personality sketch if he is not in Business Administration. Since these traits are quite general, we'll assume \( P(E|\neg H) \approx 0.2 \).
+
+### Computer Science
+1. **\( P(H) \)**: The prior probability that a graduate student would be enrolled in Computer Science. This could be very common, so let's assume \( P(H)_{CS} \approx 0.15 \).
+2. **\( P(E|H) \)**: The likelihood of the personality sketch matching a Computer Science student. Interest in puzzles, intelligence, and abstract concepts align well with Computer Science, so let's estimate \( P(E|H)_{CS} \approx 0.6 \).
+3. **\( P(E|\neg H) \)**: The same as above, \( P(E|\neg H) \approx 0.2 \).
+
+Applying Bayes' Rule:
+
+1. **Business Administration**
+\[ P(H|E)_{BA} = \frac{P(E|H)_{BA} \times P(H)_{BA}}{P(E)} \]
+\[ P(H|E)_{BA} = \frac{0.2 \times 0.1}{P(E)} \]
+\[ P(H|E)_{BA} \propto 0.02 \]
+
+2. **Computer Science**
+\[ P(H|E)_{CS} = \frac{P(E|H)_{CS} \times P(H)_{CS}}{P(E)} \]
+\[ P(H|E)_{CS} = \frac{0.6 \times 0.15}{P(E)} \]
+\[ P(H|E)_{CS} \propto 0.09 \]
+
+Since we don't need to normalize by \( P(E) \) for this relative comparison, the values remain as relative strengths.
+
+Normalized relative probabilities:
+\[ P(H|E)_{BA} = \frac{0.02}{0.02 + 0.09} \approx 0.18 \]
+\[ P(H|E)_{CS} = \frac{0.09}{0.02 + 0.09} \approx 0.82 \]
+
+Thus:
+```
+{
+  "business administration": 0.18,
+  "computer science": 0.82
+}
+```

@@ -1,0 +1,49 @@
+To apply Bayes' rule, we need to evaluate the following:
+
+1. Prior Probability, P(H): The initial probability that Adam is enrolled in a given field without considering the personality sketch.
+2. Likelihood, P(E|H): The probability of observing the personality sketch given that Adam is enrolled in the given field.
+3. Evidence, P(E): The total probability of observing the personality sketch across all fields.
+4. Complementary Likelihood, P(E|¬H): The probability of observing the personality sketch given that Adam is not enrolled in the given field.
+
+Using Bayes' rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To simplify this process, we'll assume a uniform prior probability, meaning we initially assume that Adam is equally likely to be in any of the broad fields (as we do not know the overall distribution of students across these fields). This assumption simplifies calculations by focusing on relative comparisons.
+
+Let's make some reasonable assumptions about the likelihoods and approximate these values based on the given personality sketch:
+
+- Computer Science
+  - P(H): This represents a baseline likelihood that Adam is in this field, let's assume 0.2 as an initial prior.
+  - P(E|H): Likelihood of the given sketch fitting a computer science student; let's assume it's relatively moderate, given curiosity and intelligence but low empathy association; say 0.3.
+  - P(E|¬H): Average probability that the profile fits students in other fields, also moderately, let's say 0.4.
+
+- Agricultural and Veterinary Science
+  - P(H): Let's assume a baseline prior, say 0.1 (assuming this is a less common field).
+  - P(E|H): High, given his love for animals and plants and empathy; let's assign 0.9.
+  - P(E|¬H): Average probability fitting non-agricultural yet service-oriented students, such as 0.3.
+
+- Business Administration
+  - P(H): An initial baseline, higher market share of students; assume 0.3 as many might attend.
+  - P(E|H): Given Adam's personality, the fit isn't high as thinkers in this field may less align; assume 0.2.
+  - P(E|¬H): Higher probability relative to other categories, creative students might bridge into business but not primarily; assume 0.5.
+
+Using these estimates, calculations would yield:
+
+\[ P(H|E)_{CS} \approx \frac{0.3 \times 0.2}{0.3 \times 0.2 + 0.9 \times 0.1 + 0.2 \times 0.3} \]
+\[ = \frac{0.06}{0.06+0.09+0.06} \approx 0.222 \]
+
+\[ P(H|E)_{AVS} \approx \frac{0.9 \times 0.1}{0.3 \times 0.2 + 0.9 \times 0.1 + 0.2 \times 0.3} \]
+\[ = \frac{0.09}{0.06+0.09+0.06} \approx 0.333 \]
+
+\[ P(H|E)_{BA} \approx \frac{0.2 \times 0.3}{0.3 \times 0.2 + 0.9 \times 0.1 + 0.2 \times 0.3} \]
+\[ = \frac{0.06}{0.06+0.09+0.06} \approx 0.222 \]
+
+Given these calculated posterior probabilities, we have:
+
+{
+  "computer science": 0.222,
+  "agricultural and veterinary science": 0.333,
+  "business administration": 0.222
+}
+
+These calculations indicate a higher likelihood for Adam to be enrolled in agricultural and veterinary science, based on the provided personality sketch, relative to computer science and business administration.

@@ -1,0 +1,67 @@
+To compute \( P(H|E) \) for each of the fields (computer science, agricultural and veterinary science, and business administration), we need to apply Bayes' Rule:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Where:
+- \( P(H) \) is the prior probability of Adam being in that field.
+- \( P(E|H) \) is the probability of observing Adam's personality traits given that he is in that field.
+- \( P(E|\neg H) \) is the probability of observing Adam's personality traits given that he is not in that field.
+- \( P(E) \) is the total probability of observing Adam's personality traits.
+
+Bayes' Rule simplifies to:
+
+\[
+P(H|E) \propto P(E|H) \cdot P(H)
+\]
+
+For simplicity, let's assume \( P(E) \) is a normalizing constant. We also need to make some reasonable assumptions about the prior probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+### Assumptions
+
+1. **Computer Science (H1)**
+   - \( P(H1) \approx 0.20 \) (20% of graduate students could be in computer science, a fairly common field).
+   - \( P(E|H1) \approx 0.40 \) (Adam's curiosity and high intelligence can fit well with computer science, but his empathy and love for nature might be less aligned).
+   - \( P(E|\neg H1) \approx 0.05 \) (Adam's traits are less typical for a computer science student).
+
+2. **Agricultural and Veterinary Science (H2)**
+   - \( P(H2) \approx 0.10 \) (Less common than computer science but not rare).
+   - \( P(E|H2) \approx 0.80 \) (Adam's traits fit exceptionally well with this field).
+   - \( P(E|\neg H2) \approx 0.10 \) (Such a strong alignment of traits is less common outside this field).
+
+3. **Business Administration (H3)**
+   - \( P(H3) \approx 0.15 \) (A common field, but not as common as computer science).
+   - \( P(E|H3) \approx 0.15 \) (Less alignment with Adam's strong empathy and love for nature).
+   - \( P(E|\neg H3) \approx 0.20 \) (Adam's traits are more common outside business administration).
+
+### Computations
+
+Next, we calculate the unnormalized posterior probabilities \( P(H|E) \).
+
+#### Computer Science:
+\[
+P(H1|E) \propto P(E|H1) \cdot P(H1) = 0.40 \cdot 0.20 = 0.08
+\]
+
+#### Agricultural and Veterinary Science:
+\[
+P(H2|E) \propto P(E|H2) \cdot P(H2) = 0.80 \cdot 0.10 = 0.08
+\]
+
+#### Business Administration:
+\[
+P(H3|E) \propto P(E|H3) \cdot P(H3) = 0.15 \cdot 0.15 = 0.0225
+\]
+
+These values can now be normalized if desired, but since we care primarily about relative probabilities, we can report the unnormalized values directly:
+
+```json
+{
+  "computer science": 0.08,
+  "agricultural and veterinary science": 0.08,
+  "business administration": 0.0225
+}
+```
+
+This indicates that Adam's personality and background make it relatively equally probable for him to be in either Computer Science or Agricultural and Veterinary Science, with much lower likelihood of being in Business Administration.

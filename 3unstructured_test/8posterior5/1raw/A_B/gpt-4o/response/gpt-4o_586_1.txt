@@ -1,0 +1,61 @@
+Let's denote:
+
+- H1: Adam was enrolled in agricultural and veterinary science.
+- H2: Adam was enrolled in business administration.
+
+Given the personality sketch E:
+
+To compute the posterior probability P(H|E) for each field, we can use Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+First, let's assign some reasonable probabilities based on the personality sketch and general knowledge.
+
+1. **Agricultural and Veterinary Science (H1)**:
+    - P(H1): We need to assign a prior probability. Given Adam's curiosity about nature, love for animals, and high empathy, it's reasonable to assign a relatively higher prior probability.
+    - P(E|H1): The likelihood of Adam having such a personality given he is in this field is very high.
+    - P(E|\neg H1): The likelihood of Adam having such a personality given he is in a different field might be lower.
+
+2. **Business Administration (H2)**:
+    - P(H2): Given Adam's personality, it seems less aligned with business administration.
+    - P(E|H2): The likelihood of Adam having such a personality given he is in this field is lower.
+    - P(E|\neg H2): The likelihood of Adam having such a personality given he is in a different field might be higher.
+
+Let's assign some numerical estimates for priors and likelihoods:
+
+- P(H1) = 0.3
+- P(H2) = 0.1
+- P(E|H1) = 0.9
+- P(E|H2) = 0.2
+- P(E|\neg H1) = 0.2
+- P(E|\neg H2) = 0.8
+
+Since P(E) is common for both fields, it will cancel out when comparing P(H1|E) and P(H2|E).
+
+Using Bayes' rule for each field:
+
+1. **Agricultural and Veterinary Science (H1)**:
+\[ P(H1|E) = \frac{P(E|H1) \cdot P(H1)}{P(E)} \]
+\[ P(H1|E) \propto P(E|H1) \cdot P(H1) \]
+\[ P(H1|E) \propto 0.9 \cdot 0.3 = 0.27 \]
+
+2. **Business Administration (H2)**:
+\[ P(H2|E) = \frac{P(E|H2) \cdot P(H2)}{P(E)} \]
+\[ P(H2|E) \propto P(E|H2) \cdot P(H2) \]
+\[ P(H2|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+Normalizing these probabilities to sum to 1 among the considered fields:
+
+Total = 0.27 + 0.02 = 0.29
+
+\[ P(H1|E) = \frac{0.27}{0.29} \approx 0.93 \]
+\[ P(H2|E) = \frac{0.02}{0.29} \approx 0.07 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.93,
+  "business administration": 0.07
+}
+```

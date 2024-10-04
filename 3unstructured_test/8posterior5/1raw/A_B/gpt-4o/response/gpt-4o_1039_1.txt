@@ -1,0 +1,77 @@
+To calculate the posterior probabilities \(P(H|E)\) using Bayes' theorem, we need to consider the prior probabilities \(P(H)\), the likelihoods \(P(E|H)\), and the complement likelihoods \(P(E|\neg H)\). 
+
+Given:
+- \(H\)=likelihood of being enrolled in a specific field.
+- \(E\)=personality sketch of Adam.
+
+Bayes' theorem is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We can rewrite this as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))} \]
+
+### Assumptions for Prior Probabilities:
+
+1. **Business Administration**:
+    - \( P(H_{\text{BA}}) \): Typically many students enroll in business programs, making this a common field.
+    - \( P(E|H_{\text{BA}}) \): Low, as Adam's personality sketch does not align closely with common traits for business administration.
+    - \( P(E|\neg H_{\text{BA}}) \): Higher, as Adam's traits are more common in non-business fields.
+
+2. **Agricultural and Veterinary Science**:
+    - \( P(H_{\text{AVS}}) \): Less common than business administration but still significant.
+    - \( P(E|H_{\text{AVS}}) \): High, as Adam's personality sketch closely matches traits common for this field.
+    - \( P(E|\neg H_{\text{AVS}}) \): Lower, as these traits are less common in other fields.
+
+### Estimations for Prior and Likelihoods:
+
+1. Business Administration:
+    - \(P(H_{\text{BA}}) \approx 0.3\)
+    - \(P(E|H_{\text{BA}}) \approx 0.1\)
+    - \(P(E|\neg H_{\text{BA}}) \approx 0.5\)
+
+2. Agricultural and Veterinary Science:
+    - \(P(H_{\text{AVS}}) \approx 0.1\)
+    - \(P(E|H_{\text{AVS}}) \approx 0.7\)
+    - \(P(E|\neg H_{\text{AVS}}) \approx 0.2\)
+
+### Calculations using Bayes' Theorem:
+
+#### Business Administration:
+\[ 
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}}) \cdot (1 - P(H_{\text{BA}}))} 
+\]
+\[ 
+= \frac{0.1 \cdot 0.3}{0.1 \cdot 0.3 + 0.5 \cdot 0.7} 
+\]
+\[ 
+= \frac{0.03}{0.03 + 0.35} 
+\]
+\[ 
+= \frac{0.03}{0.38} 
+\]
+\[ 
+= 0.079 
+\]
+
+#### Agricultural and Veterinary Science:
+\[ 
+P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}}) + P(E|\neg H_{\text{AVS}}) \cdot (1 - P(H_{\text{AVS}}))} 
+\]
+\[ 
+= \frac{0.7 \cdot 0.1}{0.7 \cdot 0.1 + 0.2 \cdot 0.9} 
+\]
+\[ 
+= \frac{0.07}{0.07 + 0.18} 
+\]
+\[ 
+= \frac{0.07}{0.25} 
+\]
+\[ 
+= 0.28 
+\]
+
+### Summary:
+{
+  "business administration": 0.079,
+  "agricultural and veterinary science": 0.28
+}

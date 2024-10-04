@@ -1,0 +1,63 @@
+To compute the probabilities \( P(H|E) \) for the fields of business administration and agricultural and veterinary science, we first need to assess the following probabilities:
+
+1. \( P(H) \) - the prior probability of Adam being in each field, 
+2. \( P(E|H) \) - the likelihood of Adam having the given personality sketch if he is in the specified field,
+3. \( P(E|\neg H) \) - the likelihood of Adam having the given personality sketch if he is not in the specified field.
+
+Let's make some reasonable assumptions based on the provided personality sketch:
+
+1. **Business Administration**:
+   - \( P(H) \) for business administration might be smaller given Adam’s characteristics, but still significant as many students pursue this field.
+   - \( P(E|H) \) might be low because business administration does not typically focus on nature, plants, animals, or abstract puzzles.
+   - \( P(E|\neg H) \) would be fairly higher given the specificity of his interests, suggesting he might not fit as well in business administration.
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H) \) for agricultural and veterinary science might be reasonably high because it aligns well with Adam’s interests.
+   - \( P(E|H) \) would be high because his personality sketch fits naturally with someone in this field.
+   - \( P(E|\neg H) \) would be lower because it’s less common for students outside this field to have such a perfect alignment with his interests.
+
+Let’s estimate values:
+
+- For **Business Administration**:
+  - \( P(H) = 0.1 \)
+  - \( P(E|H) = 0.2 \)
+  - \( P(E|\neg H) = 0.05 \)
+
+- For **Agricultural and Veterinary Science**:
+  - \( P(H) = 0.2 \)
+  - \( P(E|H) = 0.8 \)
+  - \( P(E|\neg H) = 0.1 \)
+
+Using Bayes’ rule:
+\[ 
+P(H|E) = \frac{P(E|H)P(H)}{P(E)} 
+\]
+
+where \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \).
+
+Let's compute:
+
+1. **Business Administration**:
+\[ 
+P(E) = (0.2 \times 0.1) + (0.05 \times 0.9) = 0.02 + 0.045 = 0.065 
+\]
+\[ 
+P(H|E) = \frac{0.2 \times 0.1}{0.065} = \frac{0.02}{0.065} \approx 0.31 
+\]
+
+2. **Agricultural and Veterinary Science**:
+\[ 
+P(E) = (0.8 \times 0.2) + (0.1 \times 0.8) = 0.16 + 0.08 = 0.24 
+\]
+\[ 
+P(H|E) = \frac{0.8 \times 0.2}{0.24} = \frac{0.16}{0.24} \approx 0.67 
+\]
+
+Thus, the probabilities of Adam being in each field given the personality sketch are:
+
+```json
+{
+  "business administration": 0.31,
+  "agricultural and veterinary science": 0.67
+}
+```

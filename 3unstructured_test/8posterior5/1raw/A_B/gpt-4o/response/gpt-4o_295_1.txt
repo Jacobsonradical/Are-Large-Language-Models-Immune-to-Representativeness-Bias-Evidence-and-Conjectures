@@ -1,0 +1,42 @@
+To use Bayes' theorem to estimate the probabilities that Adam was enrolled in either "agricultural and veterinary science" or "business administration" based on his personality sketch, we need to assign reasonable estimates for the following probabilities:
+
+- \( P(H) \): Prior probability that Adam was enrolled in a particular field.
+- \( P(E|H) \): Likelihood of Adam's personality sketch given he was enrolled in a particular field.
+- \( P(E|\neg H) \): Likelihood of Adam's personality sketch given he was not enrolled in that particular field.
+- \( P(H|E) \): Posterior probability that Adam was enrolled in a particular field given his personality sketch.
+
+### Assumptions:
+
+1. **Agricultural and Veterinary Science**:
+   - **Prior (\( P(H) \))**: This field is relatively specific and might have a smaller general enrollment compared to business administration. Assume \( P(H) = 0.05 \).
+   - **Likelihood (\( P(E|H) \))**: Given Adam's strong interest in nature, love for animals, and appreciation for hard work, his personality sketch is highly consistent with this field. Assume \( P(E|H) = 0.8 \).
+   - **Likelihood (\( P(E|\neg H) \))**: Given the uniqueness of the personality sketch, we can assume it's less likely to match fields outside this specialization. Assume \( P(E|\neg H) = 0.2 \).
+
+   Using Bayes' theorem:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{(P(E|H) \cdot P(H)) + (P(E|\neg H) \cdot (1 - P(H)))}
+   \]
+   \[
+   P(H|E) = \frac{0.8 \cdot 0.05}{(0.8 \cdot 0.05) + (0.2 \cdot (1 - 0.05))} = \frac{0.04}{0.04 + 0.19} = \frac{0.04}{0.23} \approx 0.174
+   \]
+
+2. **Business Administration**:
+   - **Prior (\( P(H) \))**: This is a more common field, so let’s assume \( P(H) = 0.10 \).
+   - **Likelihood (\( P(E|H) \))**: The personality sketch is less aligned with business administration compared to agricultural and veterinary science. Assume \( P(E|H) = 0.2 \).
+   - **Likelihood (\( P(E|\neg H) \))**: Since there are many fields outside business administration, assume the likelihood remains consistent at \( P(E|\neg H) = 0.2 \).
+
+   Using Bayes' theorem:
+   \[
+   P(H|E) = \frac{0.2 \cdot 0.10}{(0.2 \cdot 0.10) + (0.2 \cdot (1 - 0.10))} = \frac{0.02}{0.02 + 0.18} = \frac{0.02}{0.20} = 0.1
+   \]
+
+### Result:
+
+```json
+{
+  "agricultural and veterinary science": 0.174,
+  "business administration": 0.1
+}
+```
+
+These values indicate that, based on the given personality sketch, Adam has a higher likelihood of being enrolled in agricultural and veterinary science compared to business administration.

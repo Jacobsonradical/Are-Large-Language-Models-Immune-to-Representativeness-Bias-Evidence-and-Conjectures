@@ -1,0 +1,45 @@
+To determine \( P(H|E) \) for Adam being enrolled in business administration and computer science, we need to follow the steps outlined and use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### 1. Analyzing Each Field:
+
+**Business Administration:**
+
+- \( P(H) \): The prior probability that any given student is enrolled in business administration. This might be something like 10% (0.10).
+- \( P(E|H) \): The probability of Adam's personality sketch given that he is in business administration. Given his love for nature, empathy, and intelligence, this perhaps isn't the best fit but not impossible. Let's assign it a lower value like 0.2.
+- \( P(E|\neg H) \): The probability of Adam's personality sketch given that he is not in business administration. This would likely be higher than 0.2 because his personality seems to align more with fields outside business administration. Let's assign it a value like 0.4 for the general populace.
+
+**Computer Science:**
+
+- \( P(H) \): The prior probability that any given student is enrolled in computer science. Let's use 15% (0.15) as it is a popular field.
+- \( P(E|H) \): The probability of Adam's personality sketch given that he is in computer science. A love for puzzles, high intelligence, and abstract thinking matches well with computer science. Let's give this a higher value, say 0.6.
+- \( P(E|\neg H) \): The probability of Adam's personality sketch given that he is not in computer science. Since traits like curiosity and intelligence can be universal, let's assume a middling value like 0.4 for the general populace.
+
+### 2. Compute P(E):
+
+We need \( P(E) \), which is the total probability of E across all hypotheses and can be approximated as follows:
+
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) + \ldots \]
+
+However, for the purpose of these calculations, we'll treat these fields individually without extensive normalization:
+\[ P(E) \approx P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{CS}) \cdot P(H_{CS}) \]
+
+### 3. Plugging Numbers into Bayes' Rule:
+
+#### Business Administration:
+\[ P(H_{BA}|E) \approx \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} = \frac{0.2 \cdot 0.10}{(0.2 \cdot 0.10) + (0.6 \cdot 0.15) } = \frac{0.02}{0.02 + 0.09} = \frac{0.02}{0.11} \approx 0.18 \]
+
+#### Computer Science:
+\[ P(H_{CS}|E) \approx \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} = \frac{0.6 \cdot 0.15}{(0.2 \cdot 0.10) + (0.6 \cdot 0.15)} = \frac{0.09}{0.02 + 0.09} = \frac{0.09}{0.11} \approx 0.82 \]
+
+### 4. Wrap-up the Results:
+
+```json
+{
+  "business administration": 0.18,
+  "computer science": 0.82
+}
+```
+
+Note: The exact values of \( P(E) \) and the priors will affect the final results. The probabilities provided are estimates based on the provided personality sketch and typical student distributions in these fields.

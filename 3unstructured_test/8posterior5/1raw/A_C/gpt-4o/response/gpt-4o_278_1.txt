@@ -1,0 +1,59 @@
+Let's evaluate the probabilities step by step using the available information:
+
+### Background Probabilities
+1. **P(H) - Prior Probability**: This is the probability that Adam was enrolled in a given field before observing any specific evidence (i.e., his personality sketch). 
+
+   - For **computer science**, let's assume the prior probability \( P(H_{CS}) \) is fairly high because computer science is a popular field. Let's set \( P(H_{CS}) = 0.3 \).
+     
+   - For **agricultural and veterinary science**, let's assume the prior probability \( P(H_{AVS}) \) is lower because it’s a more specialized field. Let's set \( P(H_{AVS}) = 0.1 \).
+
+2. **P(E|H) - Likelihood**: This is the probability of observing Adam’s personality traits given he is enrolled in one of the fields.
+
+   - For **computer science**, Adam's traits such as enjoying solving puzzles and understanding abstract concepts would fit well. Let's set this fairly high at \( P(E|H_{CS}) = 0.6 \).
+     
+   - For **agricultural and veterinary science**, Adam’s genuine curiosity about nature, love for animals, and strong empathy make it very likely. Let's set this higher at \( P(E|H_{AVS}) = 0.9 \).
+
+3. **P(E|\neg H) - Likelihood under complement**: This is the probability of observing Adam’s personality traits given he is not enrolled in each field. We will consider this at 0.5 for both fields as a neutral estimate, assuming Adam's traits are reasonably likely across various fields.
+
+### Bayes' Theorem
+Bayes' theorem is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We calculate \( P(E) \) (Normalization Constant) as:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+But we need to proportionally compare only P(H|E) for different hypotheses, so we can skip the normalization step as our final comparison does not require absolute values.
+
+### Calculation
+1. **Computer Science**
+   \[
+   P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.6 \times 0.3 = 0.18
+   \]
+
+2. **Agricultural and Veterinary Science**
+   \[
+   P(H_{AVS}|E) \propto P(E|H_{AVS}) \cdot P(H_{AVS}) = 0.9 \times 0.1 = 0.09
+   \]
+
+### Normalize for Comparison
+To get comparable values, normalize both by the total sum:
+\[
+P_{total} = 0.18 + 0.09 = 0.27
+\]
+
+So we Normalize:
+
+\[
+P(H_{CS}|E) = \frac{0.18}{0.27} \approx 0.67
+\]
+\[
+P(H_{AVS}|E) = \frac{0.09}{0.27} \approx 0.33
+\]
+
+### Conclusion
+```json
+{
+  "computer science": 0.67,
+  "agricultural and veterinary science": 0.33
+}
+```

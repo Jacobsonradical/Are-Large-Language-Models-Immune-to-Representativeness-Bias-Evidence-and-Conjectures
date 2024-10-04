@@ -1,0 +1,62 @@
+To compute \( P(H|E) \) using Bayes' rule, we need to follow the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam is in the field.
+- \( P(E|H) \) is the likelihood that Adam's personality sketch fits someone in the field.
+- \( P(E|\neg H) \) is the likelihood that Adam's personality sketch fits someone not in the field.
+- \( P(E) \) is the overall probability of the personality sketch \( E \), which can be expressed as \( P(E|H)P(H) + P(E|\neg H)P(\neg H) \).
+
+For simplicity, we will assume that there are two major hypotheses (fields of study) and set \( P(H) \) for both fields to be equal initially but adjust based on how common the fields are. 
+
+Let's assume a normalized prior \( P(H) \) (before seeing \( E \)) for these fields. For simplicity, we might estimate roughly equal areas of study but slightly favor Computer Science given its large and growing population in the graduate field:
+
+- \( P(H_{CS}) \approx 0.2 \)
+- \( P(H_{AVS}) \approx 0.1 \)
+
+If we assume approximately equal distribution among other fields of study making up the bulk of students. Also, since there are other fields, the combined probability here does not need to sum to 1.
+
+Now we evaluate the likelihoods \( P(E|H) \):
+
+1. **Computer Science**:
+   - High intelligence and good understanding of abstract concepts fit well \( P(E|H_{CS}) \approx 0.7 \)
+   - Curiosity about nature and empathy for animals is less likely in a CS major \( P(E|H_{CS}) \approx 0.3 \)
+
+2. **Agricultural and Veterinary Science**:
+   - Strong fit given curiosity about nature, plants, empathy for animals \( P(E|H_{AVS}) \approx 0.9 \)
+
+We also estimate \( P(E|\neg H) \) in general for non-specified fields which overall fit/reflect Adam's traits at a slightly lower but relevant rate compared to the specific predictions for provided hypotheses:
+
+- General trait fit without specific field inclination \( P(E|\neg H) \approx 0.4 \)
+
+Let's calculate these:
+
+For **Computer Science**:
+\( P(H_{CS}) = 0.2 \)
+\( P(E|H_{CS}) = 0.3 \)
+
+For **Agricultural and Veterinary Science**:
+\( P(H_{AVS}) = 0.1 \)
+\( P(E|H_{AVS}) = 0.9 \)
+
+Then, let's say the non-specific overall:
+\( P(E) \approx P(E|H_{CS})P(H_{CS}) + P(E|H_{AVS})P(H_{AVS}) + P(E|\neg H)(1-P(H_{CS})-P(H_{AVS})) \)
+= \( (0.3 \cdot 0.2) + (0.9 \cdot 0.1) + (0.4 \cdot (1-0.3-0.1)) \)
+= \( 0.06 + 0.09 + 0.24 \)
+= \( 0.39 \)
+
+Thus, we calculate \( P(H|E) \):
+
+1. **Computer Science**:
+\[ P(H_{CS}|E) = \frac{0.3 \cdot 0.2}{0.39} \approx 0.154 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(H_{AVS}|E) = \frac{0.9 \cdot 0.1}{0.39} \approx 0.231 \]
+
+So, putting it into the required format:
+
+{
+  "computer science": 0.154,
+  "agricultural and veterinary science": 0.231
+}

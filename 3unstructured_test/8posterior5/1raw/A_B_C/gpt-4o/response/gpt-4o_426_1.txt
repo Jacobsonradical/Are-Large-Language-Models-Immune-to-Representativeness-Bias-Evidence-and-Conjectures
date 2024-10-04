@@ -1,0 +1,65 @@
+To compute the probabilities \(P(H|E)\) for each hypothesis (field of study), we will use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of the hypothesis (field of study).
+- \( P(E|H) \) is the likelihood of the evidence (Adam's personality sketch) given the hypothesis.
+- \( P(E|\neg H) \) is the likelihood of the evidence given any other hypothesis.
+- \( P(E) \) is the marginal likelihood of the evidence (can be calculated but isn't strictly necessary to compare relative probabilities).
+
+Let's make some reasonable assumptions and calculate the needed values.
+
+### Assumptions:
+- Prior probabilities, \( P(H) \), for each field of study:
+  - Business Administration: 0.25 (assuming it's among the most common graduate studies)
+  - Agricultural and Veterinary Science: 0.10 (assuming it's less common but still plausible)
+  - Computer Science: 0.25 (also among the most common and relevant given the details)
+
+- Likelihoods, \( P(E|H) \), based on Adam's personality sketch:
+  - Business Administration: 0.05 (as his interests and traits don't strongly align with typical business administration skills or interests)
+  - Agricultural and Veterinary Science: 0.60 (several traits and interests strongly align with this field)
+  - Computer Science: 0.10 (his abstract thinking and problem-solving fit, but other interests don't align strongly)
+
+- Likelihoods, \( P(E|\neg H) \), average likelihood that Adam's personality would be otherwise:
+  - Business Administration: 0.30
+  - Agricultural and Veterinary Science: 0.10
+  - Computer Science: 0.30
+
+These likelihoods don't need to be exact, but should reasonably reflect relative chances based on the information available.
+
+We'll use these to find the individual posterior probabilities:
+
+### Calculation:
+1. Business Administration:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.05 \cdot 0.25}{P(E)} = \frac{0.0125}{P(E)} \]
+
+2. Agricultural and Veterinary Science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.60 \cdot 0.10}{P(E)} = \frac{0.06}{P(E)} \]
+
+3. Computer Science:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.10 \cdot 0.25}{P(E)} = \frac{0.025}{P(E)} \]
+
+Since our interest is in the relative probabilities rather than exact values, we can compare the numerators directly (as \(P(E)\) is a constant and cancels out in the comparison):
+
+### Results:
+We'll normalize these values so they sum to 1 for easier comparison:
+
+Sum of numerators = 0.0125 + 0.06 + 0.025 = 0.0975
+
+Normalized:
+- Business Administration: \(\frac{0.0125}{0.0975} \approx 0.128\)
+- Agricultural and Veterinary Science: \(\frac{0.06}{0.0975} \approx 0.615\)
+- Computer Science: \(\frac{0.025}{0.0975} \approx 0.256\)
+
+### Final Probabilities:
+```json
+{
+  "business administration": 0.128,
+  "agricultural and veterinary science": 0.615,
+  "computer science": 0.256
+}
+```

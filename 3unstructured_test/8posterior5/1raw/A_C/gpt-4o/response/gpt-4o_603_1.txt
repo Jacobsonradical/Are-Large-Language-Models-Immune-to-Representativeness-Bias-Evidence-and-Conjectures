@@ -1,0 +1,56 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to assess the following probabilities for each field:
+- \( P(H) \): The prior probability that Adam is enrolled in that field.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam is enrolled in that field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam is not enrolled in that field.
+
+Let's break this down for the fields of computer science and agricultural and veterinary science.
+
+### Computer Science
+- \( P(H) \): The prior probability that a random graduate student is enrolled in computer science. Let's assume it's around 0.2 (20%) based on general statistics and popularity of the field.
+- \( P(E|H) \): The probability that Adam, a student in computer science, has a personality sketch \( E \). Computer science students can have a wide range of interests, but a strong curiosity about nature, a deep love for animals, and empathy might not be as strongly correlated. Let's assume this probability is 0.1 (10%).
+- \( P(E|\neg H) \): The probability that Adam has the personality sketch \( E \) given that he is not in computer science. Since we have no specific information here, let's assume it to be the complement probability of being in computer science is distributed equally among other fields. Let's set this at 0.8 (80%) to reflect the likelihood across all other fields provided his interests.
+
+Using these values:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since we do not have the overall probability \( P(E) \), we can use a relative scoring approach to compare the two fields.
+
+### Agricultural and Veterinary Science
+- \( P(H) \): The prior probability that a random graduate student is enrolled in agricultural and veterinary science. This is less common than computer science, so let's assume 0.05 (5%).
+- \( P(E|H) \): The probability of Adam having the personality sketch \( E \) given that he is enrolled in agricultural and veterinary science. This field aligns very well with his interests in nature, animals, empathy, and hard work. So let's assume this probability to be 0.7 (70%).
+- \( P(E|\neg H) \): The probability of Adam having the personality sketch \( E \) given that he is not in agricultural and veterinary science. This can be seen as similar to general fields, let's assume it to be 0.8 (80%).
+
+Again, using these values:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+### Calculation
+Let's calculate the relative likelihoods by normalizing across the two fields. Note that we are focusing on the comparison, and for simplicity, we'll generalize the normalization by removing \( P(E) \) from both denominators as it remains constant.
+
+For Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot 0.2 = 0.02 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.7 \cdot 0.05 = 0.035 \]
+
+### Normalizing
+The sum of these proportions: 
+\[ 0.02 + 0.035 = 0.055 \]
+
+Now, to normalize:
+For Computer Science: 
+\[ \frac{0.02}{0.055} \approx 0.36 \]
+
+For Agricultural and Veterinary Science:
+\[ \frac{0.035}{0.055} \approx 0.64 \]
+
+Final values:
+```json
+{
+  "computer science": 0.36,
+  "agricultural and veterinary science": 0.64
+}
+```

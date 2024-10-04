@@ -1,0 +1,85 @@
+To use Bayes' theorem, we compute the posterior probability \( P(H|E) \) using the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to assess:
+- \( P(H) \): The prior probability that Adam is enrolled in the field.
+- \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam is enrolled in the field \( H \).
+- \( P(E|\neg H) \): The probability of the personality sketch \( E \) given that Adam is not enrolled in the field \( H \).
+
+Since \( P(E) \) is common for all fields and does not affect the relative probabilities, we don't need to compute it explicitly. Instead, we’ll focus on \( P(E|H) \cdot P(H) \) for each field.
+
+### Analysis and Assumptions:
+1. **Computer Science:**
+   - \( P(H) \): 
+     Let's assume the general likelihood that a graduate student in the U.S. is in computer science is moderate because it's a popular field.
+     \( P(H) = 0.2 \)
+   - \( P(E|H) \): 
+     Having a curiosity about nature and animals, and being empathetic doesn't strongly correlate with typical traits associated with computer science students, but high intelligence and enjoying puzzles do fit.
+     \( P(E|H) = 0.4 \)
+   - \( P(E|\neg H) \):
+     Considering Adam's traits align less with computer science compared to some other fields, higher given the sketch.
+     \( P(E|\neg H) = 0.6 \)
+
+   \[ P(H|E) = \frac{0.4 \times 0.2}{P(E)} \approx \frac{0.08}{P(E)} \]
+
+2. **Agricultural and Veterinary Science:**
+   - \( P(H) \): 
+     It's less common than computer science but still a viable field given his interests.
+     \( P(H) = 0.05 \)
+   - \( P(E|H) \): 
+     Adam's curiosity about nature and love for animals strongly fit.
+     \( P(E|H) = 0.9 \)
+   - \( P(E|\neg H) \):
+     Considering his personality sketch fits well with this field, it’s relatively lower.
+     \( P(E|\neg H) = 0.3 \)
+
+   \[ P(H|E) = \frac{0.9 \times 0.05}{P(E)} \approx \frac{0.045}{P(E)} \]
+
+3. **Business Administration:**
+   - \( P(H) \): 
+     A commonly pursued field but less likely given the sketch.
+     \( P(H) = 0.15 \)
+   - \( P(E|H) \): 
+     Empathy and appreciation for hard work fit but curiosity about nature and animals does not.
+     \( P(E|H) = 0.2 \)
+   - \( P(E|\neg H) \):
+     Considering his personality sketch aligns less with business administration, higher given others.
+     \( P(E|\neg H) = 0.7 \)
+
+   \[ P(H|E) = \frac{0.2 \times 0.15}{P(E)} \approx \frac{0.03}{P(E)} \]
+
+### Computed Probabilities:
+
+These probabilities are proportional estimates:
+
+```json
+{
+  "computer science": 0.08 / P(E),
+  "agricultural and veterinary science": 0.045 / P(E),
+  "business administration": 0.03 / P(E)
+}
+```
+
+Let’s approximate by normalizing these.
+
+Normalization factor \( P(E) \approx 0.08 + 0.045 + 0.03 = 0.155 \). 
+
+Computing final normalized probabilities:
+
+```json
+{
+  "computer science": 0.08 / 0.155,  // ~0.516
+  "agricultural and veterinary science": 0.045 / 0.155,  // ~0.290
+  "business administration": 0.03 / 0.155  // ~0.194
+}
+```
+
+Based on this, final aided values are:
+```json
+{
+  "computer science": 0.516,
+  "agricultural and veterinary science": 0.290,
+  "business administration": 0.194
+}
+```

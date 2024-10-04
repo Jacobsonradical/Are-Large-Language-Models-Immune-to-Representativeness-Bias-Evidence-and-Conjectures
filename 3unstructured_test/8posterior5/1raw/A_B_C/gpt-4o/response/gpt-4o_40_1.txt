@@ -1,0 +1,81 @@
+To apply Bayes' rule, we need to evaluate the following probabilities for each hypothesis \( H \) (which represents Adam being enrolled in a specific field):
+
+1. \( P(H) \) - Prior probability of Adam being enrolled in that field.
+2. \( P(E|H) \) - Probability of observing the personality sketch \( E \) given that Adam is enrolled in that field.
+3. \( P(E|\neg H) \) - Probability of observing the personality sketch \( E \) given that Adam is not enrolled in that field.
+
+Then, we use Bayes' rule to find \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) (the overall probability of observing the personality sketch \( E \)) is constant for all comparisons, we can focus on evaluating the numerators.
+
+Let's start with reasonable estimations for the priors (\( P(H) \)):
+
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.1,
+  "computer science": 0.2
+}
+
+Next, estimate \( P(E|H) \) for each field based on how well the personality sketch matches typical students in those programs:
+
+{
+  "business administration": 0.1,
+  "agricultural and veterinary science": 0.7,
+  "computer science": 0.4
+}
+
+For \( P(E|\neg H) \), consider the likelihood of finding someone with Adam's profile who is not in each specific field:
+
+{
+  "business administration": 0.2,
+  "agricultural and veterinary science": 0.3,
+  "computer science": 0.3
+}
+
+Now, calculate \( P(H|E) \).
+
+{
+  "business administration": \(\frac{0.1 \cdot 0.2}{P(E)}\),
+  "agricultural and veterinary science": \(\frac{0.7 \cdot 0.1}{P(E)}\),
+  "computer science": \(\frac{0.4 \cdot 0.2}{P(E)}\)
+}
+
+While the exact value of \( P(E) \) is not provided, we can compare the relative likelihoods.
+
+{
+  "business administration": \(\frac{0.02}{P(E)}\),
+  "agricultural and veterinary science": \(\frac{0.07}{P(E)}\),
+  "computer science": \(\frac{0.08}{P(E)}\)
+}
+
+Simplifying relative values without exact \( P(E) \):
+
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.07,
+  "computer science": 0.08
+}
+
+However, these are the relative values. We normalize these for easier interpretation:
+
+Sum of unnormalized probabilities: \( 0.02 + 0.07 + 0.08 = 0.17 \)
+
+Normalized values:
+
+{
+  "business administration": \( \frac{0.02}{0.17} = 0.118 \),
+  "agricultural and veterinary science": \( \frac{0.07}{0.17} = 0.412 \),
+  "computer science": \( \frac{0.08}{0.17} = 0.471 \)
+}
+
+So, the final relative probabilities are:
+
+{
+  "business administration": 0.118,
+  "agricultural and veterinary science": 0.412,
+  "computer science": 0.471
+}
+
+These values provide insight into the adjusted likelihoods based on the given personality sketch.

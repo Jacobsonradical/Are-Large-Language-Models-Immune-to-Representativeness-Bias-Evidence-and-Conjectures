@@ -1,0 +1,55 @@
+To compute the posterior probabilities \(P(H|E)\), let's start with the prior probabilities \(P(H)\), the likelihoods \(P(E|H)\), and the all-over evidence \(P(E)\). We need to compare these fields:
+
+1. **Computer Science**
+2. **Agricultural and Veterinary Science**
+3. **Business Administration**
+
+To use Bayes' theorem, we need:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Let's define some reasonable values for prior probabilities and likelihoods based on common knowledge and the given personality sketch.
+
+### Priors: \(P(H)\)
+While exact figures aren't known without further demographic information, we can take some educated guesses. 
+
+- **Computer Science**: Given the popularity of computer science, let's assume \(P(\text{Computer Science}) = 0.3\).
+- **Agricultural and Veterinary Science**: This field is less common than computer science but still significant. Assume \(P(\text{Agricultural and Veterinary Science}) = 0.15\).
+- **Business Administration**: Given its general appeal and wide applicability, this can also be significant. Assume \(P(\text{Business Administration}) = 0.25\).
+
+### Likelihoods: \(P(E|H)\)
+Based on the personality traits:
+- **Computer Science**: Given Adam's high intelligence and love for solving puzzles, \(P(E|\text{Computer Science})\) should be reasonably high. Suppose \(P(E|\text{Computer Science}) = 0.5\).
+- **Agricultural and Veterinary Science**: Given Adam's curiosity about nature, love for animals, and empathy, this fits well. Suppose \(P(E|\text{Agricultural and Veterinary Science}) = 0.8\).
+- **Business Administration**: Given Adam's dedication and understanding, this could fit, but it’s less specific to the traits mentioned. Suppose \(P(E|\text{Business Administration}) = 0.3\).
+
+### Negations: \(P(E|\neg H)\)
+If Adam is not in a particular field, the probability of seeing his personality traits can be estimated lower:
+- For fields other than Computer Science: \(P(E|\neg \text{Computer Science}) = 0.4\)
+- For fields other than Agricultural and Veterinary Science: \(P(E|\neg \text{Agricultural and Veterinary Science}) = 0.2\)
+- For fields other than Business Administration: \(P(E|\neg \text{Business Administration}) = 0.3\)
+
+### Posterior Probabilities: \(P(H|E)\)
+Combining these using Bayes' theorem, and simplifying under normalization constraints:
+
+#### For Computer Science:
+\[ P(\text{Computer Science}|E) \propto P(E|\text{Computer Science}) P(\text{Computer Science}) = 0.5 \times 0.3 = 0.15 \]
+
+#### For Agricultural and Veterinary Science:
+\[ P(\text{Agricultural and Veterinary Science}|E) \propto P(E|\text{Agricultural and Veterinary Science}) P(\text{Agricultural and Veterinary Science}) = 0.8 \times 0.15 = 0.12 \]
+
+#### For Business Administration:
+\[ P(\text{Business Administration}|E) \propto P(E|\text{Business Administration}) P(\text{Business Administration}) = 0.3 \times 0.25 = 0.075 \]
+
+### Normalize (Optional but helpful in practice):
+While you don't need to normalize in the final step (since it's not asked for), typically, you'd sum up the unnormalized values and divide each by the total to get proper probabilities. The sum of these results \( 0.15 + 0.12 + 0.075 = 0.345 \). This normalization can guide understanding.
+
+### Answer:
+```json
+{
+  "computer science": "0.15",
+  "agricultural and veterinary science": "0.12",
+  "business administration": "0.075"
+}
+```
+
+These values indicate that given Adam's personality traits, the most likely field is Computer Science, followed by Agricultural and Veterinary Science, and lastly Business Administration based on our educated estimates.

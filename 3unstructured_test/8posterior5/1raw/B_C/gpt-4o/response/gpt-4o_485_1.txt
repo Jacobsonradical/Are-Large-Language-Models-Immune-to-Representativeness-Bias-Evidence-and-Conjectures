@@ -1,0 +1,38 @@
+To apply Bayes' rule to compute the probability of Adam being enrolled in each field given the personality sketch, we use the formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is a normalizing constant and remains the same for all hypotheses, we only need to compute the numerator for comparison purposes. For simplicity, we will assume equal prior probabilities \( P(H) \) for each field, and we will estimate \( P(E|H) \) based on how well the personality sketch fits typically associated traits of students in the respective fields.
+
+### Estimations:
+1. **Business Administration**
+   - **P(H) (Prior):** Assume \( P(H) \) is reasonably spread among fields, so \( P(H_{BA}) = 0.1 \).
+   - **P(E|H):** Adam's personality sketch doesn't strongly align with typical traits of MBA students, who might be more sociable and interested in business dynamics than nature and puzzles. Thus, \( P(E|H_{BA}) \approx 0.2 \).
+   - **P(E|\neg H):** If \( H \) is not business administration, it means Adam could be in any other field, and we assess the rest. Given that the sketch is more typical of non-business fields, say \( P(E|\neg H_{BA}) = 0.8 \).
+
+2. **Computer Science**
+   - **P(H) (Prior):** Assume \( P(H) \) is reasonably spread among fields, so \( P(H_{CS}) = 0.1 \).
+   - **P(E|H):** Adam’s intelligence, appreciation for abstract concepts, and quiet nature align well with typical computer science traits. So \( P(E|H_{CS}) \approx 0.7 \).
+   - **P(E|\neg H):** Given E fits CS well and somewhat fits other fields, \( P(E|\neg H_{CS}) = 0.3 \).
+
+### Calculations:
+1. For Business Administration:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.2 \cdot 0.1 = 0.02 \]
+
+2. For Computer Science:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.7 \cdot 0.1 = 0.07 \]
+
+Now, normalize these values to get probabilities that add up to 1 for these two fields:
+
+\[ P(H_{BA}|E) = \frac{0.02}{0.02 + 0.07} = \frac{0.02}{0.09} \approx 0.22 \]
+\[ P(H_{CS}|E) = \frac{0.07}{0.02 + 0.07} = \frac{0.07}{0.09} \approx 0.78 \]
+
+### Final Probabilities:
+```json
+{
+  "business administration": 0.22,
+  "computer science": 0.78
+}
+```
+
+Again, remember these probabilities are relative to each other and given the chosen priors and likelihoods. Adjustments in these assumptions would modify final values.

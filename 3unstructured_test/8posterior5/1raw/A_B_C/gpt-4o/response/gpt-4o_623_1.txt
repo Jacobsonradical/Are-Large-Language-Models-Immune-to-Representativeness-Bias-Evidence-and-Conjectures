@@ -1,0 +1,94 @@
+Let's denote our events clearly for better comprehension:
+
+- \( H_{CS} \): Adam was enrolled in computer science.
+- \( H_{BA} \): Adam was enrolled in business administration.
+- \( H_{AVS} \): Adam was enrolled in agricultural and veterinary science.
+
+Let's specify the estimates of each probability:
+
+1. **P(H):** Prior probability of Adam being enrolled in each field.
+2. **P(E|H):** Likelihood of Adam's personality sketch, given he was in that field.
+3. **P(E|\neg H):** Likelihood of Adam's personality sketch, given he was NOT in that field.
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is the overall probability of the evidence, which is the same for all fields and therefore can be considered as part of the normalization.
+
+### Estimations
+
+1. **Computer Science**:
+   - **P(H)**: Given many students are in fields like computer science, let's assume \( P(H_{CS}) = 0.3 \).
+   - **P(E|H_{CS})**: While computer science might attract individuals with high intelligence and puzzle-solving skills, it might not be as strongly correlated with empathy for animals and nature. Let's estimate \( P(E|H_{CS}) = 0.1 \).
+   - **P(E|\neg H_{CS})**: Let's consider this to be moderate since multiple fields could exhibit such a profile. Let's assume \( P(E|\neg H_{CS}) = 0.25 \).
+
+2. **Business Administration**:
+   - **P(H)**: It's another common field. Let's assume \( P(H_{BA}) = 0.25 \).
+   - **P(E|H_{BA})**: Business administration might not strongly attract individuals with such a strong nature and animal empathy. Let's estimate \( P(E|H_{BA}) = 0.05 \).
+   - **P(E|\neg H_{BA})**: Let's estimate this as similar to the above since it, too, can be considered moderate. Assume \( P(E|\neg H_{BA}) = 0.25 \).
+
+3. **Agricultural and Veterinary Science**:
+   - **P(H)**: This is less common, so let's assume \( P(H_{AVS}) = 0.05 \).
+   - **P(E|H_{AVS})**: This field closely aligns with Adam’s interests and personality traits. So, let’s estimate \( P(E|H_{AVS}) = 0.8 \).
+   - **P(E|\neg H_{AVS})**: This will be similar across non-related fields. Let’s assume \( P(E|\neg H_{AVS}) = 0.25 \).
+
+### Calculations using Bayes' Theorem
+
+Let's simplify ignoring \( P(E) \) as the same normalization factor for each:
+
+1. **Computer Science**:
+   \[
+   P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)}
+   \]
+   \[
+   = \frac{0.1 \cdot 0.3}{P(E)} \approx \frac{0.03}{P(E)}
+   \]
+
+2. **Business Administration**:
+   \[
+   P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)}
+   \]
+   \[
+   = \frac{0.05 \cdot 0.25}{P(E)} \approx \frac{0.0125}{P(E)}
+   \]
+
+3. **Agricultural and Veterinary Science**:
+   \[
+   P(H_{AVS}|E) = \frac{P(E|H_{AVS}) \cdot P(H_{AVS})}{P(E)}
+   \]
+   \[
+   = \frac{0.8 \cdot 0.05}{P(E)} \approx \frac{0.04}{P(E)}
+   \]
+
+### Normalized Results
+
+The overall normalization factor \( P(E) \) is constant, so we’ll only rank relative proportions:
+
+Normalized:
+\[
+{
+  "computer science": \frac{0.03}{0.03 + 0.0125 + 0.04},
+  "business administration": \frac{0.0125}{0.03 + 0.0125 + 0.04},
+  "agricultural and veterinary science": \frac{0.04}{0.03 + 0.0125 + 0.04}
+}
+\]
+
+Approximated:
+\[
+{
+  "computer science": \approx 0.3,
+  "business administration": \approx 0.125,
+  "agricultural and veterinary science": \approx 0.4
+}
+\]
+
+Given all the information and observed personality traits:
+
+```json
+{
+  "computer science": 0.3,
+  "business administration": 0.125,
+  "agricultural and veterinary science": 0.4
+}
+```

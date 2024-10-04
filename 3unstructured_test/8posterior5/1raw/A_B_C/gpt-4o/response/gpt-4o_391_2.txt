@@ -1,0 +1,71 @@
+Let's denote the following:
+
+- \(H_i\) is the hypothesis that Adam was enrolled in field \(i\), where \(i\) can be "agricultural and veterinary science", "business administration", or "computer science".
+- \(E\) is the personality sketch of Adam.
+
+We will use Bayes' Rule to compute \(P(H_i|E)\):
+
+\[ P(H_i|E) = \frac{P(E|H_i) \cdot P(H_i)}{P(E)} \]
+
+Given that there are many possible graduate fields, we will focus on comparing the probabilities and not worrying about the absolute value of \(P(H_i)\). Hence, we need to estimate the likelihoods \(P(E|H_i)\), the prior probabilities \(P(H_i)\), and \(P(E|\neg H_i)\).
+
+### Prior Probabilities (\(P(H_i)\) and \(P(\neg H_i)\))
+We assume a reasonable distribution of students across different fields without specific data. Let's say each field has a base rate —  \(P(H_i)\) — of having 0.1 probability (10%), given the large number of graduate programs. The other hypotheses combined will make up the remainder (\(0.9\)).
+
+### Probabilities (P(E|H_i) and P(E|\neg H_i))
+- For "agricultural and veterinary science" (\(H_1\)):
+  - \(P(E|H_1)\): Given Adam's interest in nature, plants, and animals, it is very high. Let's say 0.9.
+  - \(P(E|\neg H_1)\): Significantly lower, considering the specificity of his interests. Maybe 0.2.
+
+- For "business administration" (\(H_2\)):
+  - \(P(E|H_2)\): Business administration is less likely to align with Adam's specific interests and personality traits. Let's estimate 0.2.
+  - \(P(E|\neg H_2)\): More probable outside this field, let's say 0.8.
+
+- For "computer science" (\(H_3\)):
+  - \(P(E|H_3)\): His interest in solving puzzles and high intelligence fit, but less so the nature/animal aspect. Let's say 0.6.
+  - \(P(E|\neg H_3)\): A bit higher, but not much. Maybe 0.4.
+
+### Application of Bayes' Rule:
+
+- For "agricultural and veterinary science":
+  \[
+  P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} = \frac{0.9 \cdot 0.1}{P(E)}
+  \]
+  Since \(P(E)\) is constant across fields for comparison, it simplifies to:
+  \[
+  P(H_1|E) \propto 0.09
+  \]
+
+- For "business administration":
+  \[
+  P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)}
+  \]
+  Simplified:
+  \[
+  P(H_2|E) \propto 0.02
+  \]
+
+- For "computer science":
+  \[
+  P(H_3|E) = \frac{P(E|H_3) \cdot P(H_3)}{P(E)} = \frac{0.6 \cdot 0.1}{P(E)}
+  \]
+  Simplified:
+  \[
+  P(H_3|E) \propto 0.06
+  \]
+
+### Normalizing
+
+Here, we compare the unnormalized probabilities. The final step, if needed, would be normalizing these probabilities so they sum to 1.
+
+However, given the prompt allows for these values not necessarily summing to 1, we'll leave them proportional.
+
+Here are the comparative probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.09,
+  "business administration": 0.02,
+  "computer science": 0.06
+}
+```

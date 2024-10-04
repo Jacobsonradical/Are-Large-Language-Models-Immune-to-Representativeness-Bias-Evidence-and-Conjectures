@@ -1,0 +1,63 @@
+To apply Bayes' rule and estimate \( P(H|E) \), we need to break down the problem into its components. 
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Let's assume the following priors (\( P(H) \)):
+- P(H: computer science) = 0.3
+- P(H: agricultural and veterinary science) = 0.1
+- P(H: business administration) = 0.2
+
+The values are reflective of general proportions among graduate students in different fields. We are not explicitly given \( P(E) \), but we'll focus on the relationship between \( P(E|H) \) for our specific hypotheses.
+
+Next, we'll estimate \( P(E|H) \), the probability of the evidence given each field:
+
+1. **Computer Science**:
+   - P(E|H) is moderate, because while students may be intelligent and enjoy puzzles, the other personality traits (like love for nature and animals) are not directly related to computer science.
+   - Let's estimate \( P(E|H) = 0.3 \).
+
+2. **Agricultural and Veterinary Science**:
+   - P(E|H) is high, as this field aligns well with curiosity about nature, love for animals, and appreciation for dedication.
+   - Let's estimate \( P(E|H) = 0.8 \).
+
+3. **Business Administration**:
+   - P(E|H) is low to moderate, as while students might be intelligent and appreciate hard work, the specific personality traits (like love for nature and animals) don't align as strongly.
+   - Let's estimate \( P(E|H) = 0.2 \).
+
+Next, we estimate \( P(E|\neg H) \) for each field:
+- This is trickier, but to simplify, consider the average likelihood of Adam's traits appearing in other fields:
+  - A rough estimate might be \( P(E|\neg H) =  0.4 \).
+
+Using Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, because \(P(E)\) can be difficult to pin down:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Normalizing these to sum to 1 can give us much more meaningful values relative to one another.
+
+Let's calculate:
+- For Computer Science: \( P(E|H) \times P(H) = 0.3 \times 0.3 = 0.09 \)
+- For Agricultural and Veterinary Science: \( P(E|H) \times P(H) = 0.8 \times 0.1 = 0.08 \)
+- For Business Administration: \( P(E|H) \times P(H) = 0.2 \times 0.2 = 0.04 \)
+
+Summing these values: \( 0.09 + 0.08 + 0.04 = 0.21 \)
+
+Normalizing:
+- Computer Science: \( \frac{0.09}{0.21} \approx 0.43 \)
+- Agricultural and Veterinary Science: \( \frac{0.08}{0.21} \approx 0.38 \)
+- Business Administration: \( \frac{0.04}{0.21} \approx 0.19 \)
+
+Hence, the results are:
+
+```json
+{
+  "computer science": 0.43,
+  "agricultural and veterinary science": 0.38,
+  "business administration": 0.19
+}
+```
+
+Please remember these specific numbers are based on the heuristic estimates and subjective priors given above. Adjustments to these initial probabilities and likelihood estimates would change the results.

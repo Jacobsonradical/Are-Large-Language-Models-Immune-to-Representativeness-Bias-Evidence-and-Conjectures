@@ -1,0 +1,63 @@
+To apply Bayes' rule to compute the probability \( P(H|E) \) for each field, we need to estimate the following:
+
+- \( P(H) \): The prior probability that Adam is enrolled in a given field.
+- \( P(E|H) \): The likelihood that Adam has personality sketch \( E \) given that he is enrolled in a given field.
+- \( P(E|\neg H) \): The likelihood that Adam has personality sketch \( E \) given that he is not enrolled in the given field.
+
+Given that \( P(E) \) can be computed as:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+Then, using Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For simplicity, let's assume \( P(E|\neg H) \) is the same for all fields.
+
+### Computer Science
+- \( P(H) \): Moderate, graduate students in computer science are common.
+- \( P(E|H) \): Low to moderate, the traits described for Adam (interest in nature, empathy, animals) are less typical in computer science.
+- \( P(E|\neg H) \): Similar likelihood across other fields.
+
+### Agricultural and Veterinary Science
+- \( P(H) \): Lower than computer science, but not uncommon.
+- \( P(E|H) \): High, the traits described (interest in nature, empathy, love for animals) fit well with this field.
+- \( P(E|\neg H) \): Similar likelihood across other fields.
+
+### Business Administration
+- \( P(H) \): Moderate, graduate students in business administration are also common.
+- \( P(E|H) \): Low, the traits described for Adam (interest in puzzles, nature) are less typical in business administration.
+- \( P(E|\neg H) \): Similar likelihood across other fields.
+
+Assigning some illustrative values:
+
+### Computer Science
+- \( P(H) = 0.3 \)
+- \( P(E|H) = 0.2 \)
+- \( P(E|\neg H) = 0.1 \)
+
+### Agricultural and Veterinary Science
+- \( P(H) = 0.1 \)
+- \( P(E|H) = 0.8 \)
+- \( P(E|\neg H) = 0.1 \)
+
+### Business Administration
+- \( P(H) = 0.3 \)
+- \( P(E|H) = 0.1 \)
+- \( P(E|\neg H) = 0.1 \)
+
+### Computing \( P(H|E) \)
+
+Using the values and normalizing:
+
+\[ P(H|E)_{\text{cs}} = \frac{0.2 \times 0.3}{0.2 \times 0.3 + 0.8 \times 0.1 + 0.1 \times 0.3} = \frac{0.06}{0.17} \approx 0.35 \]
+
+\[ P(H|E)_{\text{agv}} = \frac{0.8 \times 0.1}{0.2 \times 0.3 + 0.8 \times 0.1 + 0.1 \times 0.3} = \frac{0.08}{0.17} \approx 0.47 \]
+
+\[ P(H|E)_{\text{ba}} = \frac{0.1 \times 0.3}{0.2 \times 0.3 + 0.8 \times 0.1 + 0.1 \times 0.3} = \frac{0.03}{0.17} \approx 0.18 \]
+
+So, the estimated probabilities that Adam is in each field given his personality sketch are:
+
+{
+  "computer science": 0.35,
+  "agricultural and veterinary science": 0.47,
+  "business administration": 0.18
+}

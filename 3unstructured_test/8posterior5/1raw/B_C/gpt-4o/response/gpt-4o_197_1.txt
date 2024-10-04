@@ -1,0 +1,55 @@
+In order to compute \( P(H|E) \) for the hypotheses that Adam was enrolled in business administration or computer science, we need to use Bayes' Rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( H \) is the hypothesis (either business administration or computer science).
+- \( E \) is the evidence (Adam's personality sketch).
+- \( \neg H \) denotes the complement hypothesis (any field other than the given hypothesis).
+
+Let's start by evaluating the prior probabilities \( P(H) \) for each field. Since graduate students can enroll in a wide variety of fields, both business administration and computer science are popular choices, but we assume they do not represent the majority.
+
+Assume the following rough estimates:
+- \( P(H_{business\ administration}) = 0.10 \)
+- \( P(H_{computer\ science}) = 0.15 \)
+
+Now, we need to make educated guesses on \( P(E|H) \) for each field. The likelihood \( P(E|H) \) represents how likely it is that a student enrolled in the specified field would match Adam's personality sketch.
+
+For business administration (\( P(E|H_{business\ administration}) \)):
+- This field typically values leadership, communication skills, and strategic thinking, which doesn't strongly align with Adam's personality traits focused on nature, puzzles, empathy, and abstract concepts.
+- Let's assume \( P(E|H_{business\ administration}) = 0.05 \)
+
+For computer science (\( P(E|H_{computer\ science}) \)):
+- This field values problem-solving skills, abstract thinking, and often attracts individuals who enjoy puzzles and have high intelligence, fitting Adam's sketch quite well.
+- Let's assume \( P(E|H_{computer\ science}) = 0.40 \)
+
+Next, we estimate \( P(E|\neg H) \), the probability of Adam's personality in fields other than the specific hypotheses:
+- Given the vast diversity of graduate fields and personalities, we use an average likelihood across these fields.
+- Let's assume \( P(E|\neg H) = 0.02 \)
+
+Finally, we can calculate the marginal probability \( P(E) \) by considering all possible hypotheses, but focusing on our two fields for simplicity in this scenario:
+
+\[ P(E) \approx P(E|H_{business\ administration}) \cdot P(H_{business\ administration}) + P(E|H_{computer\ science}) \cdot P(H_{computer\ science}) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(\neg H) \approx 1 - (P(H_{business\ administration}) + P(H_{computer\ science})) \]
+\[ P(\neg H) \approx 1 - (0.10 + 0.15) = 0.75 \]
+\[ P(E) \approx 0.05 \cdot 0.10 + 0.40 \cdot 0.15 + 0.02 \cdot 0.75 \]
+\[ P(E) \approx 0.005 + 0.060 + 0.015 = 0.080 \]
+
+Now, applying Bayes' rule:
+
+For business administration:
+\[ P(H_{business\ administration}|E) = \frac{P(E|H_{business\ administration}) \cdot P(H_{business\ administration})}{P(E)} \]
+\[ P(H_{business\ administration}|E) = \frac{0.05 \cdot 0.10}{0.080} \approx 0.0625 \]
+
+For computer science:
+\[ P(H_{computer\ science}|E) = \frac{P(E|H_{computer\ science}) \cdot P(H_{computer\ science})}{P(E)} \]
+\[ P(H_{computer\ science}|E) = \frac{0.40 \cdot 0.15}{0.080} \approx 0.75 \]
+
+So, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.0625,
+  "computer science": 0.75
+}
+```

@@ -1,0 +1,43 @@
+Let's use Bayes' theorem to calculate the probability of Adam being enrolled in each field given his personality sketch (E). 
+
+Bayes' theorem is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for all hypotheses and we're comparing fields, it will be factored out in the final comparison. Thus, we only need to focus on calculating \( P(E|H) \cdot P(H) \) for each field.
+
+### For Business Administration:
+
+1. **P(H) (prior probability)**: Let's assume the prior probability of Adam enrolling in business administration is 0.1 (10%). This is based on the general distribution among graduate students.
+2. **P(E|H) (likelihood)**: The personality sketch suggests a strong interest in nature, solving puzzles, empathy, and animals, which are not typically associated with business administration. Let's assign a low probability, say 0.05 (5%), for \( P(E|H_{business\ administration}) \).
+3. **P(E|\neg H) (complement)**: This is the probability of observing the personality sketch if Adam is not in business administration. Given that the characteristics align better with other fields, let's assign a relatively higher value, say 0.3 (30%).
+
+### For Computer Science:
+
+1. **P(H) (prior probability)**: Let's assume the prior probability of Adam enrolling in computer science is 0.15 (15%). This is based on the general distribution among graduate students.
+2. **P(E|H) (likelihood)**: The personality sketch includes traits like high intelligence, love for solving puzzles, and understanding abstract concepts, which are strongly aligned with computer science. Let's assign a high probability, say 0.7 (70%), for \( P(E|H_{computer\ science}) \).
+3. **P(E|\neg H) (complement)**: This is the probability of observing the personality sketch if Adam is not in computer science. Given the alignment of traits with some other fields, but less so than computer science, let's assign a lower value, say 0.2 (20%).
+
+Now, we use Bayes' theorem to compute:
+
+### Business Administration
+\[ P(H | E)_{business\ admin} \propto P(E | H_{business\ admin}) \cdot P(H_{business\ admin}) \]
+\[ P(H | E)_{business\ admin} = 0.05 \cdot 0.1 = 0.005 \]
+
+### Computer Science
+\[ P(H | E)_{computer\ science} \propto P(E | H_{computer\ science}) \cdot P(H_{computer\ science}) \]
+\[ P(H | E)_{computer\ science} = 0.7 \cdot 0.15 = 0.105 \]
+
+### Normalizing
+Since we're comparing the two fields directly, we should normalize them to see their relative probabilities:
+
+\[ P_{norm}(H_{business\ admin} | E) = \frac{0.005}{0.005 + 0.105} = \frac{0.005}{0.11} \approx 0.045 \]
+\[ P_{norm}(H_{computer\ science} | E) = \frac{0.105}{0.005 + 0.105} = \frac{0.105}{0.11} \approx 0.955 \]
+
+Thus, the normalized probabilities are:
+
+```json
+{
+  "business administration": 0.045,
+  "computer science": 0.955
+}
+```

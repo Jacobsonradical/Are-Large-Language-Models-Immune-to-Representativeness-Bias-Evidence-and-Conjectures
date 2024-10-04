@@ -1,0 +1,58 @@
+To compute the probability \( P(H|E) \) for each field using Bayes' rule, we need to consider the following:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \): The likelihood that Adam's personality sketch \( E \) is observed given that he was enrolled in the specific field \( H \).
+3. \( P(E|\neg H) \): The likelihood that Adam's personality sketch \( E \) is observed given that he was not enrolled in the specific field \( H \).
+
+Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+- \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+We'll start by assigning rough estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \):
+
+1. **Business Administration**:
+    - \( P(H) \): Business Administration is a popular field, but it's less likely for someone with Adam's personality profile, which includes a focus on nature, puzzles, and animals.
+    - Let's assume \( P(H) \approx 0.1 \).
+
+    - \( P(E|H) \): Given Adam's profile, it's less likely that he would be in Business Administration.
+    - Let's assume \( P(E|H) \approx 0.05 \).
+
+    - \( P(E|\neg H) \): Considering he fits profiles more likely aligning with nature and abstract thinking fields.
+    - Let's assume \( P(E|\neg H) \approx 0.15 \).
+
+2. **Computer Science**:
+    - \( P(H) \): Computer Science is a highly popular and broad field which fits well with Adam's profile of high intelligence and abstraction.
+    - Let's assume \( P(H) \approx 0.15 \).
+
+    - \( P(E|H) \): Given Adam's interest in puzzles and abstract concepts, there is a higher chance he is in Computer Science.
+    - Let's assume \( P(E|H) \approx 0.5 \).
+
+    - \( P(E|\neg H) \): Given the general nature of his profile, if he's not in Computer Science, it's still reasonably possible he's in other STEM fields.
+    - Let's assume \( P(E|\neg H) \approx 0.3 \).
+
+Now, apply Bayes' rule:
+
+1. **Business Administration**:
+    - \( P(Business|E) \):
+    \[ P(E) = (P(E|H) \cdot P(H)) + (P(E|\neg H) \cdot P(\neg H)) \]
+    \[ P(E) = (0.05 \cdot 0.1) + (0.15 \cdot 0.9) = 0.005 + 0.135 = 0.14 \]
+    \[ P(H|E) = \frac{0.05 \cdot 0.1}{0.14} \approx \frac{0.005}{0.14} \approx 0.036 \]
+
+2. **Computer Science**:
+    - \( P(CS|E) \):
+    \[ P(E) = (P(E|H) \cdot P(H)) + (P(E|\neg H) \cdot P(\neg H)) \]
+    \[ P(E) = (0.5 \cdot 0.15) + (0.3 \cdot 0.85) = 0.075 + 0.255 = 0.33 \]
+    \[ P(H|E) = \frac{0.5 \cdot 0.15}{0.33} \approx \frac{0.075}{0.33} \approx 0.227 \]
+
+Given these estimates:
+
+```json
+{
+  "business administration": 0.036,
+  "computer science": 0.227
+}
+```
+
+These are rough estimates and can vary based on specific university demographics and additional background knowledge.

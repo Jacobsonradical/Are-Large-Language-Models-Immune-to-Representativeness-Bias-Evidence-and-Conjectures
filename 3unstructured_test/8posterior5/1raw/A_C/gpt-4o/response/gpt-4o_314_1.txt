@@ -1,0 +1,56 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to understand the prior probability \( P(H) \), the likelihoods \( P(E|H) \), and \( P(E|\neg H) \). Here's a step-by-step evaluation considering Adam's profile and the given hypotheses:
+
+1. **Prior Probability \( P(H) \):**
+   - **Computer Science**: Given the popularity of the field and general enrollment rates in the U.S., we might assign a moderate prior probability, let's say \( 0.2 \).
+
+   - **Agricultural and Veterinary Science**: This is a less common field relative to computer science, so we might assign a lower prior probability, let's say \( 0.1 \).
+
+2. **Likelihood \( P(E|H) \)**:
+   - **Computer Science**: Adam’s profile indicates skills in abstract thinking and problem-solving, which are crucial in computer science. However, his personality traits like empathy and love for animals are not typically associated with this field. Thus, \( P(E|H) \) would be moderate, let's say \( 0.3 \).
+
+   - **Agricultural and Veterinary Science**: Adam’s curiosity about nature, empathy, and love for animals strongly align with this field. Thus, \( P(E|H) \) would be high, let's say \( 0.8 \).
+
+3. **Likelihood \( P(E|\neg H) \)**:
+   - We need to gauge the probability of Adam’s personality traits given that he isn't in the hypothesized field. This will be a weighted average across all other possible fields.
+   - Given that there are many fields where Adam’s traits might be somewhat common (biology, psychology, environmental science, etc.), we can approximate:
+     - For **Computer Science**, \( P(E|\neg H) \) might be lower, \( 0.1 \).
+     - For **Agricultural and Veterinary Science**, \( P(E|\neg H) \) might be moderate, \( 0.4 \).
+
+Applying Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+Now, let’s calculate them:
+
+1. **Computer Science**:
+   - Prior: \( P(H) = 0.2 \)
+   - Likelihood: \( P(E|H) = 0.3 \)
+   - Complement Likelihood: \( P(E|\neg H) = 0.1 \)
+   - \( P(\neg H) = 1 - P(H) = 0.8 \)
+
+   \[
+   P(E) = (0.3 \cdot 0.2) + (0.1 \cdot 0.8) = 0.06 + 0.08 = 0.14
+   \]
+   \[
+   P(H|E) = \frac{0.3 \cdot 0.2}{0.14} = \frac{0.06}{0.14} \approx 0.429
+   \]
+
+2. **Agricultural and Veterinary Science**:
+   - Prior: \( P(H) = 0.1 \)
+   - Likelihood: \( P(E|H) = 0.8 \)
+   - Complement Likelihood: \( P(E|\neg H) = 0.4 \)
+   - \( P(\neg H) = 1 - P(H) = 0.9 \)
+
+   \[
+   P(E) = (0.8 \cdot 0.1) + (0.4 \cdot 0.9) = 0.08 + 0.36 = 0.44
+   \]
+   \[
+   P(H|E) = \frac{0.8 \cdot 0.1}{0.44} = \frac{0.08}{0.44} \approx 0.182
+   \]
+
+Now, we have the posterior probabilities for each field:
+
+{
+  "computer science": 0.429,
+  "agricultural and veterinary science": 0.182
+}

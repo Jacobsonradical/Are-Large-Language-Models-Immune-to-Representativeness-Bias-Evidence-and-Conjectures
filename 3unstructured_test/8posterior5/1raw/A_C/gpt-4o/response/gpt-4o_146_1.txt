@@ -1,0 +1,54 @@
+To compute the posterior probabilities \( P(H|E) \) using Bayes' rule, we need to estimate the prior probabilities \( P(H) \), the likelihoods \( P(E|H) \), and the evidence probabilities \( P(E|\neg H) \). 
+
+For the sake of simplicity, let’s make the following assumptions:
+
+1. \( P(H) \) is the prior probability of Adam being a graduate student in that field.
+2. \( P(E|H) \) is the probability of Adam having the personality traits mentioned in E given that he is enrolled in the field.
+3. \( P(E|\neg H) \) is the probability of Adam having the personality traits mentioned in E given that he is not enrolled in that field (sum for all other fields).
+
+Bayes' rule is stated as:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We can rewrite \( P(E) \) using the law of total probability:
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+Since the total does not need to add up to 1 (as there are other fields), we will estimate \( P(H|E) \) for each field independently.
+
+Let's evaluate for computer science and agricultural and veterinary science using rough estimates:
+
+1. **Computer Science**:
+   - \( P(H_{\text{CS}}) \): Since computer science is a popular field, let's assume \( P(H_{\text{CS}}) = 0.20 \).
+   - \( P(E|H_{\text{CS}}) \): The personality traits do not align strongly with the stereotypical computer science student. However, there are computer science students who enjoy puzzles and have strong empathy and curiosity. Let's assume \( P(E|H_{\text{CS}}) = 0.30 \).
+   - \( P(E|\neg H_{\text{CS}}) \): Since E could apply to many other fields, let’s assume \( P(E|\neg H_{\text{CS}}) = 0.50 \).
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AVS}}) \): This is a less common field but still significant, let’s assume \( P(H_{\text{AVS}}) = 0.10 \).
+   - \( P(E|H_{\text{AVS}}) \): The personality traits strongly align with interests in nature, animals, and empathy. Let’s assume \( P(E|H_{\text{AVS}}) = 0.80 \).
+   - \( P(E|\neg H_{\text{AVS}}) \): Similar to the previous, let’s assume \( P(E|\neg H_{\text{AVS}}) = 0.50 \).
+
+Now, applying Bayes' rule:
+
+For **computer science**:
+\[ 
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}})P(H_{\text{CS}})}{P(E|H_{\text{CS}})P(H_{\text{CS}}) + P(E|\neg H_{\text{CS}})P(\neg H_{\text{CS}})} 
+= \frac{0.30 \times 0.20}{0.30 \times 0.20 + 0.50 \times 0.80} 
+= \frac{0.06}{0.06 + 0.40} 
+= \frac{0.06}{0.46} 
+\approx 0.1304 
+\]
+
+For **agricultural and veterinary science**:
+\[ 
+P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}})P(H_{\text{AVS}})}{P(E|H_{\text{AVS}})P(H_{\text{AVS}}) + P(E|\neg H_{\text{AVS}})P(\neg H_{\text{AVS}})} 
+= \frac{0.80 \times 0.10}{0.80 \times 0.10 + 0.50 \times 0.90} 
+= \frac{0.08}{0.08 + 0.45} 
+= \frac{0.08}{0.53} 
+\approx 0.1509 
+\]
+
+Hence, the posterior probabilities are:
+
+{
+  "computer science": 0.1304,
+  "agricultural and veterinary science": 0.1509
+}

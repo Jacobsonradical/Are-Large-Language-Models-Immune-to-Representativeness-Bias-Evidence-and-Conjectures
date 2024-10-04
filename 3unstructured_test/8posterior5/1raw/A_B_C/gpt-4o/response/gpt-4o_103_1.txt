@@ -1,0 +1,59 @@
+To compute the posterior probability \( P(H|E) \) for each field using Bayes' Rule, we need to follow these steps:
+
+1. **Estimate the Prior Probability \( P(H) \)**: This is the probability that Adam is enrolled in this field before considering the personality sketch.
+2. **Estimate the Likelihood \( P(E|H) \)**: This is the probability of observing the personality sketch \( E \) given that Adam is enrolled in this particular field.
+3. **Estimate the Complementary Likelihood \( P(E|\neg H) \)**: This is the probability of observing the personality sketch \( E \) given that Adam is not enrolled in this particular field.
+
+We then use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are only comparing relative probabilities, we do not need to compute \( P(E) \) explicitly. We will consider the relative values of \( P(E|H) \cdot P(H) \).
+
+### Assumptions:
+- For simplicity, assume equal priors \( P(H) \) for each field. Therefore, each prior \( P(H) \) is estimated tentatively as \( \frac{1}{3} \).
+- Estimate \( P(E|H) \) by how well the personality traits match the field.
+- Assume \( P(E|\neg H) \) is the aggregate likelihood of observing the personality sketch given not being in the specific field; for simplification, we will approximate this distribution uniformly across fields.
+
+### Calculations:
+
+1. **Agricultural and Veterinary Science**
+   - \( P(H) \approx \frac{1}{3}\)
+   - Adam's curiosity about nature, love for animals, and empathy align well.
+   - \( P(E|H) \approx 0.9 \)
+   - Assume \( P(E|\neg H) \approx 0.5 \) because some traits can be found in other fields too.
+
+2. **Computer Science**
+   - \( P(H) \approx \frac{1}{3}\)
+   - Intelligence and puzzle-solving are a good match, but less on nature and empathy.
+   - \( P(E|H) \approx 0.4 \)
+   - Assume \( P(E|\neg H) \approx 0.7 \) because the traits are somewhat less specific to computer science.
+
+3. **Business Administration**
+   - \( P(H) \approx \frac{1}{3}\)
+   - Appreciation for hard work might align, but empathy and nature appreciation are less specific.
+   - \( P(E|H) \approx 0.2 \)
+   - Assume \( P(E|\neg H) \approx 0.8 \) as there’s less alignment.
+
+### Bayes Rule Application:
+
+Given the computed likelihoods and priors:
+
+- For **Agricultural and Veterinary Science**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.9 \cdot \frac{1}{3} = 0.3 \]
+
+- For **Computer Science**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.4 \cdot \frac{1}{3} = 0.133 \]
+
+- For **Business Administration**:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.2 \cdot \frac{1}{3} = 0.066 \]
+
+Putting together the relative probabilities:
+
+```json
+{
+  "agricultural and veterinary science": 0.3,
+  "computer science": 0.133,
+  "business administration": 0.066
+}
+```

@@ -1,0 +1,64 @@
+Alright, let's go step-by-step to figure out the probabilities. 
+
+**Bayes' Theorem:**  
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of being in a particular field.
+- \( P(E|H) \) is the probability of having Adam's traits given the hypothesis that he is in that field.
+- \( P(E|\neg H) \) is the probability of having Adam's traits given that he is not in that field.
+- \( P(E) \) is the overall probability of having Adam's traits.
+
+Let's start by assigning some reasonable values to \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+### Business Administration
+
+1. **Prior Probability \( P(H) \)**: Business administration is a common field among graduate students.
+   - Let's assume \( P(H) \) = 0.1.
+   
+2. **Likelihood \( P(E|H) \)**: It's less likely for someone with Adam's profile to be in business administration, as the traits described align more with a scientific or empathetic discipline.
+   - Let's assume \( P(E|H) \) = 0.01.
+   
+3. **Likelihood \( P(E|\neg H) \)**: The probability of having Adam's traits in other fields which are not business administration is higher, given his profile fits more into scientific or empathetic disciplines.
+   - Let's assume \( P(E|\neg H) \) = 0.1.
+
+### Agricultural and Veterinary Science
+
+1. **Prior Probability \( P(H) \)**: Agricultural and veterinary science is less common, but not rare.
+   - Let's assume \( P(H) \) = 0.05.
+   
+2. **Likelihood \( P(E|H) \)**: Adam's traits fit perfectly with someone in agricultural and veterinary science.
+   - Let's assume \( P(E|H) \) = 0.8.
+   
+3. **Likelihood \( P(E|\neg H) \)**: For other fields, the probability of having Adam's traits would be lower.
+   - Let's assume \( P(E|\neg H) \) = 0.2.
+
+Let's compute \( P(E) \), the total probability of Adam's traits across all fields:
+
+\[ P(E) = P(E|H_{\text{business}})P(H_{\text{business}}) + P(E|H_{\text{agricultural/veterinary}})P(H_{\text{agricultural/veterinary}}) + ... \]
+
+However, since we are only considering two fields here and for simplicity, we'll ignore the \( ... \) part (other fields).
+
+### Total Probability \( P(E) \)
+\[ P(E) = (0.01 \times 0.1) + (0.8 \times 0.05) \]
+\[ P(E) = 0.001 + 0.04 \]
+\[ P(E) \approx 0.041 \]
+
+### Posterior Probability for Business Administration
+\[ P(H_{\text{business}}|E) = \frac{P(E|H_{\text{business}})P(H_{\text{business}})}{P(E)} \]
+\[ P(H_{\text{business}}|E) = \frac{0.01 \times 0.1}{0.041} \]
+\[ P(H_{\text{business}}|E) \approx 0.0244 \]
+
+### Posterior Probability for Agricultural and Veterinary Science
+\[ P(H_{\text{agricultural/veterinary}}|E) = \frac{P(E|H_{\text{agricultural/veterinary}})P(H_{\text{agricultural/veterinary}})}{P(E)} \]
+\[ P(H_{\text{agricultural/veterinary}}|E) = \frac{0.8 \times 0.05}{0.041} \]
+\[ P(H_{\text{agricultural/veterinary}}|E) \approx 0.9756 \]
+
+Now summarizing the results:
+
+```json
+{
+  "business administration": 0.0244,
+  "agricultural and veterinary science": 0.9756
+}
+```

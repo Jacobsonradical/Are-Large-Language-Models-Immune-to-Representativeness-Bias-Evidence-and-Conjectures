@@ -1,0 +1,59 @@
+To estimate the probabilities \( P(H|E) \) using Bayes' rule, we first need to define our initial estimates for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Bayes' rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where \( P(E) \) can be derived from the law of total probability:
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's start with some reasonable assumptions to make the calculations:
+
+1. **Prior probability \( P(H) \)**: These are our initial beliefs about Adam being enrolled in each field before considering the personality sketch.
+
+For simplicity, let's assume the following **priors** without specific data:
+- \( P(\text{business administration}) = 0.2 \)
+- \( P(\text{computer science}) = 0.3 \)
+- \( P(\neg H \text{ (not either field)}) = 0.5 \)
+
+2. **Likelihood \( P(E|H) \)**: This is how likely we believe the personality sketch \( E \) fits with each field.
+
+- For **Business Administration**: Fields like business administration tend to attract students with strong understanding and appreciation for hard work and dedication. However, this field may be less associated with a genuine curiosity about nature and abstract concepts.
+  - Let's assume \( P(E|\text{business administration}) = 0.2 \)
+
+- For **Computer Science**: This field typically attracts students who enjoy solving puzzles, are good at understanding abstract concepts, and often have high intelligence.
+  - Let's assume \( P(E|\text{computer science}) = 0.5 \)
+
+3. **Likelihood \( P(E|\neg H) \)**: This is the likelihood of the personality sketch fitting someone not in the specific fields given.
+  
+Given the general nature of Adam's personality sketch, it's reasonable to assume he could belong to a variety of other fields as well.
+- \( P(E|\neg H) = 0.3 \)
+
+Given these assumptions, let's now compute \( P(E) \):
+
+\[ P(E) = P(E|\text{business administration}) \cdot P(\text{business administration}) + P(E|\text{computer science}) \cdot P(\text{computer science}) + P(E|\neg H) \cdot P(\neg H) \]
+
+\[ P(E) = 0.2 \cdot 0.2 + 0.5 \cdot 0.3 + 0.3 \cdot 0.5 \]
+\[ P(E) = 0.04 + 0.15 + 0.15 = 0.34 \]
+
+Now we apply Bayes' rule to find \( P(H|E) \):
+
+1. For **Business Administration**:
+
+\[ P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)} \]
+\[ P(\text{business administration}|E) = \frac{0.2 \cdot 0.2}{0.34} \]
+\[ P(\text{business administration}|E) \approx 0.118 \]
+
+2. For **Computer Science**:
+
+\[ P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)} \]
+\[ P(\text{computer science}|E) = \frac{0.5 \cdot 0.3}{0.34} \]
+\[ P(\text{computer science}|E) \approx 0.441 \]
+
+Therefore, the final estimated probabilities are:
+
+```json
+{
+  "business administration": 0.118,
+  "computer science": 0.441
+}
+```

@@ -1,0 +1,64 @@
+To compute \( P(H|E) \) for each field using Bayes' Rule, we need the following probabilities:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The probability of the personality sketch given that Adam was enrolled in a specific field.
+- \( P(E|\neg H) \): The probability of the personality sketch given that Adam was not enrolled in that specific field.
+- \( P(E) \): The overall probability of the personality sketch (can be derived from the priors and likelihoods).
+
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given we are dealing with only two fields but acknowledging that there are many other fields:
+
+### 1. Business Administration
+
+- **P(H)** (prior): Let's assume the average graduate student distribution. Business Administration might have a smaller fraction in comparison to more commonly chosen fields like computer science among graduate students. Let's set \( P(H) = 0.1 \).
+
+- **P(E|H)** (likelihood): The personality traits like curiosity about nature, love for animals, empathy, and solving puzzles are less typical for Business Administration students. Let's set \( P(E|H) = 0.05 \).
+
+- **P(E|\neg H)** (likelihood of the personality sketch given not in Business Administration): Since the traits align more with other fields (like natural sciences or fields involving analytical thinking), input a higher value. Let's assume \( P(E|\neg H) = 0.3 \).
+
+Using Bayes' Rule:
+\[ P(H|E_{\text{business}}) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### 2. Computer Science
+
+- **P(H)** (prior): Computer Science is a very common field for graduate students. Let's set \( P(H) = 0.2 \).
+
+- **P(E|H)** (likelihood): The traits of high intelligence and enjoying solving puzzles fit well. Let's set \( P(E|H) = 0.3 \).
+
+- **P(E|\neg H)** (likelihood of personality sketch given not in Computer Science): Given the broader distribution, we keep a similar probability given the general fit to analytical fields. Let's assume \( P(E|\neg H) = 0.3 \).
+
+Using Bayes' Rule:
+\[ P(H|E_{\text{compsci}}) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll denote \( P(E) \) essentially as the total prior probability of the personality traits generalized over all fields, which would need normalization later if we had more fields to compare.
+
+### Computing \( P(H|E) \):
+
+- **For Business Administration**:
+\[ P(H|E_{\text{business}}) = \frac{0.05 \cdot 0.1}{P(E)} \rightarrow \frac{0.005}{P(E)} \]
+
+- **For Computer Science**:
+\[ P(H|E_{\text{compsci}}) = \frac{0.3 \cdot 0.2}{P(E)} \rightarrow \frac{0.06}{P(E)} \]
+
+Now, normalizing over the fields we considered (ignoring other fields):
+
+\[ P(E) = 0.005 + 0.06 = 0.065 \]
+
+Thus,
+
+- **Normalized for Business Administration**:
+\[ P(H|E_{\text{business}}) = \frac{0.005}{0.065} \approx 0.077 \]
+
+- **Normalized for Computer Science**:
+\[ P(H|E_{\text{compsci}}) = \frac{0.06}{0.065} \approx 0.923 \]
+
+Final answers:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.923
+}
+```

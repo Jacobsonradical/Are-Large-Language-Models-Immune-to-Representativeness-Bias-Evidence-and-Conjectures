@@ -1,0 +1,81 @@
+To apply Bayes' theorem and calculate \( P(H|E) \) for each field, we'll need to estimate the values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). 
+
+### Assumptions:
+1. \( P(H) \): The prior probability that Adam is enrolled in each field.
+2. \( P(E|H) \): The likelihood of observing Adam's personality sketch given that he is in each field.
+3. \( P(E|\neg H) \): The likelihood of observing Adam's personality sketch given that he is not in each field.
+
+Given the limited information, we need to make reasonable assumptions based on common patterns:
+
+- Business administration students may not necessarily need to have a deep curiosity in nature or a strong love for animals. Hence, the personality sketch isn't strongly indicative of this field.
+- Computer science students often enjoy solving puzzles and may have high intelligence and understanding of abstract concepts. However, the connection to nature and animals is weaker.
+- Agricultural and veterinary science students are likely to have an appreciation for nature, a love for animals, and empathy, making the personality sketch highly indicative.
+
+Below, I provide estimated values assuming these probabilities:
+
+### Priors \( P(H) \):
+- Business administration: 0.2 (assuming it is a common graduate field)
+- Computer science: 0.3 (assuming it is a very common graduate field)
+- Agricultural and veterinary science: 0.1 (assuming it is less common compared to computer science)
+
+### Likelihoods \( P(E|H) \):
+- Business administration: 0.1 (because the personality sketch doesn't strongly match this field)
+- Computer science: 0.4 (because some traits match, but not all of them)
+- Agricultural and veterinary science: 0.9 (because the personality sketch strongly matches this field)
+
+### Likelihood \( P(E|\neg H) \):
+We'll use similar reasoning to estimate the general likelihood that a random student will have these traits.
+
+- Business administration: 0.2
+- Computer science: 0.3
+- Agricultural and veterinary science: 0.4
+
+Now, applying Bayes' theorem for each field:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We can infer \( P(E) \) by considering it as a sum of the likelihoods across these and other fields:
+\[ P(E) = P(E|H_{\text{business}})P(H_{\text{business}}) + P(E|H_{\text{CS}})P(H_{\text{CS}}) + P(E|H_{\text{AgriVet}})P(H_{\text{AgriVet}}) + P(E|\neg H_{\text{all}})(\sum P(\neg H)) \]
+
+However, since we don't have the complete information for other fields, we will simplify and only normalize the given options.
+
+### Simplified Calculation (Focusing on Direct Comparison):
+Let's denote \( k \) as the normalization constant:
+\[ k = P(E_{\text{business}})P(H_{\text{business}}) + P(E_{\text{CS}})P(H_{\text{CS}}) + P(E_{\text{AgriVet}})P(H_{\text{AgriVet}}) \]
+
+For practical purposes and comparison, the ratio of likelihoods will suffice:
+\[ P(H|E) \propto P(E|H)P(H) \]
+
+### Calculation:
+Using the given priors and likelihoods:
+
+1. Business administration:
+\[ P(H_{\text{business}}|E) \propto 0.1 \times 0.2 = 0.02 \]
+
+2. Computer science:
+\[ P(H_{\text{CS}}|E) \propto 0.4 \times 0.3 = 0.12 \]
+
+3. Agricultural and veterinary science:
+\[ P(H_{\text{AgriVet}}|E) \propto 0.9 \times 0.1 = 0.09 \]
+
+Normalizing these to sum to 1:
+\[ \text{Total} = 0.02 + 0.12 + 0.09 = 0.23 \]
+
+Finally:
+- Business administration:
+\[ P(H_{\text{business}}|E) = \frac{0.02}{0.23} \approx 0.087 \]
+
+- Computer science:
+\[ P(H_{\text{CS}}|E) = \frac{0.12}{0.23} \approx 0.522 \]
+
+- Agricultural and veterinary science:
+\[ P(H_{\text{AgriVet}}|E) = \frac{0.09}{0.23} \approx 0.391 \]
+
+Thus:
+
+```json
+{
+  "business administration": 0.087,
+  "computer science": 0.522,
+  "agricultural and veterinary science": 0.391
+}
+```

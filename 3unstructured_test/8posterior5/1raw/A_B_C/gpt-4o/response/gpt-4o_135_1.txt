@@ -1,0 +1,63 @@
+To calculate the posterior probabilities of Adam being enrolled in each field given his personality sketch, we'll need to estimate the following probabilities:
+1. P(H): The prior probability of Adam being enrolled in each field.
+2. P(E|H): The probability of observing Adam's personality sketch given he is in a specific field.
+3. P(E|\neg H): The probability of observing Adam's personality sketch given he is not in a specific field.
+4. P(E): The overall probability of observing Adam's personality sketch, which can be derived from P(E|H) and P(E|\neg H).
+
+Using Bayes' rule for calculating P(H|E):
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+To simplify, we’ll use some reasonable assumptions about these probabilities without going into detailed statistical data collection. We can assume the following:
+
+- P(H): Prior probability based on rough assumptions of the popularity of these majors among graduate students.
+- P(E|H): Our subjective probability based on how well Adam’s personality fits the field.
+- P(E|\neg H): Our subjective probability based on how less likely Adam's personality fits other fields.
+
+Let's assume:
+1. Agricultural and veterinary science: 
+   - P(H) ≈ 0.10
+   - P(E|H) ≈ 0.80 (highly likely given his traits)
+   - P(E|\neg H) ≈ 0.20 (since he's less likely to fit in many other fields)
+
+2. Computer Science:
+   - P(H) ≈ 0.30
+   - P(E|H) ≈ 0.30 (possible, but not a perfect match)
+   - P(E|\neg H) ≈ 0.50 (fairly generic personality traits could fit multiple fields)
+
+3. Business Administration:
+   - P(H) ≈ 0.30
+   - P(E|H) ≈ 0.10 (unlikely given his traits)
+   - P(E|\neg H) ≈ 0.60 (traits not well fitting for business administration)
+
+Let's calculate each posterior probability.
+
+**Agricultural and veterinary science:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given that P(E) is the sum of P(E|H)P(H) for all hypotheses and P(E|\neg H)P(\neg H):
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|H) \cdot P(H) + P(E|H) \cdot P(H) \]
+Assuming we have only three hypotheses:
+\[ 
+P(E) = (0.80 \cdot 0.10) + (0.30 \cdot 0.30) + (0.10 \cdot 0.30) = 0.08 + 0.09 + 0.03 = 0.20 
+\]
+So, 
+\[ P(H|E) = \frac{0.80 \cdot 0.10}{0.20} = 0.40 \]
+
+**Computer Science:**
+\[ 
+P(H|E) = \frac{0.30 \cdot 0.30}{0.20} = 0.45 
+\]
+
+**Business Administration:**
+\[ 
+P(H|E) = \frac{0.10 \cdot 0.30}{0.20} = 0.15 
+\]
+
+Hence, the posterior probabilities are:
+
+{
+  "agricultural and veterinary science": 0.40,
+  "computer science": 0.45,
+  "business administration": 0.15
+}

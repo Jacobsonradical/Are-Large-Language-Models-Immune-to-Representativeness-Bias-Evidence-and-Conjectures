@@ -1,0 +1,71 @@
+To use Bayes' rule to compute \( P(H|E) \), we need to assess the following probabilities:
+- \( P(H) \): The prior probability of Adam being in a specific field.
+- \( P(E|H) \): The probability of Adam's personality sketch given that he was in a specific field.
+- \( P(E|\neg H) \): The probability of Adam's personality sketch given that he was not in the specific field.
+
+Bayes' rule is given by:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+Where \( P(E) \) is the marginal probability of the evidence, which can be expanded as:
+\[
+P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)
+\]
+
+Let's assess each of these probabilities:
+
+1. **Prior Probabilities (\( P(H) \))**:
+   - Assume that Adam has an equal chance of pursuing any graduate field since we lack specific data. For the sake of simplicity \( P(H) \) for each field can be approximated to an equal value, say 0.25 for each field (considering multiple common fields).
+
+2. **Likelihoods (\( P(E|H) \))**:
+   - Given Adam's interest in nature, empathy, and love for animals, it seems quite likely that this personality sketch fits someone in agricultural and veterinary science. Let's assign a higher likelihood here.
+   - Computer science doesn't align strongly with his warm-hearted nature and empathy, but his intelligence and puzzle-solving inclination might fit mildly. Let's assign a moderate likelihood here.
+   - Business administration doesn't seem to align well with his interests in nature and empathy. Hence, assign a lower likelihood here.
+
+3. **Marginalized Likelihood (\( P(E|\neg H) \))**:
+   - This can be complex since it needs precise probabilities for all other fields. For simplicity, let's assume it averages out moderately for all fields except the ones we are considering.
+
+Estimate these values as:
+- \( P(H) = 0.25 \)
+- \( P(E|H_{CS}) = 0.4 \) for computer science.
+- \( P(E|H_{BA}) = 0.2 \) for business administration.
+- \( P(E|H_{AVS}) = 0.7 \) for agricultural and veterinary science.
+- \( P(E|\neg H_{\text{CS}}) \approx 0.5 \)
+- \( P(E|\neg H_{\text{BA}}) \approx 0.5 \)
+- \( P(E|\neg H_{\text{AVS}}) \approx 0.4 \)
+
+Calculating Bayes' rule for each field:
+
+1. **Computer Science**:
+\[
+P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.4 \cdot 0.25}{(0.4 \cdot 0.25) + (0.2 \cdot 0.25) + (0.7 \cdot 0.25)}
+\]
+\[
+P(H_{\text{CS}}|E) = \frac{0.1}{0.325} \approx 0.3077
+\]
+
+2. **Business Administration**:
+\[
+P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.2 \cdot 0.25}{(0.4 \cdot 0.25) + (0.2 \cdot 0.25) + (0.7 \cdot 0.25)}
+\]
+\[
+P(H_{\text{BA}}|E) = \frac{0.05}{0.325} \approx 0.1538
+\]
+
+3. **Agricultural and Veterinary Science**:
+\[
+P(H_{\text{AVS}}|E) = \frac{P(E|H_{\text{AVS}}) \cdot P(H_{\text{AVS}})}{P(E)} = \frac{0.7 \cdot 0.25}{(0.4 \cdot 0.25) + (0.2 \cdot 0.25) + (0.7 \cdot 0.25)}
+\]
+\[
+P(H_{\text{AVS}}|E) = \frac{0.175}{0.325} \approx 0.5385
+\]
+
+Thus, the computed updated probabilities are:
+
+```json
+{
+  "computer science": 0.3077,
+  "business administration": 0.1538,
+  "agricultural and veterinary science": 0.5385
+}
+```

@@ -1,0 +1,58 @@
+To estimate the probabilities P(H), P(E|H), and P(E|\neg H) for Adam's enrollment in the given fields, we will use the given personality traits and background information. Here's how we can reason for each field:
+
+1. **Agricultural and Veterinary Science (H1)**
+   - P(H1): Lets assume this field is quite niche. Roughly 10% of graduate students might enroll in this.
+   - P(E|H1): Given Adam's love for nature, animals, and empathy, it is highly likely that he would fit well in this field. Let's assume 0.8.
+   - P(E|\neg H1): For students not in this field, the traits described might not be as well correlated. Let's assume roughly 0.2.
+
+2. **Computer Science (H2)**
+   - P(H2): This is a popular field. Let’s assume around 30% of graduate students might enroll.
+   - P(E|H2): Computer Science students might value puzzle-solving and abstract thinking, but the connection to nature and animals is weaker. Let's assume around 0.3.
+   - P(E|\neg H2): Considering the large and diverse set of other graduate fields, still let’s assume around 0.2.
+
+3. **Business Administration (H3)**
+   - P(H3): Another popular field, roughly about 25% of graduate students might be in this field.
+   - P(E|H3): These traits do not strongly match typical business administration traits. Let’s assume around 0.1.
+   - P(E|\neg H3): As with the others, let's assume around 0.2.
+
+### Computing P(H|E):
+
+We use Bayes' Rule:
+\[ 
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} 
+\]
+Where:
+\[ 
+P(E) = P(E|H1) \cdot P(H1) + P(E|H2) \cdot P(H2) + P(E|H3) \cdot P(H3) + \sum P(E|H_other) \cdot P(H_other) 
+\]
+We will ignore the sum over other fields for simplicity.
+
+For \( H1 \):
+
+\[ 
+P(H1|E) = \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.3 \cdot 0.3 + 0.1 \cdot 0.25} = \frac{0.08}{0.08 + 0.09 + 0.025} = \frac{0.08}{0.195} \approx 0.41 
+\]
+
+For \( H2 \):
+
+\[ 
+P(H2|E) = \frac{0.3 \cdot 0.3}{0.195} = \frac{0.09}{0.195} \approx 0.46 
+\]
+
+For \( H3 \):
+
+\[ 
+P(H3|E) = \frac{0.1 \cdot 0.25}{0.195} = \frac{0.025}{0.195} \approx 0.13 
+\]
+
+So the results, rounded to two decimal places, are:
+
+```json
+{
+  "agricultural and veterinary science": 0.41,
+  "computer science": 0.46,
+  "business administration": 0.13
+}
+```
+
+This gives us an estimate of the probabilistic likelihood that Adam is enrolled in these fields given his personality sketch.

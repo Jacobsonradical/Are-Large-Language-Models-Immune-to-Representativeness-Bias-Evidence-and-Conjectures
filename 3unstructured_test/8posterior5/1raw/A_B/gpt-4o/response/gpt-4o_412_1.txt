@@ -1,0 +1,56 @@
+To apply Bayes' rule and determine \( P(H|E) \), we need to estimate three probabilities: \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+1. Make prior estimates for the hypothesis \( P(H) \).
+2. Estimate the likelihood \( P(E|H) \) given the field of study.
+3. Estimate the likelihood of E given not H, \( P(E|\neg H) \).
+
+#### Business Administration:
+- **P(H)**: The prior probability that Adam is studying business administration. Business administration is a common field of study, but Adam's personality sketch does not imply interest in business, so we might keep this moderate but not high.
+  - Let's estimate \( P(H)_{BA} \) ≈ 0.2
+
+- **P(E|H)**: The probability that Adam’s personality sketch matches with being in business administration. His love for nature, empathy, and love for animals doesn't strongly align with business administration.
+  - Let's estimate \( P(E|H)_{BA} \) ≈ 0.1
+
+- **P(E|\neg H)**: The probability that Adam's personality sketch matches any other field apart from business administration. Given that agricultural and veterinary science align more with his personality, we'll expect this to be higher.
+  - Let's estimate \( P(E|\neg H)_{BA} \) ≈ 0.8
+
+#### Agricultural and Veterinary Science:
+- **P(H)**: The prior probability that Adam is studying agricultural and veterinary science. Based on his personality sketch, this aligns well with his interests and characteristics.
+  - Let's estimate \( P(H)_{AV} \) ≈ 0.1
+
+- **P(E|H)**: The probability that Adam’s personality sketch matches with being in agricultural and veterinary science. His curiosity about nature, love for animals, empathy, and understanding of hard work all align strongly with this field.
+  - Let's estimate \( P(E|H)_{AV} \) ≈ 0.9
+
+- **P(E|\neg H)**: The probability that Adam's personality sketch matches any other field apart from agricultural and veterinary science. Given that he has traits that align specifically with agricultural and veterinary science, this would be lower.
+  - Let's estimate \( P(E|\neg H)_{AV} \) ≈ 0.3
+
+#### Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Let's calculate each:
+
+1. **Business Administration**:
+\[ P(H|E)_{BA} = \frac{P(E|H)_{BA} \cdot P(H)_{BA}}{P(E|H)_{BA} \cdot P(H)_{BA} + P(E|\neg H)_{BA} \cdot P(\neg H)_{BA}} \]
+\[ P(H|E)_{BA} = \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.8 \cdot (1 - 0.2)} \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.02 + 0.8 \cdot 0.8} \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.02 + 0.64} \]
+\[ P(H|E)_{BA} = \frac{0.02}{0.66} \]
+\[ P(H|E)_{BA} \approx 0.0303 \]
+
+2. **Agricultural and Veterinary Science**:
+\[ P(H|E)_{AV} = \frac{P(E|H)_{AV} \cdot P(H)_{AV}}{P(E|H)_{AV} \cdot P(H)_{AV} + P(E|\neg H)_{AV} \cdot P(\neg H)_{AV}} \]
+\[ P(H|E)_{AV} = \frac{0.9 \cdot 0.1}{0.9 \cdot 0.1 + 0.3 \cdot (1 - 0.1)} \]
+\[ P(H|E)_{AV} = \frac{0.09}{0.09 + 0.3 \cdot 0.9} \]
+\[ P(H|E)_{AV} = \frac{0.09}{0.09 + 0.27} \]
+\[ P(H|E)_{AV} = \frac{0.09}{0.36} \]
+\[ P(H|E)_{AV} = 0.25 \]
+
+### Result:
+```json
+{
+  "business administration": 0.0303,
+  "agricultural and veterinary science": 0.25
+}
+```

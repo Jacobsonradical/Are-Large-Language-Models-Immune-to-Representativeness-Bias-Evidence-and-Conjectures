@@ -1,0 +1,52 @@
+To determine \( P(H|E) \) for each field using Bayes' rule, we need to estimate:
+
+1. \( P(H) \): The prior probability that Adam is enrolled in the given field.
+2. \( P(E|H) \): The probability of the personality sketch \( E \) given that Adam is enrolled in the given field.
+3. \( P(E|\neg H) \): The probability of the personality sketch \( E \) given that Adam is not enrolled in the given field.
+
+We'll compute \( P(H|E) \) as follows:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+For simplicity, we can assume \( P(E) \) is constant across all fields, so we don't need to calculate it explicitly for comparing values. Instead, we'll focus on the relative values of \( P(E|H)P(H) \) across the fields.
+
+### Fields Analysis
+
+#### Computer Science:
+- **P(H):** The probability that a grad student is in computer science — let's assume a moderate prior \( P(H) \) since it's a common field.
+- **P(E|H):** Likely moderate; interest in puzzles and abstract concepts aligns well with CS but love for nature and animals might not directly align as much.
+- **P(E|\neg H):** Broad interests could make \( P(E|\neg H) \) relatively high since many fields involve abstract thinking or similar qualities.
+
+#### Business Administration:
+- **P(H):** The probability that a grad student is in business administration — let's assume a moderate prior \( P(H) \) as well.
+- **P(E|H):** Likely low; empathy and understanding of dedication might fit, but puzzles, nature, and animals are less typical.
+- **P(E|\neg H):** The combination of interests may still be somewhat common across other non-business fields as well.
+
+### Assigning Values:
+
+1. **Computer Science:**
+   - \( P(H) \approx 0.2 \): Moderate since many grad students are in CS.
+   - \( P(E|H) \approx 0.5 \): Some alignment, but not strong in nature and animals.
+   - \( P(E|\neg H) \approx 0.3 \): Moderate because nature, empathy, and animals can align with various fields.
+
+\[ P(H|E)_{\text{computer science}} \propto P(E|H)P(H) = 0.5 \times 0.2 = 0.1 \]
+
+2. **Business Administration:**
+   - \( P(H) \approx 0.15 \): Slightly less common than CS.
+   - \( P(E|H) \approx 0.3 \): Lower alignment with nature and puzzles.
+   - \( P(E|\neg H) \approx 0.4 \): Interests can fit various other fields too.
+
+\[ P(H|E)_{\text{business administration}} \propto P(E|H)P(H) = 0.3 \times 0.15 = 0.045 \]
+
+### Normalization and Comparison:
+
+To compare the relative likelihoods, we only need the proportional values:
+
+```json
+{
+  "computer science": 0.1,
+  "business administration": 0.045
+}
+```
+
+This suggests that, given Adam's personality sketch, it is more likely that he was enrolled in computer science than in business administration.

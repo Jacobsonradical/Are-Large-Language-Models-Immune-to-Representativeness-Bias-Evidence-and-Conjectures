@@ -1,0 +1,55 @@
+To estimate the probabilities \( P(H|E) \) for each field given the personality sketch \( E \) of Adam, we need to apply Bayes' Theorem:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E|H) \) is the likelihood of the personality sketch given the hypothesis.
+- \( P(E) \) is the marginal probability of the evidence.
+
+Given that \( P(E) \) is the same for all hypotheses, we can focus on comparing \( P(E|H) \cdot P(H) \). 
+
+Let's judge each of the fields:
+
+1. **Business Administration**
+   - \( P(H_{BA}) \): Fairly common graduate field, but not the most common for someone with Adam's interests.
+   - \( P(E|H_{BA}) \): While it's possible for business students to have a variety of interests, Adam's deep love for nature and animals seems less aligned with the typical business administration student.
+   - \( P(E|\neg H_{BA}) \): Likelihood of the personality sketch given that Adam is not in business administration seems higher.
+
+2. **Agricultural and Veterinary Science**
+   - \( P(H_{AgSci}) \): Less common than business administration, but still a significant field.
+   - \( P(E|H_{AgSci}) \): Very high - Adam's curiosity about nature, empathy, and love for animals aligns perfectly with this field.
+   - \( P(E|\neg H_{AgSci}) \): Lower compared to the likelihood if he were in this field.
+
+3. **Computer Science**
+   - \( P(H_{CS}) \): Quite popular and common field for graduate students.
+   - \( P(E|H_{CS}) \): Mixed - while a love for puzzles and high intelligence fit, the deep love for nature and animals are less typical.
+   - \( P(E|\neg H_{CS}) \): Likelihood of the personality sketch given that Adam is not in computer science is moderate.
+
+Empirically evaluating these:
+
+### Business Administration
+- \( P(H_{BA}) \): 0.2
+- \( P(E|H_{BA}) \): 0.2
+- \( P(E|\neg H_{BA}) \): 0.8
+- \( P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \): \( 0.2 \times 0.2 \) = 0.04
+
+### Agricultural and Veterinary Science
+- \( P(H_{AgSci}) \): 0.1
+- \( P(E|H_{AgSci}) \): 0.9
+- \( P(E|\neg H_{AgSci}) \): 0.1
+- \( P(H_{AgSci}|E) \propto P(E|H_{AgSci}) \cdot P(H_{AgSci}) \): \( 0.9 \times 0.1 \) = 0.09
+
+### Computer Science
+- \( P(H_{CS}) \): 0.3
+- \( P(E|H_{CS}) \): 0.5
+- \( P(E|\neg H_{CS}) \): 0.5
+- \( P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \): \( 0.5 \times 0.3 \) = 0.15
+
+Now, normalizing these values (although it's not strictly necessary since they're not mutually exclusive fields and need not sum to 1):
+
+{
+  "business administration": 0.04,
+  "agricultural and veterinary science": 0.09,
+  "computer science": 0.15
+}

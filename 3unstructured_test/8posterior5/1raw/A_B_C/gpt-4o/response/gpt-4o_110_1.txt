@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) for each of the given fields using Bayes' Rule, we need to firstly estimate the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the likelihood of the evidence given that the hypothesis is not true \( P(E|\neg H) \). Then we can use these to find \( P(H|E) \).
+
+Bayes' Rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+### Prior Probabilities
+Let us assume the following prior probabilities for the fields, based on typical graduate distributions:
+- Computer science: \( P(\text{H}_{\text{CS}}) = 0.3 \)
+- Business administration: \( P(\text{H}_{\text{BA}}) = 0.2 \)
+- Agricultural and veterinary science: \( P(\text{H}_{\text{AVS}}) = 0.1 \)
+
+### Likelihoods
+Given Adam's personality sketch, we estimate the likelihoods as follows:
+- For Computer science:
+  - \( P(E|\text{H}_{\text{CS}}) \): Computer science generally involves a lot of abstract thinking, which Adam is skilled at, but it does not necessarily align very well with his love for nature and animals.
+    - Estimate: 0.4
+    
+  - \( P(E|\neg \text{H}_{\text{CS}}) \): The general likelihood of his personality given any other discipline (not specifically aligned to computer science).
+    - Estimate: 0.05
+
+- For Business administration:
+  - \( P(E|\text{H}_{\text{BA}}) \): Business administration typically does not focus on nature, animals, or solving puzzles.
+    - Estimate: 0.1
+    
+  - \( P(E|\neg \text{H}_{\text{BA}}) \): The general likelihood of his personality given any other discipline.
+    - Estimate: 0.08
+
+- For Agricultural and veterinary science:
+  - \( P(E|\text{H}_{\text{AVS}}) \): This field aligns very well with his curiosity about nature, love for animals, and appreciation for hard work.
+    - Estimate: 0.8
+    
+  - \( P(E|\neg \text{H}_{\text{AVS}}) \): The general likelihood of his personality given any other discipline.
+    - Estimate: 0.04
+
+### Applying Bayes' Rule
+Now, we calculate \( P(H|E) \) for each field:
+
+1. **Computer science:**
+\[ P(\text{H}_{\text{CS}}|E) = \frac{P(E|\text{H}_{\text{CS}}) \cdot P(\text{H}_{\text{CS}})}{P(E)} \]
+\[ P(\text{H}_{\text{CS}}|E) = \frac{0.4 \cdot 0.3}{(0.4 \cdot 0.3 + 0.1 \cdot 0.2 + 0.8 \cdot 0.1) \cdot 0.7} \]
+\[ P(\text{H}_{\text{CS}}|E) = \frac{0.12}{0.185} \approx 0.649 \]
+
+2. **Business administration:**
+\[ P(\text{H}_{\text{BA}}|E) = \frac{P(E|\text{H}_{\text{BA}}) \cdot P(\text{H}_{\text{BA}})}{P(E)} \]
+\[ P(\text{H}_{\text{BA}}|E) = \frac{0.1 \cdot 0.2}{(0.4 \cdot 0.3 + 0.1 \cdot 0.2 + 0.8 \cdot 0.1) \cdot 0.8} \]
+\[ P(\text{H}_{\text{BA}}|E) = \frac{0.02}{0.185} \approx 0.108 \]
+
+3. **Agricultural and veterinary science:**
+\[ P(\text{H}_{\text{AVS}}|E) = \frac{P(E|\text{H}_{\text{AVS}}) \cdot P(\text{H}_{\text{AVS}})}{P(E)} \]
+\[ P(\text{H}_{\text{AVS}}|E) = \frac{0.8 \cdot 0.1}{(0.4 \cdot 0.3 + 0.1 \cdot 0.2 + 0.8 \cdot 0.1) \cdot 0.9} \]
+\[ P(\text{H}_{\text{AVS}}|E) = \frac{0.08}{0.185} \approx 0.432 \]
+
+Summarizing the values:
+
+{
+  "computer science": 0.649,
+  "business administration": 0.108,
+  "agricultural and veterinary science": 0.432
+}

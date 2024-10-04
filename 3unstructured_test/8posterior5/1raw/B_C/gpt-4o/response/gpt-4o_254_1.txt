@@ -1,0 +1,55 @@
+To apply Bayes' rule and compute \( P(H|E) \), we need to estimate the relevant probabilities:
+
+1. \( P(H) \): Prior probability that Adam is enrolled in a certain field.
+2. \( P(E|H) \): Probability of observing the personality sketch \( E \) given that Adam is in a certain field \( H \).
+3. \( P(E|\neg H) \): Probability of observing the personality sketch given that Adam is not in that certain field \( H \).
+
+Bayes' rule is given by:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Here, \( P(E) \) can be thought of as a normalizing constant, which ensures that the probabilities sum up to 1 when considering all possible fields of study. For simplicity, we might not compute this directly and instead provide relative probabilities.
+
+Let's assess these probabilities for both "computer science" and "business administration":
+
+### Computer Science
+1. \( P(H) \) (computer science)
+    - Computer science is a common field, so let's assume a moderate prior. 
+    \[ P(H)_{cs} = 0.2 \]
+
+2. \( P(E|H) \) (computer science)
+    - Adam is high in intelligence, enjoys solving puzzles, and understands abstract concepts, which align well with computer science traits. 
+    \[ P(E|H)_{cs} = 0.8 \]
+
+3. \( P(E|\neg H) \)
+    - Adam's traits are somewhat general but also present in other fields. 
+    \[ P(E|\neg H)_{cs} = 0.4 \]
+
+Using Bayes' rule (relative):
+\[ P(H|E)_{cs} = \frac{0.8 \cdot 0.2}{0.8 \cdot 0.2 + 0.4 \cdot 0.8} \approx 0.5 \]
+
+### Business Administration
+1. \( P(H) \) (business administration)
+    - Business administration is also a common field. 
+    \[ P(H)_{ba} = 0.2 \]
+
+2. \( P(E|H) \) (business administration)
+    - Adam's strong understanding of hard work and empathy could align, but he doesn't show explicit traits commonly associated with business administration such as leadership or finance skills.
+    \[ P(E|H)_{ba} = 0.4 \]
+
+3. \( P(E|\neg H) \)
+    - Adam fits better in other fields rather than business administration.
+    \[ P(E|\neg H)_{ba} = 0.5 \]
+
+Using Bayes' rule (relative):
+\[ P(H|E)_{ba} = \frac{0.4 \cdot 0.2}{0.4 \cdot 0.2 + 0.5 \cdot 0.8} \approx 0.1 \]
+
+Finally, the relative probabilities for Adam being in each field based on the given personality sketch are:
+
+```json
+{
+  "computer science": 0.5,
+  "business administration": 0.1
+}
+```
+
+Note that these are relative probabilities and don't sum to 1 because we are only considering two of potentially numerous fields.

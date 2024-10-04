@@ -1,0 +1,90 @@
+To proceed with using Bayes' Theorem effectively, we'll need to make some reasonable assumptions about the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the probability of the evidence given the hypothesis is false \( P(E|\neg H) \). Bayes' Theorem is expressed as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) can be derived from the sum of the numerator for all considered fields, we will focus mainly on the relative likelihoods:
+
+\[ P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|H_{ba}) \cdot P(H_{ba}) + P(E|H_{av}) \cdot P(H_{av}) \]
+
+Where:
+- \( H_{cs} \) represents "computer science".
+- \( H_{ba} \) represents "business administration".
+- \( H_{av} \) represents "agricultural and veterinary science".
+
+Let's make some assumptions about these probabilities to construct our Bayesian inference:
+
+1. **Computer Science**:
+    - **Prior Probability \( P(H) \)**: This is relatively high because it's a common graduate field.
+    - **Likelihood \( P(E|H) \)**: Moderate to low. Even though problem-solving is relevant, nature-related empathy and love for animals is less typical.
+    - **Probability of Evidence if not in this field \( P(E|\neg H) \)**: Moderate.
+   
+2. **Business Administration**:
+    - **Prior Probability \( P(H) \)**: This is also quite high because it's another common graduate field.
+    - **Likelihood \( P(E|H) \)**: Low. The personality traits do not align well with business administration.
+    - **Probability of Evidence if not in this field \( P(E|\neg H) \)**: Moderate to high.
+   
+3. **Agricultural and Veterinary Science**:
+    - **Prior Probability \( P(H) \)**: Less than computer science and business administration but still reasonable.
+    - **Likelihood \( P(E|H) \)**: High. The traits align very well with someone interested in this field.
+    - **Probability of Evidence if not in this field \( P(E|\neg H) \)**: Low to moderate.
+
+Let's assign some semi-arbitrary values to these:
+
+- \( P(H_{cs}) = 0.3 \)
+- \( P(H_{ba}) = 0.3 \)
+- \( P(H_{av}) = 0.1 \)
+
+- \( P(E|H_{cs}) = 0.3 \)
+- \( P(E|H_{ba}) = 0.1 \)
+- \( P(E|H_{av}) = 0.8 \)
+
+- \( P(E|\neg H_{cs}) = 0.4 \)
+- \( P(E|\neg H_{ba}) = 0.3 \)
+- \( P(E|\neg H_{av}) = 0.2 \)
+
+We can calculate \( P(E) \) as:
+
+\[ 
+P(E) = (P(E|H_{cs}) \cdot P(H_{cs})) + (P(E|H_{ba}) \cdot P(H_{ba})) + (P(E|H_{av}) \cdot P(H_{av})) 
+\]
+
+\[
+P(E) = (0.3 \cdot 0.3) + (0.1 \cdot 0.3) + (0.8 \cdot 0.1) 
+\]
+
+\[
+P(E) = 0.09 + 0.03 + 0.08 
+\]
+\[
+P(E) = 0.20 
+\]
+
+Then, applying Bayes' Theorem for each:
+
+- For Computer Science:
+  
+\[ 
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} = \frac{0.3 \cdot 0.3}{0.20} = 0.45 
+\]
+
+- For Business Administration:
+
+\[ 
+P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} = \frac{0.1 \cdot 0.3}{0.20} = 0.15 
+\]
+
+- For Agricultural and Veterinary Science:
+
+\[ 
+P(H_{av}|E) = \frac{P(E|H_{av}) \cdot P(H_{av})}{P(E)} = \frac{0.8 \cdot 0.1}{0.20} = 0.40 
+\]
+
+So, the updated probabilities \( P(H|E) \) considering Adam's personality sketch would be:
+
+```json
+{
+  "computer science": 0.45,
+  "business administration": 0.15,
+  "agricultural and veterinary science": 0.40
+}
+```

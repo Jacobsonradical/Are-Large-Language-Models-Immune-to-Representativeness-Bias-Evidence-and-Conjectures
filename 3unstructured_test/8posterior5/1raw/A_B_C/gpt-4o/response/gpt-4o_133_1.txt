@@ -1,0 +1,42 @@
+To compute the posterior probability \( P(H|E) \) for each field using Bayes' Rule, we need to consider the following probabilities:
+
+1. **Prior Probability \( P(H) \)**: The probability that Adam was enrolled in the field before considering his personality sketch E.
+2. **Likelihood \( P(E|H) \)**: The probability of observing the evidence E (personality sketch) given that Adam was enrolled in the field H.
+3. **Overall Evidence \( P(E) \)**: The total probability of observing the evidence E across all possible fields. For our simplified calculation, we can compare the likelihoods and priors without needing the exact value of \( P(E) \) since it remains constant across all fields.
+
+### 1. Agricultural and Veterinary Science
+- **Prior Probability \( P(H) \)**: Moderate (assuming uniform distribution among many fields), so let's assume \( 0.1 \).
+- **Likelihood \( P(E|H) \)**: Given Adam's strong empathy, love for animals, interest in nature and plants, this is high, say \( 0.9 \).
+- **Non-Likelihood \( P(E|\neg H) \)**: This would be lower because the personality sketch heavily leans towards features specific to this field, say \( 0.1 \).
+
+### 2. Business Administration
+- **Prior Probability \( P(H) \)**: Moderate, so let's assume \( 0.1 \) again.
+- **Likelihood \( P(E|H) \)**: Given Adam's empathy and intelligence, but less direct relevance to business administration, this is low, say \( 0.2 \).
+- **Non-Likelihood \( P(E|\neg H) \)**: Relatively higher than agricultural due to many fields being more likely than business based on the personality given, say \( 0.8 \).
+
+### 3. Computer Science
+- **Prior Probability \( P(H) \)**: Moderate, so let's say \( 0.1 \).
+- **Likelihood \( P(E|H) \)**: Given his intelligence and interest in solving puzzles, this is modest, say \( 0.5 \).
+- **Non-Likelihood \( P(E|\neg H) \)**: This would be higher because the personality sketch can fit many fields, not just computer science, say \( 0.7 \).
+
+Now, we use Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+#### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{0.9 \cdot 0.1}{(0.9 \cdot 0.1) + (0.1 \cdot 0.9)} = \frac{0.09}{0.09 + 0.09} = \frac{0.09}{0.18} = 0.5 \]
+
+#### Business Administration
+\[ P(H|E) = \frac{0.2 \cdot 0.1}{(0.2 \cdot 0.1) + (0.8 \cdot 0.9)} = \frac{0.02}{0.02 + 0.72} = \frac{0.02}{0.74} \approx 0.027 \]
+
+#### Computer Science
+\[ P(H|E) = \frac{0.5 \cdot 0.1}{(0.5 \cdot 0.1) + (0.7 \cdot 0.9)} = \frac{0.05}{0.05 + 0.63} = \frac{0.05}{0.68} \approx 0.073 \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.5,
+  "business administration": 0.027,
+  "computer science": 0.073
+}
+```

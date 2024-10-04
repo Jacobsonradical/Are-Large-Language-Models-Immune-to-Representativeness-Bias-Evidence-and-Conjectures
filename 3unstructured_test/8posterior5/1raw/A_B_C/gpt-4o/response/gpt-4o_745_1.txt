@@ -1,0 +1,51 @@
+To compute \( P(H|E) \) using Bayes' rule, we need to follow these steps:
+
+1. Determine \( P(H) \), the prior probability of Adam being enrolled in each field.
+2. Determine \( P(E|H) \), the likelihood of observing Adam's personality sketch given that he is enrolled in each field.
+3. Determine \( P(E|\neg H) \), the likelihood of observing Adam's personality sketch given that he is not enrolled in each field.
+4. Compute \( P(H|E) \), the posterior probability of Adam being enrolled in each field given his personality sketch, using Bayes' rule: \( P(H|E) = \frac{P(E|H) P(H)}{P(E)} \).
+
+Since we don't have exact data, we'll make educated guesses based on general observations and the information provided.
+
+**Priors:**
+
+- The prior probability \( P(H) \) for each field can be estimated as follows:
+  - Computer Science: Given its popularity among students, let's estimate it at 0.2.
+  - Agricultural and Veterinary Science: Given that it's a more specialized field, let's estimate it at 0.05.
+  - Business Administration: Another popular field, let's estimate it at 0.3.
+
+**Likelihoods:**
+
+- The likelihood \( P(E|H) \) based on the personality sketch:
+  - Computer Science: Adam's high intelligence and good at understanding abstract concepts align well, but the deep love for nature and animals doesn't. Let's set \( P(E|H) \) at 0.4.
+  - Agricultural and Veterinary Science: This field aligns very well with Adam's love for nature and animals. High \( P(E|H) \) of 0.8.
+  - Business Administration: The sketch emphasizes nature, animals, and empathy, which is less typical for business. \( P(E|H) \) at 0.1.
+
+**Complementary Likelihoods:**
+
+- \( P(E|\neg H) \) should reflect how likely Adam's personality sketch would be if not enrolled in that specific field:
+  - \( P(E|\neg H) \) for Computer Science: 0.3.
+  - \( P(E|\neg H) \) for Agricultural and Veterinary Science: 0.4.
+  - \( P(E|\neg H) \) for Business Administration: 0.6.
+
+Given these values:
+- Total Probability \( P(E) \) is the sum of all contributions: \( P(E) = P(E|H_{\text{cs}})P(H_{\text{cs}}) + P(E|H_{\text{ag}})P(H_{\text{ag}}) + P(E|H_{\text{ba}})P(H_{\text{ba}}) + ... \)
+
+Computing \( P(E) \):
+\( P(E) = 0.4 \times 0.2 + 0.8 \times 0.05 + 0.1 \times 0.3 = 0.08 + 0.04 + 0.03 = 0.15 \)
+
+**Posterior:**
+
+- Using Bayes' rule to compute \( P(H|E) \) for each field:
+- Computer Science: \( P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) P(H_{\text{cs}})}{P(E)} = \frac{0.4 \times 0.2}{0.15} = 0.533 \)
+- Agricultural and Veterinary Science: \( P(H_{\text{ag}}|E) = \frac{P(E|H_{\text{ag}}) P(H_{\text{ag}})}{P(E)} = \frac{0.8 \times 0.05}{0.15} = 0.267 \)
+- Business Administration: \( P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) P(H_{\text{ba}})}{P(E)} = \frac{0.1 \times 0.3}{0.15} = 0.2 \)
+
+Final result:
+```json
+{
+  "computer science": 0.533,
+  "agricultural and veterinary science": 0.267,
+  "business administration": 0.2
+}
+```

@@ -1,0 +1,63 @@
+To calculate the probabilities, we must first establish some prior probabilities and likelihoods. Let’s make plausible assumptions based on common knowledge about the fields and the given personality sketch of Adam.
+
+### Constants:
+- **P(H)**: Prior probability of Adam enrolling in a particular field.
+- **P(E|H)**: Probability of observing the personality sketch given that Adam is enrolled in the field.
+- **P(E|¬H)**: Probability of observing the personality sketch given that Adam is *not* enrolled in the field.
+
+### Business Administration:
+- **P(H_b)**: 0.1 (assuming a lower probability given his interests)
+- **P(E|H_b)**: 0.1 (Adam’s personality sketch doesn’t strongly align with typical business administration traits)
+- **P(E|¬H_b)**: 0.5 (again less aligned, but more generalizable)
+
+### Agricultural and Veterinary Science:
+- **P(H_av)**: 0.2 (assuming a higher probability given his interests)
+- **P(E|H_av)**: 0.9 (Adam’s personality strongly aligns with this field)
+- **P(E|¬H_av)**: 0.3 (less likely as it aligns with him)
+
+Applying Bayes' Rule for each:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where
+
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+
+### For Business Administration:
+\[ P(H_b|E) = \frac{P(E|H_b) \cdot P(H_b)}{P(E)} \]
+
+Let's calculate \( P(E)_b \):
+
+\[ P(E)_b = P(E|H_b) \cdot P(H_b) + P(E|¬H_b) \cdot P(¬H_b) \]
+\[ P(E)_b = 0.1 \cdot 0.1 + 0.5 \cdot 0.9 \]
+\[ P(E)_b = 0.01 + 0.45 \]
+\[ P(E)_b = 0.46 \]
+
+Now,
+
+\[ P(H_b|E) = \frac{0.1 \cdot 0.1}{0.46} \]
+\[ P(H_b|E) ≈ 0.0217 \] or approximately 0.02
+
+### For Agricultural and Veterinary Science:
+\[ P(H_av|E) = \frac{P(E|H_av) \cdot P(H_av)}{P(E)} \]
+
+Let's calculate \( P(E)_av \):
+
+\[ P(E)_av = P(E|H_av) \cdot P(H_av) + P(E|¬H_av) \cdot P(¬H_av) \]
+\[ P(E)_av = 0.9 \cdot 0.2 + 0.3 \cdot 0.8 \]
+\[ P(E)_av = 0.18 + 0.24 \]
+\[ P(E)_av = 0.42 \]
+
+Now,
+
+\[ P(H_av|E) = \frac{0.9 \cdot 0.2}{0.42} \]
+\[ P(H_av|E) ≈ 0.4286 \] or approximately 0.43
+
+So the probability estimates are:
+
+```json
+{
+  "business administration": 0.02,
+  "agricultural and veterinary science": 0.43
+}
+```

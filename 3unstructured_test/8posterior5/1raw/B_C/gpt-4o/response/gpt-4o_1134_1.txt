@@ -1,0 +1,45 @@
+Assessing the probabilities involves both considering the prior likelihood of being in a certain field and how well Adam's personality sketch matches the typical characteristics for each field. Let's break it down step-by-step:
+
+1. **P(H)** - Prior probability of Adam being in each field:
+    - For **computer science (H_CS)**, we will assume a moderate likelihood because it is a popular field.
+    - For **business administration (H_BA)**, we will assume a moderate likelihood because it is also a popular field.
+  
+2. **P(E|H)** - Probability of observing the personality sketch E given that Adam is in each field:
+    - For **computer science (H_CS)**: Lower alignment, as the fields are typically associated with problem-solving skills but may not align with empathy, love for animals, or nature.
+    - For **business administration (H_BA)**: Lower alignment, as the fields focus on management and business skills rather than nature, empathy, or problem-solving in the abstract sense.
+
+3. **P(E|\neg H)** - Probability of observing the personality sketch E given that Adam is not in each field:
+    - Consider how likely it is to find someone with Adam's personality sketch outside of these fields. Given Adam’s strong appreciation for nature, empathy, and a love for animals, fields like environmental science or biology might be more likely.
+
+4. **P(H|E)** - Posterior probability using Bayes' rule:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+   \]
+   where \(P(E)\) is the overall probability of E which can be estimated but typically cancels out when comparing relative probabilities.
+
+Here are the estimates:
+
+### Computer Science:
+- **P(H_CS)**: 0.3 (assumed equal likelihood with business administration)
+- **P(E|H_CS)**: 0.2 (lower match with personality sketch)
+- **P(E|\neg H_CS)**: Can be approximated but assuming 0.4 considering many other fields (like biology, environmental science) could fit better.
+   - \[
+     P(H_CS|E) = \frac{0.2 \times 0.3}{0.2 \times 0.3 + 0.4 \times 0.7} = \frac{0.06}{0.06 + 0.28} = \frac{0.06}{0.34} \approx 0.176
+     \]
+
+### Business Administration:
+- **P(H_BA)**: 0.3 (assumed equal likelihood with computer science)
+- **P(E|H_BA)**: 0.1 (even lower match with personality sketch)
+- **P(E|\neg H_BA)**: Same as above, 0.4.
+   - \[
+     P(H_BA|E) = \frac{0.1 \times 0.3}{0.1 \times 0.3 + 0.4 \times 0.7} = \frac{0.03}{0.03 + 0.28} = \frac{0.03}{0.31} \approx 0.097
+     \]
+
+Thus, the probabilities are:
+
+```json
+{
+  "computer science": 0.176,
+  "business administration": 0.097
+}
+```

@@ -1,0 +1,53 @@
+First, let's go through the reasoning for each field.
+
+### Business Administration
+
+#### P(H)
+The probability that Adam was enrolled in a business administration program. This field generally has a large number of enrollments, so let's assume a moderate prior:
+\[ P(\text{H}_{\text{BA}}) = 0.1 \]
+
+#### P(E|H)
+The personality traits like a genuine curiosity about nature and love for animals do not strongly align with the typical profiles for business administration students, but aren't completely improbable either:
+\[ P(E|\text{H}_{\text{BA}}) = 0.2 \]
+
+#### P(E|\neg H)
+Since our other hypothesis is agricultural and veterinary science, and the rest of the fields could be anything else but both Business Administration and Agricultural & Veterinary Science are reasonable fields, let's consider:
+\[ P(E|\neg H_{\text{BA}}) = 0.8 \]
+
+#### Compute P(H|E)
+Using Bayes' Rule:
+\[ P(\text{H}_{\text{BA}}|E) = \frac{P(E|\text{H}_{\text{BA}}) \cdot P(\text{H}_{\text{BA}})}{P(E)} \]
+Assuming \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \):
+\[ P(E) = (0.2 \times 0.1) + (0.8 \times 0.9) \]
+\[ P(E) = 0.02 + 0.72 = 0.74 \]
+Thus:
+\[ P(\text{H}_{\text{BA}}|E) = \frac{0.2 \times 0.1}{0.74} = 0.027 \approx 0.03 \]
+
+### Agricultural and Veterinary Science
+
+#### P(H)
+The probability that Adam was enrolled in an agricultural and veterinary science program. Given his personality, it's quite a good fit:
+\[ P(\text{H}_{\text{AVS}}) = 0.05 \]
+
+#### P(E|H)
+The personality traits align very well with this field:
+\[ P(E|\text{H}_{\text{AVS}}) = 0.9 \]
+
+#### P(E|\neg H)
+Using a combined probability for "not this field" with some inclusive reasoning with the previous:
+\[ P(E|\neg H_{\text{AVS}}) = 0.4 \]
+
+#### Compute P(H|E)
+Using Bayes' Rule:
+\[ P(\text{H}_{\text{AVS}}|E) = \frac{P(E|\text{H}_{\text{AVS}}) \cdot P(\text{H}_{\text{AVS}})}{P(E)} \]
+Assuming \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \):
+\[ P(E) = (0.9 \times 0.05) + (0.4 \times 0.95) \]
+\[ P(E) = 0.045 + 0.38 = 0.425 \]
+Thus:
+\[ P(\text{H}_{\text{AVS}}|E) = \frac{0.9 \times 0.05}{0.425} = 0.106 \approx 0.11 \]
+
+
+{
+  "business administration": 0.03,
+  "agricultural and veterinary science": 0.11
+}

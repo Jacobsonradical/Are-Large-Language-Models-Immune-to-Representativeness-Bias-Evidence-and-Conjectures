@@ -1,0 +1,47 @@
+Let's evaluate the possibilities based on Adam's personality sketch and apply Bayes' rule.
+
+### Prior Probabilities (P(H))
+These are subjective probabilities based on how common each field of study is for graduate students in the U.S. and how likely someone with Adam's personality might choose that field.
+
+Given the broad nature of Adam's interests, it's hard to be very precise, but let's make a reasonable guess:
+
+- Computer Science: 0.2 (20%)
+- Business Administration: 0.15 (15%)
+
+### Likelihoods (P(E|H))
+These are the probabilities of observing Adam's personality sketch given that he is in each field.
+
+- **P(E | Computer Science)**: Adam is intelligent, good at abstract concepts, and enjoys solving puzzles, all of which fit well with computer science. Though his empathy and love for animals are not directly related, they don't work against this field.
+  - Let's estimate P(E | Computer Science) = 0.7 (70%)
+
+- **P(E | Business Administration)**: While Adam's appreciation for hard work could fit, his curiosity about nature, empathy, and love for animals might be less aligned with typical business administration students.
+  - Let's estimate P(E | Business Administration) = 0.3 (30%)
+
+### Complement Likelihoods (P(E|¬H))
+These are the probabilities of observing Adam's personality sketch given that he is not in each specific field. This is essentially an average across all other fields.
+
+Given the diversity of graduate fields, let's estimate these:
+
+- **P(E | ¬Computer Science)**: Given that there are many fields with nature, puzzles, empathy, and animals, this could be relatively high.
+  - Let’s estimate P(E | ¬Computer Science) = 0.5 (50%)
+
+- **P(E | ¬Business Administration)**: Similar logic applies. 
+  - Let’s estimate P(E | ¬Business Administration) = 0.5 (50%)
+
+### Bayes' Rule Calculation (P(H|E))
+Now we can use Bayes' Rule to find the posterior probabilities.
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)} \]
+
+1. **Computer Science**:
+\[ P(H|E)_{\text{CS}} = \frac{0.7 \times 0.2}{(0.7 \times 0.2) + (0.5 \times 0.8)} = \frac{0.14}{0.14 + 0.4} = \frac{0.14}{0.54} \approx 0.259 \]
+
+2. **Business Administration**:
+\[ P(H|E)_{\text{BA}} = \frac{0.3 \times 0.15}{(0.3 \times 0.15) + (0.5 \times 0.85)} = \frac{0.045}{0.045 + 0.425} = \frac{0.045}{0.47} \approx 0.096 \]
+
+Thus, our estimates for P(H|E) are:
+
+{
+  "computer science": 0.259,
+  "business administration": 0.096
+}

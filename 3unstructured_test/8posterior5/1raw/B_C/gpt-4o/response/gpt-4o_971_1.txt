@@ -1,0 +1,41 @@
+To use Bayes' rule, we need to estimate the probabilities \( P(H) \), \( P(E|H) \), and \( P(E| \neg H) \) for each field. Here's how we can go about this:
+
+1. \( P(H) \) is the prior probability that Adam is enrolled in a particular field.
+2. \( P(E|H) \) is the likelihood of Adam having the personality sketch \( E \), given that he is enrolled in that field.
+3. \( P(E| \neg H) \) is the likelihood of Adam having the personality sketch \( E \), given that he is not enrolled in that field.
+
+### Computer Science:
+- **\( P(H) \)**: This is a subjective estimate. Let’s assume the probability that a randomly chosen graduate student is enrolled in computer science is around 0.15.
+- **\( P(E|H) \)**: The personality traits such as genuine curiosity, high intelligence, enjoyment of solving puzzles, and understanding of abstract concepts align quite well with common traits in computer science students. A reasonable estimate can be 0.7.
+- **\( P(E|\neg H) \)**: The likelihood of having these traits if not enrolled in computer science. Considering the general population of graduate students in the U.S., a reasonable estimate could be 0.3 because many fields value intelligence and curiosity.
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+We need to evaluate \( P(E) \), but since we are comparing relative probabilities, we can work with just the numerators for both fields and normalize later.
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+For Computer Science:
+\[ P(H|E) \propto 0.7 \cdot 0.15 = 0.105 \]
+
+### Business Administration:
+- **\( P(H) \)**: Let’s assume the probability that a randomly chosen graduate student is enrolled in business administration is around 0.1.
+- **\( P(E|H) \)**: The personality traits, especially the strong empathy and warm heart, are not traditionally aligned with business administration, which often focuses on leadership and analytical skills rather than empathy toward animals and nature. A reasonable estimate could be 0.2.
+- **\( P(E|\neg H) \)**: The same reasoning as above, an estimate could be 0.3.
+
+For Business Administration:
+\[ P(H|E) \propto 0.2 \cdot 0.1 = 0.02 \]
+
+To normalize the values, we calculate the sum of the proportional probabilities:
+\[ \sum P(H|E) \propto 0.105 + 0.02 = 0.125 \]
+
+Normalized probabilities:
+\[ P(H|E \text{ for Computer Science}) = \frac{0.105}{0.125} \approx 0.84 \]
+\[ P(H|E \text{ for Business Administration}) = \frac{0.02}{0.125} \approx 0.16 \]
+
+So, based on these estimates:
+
+{
+  "computer science": 0.84,
+  "business administration": 0.16
+}

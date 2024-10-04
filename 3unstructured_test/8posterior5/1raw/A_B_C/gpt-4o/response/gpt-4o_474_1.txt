@@ -1,0 +1,85 @@
+Let's begin by defining the prior probabilities \( P(H) \) for each field, as well as the likelihoods \( P(E|H) \) and \( P(E|\neg H) \). Based on the sketch provided for Adam, we need to evaluate how well the personality traits and interests fit each field. After doing so, we will use Bayes' rule to calculate the posterior probabilities \( P(H|E) \).
+
+### Prior Probabilities \( P(H) \)
+
+Assuming that all fields of study have an equal initial probability for simplicity:
+
+- \( P(H) \) for each field = \(\frac{1}{3}\).
+
+### Likelihoods
+
+#### Business Administration
+- \( P(E|H_{BA}) \): Probability that Adam’s personality fits Business Administration.
+  - Business Administration generally does not heavily emphasize curiosity about nature, strong empathy, or love for animals.
+  - Skills in understanding abstract concepts could be a slight fit.
+  - Overall: Low likelihood.
+  
+- \( P(E|\neg H_{BA}) \): Probability of traits given that he's not in Business Administration.
+  - Many non-BA fields could better fit his traits, making this likelihood relatively high.
+  
+Let's assign:
+- \( P(E|H_{BA}) = 0.1 \)
+- \( P(E|\neg H_{BA}) = 0.5 \)
+
+#### Agricultural and Veterinary Science
+- \( P(E|H_{AV}) \): Probability that Adam’s personality fits Agricultural and Veterinary Science.
+  - High curiosity about nature and plants, strong empathy, and love for animals are direct matches.
+  - Skills with abstract concepts and appreciation for hard work and dedication also fit well.
+  - Overall: Very high likelihood.
+  
+- \( P(E|\neg H_{AV}) \): Probability of traits given that he's not in Agri/Vet Science.
+  - Many other fields might not fit well, making this likelihood relatively lower.
+  
+Let's assign:
+- \( P(E|H_{AV}) = 0.9 \)
+- \( P(E|\neg H_{AV}) = 0.2 \)
+
+#### Computer Science
+- \( P(E|H_{CS}) \): Probability that Adam’s personality fits Computer Science.
+  - High intelligence and good understanding of abstract concepts fit well.
+  - Curiosity and puzzle-solving interest also fit.
+  - Lack of direct emphasis on empathy and love for animals.
+  - Overall: Moderate likelihood.
+  
+- \( P(E|\neg H_{CS}) \): Probability of traits given that he's not in Computer Science.
+  - Some of his traits, such as love for animals and empathy, fit fewer fields, making this likelihood moderate.
+  
+Let's assign:
+- \( P(E|H_{CS}) = 0.4 \)
+- \( P(E|\neg H_{CS}) = 0.4 \)
+
+### Bayes' Rule Application
+
+To compute \( P(H|E) \), we use Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where
+\[ P(E) = \sum_{H} P(E|H) \cdot P(H) \]
+
+However, because we are not computing the exact \( P(E) \) but are interested in a comparative sense, we can ignore the denominator for simplification and compare the numerators \( P(E|H) \cdot P(H) \). 
+
+**Normalization omitted for simplicity:**
+
+### Calculation
+
+For Business Administration:
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) \]
+\[ P(H_{BA}|E) = 0.1 \times \frac{1}{3} = 0.033 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{AV}|E) \propto P(E|H_{AV}) \cdot P(H_{AV}) \]
+\[ P(H_{AV}|E) = 0.9 \times \frac{1}{3} = 0.3 \]
+
+For Computer Science:
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(H_{CS}|E) = 0.4 \times \frac{1}{3} = 0.133 \]
+
+So we have:
+
+```json
+{
+  "business administration": 0.033,
+  "agricultural and veterinary science": 0.3,
+  "computer science": 0.133
+}
+```
+This indicates the relative likelihoods without normalization.

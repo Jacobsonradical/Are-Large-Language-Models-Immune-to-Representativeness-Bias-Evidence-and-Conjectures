@@ -1,0 +1,54 @@
+To calculate the probabilities, let’s break down each component in Bayes' theorem for each field:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Here, we need to assign values for \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\) based on the provided information. Since \(P(E)\) is the same for all fields, we can simplify by comparing the relative likelihoods.
+
+### Computer Science
+- **P(H)**: This is the prior probability that Adam was a computer science student. Since Computer Science is a relatively common field, we can assume a moderate prior probability. Let’s say \(P(H) = 0.2\).
+- **P(E|H)**: Given that Adam is intelligent and enjoys solving puzzles, this could be fairly high because these traits are beneficial in computer science. Let's assume \(P(E|H) = 0.6\).
+- **P(E|\neg H)**: The probability that the traits described in E would occur if Adam was in another field. Given that these traits are not uncommon for various other fields, let's assume this to be \(P(E|\neg H) = 0.3\).
+
+Now, applying Bayes' rule:
+
+\[
+P(H|E)_{CS} = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.6 \cdot 0.2}{P(E)} = \frac{0.12}{P(E)}
+\]
+
+### Business Administration
+- **P(H)**: This is the prior probability that Adam was a business administration student. Business Administration is also a common field, but the described traits seem less directly relevant to it. Let’s say \(P(H) = 0.1\).
+- **P(E|H)**: The description does not align as well with Business Administration, where social skills and leadership are typically more emphasized than a quiet demeanor or a love for animals. Let’s assume \(P(E|H) = 0.2\).
+- **P(E|\neg H)**: Again, we assume this to be \(P(E|\neg H) = 0.3\).
+
+Now, applying Bayes' rule:
+
+\[
+P(H|E)_{BA} = \frac{P(E|H) \cdot P(H)}{P(E)} \approx \frac{0.2 \cdot 0.1}{P(E)} = \frac{0.02}{P(E)}
+\]
+
+Finally, to provide normalized probabilities, we compute the sum of the probabilities and then calculate each proportionally.
+
+\[
+P(E) = 0.12 + 0.02 = 0.14
+\]
+
+Thus:
+
+\[
+P(H|E)_{CS} = \frac{0.12}{0.14} \approx 0.857
+\]
+
+\[
+P(H|E)_{BA} = \frac{0.02}{0.14} \approx 0.143
+\]
+
+So, in the requested format:
+
+```
+{
+  "computer science": 0.857,
+  "business administration": 0.143
+}
+```

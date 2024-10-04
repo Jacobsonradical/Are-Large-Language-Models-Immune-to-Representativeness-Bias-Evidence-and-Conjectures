@@ -1,0 +1,71 @@
+Sure, let's use Bayes' rule \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \) to estimate the probabilities. Here we'll focus on making plausible estimations for the given fields.
+
+### Initial Estimated Probabilities
+
+1. **Agricultural and Veterinary Science**
+    - **P(H)**: This is the prior probability that a randomly selected graduate student is in this field. Let’s assume \(0.05\) (since it's a less common graduate field).
+    - **P(E|H)**: The probability of observing Adam’s personality sketch given he is in this field. Given his interest in nature, animals, and empathy: \(0.8\).
+    - **P(E|\neg H)**: Given he is not in this field, let’s assume \(0.2\) for comparability with broader fields.
+
+2. **Business Administration**
+    - **P(H)**: Let's assume \(0.15\) as a typical graduate concentration.
+    - **P(E|H)**: The probability of observing Adam’s sketch if he is in business admin. Given his empathy and intelligence, but less about plants and animals: \(0.2\).
+    - **P(E|\neg H)**: Given he is not in business admin, this remains: \(0.4\).
+
+3. **Computer Science**
+    - **P(H)**: Let's assume \(0.2\) given its commonality.
+    - **P(E|H)**: Given interest in puzzles and abstract concepts fits well, but less about nature empathy: \(0.5\).
+    - **P(E|\neg H)**: Given not in computer science: \(0.3\).
+
+### Calculating Posteriors Using Bayes' Rule
+
+1. **Agricultural and Veterinary Science**:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.05}{P(E)}
+   \]
+
+2. **Business Administration**:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.15}{P(E)}
+   \]
+
+3. **Computer Science**:
+   \[
+   P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.5 \cdot 0.2}{P(E)}
+   \]
+
+Since \(P(E)\) is a normalizing constant and same for all calculations, relative comparison is more straightforward. Considering similar scaling effects:
+
+\[
+P(H|E)_{agsci} = \frac{0.8 \cdot 0.05}{P(E)} = 0.04/P(E)
+\]
+\[
+P(H|E)_{bus} = \frac{0.2 \cdot 0.15}{P(E)} = 0.03/P(E)
+\]
+\[
+P(H|E)_{cs} = \frac{0.5 \cdot 0.2}{P(E)} = 0.1/P(E)
+\]
+
+If we normalize these values:
+
+1. \[
+   P(H|E)_{agsci} \approx \frac{0.04}{0.17} \approx 0.24
+   \]
+
+2. \[
+   P(H|E)_{bus} \approx \frac{0.03}{0.17} \approx 0.18
+   \]
+
+3. \[
+   P(H|E)_{cs} \approx \frac{0.1}{0.17} \approx 0.58
+   \]
+
+Finally, the computed probabilities are:
+
+```json
+{
+  "agricultural and veterinary science": 0.24,
+  "business administration": 0.18,
+  "computer science": 0.58
+}
+```

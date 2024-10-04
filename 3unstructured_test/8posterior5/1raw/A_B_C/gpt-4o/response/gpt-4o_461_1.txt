@@ -1,0 +1,57 @@
+To estimate the probabilities using Bayes' rule, we need to start with some initial estimates for each component:
+
+- **P(H)**: The prior probability that Adam is enrolled in a given field.
+- **P(E|H)**: The probability of observing the evidence (E) given that Adam is in the field (H).
+- **P(E|\neg H)**: The probability of observing the evidence (E) given that Adam is NOT in the field (H).
+
+For the purpose of this exercise, the prior probabilities can be assumed to be equal across fields if we have no other information. Let's set \( P(H) \) to be 1/3 for each field since there are three fields considered.
+
+Next, we evaluate \( P(E|H) \) for each field based on how well the personality sketch of Adam matches the typical attributes of students in that field:
+
+1. **Agricultural and Veterinary Science**:
+    - Students in this field are often interested in nature, plants, and animals.
+    - Adam's curiosity about nature, love for animals, and empathy align well with this field.
+    - Let's assume \( P(E|H) \) for this field is relatively high, say 0.8.
+
+2. **Business Administration**:
+    - This field often involves skills like leadership, economics, finance, and management.
+    - The personality traits described do not strongly align with the typical interests and attributes of this field.
+    - Let's assume \( P(E|H) \) for this field is relatively low, say 0.1.
+
+3. **Computer Science**:
+    - This field often involves problem-solving and understanding abstract concepts.
+    - Adam enjoys solving puzzles and is of high intelligence, which aligns with some traits of computer science students.
+    - Let's assume \( P(E|H) \) for this field is moderate, say 0.5.
+
+For \( P(E|\neg H) \), we need to estimate the likelihood of the evidence given that Adam is not in each field. This is difficult without additional context, but we can approximate:
+
+- Agricultural and Veterinary Science: \( P(E|\neg H) \) is influenced by Adam's traits which might still fit some other fields but less strongly. Let's estimate \( P(E|\neg H) \) to be 0.4.
+- Business Administration: Given the mismatch, \( P(E|\neg H) \) might be higher because Adam's traits fit many fields better than business administration. Let's estimate \( P(E|\neg H) \) to be 0.8.
+- Computer Science: Given some alignment, but also competing fields, let's estimate \( P(E|\neg H) \) to be 0.5.
+
+We now apply Bayes' rule to calculate \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) is a normalizing constant ensuring all probabilities sum to 1, but we can skip the normalization if we only need relative probabilities.
+
+Let's compute each:
+
+1. Agricultural and Veterinary Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.8 \cdot \frac{1}{3} = 0.267 \]
+
+2. Business Administration:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.1 \cdot \frac{1}{3} = 0.033 \]
+
+3. Computer Science:
+\[ P(H|E) \propto P(E|H) \cdot P(H) = 0.5 \cdot \frac{1}{3} = 0.167 \]
+
+So, the relative probabilities are:
+
+{
+  "agricultural and veterinary science": "0.267",
+  "business administration": "0.033",
+  "computer science": "0.167"
+}
+
+These values are relative and should be normalized if exact probabilities are needed.

@@ -1,0 +1,56 @@
+Let's break down the process of using Bayes' rule to assess the probabilities.
+
+Bayes' rule states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field, we need to estimate:
+
+1. \(P(H)\): The prior probability that Adam was enrolled in this field.
+2. \(P(E|H)\): The probability of the personality sketch \(E\) given that Adam was enrolled in this field.
+3. \(P(E|\neg H)\): The probability of the personality sketch \(E\) given that Adam was NOT enrolled in this field.
+
+Assumptions and estimates:
+
+### Computer Science
+- \(P(H_{cs})\): Let's assume that there's a moderate representation of graduate students in computer science. Approximate this to be 0.15.
+- \(P(E|H_{cs})\): Given his high intelligence, love for solving puzzles, and understanding of abstract concepts, it's likely he could be in computer science. We estimate this to be relatively high, say 0.6.
+- \(P(E|\neg H_{cs})\): The probability of the personality sketch given that he is not in computer science. The sketch qualities are somewhat common across several fields, so we estimate this at 0.4.
+
+### Business Administration
+- \(P(H_{ba})\): Let's assume that there's a moderate representation of graduate students in business administration as well. Approximate this to be 0.15.
+- \(P(E|H_{ba})\): The nature-focused and animal-loving qualities do not strongly indicate business administration; it's likely to be lower, say 0.1.
+- \(P(E|\neg H_{ba})\): The probability of the personality sketch given that he is not in business administration. Estimate this at 0.4 as well.
+
+Now, to compute \(P(H|E)\) for each field:
+
+### Computer Science
+\[ P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} \]
+Since \( P(E) = P(E|H_{cs}) \cdot P(H_{cs}) + P(E|\neg H_{cs}) \cdot P(\neg H_{cs}) \):
+
+\[ P(E) = (0.6 \cdot 0.15) + (0.4 \cdot 0.85) \]
+\[ P(E) = 0.09 + 0.34 \]
+\[ P(E) = 0.43 \]
+
+Now,
+\[ P(H_{cs}|E) = \frac{0.6 \cdot 0.15}{0.43} \]
+\[ P(H_{cs}|E) \approx 0.2093 \]
+
+### Business Administration
+\[ P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)} \]
+Since \( P(E) = P(E|H_{ba}) \cdot P(H_{ba}) + P(E|\neg H_{ba}) \cdot P(\neg H_{ba}) \):
+
+\[ P(E) = (0.1 \cdot 0.15) + (0.4 \cdot 0.85) \]
+\[ P(E) = 0.015 + 0.34 \]
+\[ P(E) = 0.355 \]
+
+Now,
+\[ P(H_{ba}|E) = \frac{0.1 \cdot 0.15}{0.355} \]
+\[ P(H_{ba}|E) \approx 0.0423 \]
+
+So, the final results are:
+
+{
+  "computer science": "0.2093",
+  "business administration": "0.0423"
+}

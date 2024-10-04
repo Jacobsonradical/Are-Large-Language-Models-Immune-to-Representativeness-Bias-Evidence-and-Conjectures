@@ -1,0 +1,59 @@
+To apply Bayes' Rule, we need to calculate the posterior probabilities \( P(H|E) \) which involves the following probabilities:
+
+1. \( P(H) \): The prior probability of Adam being enrolled in that field.
+2. \( P(E|H) \): The likelihood of observing Adam's personality sketch given that he is in that field.
+3. \( P(E|\neg H) \): The likelihood of observing Adam's personality sketch given that he is not in that field.
+
+Bayes' Rule is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+**Assumptions:**
+- Let's assume the prior probabilities \( P(H) \) for both fields based on general distribution of graduate fields of study.
+- We’ll assess \( P(E|H) \) and \( P(E|\neg H) \) based on how likely Adam’s personality traits match typical students in these fields.
+
+### Business Administration:
+- **P(H) for Business Administration (P(H_{BA})):** Assume a moderate prior probability, as it’s a common field.
+- **P(E|H) for Business Administration (P(E|H_{BA})):** His traits do not strongly align with typical business administration traits.
+- **P(E|\neg H) for Business Administration (P(E|\neg H_{BA})):** Assume other fields have a higher likelihood for his traits.
+
+### Computer Science:
+- **P(H) for Computer Science (P(H_{CS})):** Assume a reasonable prior since it is a popular field.
+- **P(E|H) for Computer Science (P(E|H_{CS})):** His intelligence, love for puzzles, and understanding abstract concepts fit well.
+- **P(E|\neg H) for Computer Science (P(E|\neg H_{CS})):** Many other fields may also fit his traits, but not as closely.
+
+### Assigning Values:
+Without exact statistical data, I will make an educated estimation for each probability between 0 and 1.
+
+#### Business Administration:
+- \( P(H_{BA}) \approx 0.2 \)
+- \( P(E|H_{BA}) \approx 0.2 \)
+- \( P(E|\neg H_{BA}) \approx 0.8 \)
+
+#### Computer Science:
+- \( P(H_{CS}) \approx 0.2 \)
+- \( P(E|H_{CS}) \approx 0.7 \)
+- \( P(E|\neg H_{CS}) \approx 0.4 \)
+
+### Calculating Posterior Probabilities:
+#### Business Administration:
+\[ P(H_{BA}|E) = \frac{P(E|H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|\neg H_{BA}) \cdot P(\neg H_{BA}) \]
+\[ P(E) = 0.2 \cdot 0.2 + 0.8 \cdot 0.8 = 0.04 + 0.64 = 0.68 \]
+\[ P(H_{BA}|E) = \frac{0.04}{0.68} \approx 0.059 \]
+
+#### Computer Science:
+\[ P(H_{CS}|E) = \frac{P(E|H_{CS}) \cdot P(H_{CS})}{P(E)} \]
+\[ P(E) = P(E|H_{CS}) \cdot P(H_{CS}) + P(E|\neg H_{CS}) \cdot P(\neg H_{CS}) \]
+\[ P(E) = 0.7 \cdot 0.2 + 0.4 \cdot 0.8 = 0.14 + 0.32 = 0.46 \]
+\[ P(H_{CS}|E) = \frac{0.14}{0.46} \approx 0.304 \]
+
+### Final Results:
+```json
+{
+  "business administration": 0.059,
+  "computer science": 0.304
+}
+```

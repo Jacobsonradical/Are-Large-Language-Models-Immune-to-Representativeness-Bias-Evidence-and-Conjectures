@@ -1,0 +1,54 @@
+To determine the probabilities that Adam was enrolled in each field given his personality sketch using Bayes' Rule, we need to break down the steps systematically. We'll use the following notation:
+
+- P(H) is the prior probability that Adam was enrolled in a given field.
+- P(E|H) is the likelihood of observing Adam's personality sketch given that he was enrolled in that field.
+- P(E|¬H) is the likelihood of observing Adam's personality sketch given he was not enrolled in that field.
+- P(H|E) is the posterior probability that Adam was enrolled in the given field given his personality sketch.
+
+We can calculate the posterior probability using Bayes' Rule, which is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we don't have the exact numerical values for P(H) (prior probability for each field), P(E|H) (likelihood of the personality sketch given a specific field), and P(E) (the probability of observing the personality sketch), we'll make reasoned estimates based on typical scenarios.
+
+### Assumptions
+1. P(H): We assume no strong initial preference for either field, so let's tentatively assume a prior of 0.5 for each field.
+2. P(E|H): Based on the personality sketch:
+   - Adam's curiosity about nature, animals, and plants strongly suggests that "Agricultural and Veterinary Science" is a more natural fit.
+   - The qualities mentioned (empathy, love for animals, nature curiosity) are less strongly associated with "Computer Science."
+
+3. P(E|¬H): This is more nuanced, but general personality traits like empathy and curiosity can be found in many fields. However, we would expect that if Adam was not in "Agricultural and Veterinary Science," those qualities might be equally likely or less likely in the broader sample of fields excluding Computer Science.
+
+Let's give some example values to reason out the calculations:
+
+- P(E|H) for each field:
+  - Computer Science: 0.2 (less alignment with typical personality traits for this field)
+  - Agricultural and Veterinary Science: 0.8 (strong alignment with personality traits for this field)
+  
+- P(E|¬H): Let's consider the likelihood of observing these traits outside these specific fields:
+  - For Computer Science, likely we'll see traits like problem-solving without the specific nature or animal empathy component: 0.4
+  - For Agricultural and Veterinary Science, likely we'll find similar traits but perhaps distributed across other science or empathetic-related fields: 0.6
+
+Using these example estimates, we can apply Bayes' Rule to compute the posterior probabilities.
+
+### Computer Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(E) \approx P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+\[ P(E) \approx (0.2 \cdot 0.5) + (0.4 \cdot 0.5) \]
+\[ P(E) \approx 0.1 + 0.2 = 0.3 \]
+\[ P(H|E) = \frac{0.2 \cdot 0.5}{0.3} \approx \frac{0.1}{0.3} \approx 0.33 \]
+
+### Agricultural and Veterinary Science
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(E) \approx P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+\[ P(E) \approx (0.8 \cdot 0.5) + (0.6 \cdot 0.5) \]
+\[ P(E) \approx 0.4 + 0.3 = 0.7 \]
+\[ P(H|E) = \frac{0.8 \cdot 0.5}{0.7} \approx \frac{0.4}{0.7} \approx 0.57 \]
+
+Based on these computations, our estimates are:
+
+```json
+{
+  "computer science": 0.33,
+  "agricultural and veterinary science": 0.57
+}
+```

@@ -1,0 +1,60 @@
+To compute the posterior probabilities P(H|E) for each field using Bayes' rule, we first need to evaluate the following:
+
+1. **P(H)**: The prior probability that Adam was enrolled in a given field.
+2. **P(E|H)**: The probability of observing the personality sketch given that Adam was enrolled in a particular field.
+3. **P(E|\neg H)**: The probability of observing the personality sketch given that Adam was not enrolled in that field.
+
+Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) is the normalization constant which ensures the total probability adds up to 1.
+
+We'll proceed by making reasonable assumptions about the probabilities:
+
+### Prior Probabilities (P(H))
+
+We'll assume that the prior probability is equal across all fields since we have no specific information otherwise. Let's assume P(H) = 0.1 for each field. This assignment is purely for illustration; usually, you might have more informed prior probabilities.
+
+### Likelihoods (P(E|H) and P(E|\neg H))
+
+**Computer Science:**
+- P(E|H): The personality sketch does not strongly match a stereotypical computer science student. While high intelligence and problem-solving fit, curiosity about nature and empathy do not strongly align.
+  - Let's assign P(E|H) = 0.3.
+- P(E|\neg H): The personality sketch given that Adam is not a CS student is probably higher.
+  - Let's assign P(E|\neg H) = 0.7.
+
+**Business Administration:**
+- P(E|H): The personality sketch has even less alignment with a stereotypical business administration student.
+  - Let's assign P(E|H) = 0.1.
+- P(E|\neg H): Given that Adam is not a business administration student, the personality sketch is very likely.
+  - Let's assign P(E|\neg H) = 0.9.
+
+**Agricultural and Veterinary Science:**
+- P(E|H): The personality sketch strongly aligns with someone interested in agricultural and veterinary science.
+  - Let's assign P(E|H) = 0.8.
+- P(E|\neg H): Given that Adam is not in agricultural and veterinary science, the personality sketch is less likely.
+  - Let's assign P(E|\neg H) = 0.2.
+
+### Posterior Probabilities (P(H|E))
+
+Now using Bayes' rule for each field:
+
+1. **Computer Science:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.3 \times 0.1}{0.3 \times 0.1 + 0.1 \times 0.1 + 0.8 \times 0.1} = \frac{0.03}{0.03 + 0.01 + 0.08} = \frac{0.03}{0.12} = 0.25 \]
+
+2. **Business Administration:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.1 \times 0.1}{0.1 \times 0.1 + 0.3 \times 0.1 + 0.8 \times 0.1} = \frac{0.01}{0.01 + 0.03 + 0.08} = \frac{0.01}{0.12} = 0.083 \]
+
+3. **Agricultural and Veterinary Science:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.3 \times 0.1 + 0.1 \times 0.1} = \frac{0.08}{0.08 + 0.03 + 0.01} = \frac{0.08}{0.12} = 0.666 \]
+
+Using these calculations, we get the following posterior probabilities:
+
+```json
+{
+  "computer science": 0.25,
+  "business administration": 0.083,
+  "agricultural and veterinary science": 0.666
+}
+```
+
+These values suggest that, given the personality sketch, Adam is most likely enrolled in Agricultural and Veterinary Science compared to the other fields considered.

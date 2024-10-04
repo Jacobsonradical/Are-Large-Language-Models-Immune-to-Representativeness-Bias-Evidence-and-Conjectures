@@ -1,0 +1,50 @@
+To determine the probabilities \( P(H \mid E) \), we need to use Bayes' rule, which states:
+
+\[ P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)} \]
+
+Given:
+- \( P(H) \): Prior probability that Adam was enrolled in a particular field.
+- \( P(E \mid H) \): Likelihood of observing Adam's personality sketch given he was enrolled in a particular field.
+- \( P(E) \): Overall probability of observing Adam's personality sketch.
+- \( P(E \mid \neg H) \): Likelihood of observing Adam's personality sketch given he was not enrolled in a particular field.
+
+Assuming \( P(H) = 0.1 \) initially for each field, since these are two fields among many.
+
+### Agricultural and Veterinary Science
+- \( P(H_{AVS}) \): Prior probability that Adam was in agricultural and veterinary science.
+- \( P(E \mid H_{AVS}) \): Likelihood of Adam’s traits given he is in agricultural and veterinary science. Given his curiosity about nature, love for animals, and empathy, this would be quite high, say \( 0.8 \).
+- \( P(E \mid \neg H_{AVS}) \): Likelihood of Adam’s traits given he is not in agricultural and veterinary science. Since other fields might not match his traits as well, suppose this is relatively low, say \( 0.2 \).
+
+### Business Administration
+- \( P(H_{BA}) \): Prior probability that Adam was in business administration.
+- \( P(E \mid H_{BA}) \): Likelihood of Adam’s traits given he is in business administration. Given his traits, this seems less likely, so say \( 0.2 \).
+- \( P(E \mid \neg H_{BA}) \): Likelihood of Adam’s traits given he is not in business administration. For fields other than business administration, this might be higher, say \( 0.8 \).
+
+Now, let's compute the posterior probabilities.
+
+### Agricultural and Veterinary Science
+\[ P(H_{AVS} \mid E) = \frac{P(E \mid H_{AVS}) \cdot P(H_{AVS})}{P(E)} \]
+
+Since \( P(E) = P(E \mid H_{AVS}) \cdot P(H_{AVS}) + P(E \mid \neg H_{AVS}) \cdot P(\neg H_{AVS}) \),
+\[ P(E) = 0.8 \cdot 0.1 + 0.2 \cdot 0.9 = 0.08 + 0.18 = 0.26 \]
+
+So:
+\[ P(H_{AVS} \mid E) = \frac{0.8 \cdot 0.1}{0.26} = \frac{0.08}{0.26} \approx 0.308 \]
+
+### Business Administration
+\[ P(H_{BA} \mid E) = \frac{P(E \mid H_{BA}) \cdot P(H_{BA})}{P(E)} \]
+
+Since \( P(E) = P(E \mid H_{BA}) \cdot P(H_{BA}) + P(E \mid \neg H_{BA}) \cdot P(\neg H_{BA}) \),
+\[ P(E) = 0.2 \cdot 0.1 + 0.8 \cdot 0.9 = 0.02 + 0.72 = 0.74 \]
+
+So:
+\[ P(H_{BA} \mid E) = \frac{0.2 \cdot 0.1}{0.74} = \frac{0.02}{0.74} \approx 0.027 \]
+
+Thus, the answers are:
+
+```json
+{
+  "agricultural and veterinary science": 0.308,
+  "business administration": 0.027
+}
+```

@@ -1,0 +1,74 @@
+To compute the probabilities \( P(H|E) \) for each field using Bayes' rule, we need to:
+
+1. Estimate the prior probability \( P(H) \) for each field, which is the general likelihood that a graduate student might be enrolled in that field.
+2. Estimate the likelihood \( P(E|H) \), which is the probability of observing the personality sketch given that Adam is enrolled in that specific field.
+3. Estimate \( P(E|\neg H) \), which is the probability of observing the personality sketch given that Adam is not enrolled in that specific field.
+4. Apply Bayes' rule: 
+   \[
+   P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+   \]
+where \( P(E) \) can be calculated using the law of total probability:
+   \[
+   P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H)
+   \]
+   
+However, we will work with the relative values of \( P(H|E) \) without needing to compute the exact value of \( P(E) \).
+
+### Estimation
+Let's make some estimations on the probabilities:
+- \( P(E|H) \) values are based on how well Adam's personality aligns with expected traits in these fields.
+- \( P(E|\neg H) \) is generally lower because it must take into account the overall graduate population where Adam could fit into many different fields.
+
+**Agricultural and Veterinary Science**:
+- Quietness, curiosity about nature and plants, empathy, and love for animals all support this field strongly.
+- High likelihood that someone with these traits would pursue this field.
+
+**Computer Science**:
+- High intelligence and problem-solving skills match well, but empathy, love for animals, and interest in plants are less relevant.
+- Lower likelihood but still possible due to interest in puzzles and abstract concepts.
+
+### Probabilities:
+- \( P(H_{ag}) \): Moderate; specific fields like agricultural sciences have lower overall enrollment but are still common graduate studies.
+- \( P(H_{cs}) \): High; computer science is a very common graduate field with high enrollment rates.
+
+- \( P(E|H_{ag}) \): High; personality sketch fits well with typical traits.
+- \( P(E|\neg H_{ag}) \): Low-medium; though empathy and curiosity about nature are less typical in other fields compared to agricultural sciences.
+
+- \( P(E|H_{cs}) \): Moderate; fits well due to problem-solving and intelligence aspects.
+- \( P(E|\neg H_{cs}) \): High; traits like intelligence and problem-solving are not unique to computer science.
+
+### Quantitative Assumptions:
+- \( P(H_{\text{ag}}) = 0.1 \)
+- \( P(H_{\text{cs}}) = 0.2 \)
+
+- \( P(E|H_{\text{ag}}) = 0.8 \)
+- \( P(E|\neg H_{\text{ag}}) = 0.4 \)
+
+- \( P(E|H_{\text{cs}}) = 0.6 \)
+- \( P(E|\neg H_{\text{cs}}) = 0.5 \)
+
+### Bayes Calculation:
+For Agricultural and Veterinary Science:
+\[
+P(H_{\text{ag}}|E) \propto P(E|H_{\text{ag}})P(H_{\text{ag}})
+\]
+\[
+P(H_{\text{ag}}|E) \approx 0.8 \times 0.1 = 0.08
+\]
+
+For Computer Science:
+\[
+P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}})P(H_{\text{cs}})
+\]
+\[
+P(H_{\text{cs}}|E) \approx 0.6 \times 0.2 = 0.12
+\]
+
+Given these calculations, we can normalize them to a common scale for comparisons, but as requested we simply provide them to understand relative likelihoods:
+
+{
+  "agricultural and veterinary science": 0.08,
+  "computer science": 0.12
+}
+
+These values suggest that, based on the given traits, Adam might be slightly more likely to be enrolled in Computer Science than in Agricultural and Veterinary Science, but both are reasonable possibilities.

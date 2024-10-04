@@ -1,0 +1,52 @@
+To solve this problem using Bayes' theorem, we need to calculate the conditional probabilities \( P(H|E) \), which tell us the probability of Adam being enrolled in a particular field given his personality sketch, \( E \).
+
+Bayes' theorem states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since we are only comparing these probabilities relative to each other, we can ignore the denominator \( P(E) \) because it is the same for all fields. Thus, we only need to focus on the numerator:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Let's denote:
+- \( H_{cs} \) as the hypothesis that Adam was enrolled in computer science.
+- \( H_{ba} \) as the hypothesis that Adam was enrolled in business administration.
+
+For each field, we will estimate \( P(E|H) \), \( P(H) \), and then calculate \( P(H|E) \).
+
+### Computer Science
+1. \( P(H_{cs}) \) (prior probability of being in computer science): Assume this is a commonly chosen field by graduate students, but not the most common.
+2. \( P(E|H_{cs}) \) (probability of Adam having his personality traits if he is in computer science): 
+   - High intelligence and good understanding of abstract concepts align well with computer science.
+   - Curiosity about nature and empathy for animals are less directly related but not contradictory.
+3. \( P(E|\neg H_{cs}) \) (probability of Adam having his personality traits if he is not in computer science): This would be spread out over the other fields but doesn't strongly match specific non-computer-science traits.
+
+### Business Administration
+1. \( P(H_{ba}) \) (prior probability of being in business administration): Also a commonly chosen field, possibly more common but highly heterogeneous in the student population.
+2. \( P(E|H_{ba}) \) (probability of Adam having his personality traits if he is in business administration): 
+   - Being good at understanding abstract concepts and appreciating hard work may align loosely.
+   - Strong empathy can be valuable in business but not specific to the field.
+   - Other traits like curiosity about nature and love for animals are less directly related.
+
+Given these qualitative assessments, let's assume:
+- \( P(H_{cs}) \approx 0.2 \)
+- \( P(E|H_{cs}) \approx 0.5 \)
+- \( P(H_{ba}) \approx 0.3 \)
+- \( P(E|H_{ba}) \approx 0.2 \)
+
+Now applying the Bayes rule and normalizing to get relative probabilities, we get:
+
+### Computer Science:
+\[ P(H|E) \propto P(E|H_{cs}) \cdot P(H_{cs}) = 0.5 \times 0.2 = 0.1 \]
+
+### Business Administration:
+\[ P(H|E) \propto P(E|H_{ba}) \cdot P(H_{ba}) = 0.2 \times 0.3 = 0.06 \]
+
+Relative probabilities without normalization (since there might be other fields) are:
+
+```json
+{
+  "computer science": 0.1,
+  "business administration": 0.06
+}
+```

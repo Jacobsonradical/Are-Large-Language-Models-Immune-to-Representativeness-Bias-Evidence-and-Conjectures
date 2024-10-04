@@ -1,0 +1,43 @@
+To solve this problem using Bayes' rule, let’s denote:
+
+- \( P(H) \): The prior probability that Adam was enrolled in a specific field.
+- \( P(E|H) \): The probability of Adam’s personality sketch given he was enrolled in a specific field.
+- \( P(E|\neg H) \): The probability of Adam’s personality sketch given he was not enrolled in a specific field.
+- \( P(H|E) \): The posterior probability that Adam was enrolled in a specific field given his personality sketch.
+
+Using Bayes' rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, we will make qualitative judgments based on the sketch:
+
+1. **Computer Science**:
+   - \( P(H_{\text{CS}}) \): The prior probability that Adam was enrolled in Computer Science. Let’s assume a moderate value, say \( 0.15 \) (15% as many students choose CS).
+   - \( P(E|H_{\text{CS}}) \): Given the interest in puzzles and intelligence, the probability might be moderately high at \( 0.3 \)
+   - \( P(E|\neg H_{\text{CS}}) \): The probability of E in other fields, let’s assume it to average at \( 0.2 \)
+
+   So, \( P(H_{\text{CS}}|E) \approx \frac{0.3 \times 0.15}{P(E)} \)
+
+2. **Agricultural and Veterinary Science**:
+   - \( P(H_{\text{AgVet}}) \): The prior probability that Adam was enrolled in Agricultural and Veterinary Science. Assume a lower value, maybe \( 0.05 \) (due to its specificity).
+   - \( P(E|H_{\text{AgVet}}) \): Given his love for nature, animals, and empathy this could be quite high, say, \( 0.7 \)
+   - \( P(E|\neg H_{\text{AgVet}}) \): For other fields, assume \( 0.2 \)
+
+   So, \( P(H_{\text{AgVet}}|E) \approx \frac{0.7 \times 0.05}{P(E)} \)
+
+3. **Business Administration**:
+   - \( P(H_{\text{BA}}) \): The prior probability for Business Administration. Let's take a moderate value like \( 0.2 \) (reasonably chosen number of students in this field).
+   - \( P(E|H_{\text{BA}}) \): Based on the personality, solving puzzles and abstract concepts might fit alright at about \( 0.1 \)
+   - \( P(E|\neg H_{\text{BA}}) \): Assuming again an average probability \( 0.2 \)
+
+   So, \( P(H_{\text{BA}}|E) \approx \frac{0.1 \times 0.2}{P(E)} \)
+
+Let’s normalize respect to \( P(E) \):
+
+Given these calculations:
+
+{
+  "computer science": "(0.3 * 0.15) / (0.3 * 0.15 + 0.7 * 0.05 + 0.1 * 0.2) = 0.45 / 0.45 = 1/3 ≈ 0.333",
+  "agricultural and veterinary science": "(0.7 * 0.05) / (0.3 * 0.15 + 0.7 * 0.05 + 0.1 * 0.2) = 0.35 / 0.45 = 5/9 ≈ 0.556",
+  "business administration": "(0.1 * 0.2) / (0.3 * 0.15 + 0.7 * 0.05 + 0.1 * 0.2) = 0.02 / 0.45 ≈ 0.044"
+}

@@ -1,0 +1,78 @@
+To determine \( P(H|E) \) for each field through Bayes' rule, we need to consider the following:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Given the fields are:
+
+1. Computer Science
+2. Business Administration
+3. Agricultural and Veterinary Science
+
+We make a few reasonable assumptions about the fields and how well Adam's personality sketch (E) matches each one.
+
+### Probabilities:
+- Let’s assume graduate students distribution as follows (P(H)):
+  - Computer Science: \( P(\text{computer science}) = 0.3 \)
+  - Business Administration: \( P(\text{business administration}) = 0.2 \)
+  - Agricultural and Veterinary Science: \( P(\text{agricultural and veterinary science}) = 0.1 \)
+  - Other fields: \( P(\text{others}) = 0.4 \)
+
+- Conditional probabilities \( P(E|H) \) based on fit to the personality sketch:
+  - For Computer Science:
+    - High intelligence and ability to understand abstract concepts fit, but there is no specific match with curiosity about plants or empathy and love for animals.
+    - \( P(E|\text{computer science}) = 0.4 \)
+  - For Business Administration:
+    - While his intelligence might fit, there's little to suggest a match with his other characteristics.
+    - \( P(E|\text{business administration}) = 0.2 \)
+  - For Agricultural and Veterinary Science:
+    - A very strong match due to his curiosity about nature, love for animals, and empathy.
+    - \( P(E|\text{agricultural and veterinary science}) = 0.8 \)
+
+- Conditional probabilities \( P(E|\neg H) \):
+  - This represents how likely it is that the personality sketch fits for students in other fields.
+  - Since “others” is 0.4 probability:
+    - \( P(E|\neg H) = \frac{P(E) - P(E|H) \cdot P(H)}{P(\neg H)} \)
+    - Assume P(E) is more likely in other fields by default. Reasonably, let's pick:
+    - \( P(E|\neg \text{computer science}) = 0.4 \)
+    - \( P(E|\neg \text{business administration}) = 0.4 \)
+    - \( P(E|\neg \text{agricultural and veterinary science}) = 0.4 \)
+
+Bayes’ rule gives us:
+
+1. For Computer Science:
+   \[
+   P(\text{computer science}|E) = \frac{P(E|\text{computer science}) \cdot P(\text{computer science})}{P(E)}
+   \]
+2. For Business Administration:
+   \[
+   P(\text{business administration}|E) = \frac{P(E|\text{business administration}) \cdot P(\text{business administration})}{P(E)}
+   \]
+3. For Agricultural and Veterinary Science:
+   \[
+   P(\text{agricultural and veterinary science}|E) = \frac{P(E|\text{agricultural and veterinary science}) \cdot P(\text{agricultural and veterinary science})}{P(E)}
+   \]
+
+Given this approach matches structure of \( E \) properly, let's assume \( P(E) \approx 0.45 \).
+
+Thus, 
+\[
+P(\text{computer science}|E) = \frac{0.4 \times 0.3}{0.45} \approx 0.267
+\]
+\[
+P(\text{business administration}|E) = \frac{0.2 \times 0.2}{0.45} \approx 0.089
+\]
+\[
+P(\text{agricultural and veterinary science}|E) = \frac{0.8 \times 0.1}{0.45} \approx 0.178
+\]
+
+### Computed Values:
+
+```json
+{
+  "computer science": 0.267,
+  "business administration": 0.089,
+  "agricultural and veterinary science": 0.178
+}
+```
+
+These probabilities give us insights into which field Adam is more likely to be enrolled in, given the personality sketch provided.

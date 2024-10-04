@@ -1,0 +1,69 @@
+To compute \( P(H|E) \) for each field using Bayes' rule, we need to consider the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the evidence \( P(E) \). Bayes' rule is given by:
+
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}
+\]
+
+Since we are comparing multiple hypotheses, we can ignore \( P(E) \) because it will cancel out in the normalization process. We will estimate \( P(E|H) \) based on the likelihood of the personality sketch matching the field, and we will use educated guesses for \( P(H) \).
+
+### Computer Science:
+- \( P(H) \): Somewhat common graduate field, let's say \( P(H) = 0.3 \)
+- \( P(E|H) \): Adam's intelligence and love for solving puzzles fit well, but less so his love for nature. Let's assume \( P(E|H) = 0.4 \)
+- \( P(E|\neg H) \): This would be the average probability of observing \( E \) in any other field, not just the ones we're considering. As a rough average, let's assume \( P(E|\neg H) = 0.2 \)
+
+### Agricultural and Veterinary Science:
+- \( P(H) \): Less common but fits Adam’s love for nature and animals; let's say \( P(H) = 0.2 \)
+- \( P(E|H) \): Strong match with Adam's personality; let's assume \( P(E|H) = 0.8 \)
+- \( P(E|\neg H) \): Still assuming an average of \( 0.2 \) for fields outside this one.
+
+### Business Administration:
+- \( P(H) \): Common field, let's assume \( P(H) = 0.2 \)
+- \( P(E|H) \): Doesn’t fit Adam's love for nature and animals as closely, though intelligence and understanding abstract concepts could fit. Let's assume \( P(E|H) = 0.2 \)
+- \( P(E|\neg H) \): Again, using \( P(E|\neg H) = 0.2 \)
+
+Now we compute \( P(H|E) \) for each field:
+
+\[
+P(\text{Computer Science}|E) = \frac{P(E|\text{Computer Science}) \cdot P(\text{Computer Science})}{P(E)}
+= \frac{0.4 \cdot 0.3}{P(E)}
+\]
+
+\[
+P(\text{Agricultural and Veterinary Science}|E) = \frac{P(E|\text{Agricultural}) \cdot P(\text{Agricultural})}{P(E)}
+= \frac{0.8 \cdot 0.2}{P(E)}
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{P(E|\text{Business}) \cdot P(\text{Business})}{P(E)}
+= \frac{0.2 \cdot 0.2}{P(E)}
+\]
+
+Normalizing these probabilities (i.e., dividing each by the sum of all three results):
+
+\[
+P(E) = 0.4 \cdot 0.3 + 0.8 \cdot 0.2 + 0.2 \cdot 0.2 = 0.12 + 0.16 + 0.04 = 0.32
+\]
+
+Finally:
+
+\[
+P(\text{Computer Science}|E) = \frac{0.12}{0.32} \approx 0.375
+\]
+
+\[
+P(\text{Agricultural and Veterinary Science}|E) = \frac{0.16}{0.32} = 0.5
+\]
+
+\[
+P(\text{Business Administration}|E) = \frac{0.04}{0.32} \approx 0.125
+\]
+
+So the probabilities are:
+
+```json
+{
+  "computer science": 0.375,
+  "agricultural and veterinary science": 0.5,
+  "business administration": 0.125
+}
+```

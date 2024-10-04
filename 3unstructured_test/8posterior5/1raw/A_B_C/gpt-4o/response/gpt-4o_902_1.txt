@@ -1,0 +1,55 @@
+To compute the posterior probabilities \( P(H|E) \) for each field using Bayes' Rule, we need to consider the prior probabilities \( P(H) \), the likelihood \( P(E|H) \), and the marginal likelihood \( P(E|\neg H) \). 
+
+Bayes' Rule states:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+where 
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+However, since we are considering three fields, we will have:
+
+\[ P(E) = P(E|H_{\text{agricultural}})P(H_{\text{agricultural}})
+    + P(E|H_{\text{computer}})P(H_{\text{computer}})
+    + P(E|H_{\text{business}})P(H_{\text{business}})
+    + P(E|\neg H_{\text{agricultural}} \cup \neg H_{\text{computer}} \cup \neg H_{\text{business}}) P(\neg H_{\text{agricultural}} \cup \neg H_{\text{computer}} \cup \neg H_{\text{business}}) \]
+
+For simplicity, I'll estimate the values based on the given personality sketch and general knowledge of the fields.
+
+1. **agricultural and veterinary science**:
+   - \( P(H) \): This field might be less common than others, let's assume 0.1 for graduate students.
+   - \( P(E|H) \): High, given Adam's curiosity about nature and love for animals, let's assume 0.9.
+   - \( P(E|\neg H) \): Lower than \( P(E|H) \) but not trivial, given some attributes might overlap with other sciences, let's assume 0.3.
+
+2. **computer science**:
+   - \( P(H) \): Very common field, let's assume 0.3.
+   - \( P(E|H) \): Moderate, as solving puzzles and high intelligence are relevant, but not directly related to nature and animals, let's assume 0.4.
+   - \( P(E|\neg H) \): Assuming it's not specific, let's assume 0.5.
+
+3. **business administration**:
+   - \( P(H) \): Common, but less so than computer science, let's assume 0.2.
+   - \( P(E|H) \): Low, as business is not very related to the given personality, let's assume 0.2.
+   - \( P(E|\neg H) \): Let's put it around 0.5.
+
+Since we need \( P(H|E) \) which is proportional to \( P(E|H)P(H) \):
+
+\[ P(H_{\text{agricultural}}|E) \propto 0.9 \times 0.1 = 0.09 \]
+\[ P(H_{\text{computer}}|E) \propto 0.4 \times 0.3 = 0.12 \]
+\[ P(H_{\text{business}}|E) \propto 0.2 \times 0.2 = 0.04 \]
+
+Normalizing these:
+
+\[ P(H_{\text{agricultural}}|E) = \frac{0.09}{0.09+0.12+0.04} = \frac{0.09}{0.25} = 0.36 \]
+\[ P(H_{\text{computer}}|E) = \frac{0.12}{0.25} = 0.48 \]
+\[ P(H_{\text{business}}|E) = \frac{0.04}{0.25} = 0.16 \]
+
+Therefore:
+
+```json
+{
+  "agricultural and veterinary science": 0.36,
+  "computer science": 0.48,
+  "business administration": 0.16
+}
+```

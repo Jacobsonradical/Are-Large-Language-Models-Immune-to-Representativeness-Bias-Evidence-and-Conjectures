@@ -1,0 +1,52 @@
+To solve this problem using Bayes' theorem, we need to estimate the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in a given field. 
+2. \( P(E|H) \): The likelihood that Adam's personality sketch matches if he was enrolled in that field.
+3. \( P(E|\neg H) \): The likelihood that Adam's personality sketch matches if he was not enrolled in that field.
+
+### Assumptions:
+- \( P(H) \): Given no prior information about Adam's choice of field, let's assume an initially equal distribution among all possible fields.
+
+- \( P(E|H) \): This is the likelihood that Adam's profile matches his enrollment in the field. For a field like agricultural and veterinary science, which aligns well with his love for nature, animals, and empathy, this will be high. For a field like business administration, which might not align as well with his described traits, this will be lower.
+
+- \( P(E|\neg H) \): This is trickier because it involves all alternative fields. However, as a rough estimate, we can distribute it based on general fit with the profile.
+
+Values will be estimates due to lack of specific statistics.
+
+1. **Agricultural and Veterinary Science \( (H_1) \)**
+   - Prior: \( P(H_1) \approx 0.1 \) (Assuming 10% since he could be in wide range of fields)
+   - Likelihood: \( P(E | H_1) \approx 0.8 \) (Strong alignment with nature, animals, empathy)
+   - Complement Likelihood: \( P(E | \neg H_1) \approx 0.2 \) (Low, because few other fields would align this well)
+
+2. **Business Administration \( (H_2) \)**
+   - Prior: \( P(H_2) \approx 0.1 \) (Assuming 10% given many fields)
+   - Likelihood: \( P(E | H_2) \approx 0.1 \) (Weak alignment with business traits)
+   - Complement Likelihood: \( P(E | \neg H_2) \approx 0.7 \) (Higher, as more fields fit Adam’s profile better than business)
+
+### Bayes' Rule:
+\[ P(H | E) = \frac{P(E | H) \cdot P(H)}{P(E)} \]
+Where:
+\[ P(E) = P(E | H) \cdot P(H) + P(E | \neg H) \cdot P(\neg H) \]
+
+We'll simplify \( P(E) \) assuming equal distribution over a broad range of fields for simplicity in lack of specific data but note our assumption introduces some imprecision.
+
+### Calculations:
+
+1. **Agricultural and Veterinary Science**
+\[ P(E) \approx 0.8 \times 0.1 + 0.2 \times 0.9 = 0.08 + 0.18 = 0.26 \]
+\[ P(H_1 | E) = \frac{0.8 \times 0.1}{0.26} \approx 0.308 \]
+
+2. **Business Administration**
+\[ P(E) \approx 0.1 \times 0.1 + 0.7 \times 0.9 = 0.01 + 0.63 = 0.64 \]
+\[ P(H_2 | E) = \frac{0.1 \times 0.1}{0.64} \approx 0.016 \]
+
+Based on these estimations:
+
+```json
+{
+  "agricultural and veterinary science": 0.308,
+  "business administration": 0.016
+}
+```
+
+These values express that Adam's profile is more likely to fit agricultural and veterinary science than business administration.

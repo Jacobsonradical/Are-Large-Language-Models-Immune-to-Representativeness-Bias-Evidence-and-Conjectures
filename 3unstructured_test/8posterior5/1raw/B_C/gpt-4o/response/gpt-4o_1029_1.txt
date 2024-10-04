@@ -1,0 +1,54 @@
+To determine the probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each of the fields of study, we need to focus on how well Adam's personality and interests align with each field.
+
+Let's break this down for each field:
+
+### Business Administration
+- **P(H):** The probability that any given student is in business administration. Since it’s a common field, let's assign a moderate prior probability.
+- **P(E|H):** The likelihood of someone with a business administration background having Adam's traits, which include curiosity about nature, puzzle-solving, empathy, and a love for animals. These aren't strongly associated with business administration.
+- **P(E|\neg H):** The likelihood of someone not in business administration having these traits is relatively higher since these traits seem more generic and not tied to a specific academic field.
+
+### Computer Science
+- **P(H):** The probability that any given student is in computer science. It's a popular field, so let's assign a moderate to high prior probability.
+- **P(E|H):** The likelihood of someone with a computer science background having Adam's traits. High intelligence and puzzle-solving are strongly associated with computer science. However, a strong love for nature, empathy, and animals is less typical.
+- **P(E|\neg H):** The likelihood of someone not in computer science having these traits should be similar due to the broad nature of many of these traits.
+
+Given these qualitative assessments, we can ascribe rough numerical values:
+
+### Business Administration
+- **P(H):** 0.15 (moderate prior probability that a student could be in business administration)
+- **P(E|H):** 0.05 (low likelihood that someone in business administration has these specific traits)
+- **P(E|\neg H):** 0.3 (Since the traits are somewhat common and not specific to a field)
+
+### Computer Science
+- **P(H):** 0.2 (moderate to high prior probability that a student is in computer science)
+- **P(E|H):** 0.15 (higher likelihood for puzzle-solving and intelligence, but some traits less typical)
+- **P(E|\neg H):** 0.3 (same reasoning as before)
+
+Using Bayes’ theorem \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \). \( P(E) \) is the total probability of the evidence and is computed as \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \).
+
+For simplicity, let’s assume the world of graduate fields can be adequately modeled by just these two hypotheses, we can then normalize within this context:
+
+### Business Administration
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.05 \cdot 0.15 + 0.3 \cdot 0.85 \]
+\[ P(E) = 0.0075 + 0.255 = 0.2625 \]
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.05 \cdot 0.15}{0.2625} \approx 0.0286 \]
+
+### Computer Science
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+\[ P(E) = 0.15 \cdot 0.2 + 0.3 \cdot 0.8 \]
+\[ P(E) = 0.03 + 0.24 = 0.27 \]
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.15 \cdot 0.2}{0.27} \approx 0.1111 \]
+
+Thus, the probabilities that Adam was enrolled in the specified fields of graduate study, given his personality traits, are:
+
+```json
+{
+  "business administration": "0.0286",
+  "computer science": "0.1111"
+}
+```

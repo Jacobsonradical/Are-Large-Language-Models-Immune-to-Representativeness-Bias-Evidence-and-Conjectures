@@ -1,0 +1,51 @@
+To compute \( P(H|E) \) for each field, we need to evaluate the following probabilities:
+
+1. \( P(H) \): The prior probability that Adam was enrolled in that field.
+2. \( P(E|H) \): The probability of observing Adam's personality sketch (E) given that he was enrolled in that field.
+3. \( P(E|\neg H) \): The probability of observing Adam's personality sketch (E) given that he was not enrolled in that field.
+4. \( P(E) \): The total probability of observing Adam's personality sketch (E), which can be found using the law of total probability:
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+
+We use Bayes' rule to compute \( P(H|E) \):
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since there are two fields in consideration and an unspecified field (\neg H), we assume \( P(H) \) for each field to be 1/total number of fields. For simplicity, let's assume 100 possible fields.
+
+1. **Business Administration**
+   - \( P(H)_{BA} = \frac{1}{100} \approx 0.01 \)
+   - \( P(E|H)_{BA} \): Moderate, given that empathy, understanding hard work, and intelligence might suit business administration, but a strong curiosity about nature and love for animals might not directly align.
+   - \( P(E|\neg H)_{BA} \): Slightly lower, as these are not common traits specifically for business administration.
+
+2. **Computer Science**
+   - \( P(H)_{CS} = \frac{1}{100} \approx 0.01 \)
+   - \( P(E|H)_{CS} \): High, as solving puzzles, high intelligence, understanding abstract concepts are good fits for computer science. Yet, the strong empathy and love for animals could fit less directly.
+   - \( P(E|\neg H)_{CS} \): Moderate, as these traits might be more common in other fields but are particularly strong in computer science.
+
+Here are the estimated probabilities:
+
+- Business Administration:
+  \[ P(E|H)_{BA} \approx 0.2 \]
+  \[ P(E|\neg H)_{BA} \approx 0.1 \]
+  \[ P(E) \approx 0.2 \times 0.01 + 0.1 \times 0.99 = 0.002 + 0.099 = 0.101 \]
+
+  By Bayes' Rule:
+  \[ P(H|E)_{BA} = \frac{0.2 \times 0.01}{0.101} \approx 0.0198 \]
+
+- Computer Science:
+  \[ P(E|H)_{CS} \approx 0.6 \]
+  \[ P(E|\neg H)_{CS} \approx 0.2 \]
+  \[ P(E) \approx 0.6 \times 0.01 + 0.2 \times 0.99 = 0.006 + 0.198 = 0.204 \]
+
+  By Bayes' Rule:
+  \[ P(H|E)_{CS} = \frac{0.6 \times 0.01}{0.204} \approx 0.0294 \]
+
+Therefore, we have the following probabilities for Adam being in each field:
+
+```json
+{
+  "business administration": 0.0198,
+  "computer science": 0.0294
+}
+```

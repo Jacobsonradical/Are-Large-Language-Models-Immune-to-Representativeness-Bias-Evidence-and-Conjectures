@@ -1,0 +1,60 @@
+In order to compute the conditional probabilities \( P(H|E) \), we should firstly compute \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \), and then use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \), we can break down the steps for each hypothesis.
+
+Let’s establish some reasonable assumptions for the prior probabilities and likelihoods based on the given personality sketch and field characteristics:
+
+### Agricultural and Veterinary Science
+1. **Prior Probability \( P(H) \)**: Let's assume the chance of a typical graduate student enrolling in this field is reasonably low, as it is more specialized compared to some other fields. Let's say \( P(H) = 0.05 \).
+
+2. **Likelihood \( P(E|H) \)**: Given the subject's genuine curiosity about nature, plants, animals, and strong empathy, the likelihood of this personality sketch given that Adam is in this field is relatively high. Let's say \( P(E|H) = 0.8 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**: The chance of observing such a personality in a student not in this field might be moderate given the traits listed can match other fields. Let's consider \( P(E|\neg H) = 0.2 \).
+
+### Computer Science
+1. **Prior Probability \( P(H) \)**: Computer Science is one of the more common fields, so let’s assume \( P(H) = 0.2 \).
+
+2. **Likelihood \( P(E|H) \)**: The personality traits (quiet, problem-solving, high intelligence) fit well in this field, but not perfectly. Empathy and love for animals might be less related. Let’s assume \( P(E|H) = 0.4 \).
+
+3. **Complement Likelihood \( P(E|\neg H) \)**: For those not in Computer Science, the chance of these traits might still vary widely. Let's consider \( P(E|\neg H) = 0.3 \).
+
+Let’s consider the calculations:
+
+### Agricultural and Veterinary Science
+Given our assumptions:
+- \( P(H) = 0.05 \)
+- \( P(E|H) = 0.8 \)
+- \( P(E|\neg H) = 0.2 \)
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = 0.8 \times 0.05 + 0.2 \times 0.95 \]
+\[ P(E) = 0.04 + 0.19 = 0.23 \]
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.8 \times 0.05}{0.23} \]
+\[ P(H|E) = \frac{0.04}{0.23} \approx 0.174 \]
+
+### Computer Science
+Given our assumptions:
+- \( P(H) = 0.2 \)
+- \( P(E|H) = 0.4 \)
+- \( P(E|\neg H) = 0.3 \)
+
+\[ P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \]
+\[ P(E) = 0.4 \times 0.2 + 0.3 \times 0.8 \]
+\[ P(E) = 0.08 + 0.24 = 0.32 \]
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+\[ P(H|E) = \frac{0.4 \times 0.2}{0.32} \]
+\[ P(H|E) = \frac{0.08}{0.32} = 0.25 \]
+
+Based on these computations, the probabilities \( P(H|E) \) for each field are:
+
+```json
+{
+  "agricultural and veterinary science": 0.174,
+  "computer science": 0.25
+}
+```

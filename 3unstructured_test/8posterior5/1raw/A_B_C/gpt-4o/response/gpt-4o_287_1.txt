@@ -1,0 +1,57 @@
+To apply Bayes' theorem, we need to evaluate the probabilities of each hypothesis given the evidence. The formula for Bayes' theorem is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since we are comparing the relative probabilities within the context of the given hypotheses, we don't need to compute \( P(E) \) explicitly because it will be the same for all hypotheses.
+
+### Evaluating the Probabilities
+
+**1. Computer Science:**
+
+- \( P(H_{CS}) \) (Prior Probability): Graduate programs in computer science are relatively common, so we might estimate a moderate prior probability. Let's say 0.2.
+  
+- \( P(E|H_{CS}) \) (Likelihood): Adam's skills in understanding abstract concepts and high intelligence align with the field of computer science. However, his love for nature and animals might be less aligned. Let's say 0.3.
+  
+- \( P(E|\neg H_{CS}) \) (Complementary Likelihood): Considering that many other fields could also align with Adam's described traits, this might be higher. Let's estimate 0.7.
+
+\[ P(H_{CS}|E) \propto P(E|H_{CS}) \cdot P(H_{CS}) = 0.3 \times 0.2 = 0.06 \]
+
+**2. Agricultural and Veterinary Science:**
+
+- \( P(H_{AgVet}) \): These programs are less common than computer science but not too rare. Let's assume 0.1 for prior probability.
+  
+- \( P(E|H_{AgVet}) \): Adam's love for nature, plants, animals, and empathy strongly fits this field. Let's say 0.8.
+  
+- \( P(E|\neg H_{AgVet}) \): This probability would be lower since fewer fields would match Adam's full profile. Estimate 0.4.
+
+\[ P(H_{AgVet}|E) \propto P(E|H_{AgVet}) \cdot P(H_{AgVet}) = 0.8 \times 0.1 = 0.08 \]
+
+**3. Business Administration:**
+
+- \( P(H_{BA}) \): Business programs are quite common. Let's assume a prior of 0.2.
+  
+- \( P(E|H_{BA}) \): Adam's profile does not strongly match characteristics typically associated with business administration. Let's estimate 0.2.
+  
+- \( P(E|\neg H_{BA}) \): Many other programs' profiles fit Adam's traits better, so this would be higher. Let's say 0.6.
+
+\[ P(H_{BA}|E) \propto P(E|H_{BA}) \cdot P(H_{BA}) = 0.2 \times 0.2 = 0.04 \]
+
+### Normalizing the Probabilities
+
+Now, we will normalize to ensure the probabilities sum to 1 for the given hypotheses:
+
+\[ Total = 0.06 + 0.08 + 0.04 = 0.18 \]
+
+\[ P(H_{CS}|E) = \frac{0.06}{0.18} \approx 0.333 \]
+\[ P(H_{AgVet}|E) = \frac{0.08}{0.18} \approx 0.444 \]
+\[ P(H_{BA}|E) = \frac{0.04}{0.18} \approx 0.222 \]
+
+### Final Results
+
+```json
+{
+  "computer science": 0.333,
+  "agricultural and veterinary science": 0.444,
+  "business administration": 0.222
+}
+```

@@ -1,0 +1,92 @@
+To determine \( P(H|E) \) using Bayes' rule, we start with Bayes' theorem:
+
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+Since we are only comparing two fields (computer science, agricultural and veterinary science), and not the entire universe of possible fields, we can treat \( P(E) \) as a normalizing constant and aren't required to calculate its exact value as long as we use proportionality.
+
+We'll need to estimate:
+1. \( P(H) \): The prior probability of Adam being in a specific field.
+2. \( P(E|H) \): The likelihood of Adam's personality sketch given he is in a specific field.
+3. \( P(E|\neg H) \): The likelihood of Adam's personality sketch given he is not in that specific field.
+
+### 1. Computer Science
+
+#### Prior Probability \( P(H) \):
+Computer science is a relatively common graduate field. Let's assume:
+
+\[ P(H_{\text{cs}}) = 0.2 \]
+
+#### Likelihood \( P(E|H_{\text{cs}}) \):
+The personality traits described in the sketch somewhat match computer science (e.g., high intelligence, understanding abstract concepts, solving puzzles). However, the traits related to a deep love for nature and animals are less typical for someone in computer science.
+
+Let's assume:
+
+\[ P(E|H_{\text{cs}}) = 0.2 \]
+
+#### Likelihood \( P(E|\neg H_{\text{cs}}) \):
+This is the likelihood of Adam's personality sketch if he is not in computer science. Given his clear affinity towards nature and animals, it seems more likely he might be in a different field that better fits those traits.
+
+Let's assume:
+
+\[ P(E|\neg H_{\text{cs}}) = 0.3 \]
+
+### 2. Agricultural and Veterinary Science
+
+#### Prior Probability \( P(H) \):
+While not as common as computer science, agricultural and veterinary science is still a significant field. We'll assume a lower prior probability here compared to computer science.
+
+\[ P(H_{\text{agri}}) = 0.1 \]
+
+#### Likelihood \( P(E|H_{\text{agri}}) \):
+Adam's personality traits strongly align with this field (e.g., love for animals, empathy, appreciation for hard work).
+
+Let's assume:
+
+\[ P(E|H_{\text{agri}}) = 0.8 \]
+
+#### Likelihood \( P(E|\neg H_{\text{agri}}) \):
+Given Adam’s love for nature and animals, it seems less likely these traits fit fields other than agricultural and veterinary science.
+
+Let's assume:
+
+\[ P(E|\neg H_{\text{agri}}) = 0.2 \]
+
+### Calculating Posterior Probabilities
+
+#### Computer Science
+
+\[ 
+P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}})P(H_{\text{cs}}) \\
+P(H_{\text{cs}}|E) \approx 0.2 \times 0.2 = 0.04 
+\]
+
+#### Agricultural and Veterinary Science
+
+\[ 
+P(H_{\text{agri}}|E) \propto P(E|H_{\text{agri}})P(H_{\text{agri}}) \\
+P(H_{\text{agri}}|E) \approx 0.8 \times 0.1 = 0.08 
+\]
+
+### Normalization (Optional but for completeness)
+
+The total probability for comparison:
+
+\[ 
+P(H_{\text{cs}}|E) + P(H_{\text{agri}}|E) \approx 0.04 + 0.08 = 0.12
+\]
+
+Normalized:
+
+\[ 
+P(H_{\text{cs}}|E) = \frac{0.04}{0.12} = \frac{1}{3} \approx 0.33 \\
+P(H_{\text{agri}}|E) = \frac{0.08}{0.12} = \frac{2}{3} \approx 0.67 
+\]
+
+### Final Answers
+
+```json
+{
+  "computer science": 0.33,
+  "agricultural and veterinary science": 0.67
+}
+```

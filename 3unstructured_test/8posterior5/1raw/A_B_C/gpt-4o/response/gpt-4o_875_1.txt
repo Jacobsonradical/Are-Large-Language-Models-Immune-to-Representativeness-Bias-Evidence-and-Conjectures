@@ -1,0 +1,50 @@
+To utilize Bayes' Theorem, we'll follow the format \(P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}\). Here's the breakdown for each field and the assumptions made for teasing out the probabilities from the personality sketch of Adam.
+
+### Assumptions:
+- **P(H):** This is the prior probability of Adam being enrolled in that respective field. 
+- **P(E|H):** This is the likelihood of observing Adam's personality given he is in that field.
+- **P(E|¬H):** The likelihood of observing Adam's personality given he is not in that field.
+- **P(E):** This will be considered as a normalizing constant for calculating the final probability using Bayes’ rule.
+
+### For Business Administration:
+- **P(H)** (prior): Assume a low probability since Adam seems more inclined towards nature, animals, and appreciation of hard work, which aligns more with other fields than business administration. Let's set this to 0.1.
+- **P(E|H)** (likelihood): Adam's qualities align weakly with business administration, such as empathy and problem-solving skills but not with high probability. Let's set this to 0.2.
+- **P(E|¬H)**: The likelihood that Adam's personality is observed given he is not in this field might be higher since his characteristics better fit other fields. Let's set this to 0.5.
+
+\[P(H|E)_{BA} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.2 \cdot 0.1}{P(E)}\]
+
+### For Agricultural and Veterinary Science:
+- **P(H)** (prior): Given Adam's love for animals, nature, and high empathy, the prior is higher. Let's set this to 0.3.
+- **P(E|H)** (likelihood): His characteristics strongly align with this field. Let's set this to 0.8.
+- **P(E|¬H)**: The likelihood of these characteristics if he’s not in this field might be lower. Let's set this to 0.3.
+
+\[P(H|E)_{Ag&Vet} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.8 \cdot 0.3}{P(E)}\]
+
+### For Computer Science:
+- **P(H)** (prior): His problem-solving skills and intelligence match well, but lower than agricultural and veterinary science. Let's set this to 0.2.
+- **P(E|H)** (likelihood): Fits decently well given his intelligence and problem-solving skills. Let's set this to 0.6.
+- **P(E|¬H)**: Likely lower but still reasonable as solving puzzles and intelligence are not exclusive to computer science. Let's set this to 0.4.
+
+\[P(H|E)_{CS} = \frac{P(E|H) \cdot P(H)}{P(E)} = \frac{0.6 \cdot 0.2}{P(E)}\]
+
+### Normalizing Constant \(P(E)\):
+
+This is the sum part of Bayes' Theorem across all hypotheses considered:
+\[ P(E) = P(E|H_{BA}) \cdot P(H_{BA}) + P(E|H_{Ag&Vet}) \cdot P(H_{Ag&Vet}) + P(E|H_{CS}) \cdot P(H_{CS}) \]
+\[ P(E) = (0.2 \cdot 0.1) + (0.8 \cdot 0.3) + (0.6 \cdot 0.2) = 0.02 + 0.24 + 0.12 = 0.38 \]
+
+### Calculations for \(P(H|E)\):
+
+\[P(H|E)_{BA} = \frac{0.2 \cdot 0.1}{0.38} = \frac{0.02}{0.38} \approx 0.053\]
+\[P(H|E)_{Ag&Vet} = \frac{0.8 \cdot 0.3}{0.38} = \frac{0.24}{0.38} \approx 0.632\]
+\[P(H|E)_{CS} = \frac{0.6 \cdot 0.2}{0.38} = \frac{0.12}{0.38} \approx 0.316\]
+
+### Final results:
+
+```json
+{
+  "business administration": 0.053,
+  "agricultural and veterinary science": 0.632,
+  "computer science": 0.316
+}
+```

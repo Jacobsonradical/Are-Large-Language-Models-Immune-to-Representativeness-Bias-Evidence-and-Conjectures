@@ -1,0 +1,64 @@
+To apply Bayes' Rule, we need to calculate the conditional probability of Adam being enrolled in each field given his personality sketch (E).
+
+Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of being enrolled in a particular field.
+- \( P(E|H) \) is the likelihood of the personality sketch given enrollment in that field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch given not being enrolled in that field.
+- \( P(E) \) is the marginal probability of the personality sketch.
+
+Since we are comparing multiple fields, \( P(E) \) will be the same when comparing across fields but isn't needed for calculating relative probabilities via \( P(H|E) \).
+
+Let's estimate these values for each field:
+
+### Computer Science
+- \( P(H) \) (prior for computer science): Roughly moderate, assuming many graduate students are in this field.
+- \( P(E|H) \) (likelihood of the personality sketch given computer science): Lower, as Adam's curiosity about nature and animals is less related to computer science.
+- \( P(E|\neg H) \) (likelihood of the personality sketch given not in computer science): Could be higher than \( P(E|H) \).
+
+Let's assign some approximate values:
+- \( P(H) = 0.3 \)
+- \( P(E|H) = 0.3 \)
+- \( P(E|\neg H) \)= 0.7 (assume more likely outside this field)
+
+### Agricultural and Veterinary Science
+- \( P(H) \) (prior for agricultural and veterinary science): Lower, as fewer graduate students might be in this field compared to others.
+- \( P(E|H) \) (likelihood of the personality sketch given agricultural and veterinary science): Very high, as Adam's love for nature and animals fits well here.
+- \( P(E|\neg H) \) (likelihood of the personality sketch given not in agricultural and veterinary science): Lower, as it's less likely outside this field given his personality.
+
+Let's assign some values:
+- \( P(H) = 0.1 \)
+- \( P(E|H) = 0.9 \)
+- \( P(E|\neg H) \)= 0.3 (assume less likely outside this field)
+
+### Business Administration
+- \( P(H) \) (prior for business administration): Roughly moderate, many graduate students are enrolled in this field.
+- \( P(E|H) \) (likelihood of the personality sketch given business administration): Lower, as Adam's interests and traits are less matched to business.
+- \( P(E|\neg H) \) (likelihood of the personality sketch given not in business administration): Could be higher than \( P(E|H) \).
+
+Let's assign values:
+- \( P(H) = 0.3 \)
+- \( P(E|H) = 0.2 \)
+- \( P(E|\neg H) \)= 0.8 (assume more likely outside this field)
+
+Now we compute \( P(H|E) \) using Bayes' rule for each field. Given that \( P(E) \) will cancel out when comparing across fields, we have:
+
+For computer science:
+\[ P(\text{CS}|E) = \frac{0.3*0.3}{0.3} = 0.09 \]
+
+For agricultural and veterinary science:
+\[ P(\text{Ag & Vet}|E) = \frac{0.1*0.9}{0.3} = 0.3 \]
+
+For business administration:
+\[ P(\text{BA}|E) = \frac{0.3*0.2}{0.3} = 0.06 \]
+
+Thus the output probabilities are:
+
+{
+  "computer science": 0.09,
+  "agricultural and veterinary science": 0.3,
+  "business administration": 0.06
+}

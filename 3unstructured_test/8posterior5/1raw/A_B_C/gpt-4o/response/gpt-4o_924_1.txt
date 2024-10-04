@@ -1,0 +1,50 @@
+To compute the probabilities \(P(H|E)\) for each respective field using Bayes' rule, we first need to assign values to \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\). We will then use these values to derive \(P(H|E)\). 
+
+Bayes' rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, for the sake of easier calculation, we'll primarily focus on the relative probabilities and won't need the exact value of \(P(E)\), since it acts as a normalizing constant that is the same across all fields.
+
+Let’s make reasonable assumptions for these probabilities based on the given personality sketch:
+
+1. **Computer Science**: 
+   - \(P(H_{\text{cs}})\) = 0.3 (Assuming that 30% of graduate students could be in this field, being a high-demand and popular field)
+   - \(P(E|H_{\text{cs}})\) = 0.4 (High intelligence and good at abstract concepts favor computer science, but the strong empathy, love for nature and animals, and a deep appreciation for hard work and dedication do not directly point towards computer science)
+   - \(P(E|\neg H_{\text{cs}})\) = 0.7 (Given that general empathy, love for nature, and animals are less common in computer science grads)
+
+2. **Agricultural and Veterinary Science**: 
+   - \(P(H_{\text{ag}})\) = 0.1 (Assuming that 10% of grad students might be in this relatively more specialized field)
+   - \(P(E|H_{\text{ag}})\) = 0.9 (The love for nature, plants, and animals; empathy; and appreciation for hard work strongly align with this field)
+   - \(P(E|\neg H_{\text{ag}})\) = 0.3 (These traits are relatively rarer in students of non-agricultural fields)
+
+3. **Business Administration**: 
+   - \(P(H_{\text{ba}})\) = 0.2 (Business Administration is a popular graduate field)
+   - \(P(E|H_{\text{ba}})\) = 0.3 (While intelligence is crucial, the other traits don't heavily align with business administration)
+   - \(P(E|\neg H_{\text{ba}})\) = 0.6 (These traits are less common but not extremely rare among non-business grads)
+
+Now, using these assumed probabilities, we can compute \(P(H|E)\) using relative values.
+
+### Computer Science
+\[ P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} \propto 0.4 \cdot 0.3 = 0.12 \]
+
+### Agricultural and Veterinary Science
+\[ P(H_{\text{ag}}|E) = \frac{P(E|H_{\text{ag}}) \cdot P(H_{\text{ag}})}{P(E)} \propto 0.9 \cdot 0.1 = 0.09 \]
+
+### Business Administration
+\[ P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E)} \propto 0.3 \cdot 0.2 = 0.06 \]
+
+Since these are proportional values, we can convert them into probabilities by dividing each by their sum:
+
+Sum of proportionals = \(0.12 + 0.09 + 0.06 = 0.27\)
+
+\[ P(H_{\text{cs}}|E) = \frac{0.12}{0.27} \approx 0.444 \]
+\[ P(H_{\text{ag}}|E) = \frac{0.09}{0.27} \approx 0.333 \]
+\[ P(H_{\text{ba}}|E) = \frac{0.06}{0.27} \approx 0.222 \]
+
+Thus, the probabilities, to two decimal places, of Adam being in each field given the personality sketch are:
+
+{
+  "computer science": 0.44,
+  "agricultural and veterinary science": 0.33,
+  "business administration": 0.22
+}

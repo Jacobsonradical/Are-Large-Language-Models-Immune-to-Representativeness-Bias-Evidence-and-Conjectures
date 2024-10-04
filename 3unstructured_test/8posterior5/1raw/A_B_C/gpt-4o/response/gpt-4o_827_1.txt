@@ -1,0 +1,76 @@
+To determine the probabilities, I will assess each field based on the given personality sketch of Adam and apply Bayes' theorem: 
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+
+- \( P(H) \) is the prior probability of being enrolled in the respective field.
+- \( P(E|H) \) is the likelihood of the evidence given the hypothesis.
+- \( P(E|\neg H) \) is the likelihood of the evidence given the hypothesis is not true.
+- \( P(H|E) \) is the posterior probability of the hypothesis given the evidence.
+
+We'll need to qualitatively estimate \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \) for each field.
+
+1. **Computer Science**
+   - \( P(H) \): Computer Science is a common field for graduate students, but Adam’s personality sketch doesn’t strongly suggest a match. Let's assume \( P(H) = 0.2 \). 
+   - \( P(E|H) \): While Adam’s intelligence and love for solving puzzles fit computer science to some degree, his strong connection with nature and animals doesn’t align well. Let's say \( P(E|H) = 0.3 \).
+   - \( P(E|\neg H) \): The probability of someone with Adam's profile not being in computer science seems fairly high based on his traits and interests. Let's assume \( P(E|\neg H) = 0.6 \).
+
+   Using Bayes' theorem: 
+
+   \[ P(H|E) = \frac{0.3 \times 0.2}{P(E)} \approx 0.06/P(E) \]
+
+2. **Business Administration**
+   - \( P(H) \): Business Administration is also a common field but doesn’t align well with Adam’s sketch. Let's assume \( P(H) = 0.15 \).
+   - \( P(E|H) \): Adam’s traits like strong empathy and understanding of hard work might vaguely align, but not his love for nature and animals. Say \( P(E|H) = 0.2 \).
+   - \( P(E|\neg H) \): His profile strongly suggests fields other than business admin. Assume \( P(E|\neg H) = 0.7 \).
+
+   Using Bayes' theorem:
+
+   \[ P(H|E) = \frac{0.2 \times 0.15}{P(E)} \approx 0.03/P(E) \]
+
+3. **Agricultural and Veterinary Science**
+   - \( P(H) \): This field aligns quite well with Adam’s love for nature, plants, and animals. Let’s assume \( P(H) = 0.1 \) (It’s not very common but a strong fit).
+   - \( P(E|H) \): Adam’s profile is a near-perfect match for this field. Assign \( P(E|H) = 0.9 \).
+   - \( P(E|\neg H) \): This profile is quite specific and unlikely in other fields. Assume \( P(E|\neg H) = 0.3 \).
+
+   Using Bayes' theorem:
+
+   \[ P(H|E) = \frac{0.9 \times 0.1}{P(E)} \approx 0.09/P(E) \]
+
+Now, normalize these to bring the total to 1 for comparison (optional step since the total doesn't need to sum to 1). 
+
+The probabilities we have so far, not normalized:
+
+```json
+{
+  "computer science": 0.06/P(E),
+  "business administration": 0.03/P(E),
+  "agricultural and veterinary science": 0.09/P(E)
+}
+```
+
+Calculating \( P(E) \):
+
+\[ P(E) = P(E|cs) \cdot P(cs) + P(E|ba) \cdot P(ba) + P(E|avs) \cdot P(avs) \]
+\[ P(E) = 0.3 \cdot 0.2 + 0.2 \cdot 0.15 + 0.9 \cdot 0.1 = 0.06 + 0.03 + 0.09 = 0.18 \]
+
+So:
+
+```json
+{
+  "computer science": 0.06/0.18 = 0.33,
+  "business administration": 0.03/0.18 = 0.167,
+  "agricultural and veterinary science": 0.09/0.18 = 0.5
+}
+```
+
+In conclusion:
+
+```json
+{
+  "computer science": 0.33,
+  "business administration": 0.167,
+  "agricultural and veterinary science": 0.5
+}
+```

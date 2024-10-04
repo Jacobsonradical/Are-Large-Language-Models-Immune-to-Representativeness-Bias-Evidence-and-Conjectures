@@ -1,0 +1,54 @@
+To solve this, we'll need some assumptions about the probabilities involved. 
+
+1. **P(H)**: This is the prior probability of a graduate student being enrolled in a given field. Without specific data, I'll assume a uniform probability distribution across potential graduate fields for simplicity.
+2. **P(E|H)**: This is the probability of Adam having the personality traits described (E) given that he is in a certain field (H).
+3. **P(E|¬H)**: This is the probability of Adam having the personality traits described (E) if he is not in that specific field (¬H).
+
+### Business Administration
+
+**P(H) for Business Administration**: Let's assume the probability that any given graduate student is in Business Administration is 0.15 (15%).
+
+**P(E|H) for Business Administration**: Business Administration students are generally less likely to have personality traits oriented towards nature, puzzles, and animals. I'll estimate this at 0.05 (5%).
+
+**P(E|¬H) for Business Administration**: Since E can include other fields better fitting Adam’s personality, let's assume it's relatively high at 0.20 (20%).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be estimated using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+\[ P(E) = 0.05 \cdot 0.15 + 0.20 \cdot 0.85 \]
+\[ P(E) = 0.0075 + 0.17 = 0.1775 \]
+
+Thus,
+\[ P(H|E) = \frac{0.05 \cdot 0.15}{0.1775} = 0.04225 \approx 0.042 \]
+
+### Computer Science
+
+**P(H) for Computer Science**: Let's assume the probability that any given graduate student is in Computer Science is 0.20 (20%).
+
+**P(E|H) for Computer Science**: Computer Science students are more likely to exhibit traits like intelligence and an interest in solving puzzles. I'll estimate this at 0.50 (50%).
+
+**P(E|¬H) for Computer Science**: Let’s assume this is somewhat lower than the value for Business Administration, say 0.10 (10%).
+
+Using Bayes' rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be estimated using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|¬H) \cdot P(¬H) \]
+\[ P(E) = 0.50 \cdot 0.20 + 0.10 \cdot 0.80 \]
+\[ P(E) = 0.10 + 0.08 = 0.18 \]
+
+Thus,
+\[ P(H|E) = \frac{0.50 \cdot 0.20}{0.18} = 0.5555 \approx 0.556 \]
+
+So the probabilities are:
+
+```json
+{
+  "business administration": 0.042,
+  "computer science": 0.556
+}
+```
+
+This means that given Adam’s personality sketch, he is significantly more likely to be a graduate student in Computer Science than in Business Administration.

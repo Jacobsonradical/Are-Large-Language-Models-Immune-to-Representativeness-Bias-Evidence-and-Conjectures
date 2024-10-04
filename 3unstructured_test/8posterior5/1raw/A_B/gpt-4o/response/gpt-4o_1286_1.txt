@@ -1,0 +1,44 @@
+To determine \( P(H|E) \) for each field, we need to estimate the following probabilities:
+- \( P(H) \): The prior probability that Adam was enrolled in the field, before considering his personality sketch.
+- \( P(E|H) \): The probability of observing the personality sketch \( E \) given that Adam was enrolled in the field.
+- \( P(E|\neg H) \): The probability of observing the personality sketch \( E \) given that Adam was NOT enrolled in the field.
+
+Let's first estimate these probabilities for each field.
+
+### Business Administration
+**Estimations**:
+- \( P(H_{\text{BA}}) \): Prior probability that a graduate student in the U.S. is studying business administration. Let's assume this is about 0.15 (15%), given the prevalence of the field.
+- \( P(E|H_{\text{BA}}) \): The probability of observing Adam's personality sketch if he is studying business administration. Adam's warm heart, empathy, and understanding might be slightly relevant to business (e.g., in HR or certain leadership roles), but his deep love for animals and nature, and curiosity about plants, may not align well. Thus, let's estimate this as 0.05.
+- \( P(E|\neg H_{\text{BA}}) \): The probability of observing Adam's personality sketch if he is not studying business administration. Given many other fields might align better with his traits, this could be higher. Let's assume 0.1.
+
+Using Bayes’ Rule:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+
+We can approximate \( P(E) \), the overall probability of observing the personality sketch \( E \), by assuming \( P(E) \approx P(E|H_{\text{BA}})P(H_{\text{BA}}) + P(E|\neg H_{\text{BA}})P(\neg H_{\text{BA}}) \).
+
+So:
+\[ P(E) \approx (0.05 \times 0.15) + (0.1 \times 0.85) = 0.0075 + 0.085 = 0.0925 \]
+
+Then:
+\[ P(H_{\text{BA}}|E) = \frac{0.05 \times 0.15}{0.0925} \approx \frac{0.0075}{0.0925} \approx 0.081 \]
+
+### Agricultural and Veterinary Science
+**Estimations**:
+- \( P(H_{\text{AgVet}}) \): Prior probability that a graduate student in the U.S. is studying agricultural and veterinary science. This is probably lower than business administration, given the graduate student distribution. Let's assume this is about 0.05 (5%).
+- \( P(E|H_{\text{AgVet}}) \): The probability of observing Adam's personality sketch if he is studying agricultural and veterinary science. Given his love for animals, nature, and plants, this aligns very well. Let's estimate this as 0.7.
+- \( P(E|\neg H_{\text{AgVet}}) \): The probability of observing Adam's personality sketch if he is not studying agricultural and veterinary science. This will be more diffused across a larger number of other fields, but many of these won't align as perfectly as agricultural and veterinary science. Let's assume this is about 0.05.
+
+Using the same Bayes’ Rule:
+\[ P(E) \approx (0.7 \times 0.05) + (0.05 \times 0.95) = 0.035 + 0.0475 = 0.0825 \]
+
+Then:
+\[ P(H_{\text{AgVet}}|E) = \frac{0.7 \times 0.05}{0.0825} \approx \frac{0.035}{0.0825} \approx 0.424 \]
+
+Therefore, the posterior probabilities are:
+
+```json
+{
+  "business administration": 0.081,
+  "agricultural and veterinary science": 0.424
+}
+```

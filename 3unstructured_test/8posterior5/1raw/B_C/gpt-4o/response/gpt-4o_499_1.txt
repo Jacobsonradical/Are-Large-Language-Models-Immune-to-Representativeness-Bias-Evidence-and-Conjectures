@@ -1,0 +1,45 @@
+To apply Bayes' rule to update the probability of Adam being enrolled in each field (computer science and business administration) given his personality sketch \( E \), we need four probability values for each hypothesis \( H \):
+- \( P(H) \): Prior probability of \( H \)
+- \( P(E|H) \): Probability of \( E \) given \( H \)
+- \( P(E|\neg H) \): Probability of \( E \) given the negation of \( H \)
+- \( P(E) \): Marginal probability of \( E \) (also known as the evidence)
+
+The formula for Bayes' rule is:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+In this case, for simplifying calculations and since the exact probabilities \( P(H) \) are not specified, we can assume a reasonable prior \( P(H) \) for each field based on general graduate enrollment rates and the nature of Adam’s personality traits. For \( P(E|H) \), we evaluate how likely Adam's personality traits are if he were in each field. For \( P(E|\neg H) \), we evaluate how likely Adam's personality traits are if he were not in each field.
+
+Let's analyze the given fields:
+
+1. **Computer Science:**
+   - \( P(H) \): Moderately common field, let's assume 0.2
+   - \( P(E|H) \): The traits such as intelligence, problem-solving, and understanding abstract concepts fit well with someone in computer science. Let's assume 0.6 for \( P(E|H) \).
+   - \( P(E|\neg H) \): Traits could still fit other fields, but less so. Let's assume 0.3.
+
+2. **Business Administration:**
+   - \( P(H) \): Also a common field, let's also assume 0.2
+   - \( P(E|H) \): Traits such as empathy, understanding, and appreciation for hard work fit well but problem-solving and love for animals might be less relevant. Let’s assume 0.4 for \( P(E|H) \).
+   - \( P(E|\neg H) \): Traits are more closely fitting other fields, let's assume 0.35.
+
+Assuming \( P(E) \) as a normalizing factor:
+\[ P(E) = P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}}) + P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}}) \]
+
+So:
+\[ P(E) = (0.6 \cdot 0.2) + (0.4 \cdot 0.2) = 0.12 + 0.08 = 0.20 \]
+
+Now applying Bayes' rule:
+
+For **computer science**:
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.6 \cdot 0.2}{0.20} = 0.6 \]
+
+For **business administration**:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.4 \cdot 0.2}{0.20} = 0.4 \]
+
+Thus, the probability values of Adam being enrolled in each field given his personality sketch are:
+
+```json
+{
+  "computer science": 0.6,
+  "business administration": 0.4
+}
+```

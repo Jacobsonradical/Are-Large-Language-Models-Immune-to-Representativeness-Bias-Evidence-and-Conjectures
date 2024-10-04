@@ -1,0 +1,63 @@
+To solve this problem using Bayes' Theorem, we need to calculate \( P(H|E) \) for each of the given fields, where \( H \) is the hypothesis that Adam was enrolled in that field and \( E \) is the given personality sketch. 
+
+Bayes' Theorem can be expressed as:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We need to estimate the following:
+- \( P(H) \): Prior probability that Adam was enrolled in that field.
+- \( P(E|H) \): Likelihood of observing the evidence given the hypothesis.
+- \( P(E|\neg H) \): Likelihood of observing the evidence given that Adam was not enrolled in that field.
+
+Let's make some reasonable assumptions for the prior probabilities based on general graduate enrollment data and typical personality profiles for each field:
+
+1. **Computer Science**:
+   - \( P(H_{cs}) \): Prior probability of enrolling in computer science. Computer Science is a popular field.
+     - Let's assume \( P(H_{cs}) = 0.25 \)
+   - \( P(E|H_{cs}) \): Likelihood of observing the personality sketch given enrollment in computer science. Given Adam's personality (warm-hearted, love of nature, animals, and good at abstract concepts), it somewhat aligns but not strongly.
+     - Let's assume \( P(E|H_{cs}) = 0.2 \)
+   - \( P(E|\neg H_{cs}) \): Likelihood of observing the personality sketch given enrollment in other fields. Since his characteristics might align more with other fields like agricultural and veterinary science, this should be relatively high.
+     - Let's assume \( P(E|\neg H_{cs}) = 0.8 \)
+
+2. **Business Administration**:
+   - \( P(H_{ba}) \): Prior probability of enrolling in business administration. Business Administration is also a common field.
+     - Let's assume \( P(H_{ba}) = 0.2 \)
+   - \( P(E|H_{ba}) \): Likelihood of the personality sketch given enrollment in business administration. Adam's personality does not align well with the typical business administration profile.
+     - Let's assume \( P(E|H_{ba}) = 0.1 \)
+   - \( P(E|\neg H_{ba}) \): Likelihood of observing the personality sketch given enrollment in other fields. Considering better alignment with other fields.
+     - Let's assume \( P(E|\neg H_{ba}) = 0.9 \)
+
+3. **Agricultural and Veterinary Science**:
+   - \( P(H_{avs}) \): Prior probability of enrolling in agricultural and veterinary science. This field is less common than computer science and business administration but fits Adam's characteristics well.
+     - Let's assume \( P(H_{avs}) = 0.1 \)
+   - \( P(E|H_{avs}) \): Likelihood of the personality sketch given enrollment in agricultural and veterinary science. Adam's characteristics strongly align with this field.
+     - Let's assume \( P(E|H_{avs}) = 0.7 \)
+   - \( P(E|\neg H_{avs}) \): Likelihood of observing the personality sketch given enrollment in other fields.
+     - Let's assume \( P(E|\neg H_{avs}) = 0.6 \)
+
+To compute \( P(E) \), we use the law of total probability:
+\[ P(E) = P(E|H_{cs})P(H_{cs}) + P(E|H_{ba})P(H_{ba}) + P(E|H_{avs})P(H_{avs}) + P(E|\neg H_{cs} \cap \neg H_{ba} \cap \neg H_{avs})P(\neg H_{cs} \cap \neg H_{ba} \cap \neg H_{avs}) \]
+Assume for simplicity \( P(E) \approx P(E|H_{cs})P(H_{cs}) + P(E|H_{ba})P(H_{ba}) + P(E|H_{avs})P(H_{avs}) \)
+
+Calculations:
+\[ P(E) \approx (0.2 \cdot 0.25) + (0.1 \cdot 0.2) + (0.7 \cdot 0.1) \]
+\[ P(E) \approx 0.05 + 0.02 + 0.07 = 0.14 \]
+
+Now, using Bayes' Theorem for each field:
+
+For Computer Science:
+\[ P(H_{cs}|E) = \frac{(0.2 \cdot 0.25)}{0.14} = \frac{0.05}{0.14} \approx 0.357 \]
+
+For Business Administration:
+\[ P(H_{ba}|E) = \frac{(0.1 \cdot 0.2)}{0.14} = \frac{0.02}{0.14} \approx 0.143 \]
+
+For Agricultural and Veterinary Science:
+\[ P(H_{avs}|E) = \frac{(0.7 \cdot 0.1)}{0.14} = \frac{0.07}{0.14} \approx 0.5 \]
+
+Final Results:
+```json
+{
+  "computer science": 0.357,
+  "business administration": 0.143,
+  "agricultural and veterinary science": 0.5
+}
+```

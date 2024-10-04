@@ -1,0 +1,67 @@
+To solve for \( P(H|E) \) using Bayes' Rule, we need to follow these steps:
+
+1. **Set Initial Hypothesis Probabilities \( P(H) \)**: These are the prior probabilities for Adam being enrolled in each field.
+2. **Estimate \( P(E|H) \)**: The probability of observing Adam's personality sketch given he is in each field.
+3. **Estimate \( P(E|\neg H) \)**: The probability of observing Adam's personality sketch given he is not in each specific field.
+4. **Compute \( P(H|E) \)**: The posterior probabilities using Bayes' rule. 
+
+Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where \( P(E) \) is a normalization constant ensuring all probabilities sum to 1 for those specific hypotheses.
+
+Since we don't necessarily have exact probability values, we'll estimate based on the given personality traits and how they correlate with each field.
+
+### Probabilities:
+
+#### Agricultural and Veterinary Science
+- **P(H)**: This is the probability that any given graduate student is in agricultural and veterinary science. This field is less common than something like business administration but is still significant.
+  - Let's estimate \( P(H) \approx 0.10 \).
+- **P(E|H)**: Given Adam's personality sketch (curiosity about nature, love for animals, empathy, understanding of hard work), it closely matches what we might expect from someone in agricultural or veterinary science.
+  - Let's estimate \( P(E|H) \approx 0.85 \).
+- **P(E|\neg H)**: The likelihood of having Adam's traits if he is not in agricultural and veterinary science. While these traits can exist in other fields, they are more strongly aligned with agricultural and veterinary science.
+  - Let's estimate \( P(E|\neg H) \approx 0.30 \).
+
+#### Business Administration
+- **P(H)**: This is the probability that any given graduate student is in business administration. Business administration is a popular field for graduate studies.
+  - Let's estimate \( P(H) \approx 0.25 \).
+- **P(E|H)**: Given Adam's personality sketch, traits like curiosity about nature and love for animals don’t strongly align with business administration.
+  - Let's estimate \( P(E|H) \approx 0.20 \).
+- **P(E|\neg H)**: The likelihood of having Adam's traits if he is not in business administration. These traits seem less common for business administration but can be found in other fields.
+  - Let's estimate \( P(E|\neg H) \approx 0.40 \).
+
+### Bayes' Rule Application:
+
+Let's start with the field of agricultural and veterinary sciences:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For simplicity, \( P(E) \) can be considered a normalization factor which we'll calculate as part of computer \( P(H|E) \).
+
+#### Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{0.85 \cdot 0.10}{P(E)} \]
+
+#### Business Administration:
+\[ P(H|E) = \frac{0.20 \cdot 0.25}{P(E)} \]
+
+To find \( P(E) \):
+\[ P(E) = P(E|H_{\text{Agri}}) \cdot P(H_{\text{Agri}}) + P(E|H_{\text{Bus}}) \cdot P(H_{\text{Bus}}) + \ldots \]
+Given that these are two potential hypotheses and \( P(E) \) is acting as a normalizing constant, we approximate:
+\[ P(E) \approx (0.85 \cdot 0.10) + (0.20 \cdot 0.25) \]
+\[ P(E) = 0.085 + 0.05 = 0.135 \]
+
+Normalize each:
+#### Agricultural and Veterinary Science:
+\[ P(H|E) = \frac{0.085}{0.135} \approx 0.63 \]
+
+#### Business Administration:
+\[ P(H|E) = \frac{0.05}{0.135} \approx 0.37 \]
+
+Given the estimates and resulting calculations:
+
+```json
+{
+  "agricultural and veterinary science": 0.63,
+  "business administration": 0.37
+}
+```
+
+These are the posterior probabilities based on the personality sketch provided and our estimates.

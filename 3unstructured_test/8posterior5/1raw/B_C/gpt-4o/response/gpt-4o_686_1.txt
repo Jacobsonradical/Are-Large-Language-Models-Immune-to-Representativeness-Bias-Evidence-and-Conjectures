@@ -1,0 +1,74 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we need to estimate the following:
+
+1. Prior probabilities \( P(H) \): The likelihood of Adam enrolling in a given field before knowing his personality sketch.
+2. Likelihood \( P(E|H) \): The probability of observing Adam's personality sketch given that he is enrolled in a specific field.
+3. Complement likelihood \( P(E|\neg H) \): The probability of observing Adam's personality sketch given that he is not enrolled in the specific field.
+
+When we apply Bayes' rule, it is expressed as follows:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) is the normalization constant ensuring that the total probability sums to 1 across all hypotheses.
+
+### Estimating Probabilities
+
+#### Business Administration
+
+1. **Prior \( P(H) \)**: Let's assume the prior probability, \( P(\text{business administration}) \), is relatively low because the personality traits mentioned are more closely aligned with fields that involve interaction with nature and abstract concepts.
+
+   - \( P(\text{business administration}) = 0.1 \)
+
+2. **Likelihood \( P(E|H) \)**: The sketch of Adam does not strongly correlate with typical traits for business administration students, who may focus more on leadership, economics, and management rather than puzzles, nature, and empathy.
+
+   - \( P(E|\text{business administration}) = 0.2 \)
+
+3. **Complement Likelihood \( P(E|\neg H) \)**: Considering that Adam's personality aligns more with fields involving natural sciences or humanitarian efforts, the probability of him having this personality sketch while not being a business administration student is higher.
+
+   - \( P(E|\neg \text{business administration}) = 0.7 \)
+
+#### Computer Science
+
+1. **Prior \( P(H) \)**: The likelihood that Adam is in computer science is higher than business administration considering he likes puzzles and abstract concepts, which align with computer science interests.
+
+   - \( P(\text{computer science}) = 0.3 \)
+
+2. **Likelihood \( P(E|H) \)**: Adam’s enjoyment of puzzles and understanding abstract concepts fit well with computer science.
+
+   - \( P(E|\text{computer science}) = 0.6 \)
+
+3. **Complement Likelihood \( P(E|\neg H) \)**: Given that computer science is a potential fit but not the only field that relates to his personality, the likelihood can be estimated as moderate.
+
+   - \( P(E|\neg \text{computer science}) = 0.5 \)
+
+### Posterior Probabilities
+
+Let's compute the posterior probabilities:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \( P(E) \) can be ignored when comparing across fields as it acts as a normalizer.
+
+#### Business Administration
+
+\[ P(\text{business administration}|E) = \frac{0.2 \times 0.1}{P(E)} = \frac{0.02}{P(E)} \]
+
+#### Computer Science
+
+\[ P(\text{computer science}|E) = \frac{0.6 \times 0.3}{P(E)} = \frac{0.18}{P(E)} \]
+
+### Normalizing
+
+To get the normalized probabilities, let's assume the values sum to 1 and solve as proportions of these values:
+
+1. Sum of unnormalized probabilities: \( 0.02 + 0.18 = 0.20 \)
+
+2. Normalized probabilities:
+   
+   - Business Administration: \( \frac{0.02}{0.20} = 0.1 \)
+   - Computer Science: \( \frac{0.18}{0.20} = 0.9 \)
+
+### Final Answer
+
+```json
+{
+  "business administration": 0.1,
+  "computer science": 0.9
+}
+```

@@ -1,0 +1,52 @@
+To compute \( P(H|E) \), we'll use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H) \) is the prior probability of being enrolled in a specific field.
+- \( P(E|H) \) is the likelihood of the personality sketch \( E \) given enrollment in that field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch \( E \) given enrollment in any other field (not \( H \)).
+- \( P(E) \) is the overall probability of the personality sketch, which can be expanded using the law of total probability involving all possible fields.
+
+Given:
+- \( E \) (Adam's personality sketch)
+- Two specific hypotheses: \( H_1 \) (Adam is in agricultural and veterinary science) and \( H_2 \) (Adam is in business administration)
+
+Let's make some reasonable estimates:
+- \( P(H_1) \): The prior probability of a graduate student being in agricultural and veterinary science. We'll assume this might be a reasonably common but not highly dominant field, let's guess around 0.1.
+- \( P(H_2) \): The prior probability of a graduate student being in business administration. This is a highly popular field, let's guess around 0.2.
+
+Now, we estimate \( P(E|H) \):
+- \( P(E|H_1) \): Given Adam’s personality (interest in nature, deep love for animals, high intelligence), it's very probable he fits well within agricultural and veterinary science. Let's estimate this as 0.8.
+- \( P(E|H_2) \): Given Adam’s personality, it’s less likely he fits the profile typically associated with business administration. Let’s estimate this as 0.2.
+- \( P(E|\neg H_1) \): The likelihood of his personality sketch in other fields excluding agricultural and veterinary science might be quite low based on the same reasoning. Let's say around 0.4.
+- \( P(E|\neg H_2) \): For fields excluding business administration, given that his profile doesn’t align strongly with typical business administration traits, let's say around 0.6.
+
+\( P(E) \): Using the law of total probability,
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot P(\neg H_1) \]
+
+Let’s assume in the context of this problem, there are only two hypotheses considered:
+\[ P(\neg H_1) \approx 1 - P(H_1) = 0.9 \]
+\[ P(E) \approx P(E|H_1) \cdot P(H_1) + P(E|\neg H_1) \cdot (1 - P(H_1)) \]
+\[ P(E) \approx 0.8 \cdot 0.1 + 0.4 \cdot 0.9 \approx 0.08 + 0.36 = 0.44 \]
+
+For business administration,
+\[ P(E) \approx P(E|H_2) \cdot P(H_2) + P(E|\neg H_2) \cdot (1 - P(H_2)) \]
+\[ P(E) \approx 0.2 \cdot 0.2 + 0.6 \cdot 0.8 \approx 0.04 + 0.48 = 0.52 \]
+
+Now, let’s compute \( P(H|E) \):
+
+For agricultural and veterinary science:
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \]
+\[ P(H_1|E) = \frac{0.8 \cdot 0.1}{0.44} \approx 0.1818 \]
+
+For business administration:
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \]
+\[ P(H_2|E) = \frac{0.2 \cdot 0.2}{0.52} \approx 0.0769 \]
+
+Thus, given \( E \):
+
+{
+  "agricultural and veterinary science": 0.1818,
+  "business administration": 0.0769
+}

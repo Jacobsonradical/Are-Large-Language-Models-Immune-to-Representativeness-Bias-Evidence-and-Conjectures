@@ -1,0 +1,60 @@
+To compute \( P(H|E) \) for each field (business administration and computer science), we'll use the following notations and steps:
+
+1. **Define Hypotheses (Fields of Study) and Evidence (Personality Sketch):**
+   - \( H_1 \): Adam was enrolled in business administration.
+   - \( H_2 \): Adam was enrolled in computer science.
+   - \( E \): The provided personality sketch of Adam.
+
+2. **Define Probabilities:**
+   - \( P(H_1) \): Prior probability that Adam is in business administration.
+   - \( P(H_2) \): Prior probability that Adam is in computer science.
+   - \( P(E|H_1) \): Probability of the personality sketch given Adam is in business administration.
+   - \( P(E|H_2) \): Probability of the personality sketch given Adam is in computer science.
+   - \( P(E|\neg H_1) \): Probability of the personality sketch given Adam is not in business administration.
+   - \( P(E|\neg H_2) \): Probability of the personality sketch given Adam is not in computer science.
+
+3. **Evaluations:**
+   - Based on Adam's personality sketch, he seems to have traits that may be less common in business administration (e.g., quiet disposition, love of nature, and solving puzzles) and potentially more common in computer science (e.g., high intelligence, understanding abstract concepts, solving puzzles).
+
+### Probabilities
+
+Let's make educated estimates for these probabilities:
+
+- **Prior Probabilities (`P(H)`):**
+  - \( P(H_1) \): Let's estimate that the probability that a randomly chosen graduate student is in business administration is about 0.15.
+  - \( P(H_2) \): Let's estimate that the probability that a randomly chosen graduate student is in computer science is about 0.20.
+
+- **Likelihoods (`P(E|H)`):**
+  - \( P(E|H_1) \): Given the personality traits, let's assign a lower likelihood for business administration, say 0.05.
+  - \( P(E|H_2) \): Given Adam's personality, he seems more likely to fit in computer science, so let's say 0.30.
+
+- **Normalization (`P(E|¬H)`):**
+  - \( P(E|\neg H_1) \): For traits not fitting business administration, let's say the likelihood is around 0.40 (more common overall).
+  - \( P(E|\neg H_2) \): For traits fitting other fields beside computer science, let's say around 0.25.
+
+### Bayesian Update
+
+Using Bayes' theorem for each field:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+where
+\[ P(E) = P(E|H_1) \cdot P(H_1) + P(E|H_2) \cdot P(H_2) + P(E|\neg H_1) \cdot P(\neg H_1) + P(E|\neg H_2) \cdot P(\neg H_2) \]
+
+Approximate \( P(E) \) as follows (not exhaustive due to more fields):
+- \( P(E) \) ≈ \( 0.05 \cdot 0.15 + 0.30 \cdot 0.20 + 0.40 \cdot 0.85 + 0.25 \cdot 0.80 \)
+
+Calculate individual probabilities (normalizing factors approximate due to additional fields not listed):
+
+1. **Business Administration:**
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \approx \frac{0.05 \cdot 0.15}{P(E)} \approx \frac{0.0075}{P(E)} \]
+
+2. **Computer Science:**
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \approx \frac{0.30 \cdot 0.20}{P(E)} \approx \frac{0.06}{P(E)} \]
+
+### Derived Probabilities:
+
+{
+  "business administration": "0.05",
+  "computer science": "0.30"
+}
+
+These values are approximations and used for demonstrating Bayesian update. The final results show Adam's traits are more consistent with fields like computer science.

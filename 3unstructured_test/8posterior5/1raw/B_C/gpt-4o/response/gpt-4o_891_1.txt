@@ -1,0 +1,56 @@
+To compute \( P(H|E) \) for each hypothesis \( H \), we need to use Bayes' rule. The formula for Bayes' rule is:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Since \( P(E) \) is the same for both hypotheses, we can calculate the proportional terms and compare them. 
+
+Let's evaluate the relevant probabilities for the given hypotheses.
+
+### Hypothesis: Adam was enrolled in Computer Science
+
+**P(H):** Prior probability of Adam being enrolled in Computer Science. Given that we have no prior knowledge about his overall likelihood of choosing any specific field, we might assume a neutral prior probability. However, due to the specialization nature, computer science can be considered a moderately popular field among graduate students.
+\[ P(H_{\text{cs}}) \approx 0.2 \]
+
+**P(E|H):** Probability of the personality sketch E given Adam was in Computer Science. Considering his attributes like curiosity about nature, love for animals, and enjoyment in puzzle-solving, these traits fit moderately well:
+\[ P(E|H_{\text{cs}}) \approx 0.4 \]
+
+**P(E|\neg H):** Probability of having this personality E given Adam was not in Computer Science. Given the diversity of graduate fields, this probability might be fairly distributed among other fields.
+\[ P(E|\neg H_{\text{cs}}) \approx 0.6 \]
+
+### Hypothesis: Adam was enrolled in Business Administration
+
+**P(H):** Prior probability of Adam being enrolled in Business Administration. This field is also a common choice for many students, often seen as popular as Computer Science.
+\[ P(H_{\text{ba}}) \approx 0.2 \]
+
+**P(E|H):** Probability of the personality sketch E given Adam was in Business Administration. This doesn’t fit quite as well as Computer Science because Business Administration might be expected to favor outgoing and extroverted personalities, more attuned to leadership and economics rather than nature and animals:
+\[ P(E|H_{\text{ba}}) \approx 0.2 \]
+
+**P(E|\neg H):** Probability of having this personality E given Adam was not in Business Administration. This distribution would be similar to the Computer Science case given the variety of graduate fields.
+\[ P(E|\neg H_{\text{ba}}) \approx 0.8 \]
+
+### Applying Bayes' Rule
+
+**Computer Science:**
+
+\[ P(H_{\text{cs}}|E) \propto P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}}) = 0.4 \cdot 0.2 = 0.08 \]
+
+**Business Administration:**
+
+\[ P(H_{\text{ba}}|E) \propto P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}}) = 0.2 \cdot 0.2 = 0.04 \]
+
+### Normalizing to Find Relative Probabilities
+
+To make these probabilities relative:
+
+\[ P(H_{\text{cs}}|E) = \frac{0.08}{0.08 + 0.04} = \frac{0.08}{0.12} = \frac{2}{3} \approx 0.67 \]
+
+\[ P(H_{\text{ba}}|E) = \frac{0.04}{0.08 + 0.04} = \frac{0.04}{0.12} = \frac{1}{3} \approx 0.33 \]
+
+Given the above computation, we can conclude:
+
+```json
+{
+  "computer science": 0.67,
+  "business administration": 0.33
+}
+```

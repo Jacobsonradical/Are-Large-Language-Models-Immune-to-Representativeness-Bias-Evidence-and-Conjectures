@@ -1,0 +1,79 @@
+Let's start by understanding the probabilities needed to apply Bayes' Rule:
+
+**Bayes' Rule:**
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+We'll evaluate the probabilities for each field separately.
+
+### Computer Science
+
+1. **P(H_cs)**: The prior probability that Adam was enrolled in computer science.
+   - Given that computer science is a popular field, we might assume a high prior probability.
+   - Let's assume: \( P(H_{cs}) = 0.15 \)
+
+2. **P(E|H_cs)**: The probability of Adam's personality sketch given that he is in computer science.
+   - Adam's intelligence and appreciation for solving puzzles align well with computer science.
+   - Let's assume: \( P(E|H_{cs}) = 0.6 \)
+
+3. **P(E|\neg H_cs)**: The probability of Adam's personality sketch given that he is not in computer science.
+   - Considering that these traits could fit well in other fields too, we might choose a moderate value.
+   - Let's assume: \( P(E|\neg H_{cs}) = 0.3 \)
+
+### Business Administration
+
+1. **P(H_ba)**: The prior probability that Adam was enrolled in business administration.
+   - Business administration is another popular field, but typically attracted by a distinct personality.
+   - Let's assume: \( P(H_{ba}) = 0.10 \)
+
+2. **P(E|H_ba)**: The probability of Adam's personality sketch given that he is in business administration.
+   - Some traits, like empathy and hard work, align but not perfectly with this field.
+   - Let's assume: \( P(E|H_{ba}) = 0.4 \)
+
+3. **P(E|\neg H_ba)**: The probability of Adam's personality sketch given that he is not in business administration.
+   - Traits could vary significantly across other fields, but moderately fitting.
+   - Let's assume: \( P(E|\neg H_{ba}) = 0.3 \)
+
+For the common term \( P(E) \), since it is identical for both computations, it can be simplified out if we leave probabilities unnormalized.
+
+### Bayesian Computation
+
+1. **Computer Science:**
+
+   \[
+   P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)}
+   = \frac{0.6 \cdot 0.15}{P(E)}
+   = \frac{0.09}{P(E)}
+   \]
+
+2. **Business Administration:**
+
+   \[
+   P(H_{ba}|E) = \frac{P(E|H_{ba}) \cdot P(H_{ba})}{P(E)}
+   = \frac{0.4 \cdot 0.10}{P(E)}
+   = \frac{0.04}{P(E)}
+   \]
+
+### Normalized Probabilities
+
+Since we are only interested in comparing the relative probabilities for now, normalization is needed for a complete answer.
+
+\[
+P(H_{cs}|E) + P(H_{ba}|E) \approx 0.09/P(E) + 0.04/P(E) = 0.13/P(E)
+\]
+
+\[
+\text{Normalized P}(H_{cs}|E) = \frac{0.09 / P(E)}{0.13 / P(E)} = \frac{0.09}{0.13} \approx 0.69
+\]
+
+\[
+\text{Normalized P}(H_{ba}|E) = \frac{0.04 / P(E)}{0.13 / P(E)} = \frac{0.04}{0.13} \approx 0.31
+\]
+
+Hence, the final probabilities are:
+
+```json
+{
+  "computer science": 0.69,
+  "business administration": 0.31
+}
+```

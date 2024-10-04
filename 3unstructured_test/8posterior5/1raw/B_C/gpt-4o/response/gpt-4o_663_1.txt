@@ -1,0 +1,58 @@
+To calculate the posterior probability \( P(H|E) \) for each field, we use Bayes' Theorem:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+where \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \).
+
+Let’s denote:
+- \( H_{cs} \): Adam was enrolled in computer science.
+- \( H_{ba} \): Adam was enrolled in business administration.
+
+We need to estimate the following probabilities for each hypothesis:
+
+1. **Prior probability \( P(H) \)**, the probability of Adam being in each field without knowing the personality sketch.
+2. **Likelihood \( P(E|H) \)**, the probability of observing the personality sketch given that Adam is in that field.
+3. **Likelihood \( P(E|\neg H) \)**, the probability of observing the personality sketch given that Adam is not in that field.
+
+### Estimations:
+- **Prior probability \( P(H) \)**:
+  - Assuming no specific prior information about the proportion of students in each field, we might assume a uniform prior. But since it's the U.S. and general field popularity, let's assume \( P(H_{cs}) = 0.25 \) and \( P(H_{ba}) = 0.15 \).
+  
+- **Likelihood \( P(E|H) \)**:
+  - For computer science (CS), Adam's interest in puzzles, high intelligence, and understanding of abstract concepts align well, so let's say \( P(E|H_{cs}) = 0.7 \).
+  - For business administration (BA), empathy, appreciation for hard work, and strong understanding might align but not perfectly, so let's say \( P(E|H_{ba}) = 0.4 \).
+
+- **Likelihood \( P(E|\neg H) \)**:
+  - Generally, the probability of someone having such traits without being in either field is a bit tricky. Let’s assume:
+  - \( P(E|\neg H_{cs}) \approx 0.2 \)
+  - \( P(E|\neg H_{ba}) \approx 0.3 \)
+
+### Computations using Bayes' Theorem:
+- For **Computer Science**:
+  \[
+  P(E) = P(E|H_{cs})P(H_{cs}) + P(E|\neg H_{cs})P(\neg H_{cs})
+  \]
+  \[
+  P(E) = (0.7 \times 0.25) + (0.2 \times 0.75) = 0.175 + 0.15 = 0.325
+  \]
+  \[
+  P(H_{cs}|E) = \frac{P(E|H_{cs})P(H_{cs})}{P(E)} = \frac{0.7 \times 0.25}{0.325} \approx 0.538
+  \]
+
+- For **Business Administration**:
+  \[
+  P(E) = P(E|H_{ba})P(H_{ba}) + P(E|\neg H_{ba})P(\neg H_{ba})
+  \]
+  \[
+  P(E) = (0.4 \times 0.15) + (0.3 \times 0.85) = 0.06 + 0.255 = 0.315
+  \]
+  \[
+  P(H_{ba}|E) = \frac{P(E|H_{ba})P(H_{ba})}{P(E)} = \frac{0.4 \times 0.15}{0.315} \approx 0.190
+  \]
+
+Therefore, the results are:
+
+\[
+\{
+  "computer science": "0.538",
+  "business administration": "0.190"
+\}
+\]

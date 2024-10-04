@@ -1,0 +1,76 @@
+To use Bayes' theorem, we need to first determine the required probabilities:
+
+1. **P(H)**: The prior probability that Adam is enrolled in a specific field (either computer science or business administration).
+2. **P(E | H)**: The likelihood of the evidence given that Adam is in a specific field.
+3. **P(E | \neg H)**: The likelihood of the evidence given that Adam is not in the specific field.
+4. **P(H | E)**: The posterior probability that Adam is enrolled in a specific field given the evidence.
+
+Given the information, let's make some reasonable qualitative assessments.
+
+### Computer Science (CS)
+- **P(H for CS)**: Given the popularity of computer science among graduate students in the U.S., let's assume a reasonable prior:
+  \[
+  P(H_{\text{CS}}) = 0.2
+  \]
+
+- **P(E | H for CS)**: Adam shows a high intelligence and enjoys solving puzzles, both of which are strong indicators for computer science. However, his deep love for nature and animals is somewhat less typical for CS students.
+  \[
+  P(E | H_{\text{CS}}) = 0.4
+  \]
+
+- **P(E | \neg H for CS)**: The probability of the evidence given that Adam is not a computer science student. Including garden/plant-related fields, psychology, and environmental science could align with his characteristics.
+  \[
+  P(E | \neg H_{\text{CS}}) = 0.6
+  \]
+
+Using Bayes' rule:
+\[
+P(H_{\text{CS}} | E) = \frac{P(E | H_{\text{CS}}) P(H_{\text{CS}})}{P(E)}
+\]
+Given \( P(E) = P(E | H_{\text{CS}}) P(H_{\text{CS}}) + P(E | \neg H_{\text{CS}}) P(\neg H_{\text{CS}}) \):
+\[
+P(E) = 0.4 \cdot 0.2 + 0.6 \cdot 0.8 = 0.08 + 0.48 = 0.56
+\]
+Thus,
+\[
+P(H_{\text{CS}} | E) = \frac{0.4 \cdot 0.2}{0.56} \approx 0.14
+\]
+
+### Business Administration (BA)
+- **P(H for BA)**: Similarly, assume a reasonable prior:
+  \[
+  P(H_{\text{BA}}) = 0.2
+  \]
+
+- **P(E | H for BA)**: Adam's empathy and appreciation for hard work could be relevant, but his strong interest in nature and solving puzzles is less indicative.
+  \[
+  P(E | H_{\text{BA}}) = 0.2
+  \]
+
+- **P(E | \neg H for BA)**: Includes many other fields where empathy and puzzle-solving might fit better.
+  \[
+  P(E | \neg H_{\text{BA}}) = 0.6
+  \]
+
+Using Bayes' rule:
+\[
+P(H_{\text{BA}} | E) = \frac{P(E | H_{\text{BA}}) P(H_{\text{BA}})}{P(E)}
+\]
+Given \( P(E) = P(E | H_{\text{BA}}) P(H_{\text{BA}}) + P(E | \neg H_{\text{BA}}) P(\neg H_{\text{BA}}) \):
+\[
+P(E) = 0.2 \cdot 0.2 + 0.6 \cdot 0.8 = 0.04 + 0.48 = 0.52
+\]
+
+Thus,
+\[
+P(H_{\text{BA}} | E) = \frac{0.2 \cdot 0.2}{0.52} \approx 0.077
+\]
+
+So, the estimations would be:
+
+```json
+{
+  "computer science": 0.14,
+  "business administration": 0.077
+}
+```

@@ -1,0 +1,63 @@
+To solve this problem using Bayesian inference, we need to compute the posterior probabilities \( P(H|E) \), which tells us how likely Adam was enrolled in a certain field given the personality sketch \( E \).
+
+Bayes' Theorem is given by:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+
+- \( P(H) \) is the prior probability of Adam being enrolled in a specific field.
+- \( P(E|H) \) is the likelihood of the personality sketch given Adam is in that field.
+- \( P(E|\neg H) \) is the likelihood of the personality sketch given Adam is not in that field.
+- \( P(E) \) is the overall probability of the personality sketch.
+
+For simplicity, we’ll assume equal priors \( P(H) \) for each field because we lack specific information about their base rates.
+
+Let's denote:
+- Prior \( P(H) \) for any field = 0.5 (since we are comparing two fields)
+- \( P(E|\neg H) \) as a rough measure of how likely the traits in E are outside the given field.
+
+### For Computer Science:
+
+\[ P(H_{\text{CS}}) = 0.5 \]
+
+Adam has a genuine curiosity about nature, enjoys solving puzzles, has high intelligence and appreciates hard work—all traits that could reasonably make someone likely to study Computer Science, so \( P(E|H_{\text{CS}}) \) is quite high.
+
+\[ P(E|H_{\text{CS}}) \approx 0.7 \]
+
+Given that Computer Science students often work on abstract concepts but generally aren't heavily focused on empathy, that could lower \( P(E|H_{\text{CS}}) \) a bit.
+
+For fields outside Computer Science, the likelihood of having the same traits could be moderately high but perhaps a bit more diverse across other fields:
+
+\[ P(E|\neg H_{\text{CS}}) \approx 0.5 \]
+
+Using Bayes’ rule:
+
+\[ P(H|E) = \frac{P(E|H) * P(H)}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = \frac{0.7 * 0.5}{0.5} = 0.7 \]
+
+### For Business Administration:
+
+\[ P(H_{\text{BA}}) = 0.5 \]
+
+Traits like a deep love for animals, empathy, and a focus on nature aren't strongly correlated with Business Administration, so \( P(E|H_{\text{BA}}) \) might be lower.
+
+\[ P(E|H_{\text{BA}}) \approx 0.2 \]
+
+For students outside Business Administration, the likelihood could be moderately higher, especially in fields related to nature and abstract concepts:
+
+\[ P(E|\neg H_{\text{BA}}) \approx 0.6 \]
+
+Using Bayes’ rule:
+
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) * P(H_{\text{BA}})}{0.5} \]
+\[ P(H_{\text{BA}}|E) = \frac{0.2 * 0.5}{0.5} = 0.2 \]
+
+Combining the results:
+
+```json
+{
+  "computer science": 0.7,
+  "business administration": 0.2
+}
+```

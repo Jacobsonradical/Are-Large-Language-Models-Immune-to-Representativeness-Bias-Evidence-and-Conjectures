@@ -1,0 +1,56 @@
+To compute the probabilities, we'll use Bayes' rule, which states:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+For each field \( H \):
+
+- \( P(H) \) is the prior probability that Adam is enrolled in the field.
+- \( P(E|H) \) is the probability that Adam has the described personality traits given that he is in the field.
+- \( P(E|\neg H) \) is the probability that Adam has the described personality traits given that he is not in the field.
+- \( P(E) \) is the overall probability that Adam has the described personality traits.
+
+Let's denote:
+
+- \( P(H_{\text{ba}}) \) as the probability that Adam is enrolled in business administration.
+- \( P(H_{\text{cs}}) \) as the probability that Adam is enrolled in computer science.
+- \( P(E|H_{\text{ba}}) \) as the probability that Adam has the described personality traits given that he is in business administration.
+- \( P(E|H_{\text{cs}}) \) as the probability that Adam has the described personality traits given that he is in computer science.
+- \( P(\neg H_{\text{ba}}) \) as the probability that Adam is not in business administration.
+- \( P(\neg H_{\text{cs}}) \) as the probability that Adam is not in computer science.
+
+While specific numerical values for these probabilities can be hard to define without further data, we can make some educated guesses based on Adam's personality traits:
+
+1. **Business Administration**:
+   - \( P(H_{\text{ba}})\): Let's assume it's less likely that Adam enrolled in business administration given his traits, we might estimate it around 0.2.
+
+   - \( P(E|H_{\text{ba}})\): Given that Adam enjoys nature, animals, and puzzles, it seems that these traits are less typical for business administration students. We might estimate this as 0.1.
+
+   - \( P(E|\neg H_{\text{ba}})\): This would be higher since Adam's traits might be more common outside of business administration, let's put this at 0.5.
+
+2. **Computer Science**:
+   - \( P(H_{\text{cs}})\): Given Adam's intelligence, love for puzzles, and ability to understand abstract concepts, it appears more likely that he could be enrolled in computer science. We might estimate it around 0.4.
+
+   - \( P(E|H_{\text{cs}})\): Adam's traits seem reasonably fitting for computer science students, particularly given the problem-solving and understanding of abstract concepts. Let's estimate this as 0.3.
+
+   - \( P(E|\neg H_{\text{cs}})\): This would again be higher because there are many fields outside of computer science where his traits are fitting. Let's put this at 0.5.
+
+Using these estimates, we can calculate \( P(H_{\text{ba}}|E) \) and \( P(H_{\text{cs}}|E) \):
+
+\[
+P(H_{\text{ba}}|E) = \frac{P(E|H_{\text{ba}}) \cdot P(H_{\text{ba}})}{P(E)} = \frac{0.1 \cdot 0.2}{0.5} = 0.04
+\]
+
+\[
+P(H_{\text{cs}}|E) = \frac{P(E|H_{\text{cs}}) \cdot P(H_{\text{cs}})}{P(E)} = \frac{0.3 \cdot 0.4}{0.5} = 0.24 
+\]
+
+To present these values:
+
+```json
+{
+  "business administration": 0.04,
+  "computer science": 0.24
+}
+```
+
+These values suggest that, based on Adam's personality traits, it is more likely (by our estimates) that he is enrolled in computer science rather than business administration.

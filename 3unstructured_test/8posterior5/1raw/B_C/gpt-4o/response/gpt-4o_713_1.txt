@@ -1,0 +1,63 @@
+To use Bayes' theorem to determine the probability that Adam was enrolled in a particular graduate field given his personality sketch, we'll use the following formula:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where:
+- \( P(H|E) \) is the probability that Adam was enrolled in a particular field given his personality sketch.
+- \( P(E|H) \) is the probability of Adam's personality sketch given he was enrolled in that field.
+- \( P(H) \) is the prior probability that Adam was enrolled in that field.
+- \( P(E) \) is the overall probability of observing Adam's personality sketch, which can be solved using the law of total probability.
+
+Let's define reasonable assumptions for the probabilities:
+
+### 1. Business Administration
+1. **P(H):** The prior probability that any given graduate student is in business administration.
+   - Assume a prior of 0.1 (since Business administration is a common field but not the most common).
+2. **P(E|H):** The probability of Adam's personality sketch given he is in business administration.
+   - Adam’s traits (e.g., love for nature and animals, solving puzzles, empathy) are less typical for a business student. We’ll assume 0.05.
+3. **P(E|\neg H):** The probability of Adam's personality sketch given he is not in business administration.
+   - Since the personality traits align better with non-business fields, we'll assume 0.2.
+
+### 2. Computer Science
+1. **P(H):** The prior probability that any given graduate student is in computer science.
+   - Assume a prior of 0.2 (computer science is common).
+2. **P(E|H):** The probability of Adam’s personality sketch given he is in computer science.
+   - Traits like solving puzzles and understanding abstract concepts are a good fit; we assume 0.3.
+3. **P(E|\neg H):** The probability of Adam's personality sketch given he is not in computer science.
+   - We assume 0.15 since other fields might align similarly but not as well.
+
+### Calculation of \( P(H|E) \):
+Let's compute the posterior probability for each field:
+
+#### Business Administration
+
+\[ P(H=BA|E) = \frac{P(E|H=BA) \cdot P(H=BA)}{P(E)} \]
+
+\[ P(E) = P(E|H=BA) \cdot P(H=BA) + P(E|\neg H=BA) \cdot P(\neg H=BA) \]
+
+\[ P(E) = 0.05 \cdot 0.1 + 0.2 \cdot 0.9 \]
+\[ P(E) = 0.005 + 0.18 = 0.185 \]
+
+\[ P(H=BA|E) = \frac{0.05 \cdot 0.1}{0.185} = \frac{0.005}{0.185} \approx 0.027 \]
+
+#### Computer Science
+
+\[ P(H=CS|E) = \frac{P(E|H=CS) \cdot P(H=CS)}{P(E)} \]
+
+\[ P(E) = P(E|H=CS) \cdot P(H=CS) + P(E|\neg H=CS) \cdot P(\neg H=CS) \]
+
+\[ P(E) = 0.3 \cdot 0.2 + 0.15 \cdot 0.8 \]
+\[ P(E) = 0.06 + 0.12 = 0.18 \]
+
+\[ P(H=CS|E) = \frac{0.3 \cdot 0.2}{0.18} = \frac{0.06}{0.18} \approx 0.333 \]
+
+### Summary:
+
+```json
+{
+  "business administration": 0.027,
+  "computer science": 0.333
+}
+```
+
+Please note that these calculations hinge on the assumptions made for the probabilities. Different assumptions can lead to different results.

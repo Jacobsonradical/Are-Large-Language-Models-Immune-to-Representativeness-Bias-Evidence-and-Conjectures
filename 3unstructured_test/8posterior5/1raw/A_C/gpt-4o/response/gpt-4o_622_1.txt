@@ -1,0 +1,51 @@
+To compute the posterior probability \( P(H|E) \) using Bayes' rule, we'll follow these steps:
+
+1. **Assess the prior probabilities \( P(H) \)**: This is the initial probability of Adam being enrolled in each field, without knowing his personality sketch. Given that he is a graduate student in the U.S., let’s assume a hypothetical distribution of students in these fields:
+   - P(Computer Science) = 0.25
+   - P(Agricultural and Veterinary Science) = 0.05
+
+2. **Assess the likelihood \( P(E|H) \)**: This is the probability of Adam having his personality traits given that he is in a particular field.
+   - For Computer Science: Let’s hypothesize that students in computer science may not generally exhibit as strong an affinity for nature and animals, empathy, or a focus on hard work and dedication characteristic of more hands-on fields.
+     - \( P(E|H_{CS}) = 0.10 \)
+   - For Agricultural and Veterinary Science: It’s more likely for students in this field to show traits aligned with curiosity about nature, empathy for animals, and appreciation for hard work.
+     - \( P(E|H_{AgVet}) = 0.60 \)
+
+3. **Assess the complement likelihood \( P(E|\neg H) \)**: This represents the probability of Adam having his personality traits given that he is not in the specific field.
+   - For not Computer Science: Given an even spread of other graduate students, assume the likelihood of someone in a different field sharing his personality traits is moderate.
+     - \( P(E|\neg H_{CS}) = 0.20 \)
+   - For not Agricultural and Veterinary Science: Similarly, we can assume a moderate likelihood.
+     - \( P(E|\neg H_{AgVet}) = 0.30 \)
+
+4. **Apply Bayes’ Rule**:
+   \[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+   where \( P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \)
+
+Let's compute:
+
+**For Computer Science:**
+\[ P(E|H_{CS}) = 0.10 \]
+\[ P(H_{CS}) = 0.25 \]
+
+\[ P(E)_{CS} = (0.10 \times 0.25) + (0.20 \times 0.75) \]
+\[ P(E)_{CS} = 0.025 + 0.15 \]
+\[ P(E)_{CS} = 0.175 \]
+
+\[ P(H_{CS}|E) = \frac{0.10 \times 0.25}{0.175} \]
+\[ P(H_{CS}|E) \approx 0.143 \]
+
+**For Agricultural and Veterinary Science:**
+\[ P(E|H_{AgVet}) = 0.60 \]
+\[ P(H_{AgVet}) = 0.05 \]
+
+\[ P(E)_{AgVet} = (0.60 \times 0.05) + (0.30 \times 0.95) \]
+\[ P(E)_{AgVet} = 0.03 + 0.285 \]
+\[ P(E)_{AgVet} = 0.315 \]
+
+\[ P(H_{AgVet}|E) = \frac{0.60 \times 0.05}{0.315} \]
+\[ P(H_{AgVet}|E) \approx 0.095 \]
+
+So, the posterior probabilities are:
+{
+  "computer science": 0.143,
+  "agricultural and veterinary science": 0.095
+}

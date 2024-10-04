@@ -1,0 +1,44 @@
+To apply Bayes' rule, we start with the following equations:
+
+1. \( P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \)
+
+Where:
+- \( H \) is the hypothesis that Adam was enrolled in a certain field (e.g., agricultural and veterinary science or business administration).
+- \( E \) is the given personality sketch of Adam.
+
+We need to consider:
+- \( P(H) \): The prior probability that a random graduate student is in a certain field.
+- \( P(E|H) \): The probability that we would observe the personality sketch \( E \) given that Adam is in field \( H \).
+- \( P(E|\neg H) \): The probability that we would observe the personality sketch \( E \) given that Adam is not in field \( H \).
+
+Since we don't have specific statistics, we'll need to make some educated guesses:
+
+1. **Agricultural and Veterinary Science**:
+   - **P(H)**: Let's assume agricultural and veterinary science is a relatively small field compared to all possible graduate fields, so we might guess P(H) = 0.05.
+   - **P(E|H)**: Considering Adam's love for nature, animals, and hard work appreciation, it is very likely that someone in this field would have a personality sketch like E. Hence, P(E|H) = 0.8.
+   - **P(E|\neg H)**: Out of those not in this field, maybe only a small portion would have a similar personality sketch. Let's guess P(E|\neg H) = 0.2.
+
+2. **Business Administration**:
+   - **P(H)**: Business administration is a relatively common graduate field, so we might guess P(H) = 0.15.
+   - **P(E|H)**: Since Adam's traits don’t particularly align with what you'd typically expect in business administration (e.g., not much emphasis on nature, animals), we assign P(E|H) = 0.2.
+   - **P(E|\neg H)**: For those not in business admin, a similar personality sketch might be somewhat more common, so maybe P(E|\neg H) = 0.3.
+
+Now, applying Bayes' rule:
+
+1. **Agricultural and Veterinary Science**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))} \]
+\[ P(H|E) = \frac{0.8 \cdot 0.05}{0.8 \cdot 0.05 + 0.2 \cdot 0.95} \]
+\[ P(H|E) = \frac{0.04}{0.04 + 0.19} = \frac{0.04}{0.23} \approx 0.174 \]
+
+2. **Business Administration**:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E|H) \cdot P(H) + P(E|\neg H) \cdot (1 - P(H))} \]
+\[ P(H|E) = \frac{0.2 \cdot 0.15}{0.2 \cdot 0.15 + 0.3 \cdot 0.85} \]
+\[ P(H|E) = \frac{0.03}{0.03 + 0.255} = \frac{0.03}{0.285} \approx 0.105 \]
+
+Based on these calculations, we have:
+```json
+{
+  "agricultural and veterinary science": 0.174,
+  "business administration": 0.105
+}
+```

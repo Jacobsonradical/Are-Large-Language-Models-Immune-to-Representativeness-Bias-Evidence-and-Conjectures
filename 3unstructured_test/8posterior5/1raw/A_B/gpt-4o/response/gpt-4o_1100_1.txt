@@ -1,0 +1,52 @@
+To compute the probabilities \( P(H|E) \) for each field, we need to estimate the individual probabilities \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Bayes' theorem states:
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+where \( P(E) \) can be derived from the law of total probability:
+
+\[
+P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H)
+\]
+
+Given the personality sketch of Adam (E), let's estimate the required probabilities.
+
+### 1. Agricultural and veterinary science
+- **\( P(H) \)**: Given the setup is the U.S., let’s assume a moderate likelihood that a random graduate student might be enrolled in agricultural and veterinary science. We'll say \( P(H) \approx 0.05 \), as it's a less common field.
+- **\( P(E|H) \)**: Given Adam's curiosity about nature and plants, love for animals, and empathy, there is a high probability that he would be studying something related to agricultural and veterinary science. We'll set \( P(E|H) \approx 0.8 \).
+- **\( P(E|\neg H) \)**: If Adam is not in the agricultural and veterinary science field, while the traits fit well, they are not exclusive. We'll estimate \( P(E|\neg H) \approx 0.1 \).
+
+### 2. Business administration
+- **\( P(H) \)**: Business administration is a very common graduate field in the U.S. We'll assume a higher prior probability, say \( P(H) \approx 0.15 \).
+- **\( P(E|H) \)**: Given Adam's specific traits (curiosity about nature, love for animals, strong empathy), these are generally less associated with business administration. We'll set \( P(E|H) \approx 0.05 \).
+- **\( P(E|\neg H) \)**: Given the traits are quite specific and less related to business administration, we'll assume \( P(E|\neg H) \approx 0.15 \).
+
+Now we compute \( P(H|E) \) using Bayes' rule:
+
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+And, 
+\[
+P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H)
+\]
+
+Breaking it down for each field:
+
+### Agricultural and veterinary science
+- Numerator: \( P(E|H)P(H) = 0.8 \times 0.05 = 0.04 \)
+- Denominator: \( P(E) = 0.04 + 0.1 \times 0.95 = 0.04 + 0.095 = 0.135 \)
+- \( P(H|E) = \frac{0.04}{0.135} \approx 0.296 \)
+
+### Business administration
+- Numerator: \( P(E|H)P(H) = 0.05 \times 0.15 = 0.0075 \)
+- Denominator: \( P(E) = 0.0075 + 0.15 \times 0.85 = 0.0075 + 0.1275 = 0.135 \)
+- \( P(H|E) = \frac{0.0075}{0.135} \approx 0.056 \)
+
+Thus, the final answers, denoted between 0 and 1:
+
+{
+  "agricultural and veterinary science": 0.296,
+  "business administration": 0.056
+}

@@ -1,0 +1,57 @@
+To compute the values for \( P(H|E) \) for each field, we will use Bayes' Rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is a common denominator for both computations and we only need the relative probabilities, we can compare the numerators directly:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+We need to initialize values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \).
+
+Here's how we proceed with each step:
+
+1. **Prior Probability \( P(H) \)**: The prior belief that Adam might be in a certain field.
+2. **Likelihood Probability \( P(E|H) \)**: The probability that Adam's personality sketch fits a student in that field.
+3. **Complement Probability \( P(E|\neg H) \)**: The probability that someone not in the field fits Adam's personality sketch.
+
+### Business Administration
+
+- **Prior \( P(H) \)**: Business administration is a common field but given Adam's profile, we'll set this to a lower value.
+  \[ P(\text{Business Administration}) = 0.1 \]
+- **Likelihood \( P(E|H) \)**: The profile suggests strong empathy, appreciation for hard work, and intelligence which could fit a business student, but his deep love for nature and animals doesn't match typical business traits.
+  \[ P(E|\text{Business Administration}) = 0.2 \]
+- **Complement \( P(E|\neg H) \)**: Assume this is the average case for everyone else excluding business, we guess a value.
+  \[ P(E|\neg \text{Business Administration}) = 0.5 \]
+
+### Computer Science
+
+- **Prior \( P(H) \)**: Computer science is quite common for a high intelligence student who likes solving puzzles.
+  \[ P(\text{Computer Science}) = 0.3 \]
+- **Likelihood \( P(E|H) \)**: The profile (solving puzzles, intelligence, understanding abstract concepts) is a good match.
+  \[ P(E|\text{Computer Science}) = 0.8 \]
+- **Complement \( P(E|\neg H) \)**: Assume this is lower for those not fitting the profile of computer science.
+  \[ P(E|\neg \text{Computer Science}) = 0.4 \]
+
+### Calculation
+
+For Business Administration:
+\[ P(\text{Business Administration}|E) \propto P(E|\text{Business Administration}) \cdot P(\text{Business Administration}) \]
+\[ \propto 0.2 \cdot 0.1 = 0.02 \]
+
+For Computer Science:
+\[ P(\text{Computer Science}|E) \propto P(E|\text{Computer Science}) \cdot P(\text{Computer Science}) \]
+\[ \propto 0.8 \cdot 0.3 = 0.24 \]
+
+We normalize these (optional, but often helpful for comparison):
+
+\[ P(\text{Business Administration}|E) = \frac{0.02}{0.02 + 0.24} = \frac{0.02}{0.26} \approx 0.077 \]
+\[ P(\text{Computer Science}|E) = \frac{0.24}{0.02 + 0.24} = \frac{0.24}{0.26} \approx 0.923 \]
+
+Thus, the results are:
+
+```json
+{
+  "business administration": 0.077,
+  "computer science": 0.923
+}
+```

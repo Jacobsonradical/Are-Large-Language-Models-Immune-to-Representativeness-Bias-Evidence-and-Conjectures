@@ -1,0 +1,46 @@
+To compute \(P(H|E)\) for each of the fields using Bayes' Rule, we need to estimate \(P(H)\), \(P(E|H)\), and \(P(E|\neg H)\). Here's how we'll proceed:
+
+1. **Prior Probability, \(P(H)\)**: The initial probability of Adam being enrolled in each field without considering his personality sketch.
+2. **Likelihood, \(P(E|H)\)**: The probability of Adam's personality sketch given he is enrolled in that field.
+3. **Complement Likelihood, \(P(E|\neg H)\)**: The probability of Adam's personality sketch given he is NOT enrolled in that field.
+
+### Estimations:
+**Agricultural and Veterinary Science (H1)**:
+- **\(P(H1)\)**: Let's assume a relatively low but non-negligible probability since it's a specialized field. \(P(H1)=0.1\).
+- **\(P(E|H1)\)**: Given Adam's love for nature, plants, and animals, it is highly likely. Let's set \(P(E|H1)=0.8\).
+- **\(P(E|\neg H1)\)**: Since the curiosity for nature and empathy are broader traits, it could be moderately likely outside H1. Let's set \(P(E|\neg H1)=0.2\).
+
+**Computer Science (H2)**:
+- **\(P(H2)\)**: Given that Computer Science is a popular field, let's assume a moderate prior. \(P(H2)=0.3\).
+- **\(P(E|H2)\)**: Adam's traits fit somewhat well, especially his intelligence and love for solving puzzles. Let’s set \(P(E|H2)=0.5\).
+- **\(P(E|\neg H2)\)**: These traits are still common enough outside CS but less concentrated. Let’s set \(P(E|\neg H2)=0.4\).
+
+**Business Administration (H3)**:
+- **\(P(H3)\)**: Also a popular field, we can assume a similar prior to CS. \(P(H3)=0.3\).
+- **\(P(E|H3)\)**: His traits fit less well with Business, so let's set it lower. Let’s set \(P(E|H3)=0.3\).
+- **\(P(E|\neg H3)\)**: The traits may not be particularly indicative outside Business compared to H3. Let’s set \(P(E|\neg H3)=0.4\).
+
+Next, we'll apply Bayes' Rule for each hypothesis:
+\[ P(H|E) = \frac{P(E|H)P(H)}{P(E)} \]
+Since \(P(E) = P(E|H1)P(H1) + P(E|H2)P(H2) + P(E|H3)P(H3) + P(E|\neg H1 \cup H2 \cup H3)P(\neg H1 \cup H2 \cup H3)\), the term will be canceled out in our calculations, and we only need the relative probabilities.
+
+### Calculations:
+
+For **Agricultural and Veterinary Science**:
+\[ P(H1|E) = \frac{P(E|H1)P(H1)}{P(E|H1)P(H1) + P(E|\neg H1)P(\neg H1)} \]
+\[ P(H1|E) = \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.2 \times 0.9} = \frac{0.08}{0.08 + 0.18} = \frac{0.08}{0.26} \approx 0.307 \]
+
+For **Computer Science**:
+\[ P(H2|E) = \frac{0.5 \times 0.3}{0.5 \times 0.3 + 0.4 \times 0.7} = \frac{0.15}{0.15 + 0.28} = \frac{0.15}{0.43} \approx 0.349 \]
+
+For **Business Administration**:
+\[ P(H3|E) = \frac{0.3 \times 0.3}{0.3 \times 0.3 + 0.4 \times 0.7} = \frac{0.09}{0.09 + 0.28} = \frac{0.09}{0.37} \approx 0.243 \]
+
+### Result:
+```json
+{
+  "agricultural and veterinary science": 0.307,
+  "computer science": 0.349,
+  "business administration": 0.243
+}
+```

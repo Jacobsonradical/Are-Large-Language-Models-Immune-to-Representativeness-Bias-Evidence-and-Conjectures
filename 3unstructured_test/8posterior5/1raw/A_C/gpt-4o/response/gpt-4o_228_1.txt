@@ -1,0 +1,52 @@
+To apply Bayes' Rule, we need to identify the following probability components:
+
+1. **P(H)**: The prior probability that Adam was enrolled in that particular field of study.
+2. **P(E|H)**: The likelihood of observing the personality sketch E given that Adam was indeed enrolled in that field.
+3. **P(E|¬H)**: The likelihood of observing the personality sketch E given that Adam was not enrolled in that field.
+4. **P(H|E)**: The posterior probability that Adam was enrolled in that particular field of study, given the personality sketch E.
+
+Let's assume some reasonable values for these probabilities based on the given sketch. 
+
+### Values for Agricultural and Veterinary Science:
+- **P(H)**:
+  - Assume that the prior probability of Adam being in agricultural and veterinary science is relatively low, considering the variety of graduate fields. Let's assume P(H) for this field is 0.05.
+- **P(E|H)**:
+  - The likelihood of having a genuine curiosity about nature, a love for animals, and empathy fits well with this field. Let's assume P(E|H) for this field is 0.8.
+- **P(E|¬H)**:
+  - Since E might also apply to other fields like biology, zoology, and some aspects could fit other various fields, let's assume P(E|¬H) is 0.3.
+
+### Values for Computer Science:
+- **P(H)**:
+  - Assume that the prior probability of Adam being in computer science is moderately high given the popularity of this field. Let’s assume P(H) for this field is 0.15.
+- **P(E|H)**:
+  - While being good at solving puzzles and high intelligence fit well with computer science, traits like empathy and love for animals do not directly relate to it. Thus, let's assume P(E|H) for this field is 0.4.
+- **P(E|¬H)**:
+  - Since E might fit well with non-computer science fields that involve animals, nature, and other sciences, let’s assume P(E|¬H) here is 0.6.
+
+### Calculations:
+We use Bayes' Rule: 
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+Where \(P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\)
+
+#### Agricultural and Veterinary Science:
+- \( P(H) = 0.05 \)
+- \( P(E|H) = 0.8 \)
+- \( P(E|¬H) = 0.3 \)
+- \( P(E) = (0.8 \cdot 0.05) + (0.3 \cdot (1 - 0.05)) = 0.04 + 0.285 = 0.325 \)
+- \( P(H|E) = \frac{0.8 \cdot 0.05}{0.325} = \frac{0.04}{0.325} ≈ 0.123 \)
+
+#### Computer Science:
+- \( P(H) = 0.15 \)
+- \( P(E|H) = 0.4 \)
+- \( P(E|¬H) = 0.6 \)
+- \( P(E) = (0.4 \cdot 0.15) + (0.6 \cdot (1 - 0.15)) = 0.06 + 0.51 = 0.57 \)
+- \( P(H|E) = \frac{0.4 \cdot 0.15}{0.57} = \frac{0.06}{0.57} ≈ 0.105 \)
+
+Given these computations, the posterior probabilities are as follows:
+
+```json
+{
+  "agricultural and veterinary science": 0.123,
+  "computer science": 0.105
+}
+```

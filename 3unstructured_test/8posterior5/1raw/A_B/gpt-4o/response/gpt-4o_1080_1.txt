@@ -1,0 +1,47 @@
+To compute the probabilities using Bayes' Rule, we need to have initial values for \( P(H) \), \( P(E|H) \), and \( P(E|\neg H) \). Given that we're dealing with a graduate student in the U.S., certain assumptions need to be made. However, without specific data to inform these prior probabilities, we must make reasoned estimates.
+
+Let's denote:
+- \( H_1 \) as the hypothesis that Adam was enrolled in agricultural and veterinary science.
+- \( H_2 \) as the hypothesis that Adam was enrolled in business administration.
+
+Bayes' Rule states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+### Agricultural and Veterinary Science
+1. **Prior Probability \( P(H_1) \)**: The probability that a graduate student chosen at random is studying agricultural and veterinary science. While exact numbers aren't known, we can assume this field has a moderate enrollment rate.
+   - Estimate: \( P(H_1) = 0.1 \)
+
+2. **Likelihood \( P(E|H_1) \)**: The probability of observing the personality sketch \( E \) if Adam is in this field. Given Adam's interests (nature, plants, animals), it strongly matches this field.
+   - Estimate: \( P(E|H_1) = 0.9 \)
+
+3. **Complement Likelihood \( P(E|\neg H_1) \)**: The probability of observing the personality sketch \( E \) if Adam is in any field other than agricultural and veterinary science.
+   - Estimate: \( P(E|\neg H_1) = 0.05 \)
+
+4. **Total Evidence \( P(E) \)**: This is a normalization factor, but since we are comparing two fields, it can be omitted for relative comparison.
+
+### Business Administration
+1. **Prior Probability \( P(H_2) \)**: The probability that a graduate student chosen at random is studying business administration. This field generally has high enrollment rates.
+   - Estimate: \( P(H_2) = 0.2 \)
+
+2. **Likelihood \( P(E|H_2) \)**: The probability of observing the personality sketch \( E \) if Adam is in this field. Adam’s interests do not align as well with business administration.
+   - Estimate: \( P(E|H_2) = 0.1 \)
+
+3. **Complement Likelihood \( P(E|\neg H_2) \)**: The probability of observing the personality sketch \( E \) if Adam is in any field other than business administration.
+   - Estimate: \( P(E|\neg H_2) = 0.25 \)
+
+### Bayes' Rule Application
+
+For agricultural and veterinary science:
+\[ P(H_1|E) = \frac{P(E|H_1) \cdot P(H_1)}{P(E)} \approx \frac{0.9 \cdot 0.1}{0.9 \cdot 0.1 + 0.05 \cdot 0.9} = \frac{0.09}{0.09 + 0.045} = \frac{0.09}{0.135} = 0.6667 \]
+
+For business administration:
+\[ P(H_2|E) = \frac{P(E|H_2) \cdot P(H_2)}{P(E)} \approx \frac{0.1 \cdot 0.2}{0.1 \cdot 0.2 + 0.25 \cdot 0.8} = \frac{0.02}{0.02 + 0.2} = \frac{0.02}{0.22} = 0.0909 \]
+
+Given these calculations:
+
+```json
+{
+  "agricultural and veterinary science": 0.6667,
+  "business administration": 0.0909
+}
+```

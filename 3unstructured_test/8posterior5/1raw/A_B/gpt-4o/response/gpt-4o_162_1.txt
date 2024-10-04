@@ -1,0 +1,66 @@
+To estimate \( P(H|E) \) using Bayes' rule, we need to know prior probabilities \( P(H) \), likelihood \( P(E|H) \), and the evidence term \( P(E) \), or alternatively \( P(E|\neg H) \). Bayes' rule can be stated as:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, since \( P(E) \) is hard to estimate without additional information, we will instead calculate the relative likelihoods. Assuming \( P(E) \) is constant, Bayes' rule simplifies to:
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Now let's estimate the required probabilities for each field.
+
+### Agricultural and Veterinary Science (H1)
+1. **Prior Probability, \( P(H1) \)**: 
+ Agricultural and veterinary science programs are less common than business administration programs.
+ Let's assume \( P(H1) = 0.1 \).
+
+2. **Likelihood, \( P(E|H1) \)**:
+ Given Adam's high empathy, love for animals, and understanding of nature and plants, it's very likely that he'd be involved in agricultural and veterinary science.
+ Let's assume \( P(E|H1) = 0.9 \).
+
+3. **Complementary Likelihood, \( P(E|\neg H1) \)**:
+ This would be the likelihood of E given that Adam is not enrolled in agricultural and veterinary science. While this is harder to pinpoint, we can extend that Adam might have a lower probability of showing all these traits as frequently.
+ Let’s conservatively assume \( P(E|\neg H1) = 0.4 \).
+
+### Business Administration (H2)
+1. **Prior Probability, \( P(H2) \)**: 
+ Business administration programs are very common among graduate programs.
+ Let's assume \( P(H2) = 0.3 \).
+
+2. **Likelihood, \( P(E|H2) \)**:
+ Adam's interests and traits do not strongly align with the typical characteristics needed for business administration.
+ Let's assume \( P(E|H2) = 0.1 \).
+
+3. **Complementary Likelihood, \( P(E|\neg H2) \)**:
+ Given that many non-business fields might align more closely with Adam’s traits, we might assume a higher likelihood that he exhibits these traits given he's not in business.
+ Let's assume \( P(E|\neg H2) = 0.6 \).
+
+Using these estimates, we can compute the relative probabilities \( P(H|E) \) for each field.
+
+1. **Agricultural and Veterinary Science**:
+\[ 
+P(H1|E) \propto P(E|H1) \cdot P(H1) = 0.9 \cdot 0.1 = 0.09 
+\]
+
+2. **Business Administration**:
+\[ 
+P(H2|E) \propto P(E|H2) \cdot P(H2) = 0.1 \cdot 0.3 = 0.03 
+\]
+
+Normalizing these probabilities by dividing each by their sum (0.09 + 0.03 = 0.12) results in:
+
+\[
+P(H1|E) \approx \frac{0.09}{0.12} = 0.75 
+\]
+\[
+P(H2|E) \approx \frac{0.03}{0.12} = 0.25 
+\]
+
+Here’s the final output:
+```json
+{
+  "agricultural and veterinary science": 0.75,
+  "business administration": 0.25
+}
+```
+
+These values suggest that based on his personality sketch, Adam is far more likely to have been enrolled in an agricultural and veterinary science program than in business administration.

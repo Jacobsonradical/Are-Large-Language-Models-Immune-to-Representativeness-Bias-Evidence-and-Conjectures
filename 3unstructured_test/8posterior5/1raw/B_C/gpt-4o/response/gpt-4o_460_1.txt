@@ -1,0 +1,44 @@
+To determine the probabilities using Bayes' theorem, we must first make informed assumptions about each of the probabilities involved. Let's define the variables:
+
+- P(H) = Prior probability that Adam is enrolled in the field \(H\).
+- P(E|H) = Probability of the personality sketch \(E\) given that Adam is enrolled in field \(H\).
+- P(E|\neg H) = Probability of the personality sketch \(E\) given that Adam is not enrolled in field \(H\).
+- P(H|E) = Posterior probability that Adam is enrolled in field \(H\) given the personality sketch \(E\).
+
+We can use Bayes' theorem:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Assuming that \(P(E)\) is constant for both fields, we can focus on the numerator only for comparison purposes:
+
+### Business Administration
+- P(H) for Business Administration (B.A.) is reasonably low because B.A. programs tend to attract individuals interested in business, leadership, and management rather than individuals with strong empathy for animals and curiosity about nature. Let's assume \(P(H_{\text{BA}}) = 0.1\).
+- P(E|H) is relatively low for Business Administration because the personality sketch doesn't align strongly with typical B.A. students. Let's assume \(P(E|H_{\text{BA}}) = 0.1\).
+- P(E|\neg H) is high since the personality traits described are less likely to match a B.A. specialization. Let's assume \(P(E|\neg H_{\text{BA}}) = 0.8\).
+
+### Computer Science
+- P(H) for Computer Science (C.S.) is reasonably higher as C.S. can attract individuals who enjoy solving puzzles and have high intelligence. Let's assume \(P(H_{\text{CS}}) = 0.3\).
+- P(E|H) is moderately high for Computer Science because the personality sketch aligns better with C.S. students who value problem-solving and abstract concepts. Let's assume \(P(E|H_{\text{CS}}) = 0.6\).
+- P(E|\neg H) is moderately high since several other fields might match Adam's personality. Let's assume \(P(E|\neg H_{\text{CS}}) = 0.5\).
+
+Using these assumed values:
+\[ P(H_{\text{BA}}|E) = \frac{P(E|H_{\text{BA}}) \cdot P(H_{\text{BA}})}{P(E)} = \frac{0.1 \cdot 0.1}{P(E)} \]
+\[ P(H_{\text{CS}}|E) = \frac{P(E|H_{\text{CS}}) \cdot P(H_{\text{CS}})}{P(E)} = \frac{0.6 \cdot 0.3}{P(E)} \]
+
+We can ignore \(P(E)\) for the sake of comparison:
+
+For Business Administration:
+\[ P(H_{\text{BA}}|E) \approx 0.01 \]
+
+For Computer Science:
+\[ P(H_{\text{CS}}|E) \approx 0.18 \]
+
+Therefore, the normalized probabilities would be:
+
+```json
+{
+  "business administration": 0.01,
+  "computer science": 0.18
+}
+```
+
+This suggests Adam is more likely in a Computer Science program than a Business Administration program based on his personality sketch.

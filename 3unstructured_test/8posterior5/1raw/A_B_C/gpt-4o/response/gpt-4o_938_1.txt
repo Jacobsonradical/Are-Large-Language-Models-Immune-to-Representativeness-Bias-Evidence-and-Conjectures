@@ -1,0 +1,80 @@
+To compute the posterior probabilities \(P(H|E)\) for each field of study given Adam’s personality sketch \(E\), we use Bayes' rule:
+
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+where:
+- \(P(H)\) is the prior probability of Adam being enrolled in that field.
+- \(P(E|H)\) is the probability of observing the personality sketch given that Adam is enrolled in that field.
+- \(P(E|\neg H)\) is the probability of observing the personality sketch given that Adam is not enrolled in that field.
+- \(P(E)\) can be derived from \(P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H)\), but it is not necessary if we only need relative probabilities for comparison.
+
+First, let's estimate the prior probabilities (\(P(H)\)) for each field based on general enrollment trends:
+
+1. Business administration: Moderate probability (say, 0.3)
+2. Computer science: High probability (say, 0.4)
+3. Agricultural and veterinary science: Lower probability (say, 0.1)
+
+Next, we estimate \(P(E|H)\) for each field based on Adam's personality:
+
+1. Business administration:
+   - \(P(E|H)\): Given Adam's personality doesn't closely match typical traits for business administration, we might set a lower probability (say, 0.2).
+
+2. Computer science:
+   - \(P(E|H)\): Adam's intelligence and enjoyment of puzzles match well, but empathy and love for animals less so (say, 0.5).
+
+3. Agricultural and veterinary science:
+   - \(P(E|H)\): Strong match with empathy, love for animals, curiosity about nature (say, 0.7).
+
+Now we need to consider \(\neg H\), but for simplification, we assume it to be equally probable across other fields.
+
+So:
+
+\[ P(E|\neg H)\) \approx (0.2 + 0.5 + 0.7) / 3 = 0.4667 \]
+
+Using Bayes’ rule for relative probabilities:
+[Note: The \(P(E)\) value is identical in all calculations, so it cancels out when comparing ratios.]
+
+\[ P(H|E) \propto P(E|H) \cdot P(H) \]
+
+Thus, we calculate:
+
+1. Business administration:
+   \[
+   P(H|E) \propto 0.2 \times 0.3 = 0.06
+   \]
+
+2. Computer science:
+   \[
+   P(H|E) \propto 0.5 \times 0.4 = 0.2
+   \]
+
+3. Agricultural and veterinary science:
+   \[
+   P(H|E) \propto 0.7 \times 0.1 = 0.07
+   \]
+
+These calculations give relative values:
+
+Adjusting to make these into probabilities that add up:
+
+Total = \(0.06 + 0.2 + 0.07 = 0.33\)
+
+And normalizing:
+\[
+\text{Normalized values} = \frac{P(H|E)_{\text{each}}}{0.33}
+\]
+
+{
+  "business administration": \(\frac{0.06}{0.33} \approx 0.182\),
+  "computer science": \(\frac{0.2}{0.33} \approx 0.606\),
+  "agricultural and veterinary science": \(\frac{0.07}{0.33} \approx 0.212\)
+}
+Keeping in mind these are approximate values.
+
+In conclusion:
+
+{
+  "business administration": 0.182,
+  "computer science": 0.606,
+  "agricultural and veterinary science": 0.212
+}

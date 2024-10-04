@@ -1,0 +1,60 @@
+To use Bayes' Rule to estimate the probability that Adam was enrolled in either computer science (CS) or business administration (BA), given his personality sketch (E), we need to estimate the following probabilities:
+
+1. **P(H)**: The prior probability that Adam was enrolled in computer science or business administration, before considering his personality traits.
+2. **P(E|H)**: The probability of observing Adam's personality sketch given that he is in computer science or business administration.
+3. **P(E|\neg H)**: The probability of observing Adam's personality sketch given that he is not in computer science or business administration.
+
+Since we don't have specific numerical data, let's make some reasonable assumptions based on typical characteristics:
+
+### *Computer Science (CS)*:
+1. **P(H_cs)**: Assuming there are many graduate fields, but computer science is popular, let's assume P(H_cs) is around 0.15.
+2. **P(E|H_cs)**: Adam's traits like high intelligence, good understanding of abstract concepts, and enjoyment of puzzles fit computer science well. Let's assume P(E|H_cs) is also around 0.6.
+3. **P(E|\neg H_cs)**: Considering the broad variety of fields and their attraction to such personality traits, assume P(E|\neg H_cs) is around 0.2.
+
+### *Business Administration (BA)*:
+1. **P(H_ba)**: Business administration is also a popular graduate field. So, P(H_ba) might be around 0.15.
+2. **P(E|H_ba)**: Adam’s traits, such as empathy and appreciation for hard work, might be valuable in BA, but it's less about intelligence and puzzles. Let’s assume P(E|H_ba) is around 0.3.
+3. **P(E|\neg H_ba)**: This is the probability of observing Adam's personality sketch in fields other than BA, which could be relatively diverse. Let's assume P(E|\neg H_ba) is 0.2.
+
+Using Bayes' Rule:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+Where \( P(E) \) can be computed using the law of total probability:
+\[ P(E) = P(E|H) \cdot P(H) + P(E|\neg H) \cdot P(\neg H) \]
+
+Assuming \( \neg H \) accounts for all possible fields excluding CS and BA in similar proportions.
+
+### Calculations:
+
+#### *Computer Science*:
+\[ P(E) \approx P(E|H_cs) \cdot P(H_cs) + P(E|\neg H_cs) \cdot P(\neg H_cs) \]
+\[ P(E) \approx 0.6 \cdot 0.15 + 0.2 \cdot 0.85 \]
+\[ P(E) \approx 0.09 + 0.17 \]
+\[ P(E) \approx 0.26 \]
+
+\[ P(H_cs|E) = \frac{P(E|H_cs) \cdot P(H_cs)}{P(E)} \]
+\[ P(H_cs|E) = \frac{0.6 \cdot 0.15}{0.26} \]
+\[ P(H_cs|E) \approx \frac{0.09}{0.26} \]
+\[ P(H_cs|E) \approx 0.346 \]
+
+#### *Business Administration*:
+\[ P(E) \approx P(E|H_ba) \cdot P(H_ba) + P(E|\neg H_ba) \cdot P(\neg H_ba) \]
+\[ P(E) \approx 0.3 \cdot 0.15 + 0.2 \cdot 0.85 \]
+\[ P(E) \approx 0.045 + 0.17 \]
+\[ P(E) \approx 0.215 \]
+
+\[ P(H_ba|E) = \frac{P(E|H_ba) \cdot P(H_ba)}{P(E)} \]
+\[ P(H_ba|E) = \frac{0.3 \cdot 0.15}{0.215} \]
+\[ P(H_ba|E) \approx \frac{0.045}{0.215} \]
+\[ P(H_ba|E) \approx 0.209 \]
+
+Based on these estimations:
+
+```json
+{
+  "computer science": 0.346,
+  "business administration": 0.209
+}
+```
+
+This means it is more likely (given the personality sketch and our assumptions) that Adam was enrolled in computer science compared to business administration.

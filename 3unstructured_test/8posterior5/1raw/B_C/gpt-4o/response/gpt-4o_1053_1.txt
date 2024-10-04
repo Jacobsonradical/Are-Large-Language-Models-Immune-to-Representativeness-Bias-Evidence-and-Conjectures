@@ -1,0 +1,57 @@
+To estimate the probabilities, we need to apply Bayes' theorem. Here’s a structured approach:
+
+Bayes' theorem states:
+\[ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)} \]
+
+However, directly calculating \( P(E) \) precisely is difficult without comprehensive data, but we can make relative comparisons. We'll leverage the values of \( P(E|H) \) and use reasonable assumptions for \( P(H) \) based on common enrollment statistics.
+
+Assumptions and Simplifications:
+1. \( P(H) \) denotes the prior probability that Adam was enrolled in a specific field.
+2. \( P(E|H) \) is the likelihood of the personality sketch \( E \) given that Adam was enrolled in \( H \).
+3. \( P(E|\neg H) \) is the likelihood of personality sketch \( E \) given Adam was not enrolled in \( H \).
+
+For simplicity, let's assume:
+- \( P(H) \) for both fields is approximately proportional (assuming some broad equal prior), so we can set them both as equal or relative commonness.
+- \( P(H) \sim 0.1 \) to show that graduates might be evenly distributed among various fields.
+
+### Business Administration:
+- Curiosity about nature and empathy might not align strongly with typical business administration traits, but it’s not impossible.
+- \( P(E|H_{business}) \) might be relatively low.
+
+### Computer Science:
+- High intelligence and interest in solving puzzles fit well within the context of computer science.
+- \( P(E|H_{cs}) \) might be relatively high.
+
+We assign:
+- \( P(E|H_{business}) \approx 0.2 \)
+- \( P(E|\neg H_{business}) = \frac{P(E) - P(E|H_{business}) \cdot P(H_{business})}{1 - P(H_{business})} \approx 0.5 \)
+- \( P(E|H_{cs}) \approx 0.8 \)
+- \( P(E|\neg H_{cs}) = \frac{P(E) - P(E|H_{cs}) \cdot P(H_{cs})}{1 - P(H_{cs})} \approx 0.4 \)
+
+### Applying Bayes' Theorem:
+For Business Administration:
+\[ 
+P(H_{business}|E) = \frac{P(E|H_{business}) \cdot P(H_{business})}{P(E)} 
+\approx \frac{0.2 \cdot 0.1}{0.2 \cdot 0.1 + 0.5 \cdot 0.9} 
+= \frac{0.02}{0.02 + 0.45} 
+\approx 0.042
+\]
+
+For Computer Science:
+\[ 
+P(H_{cs}|E) = \frac{P(E|H_{cs}) \cdot P(H_{cs})}{P(E)} 
+\approx \frac{0.8 \cdot 0.1}{0.8 \cdot 0.1 + 0.4 \cdot 0.9} 
+= \frac{0.08}{0.08 + 0.36} 
+\approx 0.182
+\]
+
+Summarizing:
+
+
+
+{
+  "business administration": 0.042,
+  "computer science": 0.182
+}
+
+Note: These calculations are based on approximate judgments for the probabilities. More accurate data can refine these values, but the above serves as a reasonable estimation given the context.
