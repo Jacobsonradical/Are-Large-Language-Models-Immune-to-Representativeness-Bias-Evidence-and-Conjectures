@@ -1,0 +1,39 @@
+To compute the probability that Jason is one of the computer science professors, we can use Bayes' Theorem. The theorem is a way of finding a probability when we know certain other probabilities. 
+
+We're given the following data:
+
+- Number of tenured and successful computer science professors (\(CS\)): 75
+- Number of tenured and successful humanities professors (\(H\)): 25
+- Total number of professors (\(T\)): 100
+
+We want to find \(P(CS|D)\), the probability that Jason is a computer science professor given his description. Applying Bayes' Theorem, we get:
+
+\[ P(CS|D) = \frac{P(D|CS) \cdot P(CS)}{P(D)} \]
+
+Here's what these terms represent:
+
+- \(P(CS)\): The prior probability of randomly choosing a computer science professor.
+  
+  \[ P(CS) = \frac{75}{100} = 0.75 \]
+
+- \(P(H)\): The prior probability of randomly choosing a humanities professor.
+
+  \[ P(H) = \frac{25}{100} = 0.25 \]
+
+- \(P(D|CS)\): The probability of Jason's description given that he is a computer science professor.
+- \(P(D|H)\): The probability of Jason's description given that he is a humanities professor.
+
+Since we are given an unlabeled description and no specific probabilities about how likely this description fits either group directly, an important factor to consider is the base rates provided. Without additional information about the relative likelihoods of the given description among the two groups, we'll assume that the description is equally likely to describe someone in each category.
+
+So, under the assumption that \(P(D|CS) = P(D|H)\), the term \(P(D)\) (the total probability of this description) is a weighted average of these two probabilities:
+\[ P(D) = P(D|CS) \cdot P(CS) + P(D|H) \cdot P(H) \]
+\[ P(D) = k \cdot P(CS) + k \cdot P(H) = k (P(CS) + P(H)) = k (0.75 + 0.25) = k (1) = k\]
+
+Given our assumption that \(P(D|CS) = P(D|H)\), these probabilities cancel out in the equation, simplifying the Bayesian update step:
+
+\[ P(CS|D) = \frac{P(CS)}{P(CS) + P(H)}\]
+\[ P(CS|D) = \frac{0.75}{0.75 + 0.25} = \frac{0.75}{1} = 0.75\]
+
+So, the probability that Jason is one of the computer science professors in the sample is:
+
+{"probability": "0.75"}
