@@ -1,0 +1,45 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is 80% accurate in judging height under similar conditions. This means their testimony isn't perfect.
+* **Population Distribution (b):**  This gives us the general likelihood of someone in the city being 185cm or taller, which is relatively low at 15%.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is helpful for calculating conditional probabilities like this:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A happening given that event B has already happened. 
+    * In our case: Probability the attacker is 185cm+ (A) *given* the witness said they were 185cm+ (B).
+* P(B|A) = Probability of event B happening given that event A has already happened.
+    * In our case: Probability the witness would say someone is 185cm+ (B) *given* the attacker actually is 185cm+ (A) - this is 80% or 0.8.
+* P(A) =  Prior probability of event A happening (without knowing anything else).
+    * In our case: Probability someone in the city is 185cm+ (from the population data) - this is 15% or 0.15.
+* P(B) = Probability of event B happening (this can be a bit trickier to calculate directly).
+
+**Calculating P(B) - The Probability of the Witness Saying "185cm+"**
+
+There are two ways the witness could say "185cm+":
+
+1. **The attacker IS 185cm+, and the witness is RIGHT:**  0.15 (probability of attacker being tall) * 0.8 (witness accuracy) = 0.12
+2. **The attacker IS NOT 185cm+, and the witness is WRONG:** 0.85 (probability of attacker being shorter) * 0.2 (witness inaccuracy) = 0.17
+
+So, the overall probability of the witness saying "185cm+" is 0.12 + 0.17 = 0.29 
+
+**Final Calculation**
+
+Now we can use Bayes' Theorem:
+
+P(Attacker is 185cm+ | Witness said 185cm+) = (0.8 * 0.15) / 0.29 = 0.414 (approximately)
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+The probability that the attacker's height was 185cm or taller, given the witness testimony and population data, is approximately 41.4%. While the witness testimony increases the likelihood, it's important to remember they are not perfectly reliable. 

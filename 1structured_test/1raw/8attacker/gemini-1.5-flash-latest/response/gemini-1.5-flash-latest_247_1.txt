@@ -1,0 +1,32 @@
+Here's how we can calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:**  Tells us that while the population is roughly split 50/50 in terms of height (below or above 185 cm), attackers are disproportionately shorter (85% below, 15% above).
+* **Information b:** Provides the witness's accuracy in identifying height. This is crucial because it gives us a way to adjust the information from 'a' based on the witness's testimony.
+
+**Calculations**
+
+1. **Prior Probability:** Based on information 'a', the prior probability of the attacker being 185 cm or taller is 15% (0.15).
+
+2. **Likelihood:** The witness correctly identified the attacker as 185 cm or taller.  Their accuracy in such cases is 80% (0.8).
+
+3. **Posterior Probability:** We need to calculate the probability of the attacker being 185 cm or taller given the witness's testimony. We can use Bayes' Theorem:
+
+   * **P(Attacker Tall | Witness Says Tall) = [P(Witness Says Tall | Attacker Tall) * P(Attacker Tall)] / P(Witness Says Tall)** 
+
+   * **Breaking it down:**
+      * **P(Witness Says Tall | Attacker Tall):**  This is the likelihood, which is 0.8.
+      * **P(Attacker Tall):** This is the prior probability, which is 0.15.
+      * **P(Witness Says Tall):** This is the probability of the witness saying someone is tall, regardless of their actual height. We need to calculate this using the law of total probability:
+         * **P(Witness Says Tall) = P(Witness Says Tall | Attacker Tall) * P(Attacker Tall) + P(Witness Says Tall | Attacker Short) * P(Attacker Short)**
+         * **P(Witness Says Tall | Attacker Short):** This is the probability of the witness mistakenly saying someone is tall when they are actually short, which is 20% (0.2).
+         * **P(Attacker Short):** This is 85% (0.85).
+         * **P(Witness Says Tall) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29**
+
+4. **Final Calculation:** 
+   * **P(Attacker Tall | Witness Says Tall) = (0.8 * 0.15) / 0.29 ≈ 0.41**
+
+**Answer:**
+
+{probability: 0.41} 

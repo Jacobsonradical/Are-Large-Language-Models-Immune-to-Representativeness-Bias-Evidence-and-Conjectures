@@ -1,0 +1,55 @@
+Here's how we can calculate the probability:
+
+**Understanding the Problem**
+
+We have two sources of information:
+
+* **Prior Probability:** The city's population demographics tell us that there's a 15% chance a random person is male.
+* **Witness Testimony:** The witness has a specific accuracy rate in identifying gender, and they identified the attacker as male.
+
+We need to combine these pieces of information to get a more informed estimate of the probability that the attacker is male.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is a powerful tool for updating our beliefs based on new evidence. It looks like this:
+
+```
+P(A|B) = [P(B|A) * P(A)] / P(B)
+```
+
+Where:
+
+* **P(A|B):** The probability of event A happening given that event B has already happened (what we want to calculate)
+* **P(B|A):** The probability of event B happening given that event A has already happened
+* **P(A):** The prior probability of event A
+* **P(B):** The probability of event B
+
+**Applying it to our problem:**
+
+* **A:** The attacker is male.
+* **B:** The witness identified the attacker as male.
+
+Let's break down the terms:
+
+* **P(A):** This is the prior probability of the attacker being male, which is 0.15 (15% from the city's demographics).
+* **P(B|A):** This is the probability of the witness identifying someone as male given that they are actually male. This is 0.80 (80% accuracy).
+* **P(B):** This is the overall probability of the witness identifying someone as male. We need to calculate this considering both scenarios: the person is actually male and the person is actually female.
+
+**Calculating P(B):**
+
+* **P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)**
+* **P(B) = (0.80 * 0.15) + (0.20 * 0.85)**  (Since the witness has a 20% error rate for identifying female as male)
+* **P(B) = 0.29**
+
+**Calculating P(A|B):**
+
+* **P(A|B) = (0.80 * 0.15) / 0.29**
+* **P(A|B) ≈ 0.414**
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion:**
+
+Based on the witness's testimony and the city's demographics, the probability that the attacker is male is approximately 41.4%. 

@@ -1,0 +1,40 @@
+Here's how to break down the problem and arrive at an estimate:
+
+**Understanding the Information**
+
+* **Fact 1 (a):** The population is roughly split 50/50 between people shorter and taller than 185 cm. However, attackers are disproportionately shorter (85% under 185 cm, 15% 185 cm or taller).
+* **Fact 2 (b):** A witness claims the attacker was 185 cm or taller. This witness has an 80% accuracy rate in identifying height in similar conditions.
+
+**Applying Bayes' Theorem**
+
+We can use Bayes' Theorem to calculate the probability of the attacker being tall given the witness's testimony:
+
+P(Tall | Witness) = [P(Witness | Tall) * P(Tall)] / P(Witness)
+
+Let's break down each term:
+
+* **P(Tall | Witness):** This is what we want to find - the probability the attacker was tall given the witness's testimony.
+* **P(Witness | Tall):** The probability of the witness identifying someone as tall given they actually are tall. This is the witness's accuracy rate, 0.8.
+* **P(Tall):** The prior probability of an attacker being tall, which is 0.15 based on fact (a).
+* **P(Witness):** The overall probability of the witness making a "tall" identification. We need to calculate this using the law of total probability:
+
+    P(Witness) = P(Witness | Tall) * P(Tall) + P(Witness | Short) * P(Short)
+
+    * P(Witness | Short): The probability of the witness identifying someone as tall given they are actually short. This is the witness's error rate, 0.2.
+    * P(Short): The prior probability of an attacker being short, which is 0.85 based on fact (a).
+
+**Calculation**
+
+1. **Calculate P(Witness):**
+   P(Witness) = (0.8 * 0.15) + (0.2 * 0.85) = 0.25
+
+2. **Calculate P(Tall | Witness):**
+   P(Tall | Witness) = (0.8 * 0.15) / 0.25 = 0.48
+
+**Answer:**
+
+{probability: 0.48} 
+
+**Conclusion**
+
+The probability that the attacker was 185 cm or taller, given the witness's testimony, is estimated to be 0.48. 

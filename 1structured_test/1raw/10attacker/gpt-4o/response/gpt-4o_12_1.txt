@@ -1,0 +1,59 @@
+To solve this problem, we can use Bayes' theorem, which allows us to update the probability estimate for a hypothesis given new evidence.
+
+Let's define the following:
+- \( H_1 \): The hypothesis that the attacker is 185 cm or taller.
+- \( H_2 \): The hypothesis that the attacker is shorter than 185 cm.
+
+From the information provided:
+- \( P(H_1) \) (Prior probability that the attacker is 185 cm or taller) = 0.15
+- \( P(H_2) \) (Prior probability that the attacker is shorter than 185 cm) = 0.85
+
+Witness accuracy:
+- First witness:
+  - \( P(E_1|H_1) \) (Probability that the first witness says the attacker is 185 cm or taller given the attacker is actually 185 cm or taller) = 0.8
+  - \( P(E_1|H_2) \) (Probability that the first witness says the attacker is 185 cm or taller given the attacker is actually shorter than 185 cm) = 0.2
+- Second witness:
+  - \( P(E_2|H_1) \) (Probability that the second witness says the attacker is shorter than 185 cm given the attacker is actually 185 cm or taller) = 0.3
+  - \( P(E_2|H_2) \) (Probability that the second witness says the attacker is shorter than 185 cm given the attacker is actually shorter than 185 cm) = 0.7
+
+We are given that the first witness says the attacker is 185 cm or taller and the second witness says the attacker is shorter than 185 cm.
+
+To find the desired posterior probability \( P(H_1|E_1, E_2) \) (probability that the attacker is 185 cm or taller given the witnesses' statements), we use Bayes' theorem:
+
+\[
+P(H_1|E_1, E_2) = \frac{P(E_1, E_2|H_1) P(H_1)}{P(E_1, E_2)}
+\]
+
+First, we calculate \( P(E_1, E_2|H_1) \):
+
+\[
+P(E_1, E_2|H_1) = P(E_1|H_1) \cdot P(E_2|H_1) = 0.8 \cdot 0.3 = 0.24
+\]
+
+Next, we calculate \( P(E_1, E_2|H_2) \):
+
+\[
+P(E_1, E_2|H_2) = P(E_1|H_2) \cdot P(E_2|H_2) = 0.2 \cdot 0.7 = 0.14
+\]
+
+Now, we use the law of total probability to find \( P(E_1, E_2) \):
+
+\[
+P(E_1, E_2) = P(E_1, E_2|H_1)P(H_1) + P(E_1, E_2|H_2)P(H_2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85
+\]
+
+\[
+P(E_1, E_2) = 0.036 + 0.119 = 0.155
+\]
+
+Finally, we can find \( P(H_1|E_1, E_2) \):
+
+\[
+P(H_1|E_1, E_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.2323
+\]
+
+So, here's the final estimate:
+
+\[
+\{ probability: 0.2323 \}
+\]

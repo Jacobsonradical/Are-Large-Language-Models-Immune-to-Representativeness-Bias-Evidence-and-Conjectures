@@ -1,0 +1,66 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Let's denote:
+
+- Event A as the attacker being 185 cm or taller.
+- Event B as the first witness claiming the attacker is 185 cm or taller.
+- Event C as the second witness claiming the attacker is shorter than 185 cm.
+
+Given that:
+- P(A) = 0.15 (15% of the population is 185 cm or taller)
+- P(B|A) = 0.80 (the first witness is correct 80% of the time for people 185 cm or taller)
+- P(C|¬A) = 0.70 (the second witness is correct 70% of the time for people shorter than 185 cm)
+- P(¬A) = 0.85 (85% of the population is shorter than 185 cm)
+
+We want to find P(A|B, C), the probability that the attacker is 185 cm or taller given that the first witness claimed so and the second witness claimed otherwise.
+
+Let's use the extended form of Bayes' theorem:
+
+P(A|B, C) = P(B|A, C) * P(A|C) / P(B|C)
+
+First, we need to find P(B|A, C) and P(A|C).
+
+P(B|A, C) is the probability that the first witness claims the attacker is 185 cm or taller given that the attacker is 185 cm or taller and the second witness claimed otherwise. Since the witnesses are independent, we have:
+
+P(B|A, C) = P(B|A) = 0.80
+
+Next, we find P(A|C), the probability that the attacker is 185 cm or taller given that the second witness claimed the attacker is shorter than 185 cm.
+
+P(A|C) = P(C|A) * P(A) / P(C)
+
+Since we don't have P(C|A), we can use the law of total probability:
+
+P(C) = P(C|A) * P(A) + P(C|¬A) * P(¬A)
+
+P(C) = P(C|A) * 0.15 + 0.70 * 0.85
+
+Now, we need to find P(C|A), the probability that the second witness claims the attacker is shorter than 185 cm given that the attacker is 185 cm or taller:
+
+P(C|A) = 1 - P(B|A) = 1 - 0.80 = 0.20
+
+Substituting the values:
+
+P(C) = 0.20 * 0.15 + 0.70 * 0.85 = 0.605
+
+Now we can find P(A|C):
+
+P(A|C) = P(C|A) * P(A) / P(C)
+P(A|C) = 0.20 * 0.15 / 0.605 ≈ 0.04958
+
+Finally, we can find P(A|B, C):
+
+P(A|B, C) = P(B|A, C) * P(A|C) / P(B|C)
+
+Since P(B|C) is the probability that the first witness claims the attacker is 185 cm or taller given that the second witness claimed otherwise, and we don't have enough information to calculate it, we'll assume that the two witnesses' claims are independent given A:
+
+P(A|B, C) ≈ P(B|A) * P(A|C) / P(B)
+
+Since P(B) = P(B|A) * P(A) + P(B|¬A) * P(¬A), and we don't have P(B|¬A), we can't directly calculate P(B). However, since we're assuming independence given A, we can approximate:
+
+P(A|B, C) ≈ 0.80 * 0.04958 / P(B)
+
+Since P(B) <= 1, it follows that:
+
+P(A|B, C) ≈ 0.80 * 0.04958 ≈ 0.03966
+
+This is a rough estimate, and the actual probability might be higher or lower depending on the exact relationships between the witnesses' accuracy and the population height distribution. Nonetheless, based on the given information and the assumptions made, the estimated probability that the attacker's height was 185 cm or taller is approximately 0.03966.
+
+{probability: 0.03966}

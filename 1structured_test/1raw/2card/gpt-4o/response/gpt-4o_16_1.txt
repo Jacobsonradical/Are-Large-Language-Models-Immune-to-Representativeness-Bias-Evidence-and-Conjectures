@@ -1,0 +1,42 @@
+To calculate the posterior odds, we can apply Bayes' Theorem and then compute the odds based on the given information. Let:
+
+- \( P(A) \) be the prior probability of selecting Deck A
+- \( P(B) \) be the prior probability of selecting Deck B
+- \( P(E|A) \) be the probability of drawing 3 X's and 1 O from Deck A
+- \( P(E|B) \) be the probability of drawing 3 X's and 1 O from Deck B
+
+Given that a deck is selected by chance, the prior probabilities are:
+
+\[ P(A) = P(B) = 0.5 \]
+
+Next, we compute the probabilities of drawing 3 X's and 1 O from each deck using the binomial distribution.
+
+For Deck A (where 2/3 are X and 1/3 are O):
+
+\[ P(E|A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \times \left(\frac{2}{3}\right)^3 \times \left(\frac{1}{3}\right) = 4 \times \frac{8}{27} \times \frac{1}{3} = \frac{32}{81} \]
+
+For Deck B (where 1/3 are X and 2/3 are O):
+
+\[ P(E|B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \times \left(\frac{1}{3}\right)^3 \times \left(\frac{2}{3}\right) = 4 \times \frac{1}{27} \times \frac{2}{3} = \frac{8}{81} \]
+
+The posterior probability that the cards were drawn from Deck A is given by Bayes' Theorem:
+
+\[ P(A|E) = \frac{P(E|A) \cdot P(A)}{P(E|A) \cdot P(A) + P(E|B) \cdot P(B)} \]
+
+Substituting the values:
+
+\[ P(A|E) = \frac{\frac{32}{81} \cdot 0.5}{\frac{32}{81} \cdot 0.5 + \frac{8}{81} \cdot 0.5} = \frac{\frac{32}{81} \cdot 0.5}{\frac{32}{162} + \frac{8}{162}} = \frac{\frac{32}{81} \cdot 0.5}{\frac{40}{162}} = \frac{32}{40} = 0.8 \]
+
+Similarly:
+
+\[ P(B|E) = \frac{P(E|B) \cdot P(B)}{P(E|A) \cdot P(A) + P(E|B) \cdot P(B)} \]
+
+\[ P(B|E) = \frac{\frac{8}{81} \cdot 0.5}{\frac{32}{81} \cdot 0.5 + \frac{8}{81} \cdot 0.5} = \frac{\frac{8}{81} \cdot 0.5}{\frac{40}{162}} = \frac{8}{40} = 0.2 \]
+
+The odds in favor of the hypothesis that the 4 cards were drawn from Deck A compared to Deck B are the ratio of these posterior probabilities:
+
+\[ \text{Odds} = \frac{P(A|E)}{P(B|E)} = \frac{0.8}{0.2} = 4 \]
+
+So the final answer is:
+
+\{odds: 4\}

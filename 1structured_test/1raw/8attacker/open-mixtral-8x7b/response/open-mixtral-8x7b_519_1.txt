@@ -1,0 +1,36 @@
+To solve this problem, we can use Bayes' theorem which allows us to update our prior beliefs after observing evidence.
+
+Let's define:
+P(A) as the probability that a random attacker is 185 cm or taller.
+P(B) as the probability that a random attack is committed by someone who is under 185 cm.
+P(A') is the probability that a random attacker is shorter than 185 cm.
+P(B|A) is the probability that an attack committed by someone who is 185 cm or taller would be reported as such.
+P(B'|A) is the probability that an attack committed by someone who is 185 cm or taller would be reported as under 185 cm.
+P(B|A') is the probability that an attack committed by someone who is shorter than 185 cm would be reported as under 185 cm.
+P(B'|A') is the probability that an attack committed by someone who is shorter than 185 cm would be reported as 185 cm or taller.
+
+From the problem, we know that P(A') + P(A) = 1, P(B) = 0.85, P(B'|A) = 0.20, and P(B'|A') = 0.15.
+
+We want to find P(A|B), the probability that the attacker is 185 cm or taller given that the attack was reported as under 185 cm. By Bayes' theorem, this is:
+
+P(A|B) = P(B|A) * P(A) / [P(B|A) * P(A) + P(B|A') * P(A')]
+
+However, we don't know P(B|A) or P(B'|A'). But we can reason about them. If the attacker is 185 cm or taller, they will always be reported as such, because that's taller than anyone. So P(B'|A) = 1 and P(B|A) = 0.
+
+On the other hand, if the attacker is shorter than 185 cm, they will sometimes be reported as 185 cm or taller. We know that the witness correctly identifies height 80% of the time, so P(B'|A') = 0.20 and P(B|A') = 0.80.
+
+Substituting these values into Bayes' theorem, we get:
+
+P(A|B) = 0 * P(A) + 0.80 * P(A') / [0 * P(A) + 0.80 * P(A') + 1 * (1-P(A'))]
+
+We also know that P(A') = 1 - P(A), so:
+
+P(A|B) = 0.80 * (1-P(A)) / [0.80 * (1-P(A)) + (1-P(A))]
+
+Simplifying, we get:
+
+P(A|B) = 0.80 / (0.80 + 1)
+
+So, the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.44, please provide a number between 0 and 1}

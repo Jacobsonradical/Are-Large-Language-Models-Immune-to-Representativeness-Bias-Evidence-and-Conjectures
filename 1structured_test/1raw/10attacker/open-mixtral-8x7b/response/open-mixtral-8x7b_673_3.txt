@@ -1,0 +1,28 @@
+Let's reason through this:
+
+1. We know that 85% of the city's population is shorter than 185 cm, and 15% are 185 cm or taller.
+2. Witness 1 claims the attacker is 185 cm or taller, which occurs correctly 80% of the time and errs 20% of the time.
+3. Witness 2 claims the attacker is shorter than 185 cm, which occurs correctly 70% of the time and errs 30% of the time.
+
+We want to estimate the probability that the attacker's height was 185 cm or taller, as the first witness claimed. To do this, we can calculate the probability that both witnesses would make that claim together, given that the attacker is actually 185 cm or taller.
+
+P(W1 claims 185+ AND W2 claims <185 | Attacker is 185+)
+= P(W1 claims 185+ | Attacker is 185+) * P(W2 claims <185 | Attacker is 185+)
+= 0.8 * 0.3  // The first probability is 0.8 due to W1's 80% accuracy, and the second probability is 0.3 due to W2's 30% error rate.
+
+However, we also need to calculate the probability that both witnesses would make that claim together, given that the attacker is actually shorter than 185 cm. This will be our "false positive" rate.
+
+P(W1 claims 185+ AND W2 claims <185 | Attacker is <185 cm)
+= P(W1 claims 185+ | Attacker is <185 cm) * P(W2 claims <185 | Attacker is <185 cm)
+= 0.2 * 0.7  // The first probability is 0.2 due to W1's 20% error rate, and the second probability is 0.7 due to W2's 70% accuracy.
+
+Now, we need to calculate the overall probability that both witnesses would claim the attacker is 185 cm or taller, which is the sum of the two probabilities we just calculated, weighted by the base rates of attackers being 185 cm or taller and shorter than 185 cm.
+
+P(W1 claims 185+ AND W2 claims <185)
+= P(Attacker is 185+) * P(W1 claims 185+ | Attacker is 185+) * P(W2 claims <185 | Attacker is 185+)
++ P(Attacker is <185 cm) * P(W1 claims 185+ | Attacker is <185 cm) * P(W2 claims <185 | Attacker is <185 cm)
+= 0.15 * 0.8 * 0.3 + 0.85 * 0.2 * 0.7
+= 0.036 + 0.119
+≈ 0.155
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.155, or 15.5%.

@@ -1,0 +1,33 @@
+To solve this problem, we can use Bayes' theorem to integrate the observations of the two witnesses with the prior probability based on the population data.
+
+Let:
+- \( A \) be the event the attacker is 185 cm or taller.
+- \( W_1 \) be the event the first witness correctly identifies the attacker as 185 cm or taller.
+- \( W_2 \) be the event the second witness incorrectly identifies the attacker as shorter than 185 cm.
+
+From the data provided:
+- \( P(A) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg A) = 0.85 \) (85% is shorter than 185 cm)
+- \( P(W_1 | A) = 0.8 \) (First witness correctly identifies taller individuals 80% of the time)
+- \( P(W_1 | \neg A) = 0.2 \) (First witness mistakenly identifies shorter individuals as tall 20% of the time)
+- \( P(W_2 | A) = 0.3 \) (Second witness mistakenly identifies taller individuals as short 30% of the time)
+- \( P(W_2 | \neg A) = 0.7 \) (Second witness correctly identifies shorter individuals 70% of the time)
+
+We want to find \( P(A | W_1 \cap W_2) \), the probability that the attacker is tall given both witnesses' statements.
+
+Using Bayes' theorem, and considering the independence of witness reports:
+\[ P(A | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | A) P(A)}{P(W_1 \cap W_2)} \]
+
+Where:
+\[ P(W_1 \cap W_2 | A) = P(W_1 | A) P(W_2 | A) = 0.8 \times 0.3 = 0.24 \]
+\[ P(W_1 \cap W_2 | \neg A) = P(W_1 | \neg A) P(W_2 | \neg A) = 0.2 \times 0.7 = 0.14 \]
+
+To find \( P(W_1 \cap W_2) \) we use total probability:
+\[ P(W_1 \cap W_2) = P(W_1 \cap W_2 | A) P(A) + P(W_1 \cap W_2 | \neg A) P(\neg A) \]
+\[ = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Thus, plugging these values into Bayes' formula gives:
+\[ P(A | W_1 \cap W_2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.23226 \]
+
+Therefore, our best estimate for the probability that the attacker was 185 cm or taller:
+{probability: 0.23226}

@@ -1,0 +1,38 @@
+Given the information provided, we have two sources of probability: the population statistics and the witness's reliability.
+
+1. From the population statistics (source a), we know that 85% of the city's population is female, and 15% is male.
+
+2. The witness's reliability (source b) is that they correctly identify gender 80% of the time and err in 20% of the cases.
+
+However, we cannot directly apply the population statistics to this case because the victim could not see the attacker's gender. The witness's statement is the only piece of evidence that suggests the attacker might be male, but there's also an error rate associated with the witness's identification.
+
+The witness's statement increases the probability that the attacker is male, but we need to account for the error rate. We can calculate this as follows:
+
+Let P(M) be the probability that the attacker is male, and P(F) be the probability that the attacker is female.
+
+Given the population statistics, we know P(M) + P(F) = 1, and P(M) = 0.15 (15%).
+
+The witness identifies the attacker as male with a probability of 0.8 (80%), but there's a 20% chance that they are wrong. So, the actual probability that the attacker is male given the witness's statement is:
+
+P(M|W) = 0.8 * P(M) + 0.2 * P(F)
+
+We know P(M), and P(F) = 1 - P(M) = 1 - 0.15 = 0.85. So,
+
+P(M|W) = 0.8 * 0.15 + 0.2 * 0.85 = 0.12 + 0.17 = 0.29
+
+This means that, given the witness's statement, the attacker is estimated to be male with a probability of 29%. However, this estimate is likely to be an overestimate, as it assumes that the witness is always correct when they identify a male. In reality, there is a 20% chance that they are incorrect.
+
+To account for this, we can calculate the probability that the witness is correct given that the attacker is male and that the attacker is female, and then use these probabilities to adjust our estimate:
+
+P(W|M) = probability that witness identifies a male correctly = 0.8
+P(W|F) = probability that witness identifies a female as male = 0.2 * 0.85 = 0.17
+
+The probability that the witness is correct, given that the attacker is male, is 0.8. If the attacker is male, then the witness's statement increases the probability that the attacker is male. However, if the attacker is female, then the witness's statement decreases the probability that the attacker is female.
+
+To adjust our estimate, we can calculate the probability that the witness is correct, given the total population:
+
+P(W) = P(W|M) * P(M) + P(W|F) * P(F) = 0.8 * 0.15 + 0.17 * 0.85 = 0.12 + 0.1445 = 0.2645
+
+This is the probability that the witness is correct, given the total population. Since the witness is correct when the attacker is male, and they are wrong when the attacker is female, the probability that the attacker is male, given that the witness is correct, is P(M|W) = P(W|M) / P(W) = 0.8 / 0.2645 ≈ 0.3024
+
+This is our final estimate. Given the witness's statement and their reliability, the attacker is estimated to be male with a probability of approximately 30.24%.

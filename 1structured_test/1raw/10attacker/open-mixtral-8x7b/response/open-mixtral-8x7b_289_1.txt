@@ -1,0 +1,42 @@
+Let's reason through this:
+
+1. We know that 85% of the city's population is shorter than 185 cm, and 15% are 185 cm or taller.
+2. Witness 1 claims the attacker was 185 cm or taller, and they are correct 80% of the time.
+3. Witness 2 claims the attacker was shorter than 185 cm, and they are correct 70% of the time.
+
+We want to find the probability that the attacker's height was 185 cm or taller, given the information from both witnesses.
+
+Let's use Bayes' theorem, where P(A|B) is the probability of event A happening given that event B has occurred:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+In our case, let A be the event that the attacker is 185 cm or taller, and B be the observations of the two witnesses. We want to find P(A|B).
+
+We are given P(B|A), which is the accuracy of Witness 1: 0.8.
+We are given P(A), which is the base rate of people who are 185 cm or taller: 0.15.
+
+We need to calculate P(B), which is the overall probability of observing what the two witnesses reported, regardless of whether the attacker is truly 185 cm or taller.
+
+To calculate P(B), we need to consider all possible scenarios for the attacker's height and how likely they are, and then figure out how often the two witnesses would report what they did in those scenarios.
+
+There are two possibilities for the attacker's height, A (185 cm or taller) and ~A (shorter than 185 cm).
+
+Given the attacker's height, the witnesses will make their reports:
+- Witness 1 will report A with a probability of 0.8 (if the attacker is 185 cm or taller).
+- Witness 1 will report ~A with a probability of 0.2 (if the attacker is shorter than 185 cm).
+- Witness 2 will report ~A with a probability of 0.7 (if the attacker is shorter than 185 cm).
+- Witness 2 will report A with a probability of 0.3 (if the attacker is 185 cm or taller).
+
+Now we can calculate P(B):
+P(B) = P(B and A) + P(B and ~A)
+= P(A) * P(B|A) + P(~A) * P(B|~A)
+= 0.15 * 0.8 * 0.8 + 0.85 * 0.3 * 0.7
+= 0.096 + 0.189
+= 0.285
+
+Now we can find P(A|B):
+P(A|B) = P(B|A) * P(A) / P(B)
+= 0.8 * 0.15 / 0.285
+≈ 0.386
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.386.

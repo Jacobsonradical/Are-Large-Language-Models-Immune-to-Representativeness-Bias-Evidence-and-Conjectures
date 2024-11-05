@@ -1,0 +1,47 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:**  The witnesses aren't perfect. We know their accuracy rates, which is crucial.
+* **Base Rate:** The city's height distribution matters. It's more likely for a random person to be shorter than 185cm in this city.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem helps us calculate conditional probability (the chance of something happening given that something else has already occurred). Here's how it applies:
+
+Let:
+
+*  A = Event that the attacker is 185cm or taller
+*  B = Event that the first witness claims the attacker is 185cm or taller
+
+We want to find P(A|B) - the probability the attacker is actually tall *given* the first witness said so.
+
+Here's the breakdown of Bayes' Theorem and how we'll use it:
+
+* **P(A|B) = [P(B|A) * P(A)] / P(B)**
+
+Let's break down each term:
+
+1. **P(B|A):** The probability the witness would say "tall" *given* the attacker *is* tall. This is the witness's accuracy rate for tall people: 0.80
+
+2. **P(A):** The prior probability of a random person in the city being 185cm or taller. This is the base rate: 0.15
+
+3. **P(B):** The probability the witness would say "tall" (regardless of the attacker's actual height). This is a bit trickier and needs to account for both scenarios (attacker is tall, attacker is short): 
+    * P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)] 
+    * Where ~A means "attacker is NOT tall"
+    * P(B|~A) is the witness's error rate for short people (saying "tall" when they're short): 0.20
+    * P(~A) is the probability of a random person being shorter than 185cm: 0.85
+
+**Calculations**
+
+*  P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+*  P(A|B) = (0.80 * 0.15) / 0.29 = 0.414 
+
+**Answer**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+Even though the first witness claimed the attacker was tall, there's only about a 41.4% chance they were actually 185cm or taller. The relatively high base rate of shorter people in the city significantly influences the final probability. 

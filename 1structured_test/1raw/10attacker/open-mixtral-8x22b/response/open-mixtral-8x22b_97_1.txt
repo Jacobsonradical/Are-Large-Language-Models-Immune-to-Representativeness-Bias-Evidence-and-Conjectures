@@ -1,0 +1,45 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Bayes' theorem allows us to update our prior probability with new evidence to find the posterior probability.
+
+Let's denote:
+- $H$ as the event that the attacker's height is 185 cm or taller.
+- $\neg H$ as the event that the attacker's height is shorter than 185 cm.
+- $E_1$ as the event that the first witness claimed the attacker's height was 185 cm or taller.
+- $E_2$ as the event that the second witness claimed the attacker's height was shorter than 185 cm.
+
+We know the following probabilities:
+- $P(H) = 0.15$ (15% of the population is 185 cm or taller)
+- $P(\neg H) = 0.85$ (85% of the population is shorter than 185 cm)
+- $P(E_1|H) = 0.80$ (the probability that the first witness correctly identifies someone as 185 cm or taller)
+- $P(E_1|\neg H) = 0.20$ (the probability that the first witness incorrectly identifies someone as 185 cm or taller)
+- $P(E_2|H) = 0.30$ (the probability that the second witness incorrectly identifies someone as shorter than 185 cm)
+- $P(E_2|\neg H) = 0.70$ (the probability that the second witness correctly identifies someone as shorter than 185 cm)
+
+We want to find $P(H|E_1, E_2)$, the probability that the attacker's height is 185 cm or taller given the witness statements.
+
+Using Bayes' theorem:
+
+$P(H|E_1, E_2) = \frac{P(E_1, E_2|H)P(H)}{P(E_1, E_2)}$
+
+However, we don't have the joint probabilities $P(E_1, E_2|H)$ and $P(E_1, E_2)$. To simplify, we can make a few assumptions and approximations:
+
+1. The witness statements are conditionally independent given the attacker's height. This means that the first witness's statement does not affect the second witness's statement, given that we know the attacker's height.
+
+With this assumption, we can write:
+
+$P(H|E_1, E_2) = \frac{P(E_1|H)P(E_2|H)P(H)}{P(E_1, E_2)}$
+
+2. To calculate $P(E_1, E_2)$, we can use the law of total probability and the assumption of conditional independence:
+
+$P(E_1, E_2) = P(E_1, E_2|H)P(H) + P(E_1, E_2|\neg H)P(\neg H)$
+
+$= P(E_1|H)P(E_2|H)P(H) + P(E_1|\neg H)P(E_2|\neg H)P(\neg H)$
+
+Now we can plug in the values:
+
+$P(H|E_1, E_2) = \frac{(0.80)(0.30)(0.15)}{(0.80)(0.30)(0.15) + (0.20)(0.70)(0.85)}$
+
+$P(H|E_1, E_2) \approx 0.286$
+
+So, the estimated probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.286 or 28.6%.
+
+{probability: 0.286}

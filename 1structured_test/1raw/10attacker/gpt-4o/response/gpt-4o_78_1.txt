@@ -1,0 +1,60 @@
+Let's denote the following events for clarity:
+
+- \( H \): The attacker is 185 cm or taller.
+- \( \neg H \): The attacker is shorter than 185 cm.
+- \( W_1 \): The first witness claims the attacker is 185 cm or taller.
+- \( \neg W_1 \): The first witness claims the attacker is shorter than 185 cm.
+- \( W_2 \): The second witness claims the attacker is 185 cm or taller.
+- \( \neg W_2 \): The second witness claims the attacker is shorter than 185 cm.
+
+Given data:
+- \( P(H) = 0.15 \)
+- \( P(\neg H) = 0.85 \)
+- \( P(W_1 \mid H) = 0.80 \)
+- \( P(\neg W_1 \mid H) = 0.20 \)
+- \( P(W_1 \mid \neg H) = 0.20 \)
+- \( P(\neg W_1 \mid \neg H) = 0.80 \)
+- \( P(W_2 \mid H) = 0.30 \)
+- \( P(\neg W_2 \mid H) = 0.70 \)
+- \( P(W_2 \mid \neg H) = 0.70 \)
+- \( P(\neg W_2 \mid \neg H) = 0.30 \)
+
+We have the following two claims from the witnesses:
+1. First witness claims \( W_1 \).
+2. Second witness claims \( \neg W_2 \).
+
+We want to estimate \( P(H \mid W_1, \neg W_2) \).
+
+Using Bayes' theorem:
+
+\[ P(H \mid W_1, \neg W_2) = \frac{P(W_1, \neg W_2 \mid H) \cdot P(H)}{P(W_1, \neg W_2)} \]
+
+First, compute \( P(W_1, \neg W_2 \mid H) \):
+
+\[ P(W_1, \neg W_2 \mid H) = P(W_1 \mid H) \cdot P(\neg W_2 \mid H) = 0.80 \cdot 0.70 = 0.56 \]
+
+Next, compute \( P(W_1, \neg W_2 \mid \neg H) \):
+
+\[ P(W_1, \neg W_2 \mid \neg H) = P(W_1 \mid neg H) \cdot P(\neg W_2 \mid \neg H) = 0.20 \cdot 0.30 = 0.06 \]
+
+Then, compute the total probability \( P(W_1, \neg W_2) \):
+
+\[ P(W_1, \neg W_2) = P(W_1, \neg W_2 \mid H) \cdot P(H) + P(W_1, \neg W_2 \mid \neg H) \cdot P(\neg H) \]
+
+\[ P(W_1, \neg W_2) = (0.56 \cdot 0.15) + (0.06 \cdot 0.85) \]
+
+\[ P(W_1, \neg W_2) = 0.084 + 0.051 = 0.135 \]
+
+Finally, we calculate \( P(H \mid W_1, \neg W_2) \):
+
+\[ P(H \mid W_1, \neg W_2) = \frac{P(W_1, \neg W_2 \mid H) \cdot P(H)}{P(W_1, \neg W_2)} \]
+
+\[ P(H \mid W_1, \neg W_2) = \frac{0.56 \cdot 0.15}{0.135} \]
+
+\[ P(H \mid W_1, \neg W_2) = \frac{0.084}{0.135} \]
+
+\[ P(H \mid W_1, \neg W_2) = 0.6222 \approx 0.62 \]
+
+So, the estimated probability that the attacker’s height was 185 cm or taller, as per the first witness claim, is approximately:
+
+\[ \{ probability: 0.62 \} \]

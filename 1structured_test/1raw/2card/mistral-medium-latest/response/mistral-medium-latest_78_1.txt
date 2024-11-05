@@ -1,0 +1,36 @@
+To solve this problem, we need to calculate the likelihood of drawing 3 X's and 1 O from each deck and then find the ratio of these likelihoods. This ratio will give us the posterior odds.
+
+Let's denote the event of drawing 3 X's and 1 O as E, and the event of selecting Deck A as H₁, and Deck B as H₂. We want to find the odds P(H₁|E) / P(H₂|E).
+
+Using Bayes' theorem, we can express these probabilities in terms of the prior probabilities and the likelihoods:
+
+P(H₁|E) = P(E|H₁) \* P(H₁) / P(E)
+P(H₂|E) = P(E|H₂) \* P(H₂) / P(E)
+
+Since we're assuming that the decks are equally likely to be chosen, P(H₁) = P(H₂) = 0.5.
+
+The probability of observing the event E is the same for both hypotheses, so we can cancel out P(E) in the odds ratio:
+
+odds = P(H₁|E) / P(H₂|E) = [P(E|H₁) / P(E|H₂)] \* [P(H₁) / P(H₂)] = P(E|H₁) / P(E|H₂)
+
+Now, we need to calculate the likelihoods P(E|H₁) and P(E|H₂). For Deck A, the probability of drawing an X is 2/3, and for an O is 1/3. Similarly, for Deck B, the probability of drawing an X is 1/3, and for an O is 2/3.
+
+We can use the binomial probability formula to find the likelihoods:
+
+P(E|H₁) = C(4, 3) \* (2/3)^3 \* (1/3)^1
+P(E|H₂) = C(4, 3) \* (1/3)^3 \* (2/3)^1
+
+Where C(4, 3) is the number of combinations of choosing 3 X's out of 4 cards.
+
+Calculating the likelihoods:
+
+P(E|H₁) = (4! / (3! \* 1!)) \* (8 / 27) = 32 / 27
+P(E|H₂) = (4! / (3! \* 1!)) \* (1 / 27) = 4 / 27
+
+Now, we can find the posterior odds:
+
+odds = P(E|H₁) / P(E|H₂) = (32 / 27) / (4 / 27) = 32 / 4 = 8
+
+So, the posterior odds of drawing from Deck A instead of Deck B given the observed outcome are 8 to 1.
+
+{odds: 8}

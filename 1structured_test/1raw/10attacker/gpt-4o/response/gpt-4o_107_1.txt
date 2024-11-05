@@ -1,0 +1,41 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witness testimonies, we can use Bayes' Theorem. 
+
+Let's denote the following events:
+- \( T_{\geq 185} \): Attacker is 185 cm or taller.
+- \( T_{< 185} \): Attacker is shorter than 185 cm.
+- \( W_1 \): First witness's claim (attacker is 185 cm or taller).
+- \( W_2 \): Second witness's claim (attacker is shorter than 185 cm).
+
+We are given:
+- \( P(T_{\geq 185}) = 0.15 \)
+- \( P(T_{< 185}) = 0.85 \)
+- \( P(W_1 | T_{\geq 185}) = 0.80 \)
+- \( P(W_1 | T_{< 185}) = 0.20 \) (since the witness is correct 80% of the time)
+- \( P(W_2 | T_{\geq 185}) = 0.30 \)
+- \( P(W_2 | T_{< 185}) = 0.70 \) (since the witness is correct 70% of the time)
+
+We need to find \( P(T_{\geq 185} | W_1 \cap W_2) \).
+
+First, let's find the joint probabilities for the witnesses' claims.
+
+The probability of both witnesses making their respective claims if the attacker is 185 cm or taller:
+\[ P(W_1 \cap W_2 | T_{\geq 185}) = P(W_1 | T_{\geq 185}) \cdot P(W_2 | T_{\geq 185}) = 0.80 \cdot 0.30 = 0.24 \]
+
+The probability of both witnesses making their respective claims if the attacker is shorter than 185 cm:
+\[ P(W_1 \cap W_2 | T_{< 185}) = P(W_1 | T_{< 185}) \cdot P(W_2 | T_{< 185}) = 0.20 \cdot 0.70 = 0.14 \]
+
+Now we'll use Bayes' Theorem to find \( P(T_{\geq 185} | W_1 \cap W_2) \):
+\[ P(T_{\geq 185} | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | T_{\geq 185}) \cdot P(T_{\geq 185})}{P(W_1 \cap W_2)} \]
+
+Where 
+\[ P(W_1 \cap W_2) = P(W_1 \cap W_2 | T_{\geq 185}) \cdot P(T_{\geq 185}) + P(W_1 \cap W_2 | T_{< 185}) \cdot P(T_{< 185}) \]
+
+Substitute the values:
+\[ P(W_1 \cap W_2) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) = 0.036 + 0.119 = 0.155 \]
+
+Now, calculate:
+\[ P(T_{\geq 185} | W_1 \cap W_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Therefore, the probability that the attacker was 185 cm or taller, given the witness testimonies, is approximately:
+
+{probability: 0.232}

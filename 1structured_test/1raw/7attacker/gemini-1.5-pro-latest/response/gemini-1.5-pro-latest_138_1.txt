@@ -1,0 +1,46 @@
+Here's how we can approach this problem using Bayes' Theorem:
+
+**Understanding the Problem**
+
+* **Prior Probability (Information "a"):**  Before considering the witness testimony, there's a 15% chance a randomly selected person from the city is 185cm or taller. This is our starting point.
+* **Witness Reliability (Information "b"):** The witness isn't perfect. They have an 80% accuracy rate in identifying height under similar conditions.
+* **Posterior Probability:** We want to calculate the probability the attacker is actually 185cm or taller *given* the witness's statement.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem provides a way to update our belief based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A (attacker is 185cm or taller) given event B (witness said so)
+* P(B|A): Probability of event B (witness saying 185cm or taller) given event A (attacker is actually 185cm or taller). This is the witness's accuracy for true positives: 80% or 0.8.
+* P(A): Prior probability of event A (attacker being 185cm or taller): 15% or 0.15.
+* P(B): Probability of event B (witness saying 185cm or taller). We need to calculate this.
+
+**Calculating P(B)**
+
+P(B) has two components:
+
+1. **True Positive:**  The witness is right, and the attacker is actually 185cm or taller.  
+   * P(Witness Correct | Attacker Tall) * P(Attacker Tall) = 0.8 * 0.15 = 0.12
+
+2. **False Positive:** The witness is wrong, the attacker is shorter, but they said taller.
+    * P(Witness Wrong | Attacker Short) * P(Attacker Short) = 0.2 * 0.85 = 0.17
+
+Therefore: P(B) = 0.12 + 0.17 = 0.29
+
+**Final Calculation**
+
+Now we have all the pieces to apply Bayes' Theorem:
+
+P(Attacker Tall | Witness Said Tall) = (0.8 * 0.15) / 0.29 = 0.4138
+
+**Answer**
+
+{probability: 0.4138} 
+
+**Conclusion:**
+
+Taking into account both the population distribution and the witness's reliability, there is approximately a 41.38% probability that the attacker was indeed 185cm or taller. 

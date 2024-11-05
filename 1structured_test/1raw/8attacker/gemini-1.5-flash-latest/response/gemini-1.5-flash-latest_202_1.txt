@@ -1,0 +1,45 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information:**
+
+* **Information a:**  Tells us the population distribution of heights (roughly equal) and the likelihood of an attacker being in each height category.
+* **Information b:**  Provides the witness's accuracy in identifying height under similar conditions.
+
+**Logic:**
+
+We need to combine the information from the population distribution, the witness's accuracy, and the witness's statement to estimate the probability of the attacker being 185 cm or taller.
+
+**Calculation:**
+
+1. **Prior Probability:** Since the population is roughly split, the prior probability of the attacker being 185 cm or taller is 0.5 (50%).
+
+2. **Likelihoods:**
+    *  Likelihood of the witness saying "taller" given the attacker is actually taller: 0.8 (80% accuracy)
+    *  Likelihood of the witness saying "taller" given the attacker is actually shorter: 0.2 (20% error)
+
+3. **Bayes' Theorem:** We can use Bayes' Theorem to update our prior probability based on the witness's statement:
+
+   P(Attacker Taller | Witness Says Taller) = [P(Witness Says Taller | Attacker Taller) * P(Attacker Taller)] / P(Witness Says Taller)
+
+   To calculate P(Witness Says Taller), we need the law of total probability:
+
+   P(Witness Says Taller) =  P(Witness Says Taller | Attacker Taller) * P(Attacker Taller) + P(Witness Says Taller | Attacker Shorter) * P(Attacker Shorter)
+
+4. **Putting it Together:**
+
+   * P(Witness Says Taller | Attacker Taller) = 0.8
+   * P(Attacker Taller) = 0.5
+   * P(Witness Says Taller | Attacker Shorter) = 0.2
+   * P(Attacker Shorter) = 0.5
+
+   Therefore:
+
+   * P(Witness Says Taller) = (0.8 * 0.5) + (0.2 * 0.5) = 0.5
+
+   Now we can calculate the final probability:
+
+   P(Attacker Taller | Witness Says Taller) = (0.8 * 0.5) / 0.5 = 0.8
+
+**Answer:**
+
+{probability: 0.8} 

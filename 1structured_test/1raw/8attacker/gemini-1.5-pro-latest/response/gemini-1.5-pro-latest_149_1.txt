@@ -1,0 +1,48 @@
+Here's how to break down the problem and estimate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is 80% accurate in judging height under similar conditions. This means they are more likely to be right than wrong, but there's still a chance of error.
+* **Population and Attacker Statistics (b):**  While the general population has a roughly equal split of people above and below 185cm, attackers have a significantly different distribution. This is crucial information – the attacker isn't randomly selected from the entire population.
+
+**Applying Bayes' Theorem**
+
+This problem is best approached using Bayes' Theorem, which helps calculate conditional probabilities (the probability of something happening given that something else has already occurred).
+
+Let:
+
+*  Event A = Attacker is 185cm or taller
+*  Event B = Witness identifies the attacker as 185cm or taller
+
+**We want to find P(A|B):** The probability the attacker is actually 185cm or taller *given* the witness said they were.
+
+**Here's how Bayes' Theorem looks:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each component:
+
+* **P(B|A):** The probability the witness would identify the attacker as 185cm or taller *if* the attacker was actually 185cm or taller. This is the witness's accuracy for this height group, which is 80% or 0.8.
+
+* **P(A):** The prior probability of an attacker being 185cm or taller.  This is taken from our attacker statistics, which is 15% or 0.15.
+
+* **P(B):** The probability the witness would identify *anyone* as 185cm or taller (regardless of the actual height).  This is calculated by considering both correct and incorrect identifications:
+    * P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+    * P(B|not A) = 0.2 (The probability the witness incorrectly identifies someone shorter than 185cm as taller)
+    * P(not A) = 0.85 (The probability an attacker is shorter than 185cm)
+
+**Calculating P(B):**
+P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+**Putting it all together in Bayes' Theorem:**
+
+P(A|B) = (0.8 * 0.15) / 0.29 
+P(A|B) ≈ 0.414 
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Despite the witness's testimony, the probability that the attacker was actually 185cm or taller is only about 41.4%. This is significantly influenced by the fact that attackers in this scenario are much more likely to be shorter than 185cm. 

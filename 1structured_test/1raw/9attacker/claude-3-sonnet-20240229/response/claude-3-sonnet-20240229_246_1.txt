@@ -1,0 +1,43 @@
+To solve this problem, we need to use Bayes' theorem, which relates the conditional probabilities of two events based on their prior probabilities.
+
+Given information:
+- In the city, P(height < 185 cm) = 0.85, and P(height ≥ 185 cm) = 0.15.
+- In the neighborhood where the attack occurred, P(height < 185 cm) = 0.80, and P(height ≥ 185 cm) = 0.20.
+
+Let's denote the event "the attacker's height is 185 cm or taller" as A, and the event "the attack occurred in the neighborhood" as B.
+
+We want to find P(A|B), the probability that the attacker's height is 185 cm or taller, given that the attack occurred in the neighborhood.
+
+Using Bayes' theorem, we have:
+
+P(A|B) = (P(B|A) × P(A)) / P(B)
+
+Here, P(A) = 0.20 (the prior probability of being 185 cm or taller in the neighborhood), and P(B|A) = 1 (if the attacker is 185 cm or taller, the attack must have occurred in the neighborhood).
+
+P(B) is the probability of the attack occurring in the neighborhood, which we can calculate using the law of total probability:
+
+P(B) = P(B|A) × P(A) + P(B|A^c) × P(A^c)
+     = 1 × 0.20 + P(B|A^c) × 0.80
+
+We don't know P(B|A^c), the probability of the attack occurring in the neighborhood given that the attacker's height is less than 185 cm. However, we can use the given information to find an upper bound for P(B).
+
+Since the attack occurred in the neighborhood, P(B) ≤ 1.
+Substituting this into the equation above, we get:
+
+1 ≥ 1 × 0.20 + P(B|A^c) × 0.80
+0.80 ≥ P(B|A^c) × 0.80
+1 ≥ P(B|A^c)
+
+Therefore, the maximum possible value for P(B|A^c) is 1, which corresponds to the case where all individuals with height less than 185 cm are in the neighborhood.
+
+Using this upper bound, we can calculate the maximum possible value of P(B):
+
+P(B) = 1 × 0.20 + 1 × 0.80 = 1
+
+Substituting these values into Bayes' theorem, we get:
+
+P(A|B) = (1 × 0.20) / 1 = 0.20
+
+Therefore, the estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.20}

@@ -1,0 +1,50 @@
+To calculate the probability that the attacker's height was 185 cm or taller given the witnesses' testimonies and how often each witness is correct, we can use Bayesian probability.
+
+1. **Initial Probabilities (Prior beliefs):**
+   - The probability that a randomly chosen person from the population is 185 cm or taller (\( H \)), \( P(H) = 0.15 \).
+   - The probability that a person is shorter than 185 cm (\( \neg H \)), \( P(\neg H) = 0.85 \).
+
+2. **Witnesses' Accuracy:**
+   - Witness 1's accuracy: Correctly identifies taller than 185 cm in 80% of cases and incorrectly identifies in 20% of cases.
+   - Probability Witness 1 says taller given taller (\( H \)): \( P(W_1|H) = 0.80 \).
+   - Probability Witness 1 says shorter given taller (\( H \)): \( P(W_1^{c}|H) = 0.20 \).
+   - Witness 2's accuracy: Correctly identifies shorter than 185 cm in 70% of cases and incorrectly identifies in 30% of cases.
+   - Probability Witness 2 says shorter given shorter (\( \neg H \)): \( P(W_2|\neg H) = 0.70 \).
+   - Probability Witness 2 says taller given shorter (\( \neg H \)): \( P(W_2^{c}|\neg H) = 0.30 \).
+
+3. **Witnesses Testimony:**
+   - Witness 1 says attacker is taller than 185 cm.
+   - Witness 2 says attacker is shorter than 185 cm.
+
+   We apply Bayes' Rule:
+   \[
+   P(H|W_1, W_2^{c}) = \frac{P(W_1, W_2^{c}|H) \times P(H)}{P(W_1, W_2^{c})}
+   \]
+
+   **Calculating Likelihood \( P(W_1, W_2^{c}|H) \):**
+   \[
+   P(W_1, W_2^{c}|H) = P(W_1|H) \times P(W_2^{c}|H) = 0.80 \times 0.80 = 0.64
+   \]
+
+   **Calculating Likelihood \( P(W_1, W_2^{c}|\neg H) \):**
+   \[
+   P(W_1, W_2^{c}|\neg H) = P(W_1^{c}|\neg H) \times P(W_2|\neg H) = 0.30 \times 0.70 = 0.21
+   \]
+
+   **Total Probability \( P(W_1, W_2^{c}) \):**
+   \[
+   P(W_1, W_2^{c}) = P(W_1, W_2^{c}|H)P(H) + P(W_1, W_2^{c}|\neg H)P(\neg H)
+   \]
+   \[
+   P(W_1, W_2^{c}) = 0.64 \times 0.15 + 0.21 \times 0.85 = 0.096 + 0.1785 = 0.2745
+   \]
+
+   **Posterior Probability \( P(H|W_1, W_2^{c}) \):**
+   \[
+   P(H|W_1, W_2^{c}) = \frac{0.64 \times 0.15}{0.2745} = \frac{0.096}{0.2745} \approx 0.3499
+   \]
+
+Therefore, the estimated probability that the attacker is 185 cm or taller, given both witnesses' testimonies, is approximately 0.35.
+
+Thus, the response in the requested format is:
+{probability: 0.35}

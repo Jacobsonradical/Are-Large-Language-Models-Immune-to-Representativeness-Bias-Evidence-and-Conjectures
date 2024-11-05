@@ -1,0 +1,30 @@
+{
+"probability": 0.52
+}
+
+**Explanation:**
+
+We can use Bayes' theorem to update our prior belief (the population distribution) with the new evidence (witness testimony).
+
+* **Prior Probability (P(Male))**: This is the probability of the attacker being male based solely on the city's population. So, P(Male) = 0.15.
+
+* **Likelihood (P(Witness Correct | Male))**: This is the probability that the witness would correctly identify the attacker as male *given* the attacker is actually male. This is given as 80%, or P(Witness Correct | Male) = 0.8.
+
+* **Likelihood (P(Witness Correct | Female))**:  This is the probability the witness would identify the attacker as male *given* the attacker is actually female (meaning they'd be wrong). This would be 20%, or P(Witness Correct | Female) = 0.2.
+
+* **Posterior Probability (P(Male | Witness Correct))**: This is what we want to calculate - the probability the attacker is male *given* the witness identified them as male.
+
+**Bayes' Theorem:**
+
+P(Male | Witness Correct) = [P(Witness Correct | Male) * P(Male)] / P(Witness Correct)
+
+To calculate P(Witness Correct), we use the law of total probability:
+
+P(Witness Correct) = [P(Witness Correct | Male) * P(Male)] + [P(Witness Correct | Female) * P(Female)]
+P(Witness Correct) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(Male | Witness Correct) = (0.8 * 0.15) / 0.29 = 0.52
+
+**Therefore, the estimated probability that the attacker is male, given the witness testimony and the city's demographics, is 0.52 or 52%.** 

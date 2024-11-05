@@ -1,0 +1,26 @@
+To solve this, let's first calculate the probability of drawing 3 cards marked X and 1 marked O from each deck and then use these probabilities to update our belief about which deck they were drawn from using Bayes' theorem.
+
+1. **Probability Calculation for Deck A (Deck most cards are X)**:
+   - Probability of drawing an X card from Deck A: \( \frac{2}{3} \)
+   - Probability of drawing an O card from Deck A: \( \frac{1}{3} \)
+   - The probability of drawing 3 X cards and 1 O card from Deck A: 
+   \[ P(3X, 1O \mid A) = \binom{4}{3} \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right)^1 = 4 \cdot \left( \frac{8}{27} \right) \cdot \left( \frac{1}{3} \right) = \frac{32}{81} \]
+
+2. **Probability Calculation for Deck B (Deck most cards are O)**:
+   - Probability of drawing an X card from Deck B: \( \frac{1}{3} \)
+   - Probability of drawing an O card from Deck B: \( \frac{2}{3} \)
+   - The probability of drawing 3 X cards and 1 O card from Deck B:
+   \[ P(3X, 1O \mid B) = \binom{4}{3} \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right)^1 = 4 \cdot \left( \frac{1}{27} \right) \cdot \left( \frac{2}{3} \right) = \frac{8}{81} \]
+
+3. **Compute Prior Odds**:
+   - We initially have no reason to believe one deck is more likely than the other, so we assume the prior odds =1, i.e., \( P(A) = P(B) = \frac{1}{2} \).
+
+4. **Use Bayes’ theorem to find the posterior odds**:
+   - Posterior odds \( P(A \mid data) \) to \( P(B \mid data) \) are:
+   \[ \frac{P(data \mid A) P(A)}{P(data \mid B) P(B)} = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{8}{81} \cdot \frac{1}{2}} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4 \]
+   
+   The posterior odds that the cards came from Deck A rather than Deck B is 4:1.
+
+Hence, the answer in the requested format is:
+
+{odds: 4}

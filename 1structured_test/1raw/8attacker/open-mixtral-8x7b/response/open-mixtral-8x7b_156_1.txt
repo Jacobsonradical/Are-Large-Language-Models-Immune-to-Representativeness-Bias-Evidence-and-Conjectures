@@ -1,0 +1,29 @@
+Given the information provided, let's first consider the general population. We know that the population is roughly equally split between those under 185 cm and those 185 cm or taller. However, attackers are more likely to be under 185 cm (85% vs 15%). 
+
+Now, we have a witness who correctly identifies a person's height as 185 cm or taller 80% of the time and errs 20% of the time. 
+
+The witness has identified the attacker as being 185 cm or taller. To estimate the probability that this identification is correct, we need to consider both the witness's accuracy and the distribution of attacker heights.
+
+Let's denote:
+- P(U) as the probability that a random attacker is under 185 cm.
+- P(O) as the probability that a random attacker is 185 cm or taller.
+- W(T) as the event that the witness correctly identifies a person as 185 cm or taller.
+- W(F) as the event that the witness mistakenly identifies a person as 185 cm or taller.
+
+We are interested in estimating P(O|W(T)), the probability that the attacker is 185 cm or taller given that the witness identified the attacker as 185 cm or taller.
+
+Using Bayes' theorem, we can calculate:
+
+P(O|W(T)) = P(W(T)|O) * P(O) / (P(W(T)|O) * P(O) + P(W(T)|U) * P(U))
+
+From the problem statement, we know that P(U) = P(O) = 0.5, and that the witness correctly identifies a person as 185 cm or taller 80% of the time (P(W(T)|O) = 0.8) and mistakenly identifies a person as 185 cm or taller 20% of the time (P(W(T)|U) = 0.2).
+
+Substituting these values into the equation, we get:
+
+P(O|W(T)) = (0.8 * 0.5) / ((0.8 * 0.5) + (0.2 * 0.5)) = 0.8 / 0.6 = 1.3333
+
+Since the probability should be between 0 and 1, we need to normalize this value by dividing by the sum of the numerator and denominator:
+
+P(O|W(T)) = 1.3333 / (1.3333 + 0.6667) = 1.3333 / 2 = 0.6667, approximately.
+
+So, the probability that the attacker's height was 185 cm or taller is estimated to be around 0.67 (67%).

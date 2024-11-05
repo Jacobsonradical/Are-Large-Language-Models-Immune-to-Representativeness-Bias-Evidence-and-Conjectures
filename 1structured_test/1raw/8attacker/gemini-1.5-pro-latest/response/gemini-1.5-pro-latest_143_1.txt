@@ -1,0 +1,50 @@
+Here's how to break down this problem to estimate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is right 80% of the time when it comes to identifying someone as 185cm or taller.  This doesn't directly tell us the attacker's height, just how reliable the witness is.
+* **Attacker Demographics (b):** This is crucial.  Only 15% of attackers in similar situations are 185cm or taller. This is our base rate.
+
+**Applying Bayes' Theorem (Thinking About Conditional Probability)**
+
+Bayes' Theorem helps us calculate probability with new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B happened.
+* P(B|A): Probability of event B happening given that event A happened.
+* P(A): Probability of event A happening.
+* P(B): Probability of event B happening.
+
+**In our case:**
+
+* **Event A:** The attacker is 185cm or taller.
+* **Event B:** The witness identified the attacker as 185cm or taller.
+
+We want to find P(A|B): the probability the attacker is actually 185cm or taller *given* the witness said they were.
+
+**Let's plug in what we know:**
+
+* **P(B|A):** If the attacker is actually 185cm or taller, the witness has an 80% chance of correctly identifying them (from 'a'). 
+* **P(A):** The base rate of attackers being 185cm or taller is 15% (from 'b').
+* **P(B):** This is a bit trickier – the probability the witness would identify *someone* as 185cm or taller.  We need to consider both correct and incorrect identifications. 
+
+    * They correctly identify 80% of those who are 185cm+ (0.80 * 0.15 = 0.12)
+    * They incorrectly identify 20% of those who are *shorter* than 185cm as being tall (0.20 * 0.85 = 0.17)
+    * P(B) = 0.12 + 0.17 = 0.29
+
+**Calculation:**
+
+P(A|B) = (0.80 * 0.15) / 0.29 
+          = 0.12 / 0.29
+          ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Even though the witness identified the attacker as being 185cm or taller, the probability of the attacker actually being that height is only around 41.4%. This is because the base rate of taller attackers is significantly lower. 

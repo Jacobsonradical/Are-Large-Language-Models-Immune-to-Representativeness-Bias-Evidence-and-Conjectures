@@ -1,0 +1,54 @@
+Here's how to break down this probability problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:**  We don't just care about what the witnesses *said*; we care about how likely they are to be *correct*.
+* **Base Rate:** The general height distribution in the city is important.  It's more likely for a random person to be shorter than 185cm in this city simply because most people are.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this kind of problem. It helps us update our belief about something (the attacker's height) given new evidence (witness testimonies).
+
+Let:
+
+*  `A` be the event "The attacker is 185cm or taller"
+*  `B1` be the event "Witness 1 says the attacker is 185cm or taller"
+*  `B2` be the event "Witness 2 says the attacker is shorter than 185cm"
+
+We want to find `P(A | B1 and B2)`, the probability the attacker is tall *given* both witness statements.
+
+**Here's the breakdown:**
+
+1. **Prior Probability (Base Rate):** 
+   * `P(A)` = 0.15 (15% of the population is 185cm or taller)
+   * `P(not A)` = 0.85 (85% of the population is shorter than 185cm)
+
+2. **Witness 1 Likelihoods:**
+   * `P(B1 | A)` = 0.80 (Witness 1 correctly identifies tall people 80% of the time) 
+   * `P(B1 | not A)` = 0.20 (Witness 1 incorrectly identifies short people as tall 20% of the time)
+
+3. **Witness 2 Likelihoods:**
+   * `P(B2 | A)` = 0.30 (Witness 2 incorrectly identifies tall people as short 30% of the time)
+   * `P(B2 | not A)` = 0.70 (Witness 2 correctly identifies short people 70% of the time)
+
+**Bayes' Theorem (Simplified for this case):**
+
+```
+P(A | B1 and B2) = [P(B1 | A) * P(B2 | A) * P(A)] / 
+                      [ (P(B1 | A) * P(B2 | A) * P(A)) + (P(B1 | not A) * P(B2 | not A) * P(not A)) ] 
+```
+
+**Calculation:**
+
+```
+P(A | B1 and B2) = (0.80 * 0.30 * 0.15) / ((0.80 * 0.30 * 0.15) + (0.20 * 0.70 * 0.85))
+                  ≈ 0.193 
+```
+
+**Answer:**
+
+{probability: 0.193}
+
+**Conclusion:**
+
+The probability that the attacker was 185cm or taller, considering both witness testimonies and the city's height distribution, is approximately 19.3%.  While Witness 1's statement initially suggests a higher probability, the combination of Witness 2's statement and the base rate significantly lowers it. 

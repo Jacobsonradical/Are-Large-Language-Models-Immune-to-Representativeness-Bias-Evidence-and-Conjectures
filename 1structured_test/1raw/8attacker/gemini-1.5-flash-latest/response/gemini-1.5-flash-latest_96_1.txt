@@ -1,0 +1,41 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:** Tells us the witness's accuracy in identifying height under similar conditions. 
+* **Information b:** Gives us the base rate of attackers in each height category.
+
+**Applying Bayes' Theorem**
+
+This is a classic example where Bayes' Theorem is helpful to update our belief about the attacker's height based on the witness's testimony:
+
+P(Tall | Witness) = [P(Witness | Tall) * P(Tall)] / P(Witness)
+
+Let's break down each part:
+
+* **P(Tall | Witness):** This is the probability we want to find - the probability the attacker is tall (185 cm or taller) given the witness's testimony.
+* **P(Witness | Tall):** This is the probability the witness would identify someone as tall given they *actually are* tall.  We know this is 80% (from information a).
+* **P(Tall):** This is the prior probability of an attacker being tall. We know this is 15% (from information b).
+* **P(Witness):** This is the overall probability of the witness making a specific identification.  We need to calculate this using the Law of Total Probability.
+
+**Calculating P(Witness)**
+
+P(Witness) =  P(Witness | Tall) * P(Tall)  +  P(Witness | Short) * P(Short)
+
+* **P(Witness | Short):**  This is the probability the witness would identify someone as tall given they are *actually short*. We know this is 20% (from information a).
+* **P(Short):** This is the prior probability of an attacker being short, which is 85% (from information b).
+
+Therefore:
+P(Witness) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Calculating P(Tall | Witness)**
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(Tall | Witness) = (0.80 * 0.15) / 0.29 
+                = 0.12 / 0.29
+                ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 

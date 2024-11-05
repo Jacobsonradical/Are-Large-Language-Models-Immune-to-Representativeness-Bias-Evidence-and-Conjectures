@@ -1,0 +1,46 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the testimonies of the two witnesses and their accuracies, we can use Bayes' Theorem.
+
+Let \(H\) denote the event that the attacker is 185 cm or taller. We know:
+- \(P(H) = 0.15\) (15% of the population is 185 cm or taller)
+- \(P(H^c) = 0.85\) (85% of the population is shorter than 185 cm)
+
+We also know about the witnesses' abilities to correctly judge the height:
+- Witness 1 has an 80% accuracy to correctly identify someone's height, i.e., \(P(D_1|H) = 0.80\) and \(P(D_1|H^c) = 0.20\), where \(D_1\) is the event that Witness 1 correctly claims the attacker is 185 cm or taller.
+- Witness 2 has a 70% accuracy to correctly judge someone's height, i.e., \(P(D_2^c|H) = 0.30\) and \(P(D_2^c|H^c) = 0.70\), where \(D_2^c\) is the event that Witness 2 incorrectly claims the attacker is shorter than 185 cm.
+
+We need to find \(P(H|D_1, D_2^c)\), the probability that the attacker was 185 cm or taller given that Witness 1 says the attacker was 185 cm or taller and Witness 2 says the attacker was shorter.
+
+Using Bayes' Theorem:
+\[
+P(H|D_1, D_2^c) = \frac{P(D_1, D_2^c|H) P(H)}{P(D_1, D_2^c)}
+\]
+
+Where:
+\[
+P(D_1, D_2^c|H) = P(D_1|H) \times P(D_2^c|H) = 0.8 \times 0.3 = 0.24
+\]
+\[
+P(D_1, D_2^c|H^c) = P(D_1|H^c) \times P(D_2^c|H^c) = 0.2 \times 0.7 = 0.14
+\]
+
+Using the law of total probability, we find \(P(D_1, D_2^c)\):
+\[
+P(D_1, D_2^c) = P(D_1, D_2^c|H) P(H) + P(D_1, D_2^c|H^c) P(H^c) = (0.24)(0.15) + (0.14)(0.85) = 0.036 + 0.119 = 0.155
+\]
+
+Then:
+\[
+P(H|D_1, D_2^c) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+After correctly computing the values:
+\[
+P(H|D_1, D_2^c) = \frac{P(D_1|H) \times P(D_2^c|H) \times P(H)}{P(D_1|H) \times P(D_2^c|H) \times P(H) + P(D_1|H^c) \times P(D_2^c|H^c) \times P(H^c)} = \frac{0.8 \times 0.3 \times 0.15}{0.8 \times 0.3 \times 0.15 + 0.2 \times 0.7 \times 0.85}
+\]
+\[
+= \frac{0.036}{0.036 + 0.119} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+Thus, \(P(H|D_1, D_2^c) \approx 0.232\).
+
+{probability: 0.232}

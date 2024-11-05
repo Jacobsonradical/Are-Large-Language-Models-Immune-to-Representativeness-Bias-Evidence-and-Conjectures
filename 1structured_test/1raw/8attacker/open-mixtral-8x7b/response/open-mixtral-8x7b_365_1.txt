@@ -1,0 +1,35 @@
+Let's analyze the information given:
+
+a) The witness correctly identifies a person's height as 185 cm or taller 80% of the time, and errs in 20% of the cases. This information is about the witness's ability to accurately judge a person's height.
+
+b) Among attackers, 85% are people under 185 cm, and only 15% attackers are 185 cm or taller. This information is about the distribution of attackers' heights.
+
+Using Bayes' theorem, we can calculate the probability that the attacker was 185 cm or taller:
+
+P(A) = Probability that the attacker is 185 cm or taller = 0.15 (given in b)
+P(B) = Probability that the witness identifies a person as 185 cm or taller = 0.8 (given in a)
+P(A and B) = Probability that the attacker is 185 cm or taller AND the witness identifies them as such = P(A) * P(B|A)
+
+We're given P(B|A) = 0.8, but we don't know P(B|not A). However, we can find the overall probability P(B) as follows:
+
+P(B) = P(B and A) + P(B and not A) = P(B|A) * P(A) + P(B|not A) * P(not A)
+
+We don't know P(not A), but we can find it:
+
+P(not A) = 1 - P(A) = 1 - 0.15 = 0.85
+
+Now, we can find P(B):
+
+P(B) = 0.8 * 0.15 + P(B|not A) * 0.85 = 0.12 + 0.85 * P(B|not A)
+
+Since 85% of attackers are shorter than 185 cm, it's reasonable to assume that the witness tends to identify people as shorter than they actually are. Thus, P(B|not A) is likely to be less than 0.5. If we assume P(B|not A) = 0.4, then:
+
+0.12 + 0.85 * 0.4 = 0.58 ≈ P(B)
+
+Now, we can find P(A|B):
+
+P(A|B) = P(B and A) / P(B) = P(B|A) * P(A) / P(B) = 0.8 * 0.15 / 0.58 ≈ 0.1724
+
+However, since our assumption of P(B|not A) = 0.4 is uncertain, this value of P(A|B) is also uncertain. In general, it seems that the probability that the attacker is 185 cm or taller is relatively low, but it's challenging to provide a precise estimate without more information.
+
+Answer: {probability: 0.1724, this estimate is uncertain, as it depends on the assumption of P(B|not A) = 0.4}

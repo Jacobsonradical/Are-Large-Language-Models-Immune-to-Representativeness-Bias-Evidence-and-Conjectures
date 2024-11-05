@@ -1,0 +1,55 @@
+To solve this problem, we need to use Bayes' theorem. Let's denote:
+
+- \( H_a \): The attacker was 185 cm or taller.
+- \( H_b \): The attacker was shorter than 185 cm.
+- \( W_1 \): The first witness claimed the attacker was 185 cm or taller.
+- \( W_2 \): The second witness claimed the attacker was shorter than 185 cm.
+
+We are asked to find the probability that the attacker was 185 cm or taller given the witness statements. This is \( P(H_a | W_1 \, \text{and} \, W_2) \).
+
+Bayes' theorem states:
+
+\[
+P(H_a | W_1, W_2) = \frac{P(W_1, W_2 | H_a) \cdot P(H_a)}{P(W_1, W_2)}
+\]
+
+First, let's determine the priors:
+- \( P(H_a) = 0.15 \)
+- \( P(H_b) = 0.85 \)
+
+Next, we consider the likelihoods based on the witness accuracy:
+- For the first witness:
+  - \( P(W_1 | H_a) = 0.80 \) (first witness correct when attacker is tall)
+  - \( P(W_1 | H_b) = 0.20 \) (first witness incorrect when attacker is short)
+- For the second witness:
+  - \( P(W_2 | H_a) = 0.30 \) (second witness incorrect when attacker is tall)
+  - \( P(W_2 | H_b) = 0.70 \) (second witness correct when attacker is short)
+
+Using the total probability theorem for the denominator, \( P(W_1, W_2) \):
+\[
+P(W_1, W_2) = P(W_1, W_2 | H_a) \cdot P(H_a) + P(W_1, W_2 | H_b) \cdot P(H_b)
+\]
+
+Where:
+\[
+P(W_1, W_2 | H_a) = P(W_1 | H_a) \cdot P(W_2 | H_a) = 0.80 \cdot 0.30 = 0.24
+\]
+\[
+P(W_1, W_2 | H_b) = P(W_1 | H_b) \cdot P(W_2 | H_b) = 0.20 \cdot 0.70 = 0.14
+\]
+
+Then:
+\[
+P(W_1, W_2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+\]
+
+Lastly, applying Bayes' theorem:
+\[
+P(H_a | W_1, W_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+So, the estimate of the probability that the attacker was 185 cm or taller is:
+
+\[
+\{ probability: 0.232 \}
+\]

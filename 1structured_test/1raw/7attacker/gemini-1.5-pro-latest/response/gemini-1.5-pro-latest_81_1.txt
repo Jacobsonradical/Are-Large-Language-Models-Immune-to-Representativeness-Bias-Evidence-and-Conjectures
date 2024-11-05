@@ -1,0 +1,44 @@
+Here's how to break down this problem to estimate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is correct 80% of the time when judging height in similar conditions. This doesn't directly tell us the attacker's height but gives us a measure of trust in the witness's statement.
+* **Population Distribution (b):** This information is crucial. It tells us the general likelihood of someone in the city being 185cm or taller.
+
+**Applying Bayes' Theorem**
+
+This problem is best tackled using Bayes' Theorem, which helps calculate conditional probability (the probability of an event happening given that another event has occurred).
+
+Let:
+
+* **Event A:** The attacker is 185cm or taller.
+* **Event B:** The witness identifies the attacker as 185cm or taller.
+
+We want to find **P(A|B)** - the probability the attacker is 185cm or taller *given* the witness said they were.
+
+Bayes' Theorem states: 
+  **P(A|B) = [P(B|A) * P(A)] / P(B)**
+
+Let's break down each term:
+
+* **P(B|A):** The probability the witness would identify the attacker as tall *given* the attacker is actually tall. This is 0.8 (80% accuracy).
+* **P(A):** The prior probability of someone in the city being 185cm or taller. This is 0.15 (15% from the population data).
+* **P(B):** The probability the witness would identify someone as tall (regardless of actual height).  This can be calculated using the law of total probability:
+    * P(B) = P(B|A) * P(A)  +  P(B|~A) * P(~A) 
+    * Where ~A means "not A" (attacker is shorter than 185cm)
+    * P(B|~A) = 0.2 (witness incorrectly identifies a short person as tall 20% of the time)
+    * P(~A) = 0.85 (85% of the population is shorter than 185cm)
+
+**Calculations**
+
+1. **P(B):** (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2. **P(A|B):** (0.8 * 0.15) / 0.29 ≈ 0.414
+
+**Answer**
+
+{probability: 0.414}
+
+**Conclusion**
+
+Given the witness testimony and the city's height distribution, there's approximately a 41.4% probability that the attacker was indeed 185cm or taller. 

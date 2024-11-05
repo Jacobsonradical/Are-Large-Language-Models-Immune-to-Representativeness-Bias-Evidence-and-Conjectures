@@ -1,0 +1,52 @@
+Here's how we can approach this problem:
+
+**Understanding the Problem**
+
+We need to find the probability that the attacker was 185cm or taller given:
+
+* **Prior information:** 15% of the city's population is 185cm or taller.
+* **Witness testimonies:** Two witnesses with different accuracy levels contradict each other.
+
+This is a classic example of a Bayesian inference problem where we update our prior belief with new evidence.
+
+**Applying Bayes' Theorem**
+
+Let:
+
+*  A = Event that the attacker was 185cm or taller
+*  B1 = Event that the first witness claims the attacker was 185cm or taller
+*  B2 = Event that the second witness claims the attacker was shorter than 185cm
+
+We want to find P(A|B1, B2), the probability the attacker was tall given both testimonies.  Using Bayes' Theorem:
+
+P(A|B1, B2) = [P(B1, B2|A) * P(A)] / P(B1, B2) 
+
+To solve this, we need:
+
+1. **P(A):**  Prior probability of the attacker being tall (0.15)
+2. **P(B1, B2|A):** Likelihood of both testimonies given the attacker was tall.
+3. **P(B1, B2):** Probability of observing both testimonies.
+
+**Calculations**
+
+* **P(B1, B2|A):** 
+    * If the attacker was tall, the first witness is correct (80% accuracy) and the second is incorrect (30% error rate). 
+    * P(B1, B2|A) = 0.8 * 0.3 = 0.24
+
+* **P(B1, B2):** We need to consider both scenarios (attacker tall and attacker short):
+    * P(B1, B2) = P(B1, B2|A) * P(A)  +  P(B1, B2|~A) * P(~A) 
+    * P(B1, B2|~A) = Probability of testimonies given the attacker was short = 0.2 * 0.7 = 0.14
+    * P(~A) = Probability of attacker being shorter than 185cm = 0.85
+    * P(B1, B2) = (0.24 * 0.15) + (0.14 * 0.85) = 0.155
+
+**Final Calculation**
+
+P(A|B1, B2) = (0.24 * 0.15) / 0.155 ≈ 0.232
+
+**Answer**
+
+{probability: 0.232} 
+
+**Conclusion**
+
+The probability that the attacker's height was 185cm or taller, given the witness testimonies, is approximately 23.2%. This is higher than the initial prior (15%) but significantly lower due to the conflicting and uncertain nature of the witness testimonies. 

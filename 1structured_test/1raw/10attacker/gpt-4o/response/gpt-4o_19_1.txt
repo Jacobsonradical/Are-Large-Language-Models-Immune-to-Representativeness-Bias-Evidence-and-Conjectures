@@ -1,0 +1,38 @@
+First, let's denote the following probabilities:
+
+- \( P(T \geq 185) = 0.15 \) (Probability that a randomly chosen person is 185 cm or taller)
+- \( P(T < 185) = 0.85 \) (Probability that a randomly chosen person is shorter than 185 cm)
+- \( P(W1 \text{ correct}) = 0.80 \) (Probability that the first witness identifies the height correctly)
+- \( P(W1 \text{ incorrect}) = 0.20 \) (Probability that the first witness identifies the height incorrectly)
+- \( P(W2 \text{ correct}) = 0.70 \) (Probability that the second witness identifies the height correctly)
+- \( P(W2 \text{ incorrect}) = 0.30 \) (Probability that the second witness identifies the height incorrectly)
+
+The two witnesses provided conflicting accounts. Therefore, we want to use Bayesian inference to estimate the probability that the attacker was 185 cm or taller based on the first witness's claim.
+
+First, compute the likelihoods:
+- Likelihood that the first witness says the attacker is 185 cm or taller, given the attacker is 185 cm or taller is \( P(W1 = 185 | T \geq 185) = 0.80 \).
+- Likelihood that the first witness says the attacker is 185 cm or taller, given the attacker is shorter than 185 cm is \( P(W1 = 185 | T < 185) = 0.20 \).
+
+We can use Bayes' theorem to compute the posterior probability:
+
+\[ P(T \geq 185 | W1 = 185) = \frac{P(W1 = 185 | T \geq 185) \times P(T \geq 185)}{P(W1 = 185)} \]
+
+Next, we need to calculate \( P(W1 = 185) \):
+
+\[ P(W1 = 185) = P(W1 = 185 | T \geq 185) \times P(T \geq 185) + P(W1 = 185 | T < 185) \times P(T < 185) \]
+
+Plugging in the probabilities:
+
+\[ P(W1 = 185) = 0.80 \times 0.15 + 0.20 \times 0.85 \]
+\[ P(W1 = 185) = 0.12 + 0.17 \]
+\[ P(W1 = 185) = 0.29 \]
+
+Now we can calculate the posterior probability:
+
+\[ P(T \geq 185 | W1 = 185) = \frac{0.80 \times 0.15}{0.29} \]
+\[ P(T \geq 185 | W1 = 185) = \frac{0.12}{0.29} \]
+\[ P(T \geq 185 | W1 = 185) \approx 0.4138 \]
+
+Therefore, the estimated probability that the attacker was 185 cm or taller, given the first witness's claim, is approximately 0.4138.
+
+\[ \{ "probability": 0.41 \} \]

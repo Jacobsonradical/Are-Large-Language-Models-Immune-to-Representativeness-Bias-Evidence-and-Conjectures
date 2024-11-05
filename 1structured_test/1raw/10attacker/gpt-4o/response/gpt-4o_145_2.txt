@@ -1,0 +1,41 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witness testimony and the population statistics, we can use Bayes' theorem.
+
+Let:
+- \( H_M \) = the attacker is 185 cm or taller
+- \( H_S \) = the attacker is shorter than 185 cm
+- \( W_1 \) = the first witness claimed the attacker was 185 cm or taller
+- \( W_2 \) = the second witness claimed the attacker was shorter than 185 cm
+
+Given data:
+- \( P(H_M) = 0.15 \), the prior probability that someone is 185 cm or taller
+- \( P(H_S) = 0.85 \), the prior probability that someone is shorter than 185 cm
+- \( P(W_1 | H_M) = 0.80 \), the probability that the first witness correctly identifies a person 185 cm or taller
+- \( P(W_1 | H_S) = 0.20 \), the probability that the first witness incorrectly identifies a person shorter than 185 cm as 185 cm or taller
+- \( P(W_2 | H_S) = 0.70 \), the probability that the second witness correctly identifies a person shorter than 185 cm
+- \( P(W_2 | H_M) = 0.30 \), the probability that the second witness incorrectly identifies a person 185 cm or taller as shorter than 185 cm
+
+We want to find \( P(H_M | W_1 \cap W_2) \), the probability that the attacker is 185 cm or taller given both witnesses' testimony.
+
+By Bayes' theorem:
+\[ P(H_M | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | H_M) \cdot P(H_M)}{P(W_1 \cap W_2)} \]
+
+We need to find \( P(W_1 \cap W_2 | H_M) \) and \( P(W_1 \cap W_2) \).
+
+1. Applying conditional independence for witnesses given the height:
+\[ P(W_1 \cap W_2 | H_M) = P(W_1 | H_M) \cdot P(W_2 | H_M) = 0.80 \times 0.30 = 0.24 \]
+\[ P(W_1 \cap W_2 | H_S) = P(W_1 | H_S) \cdot P(W_2 | H_S) = 0.20 \times 0.70 = 0.14 \]
+
+2. Using the law of total probability:
+\[ P(W_1 \cap W_2) = P(W_1 \cap W_2 | H_M) \cdot P(H_M) + P(W_1 \cap W_2 | H_S) \cdot P(H_S) \]
+\[ P(W_1 \cap W_2) = 0.24 \times 0.15 + 0.14 \times 0.85 \]
+\[ P(W_1 \cap W_2) = 0.036 + 0.119 \]
+\[ P(W_1 \cap W_2) = 0.155 \]
+
+3. Substituting back in:
+\[ P(H_M | W_1 \cap W_2) = \frac{0.24 \times 0.15}{0.155} \]
+\[ P(H_M | W_1 \cap W_2) = \frac{0.036}{0.155} \]
+\[ P(H_M | W_1 \cap W_2) \approx 0.232 \]
+
+Hence, the probability that the attacker is 185 cm or taller, given the first witness's claim and the second witness's claim, is approximately 0.232.
+
+{probability: 0.232}

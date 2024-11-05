@@ -1,0 +1,30 @@
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Bayes' theorem relates the conditional and marginal probabilities of two events. Here, the two events are "the attacker is black" and "the witness identified the attacker as black." We are given the probability of the witness identifying a person as black (or white) correctly or incorrectly, and we are given the prior probabilities of a person being black or white in the city. We want to find the posterior probability that the attacker is black given that the witness identified the attacker as black.
+
+Let's denote:
+- P(B) as the prior probability that a person is black
+- P(W) as the prior probability that a person is white
+- P(W|B) as the probability that the witness identifies a black person as white
+- P(B|W) as the probability that the witness identifies a white person as black
+- P(B|B') as the probability that the witness identifies a black person as black
+- P(W|W') as the probability that the witness identifies a white person as white
+- P(B'|B) as the probability that the witness identifies a black person as black given that the attacker is black
+- P(W'|W) as the probability that the witness identifies a white person as white given that the attacker is white
+
+From the information given, we know that P(B) = 0.15, P(W) = 0.85, P(B'|B) = 0.8, P(W'|W) = 0.8, P(W|B) = 0.2, and P(B|W) = 0.2.
+
+We want to find P(B|B'), which is the probability that the attacker is black given that the witness identified the attacker as black.
+
+By Bayes' theorem, P(B|B') = P(B'|B) \* P(B) / P(B'|B) \* P(B) + P(B'|W) \* P(W)
+
+However, we don't know P(B'|W) or P(W'|W). But we can use the fact that P(W'|W) + P(B'|W) = 1 and P(B'|B) + P(W'|B) = 1 to find them.
+
+P(W'|W) = 1 - P(B'|W) = 0.2
+P(W'|B) = 1 - P(B'|B) = 0.2
+
+Now we can find P(B|B'), which is the probability that the attacker is black given that the witness identified the attacker as black:
+
+P(B|B') = P(B'|B) \* P(B) / (P(B'|B) \* P(B) + P(B'|W) \* P(W))
+= 0.8 \* 0.15 / (0.8 \* 0.15 + 0.2 \* 0.85)
+= 0.36
+
+So our estimate of the probability that the attacker is black is 0.36 or 36%.

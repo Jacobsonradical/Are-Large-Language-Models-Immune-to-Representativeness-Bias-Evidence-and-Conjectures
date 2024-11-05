@@ -1,0 +1,51 @@
+Here's how we can approach this problem using Bayes' Theorem:
+
+**Understanding the Information**
+
+* **Prior Probability (from population data):** The chance that a random person in the city is 185cm or taller is 15% or 0.15. This is our starting point.
+* **Witness Reliability:** The witness has an 80% accuracy rate in judging height under similar conditions. This means they are right 80% of the time, but wrong 20% of the time.
+* **We need:** The probability the attacker is actually 185cm or taller *given* that the witness said they were.
+
+**Bayes' Theorem**
+
+Bayes' Theorem gives us a way to update our prior belief based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A happening given that event B has already happened. 
+* P(B|A) = Probability of event B happening given that event A has already happened.
+* P(A) = Probability of event A happening.
+* P(B) = Probability of event B happening.
+
+**Applying to our problem:**
+
+* **Event A:** Attacker is 185cm or taller.
+* **Event B:** Witness identifies the attacker as 185cm or taller.
+
+Let's break down the terms:
+
+* **P(A|B):**  This is what we want to find – the probability the attacker is 185cm or taller given the witness's statement.
+* **P(B|A):** The probability the witness would say "185cm or taller" IF the attacker actually was that tall. This is their 80% accuracy rate, or 0.8.
+* **P(A):**  The prior probability of a person in the city being 185cm or taller, which is 0.15.
+* **P(B):** The probability the witness would say "185cm or taller" regardless of the attacker's actual height. This is a bit trickier and requires considering both scenarios (attacker is tall and witness is right, OR attacker is short and witness is wrong):
+    * P(witness correct AND attacker tall) = 0.8 * 0.15 = 0.12
+    * P(witness incorrect AND attacker short) = 0.2 * 0.85 = 0.17
+    * P(B) = 0.12 + 0.17 = 0.29
+
+**Calculation**
+
+Now we can plug the numbers into Bayes' Theorem:
+
+P(A|B) = (0.8 * 0.15) / 0.29 
+         = 0.12 / 0.29
+         ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion:**
+
+The estimated probability that the attacker's height was 185cm or taller, given the witness testimony and population data, is approximately 41.4%. The witness's testimony does increase the likelihood compared to the general population, but it's not conclusive due to the possibility of error. 

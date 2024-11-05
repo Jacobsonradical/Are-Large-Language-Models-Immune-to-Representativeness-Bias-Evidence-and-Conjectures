@@ -1,0 +1,56 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the witnesses' reliability and the population distribution, we can use Bayes' theorem. Let's define the following events:
+
+- \( T \): The attacker is 185 cm or taller.
+- \( S \): The attacker is shorter than 185 cm.
+- \( W1_T \): The first witness claims the attacker is 185 cm or taller (event \( T \) true).
+- \( W1_S \): The first witness claims the attacker is shorter than 185 cm (event \( W1_S \) true).
+- \( W2_T \): The second witness claims the attacker is 185 cm or taller (event \( W2_T \) true).
+- \( W2_S \): The second witness claims the attacker is shorter than 185 cm (event \( W2_S \) true).
+
+We need to calculate the posterior probability \( P(T | W1_T, W2_S) \).
+
+First, let's extract the probabilities from the information provided:
+
+- \( P(T) = 0.15 \) (probability attacker is 185 cm or taller, from population data)
+- \( P(S) = 0.85 \) (probability attacker is shorter than 185 cm, from population data)
+
+Witness reliability:
+
+- \( P(W1_T | T) = 0.8 \) 
+- \( P(W1_S | S) = 0.7 \) 
+- \( P(W1_T | S) = 0.3 \)
+- \( P(W1_S | T) = 0.2 \)
+- \( P(W2_T | T) = 0.7 \) 
+- \( P(W2_S | S) = 0.7 \) 
+- \( P(W2_T | S) = 0.3 \)
+- \( P(W2_S | T) = 0.3 \)
+
+Using Bayes' theorem:
+
+\[ P(T | W1_T, W2_S) = \frac{P(W1_T, W2_S | T) P(T)}{P(W1_T, W2_S)} \]
+
+We need to find \( P(W1_T, W2_S | T) \) and \( P(W1_T, W2_S) \):
+
+Note that:
+
+\[ P(W1_T, W2_S | T) = P(W1_T | T) P(W2_S | T) \]
+\[ P(W1_T, W2_S | S) = P(W1_T | S) P(W2_S | S) \]
+
+So we have:
+
+\[ P(W1_T, W2_S | T) = 0.8 \times 0.3 = 0.24 \]
+\[ P(W1_T, W2_S | S) = 0.3 \times 0.7 = 0.21 \]
+
+Next, calculate \( P(W1_T, W2_S) \):
+
+\[ P(W1_T, W2_S) = P(W1_T, W2_S | T) P(T) + P(W1_T, W2_S | S) P(S) \]
+\[ P(W1_T, W2_S) = 0.24 \times 0.15 + 0.21 \times 0.85 \]
+\[ P(W1_T, W2_S) = 0.036 + 0.1785 = 0.2145 \]
+
+Now compute \( P(T | W1_T, W2_S) \):
+
+\[ P(T | W1_T, W2_S) = \frac{0.24 \times 0.15}{0.2145} = \frac{0.036}{0.2145} \approx 0.1678 \]
+
+So, the estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is:
+
+\[ \{ \text{probability: } 0.1678 \} \]

@@ -1,0 +1,31 @@
+Given the information provided, we can make an estimate based on the witness's reliability and the racial demographics of the city.
+
+The witness correctly identifies race 80% of the time and errs 20% of the time. If we assume that the witness's judgement is independent of the actual race of the attacker (which may not be the case, but let's assume it for simplicity), then we can model this as a binomial probability distribution.
+
+The probability of the witness correctly identifying a black attacker (p) is 0.8, and the probability of the witness incorrectly identifying a black attacker (q) is 0.2.
+
+Given that the city is 85% white and 15% black, the probability of a random person being black is 0.15.
+
+If we assume that the attacker's race is independent of the witness's errors, then the probability of the witness identifying a black attacker, given that they said the attacker was black, is p = 0.8.
+
+The probability of a false positive (witness saying attacker is black when attacker is white) is q * P(white) = 0.2 * 0.85 = 0.17, where P(white) is the probability of a random person being white.
+
+The probability of a true positive (witness saying attacker is black when attacker is black) is p * P(black) = 0.8 * 0.15 = 0.12.
+
+The total number of possible outcomes is 2 (black or white attacker) * 2 (witness correctly identifies or errs).
+
+The likelihood ratio of the hypothesis that the attacker is black, given that the witness said the attacker is black, is the probability of a true positive divided by the probability of a false positive:
+
+L = P(true positive) / P(false positive) = 0.12 / 0.17 ≈ 0.706
+
+Since the witness's statement is consistent with the attacker being black, we can update our belief in that hypothesis using Bayes' theorem:
+
+P(attacker is black | witness statement) = P(witness statement | attacker is black) * P(attacker is black) / P(witness statement)
+
+Here, P(witness statement) is the probability of the witness making the statement they did, regardless of the attacker's race. This probability can be estimated as the sum of the probabilities of true positives and false positives: P(witness statement) = P(true positive) + P(false positive) = 0.12 + 0.17 = 0.29.
+
+Substituting these probabilities into Bayes' theorem gives us:
+
+P(attacker is black | witness statement) ≈ (0.8 * 0.15) / 0.29 ≈ 0.345
+
+So, our estimate of the probability that the attacker is black, given the witness's statement, is approximately 0.345.

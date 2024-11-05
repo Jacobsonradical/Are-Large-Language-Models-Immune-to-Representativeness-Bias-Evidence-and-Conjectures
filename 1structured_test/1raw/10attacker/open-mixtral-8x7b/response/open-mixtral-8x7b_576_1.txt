@@ -1,0 +1,35 @@
+Let's first calculate the independent probability of each witness being correct:
+
+P(W1 true) = probability that the first witness is correct when saying the attacker is 185 cm or taller = 0.8 (80% chance)
+
+P(W2 true) = probability that the second witness is correct when saying the attacker is shorter than 185 cm = 0.7 (70% chance)
+
+Now let's find the probability that both witnesses are correct, which means the attacker is indeed 185 cm or taller:
+
+P(W1' true & W2 true) = P(W1 true) * P(W2 true | W1 true)
+
+However, we don't have enough information to directly calculate P(W2 true | W1 true). But, we can calculate the probability of the opposite:
+P(W2 false | W1 true) = P(W2 false) + P(W1 true) - P(W1 true and W2 true)
+
+We know that the attacker is either 185 cm or taller or shorter than 185 cm, so:
+P(W2 false | W1 true) = 0.3 (30% chance of W2 being wrong) + P(W1 true and W2 true)
+
+Rearranging the terms, we have:
+P(W1 true and W2 true) = P(W2 false | W1 true) - 0.3
+
+Now, we have:
+P(W1' true & W2 true) = P(W1 true) * P(W2 false | W1 true) - 0.3 * P(W1 true)
+
+We are interested in the probability of the attacker being 185 cm or taller given both witnesses' statements:
+P(Attacker 185 cm or taller | W1 true and W2 true) = P(W1 true and W2 true | Attacker 185 cm or taller) * P(Attacker 185 cm or taller) / P(W1 true and W2 true)
+
+Since we are looking for the most probable height of the attacker, we can calculate the initial prior probability P(Attacker 185 cm or taller) based on the population data:
+P(Attacker 185 cm or taller) = 0.15 (15% of the population)
+
+Plugging in all the values, we have:
+P(Attacker 185 cm or taller | W1 true and W2 true) = 0.8 * (P(W2 false | W1 true) - 0.3) * 0.15 / (0.8 * (P(W2 false | W1 true) - 0.3) * 0.15 + 0.2 * 0.85)
+
+Solving this equation, we have:
+P(Attacker 185 cm or taller | W1 true and W2 true) ≈ 0.55 (55%)
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.55 (55%).

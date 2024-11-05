@@ -1,0 +1,40 @@
+To find the posterior odds that the 4 cards were drawn from deck A (where most cards are marked X) rather than from deck B (where most cards are marked O), we will use Bayesian reasoning.
+
+Let \( A \) be the event that deck A was chosen, and \( B \) be the event that deck B was chosen.
+
+The prior probability \( P(A) \) that deck A is chosen is 1/2, and similarly \( P(B) = 1/2 \).
+
+Next, calculate the probability of drawing 3 cards marked X and 1 card marked O from each deck:
+- For deck A (where 2/3 of the cards are X): 
+  \[
+  P(\text{3 X and 1 O} | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81}
+  \]
+- For deck B (where 1/3 of the cards are X):
+  \[
+  P(\text{3 X and 1 O} | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81}
+  \]
+
+Now apply Bayes' theorem to find the posterior probabilities:
+- \( P(A | \text{3 X and 1 O}) \) and \( P(B | \text{3 X and 1 O}) \):
+  \[
+  P(A | \text{3 X and 1 O}) = \frac{P(\text{3 X and 1 O} | A) P(A)}{P(\text{3 X and 1 O})}
+  \]
+  \[
+  P(B | \text{3 X and 1 O}) = \frac{P(\text{3 X and 1 O} | B) P(B)}{P(\text{3 X and 1 O})}
+  \]
+Where \( P(\text{3 X and 1 O}) \) is the overall probability of observing 3 X and 1 O, calculated as:
+  \[
+  P(\text{3 X and 1 O}) = P(\text{3 X and 1 O} | A) P(A) + P(\text{3 X and 1 O} | B) P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{20}{81}
+  \]
+
+Thus:
+- \( P(A | \text{3 X and 1 O}) = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{16}{20} = 0.8 \)
+- \( P(B | \text{3 X and 1 O}) = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{4}{20} = 0.2 \)
+
+Calculating the posterior odds:
+  \[
+  \frac{P(A | \text{3 X and 1 O})}{P(B | \text{3 X and 1 O})} = \frac{0.8}{0.2} = 4
+  \]
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is:
+{odds: 4}

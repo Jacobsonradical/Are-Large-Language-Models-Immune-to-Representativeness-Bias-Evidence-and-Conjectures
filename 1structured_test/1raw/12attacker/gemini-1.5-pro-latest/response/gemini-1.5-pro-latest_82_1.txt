@@ -1,0 +1,43 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:** The witness is 80% accurate in identifying gender under similar conditions. This means their statement isn't foolproof.
+* **Population Demographics:** The city's population is predominantly female (85%). This is important base rate information.
+
+**Calculating the Probability**
+
+We need to combine the witness testimony with the base rate information using Bayes' Theorem. Here's a breakdown:
+
+* **Let "M" be the event that the attacker is male.**
+* **Let "W" be the event that the witness identifies the attacker as male.**
+
+We want to find **P(M|W): the probability the attacker is male given the witness said it was a male.**
+
+**Bayes' Theorem states:**
+P(M|W) = [P(W|M) * P(M)] / P(W)
+
+Let's break down each term:
+
+* **P(W|M):** The probability the witness would say "male" given the attacker *is* male. This is their accuracy rate for identifying males, which is 0.8. 
+* **P(M):** The prior probability of the attacker being male, based on the population. This is 0.15.
+* **P(W):** The probability the witness would say "male" (regardless of the attacker's actual gender).  This can be calculated using the law of total probability:
+    * P(W) = P(W|M) * P(M)  +  P(W|~M) * P(~M) 
+    * Where "~M" represents the event that the attacker is not male (i.e., female).
+    * P(W|~M) is the probability the witness would mistakenly identify a female attacker as male, which is 0.2 (their error rate).
+    * P(~M) is the probability the attacker is female, which is 0.85.
+
+**Calculations**
+
+1. **Calculate P(W):** 
+   * P(W) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2. **Calculate P(M|W):**
+   * P(M|W) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+{probability: 0.414}
+
+**Conclusion:**
+
+Despite the witness identifying the attacker as male, the probability of the attacker actually being male is only around 41.4%.  This is significantly influenced by the fact that the city has a much higher proportion of females. 

@@ -1,0 +1,39 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Prior Probability (from "a"):**  Before considering the witness, there's a 15% chance a random person in the city is 185cm or taller. This is our baseline.
+* **Witness Reliability (from "b"):** The witness isn't perfect. They have an 80% accuracy rate in judging height under similar conditions.
+
+**Using Bayes' Theorem**
+
+Bayes' Theorem helps us update our belief based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A (attacker is 185cm or taller) given event B (witness said so)
+* P(B|A) = Probability of event B (witness said so) given event A (attacker is actually 185cm or taller) = 80% (witness accuracy)
+* P(A) = Prior probability of event A (attacker is 185cm or taller) = 15% 
+* P(B) = Overall probability of witness saying "185cm or taller" (this can occur in two ways: the attacker is actually tall and the witness is right, OR the attacker is shorter and the witness is wrong)
+
+To calculate P(B), we use the law of total probability:
+
+P(B) =  [P(B|A) * P(A)] + [P(B|~A) * P(~A)] 
+
+Where:
+
+* P(B|~A) = Probability of the witness saying "185cm or taller" given the attacker is actually shorter than 185cm = 20% (witness error rate)
+* P(~A) = Probability of the attacker being shorter than 185cm = 85%
+
+**Calculation**
+
+1. **P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29**
+2. **P(A|B) = (0.80 * 0.15) / 0.29 = 0.414**
+
+**Answer**
+
+{probability: 0.414}
+
+**Therefore, considering both the city's height distribution and the witness's reliability, there's approximately a 41.4% probability that the attacker's height was 185cm or taller.** 

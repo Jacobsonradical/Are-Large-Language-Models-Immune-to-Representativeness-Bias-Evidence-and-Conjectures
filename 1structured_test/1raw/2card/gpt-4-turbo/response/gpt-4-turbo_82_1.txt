@@ -1,0 +1,28 @@
+To solve this problem, we use Bayes' theorem to update our beliefs about the probabilities of choosing either deck given the observed data. 
+
+First, let's define:
+- \(P(A)\): The probability that Deck A is chosen.
+- \(P(B)\): The probability that Deck B is chosen.
+- \(P(\text{Data} | A)\): The probability of drawing 3 X's and 1 O from Deck A.
+- \(P(\text{Data} | B)\): The probability of drawing 3 X's and 1 O from Deck B.
+
+Given that each deck is equally likely to be chosen,
+\[ P(A) = P(B) = 0.5 \]
+
+Now we calculate \(P(\text{Data} | A)\) and \(P(\text{Data} | B)\) using the binomial distribution:
+- For Deck A (where 2/3 of cards are X and 1/3 are O), drawing 3 X's and 1 O has the probability:
+\[ P(\text{Data} | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81} \]
+
+- For Deck B (where 1/3 of cards are X and 2/3 are O), drawing 3 X's and 1 O has the probability:
+\[ P(\text{Data} | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81} \]
+
+Using Bayes' rule:
+\[ P(A | \text{Data}) = \frac{P(\text{Data} | A)P(A)}{P(\text{Data} | A)P(A) + P(\text{Data} | B)P(B)} \]
+\[ P(B | \text{Data}) = \frac{P(\text{Data} | B)P(B)}{P(\text{Data} | A)P(A) + P(\text{Data} | B)P(B)} \]
+
+And the posterior odds ratio \( \frac{P(A | \text{Data})}{P(B | \text{Data})} \) is:
+\[ \frac{P(A | \text{Data})}{P(B | \text{Data})} = \frac{P(\text{Data} | A)}{P(\text{Data} | B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4 \]
+
+The posterior odds that the 4 cards were drawn from Deck A rather than Deck B are 4:1.
+
+**Answer**: {odds: 4}

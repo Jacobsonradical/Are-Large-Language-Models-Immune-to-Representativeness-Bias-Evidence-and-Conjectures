@@ -1,0 +1,27 @@
+First, let's determine the probability that the sampled result (3 Xs and 1 O) came from either deck.
+
+For Deck A (where 2/3 of cards are X and 1/3 are O), the probability of drawing 3 Xs and 1 O can be computed using the binomial coefficient as follows:
+\[ P(3X, 1O | A) = \binom{4}{3} (2/3)^3 (1/3)^1 = 4 \times (8/27) \times (1/3) = 32/81. \]
+
+For Deck B (where 1/3 of cards are X and 2/3 are O), the probability of drawing 3 Xs and 1 O is:
+\[ P(3X, 1O | B) = \binom{4}{3} (1/3)^3 (2/3)^1 = 4 \times (1/27) \times (2/3) = 8/81. \]
+
+The prior probabilities of selecting either deck are not given, so we can assume they are equal:
+\[ P(A) = P(B) = 1/2. \]
+
+We apply Bayes' Theorem to find the posterior probabilities:
+\[ P(A | 3X, 1O) = \frac{P(3X, 1O | A) P(A)}{P(3X, 1O)} \]
+\[ P(B | 3X, 1O) = \frac{P(3X, 1O | B) P(B)}{P(3X, 1O)} \]
+
+Where \( P(3X, 1O) = P(3X, 1O | A) P(A) + P(3X, 1O | B) P(B) \):
+\[ = \frac{32}{81} \times \frac{1}{2} + \frac{8}{81} \times \frac{1}{2} = \frac{32 + 8}{162} = \frac{40}{162} = \frac{20}{81}. \]
+
+Now, calculate each posterior probability:
+\[ P(A | 3X, 1O) = \frac{\frac{32}{81} \times \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = \frac{4}{5}, \]
+\[ P(B | 3X, 1O) = \frac{\frac{8}{81} \times \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = \frac{1}{5}. \]
+
+The posterior odds of Deck A to Deck B are:
+\[ \frac{P(A | 3X, 1O)}{P(B | 3X, 1O)} = \frac{4/5}{1/5} = 4. \]
+
+Thus, the answer is:
+{odds: 4}

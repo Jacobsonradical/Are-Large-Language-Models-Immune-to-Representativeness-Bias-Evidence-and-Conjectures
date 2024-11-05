@@ -1,0 +1,43 @@
+Here's how to break down this probability problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:**  We know how often each witness is accurate about height, but not if they were accurate in this specific instance.
+* **Base Rate:** The city's height distribution is important.  Attackers don't magically appear; they come from the population.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* **P(A|B):**  The probability the attacker is 185cm+  *given* the first witness's statement. (What we want to find)
+* **P(B|A):** The probability the witness would claim 185cm+ *if* the attacker was actually 185cm+. (This is the witness's 80% accuracy)
+* **P(A):** The prior probability of someone in the city being 185cm+ (The base rate of 15%)
+* **P(B):** The probability of the witness claiming 185cm+ (This needs to be calculated, considering both true positives and false positives).
+
+**Calculating P(B)**
+
+There are two ways the witness could claim 185cm+:
+
+1. **The attacker IS 185cm+ and the witness is correct:** (0.15) * (0.80) = 0.12
+2. **The attacker IS NOT 185cm+ and the witness is wrong:** (0.85) * (0.20) = 0.17 
+
+Therefore: P(B) = 0.12 + 0.17 = 0.29
+
+**Final Calculation**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(A|B) = (0.80 * 0.15) / 0.29 
+          = 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Even though the first witness seems fairly reliable, the relatively low base rate of people being 185cm+ in the city means we can only be around 41.4% confident in their statement about the attacker's height. 

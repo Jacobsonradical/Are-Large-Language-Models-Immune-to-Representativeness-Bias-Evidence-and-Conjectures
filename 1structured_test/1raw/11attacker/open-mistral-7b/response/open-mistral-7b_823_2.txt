@@ -1,0 +1,47 @@
+Given the information provided, we have two pieces of data:
+1. The witness's ability to correctly identify race is 80% and the error rate is 20%.
+2. The population distribution is 85% white and 15% black.
+
+To estimate the probability that the attacker is black, we can use Bayes' theorem, which is a probability theory used to update the probability for a hypothesis as more evidence or information becomes available:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+In this case, A is the event that the attacker is black, and B is the event observed by the witness.
+
+However, since we don't have P(B|A), we can't directly apply Bayes' theorem. But we can use the error rate (P(not A|A)) to estimate P(not A|B) and then calculate P(B|A):
+
+P(not A|B) = 1 - P(B|A) = 1 - 0.8 = 0.2
+
+P(B|A) = P(not A|not B) * P(not B) / P(not A)
+
+We don't have enough information to calculate P(not A) or P(not B), but we can use the population distribution to estimate P(not B):
+
+P(not B) = 0.85 (white population percentage)
+
+Then, we can estimate P(B|A) as follows:
+
+P(B|A) = P(not B|not A) * P(not A) / P(not B)
+
+Using the witness's error rate, we can estimate P(not A|not B) as 0.2 (since the error rate is 20%, the correct identification rate is 80%, so the error rate for not-black people is also 20%):
+
+P(B|A) = 0.2 * P(not A) / 0.85
+
+At this point, we need to make an assumption to proceed. A common assumption in this kind of scenario is that the witness's ability to identify race is independent of the race of the person they are observing. This means that the error rate is the same for both black and white people. With this assumption, we can set P(B|A) = P(not B|not A), giving us:
+
+0.2 * P(not A) = 0.2 * P(B)
+
+P(not A) = P(B)
+
+Now we can solve for P(B|A):
+
+P(B|A) = P(not B|not A) * P(not A) / P(not B)
+P(B|A) = 0.2 * P(B) / 0.85
+
+We don't have a direct value for P(B), but we can now express P(B|A) as a function of it:
+
+P(B|A) = 0.2 * (0.85 * P(B)) / 0.85
+P(B|A) = 0.2 * P(B)
+
+Since P(B|A) is a probability, its value must be between 0 and 1. Therefore, P(B) must be a value less than or equal to 0.5 to ensure that P(B|A) is less than 1.
+
+With this information, we cannot provide a concrete numerical estimate for the probability that the attacker is black. However, we can say that based on the witness's error rate and the population distribution, the probability that the attacker is black is likely less than 0.5.

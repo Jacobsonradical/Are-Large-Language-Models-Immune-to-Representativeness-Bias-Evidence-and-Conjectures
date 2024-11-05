@@ -1,0 +1,25 @@
+To estimate the probability that the attacker is 185 cm or taller given the witnesses' testimonies, we can use Bayes' Theorem. Let $H$ denote the hypothesis that the attacker is 185 cm or taller, and $W_1$ and $W_2$ respectively indicate the events that the first and the second witnesses claim that the attacker is 185 cm or taller.
+
+From the information provided in the problem:
+- $P(H) = 0.15$, i.e., 15% of the population is 185 cm or taller.
+- $P(\neg H) = 0.85$, i.e., 85% of the population is shorter than 185 cm.
+
+Witness 1 (W1) conditions:
+- $P(W_1 | H) = 0.80$, correctly identifies taller individuals.
+- $P(W_1 | \neg H) = 0.20$, incorrectly identifies shorter individuals as taller.
+
+Witness 2 (W2) conditions:
+- $P(W_2 | H) = 0.30$, incorrectly identifies taller individuals as shorter.
+- $P(W_2 | \neg H) = 0.70$, correctly identifies shorter individuals.
+
+We know:
+- $P(W_1 \cap W_2)$, the probability that W1 claims the attacker is 185 cm or taller and W2 claims shorter, needs to be computed using the Law of Total Probability:
+  - $P(W_1 \cap W_2) = P(W_1 \cap W_2 | H)P(H) + P(W_1 \cap W_2 | \neg H)P(\neg H)$
+  - $P(W_1 \cap W_2 | H) = P(W_1 | H)P(W_2 | H) = 0.80 \times 0.30 = 0.24$
+  - $P(W_1 \cap W_2 | \neg H) = P(W_1 | \neg H)P(W_2 | \neg H) = 0.20 \times 0.70 = 0.14$
+  - $P(W_1 \cap W_2) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155$
+
+- $P(H | W_1 \cap W_2)$ is then calculated using Bayes' theorem:
+  - $P(H | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | H)P(H)}{P(W_1 \cap W_2)} = \frac{0.036}{0.155} \approx 0.232$
+
+Therefore, the probability that the attacker's height was 185 cm or taller, given one witness claimed that the attacker was 185 cm or taller and the other claimed shorter, is approximately $\{probability: 0.232\}$.

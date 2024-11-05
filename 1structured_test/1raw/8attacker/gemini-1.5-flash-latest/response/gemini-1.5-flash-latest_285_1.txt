@@ -1,0 +1,39 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Information a:**  Tells us that the population is roughly split 50/50 in terms of height (below/above 185 cm). However, 85% of attackers are in the shorter group, and only 15% in the taller group.
+* **Information b:** Provides a witness's accuracy rate. The witness is correct 80% of the time and incorrect 20% of the time when identifying height.
+
+**Combining the Information**
+
+We need to consider both the population distribution and the witness's accuracy. Here's a breakdown:
+
+1. **Prior Probability:** Based on information "a," the prior probability of the attacker being 185 cm or taller is 15% (this is the base probability before considering the witness).
+
+2. **Witness's Testimony:** The witness claims the attacker was 185 cm or taller.  We need to factor in the witness's accuracy.
+
+3. **Calculating Conditional Probability:**  The witness is correct 80% of the time. This means there's an 80% chance that the witness is telling the truth when they identify someone as 185 cm or taller, even if they are actually shorter.
+
+4. **Bayes' Theorem:** We can use Bayes' Theorem to update our probability based on the witness's testimony:
+
+   P(Attacker Tall | Witness Says Tall) = [P(Witness Says Tall | Attacker Tall) * P(Attacker Tall)] / P(Witness Says Tall)
+
+   * **P(Attacker Tall | Witness Says Tall):** The probability we want to find - the probability the attacker was tall given the witness's statement.
+   * **P(Witness Says Tall | Attacker Tall):** The probability the witness correctly identifies someone as tall (80% from information "b").
+   * **P(Attacker Tall):** The prior probability of the attacker being tall (15% from information "a").
+   * **P(Witness Says Tall):** The probability the witness says someone is tall, regardless of their actual height. This requires considering both cases:  
+        * Witness correctly identifies a tall person (0.8 * 0.15 = 0.12)
+        * Witness incorrectly identifies a short person as tall (0.2 * 0.85 = 0.17) 
+        * P(Witness Says Tall) = 0.12 + 0.17 = 0.29
+
+5. **Putting it Together:**
+   P(Attacker Tall | Witness Says Tall) = (0.8 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Given the witness's testimony and the information about attacker heights, our estimate is that there is a 41.4% probability that the attacker was 185 cm or taller. 

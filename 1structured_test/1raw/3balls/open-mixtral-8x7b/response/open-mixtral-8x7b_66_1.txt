@@ -1,0 +1,34 @@
+To solve this problem, let's use the concept of multiset coefficients (also known as "stars and bars" method). We want to find the number of ways to distribute 6 balls among 3 children so that each child gets at least 1 ball, and then compare the number of such distributions that result in case 1 and case 2.
+
+First, let's find the total number of distributions that satisfy the condition of each child getting at least 1 ball. We have 6 balls and 2 "bars" that separate the balls given to A, B, and C. We need to place these 2 bars among the 6 balls. The number of ways to do this is given by the combination formula C(n, k) = n! / (k!(n-k)!), where n is the total number of objects (6 balls + 2 bars), and k is the number of objects to choose (2 bars).
+
+n = 6 + 2 = 8
+k = 2
+
+Total distributions = C(8, 2) = 8! / (2!(8-2)!) = 28
+
+Now, let's calculate the number of distributions that result in case 1 and case 2.
+
+Case 1 distributions: A:2, B:2, C:2
+We have 2 balls for A, 2 balls for B, and 2 balls for C. We need to distribute the remaining 0 balls among the three children. We have 2 bars to place among the 6 balls and 3 "gaps" (between the balls and at the ends) to place the bars. The number of ways to do this is given by the combination formula C(n, k) = n! / (k!(n-k)!), where n is the total number of positions (6 balls + 3 gaps), and k is the number of bars.
+
+n = 6 + 3 = 9
+k = 2
+
+Case 1 distributions = C(9, 2) = 9! / (2!(9-2)!) = 36
+
+Case 2 distributions: A:2, B:3, C:1
+We have 2 balls for A, 3 balls for B, and 1 ball for C. We need to distribute the remaining 0 balls among the three children. We have 2 bars to place among the 6 balls and 3 "gaps" (between the balls and at the ends) to place the bars.
+
+n = 6 + 3 = 9
+k = 2
+
+Case 2 distributions = C(9, 2) = 9! / (2!(9-2)!) = 36
+
+However, not all case 2 distributions are unique since switching the positions of the 3 balls given to B (B:3, A:2, C:1) will result in the same distribution (A:2, B:3, C:1). To account for this, we need to divide the case 2 distributions by 3!, which gives us the number of unique case 2 distributions.
+
+Unique case 2 distributions = Case 2 distributions / 3! = 36 / 6 = 6
+
+Now, let's compare the number of distributions for case 1 and case 2.
+
+{case: 1} since there are more distributions that result in case 1 (36) than distributions that result in case 2 (6).

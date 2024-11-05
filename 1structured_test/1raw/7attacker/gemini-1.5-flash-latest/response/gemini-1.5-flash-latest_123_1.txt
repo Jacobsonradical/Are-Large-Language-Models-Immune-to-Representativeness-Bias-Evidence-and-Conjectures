@@ -1,0 +1,41 @@
+Here's how to break down the problem and arrive at an estimate:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Witness Testimony (a):** The witness is not perfect, but has a decent chance of correctly identifying height.
+* **Population Statistics (b):**  The majority of the population is shorter than the threshold.
+
+We need to combine these to estimate the likelihood the attacker was tall.
+
+**Solution Approach**
+
+We can use Bayes' Theorem to combine the prior probability (from population statistics) with the likelihood (from the witness testimony) to get the posterior probability (our estimate).
+
+* **Prior Probability (P(Tall)):** This is the probability that a randomly selected person from the city is 185 cm or taller, which is 0.15 (from information b).
+
+* **Likelihood (P(Witness Says Tall | Tall)):** This is the probability that the witness would say someone is tall, given that they actually are tall. This is 0.80 (from information a).
+
+* **Likelihood (P(Witness Says Tall | Short)):** This is the probability the witness would say someone is tall, given that they are actually short. This is 0.20 (from information a).
+
+**Bayes' Theorem:**
+
+P(Tall | Witness Says Tall) = [P(Witness Says Tall | Tall) * P(Tall)] / [P(Witness Says Tall | Tall) * P(Tall) + P(Witness Says Tall | Short) * P(Short)]
+
+**Calculation**
+
+1. **P(Short):** This is the probability someone is shorter than 185 cm, which is 1 - P(Tall) = 0.85.
+
+2. **Substitute:** 
+   P(Tall | Witness Says Tall) = [0.80 * 0.15] / [0.80 * 0.15 + 0.20 * 0.85] 
+   P(Tall | Witness Says Tall) = 0.12 / (0.12 + 0.17)
+   P(Tall | Witness Says Tall) ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+Based on the available information, we estimate that there is approximately a 41.4% probability that the attacker was 185 cm or taller. 

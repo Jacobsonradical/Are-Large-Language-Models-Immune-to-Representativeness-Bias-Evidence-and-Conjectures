@@ -1,0 +1,45 @@
+To solve this problem, we can use Bayes' theorem, which helps us to update our probability estimate based on new evidence. Let's break this into probabilities:
+
+1. Let \( T \) be the event "the attacker's height is 185 cm or taller".
+2. Let \( \neg T \) be the event "the attacker's height is shorter than 185 cm".
+
+From the information given:
+- \( P(T) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg T) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+Each witness gives us evidence about the height:
+- \( W_1 \): First witness's statement ("attacker was 185 cm or taller")
+- \( W_2 \): Second witness's statement ("attacker was shorter than 185 cm")
+
+From the data:
+- Witness 1 identifies the correct height 80% of the time:
+  - \( P(W_1 | T) = 0.8 \) (probability witness 1 is correct if the attacker was 185 cm or taller)
+  - \( P(W_1 | \neg T) = 0.2 \) (probability witness 1 is incorrect if the attacker was shorter than 185 cm)
+  
+- Witness 2 identifies the correct height 70% of the time:
+  - \( P(W_2 | T) = 0.3 \) (probability witness 2 is incorrect if the attacker was 185 cm or taller)
+  - \( P(W_2 | \neg T) = 0.7 \) (probability witness 2 is correct if the attacker was shorter than 185 cm)
+
+We are interested in updating our belief about \( T \) given the statements by both witnesses. The evidence from both witnesses together is \( W_1 \cap W_2 \), and we compute the probability \( P(T | W_1 \cap W_2) \) using the Bayesian update formula:
+
+\[
+P(T | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | T) \times P(T)}{P(W_1 \cap W_2)}
+\]
+
+Where:
+- \( P(W_1 \cap W_2 | T) = P(W_1 | T) \times P(W_2 | T) = 0.8 \times 0.3 = 0.24 \)
+- \( P(W_1 \cap W_2 | \neg T) = P(W_1 | \neg T) \times P(W_2 | \neg T) = 0.2 \times 0.7 = 0.14 \)
+
+Now, the overall probability \( P(W_1 \cap W_2) \) can be calculated using the law of total probability:
+\[
+P(W_1 \cap W_2) = P(W_1 \cap W_2 | T) \times P(T) + P(W_1 \cap W_2 | \neg T) \times P(\neg T)
+= (0.24 \times 0.15) + (0.14 \times 0.85) = 0.036 + 0.119 = 0.155
+\]
+
+Plugging back into the Bayes' Theorem:
+\[
+P(T | W_1 \cap W_2) = \frac{0.24 \times 0.15}{0.155} \approx 0.232
+\]
+
+Thus, the estimate of the probability that the attacker was 185 cm or taller, given the statements of both witnesses, is approximately:
+{probability: 0.232}

@@ -1,0 +1,44 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witnesses' statements and the population distribution of heights, we can use Bayes' theorem. Here's the approach step-by-step:
+
+1. **Define the events:**
+   - \( \text{T} \): The attacker is 185 cm or taller.
+   - \( \text{S} \): The attacker is shorter than 185 cm.
+   - \( \text{W1}_{\text{T}} \): First witness claims the attacker is 185 cm or taller.
+   - \( \text{W2}_{\text{T}} \): Second witness claims the attacker is shorter than 185 cm.
+
+2. **Prior Probabilities:**
+   - \( P(T) = 0.15 \)
+   - \( P(S) = 0.85 \)
+
+3. **Likelihoods (based on witness accuracy):**
+   - First witness:
+     - \( P(\text{W1}_{\text{T}} | T) = 0.8 \)
+     - \( P(\text{W1}_{S} | S) = 0.2 \)
+   - Second witness:
+     - \( P(\text{W2}_{T} | T) = 0.3 \)
+     - \( P(\text{W2}_{S} | S) = 0.7 \)
+
+4. **Combined Likelihood (both witnesses' claims):**
+   - \( P(\text{W1}_{\text{T}}, \text{W2}_{\text{T}} | T) = P(\text{W1}_{\text{T}} | T) \cdot P(\text{W2}_{\text{T}} | T) = 0.8 \cdot 0.3 = 0.24 \)
+   - \( P(\text{W1}_{\text{T}}, \text{W2}_{\text{T}} | S) = P(\text{W1}_{\text{T}} | S) \cdot P(\text{W2}_{\text{T}} | S) = 0.2 \cdot 0.7 = 0.14 \)
+
+5. **Calculate Posterior Probability:**
+   - Using Bayes' theorem:
+     \[
+     P(T | \text{W1}_{\text{T}} \text{ and } \text{W2}_{\text{T}}) = \frac{P(\text{W1}_{\text{T}}, \text{W2}_{\text{T}} | T) \cdot P(T)}{P(\text{W1}_{\text{T}} \text{ and } \text{W2}_{\text{T}})}
+     \]
+   - First, we need the total probability of the witnesses' claims:
+     \[
+     P(\text{W1}_{\text{T}} \text{ and } \text{W2}_{\text{T}}) = P(\text{W1}_{\text{T}}, \text{W2}_{\text{T}} | T) \cdot P(T) + P(\text{W1}_{\text{T}}, \text{W2}_{\text{T}} | S) \cdot P(S)
+     \]
+     \[
+     P(\text{W1}_{\text{T}} \text{ and } \text{W2}_{\text{T}}) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) = 0.036 + 0.119 = 0.155
+     \]
+   - Finally, calculate the posterior probability:
+     \[
+     P(T | \text{W1}_{\text{T}} \text{ and } \text{W2}_{\text{T}}) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+     \]
+
+```json
+{ probability: 0.232 }
+```

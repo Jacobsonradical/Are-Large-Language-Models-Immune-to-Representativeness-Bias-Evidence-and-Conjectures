@@ -1,0 +1,40 @@
+To find the probability that the attacker was 185 cm or taller given the conflicting statements of two witnesses, we can use Bayes' theorem. Bayes' theorem allows us to update our probability estimate on the basis of new evidence. Here is how it is applied to this problem:
+
+1. **Prior Probability (P(H)):** 
+   The prior probability that the attacker is 185 cm or taller is 15% (since 15% of the city's population is 185 cm or taller). 
+   - \( P(H) = 0.15 \)
+   - \( P(\neg H) = 0.85 \) (The probability the attacker is shorter than 185 cm)
+
+2. **Likelihoods (P(E|H) and P(E|\neg H)):** 
+   We combine the data from two witnesses:
+   - **First Witness:** Correctly identifies tall people as tall 80% of the time and short people as tall 20% of the time.
+   - **Second Witness:** Correctly identifies short people as short 70% of the time and tall people as short 30% of the time.
+
+   Given that the first witness claimed the attacker was 185 cm or taller, and the second claimed the attacker was shorter:
+   - \( P(E_1|H) = 0.8 \) (Probability that first witness is correct given the attacker is tall)
+   - \( P(E_1|\neg H) = 0.2 \) (Probability that first witness is incorrect, hence claims tall when the attacker is actually short)
+   - \( P(E_2|H) = 0.3 \) (Probability that second witness is incorrect, hence claims short when the attacker is actually tall)
+   - \( P(E_2|\neg H) = 0.7 \) (Probability that second witness is correct given that the attacker is short)
+
+3. **Joint Likelihood of Testimonies (P(E|H) and P(E|\neg H)):**
+   We calculate the likelihoods P(E|H) and P(E|\neg H) for both witnesses' events combined (E being both testimonial evidences).
+   - \( P(E|H) = P(E_1|H) \times P(E_2|H) = 0.8 \times 0.3 = 0.24 \)
+   - \( P(E|\neg H) = P(E_1|\neg H) \times P(E_2|\neg H) = 0.2 \times 0.7 = 0.14 \)
+
+4. **Total Probability (P(E)):**
+   According to the law of total probability,
+   - \( P(E) = P(E|H)P(H) + P(E|\neg H)P(\neg H) \)
+   - \( P(E) = (0.24 \times 0.15) + (0.14 \times 0.85) \)
+   - \( P(E) = 0.036 + 0.119 = 0.155 \)
+
+5. **Posterior Probability (P(H|E)):**
+   Finally, the posterior probability that the attacker is 185 cm or taller, using Bayes' theorem:
+   - \( P(H|E) = \frac{P(E|H)P(H)}{P(E)} \)
+   - \( P(H|E) = \frac{0.24 \times 0.15}{0.155} \)
+   - \( P(H|E) \approx 0.2323 \)
+
+Thus our estimate of the probability that the attacker's height was 185 cm or taller is approximately:
+
+{
+  "probability": 0.2323
+}

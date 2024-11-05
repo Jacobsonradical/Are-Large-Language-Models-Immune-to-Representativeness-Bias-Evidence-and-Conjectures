@@ -1,0 +1,59 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**1. Define Events**
+
+*  Let "A" be the event that the attacker is 185cm or taller.
+*  Let "B1" be the event that the first witness claims the attacker is 185cm or taller.
+*  Let "B2" be the event that the second witness claims the attacker is shorter than 185cm.
+
+**2. State Prior Probabilities**
+
+*  P(A) = 0.15 (from information "a") 
+*  P(¬A) = 0.85 (complement of A, meaning the attacker is shorter than 185cm)
+
+**3. State Likelihoods**
+
+*  P(B1|A) = 0.80 (Witness 1 correctly identifies tall people 80% of the time)
+*  P(B1|¬A) = 0.20 (Witness 1 incorrectly identifies short people as tall 20% of the time)
+*  P(B2|A) = 0.20 (Witness 2 incorrectly identifies tall people as short 20% of the time) 
+*  P(B2|¬A) = 0.70 (Witness 2 correctly identifies short people 70% of the time)
+
+**4. Apply Bayes' Theorem**
+
+We want to find P(A|B1, B2), the probability the attacker is tall given both witness testimonies. However, directly applying Bayes' Theorem with both witnesses is complex.  We can simplify by considering the witnesses independently and updating our belief in stages.
+
+**Stage 1: Update with Witness 1**
+
+We'll first find P(A|B1), the probability the attacker is tall given only the first witness's testimony.  Bayes' Theorem states:
+
+P(A|B1) = [P(B1|A) * P(A)] / P(B1)
+
+To calculate the denominator, we use the law of total probability:
+
+P(B1) = [P(B1|A) * P(A)] + [P(B1|¬A) * P(¬A)]
+P(B1) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+Now we can find P(A|B1):
+
+P(A|B1) = (0.80 * 0.15) / 0.29 = 0.414 
+
+**Stage 2: Update with Witness 2**
+
+Now we'll use P(A|B1) as our new prior, and update it with the second witness's testimony:
+
+P(A|B1, B2) = [P(B2|A, B1) * P(A|B1)] / P(B2|B1)
+
+Since the witnesses are assumed to be independent, P(B2|A, B1) is simply P(B2|A). We can calculate the denominator similarly to before:
+
+P(B2|B1) = [P(B2|A, B1) * P(A|B1)] + [P(B2|¬A, B1) * P(¬A|B1)]
+P(B2|B1) = (0.20 * 0.414) + (0.70 * 0.586) = 0.493
+
+Finally:
+
+P(A|B1, B2) = (0.20 * 0.414) / 0.493 = 0.168
+
+**Answer:**
+
+{probability: 0.168}
+
+**Therefore, considering both witness testimonies, the probability that the attacker's height was 185cm or taller is approximately 16.8%.** 

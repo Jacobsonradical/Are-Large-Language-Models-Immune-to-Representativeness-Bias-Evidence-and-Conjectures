@@ -1,0 +1,23 @@
+To find the posterior odds, we first need to calculate the prior probabilities of drawing 3 X's and 1 O from each deck, and then use Bayes' theorem.
+
+Let P(A) be the probability of drawing from Deck A, and P(B) be the probability of drawing from Deck B.
+
+P(3X, 1O | A) = (2/3)C3 * (1/3)C1 = 1/21
+P(3X, 1O | B) = (1/3)C3 * (2/3)C1 = 1/9
+
+P(A) = P(A and 3X, 1O) + P(A and other combinations) = P(3X, 1O | A) + P(2X, 2O | A) + P(1X, 3O | A)
+P(A) = (1/21) + P(2X, 2O | A) + P(1X, 3O | A)
+
+P(B) = P(B and 3X, 1O) + P(B and other combinations) = P(3X, 1O | B) + P(2X, 2O | B) + P(1X, 3O | B)
+P(B) = (1/9) + P(2X, 2O | B) + P(1X, 3O | B)
+
+Now, we can use Bayes' theorem to find the posterior probabilities:
+
+P(A | 3X, 1O) = P(3X, 1O | A) * P(A) / P(3X, 1O)
+P(B | 3X, 1O) = P(3X, 1O | B) * P(B) / P(3X, 1O)
+
+Since we want the odds, we'll take the ratio of the posterior probabilities:
+
+{odds: P(A | 3X, 1O) / P(B | 3X, 1O)} = [(1/21) * P(A)] / [(1/9) * P(B)]
+
+Unfortunately, without additional information about P(A) and P(B), it's impossible to calculate the exact value of the odds. However, you can find an approximate value by plugging in reasonable estimates for P(A) and P(B). For example, if P(A) ≈ P(B), then the odds would be approximately 1. This means that the likelihood of drawing 3X, 1O from Deck A is not significantly different from the likelihood of drawing 3X, 1O from Deck B, given that the decks are equally likely to be chosen. If P(A) > P(B), the odds would be greater than 1, indicating a higher probability that the cards were drawn from Deck A.

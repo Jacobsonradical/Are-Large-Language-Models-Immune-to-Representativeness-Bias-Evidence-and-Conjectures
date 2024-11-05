@@ -1,0 +1,48 @@
+To find the posterior odds, we need to apply Bayes' theorem. Here, we are interested in the odds of having drawn the cards from Deck A versus Deck B, given that 3 cards are marked X and 1 card is marked O.
+
+Let's denote:
+- \( P(A) \) as the prior probability of selecting Deck A.
+- \( P(B) \) as the prior probability of selecting Deck B.
+- \( P(E|A) \) as the probability of drawing 3 X's and 1 O from Deck A.
+- \( P(E|B) \) as the probability of drawing 3 X's and 1 O from Deck B.
+- \( P(E) \) as the combined probability of drawing 3 X's and 1 O from either Deck A or Deck B.
+
+Since Deck A or Deck B is selected by chance, we assume the prior probabilities \( P(A) = P(B) = 0.5 \).
+
+Next, we calculate \( P(E|A) \) and \( P(E|B) \):
+
+For Deck A:
+- Probability of drawing an X from Deck A = 2/3.
+- Probability of drawing an O from Deck A = 1/3.
+- The order in which we draw the cards doesn't matter, so we use combinations:
+  \[
+  P(E|A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \left(\frac{2}{3}\right)^3 \cdot \frac{1}{3} = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81}
+  \]
+
+For Deck B:
+- Probability of drawing an X from Deck B = 1/3.
+- Probability of drawing an O from Deck B = 2/3.
+  \[
+  P(E|B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \left(\frac{1}{3}\right)^3 \cdot \frac{2}{3} = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81}
+  \]
+
+Now, we calculate \( P(E) \):
+  \[
+  P(E) = P(E|A) \cdot P(A) + P(E|B) \cdot P(B) = \frac{32}{81} \cdot 0.5 + \frac{8}{81} \cdot 0.5 = \frac{16}{81} + \frac{4}{81} = \frac{20}{81}
+  \]
+
+Using Bayes' theorem, the posterior probabilities are:
+  \[
+  P(A|E) = \frac{P(E|A) \cdot P(A)}{P(E)} = \frac{\frac{32}{81} \cdot 0.5}{\frac{20}{81}} = \frac{32 \cdot 0.5}{20} = \frac{16}{20} = 0.8
+  \]
+  \[
+  P(B|E) = \frac{P(E|B) \cdot P(B)}{P(E)} = \frac{\frac{8}{81} \cdot 0.5}{\frac{20}{81}} = \frac{8 \cdot 0.5}{20} = \frac{4}{20} = 0.2
+  \]
+
+The posterior odds (ratio of posterior probabilities) of Deck A to Deck B are:
+ \[
+ \text{Odds} = \frac{P(A|E)}{P(B|E)} = \frac{0.8}{0.2} = 4
+ \]
+
+Hence, the posterior odds are:
+{odds: 4}

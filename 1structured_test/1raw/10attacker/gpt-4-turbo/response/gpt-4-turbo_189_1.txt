@@ -1,0 +1,35 @@
+To solve this problem, we can use Bayes' theorem to update our beliefs about the attacker's height based on the witness reports. We will incorporate the two sources of evidence (the witnesses' statements) by iteratively applying Bayes' theorem.
+
+Let's denote:
+- A (Height ≥ 185 cm)
+- B (Height < 185 cm) 
+
+Probabilities based on population:
+- P(A) = 0.15
+- P(B) = 0.85
+
+Witness accuracies:
+- Witness 1: Correct height 80% of the time:
+  - P(W1 | A) = 0.8 (Witness 1 states the person is ≥ 185 cm when they are actually ≥ 185 cm)
+  - P(W1 | B) = 0.2 (Witness 1 states the person is ≥ 185 cm when they are actually < 185 cm)
+- Witness 2: Correct height 70% of the time:
+  - P(W2 | A) = 0.3 (Witness 2 says the person is < 185 cm when they are actually ≥ 185 cm)
+  - P(W2 | B) = 0.7 (Witness 2 says the person is < 185 cm when they are actually < 185 cm)
+
+To find P(A | W1, W2), the probability the attacker is ≥ 185 cm given both witnesses' testimonies:
+
+1. Calculate P(W1, W2|A):
+   \[ P(W1, W2|A) = P(W1|A) \times P(W2|A) = 0.8 \times 0.3 = 0.24 \]
+2. Calculate P(W1, W2|B):
+   \[ P(W1, W2|B) = P(W1|B) \times P(W2|B) = 0.2 \times 0.7 = 0.14 \]
+3. Calculate total probability of W1 and W2:
+   \[ P(W1, W2) = P(W1, W2|A) \times P(A) + P(W1, W2|B) \times P(B) \]
+   \[ = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+4. Finally, apply Bayes' Theorem:
+   \[ P(A | W1, W2) = \frac{P(W1, W2 | A) \times P(A)}{P(W1, W2)} \]
+   \[ = \frac{0.036}{0.155} ≈ 0.2323 \]
+
+So the probability that the attacker's height was 185 cm or taller, given both witnesses' claims, is approximately 0.2323.
+
+Therefore, the formatted answer would be:
+{probability: 0.2323}

@@ -1,0 +1,51 @@
+To estimate the probability that the attacker's height was 185 cm or taller based on the witness accounts, we can use Bayes' Theorem. 
+
+Bayes' Theorem is given by:
+\[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+Here, we want to estimate \( P(H \geq 185 | W_1) \), the probability that the attacker’s height is 185 cm or taller given the testimony of the first witness. We also take into account the testimony of the second witness.
+
+### Let's Define the Events:
+- \( T \geq 185 \): The attacker is 185 cm or taller.
+- \( T < 185 \): The attacker is shorter than 185 cm.
+- \( W_1 \geq 185 \): The first witness claims the attacker is 185 cm or taller.
+- \( W_2 < 185 \): The second witness claims the attacker is shorter than 185 cm.
+
+Given probabilities:
+- \( P(T \geq 185) = 0.15 \) (from population data)
+- \( P(T < 185) = 0.85 \)
+- \( P(W_1 \geq 185 | T \geq 185) = 0.80 \)
+- \( P(W_1 \geq 185 | T < 185) = 0.20 \)
+- \( P(W_2 < 185 | T \geq 185) = 0.30 \)
+- \( P(W_2 < 185 | T < 185) = 0.70 \)
+
+### Step-by-Step Calculation:
+
+1. **Calculate the marginal probability of the first witness claiming the attacker is 185 cm or taller \( P(W_1 \geq 185) \):**
+\[ P(W_1 \geq 185) = P(W_1 \geq 185 | T \geq 185) \cdot P(T \geq 185) + P(W_1 \geq 185 | T < 185) \cdot P(T < 185) \]
+\[ P(W_1 \geq 185) = (0.80 \cdot 0.15) + (0.20 \cdot 0.85) \]
+\[ P(W_1 \geq 185) = 0.12 + 0.17 \]
+\[ P(W_1 \geq 185) = 0.29 \]
+
+2. **Calculate the joint probability \( P(W_1 \geq 185 \text{ and } T \geq 185 \text{ and } W_2 < 185) \):**
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185 \text{ and } T \geq 185) = P(W_1 \geq 185 | T \geq 185) \cdot P(W_2 < 185 | T \geq 185) \cdot P(T \geq 185) \]
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185 \text{ and } T \geq 185) = 0.80 \cdot 0.30 \cdot 0.15 \]
+\[ P(W_1 \geq 185 \text{ and } T \geq 185) = 0.036 \]
+
+3. **Calculate the joint probability \( P(W_1 \geq 185 \text{ and } W_2 < 185 \text{ and } T < 185) \):**
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185 \text{ and } T < 185) = P(W_1 \geq 185 | T < 185) \cdot P(W_2 < 185 | T < 185) \cdot P(T < 185) \]
+\[ P(W_1 \geq 185 \text{ and } T < 185) = 0.20 \cdot 0.70 \cdot 0.85 \]
+\[ P(W_1 \geq 185 \text{ and } T < 185) = 0.119 \]
+
+4. **Calculate the total probability \( P(W_1 \geq 185 \text{ and } W_2 < 185) \):**
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185) = P(W_1 \geq 185 \text{ and } T \geq 185) + P(W_1 \geq 185 \text{ and } T < 185) \]
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185) = 0.036 + 0.119 \]
+\[ P(W_1 \geq 185 \text{ and } W_2 < 185) = 0.155 \]
+
+5. **Now, using Bayes' Theorem to find \( P(T \geq 185 | W_1 \geq 185) \):**
+\[ P(T \geq 185 | W_1 \geq 185 \text{ and } W_2 < 185) = \frac{P(W_1 \geq 185 \text{ and } T \geq 185)}{P(W_1 \geq 185 \text{ and } W_2 < 185)} \]
+\[ P(T \geq 185 | W_1 \geq 185 \text{ and } W_2 < 185) = \frac{0.036}{0.155} \]
+\[ P(T \geq 185 | W_1 \geq 185 \text{ and } W_2 < 185) \approx 0.232 \]
+
+### Final Probability Estimate:
+{probability: 0.232}

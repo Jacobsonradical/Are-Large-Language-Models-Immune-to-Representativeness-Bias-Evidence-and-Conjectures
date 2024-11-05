@@ -1,0 +1,43 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability:** The information about the city's population (85% female, 15% male) gives us the *prior probability* of the attacker being male.  If we knew nothing else, we'd say there's a 15% chance the attacker is male.
+
+* **Witness Reliability:** The witness's accuracy (80%) is important, but we need to be careful. This accuracy isn't directly about the attacker's gender; it's about the witness's ability to judge gender in similar conditions.
+
+**Using Bayes' Theorem**
+
+Bayes' Theorem helps us update our prior probability based on new evidence (the witness testimony):
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) is the probability of event A happening given that event B has happened. In our case, this is the probability the attacker is male (A) given the witness said the attacker is male (B). 
+* P(B|A) is the probability of observing the evidence (B) given the event is true (A). In our case, it's the probability the witness would identify the attacker as male (B) if the attacker was actually male (A) - this is 80% or 0.8.
+* P(A) is the prior probability of the event (A). This is the probability the attacker is male based on the city's population, which is 15% or 0.15.
+* P(B) is the probability of observing the evidence (B). We need to calculate this, considering both scenarios: the attacker is male and the attacker is female.
+
+**Calculating P(B)**
+
+* **Scenario 1: Attacker is male.** The probability of the witness saying "male" is 0.8 (their accuracy).
+* **Scenario 2: Attacker is female.**  The probability of the witness saying "male" is 0.2 (their error rate). 
+
+To get P(B), we average these scenarios, weighted by the probability of each scenario:
+
+P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29 
+
+**Applying Bayes' Theorem**
+
+Now we have all the pieces:
+
+P(Attacker is Male | Witness said Male) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+The probability that the attacker is male, given the witness testimony and the city's demographics, is approximately 41.4%. While the witness's testimony increases the likelihood, it's important to remember they are not perfect, and the prior probability also plays a role. 

@@ -1,0 +1,52 @@
+Here's how to approach this problem, breaking it down into parts:
+
+**Understanding the Information**
+
+* **Witness Reliability:** The witness is 80% accurate in judging height under similar conditions. This means their statement isn't foolproof.
+* **Population Distribution:** The city's height distribution is important.  Most people are shorter than 185cm.
+
+**Logic:**
+
+We need to combine the witness testimony with the population data.  It's more likely that the attacker is shorter than 185cm simply because most people in the city are. However, the witness testimony increases the chances that the attacker might be taller.
+
+**Using Bayes' Theorem**
+
+This problem is best tackled with Bayes' Theorem, which helps calculate conditional probabilities:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) is the probability of event A happening given that event B has already happened.
+* P(B|A) is the probability of event B happening given that event A has already happened.
+* P(A) is the probability of event A happening.
+* P(B) is the probability of event B happening.
+
+**Let's define our events:**
+
+* Event A: The attacker is 185cm or taller.
+* Event B: The witness identified the attacker as 185cm or taller.
+
+**We need to find P(A|B) - the probability the attacker is 185cm or taller given the witness said so.**
+
+Here's how the numbers fit in:
+
+* P(B|A) = 0.8 (If the attacker is truly 185cm or taller, there's an 80% chance the witness identified them correctly).
+* P(A) = 0.15 (15% of the population is 185cm or taller).
+* P(B) =  This is trickier. The witness can say "185cm or taller" in two ways: 
+    * They are right (attacker is tall) 
+    * They are wrong (attacker is short) 
+    * We calculate this as: 
+       * (0.15 * 0.8) + (0.85 * 0.2) = 0.29 
+
+**Calculation**
+
+P(A|B) = (0.8 * 0.15) / 0.29 = 0.4138
+
+**Answer:**
+
+{probability: 0.4138}
+
+**Conclusion**
+
+There's approximately a 41.38% probability that the attacker was indeed 185cm or taller, given the witness testimony and the city's height distribution. 

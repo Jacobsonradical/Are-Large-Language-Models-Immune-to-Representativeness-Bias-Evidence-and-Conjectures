@@ -1,0 +1,33 @@
+To find the posterior odds, we need to calculate the likelihood of drawing 3 X's and 1 O from each deck, and then use Bayes' theorem.
+
+Let's denote A as the event of drawing from Deck A and B as the event of drawing from Deck B.
+
+First, let's find the probability of drawing 3 X's and 1 O from Deck A:
+P(A | 3X, 1O) = P(3X, 1O | A) * P(A) / P(3X, 1O)
+
+P(3X, 1O | A) is the probability of drawing 3 X's and 1 O given that the deck is Deck A. Since there are 4 cards drawn, there are C(7, 3) ways to choose 3 X's and C(10, 1) ways to choose 1 O. So, P(3X, 1O | A) = C(7, 3) * C(10, 1) / C(40, 4) = 350 / 2800 = 7/56
+
+P(A) is the prior probability of drawing from Deck A, which is 1/2.
+
+Now, let's find the probability of drawing 3 X's and 1 O from Deck B:
+P(B | 3X, 1O) = P(3X, 1O | B) * P(B) / P(3X, 1O)
+
+P(3X, 1O | B) is the probability of drawing 3 X's and 1 O given that the deck is Deck B. Since there are 4 cards drawn, there are C(13, 3) ways to choose 3 X's and C(17, 1) ways to choose 1 O. So, P(3X, 1O | B) = C(13, 3) * C(17, 1) / C(30, 4) = 910 / 8715
+
+P(B) is the prior probability of drawing from Deck B, which is 1/2.
+
+Now, let's find P(3X, 1O) which is the probability of drawing 3 X's and 1 O regardless of the deck:
+P(3X, 1O) = P(3X, 1O | A) * P(A) + P(3X, 1O | B) * P(B)
+P(3X, 1O) = (7/56) * (1/2) + (910/8715) * (1/2)
+
+Now, we can calculate the posterior odds:
+odds = P(A | 3X, 1O) / P(B | 3X, 1O)
+odds = (7/56 * 1/2) / (910/8715 * 1/2)
+
+To calculate the result, we can simplify the fractions:
+odds = (7/28) / (910/17430)
+odds = 14 * 17430 / (28 * 910)
+odds = 2527200 / 1907200
+odds = 1.32398
+
+So, the posterior odds that the 4 cards were drawn from Deck A is approximately 1.324 times higher than the odds of drawing from Deck B. This means that, given the observed data, it is slightly more likely that the 4 cards were drawn from Deck A than from Deck B.

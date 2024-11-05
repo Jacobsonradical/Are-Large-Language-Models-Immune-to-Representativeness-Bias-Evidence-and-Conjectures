@@ -1,0 +1,42 @@
+Let's analyze the information given:
+
+a) Witness 1 correctly identifies the correct height 80% of the time and is wrong 20% of the time.
+w1_correct = 0.8
+w1_incorrect = 0.2
+
+Witness 2 correctly identifies the correct height 70% of the time and is wrong 30% of the time.
+w2_correct = 0.7
+w2_incorrect = 0.3
+
+b) The population data can be used as a prior probability for the attacker's height.
+P(tall) = 0.15
+P(short) = 0.85
+
+Now, we need to find the probability that the attacker's height is 185 cm or taller, given the first witness's claim. This is the posterior probability P(tall|w1_tall).
+
+Using Bayes' rule:
+P(tall|w1_tall) = P(w1_tall|tall) * P(tall) / P(w1_tall)
+
+We need to find the terms on the right side:
+
+P(w1_tall|tall) is the probability that the first witness correctly identifies the attacker as tall.
+P(w1_tall|tall) = w1_correct = 0.8
+
+P(tall) is the prior probability that the attacker is 185 cm or taller.
+P(tall) = 0.15
+
+P(w1_tall) is the probability of the first witness claiming the attacker is tall. We need to calculate it as the sum of two cases: the attacker is tall and the witness is correct, and the attacker is short but the witness is incorrect.
+P(w1_tall) = P(w1_tall|tall) * P(tall) + P(w1_tall|short) * P(short)
+
+P(w1_tall|short) is the probability that the first witness incorrectly identifies the attacker as tall.
+P(w1_tall|short) = 1 - w1_correct = 1 - 0.8 = 0.2
+
+Now, we can find P(w1_tall):
+P(w1_tall) = (0.8 * 0.15) + (0.2 * 0.85) = 0.12 + 0.17 = 0.29
+
+Finally, we can find the posterior probability that the attacker is 185 cm or taller, given the first witness's claim:
+P(tall|w1_tall) = P(w1_tall|tall) * P(tall) / P(w1_tall) = (0.8 * 0.15) / 0.29 ≈ 0.345
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is:
+
+{probability: 0.345}

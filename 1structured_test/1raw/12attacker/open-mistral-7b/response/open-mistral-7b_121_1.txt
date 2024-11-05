@@ -1,0 +1,30 @@
+Given the two pieces of information, let's break it down:
+
+1. The population in the city is 85% female and 15% male (from information "a").
+2. A witness, who correctly identifies gender 80% of the time and errs 20% of the time (from information "b"), identified the attacker as male.
+
+Now, we need to account for the possibility that the witness made an error in identifying the attacker's gender. Since the witness is incorrect 20% of the time, there's a 20% chance that the attacker is actually female, but the witness misidentified them as male.
+
+However, we also need to consider the fact that the city's population is heavily female (85%). If the attacker was indeed female but the witness made an error, this would be an unlikely event given the city's demographics.
+
+To account for both factors, we can use Bayes' theorem, which helps update the probability of a hypothesis based on evidence. In this case, the hypothesis is that the attacker is male, and the evidence is the witness's identification.
+
+Bayes' theorem is usually written as P(H|E) = [P(E|H) * P(H)] / [P(E)], where:
+- H is the hypothesis (attacker is male),
+- E is the evidence (witness identified attacker as male),
+- P(H|E) is the probability of the hypothesis given the evidence,
+- P(E|H) is the probability of the evidence given the hypothesis (witness correctly identifies male 80% of the time),
+- P(H) is the prior probability of the hypothesis (probability of attacker being male before the evidence),
+- P(E) is the probability of the evidence (witness could have identified either gender).
+
+We are given the values of P(E|H) = 0.8 and P(H) = 0.15 (from information "a" and "b"), but we need to estimate P(E) and P(E|~H) (where ~H represents the hypothesis that the attacker is female).
+
+P(E) is the probability of the witness identifying any person as male, which is equal to the sum of the probability of correctly identifying a male (0.8 * 0.15) and the probability of incorrectly identifying a female as male (0.2 * 0.85).
+
+P(E|~H) is the probability of the witness identifying a female as male, which is 0.2 (from the information that the witness is incorrect 20% of the time).
+
+Now we can calculate P(H|E):
+
+P(H|E) = [P(E|H) * P(H)] / [P(E)] = [(0.8 * 0.15) / (0.12 + 0.03)] = 0.54
+
+So the estimated probability that the attacker is male, given the evidence and city demographics, is 54%.

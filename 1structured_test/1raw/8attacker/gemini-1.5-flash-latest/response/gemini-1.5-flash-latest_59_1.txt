@@ -1,0 +1,48 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:** Tells us the population distribution of heights (roughly equal) and the relative frequency of attackers in each height category.
+* **Information b:** Gives us the witness's accuracy in identifying height under similar conditions.
+
+**Applying Bayes' Theorem**
+
+This problem is best solved using Bayes' Theorem, which helps us update our belief about an event based on new evidence.
+
+Let's define the events:
+
+* **A:** The attacker is 185 cm or taller.
+* **B:** The witness identified the attacker as 185 cm or taller.
+
+We want to find P(A|B), the probability that the attacker was 185 cm or taller given the witness's identification.
+
+Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each term:
+
+* **P(B|A):** The probability the witness identifies someone as 185 cm or taller given they *actually are* 185 cm or taller. This is the witness's accuracy, which is 80% (from information b). 
+* **P(A):** The prior probability that the attacker is 185 cm or taller.  Since the population is roughly split, this is 50%.
+* **P(B):** The overall probability the witness identifies someone as 185 cm or taller. This is a bit trickier and requires the law of total probability. We can calculate it as:
+
+    P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+
+    * P(B|not A): The probability the witness identifies someone as 185 cm or taller given they are *not* 185 cm or taller (i.e., they are shorter). This is the witness's error rate, which is 20%.
+    * P(not A): The probability the attacker is *not* 185 cm or taller, which is 50%.
+
+**Calculation**
+
+1. **Calculate P(B):**
+   P(B) = (0.80 * 0.50) + (0.20 * 0.50) = 0.50
+
+2. **Apply Bayes' Theorem:**
+   P(A|B) = (0.80 * 0.50) / 0.50 = 0.80
+
+**Answer:**
+
+{probability: 0.80} 
+
+**Conclusion:**
+
+Based on the witness's testimony, the probability that the attacker was 185 cm or taller increases to 80%. This is higher than the initial probability (50%) due to the witness's relatively high accuracy. 

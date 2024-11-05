@@ -1,0 +1,37 @@
+To solve this, we can use Bayes' theorem, which in this context is expressed as:
+
+\[ P(H \mid D) = \frac{P(D \mid H) \cdot P(H)}{P(D)} \]
+
+Here:
+- \( P(H) \) is the prior probability that the attacker was 185 cm or taller; from the data, this is 15% or 0.15.
+- \( P(D \mid H) \) is the probability of the witnesses' statements given that the attacker is 185 cm or taller.
+- \( P(D) \) is the total probability of the witnesses' statements.
+
+Let:
+- \( W_1 \) denote the event that the first witness correctly claims that the attacker was 185 cm or taller.
+- \( W_2 \) denote the event that the second witness incorrectly claims that the attacker was shorter than 185 cm (since they're mistaken about a taller attacker).
+
+The witnesses' testimonies are probably independent given the height of the attacker, so:
+
+\[ P(W_1 \mid H) = 0.80 \] (Probability first witness is correct given the attacker is 185 cm or taller)
+\[ P(W_2 \mid H) = 0.30 \] (Probability second witness is incorrect given the attacker is 185 cm or taller)
+
+Thus:
+\[ P(D \mid H) = P(W_1 \mid H) \cdot P(W_2 \mid H) = 0.80 \times 0.30 = 0.24 \]
+
+Now we compute \( P(D \mid H^c) \) where \( H^c \) is the attacker being shorter than 185 cm:
+\[ P(W_1 \mid H^c) = 0.20 \] (Probability first witness is incorrect given the attacker is shorter)
+\[ P(W_2 \mid H^c) = 0.70 \] (Probability second witness is correct given the attacker is shorter)
+
+Then:
+\[ P(D \mid H^c) = P(W_1 \mid H^c) \cdot P(W_2 \mid H^c) = 0.20 \times 0.70 = 0.14 \]
+
+The prior probability of \( H^c \) is 85% or 0.85, so:
+
+\[ P(D) = P(D \mid H) \cdot P(H) + P(D \mid H^c) \cdot P(H^c) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Using Bayes’ theorem:
+\[ P(H \mid D) = \frac{P(D \mid H) \cdot P(H)}{P(D)} = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Rounded to a suitable number of decimal places, the estimate of the probability that the attacker was 185 cm or taller is:
+{probability: 0.232}

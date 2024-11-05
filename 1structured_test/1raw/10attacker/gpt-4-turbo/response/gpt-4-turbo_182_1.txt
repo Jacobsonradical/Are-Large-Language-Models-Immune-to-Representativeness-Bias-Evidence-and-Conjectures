@@ -1,0 +1,39 @@
+To find the estimate of the probability that the attacker's height was 185 cm or taller, given the witness statements and their reliability, we can use Bayes' theorem. Bayes' theorem will help us update our prior probability (based on general population data) using the evidence from the two witness testimonies.
+
+Here's how we can approach it:
+
+1. **Define the probabilities:**
+   - Let \( H \) be the event that the attacker is 185 cm or taller.
+   - The probability \( P(H) \) that a randomly chosen person from the city is 185 cm or taller is 0.15 (15%).
+   - The probability \( P(\neg H) \) that a randomly chosen person from the city is shorter than 185 cm is 0.85 (85%).
+
+2. **Accuracy of witnesses:**
+    - Witness 1: Correctly identifies those 185 cm or taller 80% of the time and those shorter than 185 cm 80% of the time.
+    - Witness 2: Correctly identifies those shorter than 185 cm 70% of the time and those 185 cm or taller 70% of the time.
+
+3. **Calculate \( P(\text{Witness 1 says taller} | H) \) and \( P(\text{Witness 1 says taller} | \neg H) \):**
+    - \( P(\text{Witness 1 says taller} | H) = 0.80 \) (because Witness 1 identifies those 185 cm or taller correctly 80% of the time).
+    - \( P(\text{Witness 1 says taller} | \neg H) = 0.20 \) (because Witness 1 falsely identifies those shorter than 185 cm as taller 20% of the time).
+
+4. **Use Bayes' theorem to find \( P(H | \text{Witness 1 says taller}) \):**
+   - According to Bayes' theorem:
+     \[
+     P(H | \text{Witness 1 says taller}) = \frac{P(\text{Witness 1 says taller} | H) \times P(H)}{P(\text{Witness 1 says taller})} 
+     \]
+   - Calculate \( P(\text{Witness 1 says taller}) \) using the law of total probability:
+     \[
+     P(\text{Witness 1 says taller}) = P(\text{Witness 1 says taller} | H) \times P(H) + P(\text{Witness 1 says taller} | \neg H) \times P(\neg H)
+     \] \[
+     = 0.80 \times 0.15 + 0.20 \times 0.85 = 0.12 + 0.17 = 0.29
+     \]
+   - Plugging these values into Bayes' theorem:
+     \[
+     P(H | \text{Witness 1 says taller}) = \frac{0.80 \times 0.15}{0.29} \approx \frac{0.12}{0.29} \approx 0.4138
+     \]
+
+So the estimated probability that the attacker is 185 cm or taller, given that Witness 1 (80% accurate) claimed so, is approximately 0.41.
+
+Thus, the response is:
+```json
+{ "probability": 0.4138 }
+```

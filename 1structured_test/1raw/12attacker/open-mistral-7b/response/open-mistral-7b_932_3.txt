@@ -1,0 +1,30 @@
+To estimate the probability that the attacker is male, we can use Bayes' theorem. Bayes' theorem is a formula that allows us to update our beliefs about a hypothesis based on new evidence. In this case, the hypothesis is that the attacker is male, and the evidence is the witness's testimony and the gender distribution in the city.
+
+Let's denote:
+- p(M) as the prior probability of the attacker being male (we don't have this information, so we'll assume an equal likelihood of the attacker being male or female, which means p(M) = 0.5)
+- p(M|w) as the probability of the witness identifying someone as male given that the person is male (this is given in the first piece of information: p(M|w) = 0.8)
+- p(F|w) as the probability of the witness identifying someone as male given that the person is female (also given in the first piece of information: p(F|w) = 0.2)
+- p(F) as the prior probability of the attacker being female (p(F) = 1 - p(M) = 0.5)
+- p(w|M) as the probability of the witness seeing the attacker and testifying that they are male given that the attacker is male (we don't have this information, but we can compute it as p(M|w) * p(w|M) + p(F|w) * p(w|F))
+- p(w|F) as the probability of the witness seeing the attacker and testifying that they are male given that the attacker is female (we can compute this as p(w|M) * p(M) + p(w|F) * p(F))
+
+We want to find p(M|w), which is the probability of the attacker being male given the witness's testimony. According to Bayes' theorem:
+
+p(M|w) = p(w|M) * p(M) / (p(w|M) * p(M) + p(w|F) * p(F))
+
+First, let's compute p(w|M) and p(w|F):
+
+p(w|M) = p(M|w) * p(M) + p(F|w) * p(F)
+          = 0.8 * 0.5 + 0.2 * 0.5
+          = 0.6
+
+p(w|F) = p(w|M) * p(M) + p(w|F) * p(F)
+          = 0.6 * 0.5 + 0.2 * 0.5
+          = 0.4
+
+Now, we can compute p(M|w):
+
+p(M|w) = 0.6 * 0.5 / (0.6 * 0.5 + 0.4 * 0.5)
+       = 0.3
+
+So our estimate of the probability that the attacker is male is 0.3, or 30%. This estimate takes into account both the witness's ability to identify gender and the gender distribution in the city.

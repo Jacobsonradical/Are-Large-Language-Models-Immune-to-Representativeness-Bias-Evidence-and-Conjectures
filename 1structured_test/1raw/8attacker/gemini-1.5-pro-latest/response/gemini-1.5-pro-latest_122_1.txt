@@ -1,0 +1,47 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is right 80% of the time about someone's height being over or under 185cm. 
+* **Attacker Height Base Rate (b):**  Only 15% of attackers are 185cm or taller. This is important prior information that influences our final probability.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this situation. It lets us update a prior belief (the base rate of attacker height) with new evidence (the witness testimony). 
+
+Here's a breakdown:
+
+* **Event A:** The attacker is 185cm or taller.
+* **Event B:** The witness identifies the attacker as 185cm or taller.
+
+We want to find **P(A|B):** The probability the attacker is 185cm or taller *given* the witness said they were.
+
+Bayes' Theorem states:  
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each term:
+
+* **P(B|A):** The probability the witness says someone is 185cm+ *given* the attacker is actually 185cm+. This is the witness's reliability in this case, which is 80% or 0.8.
+
+* **P(A):** The prior probability of an attacker being 185cm+ (before considering the witness). This is 15% or 0.15.
+
+* **P(B):** The probability the witness would identify someone as 185cm+ (regardless of the attacker's actual height). This is a little trickier, we'll calculate it below:
+
+   * The witness correctly identifies 80% of tall attackers (0.8 * 0.15 = 0.12)
+   * They also incorrectly identify 20% of shorter attackers as tall (0.2 * 0.85 = 0.17) 
+   * P(B) = 0.12 + 0.17 = 0.29
+
+**Calculation**
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(A|B) = (0.8 * 0.15) / 0.29 
+          = 0.414 (approximately)
+
+**Answer**
+
+{probability: 0.414}
+
+**Conclusion**
+
+Even though the witness is fairly reliable, the low base rate of attackers being 185cm+ significantly affects the final probability. There's only about a 41.4% chance the attacker was actually that tall, given all the information. 

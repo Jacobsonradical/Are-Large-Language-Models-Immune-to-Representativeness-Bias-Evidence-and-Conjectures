@@ -1,0 +1,29 @@
+Let's reason through this:
+
+1. We know that 85% of the population in the city is shorter than 185 cm, and 15% are 185 cm or taller.
+2. Witness 1 claims the attacker was 185 cm or taller, and they are correct 80% of the time.
+3. Witness 2 claims the attacker was shorter than 185 cm, and they are correct 70% of the time.
+
+Given these two pieces of information, we want to estimate the probability that the attacker's height was 185 cm or taller.
+
+To do this, we can use Bayes' theorem, which in this case would look something like this:
+
+P(185 cm | W1) = P(W1 | 185 cm) * P(185 cm) / P(W1)
+
+Where:
+- P(185 cm | W1) is the probability that the attacker's height was 185 cm or taller, given witness 1's statement.
+- P(W1 | 185 cm) is the probability that witness 1 would make the statement they made, given that the attacker was 185 cm or taller. In this case, we know that witness 1 is correct 80% of the time, so this probability is 0.8.
+- P(185 cm) is the prior probability that the attacker's height was 185 cm or taller, based on the population statistics. This probability is 0.15.
+- P(W1) is the overall probability of witness 1 making the statement they made, regardless of whether the attacker was actually 185 cm or taller. To calculate this probability, we need to consider both the false positive rate (when the attacker is shorter than 185 cm and the witness claims they were 185 cm or taller) and the true positive rate (when the attacker is actually 185 cm or taller and the witness correctly identifies them as such).
+
+The false positive rate can be calculated as the probability of witness 1 claiming the attacker was 185 cm or taller, given that they were not: P(W1 | not 185 cm) = 0.2 (since witness 1 is wrong 20% of the time). The true positive rate is the probability we've already calculated: P(W1 | 185 cm) = 0.8.
+
+To calculate P(W1), we need to weight these two probabilities by the prior probabilities of the attacker being 185 cm or shorter. Since 85% of the population is shorter than 185 cm, the probability of the attacker being shorter than 185 cm is 0.85, and the probability of them being 185 cm or taller is 0.15.
+
+Therefore, P(W1) = P(W1 | 185 cm) * P(185 cm) + P(W1 | not 185 cm) * P(not 185 cm) = (0.8 * 0.15) + (0.2 * 0.85) = 0.16 + 0.17 = 0.33.
+
+Now we can calculate P(185 cm | W1) using Bayes' theorem:
+
+P(185 cm | W1) = P(W1 | 185 cm) * P(185 cm) / P(W1) = (0.8 * 0.15) / 0.33 = 0.12 / 0.33 ≈ 0.364.
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.364.

@@ -1,0 +1,25 @@
+To find the posterior odds, we need to calculate the likelihood of drawing 3 X's and 1 O from Deck A and Deck B, and then divide these probabilities.
+
+Let's denote the number of X's drawn from Deck A as X, and the number of O's drawn as O. We can represent the number of draws as X + O = 4.
+
+The probability of drawing X X's and O O's from Deck A is given by the binomial distribution:
+
+P(X|A) = C(4, X) * (2/3)^X * (1/3)^(4-X)
+
+The probability of drawing X X's and O O's from Deck B is given by:
+
+P(X|B) = C(4, X) * (1/3)^X * (2/3)^(4-X)
+
+Now, we can calculate the posterior odds:
+
+odds = P(A|X,O) / P(B|X,O) = P(X|A) * P(A) / P(X|B) * P(B)
+
+where P(A) and P(B) are the prior probabilities of drawing from Deck A and Deck B, respectively. Since the decks were chosen at random, these probabilities are equal (1/2).
+
+However, without knowing the exact values of X and O, we cannot calculate the exact posterior odds. We would need to integrate over all possible values of X and O that satisfy X + O = 4. This problem is known as a multinomial hypergeometric distribution and cannot be easily solved analytically.
+
+In practice, to get a rough estimate, we can use the maximum likelihood estimate for X = 3, since 3 X's is the most likely outcome given the information that 3 X's and 1 O were drawn. The calculation then becomes:
+
+odds ≈ P(3 X's and 1 O | A) * P(A) / P(3 X's and 1 O | B) * P(B) = (2/3)^3 * (1/3)^1 * (1/2) / [(1/3)^3 * (2/3)^1 * (1/2)] = (2/3)^2
+
+This approximation suggests that the posterior odds favor Deck A over Deck B. However, it's important to note that this is an approximation and the exact answer would require further calculations.

@@ -1,0 +1,36 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:**  The witness is a good identifier of height, but they are not perfect.  We have to consider both their accuracy and their tendency to overestimate.
+* **Information b:** The population distribution tells us that there's a higher probability the attacker was shorter than 185 cm.
+
+**Calculations**
+
+1. **Probability of the witness saying "taller" given the person is actually taller (True Positive):** This is 80% (from information a).
+
+2. **Probability of the witness saying "taller" given the person is actually shorter (False Positive):** This is 20% (from information a).
+
+3. **Probability of a person being taller than 185 cm:** This is 15% (from information b).
+
+4. **Probability of a person being shorter than 185 cm:** This is 85% (from information b).
+
+5. **Using Bayes' Theorem:** We can combine these probabilities to find the probability the attacker is actually taller given the witness said "taller".
+
+    * Let:
+       *  T =  The attacker is taller than 185 cm
+       *  W = The witness says the attacker is taller
+
+    * Bayes' Theorem: P(T|W) = [P(W|T) * P(T)] / P(W)
+
+    * We need to calculate P(W), the probability of the witness saying "taller" in general.  This can be done using the law of total probability:
+        * P(W) = P(W|T) * P(T) + P(W|~T) * P(~T)
+        * P(W) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+6. **Applying Bayes' Theorem:**
+    * P(T|W) = (0.80 * 0.15) / 0.29 
+    * P(T|W) ≈ 0.41
+
+**Answer:**
+
+{probability: 0.41} 

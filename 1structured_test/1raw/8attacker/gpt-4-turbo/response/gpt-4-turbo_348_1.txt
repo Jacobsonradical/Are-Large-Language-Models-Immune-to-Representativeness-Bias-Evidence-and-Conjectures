@@ -1,0 +1,36 @@
+To solve this problem, let's use Bayes' theorem, which helps us update our prior belief in light of new evidence:
+
+**Bayes' Theorem:**
+\[ P(H \mid E) = \frac{P(E \mid H) \times P(H)}{P(E)} \]
+
+Where:
+- \( H \): Hypothesis (the attacker was 185 cm or taller)
+- \( E \): Evidence (the witness identified the attacker as being 185 cm or taller)
+- \( P(H \mid E) \): Probability of \( H \) given \( E \)
+- \( P(E \mid H) \): Probability of \( E \) given \( H \) (witness correctly identifying the attacker's height when the attacker is actually 185 cm or taller)
+- \( P(H) \): Prior probability of \( H \) (attacker being 185 cm or taller)
+- \( P(E) \): Total probability of \( E \) (witness identifying the height as 185 cm or taller)
+
+Let's compute each component:
+
+1. **Prior Probability (\( P(H) \))**:
+   From the information provided:
+   - 15% of attack cases (representing population proportion) involve attackers who are 185 cm or taller. Therefore, \( P(H) = 0.15 \).
+
+2. **Probability of Evidence Given Hypothesis (\( P(E \mid H) \))**:
+   - If the attacker is 185 cm or taller, the probability that the witness correctly identifies them as such is 80% (given he correctly identifies height for 80% of individuals). Thus, \( P(E \mid H) = 0.8 \).
+
+3. **Total Probability of Evidence (\( P(E) \))**:
+   We use the law of total probability here:
+   - \( P(E) = P(E \mid H) \times P(H) + P(E \mid \neg H) \times P(\neg H) \)
+   - \( P(\neg H) \): Probability of attacker being shorter than 185 cm = 0.85.
+   - \( P(E \mid \neg H) \): Probability witness incorrectly identifies height as 185 cm or taller, when the attacker is actually shorter = 20% (mistake rate), so \( P(E \mid \neg H) = 0.2 \).
+   - Therefore, \( P(E) = 0.8 \times 0.15 + 0.2 \times 0.85 = 0.12 + 0.17 = 0.29 \).
+
+4. **Posterior Probability (\( P(H \mid E) \))**:
+   - \( P(H \mid E) = \frac{0.8 \times 0.15}{0.29} = \frac{0.12}{0.29} \approx 0.4138 \).
+
+As a result:
+{probability: 0.4138} 
+
+Thus, given the witness's testimony and other information, there's approximately a 41.38% chance that the attacker's height was 185 cm or taller.

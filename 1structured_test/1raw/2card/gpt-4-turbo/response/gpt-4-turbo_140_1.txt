@@ -1,0 +1,26 @@
+To solve this problem, we can use Bayes' theorem to update our beliefs about which deck the cards were drawn from based on the observed data (3 cards marked X and 1 card marked O). We start by calculating the likelihood of observing 3 X's and 1 O from each of the two decks, and then use this to compute the posterior odds.
+
+Let's denote the following:
+- \( P(A) \) is the prior probability that deck A was chosen. Since one of the decks has been selected by chance, \( P(A) = \frac{1}{2} \).
+- \( P(B) \) is the prior probability that deck B was chosen. Similarly, \( P(B) = \frac{1}{2} \).
+
+The probabilities of drawing 3 X's and 1 O from each deck are:
+- From deck A (where 2/3 are X and 1/3 are O):
+  \[
+  P(3X, 1O \mid A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \left(\frac{8}{27}\right) \cdot \left(\frac{1}{3}\right) = \frac{32}{81}
+  \]
+- From deck B (where 1/3 are X and 2/3 are O):
+  \[
+  P(3X, 1O \mid B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \left(\frac{1}{27}\right) \cdot \left(\frac{2}{3}\right) = \frac{8}{81}
+  \]
+
+Given these likelihoods, the posterior odds that the cards were drawn from deck A rather than deck B are calculated by taking the ratio of the products of the prior and likelihood for each hypothesis:
+\[
+\text{Odds}(A \mid \text{data}) = \frac{P(3X, 1O \mid A) \times P(A)}{P(3X, 1O \mid B) \times P(B)}
+\]
+\[
+\text{Odds}(A \mid \text{data}) = \frac{\frac{32}{81} \times \frac{1}{2}}{\frac{8}{81} \times \frac{1}{2}} = \frac{32}{8} = 4
+\]
+
+Hence, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+{odds: 4}

@@ -1,0 +1,27 @@
+Let's reason through this:
+
+1. We know that one witness correctly identifies the correct height 80% of the time and is incorrect 20% of the time.
+2. The population distribution tells us that 85% of the people are shorter than 185 cm, and 15% are 185 cm or taller.
+3. However, the witness statements are not independent, as they both observed the same person.
+
+Let's denote:
+
+- A as the event that the attacker's height is 185 cm or taller
+- W1 as the event that the first witness correctly identifies the height
+- W2 as the event that the second witness correctly identifies the height
+
+We want P(A|W1), the probability that the attacker's height is 185 cm or taller given that the first witness claimed so. According to Bayes' theorem:
+
+P(A|W1) = P(W1|A) * P(A) / P(W1)
+
+We are given P(W1|A) = 0.8 (the first witness is correct when the attacker's height is 185 cm or taller) and P(A) = 0.15 (the population distribution).
+
+To calculate P(W1), we need to consider all possibilities:
+- When the attacker's height is 185 cm or taller (A), the first witness correctly identifies this as P(W1|A) * P(A) = 0.8 * 0.15
+- When the attacker's height is shorter than 185 cm (A'), the first witness incorrectly identifies the height as taller as P(W1|A') * P(A') = 0.2 * 0.85
+
+P(W1) = P(W1|A) * P(A) + P(W1|A') * P(A') = (0.8 * 0.15) + (0.2 * 0.85) = 0.12 + 0.17 = 0.29
+
+Now, we can calculate P(A|W1) = P(W1|A) * P(A) / P(W1) = (0.8 * 0.15) / 0.29 ≈ 0.41
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.41.

@@ -1,0 +1,35 @@
+To solve this problem, we will use Bayes' theorem to calculate the posterior probabilities and then determine the odds.
+
+We define the following events:
+- A: The selected deck is Deck A.
+- B: The selected deck is Deck B.
+- D: Drawing 3 X cards and 1 O card in 4 draws.
+
+The prior probabilities for selecting each deck are equal:
+- P(A) = 0.5
+- P(B) = 0.5
+
+Now, we need to calculate the likelihoods of drawing 3 X and 1 O from Deck A and Deck B.
+
+For Deck A (2/3 X, 1/3 O):
+\[ P(D | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81} \]
+
+For Deck B (1/3 X, 2/3 O):
+\[ P(D | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81} \]
+
+We use Bayes' theorem to find the posterior probabilities:
+\[ P(A | D) = \frac{P(D | A) P(A)}{P(D)} \]
+\[ P(B | D) = \frac{P(D | B) P(B)}{P(D)} \]
+
+The normalizing constant \( P(D) \) is:
+\[ P(D) = P(D | A) P(A) + P(D | B) P(B) = \frac{32}{81} \cdot 0.5 + \frac{8}{81} \cdot 0.5 = \frac{16}{81} + \frac{4}{81} = \frac{20}{81} \]
+
+Thus, the posterior probabilities are:
+\[ P(A | D) = \frac{\frac{32}{81} \cdot 0.5}{\frac{20}{81}} = \frac{16}{20} = 0.8 \]
+\[ P(B | D) = \frac{\frac{8}{81} \cdot 0.5}{\frac{20}{81}} = \frac{4}{20} = 0.2 \]
+
+Finally, we compute the posterior odds:
+\[ \text{Odds of A to B} = \frac{P(A | D)}{P(B | D)} = \frac{0.8}{0.2} = 4 \]
+
+So, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+{odds: 4}

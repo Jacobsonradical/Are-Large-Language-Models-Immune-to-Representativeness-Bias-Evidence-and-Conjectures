@@ -1,0 +1,54 @@
+Here's how to approach this problem, which involves Bayesian reasoning:
+
+**Understanding the Problem**
+
+We need to update our prior belief about the attacker's height (based on population data) with the evidence provided by the witnesses. 
+
+* **Prior:** The probability of a randomly chosen person in the city being 185cm or taller (15%).
+* **Likelihood:** How likely each witness is to give their specific testimony if the attacker was actually 185cm or taller.
+* **Goal:** The posterior probability of the attacker being 185cm or taller given the witnesses' statements.
+
+**Calculations**
+
+Let:
+
+* Event A: Attacker is 185cm or taller.
+* Event B: Witness 1 claims the attacker is 185cm or taller.
+* Event C: Witness 2 claims the attacker is shorter than 185cm.
+
+We want to find P(A|B,C), the probability the attacker is tall given both testimonies.
+
+* **Prior:** P(A) = 0.15 (15% of the population)
+* **Likelihoods:**
+    * P(B|A) = 0.8 (Witness 1 is 80% accurate when someone is actually tall)
+    * P(C|A) = 0.2 (Witness 2 is 20% likely to say "shorter" when someone is actually tall)
+
+We'll use Bayes' Theorem, but since we have two pieces of evidence, we need to apply it in a slightly expanded form:
+
+P(A|B,C) = [P(B|A) * P(C|A) * P(A)] / P(B,C)
+
+To calculate the denominator P(B,C), we need to consider both possibilities for the attacker's actual height (tall or not tall):
+
+P(B,C) =  [P(B|A) * P(C|A) * P(A)] + [P(B|~A) * P(C|~A) * P(~A)] 
+
+Where:
+
+* P(~A) = 0.85 (Probability of not being tall, complement of 15%)
+* P(B|~A) = 0.2 (Witness 1 is 20% likely to say "tall" when someone is actually not tall)
+* P(C|~A) = 0.7 (Witness 2 is 70% likely to say "shorter" when someone is actually not tall)
+
+**Putting it all together:**
+
+1. **Calculate P(B,C):**
+   (0.8 * 0.2 * 0.15) + (0.2 * 0.7 * 0.85) = 0.142
+
+2. **Calculate P(A|B,C):**
+   (0.8 * 0.2 * 0.15) / 0.142 = 0.169 
+
+**Answer:**
+
+{probability: 0.169}
+
+**Conclusion:**
+
+The probability that the attacker was 185cm or taller, considering the witness testimonies and the city's height distribution, is approximately 16.9%. 

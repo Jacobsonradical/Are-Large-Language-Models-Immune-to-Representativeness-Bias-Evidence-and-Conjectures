@@ -1,0 +1,35 @@
+To solve this problem, we need to apply Bayes' Theorem to find the probabilities that deck A or deck B was chosen given the observed draws, then compute the odds based on these probabilities.
+
+1. **Definitions:**
+    - Let \(A\) denote the event that deck A was chosen.
+    - Let \(B\) denote the event that deck B was chosen.
+    - Let \(D\) denote the observed event of drawing 3 X's and 1 O from the chosen deck.
+
+2. **Probability Setup:**
+    - \(P(A) = P(B) = \frac{1}{2}\), as either deck may have been chosen with equal probability.
+    - \(P(D \mid A)\): The probability of drawing 3 X's and 1 O from deck A, which has 2/3 X and 1/3 O.
+      - This is a binomial probability: \(\binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \left(\frac{8}{27}\right) \cdot \left(\frac{1}{3}\right) = \frac{32}{81}\).
+    - \(P(D \mid B)\): The probability of drawing 3 X's and 1 O from deck B, which has 1/3 X and 2/3 O.
+      - Again, applying binomial probability: \(\binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \left(\frac{1}{27}\right) \cdot \left(\frac{2}{3}\right) = \frac{8}{81}\).
+
+3. **Applying Bayes' Theorem:**
+    - We first find \(P(D)\) using the Law of Total Probability:
+      \[
+      P(D) = P(D \mid A)P(A) + P(D \mid B)P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{32 + 8}{162} = \frac{40}{162} = \frac{20}{81}.
+      \]
+    - Next, \(P(A \mid D)\) and \(P(B \mid D)\):
+      \[
+      P(A \mid D) = \frac{P(D \mid A) P(A)}{P(D)} = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = \frac{4}{5}.
+      \]
+      \[
+      P(B \mid D) = \frac{P(D \mid B) P(B)}{P(D)} = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = \frac{1}{5}.
+      \]
+
+4. **Compute the Odds:**
+    - The odds of event \(A\) relative to event \(B\), given \(D\), are:
+      \[
+      \frac{P(A \mid D)}{P(B \mid D)} = \frac{\frac{4}{5}}{\frac{1}{5}} = \frac{4}{1} = 4.
+      \]
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+\({odds: 4}\).

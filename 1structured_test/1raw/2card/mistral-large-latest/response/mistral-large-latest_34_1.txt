@@ -1,0 +1,43 @@
+To solve this problem, we need to use Bayes' theorem to update our beliefs about which deck the cards were drawn from, given the evidence of the cards drawn.
+
+Let \( A \) be the event that the deck is Deck A, and \( B \) be the event that the deck is Deck B. Let \( E \) be the event that 3 cards are marked X and 1 card is marked O.
+
+We want to find the posterior odds, which is the ratio of the probabilities of \( A \) and \( B \) given \( E \):
+
+\[ \text{Posterior odds} = \frac{P(A|E)}{P(B|E)} \]
+
+Using Bayes' theorem, we have:
+
+\[ \frac{P(A|E)}{P(B|E)} = \frac{P(E|A)P(A)}{P(E|B)P(B)} \]
+
+Assuming \( P(A) = P(B) \) (since the decks are chosen by chance), the prior odds are 1:1. Therefore, the posterior odds simplify to:
+
+\[ \frac{P(A|E)}{P(B|E)} = \frac{P(E|A)}{P(E|B)} \]
+
+Now, we need to calculate \( P(E|A) \) and \( P(E|B) \).
+
+For Deck A:
+- The probability of drawing an X is \( \frac{2}{3} \).
+- The probability of drawing an O is \( \frac{1}{3} \).
+
+For Deck B:
+- The probability of drawing an X is \( \frac{1}{3} \).
+- The probability of drawing an O is \( \frac{2}{3} \).
+
+The probability of drawing 3 X's and 1 O from Deck A is:
+
+\[ P(E|A) = \binom{4}{3} \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right)^1 = 4 \cdot \left( \frac{8}{27} \right) \cdot \left( \frac{1}{3} \right) = 4 \cdot \frac{8}{81} = \frac{32}{81} \]
+
+The probability of drawing 3 X's and 1 O from Deck B is:
+
+\[ P(E|B) = \binom{4}{3} \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right)^1 = 4 \cdot \left( \frac{1}{27} \right) \cdot \left( \frac{2}{3} \right) = 4 \cdot \frac{2}{81} = \frac{8}{81} \]
+
+Now, we can calculate the posterior odds:
+
+\[ \frac{P(A|E)}{P(B|E)} = \frac{P(E|A)}{P(E|B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4 \]
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is 4.
+
+```python
+{odds: 4}
+```

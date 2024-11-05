@@ -1,0 +1,56 @@
+Here's how we can approach this problem, breaking it down into understandable parts:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is 80% accurate in judging height under similar conditions. This means they are right 80% of the time, but wrong 20% of the time.
+* **Population Distribution (b):**  In the city where the attack occurred, 15% of people are 185 cm or taller, and 85% are shorter.
+
+**The Key Issue: Combining Information**
+
+We need to combine the witness testimony with the general population height distribution. It's tempting to simply average 80% (witness accuracy) and 15% (population proportion), but that would be incorrect. Here's why:
+
+The witness testimony isn't about a random person in the city; it's about the *attacker*.  The witness saying the attacker is tall *increases* the likelihood the attacker is actually tall, even though the witness isn't perfect.
+
+**Using Bayes' Theorem (A More Advanced Approach)**
+
+Bayes' Theorem provides a framework for updating probabilities based on new evidence. Here's how it applies:
+
+* **Prior Probability:** Before the witness statement, the probability of the attacker being 185 cm or taller is the same as the population proportion, 15% or 0.15.
+* **Likelihood:**  This is how likely the witness would say "185 cm or taller" *given* that the attacker is actually that tall (80% or 0.8) versus *given* that the attacker is shorter (20% or 0.2).
+* **Posterior Probability:** The updated probability of the attacker being 185 cm or taller *after* considering the witness statement.
+
+**Calculations (Feel free to skip if you're not into math)**
+
+Let:
+
+*  A = Event that the attacker is 185 cm or taller
+*  B = Event that the witness says the attacker is 185 cm or taller
+
+We want P(A|B) - the probability the attacker is tall given the witness statement.
+
+Bayes' Theorem states: 
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+To find P(B), we use the law of total probability:
+P(B) =  P(B|A) * P(A)  +  P(B| not A) * P(not A)
+
+Where:
+
+* P(B|A) = 0.8 (witness accuracy for tall attackers)
+* P(A) = 0.15 (prior probability of a tall attacker)
+* P(B| not A) = 0.2 (witness inaccuracy for shorter attackers)
+* P(not A) = 0.85 (prior probability of a shorter attacker)
+
+Calculating:
+
+P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+Now we can find P(A|B):
+
+P(A|B) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414}
+
+**In simpler terms:** The probability that the attacker was 185 cm or taller is approximately 41.4%. The witness testimony significantly increases the likelihood compared to the general population distribution. 

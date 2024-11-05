@@ -1,0 +1,51 @@
+Let's break down the information and use Bayes' Theorem to calculate the probability.
+
+**Here's what we know:**
+
+* **Prior Probability (from information "a"):**
+    *  P(Shorter than 185cm) = 0.5 
+    *  P(185cm or taller) = 0.5
+    *  P(Attacker | Shorter than 185cm) = 0.85 (85% of attackers are shorter)
+    *  P(Attacker | 185cm or taller) = 0.15 (15% of attackers are taller)
+
+* **Witness Reliability (from information "b"):**
+    * P(Witness Correct | 185cm or taller) = 0.80 (80% accurate when the person is actually tall)
+    * P(Witness Incorrect | 185cm or taller) = 0.20 (20% error rate)
+
+**What we want to find:**
+
+* **Posterior Probability:** P(185cm or taller | Witness says "185cm or taller") -  The probability the attacker was actually 185cm or taller *given* the witness said they were.
+
+**Using Bayes' Theorem:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* A: Attacker is 185cm or taller
+* B: Witness says "185cm or taller"
+
+To make the calculation easier, let's break down the denominator, P(B), using the law of total probability:
+
+P(B) =  [P(B|A) * P(A)] + [P(B| not A) * P(not A)]
+
+Let's plug in the values:
+
+* P(B|A): P(Witness Correct | 185cm or taller) = 0.80
+* P(A): P(185cm or taller) = 0.5
+* P(B| not A): P(Witness Incorrect | Shorter than 185cm) = 0.20 (Since the witness has a 20% error rate overall)
+* P(not A): P(Shorter than 185cm) = 0.5
+
+Now we can calculate:
+
+* P(B) = (0.80 * 0.5) + (0.20 * 0.5) = 0.4 + 0.1 = 0.5
+
+Finally, we can calculate the posterior probability:
+
+* P(185cm or taller | Witness says "185cm or taller") = (0.80 * 0.5) / 0.5 = 0.80 
+
+**Answer:**
+
+{probability: 0.80} 
+
+**Therefore, given the witness testimony and the base rates, there is an 80% probability that the attacker was indeed 185cm or taller.** 

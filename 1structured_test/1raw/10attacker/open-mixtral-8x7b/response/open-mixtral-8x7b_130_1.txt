@@ -1,0 +1,27 @@
+Let's reason through this problem:
+
+1. We want to estimate the probability that the attacker is 185 cm or taller given the first witness's statement.
+2. According to the information provided, the city's population has 85% of people shorter than 185 cm and 15% of people who are 185 cm or taller.
+3. The first witness correctly identifies a person's height as 185 cm or taller 80% of the time and errs 20% of the time.
+
+To estimate the probability that the attacker is 185 cm or taller, we can use Bayes' theorem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+- P(A|B) is the probability of event A (attacker is 185 cm or taller) given event B (first witness's statement).
+- P(B|A) is the probability of the first witness's statement given the attacker is 185 cm or taller, which is 0.8 (80%).
+- P(A) is the probability of the attacker being 185 cm or taller, which is 0.15 (15%).
+- P(B) is the probability of the first witness's statement, which we can calculate as:
+  P(B) = P(B and A) + P(B and not A)
+  = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+
+We know P(B|A), P(A), and P(not A) (1 - P(A)). To calculate P(B|not A), consider that the first witness will incorrectly claim that a person is 185 cm or taller 20% of the time when they are not. Given that 85% of the population is shorter than 185 cm, the probability of the first witness's statement when the attacker is not 185 cm or taller is 0.2 * 0.85 = 0.17.
+
+Now we can calculate P(B):
+P(B) = [0.8 * 0.15] + [0.17 * 0.85] ≈ 0.226
+
+Finally, we can compute our desired probability:
+P(A|B) = [P(B|A) * P(A)] / P(B) ≈ [0.8 * 0.15] / 0.226 ≈ 0.527
+
+{probability: 0.527}

@@ -1,0 +1,38 @@
+Given the information provided, we have two pieces of data to consider:
+
+1. The population composition in the city is 85% female and 15% male (from point "a").
+2. A witness, who correctly identifies gender 80% of the time and errs 20% of the time, has identified the attacker as male (from point "b").
+
+To estimate the probability that the attacker is male, we need to consider both the population ratio and the witness's accuracy. The witness's identification of the attacker as male could be due to the attacker being male or the witness making a mistake. Since we don't know which case is true, we should consider both scenarios.
+
+Let's denote:
+- P(M) as the probability that the attacker is male
+- P(F) as the probability that the attacker is female
+- P(wM) as the probability that the witness identifies a male as male
+- P(wF) as the probability that the witness identifies a female as male
+
+We know that P(M) + P(F) = 1 (since the attacker must be either male or female) and P(wM) + P(wF) = 1 (since the witness must identify someone as male or female).
+
+Given that the witness's accuracy is 80%, we have P(wM) = 0.8 and P(wF) = 0.2.
+
+Since the population is 85% female, we can estimate P(F) as 0.85, and then we have P(M) = 1 - P(F) = 1 - 0.85 = 0.15.
+
+Now we can calculate the probability of the witness correctly identifying the attacker as male given that the attacker is indeed male:
+
+P(wM | M) = P(M) * P(wM) = 0.15 * 0.8 = 0.12
+
+Similarly, we can calculate the probability of the witness making a mistake and identifying a female as male, given that the attacker is indeed female:
+
+P(wM | F) = P(F) * P(wF) = 0.85 * 0.2 = 0.17
+
+Given that the witness has identified the attacker as male, the probability that the attacker is actually male is the sum of these two probabilities, weighted by their respective probabilities:
+
+P(M | wM) = [P(wM | M) * P(M)] + [P(wM | F) * P(F)]
+
+P(M | wM) ≈ [0.12 * 0.15] + [0.17 * 0.85]
+
+P(M | wM) ≈ 0.018 + 0.146
+
+P(M | wM) ≈ 0.164
+
+Therefore, our estimate of the probability that the attacker is male, given the witness's identification, is approximately 0.164 or 16.4%.

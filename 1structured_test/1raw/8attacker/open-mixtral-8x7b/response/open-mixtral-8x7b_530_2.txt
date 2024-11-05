@@ -1,0 +1,35 @@
+Let's analyze the given information:
+
+a) The witness correctly identifies a person as 185 cm or taller 80% of the time and errs in 20% of the cases. This means the false positive rate is 0.2 and the true positive rate is 0.8.
+
+b) In reality, 85% of attackers are people under 185 cm and only 15% are 185 cm or taller. However, we cannot directly use this information because it does not account for the reliability of the witness.
+
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+- P(A|B) is the probability that the attacker's height was 185 cm or taller given the observed evidence.
+- P(B|A) is the probability that the witness identified the attacker as 185 cm or taller when the attacker's height is indeed 185 cm or taller (0.8).
+- P(A) is the prior probability of an attacker being 185 cm or taller (0.15).
+- P(B) is the probability of the observed evidence, which is a bit complicated to calculate directly, so instead, we'll calculate P(B|A) * P(A) and P(B|~A) * P(~A), and then apply the theorem in a slightly different way:
+
+P(A|B) = [P(B|A) * P(A)] / [P(B|A) * P(A) + P(B|~A) * P(~A)]
+
+Where ~A is the complement of A, the probability that the attacker's height is under 185 cm.
+
+Let's first calculate P(B|~A):
+- The witness identifies a person as 185 cm or taller 20% of the time when the person is actually under 185 cm (false positive rate).
+- Given that 85% of attackers are under 185 cm, and the witness errs 20% of the time for these cases, P(B|~A) = 0.2 * 0.85 = 0.17 (17% chance that a person under 185 cm is identified as 185 cm or taller by the witness).
+
+Now, let's calculate P(B) = P(B|A) * P(A) + P(B|~A) * P(~A):
+- P(B|A) * P(A) = 0.8 * 0.15 = 0.12 (12%).
+- P(B|~A) * P(~A) = 0.17 * 0.85 = 0.1445 (14.45%).
+- P(B) = 0.12 + 0.1445 = 0.2645 (26.45%).
+
+Finally, let's calculate P(A|B):
+- P(A|B) = [P(B|A) * P(A)] / [P(B|A) * P(A) + P(B|~A) * P(~A)] = 0.12 / 0.2645 ≈ 0.4538 (45.38%).
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.4538}

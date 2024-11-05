@@ -1,0 +1,58 @@
+Here's how we can estimate the probability:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Population Data:** 15% of the city's population is 185 cm or taller.
+* **Witness Testimony:**  We have two witnesses with varying levels of accuracy in judging height.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem helps us update our belief about an event (in this case, the attacker's height) based on new evidence (the witness testimony).
+
+Let's define the events:
+
+* **A:** The attacker's height is 185 cm or taller.
+* **B:** The first witness claims the attacker was 185 cm or taller.
+
+We want to find P(A|B), the probability that the attacker is 185 cm or taller given the first witness's claim.
+
+Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each term:
+
+* **P(B|A):**  Probability the first witness claims "taller" given the attacker IS taller. This is the witness's accuracy, which is 80%.
+* **P(A):** Prior probability the attacker IS taller, which is 15% from the population data.
+* **P(B):**  Probability the first witness claims "taller," regardless of the actual height. This requires a bit more work, as it includes two scenarios:
+    * Witness is correct (attacker is taller) 
+    * Witness is wrong (attacker is shorter)
+
+**Calculating P(B)**
+
+We can calculate P(B) using the law of total probability:
+
+P(B) = P(B|A) * P(A)  +  P(B|not A) * P(not A)
+
+* **P(B|not A):** Probability the witness claims "taller" given the attacker is NOT taller (this is the witness's error rate, 20%).
+* **P(not A):** Probability the attacker is NOT taller, which is 85% (the complement of 15%).
+
+Plugging in the values:
+
+P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Calculating P(A|B)**
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(A|B) = (0.80 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Interpretation:**
+
+This means that given the first witness's testimony, the estimated probability of the attacker being 185 cm or taller increases to about 41.4%, even though the witness isn't perfectly accurate. 

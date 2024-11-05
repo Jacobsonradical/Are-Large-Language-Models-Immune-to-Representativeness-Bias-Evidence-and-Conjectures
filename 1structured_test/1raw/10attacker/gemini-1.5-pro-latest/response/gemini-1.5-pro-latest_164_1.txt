@@ -1,0 +1,42 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:** We know how often each witness is accurate about height.
+* **Base Rate:** We know the general height distribution in the city.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this kind of problem. It helps us calculate updated probabilities based on new evidence. Here's how it looks:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's define our events:
+
+* **A:** Attacker is 185cm or taller.
+* **B:** The first witness claims the attacker is 185cm or taller.
+
+We want to find P(A|B), the probability the attacker is tall *given* the first witness's statement.
+
+Here's how we break down the components:
+
+* **P(B|A):** The probability the witness would say "tall" IF the attacker IS tall. This is the witness's accuracy for tall people (80% or 0.8).
+* **P(A):** The prior probability of the attacker being tall. We use the city's height distribution (15% or 0.15).
+* **P(B):** The probability the witness would say "tall" regardless of the attacker's actual height.  This is trickier and requires considering both scenarios (attacker is tall and witness is right, or attacker is short and witness is wrong):
+    * P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)]
+    * P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29 
+
+**Calculation**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(A|B) = (0.8 * 0.15) / 0.29 
+P(A|B) ≈ 0.414
+
+**Answer**
+
+{probability: 0.414}
+
+**Conclusion**
+
+Even though the first witness claimed the attacker was tall, considering the witness's accuracy and the city's height distribution, there's only about a 41.4% probability the attacker was actually 185cm or taller. 

@@ -1,0 +1,69 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability:**  We know from the city's population data that there's a 15% chance a randomly chosen person is 185cm or taller. This is our prior belief before considering witness testimonies.
+* **Witness Reliability:** Each witness has a certain accuracy in judging height, which is crucial for updating our belief.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem provides a framework for updating our beliefs based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A (attacker being 185cm or taller) given that event B (witness testimonies) has occurred.
+* P(B|A): Probability of event B (witness testimonies) happening given that event A (attacker being 185cm or taller) is true.
+* P(A):  Prior probability of event A (attacker being 185cm or taller) - 0.15
+* P(B): Probability of event B (witness testimonies) happening.
+
+**Calculating the Pieces**
+
+* **P(B|A):** Let's break this down:
+    * If the attacker *was* 185cm or taller, the first witness would have correctly identified it with 80% probability (and been wrong with 20% probability).
+    * The second witness would have incorrectly identified the height with 30% probability (and been correct with 70% probability).
+
+* **P(B):** This is the probability of getting the specific witness testimonies we did. It's a bit trickier to calculate directly. We need to consider both scenarios (attacker taller than 185cm and attacker shorter than 185cm) and how likely the testimonies are in each. 
+
+**Simplifying the Calculation**
+
+Since calculating P(B) directly is complex, we can use a shortcut for this problem.  We're interested in the *ratio* of probabilities: the probability the attacker was 185cm or taller *given* the testimonies, compared to the probability they were shorter.
+
+This ratio can be expressed using the odds form of Bayes' Theorem:
+
+```
+Odds(A|B) = Likelihood Ratio * Prior Odds
+```
+
+Where:
+
+* **Odds(A|B):**  The odds of the attacker being 185cm or taller given the testimonies.
+* **Likelihood Ratio:** The ratio of the likelihood of the testimonies given the attacker *is* 185cm or taller, compared to the likelihood given they are *shorter* than 185cm.
+* **Prior Odds:**  The prior odds of the attacker being 185cm or taller (0.15 / 0.85)
+
+**Calculating the Likelihood Ratio**
+
+* **Scenario 1: Attacker is 185cm or taller**
+    * Likelihood of testimonies: 0.8 (witness 1 correct) * 0.3 (witness 2 incorrect) = 0.24 
+* **Scenario 2: Attacker is shorter than 185cm**
+    * Likelihood of testimonies: 0.2 (witness 1 incorrect) * 0.7 (witness 2 correct) = 0.14
+
+* **Likelihood Ratio:** 0.24 / 0.14 = approximately 1.71
+
+**Final Calculation**
+
+1. **Prior Odds:** 0.15 / 0.85 = approximately 0.176
+2. **Posterior Odds:**  1.71 (likelihood ratio) * 0.176 (prior odds) = approximately 0.301
+
+**Converting Odds to Probability**
+
+Odds of 0.301 mean a probability of  0.301 / (1 + 0.301) = approximately 0.231
+
+**Answer:**
+
+{probability: 0.231} 
+
+**Conclusion**
+
+Taking into account both the city's height distribution and the reliability of the witnesses, the estimated probability that the attacker was 185cm or taller is about 0.231 or 23.1%. 

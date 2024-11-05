@@ -1,0 +1,47 @@
+Here's how to approach this problem, breaking it down into parts:
+
+**1. Prior Probability:**
+
+* The prior probability of the attacker being male is simply the percentage of males in the city, which is 15%.  We can represent this as: 
+   * P(Male) = 0.15
+
+**2. Witness Reliability:**
+
+* The witness has an 80% accuracy rate in identifying gender under similar conditions. This means:
+   * P(Correctly Identified as Male | Actually Male) = 0.80 
+   * P(Incorrectly Identified as Male | Actually Female) = 0.20
+
+**3. Bayes' Theorem**
+
+To combine the prior probability with the witness testimony, we'll use Bayes' Theorem. Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) is the probability of event A happening given that event B has already happened. In our case, this is the probability the attacker is male (A) given the witness said it was male (B).
+* P(B|A) is the probability of event B happening given that event A has already happened. In our case, it's the probability the witness would identify the attacker as male (B) given the attacker is actually male (A) - which is 80% or 0.8.
+* P(A) is the prior probability of event A happening. This is the probability the attacker is male (0.15).
+* P(B) is the probability of event B happening (regardless of whether A happened or not).  This is a little trickier to calculate directly, so we'll break it down:
+
+**4. Calculating P(B) - Probability of Witness Saying "Male"**
+
+There are two ways the witness could say "male":
+
+* **Case 1:** The attacker is actually male, and the witness is correct.
+   * P(This case) = P(Male) * P(Correctly Identified as Male | Actually Male) = 0.15 * 0.80 = 0.12
+
+* **Case 2:** The attacker is actually female, and the witness is incorrect.
+   * P(This case) = P(Female) * P(Incorrectly Identified as Male | Actually Female) = 0.85 * 0.20 = 0.17
+
+* P(B) is the sum of the probabilities of these two cases: 0.12 + 0.17 = 0.29
+
+**5. Putting it all together in Bayes' Theorem:**
+
+P(Attacker is Male | Witness said Male) = (0.80 * 0.15) / 0.29 = 0.4138
+
+**Answer:**
+
+{probability: 0.4138} 
+
+**Therefore, the estimated probability that the attacker is male, given the witness testimony and the city's demographics, is approximately 41.38%.** 

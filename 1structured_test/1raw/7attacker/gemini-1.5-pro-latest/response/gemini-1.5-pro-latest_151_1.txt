@@ -1,0 +1,51 @@
+Here's how to approach this problem, breaking it down into parts:
+
+**1. Understanding the Information**
+
+* **Witness Reliability (a):** The witness is 80% accurate in judging height under similar conditions. This means:
+    * If the attacker *was* 185cm or taller, there's an 80% chance the witness is right.
+    * If the attacker *wasn't* 185cm or taller, there's a 20% chance the witness is wrong (and thus claiming they *were* tall).
+
+* **Population Distribution (b):** This gives us the general likelihood of someone in the city being 185cm or taller (15%) or shorter (85%).
+
+**2. Applying Bayes' Theorem**
+
+This problem is about revising our belief about the attacker's height given new evidence (the witness testimony). Bayes' Theorem is the tool for this:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B happened.
+* P(B|A): Probability of event B happening given that event A happened.
+* P(A): Prior probability of event A happening.
+* P(B): Prior probability of event B happening.
+
+**3.  Defining Events and Probabilities**
+
+* Let "Tall" be the event that the attacker is 185cm or taller.
+* Let "Witness Says Tall" be the event that the witness identifies the attacker as 185cm or taller.
+
+We want to find: P(Tall | Witness Says Tall) 
+
+Let's break down the other probabilities:
+
+* P(Witness Says Tall | Tall) = 0.8 (80% accurate when the person is tall)
+* P(Tall) = 0.15 (15% of the population is tall)
+* P(Witness Says Tall) = This is trickier. The witness might say "tall" correctly (true positive) or incorrectly (false positive).  We calculate this as:
+    * P(Witness Says Tall) = [P(Witness Says Tall | Tall) * P(Tall)] + [P(Witness Says Tall | Not Tall) * P(Not Tall)]
+    * P(Witness Says Tall) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+**4. Calculation**
+
+Now we have all the pieces for Bayes' Theorem:
+
+P(Tall | Witness Says Tall) = (0.8 * 0.15) / 0.29 = 0.4138 
+
+**Answer:**
+
+{probability: 0.4138}
+
+**Conclusion:**
+
+Given the witness testimony and the population distribution, there is approximately a 41.38% probability that the attacker was indeed 185cm or taller. 

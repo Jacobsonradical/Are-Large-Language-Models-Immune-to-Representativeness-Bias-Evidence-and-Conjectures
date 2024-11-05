@@ -1,0 +1,38 @@
+To estimate the probability that the attacker was 185 cm or taller given the witness testimonies and their accuracies, we can use Bayes' theorem. Let's define:
+
+- \( H \) as the hypothesis that the attacker was 185 cm or taller.
+- \( E1 \) as the event that witness 1 observed the attacker to be 185 cm or taller.
+- \( E2 \) as the event that witness 2 observed the attacker to be shorter than 185 cm.
+
+Given the information:
+- \( P(H) = 0.15 \) (15% are 185 cm or taller)
+- \( P(\neg H) = 0.85 \) (85% are shorter than 185 cm)
+- Witness 1 has a correct identification rate of 80% for both <185 cm and ≥185 cm:
+  - \( P(E1 | H) = 0.8 \) (probability that witness 1 correctly identifies someone as ≥185 cm given they are ≥185 cm)
+  - \( P(E1 | \neg H) = 0.2 \) (probability that witness 1 incorrectly identifies someone as ≥185 cm given they are actually <185 cm)
+- Witness 2 has a correct identification rate of 70% for both:
+  - \( P(E2 | H) = 0.3 \) (probability that witness 2 incorrectly identifies someone as <185 cm given they are ≥185 cm)
+  - \( P(E2 | \neg H) = 0.7 \) (probability that witness 2 correctly identifies someone as <185 cm given they are actually <185 cm)
+
+We want to find \( P(H | E1, E2) \) - the probability the attacker was ≥185 cm given both witnesses' observations. By Bayes' theorem and considering the independence of witness testimonies given the attacker's height:
+
+\[
+P(H | E1, E2) = \frac{P(E1, E2 | H) P(H)}{P(E1, E2)}
+\]
+
+Where:
+- \( P(E1, E2 | H) = P(E1 | H)P(E2 | H) = 0.8 \times 0.3 = 0.24 \)
+- \( P(E1, E2 | \neg H) = P(E1 | \neg H)P(E2 | \neg H) = 0.2 \times 0.7 = 0.14 \)
+- \( P(E1, E2) = P(E1, E2 | H)P(H) + P(E1, E2 | \neg H)P(\neg H) \)
+  - \(= 0.24 \times 0.15 + 0.14 \times 0.85 \)
+  - \(= 0.036 + 0.119 \)
+  - \(= 0.155 \)
+
+So:
+\[
+P(H | E1, E2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+Therefore:
+
+{probability: 0.232}

@@ -1,0 +1,43 @@
+To solve this problem, we first need to calculate the prior probabilities and the likelihoods involved. 
+
+The prior probabilities are the probabilities of selecting either deck A or deck B before any cards are drawn:
+
+P(A) = 1/2 (since either deck is equally likely to be chosen)
+
+P(B) = 1/2
+
+Next, we calculate the likelihoods of drawing 3 X's and 1 O from each deck, given that the deck has the stated proportions of X's and O's.
+
+For deck A, where 2/3 of the cards are X's, we can calculate the probability of drawing 3 X's and 1 O as:
+
+P(3X, 1O | A) = (2/3)*(2/3)*(2/3)*(1/3) = 16/81
+
+For deck B, where only 1/3 of the cards are X's, the probability of drawing 3 X's and 1 O is much lower:
+
+P(3X, 1O | B) = (1/3)*(1/3)*(1/3)*(2/3) = 2/81
+
+Now, we can calculate the posterior probabilities of having drawn from deck A or deck B, given that we have observed 3 X's and 1 O. Using Bayes' theorem:
+
+P(A | 3X, 1O) = P(3X, 1O | A) * P(A) / P(3X, 1O)
+
+P(B | 3X, 1O) = P(3X, 1O | B) * P(B) / P(3X, 1O)
+
+We can simplify these expressions by noting that the prior probabilities and likelihoods are the same for both decks:
+
+P(3X, 1O) = P(3X, 1O | A) * P(A) + P(3X, 1O | B) * P(B)
+
+P(3X, 1O) = (16/81)*(1/2) + (2/81)*(1/2)
+
+P(3X, 1O) = 18/162
+
+Now we can calculate the posterior odds:
+
+Odds(A : B | 3X, 1O) = P(A | 3X, 1O) / P(B | 3X, 1O)
+
+Odds(A : B | 3X, 1O) = [(16/81)*(1/2) / (18/162)] / [(2/81)*(1/2) / (18/162)]
+
+Odds(A : B | 3X, 1O) = (16/18) / (2/18)
+
+Odds(A : B | 3X, 1O) = 8/1
+
+So the posterior odds that the 4 cards were drawn from deck A, given that 3 are marked X and 1 are marked O, are 8:1.

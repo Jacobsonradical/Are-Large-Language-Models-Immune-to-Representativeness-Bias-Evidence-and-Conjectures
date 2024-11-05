@@ -1,0 +1,47 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability:** The population distribution gives us a *prior probability* of the attacker being male (15%) or female (85%). 
+* **Witness Reliability:** The witness isn't perfect. Their accuracy provides us with a way to update our prior probability.
+* **Goal:** We want to find the *posterior probability* - the probability the attacker is male *given* the witness's testimony.
+
+**Using Bayes' Theorem**
+
+Bayes' Theorem is ideal for this kind of problem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A (attacker is male) given event B (witness says male)
+* P(B|A): Probability of event B (witness says male) given event A (attacker is male) - This is the witness's accuracy for identifying males (80%)
+* P(A): Prior probability of event A (attacker is male) - This is 15%
+* P(B): Probability of event B (witness says male) - This needs to be calculated
+
+**Calculating P(B)**
+
+P(B) can be thought of as the probability the witness would say "male" regardless of the attacker's actual gender.  We can calculate this using the law of total probability:
+
+P(B) = P(B|A) * P(A) + P(B|~A) * P(~A)
+
+Where:
+
+* P(B|~A): Probability of witness saying "male" given the attacker is *female*. Since the witness is wrong 20% of the time, this is 20%.
+* P(~A): Probability the attacker is female (85%)
+
+P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+**Calculating the Posterior Probability**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(Attacker is Male | Witness says Male) = (0.8 * 0.15) / 0.29 = 0.4138
+
+**Answer:**
+
+{probability: 0.4138} 
+
+**Conclusion:**
+
+While the attacker being male was initially less likely, the witness's testimony significantly increases the probability to approximately 41.38%. 

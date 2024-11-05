@@ -1,0 +1,36 @@
+To solve this problem, we employ Bayes' theorem. Bayes' theorem in this context is used to update the probability estimate for the height of the attacker based on the witness testimonials. Let:
+- \( H \) represent the hypothesis that the attacker's height is 185 cm or taller,
+- \( \neg H \) be the hypothesis that the attacker's height is shorter than 185 cm.
+
+From the information given:
+- \( P(H) = 0.15 \) (15% of the population is 185 cm or taller),
+- \( P(\neg H) = 0.85 \) (85% of the population is shorter than 185 cm).
+
+We also have two witnesses with given accuracies of their height identification:
+- Witness 1: Correctly identifies \( H \) 80% of the time \( P(W_1|H) = 0.8 \), incorrectly identifies \( H \) 20% of the time as \( \neg H \), so \( P(W_1|\neg H) = 0.2 \).
+- Witness 2: Correctly identifies \( \neg H \) 70% of the time \( P(W_2|\neg H) = 0.7 \), incorrectly identifies \( \neg H \) 30% of the time as \( H \), so \( P(W_2|H) = 0.3 \).
+
+These witnesses give opposing testimonials:
+- Let's use \( W_1 \) to denote the event that Witness 1 claims the attacker is 185 cm or taller,
+- \( W_2 \) to denote the event that Witness 2 claims the attacker is shorter than 185 cm.
+
+We aim to compute \( P(H|W_1, W_2) \). By Bayes' theorem, this is given by:
+\[ P(H|W_1, W_2) = \frac{P(W_1, W_2|H) P(H)}{P(W_1, W_2)} \]
+
+Where:
+\[ P(W_1, W_2|H) = P(W_1|H)P(W_2|H) = 0.8 \times 0.3 = 0.24 \]
+\[ P(W_1, W_2|\neg H) = P(W_1|\neg H)P(W_2|\neg H) = 0.2 \times 0.7 = 0.14 \]
+
+The total probability \( P(W_1, W_2) \) is:
+\[ P(W_1, W_2) = P(W_1, W_2|H)P(H) + P(W_1, W_2|\neg H)P(\neg H) = 0.24 \times 0.15 + 0.14 \times 0.85 \]
+\( P(W_1, W_2) = 0.036 + 0.119 = 0.155 \)
+
+Thus,
+\[ P(H|W_1, W_2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Therefore, the probability that the attacker's height was 185 cm or taller, given the testimonies of both witnesses, is approximately 0.232.
+
+This is represented as:
+{
+  "probability": 0.232
+}

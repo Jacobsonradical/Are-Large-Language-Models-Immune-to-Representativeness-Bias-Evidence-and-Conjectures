@@ -1,0 +1,42 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability:** The information about the city's population gives us a *prior probability* of the attacker being male (15%) or female (85%).  This is our starting point.
+* **Witness Testimony & Likelihood:** The witness testimony provides evidence that needs to be incorporated. We have information about the witness's reliability (80% accuracy). This allows us to calculate the *likelihood* of the witness saying "male" given that the attacker is actually male, and the *likelihood* of the witness saying "male" given that the attacker is actually female.
+* **Posterior Probability:** Our goal is to find the *posterior probability* – the probability that the attacker is male *given* that the witness said "male."
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem provides a framework for updating our belief in light of new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B):  Probability of event A (attacker is male) given event B (witness said "male").
+* P(B|A): Probability of event B (witness said "male") given event A (attacker is male) = 0.8 (80% accuracy)
+* P(A): Prior probability of event A (attacker is male) = 0.15 
+* P(B): Probability of event B (witness said "male"). This can be calculated using the law of total probability:
+    * P(B) = P(B|A) * P(A)  +  P(B|~A) * P(~A)
+    * Where ~A represents the event "attacker is female"
+
+**Calculations**
+
+1. **P(B|~A):** Probability of the witness saying "male" given the attacker is female. This is the witness's error rate, which is 0.2 (20%).
+
+2. **P(~A):** Prior probability of the attacker being female = 0.85
+
+3. **P(B):** 
+   * P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+4. **P(A|B):**
+   * P(A|B) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Result**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+The probability that the attacker is male, given the witness testimony, is approximately 41.4%. While the witness's testimony increases the likelihood compared to the population's gender ratio, it's important to note that the witness is not perfectly reliable. 

@@ -1,0 +1,44 @@
+Here's how we can estimate the probability:
+
+**Understanding the Problem**
+
+We need to find the probability that the attacker was actually 185cm or taller *given* that the first witness said so. This means we're dealing with conditional probability.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this situation:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B already happened.
+* P(B|A): Probability of event B happening given that event A already happened.
+* P(A): Probability of event A happening.
+* P(B): Probability of event B happening.
+
+**Defining Our Events**
+
+* Event A: The attacker is 185cm or taller.
+* Event B: The first witness claims the attacker is 185cm or taller.
+
+**Calculating the Probabilities**
+
+* P(A): Prior probability of attacker being 185cm or taller. This is the population distribution given in the problem: 0.15
+* P(B|A): Probability the witness says the attacker is 185cm or taller *given* the attacker is actually 185cm or taller. This is the witness's accuracy for this height range: 0.80
+* P(B): Probability the witness says the attacker is 185cm or taller (regardless of actual height). This is a bit trickier. We need to consider both scenarios:
+    * The attacker *is* tall, and the witness is right:  0.15 (attacker is tall) * 0.80 (witness correct) = 0.12
+    * The attacker is *short*, and the witness is wrong: 0.85 (attacker is short) * 0.30 (witness incorrect) = 0.255
+    * Total probability of the witness saying "tall": 0.12 + 0.255 = 0.375
+
+**Putting it All Together**
+
+P(A|B) = (0.80 * 0.15) / 0.375 = 0.32
+
+**Answer:**
+
+{probability: 0.32}
+
+**Conclusion**
+
+The probability that the attacker was actually 185cm or taller, given the first witness's statement, is 0.32 or 32%.  It's important to note that this is still relatively low, even though the witness has a decent accuracy rate. This is because the prior probability of someone being that tall in the population is low. 

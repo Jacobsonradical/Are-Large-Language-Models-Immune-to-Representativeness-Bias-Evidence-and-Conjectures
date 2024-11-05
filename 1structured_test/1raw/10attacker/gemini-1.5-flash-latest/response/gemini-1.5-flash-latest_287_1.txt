@@ -1,0 +1,44 @@
+Here's how we can calculate the probability:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Witness Testimony:**  We know the accuracy of each witness in identifying heights.
+* **Population Statistics:** We know the proportion of people in the city who are taller or shorter than 185 cm.
+
+We need to combine this information to estimate the probability that the attacker was taller than 185 cm, given the conflicting witness statements.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem helps us calculate conditional probabilities. In this case, we want to find:
+
+P(Attacker is taller | Witness 1 says taller) 
+
+Let's break down the terms:
+
+* **P(Attacker is taller | Witness 1 says taller):**  The probability the attacker is taller, given Witness 1 says so. This is what we want to find.
+* **P(Witness 1 says taller | Attacker is taller):** The probability Witness 1 says the attacker is taller, given they actually are taller (this is 80% from the information provided).
+* **P(Attacker is taller):** The prior probability of the attacker being taller, which is 15% from the population statistics.
+* **P(Witness 1 says taller):** The probability Witness 1 says the attacker is taller, regardless of the actual height. This is calculated using the law of total probability:  P(Witness 1 says taller) = P(Witness 1 says taller | Attacker is taller) * P(Attacker is taller) + P(Witness 1 says taller | Attacker is shorter) * P(Attacker is shorter) 
+
+**Calculations**
+
+1. **Calculate P(Witness 1 says taller):**
+   * P(Witness 1 says taller | Attacker is taller) = 0.8
+   * P(Witness 1 says taller | Attacker is shorter) = 0.2 (since they are wrong 20% of the time)
+   * P(Attacker is shorter) = 0.85
+   * P(Witness 1 says taller) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2. **Apply Bayes' Theorem:**
+   P(Attacker is taller | Witness 1 says taller) = [P(Witness 1 says taller | Attacker is taller) * P(Attacker is taller)] / P(Witness 1 says taller)
+   P(Attacker is taller | Witness 1 says taller) = (0.8 * 0.15) / 0.29
+   P(Attacker is taller | Witness 1 says taller) ≈ 0.414
+
+**Answer**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+Given the information about the witnesses' accuracy and the city's population statistics, there is approximately a 41.4% probability that the attacker was 185 cm or taller, even though Witness 1 claimed so. This is significantly lower than the witness's accuracy rate, reflecting the impact of the prior probability of a person being that height in the population. 

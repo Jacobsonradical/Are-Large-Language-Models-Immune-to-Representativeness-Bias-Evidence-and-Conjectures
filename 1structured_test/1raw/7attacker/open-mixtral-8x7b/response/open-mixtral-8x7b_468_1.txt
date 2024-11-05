@@ -1,0 +1,38 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information about the witness's ability to judge a person's height and the distribution of heights in the city's population.
+
+Let's denote:
+- P(A): probability that the attacker's height was 185 cm or taller
+- P(W_T): probability that the witness identified the attacker's height as 185 cm or taller
+- P(W_F): probability that the witness identified the attacker's height as shorter than 185 cm
+- P(S): probability that a person is shorter than 185 cm in the city's population
+- P(T): probability that a person is 185 cm or taller in the city's population
+
+From the given information, we know the following:
+1. P(T) = 0.15
+2. P(S) = 0.85
+3. P(W_T | T) = 0.8 (witness correctly identified the height in 80% of cases when the person is 185 cm or taller)
+4. P(W_F | S) = 0.2 (witness erred in 20% of cases when the person is shorter than 185 cm)
+
+We want to find P(T), so let's use Bayes' theorem:
+
+P(T) = P(T | W_T) * P(W_T) / [P(T | W_T) * P(W_T) + P(S | W_F) * P(W_F)]
+
+To compute this, first, notice that P(W_T) = P(T) * P(W_T | T) + P(S) * P(W_T | S). However, we don't know P(W_T | S) and P(W_F | T), but they are equal due to symmetry:
+
+P(W_T | S) = P(W_F | T) = 1 - P(W_F | S) = 1 - 0.2 = 0.8
+
+Now we can compute P(W_T):
+
+P(W_T) = P(T) * P(W_T | T) + P(S) * P(W_T | S) = 0.15 * 0.8 + 0.85 * 0.8 = 0.68
+
+Similarly, we can compute P(W_F):
+
+P(W_F) = P(S) * P(W_F | S) + P(T) * P(W_F | T) = 0.85 * 0.2 + 0.15 * 0.2 = 0.19
+
+Now we can compute P(T) using Bayes' theorem:
+
+P(T) = P(T | W_T) * P(W_T) / [P(T | W_T) * P(W_T) + P(S | W_F) * P(W_F)] = 0.8 * 0.68 / (0.8 * 0.68 + 0.19) ≈ 0.81
+
+So, the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.81}

@@ -1,0 +1,47 @@
+To calculate the posterior odds, we first need to find the probabilities of drawing 3X and 1O cards from each deck, then use Bayes' theorem.
+
+Let's denote the event of drawing 3X and 1O cards from deck A as A31, and the event of drawing 3X and 1O cards from deck B as B31.
+
+The probability of A31 occurring is given by the number of ways to choose 3X and 1O cards from deck A divided by the total number of ways to choose 4 cards from deck A:
+
+P(A31) = C(6, 3) * C(12, 1) / C(48, 4)
+
+where C(n, k) is the number of combinations of choosing k items from a set of n items.
+
+Similarly, the probability of B31 occurring is given by:
+
+P(B31) = C(18, 3) * C(12, 1) / C(48, 4)
+
+Now, we have the prior probabilities of drawing from deck A and deck B:
+
+P(A) = 2/3
+P(B) = 1/3
+
+Now, we can calculate the posterior odds:
+
+odds = P(A|A31) / P(B|A31)
+
+We can write the numerator as:
+
+P(A|A31) = P(A31|A) * P(A) / P(A31)
+
+And the denominator as:
+
+P(B|A31) = P(A31|B) * P(B) / P(A31)
+
+Since P(A31) is common to both numerator and denominator, we can cancel it out:
+
+odds = [P(A31|A) * P(A)] / [P(A31|B) * P(B)]
+
+Since A31 is dependent only on the deck chosen, we can write:
+
+P(A31|A) = P(A31)
+P(A31|B) = 0 (since it's impossible to draw 3X and 1O from deck B with this probability distribution)
+
+So, the posterior odds are:
+
+odds = (P(A) * P(A31)) / (0 * P(B))
+
+odds = (2/3) / (0)
+
+Since the denominator is zero, the odds are undefined in this situation. This means that given the observation of 3X and 1O cards, it's impossible to draw a conclusion about whether the cards were drawn from deck A or deck B based on this information. This is because the probability distribution of deck B does not allow for the observed event to occur.

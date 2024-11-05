@@ -1,0 +1,68 @@
+Here's how we can approach this problem using Bayesian reasoning:
+
+**Let's define the events:**
+
+* **A:** The attacker is 185 cm or taller.
+* **B:** The attacker is shorter than 185 cm.
+* **W1:** Witness 1 claims the attacker is 185 cm or taller.
+* **W2:** Witness 2 claims the attacker is shorter than 185 cm.
+
+**We are given:**
+
+* **P(A):** Prior probability the attacker is 185cm or taller = 0.15 (from population data)
+* **P(B):** Prior probability the attacker is shorter than 185cm = 0.85 
+* **P(W1|A):** Probability witness 1 claims "185cm or taller" given the attacker IS actually that tall = 0.80
+* **P(W1|B):** Probability witness 1 claims "185cm or taller" given the attacker is NOT that tall = 0.20 (they are wrong 20% of the time)
+* **P(W2|A):** Probability witness 2 claims "shorter than 185cm" given the attacker IS actually 185cm or taller = 0.20 (they are wrong 20% of the time)
+* **P(W2|B):** Probability witness 2 claims "shorter than 185cm" given the attacker IS actually shorter = 0.70
+
+**We want to find:**
+
+* **P(A|W1, W2):**  The probability the attacker is 185cm or taller given both witness testimonies.
+
+**Applying Bayes' Theorem:**
+
+It's complex to apply Bayes' directly with both witnesses. Instead, let's calculate separately the impact of each witness's statement on the probability:
+
+**1. Impact of Witness 1:**
+
+```
+P(A|W1) = [P(W1|A) * P(A)] / P(W1) 
+```
+
+To calculate P(W1), we use the law of total probability:
+
+```
+P(W1) = [P(W1|A) * P(A)] + [P(W1|B) * P(B)] 
+       = (0.80 * 0.15) + (0.20 * 0.85) 
+       = 0.29
+```
+
+Now we can find P(A|W1):
+
+```
+P(A|W1) = (0.80 * 0.15) / 0.29 
+       = 0.414
+```
+
+**2. Impact of Witness 2 (given what we know from Witness 1):**
+
+Now we treat P(A|W1) as our new prior. We want to find:
+
+```
+P(A|W1, W2) = [P(W2|A, W1) * P(A|W1)] / P(W2|W1)
+```
+
+Assuming the witnesses' judgments are independent (one doesn't influence the other):
+
+* P(W2|A, W1) = P(W2|A) = 0.20 
+* P(W2|W1) is calculated similarly to P(W1) before, but using our updated P(A|W1)
+
+Calculating P(W2|W1) is left as an exercise for brevity, but follows the same logic as calculating P(W1). Once you have that value, you can plug it into the equation above to find P(A|W1, W2).
+
+**Important Notes:**
+
+* This calculation assumes the witnesses' judgments are independent. If they could influence each other, the calculation becomes more complex.
+* We are using the population data (15% being 185cm or taller) as our prior.  If there's reason to believe the attacker might come from a different subset of the population, this would change the prior.
+
+**Please let me know if you'd like me to elaborate on the calculation of P(W2|W1).** 

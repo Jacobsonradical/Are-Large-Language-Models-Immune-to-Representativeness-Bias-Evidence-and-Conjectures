@@ -1,0 +1,35 @@
+To solve this question, we should start by calculating the likelihood of drawing 3 cards marked X and 1 card marked O from each deck, then use Bayes' theorem to update our beliefs (prior probabilities) about which deck (A or B) the cards were drawn from. 
+
+**Step 1: Define the Problem**
+- Let \( A \) be the event the deck chosen is A.
+- Let \( B \) be the event the deck chosen is B.
+- Let \( X \) be the event of drawing 3 cards marked X and 1 card marked O.
+
+**Step 2: Compute likelihoods**
+The probability of drawing 3 X's and 1 O from deck A (\( P(X|A) \)):
+\[ P(X|A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \times \left(\frac{8}{27}\right) \times \left(\frac{1}{3}\right) = \frac{32}{81} \]
+
+The probability of drawing 3 X's and 1 O from deck B (\( P(X|B) \)):
+\[ P(X|B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \times \left(\frac{1}{27}\right) \times \left(\frac{2}{3}\right) = \frac{8}{81} \]
+
+**Step 3: Prior probabilities**
+Assuming we have no information favoring one deck over the other:
+\[ P(A) = P(B) = \frac{1}{2} \]
+
+**Step 4: Apply Bayes' Theorem**
+Use Bayes' Theorem to update our prior belief about which deck was chosen based on the evidence:
+\[ P(A|X) = \frac{P(X|A)P(A)}{P(X)} \text{ and similarly for } P(B|X) \]
+
+First, compute the total probability of \( X \) using the law of total probability:
+\[ P(X) = P(X|A)P(A) + P(X|B)P(B) = \left(\frac{32}{81} \cdot \frac{1}{2}\right) + \left(\frac{8}{81} \cdot \frac{1}{2}\right) = \frac{32}{162} + \frac{8}{162} = \frac{40}{162} = \frac{20}{81} \]
+
+Now update:
+\[ P(A|X) = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = \frac{4}{5} \]
+\[ P(B|X) = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = \frac{1}{5} \]
+
+**Step 5: Calculate the Posterior Odds**
+The posterior odds for \( A \) versus \( B \) can be calculated from \( P(A|X) \) and \( P(B|X) \):
+\[ \text{Odds} = \frac{P(A|X)}{P(B|X)} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4 \]
+
+**Final Answer:**
+{odds: 4}

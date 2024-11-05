@@ -1,0 +1,50 @@
+To find the posterior odds, we first need to calculate the probabilities of drawing 3 X's and 1 O from each deck, given that they have different proportions of X's and O's.
+
+Let P(DeckA) be the probability of drawing from Deck A and P(DeckB) be the probability of drawing from Deck B.
+
+The probability of drawing 3 X's and 1 O from Deck A can be calculated as:
+
+P(3X, 1O | DeckA) = C(13, 3) * (2/3)^3 * (1/3)^1
+                  = 286 / 27
+
+The probability of drawing 3 X's and 1 O from Deck B can be calculated as:
+
+P(3X, 1O | DeckB) = C(10, 3) * (1/3)^3 * (2/3)^1
+                  = 120 / 27
+
+Now, let's calculate the prior probabilities of drawing from either deck:
+
+P(DeckA) = Number of ways to choose Deck A / Total number of decks
+          = 1 / (Number of DeckA + Number of DeckB)
+          = 1 / (2)
+
+P(DeckB) = 1 - P(DeckA)
+          = 1 / 2
+
+Now, calculate the likelihood of the observed event (drawing 3 X's and 1 O) given each deck:
+
+L(ObservedEvent | DeckA) = P(3X, 1O | DeckA) * P(DeckA)
+                      = (286/27) * (1/2)
+                      = 286 / 54
+
+L(ObservedEvent | DeckB) = P(3X, 1O | DeckB) * P(DeckB)
+                      = (120/27) * (1/2)
+                      = 120 / 54
+
+Now, calculate the posterior probabilities of drawing from each deck, given the observed event:
+
+P(DeckA | ObservedEvent) = L(ObservedEvent | DeckA) / [L(ObservedEvent | DeckA) + L(ObservedEvent | DeckB)]
+                      ≈ 4.23 / 5.4
+                      ≈ 0.7811
+
+P(DeckB | ObservedEvent) = L(ObservedEvent | DeckB) / [L(ObservedEvent | DeckA) + L(ObservedEvent | DeckB)]
+                      ≈ 1.219 / 5.4
+                      ≈ 0.2222
+
+Finally, calculate the posterior odds:
+
+odds = P(DeckA | ObservedEvent) / P(DeckB | ObservedEvent)
+    ≈ 0.7811 / 0.2222
+    ≈ 3.52
+
+So the posterior odds that the 4 cards were drawn from Deck A is approximately 3.52 times greater than the odds of drawing from Deck B.

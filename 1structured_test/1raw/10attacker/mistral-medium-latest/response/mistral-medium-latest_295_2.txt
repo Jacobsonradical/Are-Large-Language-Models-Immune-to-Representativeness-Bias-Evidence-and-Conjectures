@@ -1,0 +1,48 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Let's denote:
+
+P(H) as the prior probability that a random person is 185 cm or taller, which is 0.15 according to information a.
+P(~H) as the prior probability that a random person is shorter than 185 cm, which is 0.85.
+P(W1|H) as the probability that the first witness correctly identifies someone as 185 cm or taller, given that they are, which is 0.8 according to information b.
+P(W1|~H) as the probability that the first witness incorrectly identifies someone as 185 cm or taller, given that they are not, which is 0.2 according to information b.
+P(W2|H) as the probability that the second witness correctly identifies someone as shorter than 185 cm, given that they are not 185 cm or taller, which is 0.7 according to information b.
+P(W2|~H) as the probability that the second witness incorrectly identifies someone as shorter than 185 cm, given that they are 185 cm or taller, which is 0.3 according to information b.
+
+We want to calculate P(H|W1, W2), the probability that the attacker is 185 cm or taller given the testimony of the two witnesses. Using Bayes' theorem, we have:
+
+P(H|W1, W2) = P(W1, W2|H) \* P(H) / P(W1, W2)
+
+Since the witnesses' testimonies are independent given the attacker's height, we have:
+
+P(W1, W2|H) = P(W1|H) \* P(W2|H)
+
+We know that P(W2|H) = 1 - P(W2|~H), so we can substitute that in:
+
+P(W1, W2|H) = P(W1|H) \* (1 - P(W2|~H)) = 0.8 \* (1 - 0.3) = 0.56
+
+Similarly, since the witnesses' testimonies are independent, we have:
+
+P(W1, W2|~H) = P(W1|~H) \* P(W2|~H) = 0.2 \* 0.7 = 0.14
+
+We also know that P(W1, W2) = P(W1, W2|H) \* P(H) + P(W1, W2|~H) \* P(~H), so we can substitute the values we have:
+
+P(W1, W2) = 0.56 \* 0.15 + 0.14 \* 0.85 = 0.124
+
+Now we can calculate P(H|W1, W2):
+
+P(H|W1, W2) = P(W1, W2|H) \* P(H) / P(W1, W2) = 0.56 \* 0.15 / 0.124 ≈ 0.705
+
+However, since we want to provide an estimate of the probability that the attacker is 185 cm or taller, given the testimony of the two witnesses, we should consider the possibility that the witnesses might not be accurate.
+
+To account for this uncertainty, we can use a weighted average of the prior probability P(H) and the posterior probability P(H|W1, W2), where the weights reflect our confidence in the witnesses' testimonies. Let's denote w1 and w2 as the weights assigned to the first and second witnesses, respectively, with w1 + w2 = 1.
+
+Then our estimate of the probability that the attacker is 185 cm or taller is:
+
+P(H|W1, W2, w1, w2) = w1 \* P(H|W1, W2) + w2 \* P(H)
+
+Assuming that we have equal confidence in the two witnesses, we can set w1 = w2 = 0.5. Then our estimate is:
+
+P(H|W1, W2, 0.5, 0.5) = 0.5 \* 0.705 + 0.5 \* 0.15 ≈ 0.428
+
+Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.428.
+
+{probability: 0.428}

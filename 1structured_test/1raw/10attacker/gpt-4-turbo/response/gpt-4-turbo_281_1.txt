@@ -1,0 +1,39 @@
+To solve this, we need to apply Bayes' theorem to update our prior beliefs about the attacker's height given the observations from the witnesses. We need to consider the following:
+
+- \( P(H) \): Prior probability that the attacker's height is 185 cm or taller.
+- \( P(\neg H) \): Prior probability that the attacker's height is shorter than 185 cm.
+- \( P(W_1 | H) \): Probability that witness 1 correctly identifies the attacker as 185 cm or taller given that the attacker is indeed that tall.
+- \( P(W_1 | \neg H) \): Probability that witness 1 incorrectly identifies the attacker as 185 cm or taller when the attacker is actually shorter.
+- \( P(W_2 | H) \): Probability that witness 2 incorrectly identifies the attacker as shorter than 185 cm when the attacker is actually taller.
+- \( P(W_2 | \neg H) \): Probability that witness 2 correctly identifies the attacker as shorter than 185 cm when that is indeed the case.
+
+The prior probabilities are given by the distribution in the population:
+- \( P(H) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg H) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+The accuracy of the witnesses is described as follows:
+- \( P(W_1 | H) = 0.8 \) (Witness 1 is correct 80% of the time if the attacker is indeed 185 cm or taller)
+- \( P(W_1 | \neg H) = 0.2 \) (20% chance Witness 1 incorrectly identifies someone shorter than 185 cm as being 185 cm or taller)
+- \( P(W_2 | H) = 0.3 \) (30% chance Witness 2 incorrectly identifies someone 185 cm or taller as being shorter)
+- \( P(W_2 | \neg H) = 0.7 \) (70% chance Witness 2 is correct if the attacker is shorter than 185 cm)
+
+To calculate \( P(H | W_1, W_2) \) (probability that the attacker is 185 cm or taller given both witnesses' testimony), we apply Bayes' Theorem:
+\[ P(H | W_1, W_2) = \frac{P(W_1, W_2 | H) P(H)}{P(W_1, W_2)} \]
+where
+\[ P(W_1, W_2 | H) = P(W_1 | H) P(W_2 | H) \]
+\[ P(W_1, W_2 | \neg H) = P(W_1 | \neg H) P(W_2 | \neg H) \]
+\[ P(W_1, W_2) = P(W_1, W_2 | H) P(H) + P(W_1, W_2 | \neg H) P(\neg H) \]
+
+Substituting values:
+\[ P(W_1, W_2 | H) = 0.8 \times 0.3 = 0.24 \]
+\[ P(W_1, W_2 | \neg H) = 0.2 \times 0.7 = 0.14 \]
+\[ P(W_1, W_2) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Then:
+\[ P(H | W_1, W_2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Therefore, the probability that the attacker is 185 cm or taller, given both witnesses' testimonies, is approximately 0.232.
+
+{
+  "probability": 0.232
+}

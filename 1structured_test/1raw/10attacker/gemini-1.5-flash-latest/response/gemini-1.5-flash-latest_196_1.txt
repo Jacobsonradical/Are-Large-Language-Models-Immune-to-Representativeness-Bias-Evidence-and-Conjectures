@@ -1,0 +1,58 @@
+Here's how to break down the problem and calculate the probability:
+
+**1.  Understanding the Information:**
+
+* **General Population:** 85% of the city's population is shorter than 185 cm, and 15% are 185 cm or taller.
+* **Witness 1:** Correctly identifies height 80% of the time, meaning they misidentify 20% of the time.
+* **Witness 2:** Correctly identifies height 70% of the time, meaning they misidentify 30% of the time.
+
+**2.  Bayesian Approach:**
+
+We can use Bayesian reasoning to update our belief about the attacker's height based on the witness testimonies.
+
+* **Prior Probability:**  The prior probability of the attacker being 185 cm or taller is 15% (based on the city's population distribution).
+
+* **Likelihoods:** 
+    * Likelihood of Witness 1 saying "taller" given the attacker *is* taller: 80% 
+    * Likelihood of Witness 1 saying "taller" given the attacker *is not* taller: 20% 
+    * Likelihood of Witness 2 saying "shorter" given the attacker *is* taller: 30%
+    * Likelihood of Witness 2 saying "shorter" given the attacker *is not* taller: 70%
+
+**3.  Calculation:**
+
+We need to consider the combined evidence from both witnesses.  Since Witness 1 claimed "taller" and Witness 2 claimed "shorter," we're interested in the probability of the attacker being taller, given these conflicting testimonies.
+
+Let's use the following notation:
+
+*  A = Attacker is 185 cm or taller
+*  ¬A = Attacker is shorter than 185 cm
+*  W1 = Witness 1 says "taller"
+*  W2 = Witness 2 says "shorter"
+
+We want to find P(A | W1, W2), the probability of the attacker being taller given both testimonies. 
+
+Using Bayes' Theorem:
+
+P(A | W1, W2) = [P(W1, W2 | A) * P(A)] / P(W1, W2)
+
+To calculate P(W1, W2), we need to consider all possible scenarios:
+
+P(W1, W2) = P(W1, W2 | A) * P(A) + P(W1, W2 | ¬A) * P(¬A)
+
+Let's break down the calculations:
+
+* **P(W1, W2 | A):** Probability of both testimonies given the attacker is taller = 0.8 * 0.3 = 0.24
+* **P(W1, W2 | ¬A):** Probability of both testimonies given the attacker is shorter = 0.2 * 0.7 = 0.14
+* **P(W1, W2):**  0.24 * 0.15 + 0.14 * 0.85 = 0.179
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(A | W1, W2) = (0.24 * 0.15) / 0.179 ≈ 0.201
+
+**4.  Answer:**
+
+{probability: 0.201} 
+
+**Conclusion:**
+
+Despite Witness 1's claim, the combined evidence from both witnesses actually lowers the probability of the attacker being 185 cm or taller to approximately 20.1%. This illustrates how Bayesian reasoning can update our beliefs based on new evidence, even when that evidence is conflicting. 

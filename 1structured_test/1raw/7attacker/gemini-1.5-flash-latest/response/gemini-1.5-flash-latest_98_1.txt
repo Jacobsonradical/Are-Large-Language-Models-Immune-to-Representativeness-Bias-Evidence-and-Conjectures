@@ -1,0 +1,44 @@
+Here's how to break down the problem and arrive at the estimate:
+
+**Understanding the Information**
+
+* **Information a:** This tells us about the witness's accuracy in judging height.  
+    * **True Positive:** The witness correctly identifies someone as 185 cm or taller when they actually are. This occurs 80% of the time.
+    * **False Positive:** The witness incorrectly identifies someone as 185 cm or taller when they are actually shorter. This occurs 20% of the time.
+* **Information b:** This tells us about the overall distribution of heights in the city.
+
+**Applying Bayes' Theorem**
+
+To estimate the probability that the attacker was 185 cm or taller, we can use Bayes' Theorem:
+
+P(Attacker Tall | Witness Says Tall) = [P(Witness Says Tall | Attacker Tall) * P(Attacker Tall)] / P(Witness Says Tall)
+
+Let's break down each part:
+
+* **P(Attacker Tall | Witness Says Tall):** This is the probability we're trying to find - the probability the attacker is tall given the witness said they were tall.
+* **P(Witness Says Tall | Attacker Tall):** This is the probability the witness correctly identifies someone as tall (True Positive), which is 0.8 (80%).
+* **P(Attacker Tall):** This is the prior probability of someone being tall in the city, which is 0.15 (15%).
+* **P(Witness Says Tall):** This is the probability of the witness saying someone is tall, regardless of their actual height. We need to calculate this.
+
+**Calculating P(Witness Says Tall)**
+
+We can find P(Witness Says Tall) using the law of total probability:
+
+P(Witness Says Tall) = P(Witness Says Tall | Attacker Tall) * P(Attacker Tall) + P(Witness Says Tall | Attacker Short) * P(Attacker Short)
+
+* **P(Witness Says Tall | Attacker Short):** This is the probability of a false positive (20%).
+* **P(Attacker Short):** This is the probability of someone being short in the city (85%).
+
+Therefore:
+
+P(Witness Says Tall) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+**Putting it Together**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(Attacker Tall | Witness Says Tall) = (0.8 * 0.15) / 0.29 = 0.4138 (approximately)
+
+**Answer**
+
+{probability: 0.4138} 

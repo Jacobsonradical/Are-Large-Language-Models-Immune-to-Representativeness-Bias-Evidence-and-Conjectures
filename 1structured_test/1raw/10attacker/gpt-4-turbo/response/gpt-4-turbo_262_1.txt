@@ -1,0 +1,51 @@
+To solve this problem, we can use Bayes' theorem, which allows us to update our prior belief based on new evidence. In this scenario, the likelihood of a witness correctly identifying someone’s height (either ≥185 cm or <185 cm) provides the additional information needed to update probabilities.
+
+### Step 1: Define the Prior Probability
+- **Probability of Attacker ≥ 185 cm (H1):** P(H1) = 0.15 (since 15% of the population is 185 cm or taller)
+- **Probability of Attacker < 185 cm (H2):** P(H2) = 0.85 (since 85% of the population is shorter than 185 cm)
+
+### Step 2: Define the Likelihoods based on Witnesses
+**Witness 1:**
+- **Correctly identifies ≥185 cm:** 80% (P(Report1 = H1 | H1))
+- **Incorrectly identifies <185 cm:** 20% (P(Report1 = H2 | H1))
+- **Correctly identifies <185 cm:** 80% (P(Report1 = H2 | H2))
+- **Incorrectly identifies ≥185 cm:** 20% (P(Report1 = H1 | H2))
+
+**Witness 2:**
+- **Correctly identifies ≥185 cm:** 70% (P(Report2 = H1 | H1))
+- **Incorrectly identifies <185 cm:** 30% (P(Report2 = H2 | H1))
+- **Correctly identifies <185 cm:** 70% (P(Report2 = H2 | H2))
+- **Incorrectly identifies ≥185 cm:** 30% (P(Report2 = H1 | H2))
+
+### Step 3: Apply Bayes’ Theorem
+We need to calculate the posterior probability P(H1 | Report1 = H1, Report2 = H2), the probability that the attacker's height is ≥185 cm given the conflicting reports from the witnesses.
+
+Using the law of total probability combined with Bayes’ rule:
+
+**P(H1 | Report1 = H1, Report2 = H2)** = 
+\[
+\frac{P(Report1 = H1 | H1) \times P(Report2 = H2 | H1) \times P(H1)}{P(Report1 = H1, Report2 = H2)}
+\]
+
+Where the denominator, P(Report1 = H1, Report2 = H2), is:
+\[
+P(Report1 = H1 | H1) \times P(Report2 = H2 | H1) \times P(H1) + P(Report1 = H1 | H2) \times P(Report2 = H2 | H2) \times P(H2)
+\]
+
+Filling in the probabilities:
+
+**Numerator:**
+- = \(0.8 \times 0.3 \times 0.15\)
+- = 0.036
+
+**Denominator:**
+- = \(0.8 \times 0.3 \times 0.15 + 0.2 \times 0.7 \times 0.85\)
+- = 0.036 + 0.119
+- = 0.155
+
+Thus, **P(H1 | Report1 = H1, Report2 = H2)** = \( \frac{0.036}{0.155} \) ≈ 0.232
+
+### Conclusion
+The updated probability that the attacker's height is 185 cm or taller, given the reports of both witnesses, is approximately **0.232**.
+
+{probability: 0.232}

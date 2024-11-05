@@ -1,0 +1,39 @@
+To estimate the probability that the attacker's height was 185 cm or taller, considering the witness testimonies and their accuracy, we can make use of Bayes' Theorem. Bayes' Theorem allows us to update our belief about the probability of the attacker being 185 cm or taller given the evidence provided by the witnesses.
+
+Let's denote:
+- \( H \) as the event that the attacker is 185 cm or taller.
+- \( \neg H \) as the event that the attacker is shorter than 185 cm.
+- \( W_1 \) and \( W_2 \) are events where the first witness and the second witness, respectively, claim the attacker is 185 cm or taller.
+- \( \neg W_1 \) and \( \neg W_2 \) are events where the first witness and the second witness, respectively, claim the attacker is shorter than 185 cm.
+
+Based on the provided information, the prior probabilities are:
+- \( P(H) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg H) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+The witness accuracies imply the following conditional probabilities:
+- For the first witness (\( W_1 \)):
+  - \( P(W_1 | H) = 0.8 \) (accurate when the person is tall)
+  - \( P(W_1 | \neg H) = 0.2 \) (inaccuracy when the person is short)
+- For the second witness (\( W_2 \)):
+  - \( P(W_2 | H) = 0.3 \) (inaccuracy when the person is tall)
+  - \( P(W_2 | \neg H) = 0.7 \) (accurate when the person is short)
+
+Using Bayes' Theorem, we want to find \( P(H | W_1, \neg W_2) \), the probability that the attacker is tall given witness 1's testimony that they are tall and witness 2's testimony that they are short. The formula becomes:
+
+\[
+P(H | W_1, \neg W_2) = \frac{P(W_1, \neg W_2 | H) \cdot P(H)}{P(W_1, \neg W_2)}
+\]
+
+First, compute \( P(W_1, \neg W_2 | H) \) and \( P(W_1, \neg W_2 | \neg H) \):
+- \( P(W_1, \neg W_2 | H) = P(W_1 | H) \cdot P(\neg W_2 | H) = 0.8 \times 0.7 = 0.56 \)
+- \( P(W_1, \neg W_2 | \neg H) = P(W_1 | \neg H) \cdot P(\neg W_2 | \neg H) = 0.2 \times 0.3 = 0.06 \)
+
+Now use the Law of Total Probability to compute \( P(W_1, \neg W_2) \):
+- \( P(W_1, \neg W_2) = P(W_1, \neg W_2 | H) \cdot P(H) + P(W_1, \neg W_2 | \neg H) \cdot P(\neg H) \)
+- \( P(W_1, \neg W_2) = 0.56 \times 0.15 + 0.06 \times 0.85 = 0.084 + 0.051 = 0.135 \)
+
+Finally, apply Bayes' Theorem:
+- \( P(H | W_1, \neg W_2) = \frac{0.084}{0.135} \approx 0.622 \)
+
+Therefore, the estimated probability is:
+{probability: 0.622}

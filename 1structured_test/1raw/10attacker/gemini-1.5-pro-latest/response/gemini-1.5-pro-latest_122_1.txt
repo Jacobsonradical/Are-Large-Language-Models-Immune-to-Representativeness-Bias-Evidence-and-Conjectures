@@ -1,0 +1,44 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:** We know how reliable each witness is at judging height. This is crucial information.
+* **Base Rate:** The city's height distribution (85% shorter, 15% taller) is important. This is the "prior probability" before considering witness testimony.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) is the probability of A happening given that B happened. In our case: the probability the attacker is tall (A) *given* the first witness said so (B).
+* P(B|A) is the probability of B happening given that A happened. In our case: the probability the witness would say "tall" *if* the attacker was actually tall (this is the witness's reliability).
+* P(A) is the prior probability of A.  In our case: the probability of a random person in the city being tall.
+* P(B) is the probability of B happening (we'll get to this below).
+
+**Calculations**
+
+Let's define:
+
+* Event A: Attacker is 185cm or taller.
+* Event B: First witness claims the attacker is 185cm or taller.
+
+We want to find P(A|B).  Here's what we know:
+
+* P(B|A) = 0.8 (The first witness correctly identifies tall people 80% of the time)
+* P(A) = 0.15 (15% of the population is 185cm or taller)
+* P(B) = This is trickier. The witness could say "tall" if the attacker *is* tall, OR if the attacker is short and the witness makes a mistake. We calculate this as:
+    *  P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)] 
+    *  P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29 
+
+**Putting it Together**
+
+P(A|B) = (0.8 * 0.15) / 0.29 = 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Important Note:** This means that even though the first witness claimed the attacker was tall,  the probability of the attacker actually being tall is only around 41.4%. This is influenced by the relatively low base rate of tall people in the city. 

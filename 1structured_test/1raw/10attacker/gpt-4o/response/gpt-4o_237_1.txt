@@ -1,0 +1,45 @@
+In order to estimate the likelihood that the attacker is 185 cm or taller, we will use Bayes' theorem. We need to calculate the posterior probability \( P(H_A | E) \) that the attacker is 185 cm or taller ( \( H_A \) ) given the evidence \( E \) from both witnesses.
+
+First, let's define the events:
+- \( H_A \): The attacker is 185 cm or taller.
+- \( H_B \): The attacker is shorter than 185 cm.
+- \( E_1 \): The first witness claims the attacker is 185 cm or taller.
+- \( E_2 \): The second witness claims the attacker is shorter than 185 cm.
+
+From the problem statement, we know the following:
+1. Prior probabilities:
+   - \( P(H_A) = 0.15 \)
+   - \( P(H_B) = 0.85 \)
+
+2. The accuracy of the witnesses:
+   - \( P(E_1 | H_A) = 0.80 \), \( P(E_1 | H_B) = 0.20 \) (first witness's accuracy)
+   - \( P(E_2 | H_A) = 0.30 \), \( P(E_2 | H_B) = 0.70 \) (second witness's accuracy)
+
+We want to calculate:
+\[ P(H_A | E_1, E_2) \]
+
+Using Bayes' theorem:
+\[ P(H_A | E_1, E_2) = \frac{P(E_1, E_2 | H_A) P(H_A)}{P(E_1, E_2)} \]
+
+By the law of total probability:
+\[ P(E_1, E_2) = P(E_1, E_2 | H_A) P(H_A) + P(E_1, E_2 | H_B) P(H_B) \]
+
+Now, since \( E_1 \) and \( E_2 \) are independent given \( H_A \) or \( H_B \) (as the witnesses' assessments are conditionally independent):
+\[ P(E_1, E_2 | H_A) = P(E_1 | H_A) P(E_2 | H_A) = 0.80 \times 0.30 = 0.24 \]
+\[ P(E_1, E_2 | H_B) = P(E_1 | H_B) P(E_2 | H_B) = 0.20 \times 0.70 = 0.14 \]
+
+Thus,
+\[ P(E_1, E_2) = P(E_1, E_2 | H_A) P(H_A) + P(E_1, E_2 | H_B) P(H_B) \]
+\[ P(E_1, E_2) = (0.24 \times 0.15) + (0.14 \times 0.85) \]
+\[ P(E_1, E_2) = 0.036 + 0.119 \]
+\[ P(E_1, E_2) = 0.155 \]
+
+Finally,
+\[ P(H_A | E_1, E_2) = \frac{P(E_1, E_2 | H_A) P(H_A)}{P(E_1, E_2)} \]
+\[ P(H_A | E_1, E_2) = \frac{0.24 \times 0.15}{0.155} \]
+\[ P(H_A | E_1, E_2) = \frac{0.036}{0.155} \]
+\[ P(H_A | E_1, E_2) \approx 0.232 \]
+
+Thus, the estimate of the probability that the attacker's height was 185 cm or taller is:
+
+\[ \{ \text{probability: 0.232} \} \]

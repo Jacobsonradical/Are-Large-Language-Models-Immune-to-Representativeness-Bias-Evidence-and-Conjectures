@@ -1,0 +1,49 @@
+Here's how to approach this problem using Bayes' Theorem:
+
+**Understanding the Problem**
+
+We have prior information about the height distribution in the city (85% shorter, 15% taller). We also have information about a witness's accuracy in identifying height. We want to update our belief about the attacker's height given the witness's testimony.
+
+**Let's Define Events:**
+
+* **A:** The attacker is 185 cm or taller.
+* **B:** The witness identifies the attacker as being 185 cm or taller.
+
+**We Need to Calculate:**
+
+* **P(A|B):** The probability that the attacker is 185 cm or taller *given* the witness identified them as such.
+
+**Using Bayes' Theorem:**
+
+```
+P(A|B) = [P(B|A) * P(A)] / P(B) 
+```
+
+Let's break down each term:
+
+* **P(B|A):** The probability of the witness identifying someone as 185 cm or taller *given* they are actually 185 cm or taller. This is the witness's accuracy, which is 80% (0.8).
+* **P(A):** The prior probability of someone being 185 cm or taller in the city, which is 15% (0.15).
+* **P(B):** The probability of the witness identifying someone as 185 cm or taller. We need to calculate this using the law of total probability.
+
+**Calculating P(B):**
+
+```
+P(B) = P(B|A) * P(A) + P(B|¬A) * P(¬A)
+```
+
+Where:
+
+* **P(B|¬A):** The probability of the witness identifying someone as 185 cm or taller *given* they are actually shorter than 185 cm. This is the witness's error rate, 20% (0.2).
+* **P(¬A):** The probability of someone being shorter than 185 cm, which is 85% (0.85).
+
+**Putting it Together:**
+
+1. **Calculate P(B):**
+   P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.25
+
+2. **Apply Bayes' Theorem:**
+   P(A|B) = (0.8 * 0.15) / 0.25 = 0.48
+
+**Answer:**
+
+{probability: 0.48} 

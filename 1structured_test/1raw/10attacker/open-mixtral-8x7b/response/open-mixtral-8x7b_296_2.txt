@@ -1,0 +1,28 @@
+Let's reason through this problem:
+
+1. We have two witnesses with different abilities to estimate a person's height accurately.
+2. Witness 1 claims the attacker is 185 cm or taller, and they are correct 80% of the time.
+3. Witness 2 claims the attacker is shorter than 185 cm, and they are correct 70% of the time.
+4. The population distribution shows that 85% of the city's population is shorter than 185 cm.
+
+To compute the probability that the attacker's height was 185 cm or taller, we need to consider both witnesses' statements. Since Witness 2 claims the attacker is shorter than 185 cm, their statement contradicts Witness 1. We'll calculate the probability for each witness's claim and then combine the results.
+
+For Witness 1:
+
+- The false positive rate is 20%, meaning the witness incorrectly claims someone is 185 cm or taller when they are not 80% of the time.
+- Given the population distribution, 15% of the population is indeed 185 cm or taller.
+- To find the probability that the attacker is 185 cm or taller based on Witness 1's claim, we multiply the base rate (15%) by the false positive rate (20%) and divide it by the probability of the witness claiming someone is 185 cm or taller (which can be calculated as the sum of false positives and true positives):
+
+P(attacker is 185 cm or taller | Witness 1) = (P(Witness 1 says 185 cm+ | attacker is not 185 cm) * P(attacker is not 185 cm)) / P(Witness 1 says 185 cm+)
+= (0.2 * 0.85) / (0.2 * 0.85 + 0.8 * 0.15)
+= 0.17 / (0.17 + 0.12)
+= 0.17 / 0.29
+= 0.5862 (approximately)
+
+We cannot directly use Witness 2's claim to estimate the probability that the attacker is 185 cm or taller since their claim contradicts Witness 1. However, we can calculate the probability that Witness 2 is correct in their claim:
+
+P(attacker is shorter than 185 cm | Witness 2) = 0.7 * 0.85 = 0.595 (approximately)
+
+Given that Witness 2's claim contradicts Witness 1, the probability that the attacker is 185 cm or taller remains at 0.5862 (approximately).
+
+So, {probability: 0.5862} (approximately)

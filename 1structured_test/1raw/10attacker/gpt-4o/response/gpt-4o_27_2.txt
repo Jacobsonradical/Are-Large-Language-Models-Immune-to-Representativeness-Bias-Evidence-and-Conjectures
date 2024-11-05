@@ -1,0 +1,43 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we'll use Bayes' Theorem. Let's define the following events:
+
+- \( T \): The attacker is 185 cm or taller. 
+- \( \neg T \): The attacker is shorter than 185 cm.
+- \( W1(\text{tall}) \): First witness claims the attacker is 185 cm or taller.
+- \( W2(\text{short}) \): Second witness claims the attacker is shorter than 185 cm.
+
+From the problem, we know:
+- Prior probability \( P(T) = 0.15 \) (15% of the population is 185 cm or taller).
+- Prior probability \( P(\neg T) = 0.85 \) (85% of the population is shorter than 185 cm).
+- \( P(W1(\text{tall}) | T) = 0.80 \) (First witness identifies a tall person correctly 80% of the time).
+- \( P(W1(\text{tall}) | \neg T) = 0.20 \) (First witness erroneously identifies a short person as tall 20% of the time).
+- \( P(W2(\text{short}) | T) = 0.30 \) (Second witness erroneously identifies a tall person as short 30% of the time).
+- \( P(W2(\text{short}) | \neg T) = 0.70 \) (Second witness identifies a short person correctly 70% of the time).
+
+We aim to find the posterior probability \( P(T | W1(\text{tall}), W2(\text{short})) \). According to Bayes' Theorem:
+
+\[ P(T | W1(\text{tall}), W2(\text{short})) = \frac{P(W1(\text{tall}), W2(\text{short}) | T) \cdot P(T)}{P(W1(\text{tall}), W2(\text{short}))} \]
+
+To compute the numerator:
+
+\[ P(W1(\text{tall}), W2(\text{short}) | T) = P(W1(\text{tall}) | T) \cdot P(W2(\text{short}) | T) = 0.80 \cdot 0.30 = 0.24 \]
+
+\[ P(W1(\text{tall}), W2(\text{short}) | \neg T) = P(W1(\text{tall}) | \neg T) \cdot P(W2(\text{short}) | \neg T) = 0.20 \cdot 0.70 = 0.14 \]
+
+Calculate the total probability for the denominator:
+
+\[ P(W1(\text{tall}), W2(\text{short})) = P(W1(\text{tall}), W2(\text{short}) | T) \cdot P(T) + P(W1(\text{tall}), W2(\text{short}) | \neg T) \cdot P(\neg T) \]
+
+\[ P(W1(\text{tall}), W2(\text{short})) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 \]
+
+\[ P(W1(\text{tall}), W2(\text{short})) = 0.036 + 0.119 = 0.155 \]
+
+Finally, compute the posterior probability:
+
+\[ P(T | W1(\text{tall}), W2(\text{short})) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} = \frac{36}{155} \approx 0.232 \]
+
+Therefore:
+```json
+{
+  "probability": 0.232
+}
+```

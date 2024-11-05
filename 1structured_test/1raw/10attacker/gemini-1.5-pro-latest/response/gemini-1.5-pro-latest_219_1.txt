@@ -1,0 +1,37 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability (from population data):** There's a 15% chance that a randomly chosen person in the city is 185cm or taller. This is our starting point.
+* **Witness Testimonies:**  We need to incorporate the reliability of the witnesses.  
+    * Witness 1 is more reliable (80% accuracy) than Witness 2 (70% accuracy).
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem provides a framework for updating our belief (the prior probability) based on new evidence (witness testimonies).  However, since we're only asked for the probability based on the *first* witness's claim, we can simplify our calculation.
+
+Let:
+
+*  Event A = Attacker is 185cm or taller
+*  Event B = Witness 1 claims the attacker is 185cm or taller
+
+We want to find P(A|B), the probability the attacker is 185cm or taller *given* that Witness 1 said so.
+
+We know:
+
+* P(A) = 0.15 (prior probability)
+* P(B|A) = 0.80 (Witness 1's accuracy for identifying tall people)
+
+**Simplified Calculation**
+
+Since Witness 1 claiming the attacker is tall doesn't directly tell us anything about the times they incorrectly identify someone as tall when they are actually shorter, we don't need to calculate P(B| not A) or use the full Bayes' formula.  We can focus on the proportion of cases where the witness is correct.
+
+* Out of the 15% of people who are actually 185cm or taller, Witness 1 would correctly identify 80% of them:  0.15 * 0.80 = 0.12
+
+**Therefore, based solely on Witness 1's testimony and the population data, our estimate is:**
+
+```json
+{
+  "probability": 0.12
+}
+``` 

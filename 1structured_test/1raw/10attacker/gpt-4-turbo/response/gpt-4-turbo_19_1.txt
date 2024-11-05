@@ -1,0 +1,32 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the statements of the two witnesses and the distribution of heights in the city's population, we use Bayesian probability.
+
+1. Let \(H = 185 \text{ cm or taller}\) and \(L = \text{shorter than 185 cm}\). 
+2. From the problem, \(P(H) = 0.15\) and \(P(L) = 0.85\). 
+3. We denote \(W_1\) as the first witness's statement that the attacker was 185 cm or taller and \(W_2\) as the second witness's statement that the attacker was shorter than 185 cm.
+4. As given, \(W_1\) is correct 80% of the time and wrong 20% of the time, and \(W_2\) is correct 70% of the time and wrong 30% of the time. 
+
+We formalize this as:
+- \(P(W_1|\,H) = 0.8\) (First witness correctly identifies tall people)
+- \(P(W_1|\,L) = 0.2\) (First witness incorrectly identifies short people as tall)
+- \(P(W_2|\,L) = 0.7\) (Second witness correctly identifies short people)
+- \(P(W_2|\,H) = 0.3\) (Second witness incorrectly identifies tall people as short)
+
+To find the probability \(P(H|\,W_1, W_2)\) that the attacker is 185 cm or taller, given both witnesses' testimony:
+- First, compute \(P(W_1, W_2|\,H)\): likelihood that both witnesses make these specific observations if the attacker is tall.
+  - It is \(P(W_1|\,H) \times P(W_2|\,H) = 0.8 \times 0.3 = 0.24\)
+
+- Next, compute \(P(W_1, W_2|\,L)\): likelihood that both witnesses make these observations if the attacker is short.
+  - It is \(P(W_1|\,L) \times P(W_2|\,L) = 0.2 \times 0.7 = 0.14\)
+
+- Compute the overall probability \(P(W_1, W_2)\), the probability of witnessing these specific statements from both witnesses, regardless of the attacker's height.
+  - It is \(P(W_1, W_2|\,H) \times P(H) + P(W_1, W_2|\,L) \times P(L) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155\)
+
+- Using Bayes' rule:
+  - \(P(H|\,W_1, W_2) = \frac{P(W_1, W_2|\,H) \times P(H)}{P(W_1, W_2)} = \frac{0.036}{0.155} \approx 0.23226\)
+
+Thus the probability that the attacker's height was 185 cm or taller, as the first witness claimed, given all information is approximately 0.23226.
+
+We present this as:
+```json
+{ "probability": 0.23226 }
+```

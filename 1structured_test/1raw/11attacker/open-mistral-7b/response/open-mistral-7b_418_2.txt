@@ -1,0 +1,36 @@
+Given the information provided, we have two pieces of data:
+
+1. The witness's ability to identify race is 80% accurate and 20% inaccurate.
+2. The population distribution in the city is 85% white and 15% black.
+
+Let's assume that the attacker's race is either black (B) or white (W). The probability of the witness correctly identifying the attacker's race is the product of the attacker's true race and the witness's accuracy in identifying that race, plus the probability of the witness incorrectly identifying the attacker's race as the other race.
+
+In mathematical terms, the probability of the witness correctly identifying a black attacker (P(Witness_correct|B)) is:
+
+P(Witness_correct|B) = P(B) * Accuracy_B + P(W) * Error_B
+
+Where:
+- P(B) is the true probability of the attacker being black,
+- Accuracy_B is the probability the witness correctly identifies a black person, which is 0.8,
+- P(W) is the probability of the attacker being white, which is 1 - P(B),
+- Error_B is the probability the witness mistakes a white person for black, which is 1 - Accuracy_B, or 0.2.
+
+We can also write the probability of the witness incorrectly identifying a black attacker (P(Witness_incorrect|B)) as:
+
+P(Witness_incorrect|B) = P(W) * Accuracy_B + P(B) * Error_B
+
+The total probability of the witness identifying the attacker as black is the sum of the probabilities of the witness correctly and incorrectly identifying a black attacker:
+
+P(Witness_black) = P(Witness_correct|B) + P(Witness_incorrect|B)
+
+The sum of probabilities of two mutually exclusive events is equal to 1, so we can write:
+
+P(Witness_black) = 2 * P(B) * Accuracy_B - P(B) * Error_B
+
+Given the population distribution, the true probability of the attacker being black is P(B) = 0.15. Substituting this value into the equation above, we get:
+
+P(Witness_black) = 2 * 0.15 * 0.8 - 0.15 * 0.2 = 0.24
+
+So, the probability that the attacker is black, given the witness's statement and the city's population distribution, is approximately 24%.
+
+{probability: 0.24}

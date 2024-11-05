@@ -1,0 +1,48 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information:**
+
+* **Population Data:** 15% of the city's population is 185 cm or taller.
+* **Witness Accuracy:**
+    * Witness 1 (claimed taller): 80% accuracy, 20% error.
+    * Witness 2 (claimed shorter): 70% accuracy, 30% error.
+
+**Logic:**
+
+We need to consider the probability of the attacker being tall *given* that Witness 1 said they were tall. This involves Bayes' Theorem.
+
+**Bayes' Theorem:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A happening given that event B has happened.
+* P(B|A) = Probability of event B happening given that event A has happened.
+* P(A) = Prior probability of event A.
+* P(B) = Prior probability of event B.
+
+**Applying to our problem:**
+
+* **A:** Attacker is 185 cm or taller.
+* **B:** Witness 1 claims the attacker is 185 cm or taller.
+
+Let's break down the components:
+
+* **P(A):** Prior probability of the attacker being tall = 0.15 (from population data).
+* **P(B|A):** Probability of Witness 1 claiming tall given the attacker is tall = 0.80 (witness accuracy).
+* **P(B|not A):** Probability of Witness 1 claiming tall given the attacker is *not* tall = 0.20 (witness error).
+* **P(not A):** Prior probability of the attacker *not* being tall = 0.85.
+* **P(B):**  This is the tricky part. It's the overall probability of Witness 1 claiming the attacker is tall. We need to consider both scenarios where the attacker is tall and where they are not:
+    * P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+    * P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Calculating P(A|B):**
+
+P(A|B) = (0.80 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.414.** 

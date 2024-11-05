@@ -1,0 +1,31 @@
+To solve this problem, we'll use Bayes' theorem, which in this context states:
+
+\[ P(B|W) = \frac{P(W|B) \times P(B)}{P(W)} \]
+
+Where:
+- \( P(B|W) \) is the probability that the attacker is black given the witness identified the attacker as black.
+- \( P(W|B) \) is the probability that the witness identifies the attacker as black when the attacker is indeed black.
+- \( P(B) \) is the probability that any given person (and thus the attacker) is black, based on the population distribution.
+- \( P(W) \) is the overall probability that the witness identifies the attacker as black, taking into account all possibilities of true identity and errors in perception.
+
+We are given that:
+- \( P(B) = 0.15 \) (15% of the population is black),
+- \( P(W) = 0.85 \) (85% of the population is white).
+- The witness has an 80% correct identification rate, thus:
+  - \( P(W|B) = 0.8 \) (probability witness correctly identifies a black attacker as black),
+  - \( P(W|W) = 0.2 \) (probability witness incorrectly identifies a white attacker as black).
+
+Now, we calculate \( P(W) \) using the law of total probability:
+\[ P(W) = P(W|B) \times P(B) + P(W|W) \times P(W) \]
+\[ P(W) = 0.8 \times 0.15 + 0.2 \times 0.85 \]
+\[ P(W) = 0.12 + 0.17 = 0.29 \]
+
+Now apply Bayes' theorem:
+\[ P(B|W) = \frac{P(W|B) \times P(B)}{P(W)} \]
+\[ P(B|W) = \frac{0.8 \times 0.15}{0.29} \]
+\[ P(B|W) = \frac{0.12}{0.29} \approx 0.4138 \]
+
+Hence, the probability that the attacker is black given the witness identified the attacker as black is approximately:
+```json
+{ "probability": 0.4138 }
+```

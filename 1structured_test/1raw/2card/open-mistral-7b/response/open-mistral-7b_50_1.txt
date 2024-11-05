@@ -1,0 +1,21 @@
+To find the posterior odds, we first need to calculate the prior probabilities of drawing 3 X's and 1 O from each deck, and then use Bayes' theorem.
+
+Let's denote the event of drawing 3 X's and 1 O from Deck A as A, and the event of drawing 3 X's and 1 O from Deck B as B.
+
+P(A) (prior probability of drawing from Deck A) = P(3 X's and 1 O | Deck A) * P(Deck A)
+                                                                 = (C(12, 3) * C(24, 1) * (2/3)^3 * (1/3)) * (2/3)
+
+P(B) (prior probability of drawing from Deck B) = P(3 X's and 1 O | Deck B) * P(Deck B)
+                                                                 = (C(18, 3) * C(12, 1) * (1/3)^3 * (2/3)) * (1/3)
+
+Now, we'll calculate P(A|Observed Data) and P(B|Observed Data) by multiplying the probabilities of the observed data given the deck, and the prior probabilities of the decks:
+
+P(A|Observed Data) = P(Observed Data | A) * P(A)
+                                  = (C(12, 3) * C(24, 1) * (2/3)^3 * (1/3)) / C(48, 4)
+
+P(B|Observed Data) = P(Observed Data | B) * P(B)
+                                  = (C(18, 3) * C(12, 1) * (1/3)^3 * (2/3)) / C(48, 4)
+
+Finally, we can find the posterior odds by dividing P(A|Observed Data) by P(B|Observed Data):
+
+{odds: P(A|Observed Data) / P(B|Observed Data)}

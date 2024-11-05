@@ -1,0 +1,52 @@
+Here's how to approach this problem using Bayes' Theorem:
+
+**Understanding the Problem**
+
+We need to update our prior belief about the attacker's gender (based on population demographics) with new evidence from the witness. 
+
+* **Prior Probability:** The probability of the attacker being male *before* considering the witness testimony is 15% (0.15), based on the city's demographics.
+* **Likelihood:** The witness's accuracy (80%) represents how *likely* they are to identify someone as male correctly.
+* **Posterior Probability:**  What we want to calculate - the probability of the attacker being male *after* considering the witness testimony.
+
+**Bayes' Theorem**
+
+Bayes' Theorem provides a way to calculate this posterior probability:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A (attacker is male) given event B (witness said male)
+* P(B|A): Probability of event B (witness said male) given event A (attacker is male) - this is the witness's accuracy when the attacker is truly male (80% or 0.8)
+* P(A): Prior probability of event A (attacker is male) - this is 0.15 
+* P(B): Probability of event B (witness said male) - we'll calculate this below
+
+**Calculating P(B)**
+
+P(B) is the probability the witness would say "male" regardless of the actual gender. We can calculate this considering both scenarios (attacker is male or female):
+
+* **Scenario 1: Attacker is Male** 
+   * Probability of this scenario: 0.15 (prior probability)
+   * Probability of witness saying "male" in this scenario: 0.8 (accuracy)
+   * Contribution to P(B): 0.15 * 0.8 = 0.12
+
+* **Scenario 2: Attacker is Female**
+   * Probability of this scenario: 0.85
+   * Probability of witness saying "male" in this scenario: 0.2 (error rate)
+   * Contribution to P(B): 0.85 * 0.2 = 0.17
+
+* **Total P(B):** 0.12 + 0.17 = 0.29
+
+**Applying Bayes' Theorem**
+
+Now we have all the pieces to calculate the posterior probability:
+
+P(Attacker is Male | Witness said Male) = (0.8 * 0.15) / 0.29 = 0.414 (approximately)
+
+**Answer**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+Even though the witness has a relatively high accuracy, the low prior probability of the attacker being male (due to the city's demographics) means the overall probability of the attacker being male is still significantly lower than the witness's accuracy alone would suggest. 

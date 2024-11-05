@@ -1,0 +1,36 @@
+To calculate the posterior odds, we first need to find the prior probabilities of drawing from Deck A or Deck B, and then the likelihoods of drawing 3 X's and 1 O given each deck.
+
+Prior probabilities:
+P(Deck A) = 1/2 (since we don't know which deck was chosen)
+P(Deck B) = 1/2
+
+Likelihoods:
+Let's denote the number of X's drawn from Deck A as X_A and the number of O's as O_A. Similarly, for Deck B, we have X_B and O_B.
+
+Given Deck A, the probability of drawing 3 X's and 1 O is:
+P(3X_A, 1O_A | Deck A) = C(12, 3) * (2/3)^3 * (1/3)^1 + C(12, 4) * (2/3)^4 * (1/3)^1
+                                    = (220 * 1/27) + (495 * 1/81)
+                                    = 220/27 + 495/81
+
+Given Deck B, the probability of drawing 3 X's and 1 O is:
+P(3X_B, 1O_B | Deck B) = C(18, 3) * (1/3)^3 * (2/3)^1 + C(18, 4) * (1/3)^4 * (2/3)^1
+                                    = (153 * 1/27) + (81 * 1/81)
+                                    = 153/27 + 1
+
+Now, we calculate the posterior probabilities:
+P(Deck A | 3X, 1O) = P(3X, 1O | Deck A) * P(Deck A) / [P(3X, 1O | Deck A) * P(Deck A) + P(3X, 1O | Deck B) * P(Deck B)]
+                             = ((220/27) + (495/81)) * (1/2) / [((220/27) + (495/81)) * (1/2) + ((153/27) + 1) * (1/2)]
+
+The answer in the requested format is:
+{odds: your answer as a single number}
+= P(Deck A | 3X, 1O) / P(Deck B | 3X, 1O)
+= ((((220/27) + (495/81)) * (1/2)) / ((220/27) + (495/81) + (153/27) + 1)) / ((((153/27) + 1) * (1/2)) / ((220/27) + (495/81) + (153/27) + 1))
+= (220/27 + 495/81) / (153/27 + 1)
+= 845/81 + 495/81 / 153/27 + 1
+= 1340/243 + 990/243 / 153/27
+= 1340/243 * 27/153 + 990/243 * 1/1
+= 1340/243 * 27/153 + 990
+= 3640/243 + 990
+= 4630/243
+
+So, the posterior odds in favor of Deck A are approximately 19.04 : 1.

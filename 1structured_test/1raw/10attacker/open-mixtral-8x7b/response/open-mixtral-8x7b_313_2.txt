@@ -1,0 +1,39 @@
+Given the information about the two witnesses' abilities to judge a person's height and the fact that one witness claimed the attacker was 185 cm or taller while the other claimed the attacker was shorter than 185 cm, we can estimate the probability that the attacker was indeed 185 cm or taller.
+
+Let's use Bayes' theorem to calculate this probability. Let A represent the event that the attacker is 185 cm or taller. Let W1 represent the event that the first witness said the attacker was 185 cm or taller, and W2 represent the event that the second witness said the attacker was shorter than 185 cm.
+
+We want to find P(A|W1, W2), the probability that the attacker is 185 cm or taller given that the first witness said so and the second witness said otherwise. Using Bayes' theorem, we have:
+
+P(A|W1, W2) = P(W1, W2|A) * P(A) / P(W1, W2)
+
+To compute this, we need to find the following probabilities:
+- P(W1, W2|A): the probability that both witnesses have their respective testimonies given that the attacker is 185 cm or taller.
+- P(A): the prior probability that the attacker is 185 cm or taller, which is 0.15 based on the given information.
+- P(W1, W2): the probability of both witnesses' testimonies regardless of the attacker's height.
+
+First, let's find P(W1, W2|A):
+- The first witness is correct 80% of the time, and the attacker is indeed 185 cm or taller, so the probability is 0.8 * 0.5 = 0.4 for the first witness.
+- The second witness is incorrect 30% of the time, and the attacker is indeed 185 cm or taller, so the probability is 0.3 * 0.5 = 0.15 for the second witness.
+- The probability that both testimonies occur given that the attacker is 185 cm or taller is the product of the two probabilities: 0.4 * 0.15 = 0.06.
+
+Second, let's find P(W1, W2|~A):
+- The first witness is incorrect 20% of the time, and the attacker is shorter than 185 cm, so the probability is 0.2 * 0.5 = 0.1 for the first witness.
+- The second witness is correct 70% of the time, and the attacker is shorter than 185 cm, so the probability is 0.7 * 0.5 = 0.35 for the second witness.
+- The probability that both testimonies occur given that the attacker is shorter than 185 cm is the product of the two probabilities: 0.1 * 0.35 = 0.035.
+
+Finally, let's find P(W1, W2), the probability of both witnesses' testimonies regardless of the attacker's height. We can use the law of total probability:
+
+P(W1, W2) = P(W1, W2|A) * P(A) + P(W1, W2|~A) * P(~A)
+
+We already have P(W1, W2|A) and P(W1, W2|~A). We also know that P(A) is 0.15 and P(~A) is 0.85 (the complement of P(A)). Plugging in the numbers, we get:
+
+P(W1, W2) = (0.06 * 0.15) + (0.035 * 0.85) = 0.009 + 0.02975 = 0.03875
+
+Now, we can calculate P(A|W1, W2):
+
+P(A|W1, W2) = P(W1, W2|A) * P(A) / P(W1, W2) = (0.06 * 0.15) / 0.03875 = 0.009 / 0.03875 ≈ 0.2326
+
+However, since this probability is an estimate, let's convert it to a percentage for a more understandable format. The probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 23.26%.
+
+The answer is:
+{probability: 0.2326} or {probability: 23.26%}

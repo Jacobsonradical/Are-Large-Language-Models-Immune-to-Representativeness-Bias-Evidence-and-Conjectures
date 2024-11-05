@@ -1,0 +1,27 @@
+Let's reason through this:
+
+1. We know that one witness correctly identifies the height as 185cm or taller 80% of the time, and is incorrect 20% of the time.
+2. The second witness correctly identifies the height as shorter than 185cm 70% of the time, and is incorrect 30% of the time.
+3. We also know that 85% of the population is shorter than 185cm and 15% are 185cm or taller.
+
+We want to find the probability that the attacker's height was 185cm or taller given the first witness's claim. This is a conditional probability, which can be calculated using Bayes' theorem.
+
+Bayes' theorem states that P(A|B) = P(B|A) * P(A) / P(B)
+
+Here, event A is "the attacker's height is 185cm or taller", and event B is "the first witness claims the attacker is 185cm or taller".
+
+We want to find P(A|B), which is the probability that the attacker's height is 185cm or taller given that the first witness claims so.
+
+Let's calculate each term in Bayes' theorem:
+
+- P(B|A): This is the probability that the first witness claims the attacker is 185cm or taller given that the attacker's height is actually 185cm or taller. Since we know this witness is correct 80% of the time, P(B|A) = 0.8
+
+- P(A): This is the prior probability that the attacker's height is 185cm or taller. Since 15% of the population is 185cm or taller, P(A) = 0.15
+
+- P(B): This is the probability that the first witness claims the attacker is 185cm or taller. This can be calculated as the sum of two probabilities: when the attacker's height is actually 185cm or taller, and the witness correctly identifies this (which we calculated as P(B|A)*P(A) = 0.8*0.15 = 0.12), and when the attacker's height is not actually 185cm or taller, but the witness mistakenly identifies it as such (which is 1-0.7 = 0.3, the error rate of the second witness, since if the first witness claims 185cm or taller, it means the second witness claimed shorter than 185cm, which is an error. The probability of this happening is 30% for the second witness). So, P(B) = 0.12 + 0.3 = 0.42
+
+Now we can calculate P(A|B) using Bayes' theorem:
+
+P(A|B) = P(B|A) * P(A) / P(B) = 0.8 * 0.15 / 0.42 = 0.1818 or approximately 18.18%
+
+So, the probability that the attacker's height was 185cm or taller, as the first witness claimed, is approximately 18.18%.

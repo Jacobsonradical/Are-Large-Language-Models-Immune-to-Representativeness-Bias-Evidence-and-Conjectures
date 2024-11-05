@@ -1,0 +1,47 @@
+To solve this problem, we will use Bayes' theorem to find the posterior probabilities of having drawn the cards from Deck A and Deck B, and then calculate the posterior odds.
+
+Let's define the events:
+- \(D_A\): The event that Deck A was chosen.
+- \(D_B\): The event that Deck B was chosen.
+- \(E\): The event that 3 cards are marked X and 1 card is marked O.
+
+Given: 
+1. \(P(D_A) = \frac{1}{2}\) and \(P(D_B) = \frac{1}{2}\) because the decks are chosen at random.
+2. We need to find the likelihoods:
+   - \(P(E|D_A)\): Probability of drawing 3 X's and 1 O from Deck A.
+   - \(P(E|D_B)\): Probability of drawing 3 X's and 1 O from Deck B.
+
+- In Deck A, \(\frac{2}{3}\) of the cards are X and \(\frac{1}{3}\) are O.
+  \[
+  P(E|D_A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81}
+  \]
+- In Deck B, \(\frac{1}{3}\) of the cards are X and \(\frac{2}{3}\) are O.
+  \[
+  P(E|D_B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81}
+  \]
+
+Now we need to apply Bayes' theorem:
+\[
+P(D_A|E) = \frac{P(E|D_A)P(D_A)}{P(E)}
+\]
+\[
+P(D_B|E) = \frac{P(E|D_B)P(D_B)}{P(E)}
+\]
+where \(P(E) = P(E|D_A)P(D_A) + P(E|D_B)P(D_B)\).
+
+From the above calculations, the posterior probabilities:
+\[
+P(D_A|E) = \frac{\frac{32}{81}\cdot\frac{1}{2}}{\left(\frac{32}{81}\cdot\frac{1}{2}\right) + \left(\frac{8}{81}\cdot\frac{1}{2}\right)} = \frac{\frac{32}{162}}{\frac{32}{162} + \frac{8}{162}} = \frac{32}{40} = \frac{4}{5}
+\]
+\[
+P(D_B|E) = \frac{\frac{8}{81}\cdot\frac{1}{2}}{\left(\frac{32}{81}\cdot\frac{1}{2}\right) + \left(\frac{8}{81}\cdot\frac{1}{2}\right)} = \frac{\frac{8}{162}}{\frac{32}{162} + \frac{8}{162}} = \frac{8}{40} = \frac{1}{5}
+\]
+
+The posterior odds of Deck A to Deck B is then:
+\[
+\text{Posterior odds} = \frac{P(D_A|E)}{P(D_B|E)} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4
+\]
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A, compared to Deck B, are:
+
+{odds: 4}

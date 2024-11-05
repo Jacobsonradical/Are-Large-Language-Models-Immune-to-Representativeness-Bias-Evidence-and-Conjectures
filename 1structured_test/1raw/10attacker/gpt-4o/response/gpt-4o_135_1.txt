@@ -1,0 +1,55 @@
+To estimate the probability that the attacker's height was \( \geq 185 \) cm given the information from the witnesses and the population data, we use Bayes' theorem. Let's denote the events as follows:
+
+- \( A \): Attacker's height \( \geq 185 \) cm.
+- \( B \): First witness claims the attacker is \( \geq 185 \) cm.
+- \( C \): Second witness claims the attacker is \( < 185 \) cm.
+
+We'll need to calculate \( P(A|B, C) \), the probability that the attacker is \( \geq 185 \) cm given that the first witness claims \( \geq 185 \) cm and the second witness claims \( < 185 \) cm.
+
+First, let's break down what we need using Bayes' theorem:
+
+\[ P(A | B, C) = \frac{P(B, C | A)P(A)}{P(B, C)} \]
+
+### Calculate each term:
+
+1. **Prior Probability \(P(A)\):** 
+   The probability that a random person in the city is \( \geq 185 \) cm is given as 0.15.
+
+   So, \( P(A) = 0.15 \) and \( P(\neg A) = 0.85 \).
+
+2. **Likelihood \( P(B, C | A) \):**
+   - The probability that the first witness claims \( \geq 185 \) cm when the attacker is \( \geq 185 \) cm is 0.80.
+   - The probability that the second witness claims \( < 185 \) cm when the attacker is \( \geq 185 \) cm is 0.30.
+
+   Therefore:
+
+   \[ P(B, C | A) = P(B | A) \cdot P(C | A) = 0.80 \cdot 0.30 = 0.24 \]
+
+3. **Likelihood \( P(B, C | \neg A) \):**
+   - The probability that the first witness claims \( \geq 185 \) cm when the attacker is \( < 185 \) cm is 0.20.
+   - The probability that the second witness claims \( < 185 \) cm when the attacker is \( < 185 \) cm is 0.70.
+
+   Therefore:
+
+   \[ P(B, C | \neg A) = P(B | \neg A) \cdot P(C | \neg A) = 0.20 \cdot 0.70 = 0.14 \]
+
+4. **Total Probability \(P(B, C):** 
+    Using the law of total probability:
+
+    \[ P(B, C) = P(B, C | A)P(A) + P(B, C | \neg A)P(\neg A) \]
+    \[ P(B, C) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) \]
+    \[ P(B, C) = 0.036 + 0.119 = 0.155 \]
+
+5. **Posterior Probability \(P(A | B, C)\):**
+    Now plug in the values into Bayes' theorem:
+
+    \[ P(A | B, C) = \frac{P(B, C | A)P(A)}{P(B, C)} \]
+    \[ P(A | B, C) = \frac{0.24 \cdot 0.15}{0.155} \]
+    \[ P(A | B, C) = \frac{0.036}{0.155} \]
+    \[ P(A | B, C) \approx 0.232 \]
+
+So, the estimated probability that the attacker is 185 cm or taller, given the witness claims, is:
+
+```json
+{ "probability": 0.232 }
+```

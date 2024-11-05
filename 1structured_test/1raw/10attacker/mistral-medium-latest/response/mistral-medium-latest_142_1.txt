@@ -1,0 +1,50 @@
+To solve this problem, we need to use Bayes' theorem, which is a way to update probabilities based on new evidence. Here are the steps:
+
+1. Define the probabilities:
+Let P(H) be the prior probability that the attacker's height is 185 cm or taller (from information a).
+Let P(S) be the prior probability that the attacker's height is shorter than 185 cm.
+Let P(W1|H) be the probability that the first witness says the attacker's height is 185 cm or taller, given that the attacker's height is 185 cm or taller.
+Let P(W1|S) be the probability that the first witness says the attacker's height is 185 cm or taller, given that the attacker's height is shorter than 185 cm.
+Let P(W2|H) be the probability that the second witness says the attacker's height is shorter than 185 cm, given that the attacker's height is 185 cm or taller.
+Let P(W2|S) be the probability that the second witness says the attacker's height is shorter than 185 cm, given that the attacker's height is shorter than 185 cm.
+
+From the information given, we know that:
+P(H) = 0.15
+P(S) = 0.85
+P(W1|H) = 0.80
+P(W1|S) = 0.20
+P(W2|H) = 0.30
+P(W2|S) = 0.70
+
+2. Calculate the posterior probability that the attacker's height is 185 cm or taller, given that the first witness said it was 185 cm or taller:
+Let P(H|W1) be the posterior probability. Using Bayes' theorem, we have:
+P(H|W1) = P(W1|H) \* P(H) / [P(W1|H) \* P(H) + P(W1|S) \* P(S)]
+= (0.80 \* 0.15) / [(0.80 \* 0.15) + (0.20 \* 0.85)]
+= 0.18 / (0.18 + 0.17)
+= 0.18 / 0.35
+= 0.5143
+
+3. Calculate the probability that the attacker's height is 185 cm or taller, given both witnesses' testimony:
+Let P(H|W1,W2) be the probability we want to calculate. Using Bayes' theorem again, we have:
+P(H|W1,W2) = P(W2|H,W1) \* P(H|W1) / [P(W2|H,W1) \* P(H|W1) + P(W2|S,W1) \* P(S|W1)]
+
+Since the witnesses' testimony is conditionally independent given the attacker's height, we have:
+P(W2|H,W1) = P(W2|H)
+P(W2|S,W1) = P(W2|S)
+
+We already calculated P(H|W1) in step 2, so we need to compute P(S|W1):
+P(S|W1) = P(W1|S) \* P(S) / [P(W1|H) \* P(H) + P(W1|S) \* P(S)]
+= (0.20 \* 0.85) / [(0.80 \* 0.15) + (0.20 \* 0.85)]
+= 0.17 / 0.35
+= 0.4857
+
+Now we can calculate P(H|W1,W2):
+P(H|W1,W2) = P(W2|H) \* P(H|W1) / [P(W2|H) \* P(H|W1) + P(W2|S) \* P(S|W1)]
+= (0.30 \* 0.5143) / [(0.30 \* 0.5143) + (0.70 \* 0.4857)]
+= 0.1543 / (0.1543 + 0.3400)
+= 0.1543 / 0.4943
+= 0.3121
+
+Therefore, the probability that the attacker's height was 185 cm or taller is approximately 0.3121.
+
+{probability: 0.3121}

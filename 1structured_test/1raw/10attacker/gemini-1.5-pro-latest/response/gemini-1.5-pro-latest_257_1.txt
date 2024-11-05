@@ -1,0 +1,52 @@
+Here's how to break down this problem to estimate the probability:
+
+**Understanding the Information**
+
+* **Base Rate:** In the city where the attack occurred, 15% of people are 185cm or taller. This is our prior belief without considering witness testimonies.
+* **Witness 1 (W1):** This witness is 80% accurate in identifying whether someone is 185cm or taller.
+* **Witness 2 (W2):** This witness is 70% accurate in identifying whether someone is 185cm or taller.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is a way to update our beliefs based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B happened.
+* P(B|A): Probability of event B happening given that event A happened.
+* P(A):  Prior probability of event A happening.
+* P(B):  Prior probability of event B happening.
+
+**Let's define our events:**
+
+* Event A: The attacker is 185cm or taller.
+* Event B: Witness 1 claims the attacker is 185cm or taller.
+
+**We want to find P(A|B), the probability the attacker is 185cm or taller given Witness 1's claim.**
+
+Here's how the probabilities break down:
+
+* **P(A):** Prior probability of the attacker being 185cm or taller (base rate) = 0.15
+* **P(B|A):** Probability of Witness 1 claiming the attacker is 185cm or taller GIVEN the attacker is actually 185cm or taller (W1's accuracy) = 0.80
+* **P(B| not A):** Probability of Witness 1 claiming the attacker is 185cm or taller GIVEN the attacker is actually SHORTER than 185cm (W1's error rate) = 0.20
+* **P(not A):** Prior probability of the attacker being shorter than 185cm = 0.85
+
+To find P(B), the probability of Witness 1 claiming the attacker is tall (regardless of the attacker's actual height), we use the law of total probability:
+
+P(B) = [P(B|A) * P(A)] + [P(B| not A) * P(not A)]
+P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Now we can apply Bayes' Theorem:**
+
+P(A|B) = (0.80 * 0.15) / 0.29 
+P(A|B) ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Given the base rate and Witness 1's testimony, there is approximately a 41.4% probability that the attacker was 185cm or taller.  Keep in mind that Witness 2's testimony would actually lower this probability, but we haven't factored that in for this calculation. 

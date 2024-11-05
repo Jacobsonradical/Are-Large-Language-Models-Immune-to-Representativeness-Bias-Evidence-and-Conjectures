@@ -1,0 +1,51 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Let's denote:
+
+P(T) as the probability that the attacker is 185 cm or taller (which we want to find)
+P(S) as the probability that the attacker is shorter than 185 cm
+P(W1|T) as the probability that Witness 1 says the attacker is 185 cm or taller, given that the attacker is actually 185 cm or taller (which is 0.8 according to the information)
+P(W1|S) as the probability that Witness 1 says the attacker is 185 cm or taller, given that the attacker is actually shorter than 185 cm (which is 0.2 according to the information)
+P(W2|T) as the probability that Witness 2 says the attacker is shorter than 185 cm, given that the attacker is actually 185 cm or taller (which is 0.3 according to the information)
+P(W2|S) as the probability that Witness 2 says the attacker is shorter than 185 cm, given that the attacker is actually shorter than 185 cm (which is 0.7 according to the information)
+
+First, we can find the prior probabilities P(T) and P(S) using the information about the population:
+P(T) = 0.15 (15% of the population is 185 cm or taller)
+P(S) = 0.85 (85% of the population is shorter than 185 cm)
+
+Next, we can use Bayes' theorem to find the posterior probability P(T|W1), which is the probability that the attacker is 185 cm or taller given that Witness 1 says the attacker is 185 cm or taller.
+
+P(T|W1) = P(W1|T) \* P(T) / [P(W1|T) \* P(T) + P(W1|S) \* P(S)]
+P(T|W1) = (0.8 \* 0.15) / [(0.8 \* 0.15) + (0.2 \* 0.85)]
+P(T|W1) ≈ 0.3281
+
+However, we also have the testimony of Witness 2, who says that the attacker was shorter than 185 cm. We can use Bayes' theorem again to find the probability that the attacker is 185 cm or taller given both witness testimonies. Let's denote P(T|W1,W2) as this probability.
+
+P(T|W1,W2) = P(W2|T,W1) \* P(T|W1) / [P(W2|T,W1) \* P(T|W1) + P(W2|S,W1) \* P(S|W1)]
+
+Since the witness testimonies are independent, we have:
+
+P(W2|T,W1) = P(W2|T) \* P(W1|T) / P(W1)
+P(W2|S,W1) = P(W2|S) \* P(W1|S) / P(W1)
+
+We can calculate P(W1) as:
+
+P(W1) = P(W1|T) \* P(T) + P(W1|S) \* P(S)
+
+Substituting the values, we get:
+
+P(W1) = (0.8 \* 0.15) + (0.2 \* 0.85)
+P(W1) ≈ 0.275
+
+P(W2|T,W1) = (0.3 \* 0.8) \* (0.8 \* 0.15 + 0.2 \* 0.85) / 0.275
+P(W2|T,W1) ≈ 0.1316
+
+P(W2|S,W1) = (0.7 \* 0.2) \* (0.8 \* 0.15 + 0.2 \* 0.85) / 0.275
+P(W2|S,W1) ≈ 0.5081
+
+Now we can find P(T|W1,W2):
+
+P(T|W1,W2) = 0.1316 \* 0.3281 / [0.1316 \* 0.3281 + 0.5081 \* (1 - 0.3281)]
+P(T|W1,W2) ≈ 0.1469
+
+So the probability that the attacker is 185 cm or taller, given both witness testimonies, is approximately 0.1469.
+
+{probability: 0.1469}

@@ -1,0 +1,35 @@
+To solve this problem, we use Bayes' Theorem, which in this context allows us to update our prior beliefs about the height of the attacker based on the information provided by the witnesses. Let’s define some events:
+
+- Let \( A \) denote the event that the attacker is 185 cm or taller.
+- Let \( B \) denote the event that the first witness claims the attacker is 185 cm or taller.
+- Let \( C \) denote the event that the second witness claims the attacker is shorter than 185 cm.
+
+We are given:
+- \( P(A) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(A^c) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+The abilities of the witnesses are:
+- First witness identifies correctly 80% of the time, so:
+  - \( P(B | A) = 0.8 \) (Probability that the witness says 'taller' given the attacker is taller)
+  - \( P(B | A^c) = 0.2 \) (Probability that the witness says 'taller' given the attacker is shorter)
+- Second witness identifies correctly 70% of the time, so:
+  - \( P(C | A) = 0.3 \) (Probability that the witness says 'shorter' given the attacker is taller)
+  - \( P(C | A^c) = 0.7 \) (Probability that the witness says 'shorter' given the attacker is shorter)
+
+We need to find \( P(A | B, C) \), the probability that the attacker is taller given both witness statements.
+
+First, calculate \( P(B, C) \) using the law of total probability:
+\[ P(B, C) = P(B, C | A)P(A) + P(B, C | A^c)P(A^c) \]
+\[ P(B, C | A) = P(B | A)P(C | A) = 0.8 \times 0.3 = 0.24 \]
+\[ P(B, C | A^c) = P(B | A^c)P(C | A^c) = 0.2 \times 0.7 = 0.14 \]
+\[ P(B, C) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Now, apply Bayes’ Theorem:
+\[ P(A | B, C) = \frac{P(B, C | A)P(A)}{P(B, C)} = \frac{0.24 \times 0.15}{0.155} \approx 0.23226 \]
+
+So the probability that the attacker is 185 cm or taller, given the statements of the first and second witnesses, is approximately 0.23226.
+
+Formatted answer:
+{
+  "probability": 0.23226
+}

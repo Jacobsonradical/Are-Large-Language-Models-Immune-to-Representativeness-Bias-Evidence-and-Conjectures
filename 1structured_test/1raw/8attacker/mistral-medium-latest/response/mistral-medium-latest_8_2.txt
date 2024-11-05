@@ -1,0 +1,57 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we need to consider both pieces of information and use Bayes' theorem.
+
+Let's denote:
+H: The event that the attacker is 185 cm or taller.
+W: The event that the witness identifies the attacker as 185 cm or taller.
+
+We want to find P(H|W). Using Bayes' theorem:
+
+P(H|W) = P(W|H) \* P(H) / P(W)
+
+From the information given:
+
+P(H) = 0.5 (since the population of people shorter than 185 cm and those 185 cm or taller is roughly equal in size)
+P(~H) = 1 - P(H) = 0.5
+
+P(W|H) = 0.8 (since the witness correctly identifies height 80% of the time when the person is 185 cm or taller)
+P(W|~H) = 0.2 (since the witness errs in 20% of the cases when the person is shorter than 185 cm)
+
+Now, we can calculate P(W):
+
+P(W) = P(W and H) + P(W and ~H)
+        = P(W|H) \* P(H) + P(W|~H) \* P(~H)
+        = 0.8 \* 0.5 + 0.2 \* 0.5
+        = 0.4 + 0.1
+        = 0.5
+
+Finally, we can calculate P(H|W):
+
+P(H|W) = P(W|H) \* P(H) / P(W)
+             = 0.8 \* 0.5 / 0.5
+             = 0.8
+
+However, this does not take into account the fact that 85% of attackers are people under 185 cm. To incorporate this information, we'll update our prior probability of P(H).
+
+Let A represent the event that the person is an attacker. The updated prior probability becomes:
+
+P(H|A) = 0.15 (since only 15% of attackers are 185 cm or taller)
+P(~H|A) = 1 - P(H|A) = 0.85
+
+Now recalculating P(W):
+
+P(W) = P(W|H and A) \* P(H|A) + P(W|~H and A) \* P(~H|A)
+        = P(W|H) \* P(H|A) + P(W|~H) \* P(~H|A)
+        = 0.8 \* 0.15 + 0.2 \* 0.85
+        = 0.12 + 0.17
+        = 0.29
+
+Now we can recalculate P(H|W):
+
+P(H|W) = P(W|H and A) \* P(H|A) / P(W)
+             = P(W|H) \* P(H|A) / P(W)
+             = 0.8 \* 0.15 / 0.29
+             ≈ 0.4138
+
+So our estimate of the probability that the attacker's height was 185 cm or taller is approximately 0.4138.
+
+{probability: 0.4138}

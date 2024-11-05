@@ -1,0 +1,34 @@
+To find an estimate for the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Let's first define some terms:
+
+P(Tall) = Probability that a random person is 185 cm or taller = 0.15 (from information b)
+P(Short) = Probability that a random person is shorter than 185 cm = 0.85 (from information b)
+P(Tall|W1) = Probability that the first witness claims someone is tall, given that they are tall = 0.8 (from information a)
+P(Short|W1) = Probability that the first witness claims someone is short, given that they are tall = 0.2 (from information a)
+P(Tall|W2) = Probability that the second witness claims someone is tall, given that they are tall = 0.15 \* (1 / 0.15) = 0.15 / P(Tall) = 1 (since the second witness never claims someone who is tall is tall)
+P(Short|W2) = Probability that the second witness claims someone is short, given that they are tall = 1 - P(Tall|W2) = 0 (since the second witness never claims someone who is tall is tall)
+
+Now let's calculate the probability that the attacker is tall given the witnesses' claims:
+
+P(Tall|W1, W2) = P(Tall|W1) \* P(W2|Tall) / [P(Tall|W1) \* P(W2|Tall) + P(Short|W1) \* P(W2|Short)]
+
+Since P(W2|Tall) = 0, the probability that the attacker is tall given the witnesses' claims is also 0. However, this result is misleading because it is based on the assumption that the second witness never correctly identifies someone who is tall. In reality, the second witness is able to identify the correct height about 70% of the time. Therefore, this calculation does not accurately reflect the situation.
+
+Instead, we can consider the following approach:
+
+1. Calculate the probability that the attacker is tall given the first witness's claim: P(Tall|W1) = P(Tall|W1) \* P(W1|Tall) / [P(Tall|W1) \* P(W1|Tall) + P(Short|W1) \* P(W1|Short)]
+2. Since the second witness claims that the attacker is short, we can treat this as evidence against the first witness's claim. We can calculate the probability that the attacker is tall given both witnesses' claims by multiplying the probability from step 1 by the probability that the second witness is incorrect: P(Tall|W1, W2) = P(Tall|W1) \* P(W2 is incorrect | Tall)
+
+Step 1:
+P(W1|Tall) = Probability that the first witness claims someone is tall given that they are tall = 0.8
+P(W1|Short) = Probability that the first witness claims someone is tall given that they are short = 0.2
+
+P(Tall|W1) = (0.8 \* 0.15) / [(0.8 \* 0.15) + (0.2 \* 0.85)] ≈ 0.347
+
+Step 2:
+P(W2 is incorrect | Tall) = Probability that the second witness is incorrect given that the attacker is tall = 1 - P(W2|Tall) = 1 - 0.7 ≈ 0.3
+
+P(Tall|W1, W2) = 0.347 \* 0.3 ≈ 0.104
+
+Therefore, the estimated probability that the attacker is 185 cm or taller is approximately 0.104.
+
+{probability: 0.104}

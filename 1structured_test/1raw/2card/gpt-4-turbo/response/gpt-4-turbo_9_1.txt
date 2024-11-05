@@ -1,0 +1,30 @@
+To solve this problem, we will calculate the likelihoods of drawing 3 cards marked X and 1 card marked O from each deck, apply Bayes' theorem, and then find the odds.
+
+1. **Calculate Likelihood for Deck A:**
+   - Probability of drawing an X card from Deck A = 2/3
+   - Probability of drawing an O card from Deck A = 1/3
+   - Probability of drawing 3 X cards and 1 O card from Deck A, using the binomial coefficient (\( \binom{n}{k} \) = "n choose k"):
+     \[
+     P(3X, 1O \text{ from A}) = \binom{4}{3} \times \left(\frac{2}{3}\right)^3 \times \left(\frac{1}{3}\right)^1 = 4 \times \left(\frac{8}{27}\right) \times \left(\frac{1}{3}\right) = \frac{32}{81}
+     \]
+
+2. **Calculate Likelihood for Deck B:**
+   - Probability of drawing an X card from Deck B = 1/3
+   - Probability of drawing an O card from Deck B = 2/3
+   - Probability of drawing 3 X cards and 1 O card from Deck B:
+     \[
+     P(3X, 1O \text{ from B}) = \binom{4}{3} \times \left(\frac{1}{3}\right)^3 \times \left(\frac{2}{3}\right)^1 = 4 \times \left(\frac{1}{27}\right) \times \left(\frac{2}{3}\right) = \frac{8}{81}
+     \]
+
+3. **Compute Prior Odds:**
+   Since one deck is randomly chosen, the prior odds \( P(\text{A}) : P(\text{B}) \) = 1:1.
+
+4. **Compute Posterior Odds using Bayes' Theorem:**
+   Let \( P(D | E) \) represent the probability of drawing the deck D given the evidence E (3 X's and 1 O).
+   \[
+   \frac{P(\text{A} | \text{Data})}{P(\text{B} | \text{Data})} = \frac{P(\text{Data} | \text{A})}{P(\text{Data} | \text{B})} \times \frac{P(\text{A})}{P(\text{B})} = \frac{\frac{32}{81}}{\frac{8}{81}} \times 1 = 4
+   \]
+   Thus the posterior odds that deck A was chosen (deck with more X's) compared to deck B, given the evidence of 3 X cards and 1 O card, is 4:1.
+
+Answer:
+{odds: 4}

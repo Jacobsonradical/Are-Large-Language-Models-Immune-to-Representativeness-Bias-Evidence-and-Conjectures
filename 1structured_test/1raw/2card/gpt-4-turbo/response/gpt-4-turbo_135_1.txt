@@ -1,0 +1,35 @@
+To solve this, we'll use Bayes' Theorem to update our beliefs about the probability of having chosen a particular deck given the evidence observed from the drawn cards. Let's define:
+- \( A \) as the event of choosing Deck A.
+- \( B \) as the event of choosing Deck B.
+- \( E \) as the event of drawing 3 'X' cards and 1 'O' card from the chosen deck.
+
+We need to compute \( P(A \mid E) \) and \( P(B \mid E) \), and then find their odds ratio \( \frac{P(A \mid E)}{P(B \mid E)} \). First, we find \( P(E \mid A) \) and \( P(E \mid B) \):
+
+1. **Probability of drawing 3 X's and 1 O from Deck A (\( P(E \mid A) \)):**
+   - \( P_X^A = \frac{2}{3} \) (probability of drawing X from A)
+   - \( P_O^A = \frac{1}{3} \) (probability of drawing O from A)
+   - \( P(E \mid A) = \binom{4}{3} (P_X^A)^3 (P_O^A)^1 = 4 \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right) = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81} \).
+
+2. **Probability of drawing 3 X's and 1 O from Deck B (\( P(E \mid B) \)):**
+   - \( P_X^B = \frac{1}{3} \) (probability of drawing X from B)
+   - \( P_O^B = \frac{2}{3} \) (probability of drawing O from B)
+   - \( P(E \mid B) = \binom{4}{3} (P_X^B)^3 (P_O^B)^1 = 4 \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right) = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81} \).
+
+Given that decks A and B were equally likely to be chosen initially:
+- \( P(A) = P(B) = \frac{1}{2} \).
+
+Now, applying Bayes' Theorem:
+- \( P(A \mid E) = \frac{P(E \mid A) P(A)}{P(E)} \)
+- \( P(B \mid E) = \frac{P(E \mid B) P(B)}{P(E)} \),
+where
+- \( P(E) = P(E \mid A)P(A) + P(E \mid B)P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{20}{81} \).
+
+Thus:
+- \( P(A \mid E) = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = 0.8 \),
+- \( P(B \mid E) = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = 0.2 \).
+
+The odds ratio then is:
+\[ \text{Odds} = \frac{P(A \mid E)}{P(B \mid E)} = \frac{0.8}{0.2} = 4. \]
+
+Thus, the posterior odds that the cards were drawn from Deck A rather than Deck B is:
+{odds: 4}

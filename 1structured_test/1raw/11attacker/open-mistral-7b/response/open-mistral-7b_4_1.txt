@@ -1,0 +1,37 @@
+Given the information provided, we have a witness who correctly identifies race 80% of the time and errs 20% of the time. The witness identified the attacker as black. However, we do not have direct evidence that the witness was correct this time.
+
+Given the city's demographics (85% white and 15% black), we can calculate the prior probability of the attacker being black:
+
+P(attacker is black) = 0.15 (since 15% of the population is black)
+
+Since we do not have direct evidence that the witness was correct, we cannot simply assume that the witness was correct and multiply the prior probability by 1. Instead, we can use Bayes' theorem to account for the possibility of the witness's error:
+
+P(attacker is black | witness identified as black) = P(witness identified as black | attacker is black) * P(attacker is black) / P(witness identified as black)
+
+We are given that the witness correctly identifies race 80% of the time, so P(witness identified as black | attacker is black) = 0.8.
+
+We are also given that the witness errs 20% of the time, so P(witness did not identify as black | attacker is black) = 0.2. Since the witness did not identify the attacker as white, P(witness did not identify as black | attacker is white) = 0.
+
+We can use this information to calculate P(attacker is white | witness identified as black):
+
+P(attacker is white | witness identified as black) = P(witness did not identify as black | attacker is white) * P(attacker is white) / P(witness identified as black)
+
+Since P(witness did not identify as black | attacker is white) = 0, this term is zero. Therefore, P(attacker is white | witness identified as black) can be ignored.
+
+So, Bayes' theorem becomes:
+
+P(attacker is black | witness identified as black) = P(witness identified as black | attacker is black) * P(attacker is black) / P(witness identified as black)
+
+We can calculate P(witness identified as black):
+
+P(witness identified as black) = P(witness identified as black | attacker is black) * P(attacker is black) + P(witness identified as black | attacker is white) * P(attacker is white)
+
+Since P(witness identified as black | attacker is white) = 0, this term is also zero. Therefore, P(witness identified as black) = P(witness identified as black | attacker is black) * P(attacker is black).
+
+Substituting these values into Bayes' theorem, we get:
+
+P(attacker is black | witness identified as black) = 0.8 * 0.15 / (0.8 * 0.15)
+
+P(attacker is black | witness identified as black) = 0.12
+
+Therefore, our estimate of the probability that the attacker is black is 0.12, or 12%. However, it's important to note that this estimate assumes that the witness's ability to identify race is independent of the attacker's race, which may not be the case in reality.

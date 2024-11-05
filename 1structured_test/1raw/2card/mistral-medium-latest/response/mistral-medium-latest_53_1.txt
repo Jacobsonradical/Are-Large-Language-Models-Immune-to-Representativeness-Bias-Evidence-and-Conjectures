@@ -1,0 +1,39 @@
+To solve this problem, we'll use Bayes' theorem to find the posterior odds that the 4 cards were drawn from Deck A given our observed data.
+
+Let's denote:
+H: The event that the deck chosen is Deck A
+D: The event that 3 cards drawn are X and 1 card is O
+
+We want to find P(H|D). By Bayes' theorem,
+
+P(H|D) = P(D|H) \* P(H) / P(D)
+
+Since we've chosen one of the two decks at random, P(H) = 1/2 and P(~H) = 1/2.
+
+We can use the law of total probability to find P(D):
+
+P(D) = P(D|H) \* P(H) + P(D|~H) \* P(~H)
+
+First, let's find P(D|H) and P(D|~H). Since draws are done at random, we can use the binomial distribution to model the number of X cards drawn given the deck chosen.
+
+For Deck A, the probability of drawing an X card is 2/3, so:
+
+P(D|H) = C(4, 3) \* (2/3)^3 \* (1/3)^1
+
+For Deck B, the probability of drawing an X card is 1/3, so:
+
+P(D|~H) = C(4, 3) \* (1/3)^3 \* (2/3)^1
+
+Now we can find P(D):
+
+P(D) = P(D|H) \* P(H) + P(D|~H) \* P(~H) = P(D|H) / 2 + P(D|~H) / 2
+
+Finally, we can calculate the posterior odds, which is the ratio of the probabilities of the hypothesis given the data:
+
+Posterior odds = P(H|D) / P(~H|D) = [P(D|H) \* P(H)] / [P(D|~H) \* P(~H)]
+
+Since P(H) = P(~H) = 1/2, the posterior odds simplify to:
+
+Posterior odds = P(D|H) / P(D|~H)
+
+{odds: (4 * (2/3)^3 * (1/3)^1) / (4 * (1/3)^3 * (2/3)^1) }

@@ -1,0 +1,56 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Witness Reliability:**  We know how often each witness is accurate about height.
+* **Base Rate:**  We know the general height distribution in the city.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this scenario. It helps us calculate the probability of an event (attacker being 185cm or taller) given prior knowledge (base rate) and new evidence (witness testimonies).
+
+Let:
+
+* **A** be the event "The attacker is 185cm or taller"
+* **B1** be the event "Witness 1 says the attacker is 185cm or taller"
+* **B2** be the event "Witness 2 says the attacker is shorter than 185cm"
+
+We want to find **P(A|B1, B2)** - the probability the attacker is tall given both witness statements.
+
+**Calculations**
+
+Bayes' Theorem (simplified for this case):
+
+P(A|B1, B2) = [P(B1, B2|A) * P(A)] / P(B1, B2) 
+
+Let's break down each term:
+
+* **P(A):**  Prior probability of the attacker being 185cm or taller. This is the base rate of 0.15 (15%).
+* **P(B1|A):** Probability witness 1 says "tall" given the attacker *is* tall. This is their accuracy for tall people, 0.8 (80%).
+* **P(B2| not A):** Probability witness 2 says "short" given the attacker is *not* tall. This is their accuracy for short people, 0.7 (70%). 
+* **P(B1, B2):**  Probability of both witnesses giving their specific testimonies. This needs to be calculated considering both cases (attacker is tall and attacker is not tall).
+
+**Calculating P(B1, B2):**
+
+* **Case 1: Attacker is tall (A):** 
+    * P(B1, B2|A) = P(B1|A) * P(B2|A) = 0.8 * 0.3 (since if the attacker is tall, witness 2 is wrong) = 0.24
+* **Case 2: Attacker is not tall (not A):**
+    * P(B1, B2| not A) = P(B1| not A) * P(B2| not A) = 0.2 * 0.7 = 0.14
+
+Now, using the law of total probability:
+* P(B1, B2) = P(B1, B2|A) * P(A)  +  P(B1, B2| not A) * P(not A)
+* P(B1, B2) = (0.24 * 0.15) + (0.14 * 0.85) = 0.155
+
+**Final Calculation**
+
+Now we have everything for Bayes' Theorem:
+
+P(A|B1, B2) = (0.24 * 0.15) / 0.155 = 0.232 
+
+**Answer**
+
+{probability: 0.232} 
+
+**Conclusion**
+
+Given the witness statements and the base rate, the probability that the attacker was 185cm or taller is approximately 23.2%.  While witness 1 claimed the attacker was tall, their testimony isn't strong enough to significantly outweigh the low base rate of tall people in the city. 

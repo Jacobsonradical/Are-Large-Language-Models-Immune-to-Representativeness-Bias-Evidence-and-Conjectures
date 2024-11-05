@@ -1,0 +1,22 @@
+To solve this problem, let's first calculate the number of possible distributions of 6 distinguishable balls among three children. This is a classic problem of multiset permutations or stars and bars. We have 6 "stars" representing balls and 2 "bars" separating the children. The number of ways to distribute the balls is equivalent to the number of ways to arrange these stars and bars, which is given by the combination formula:
+
+C(n+k-1, k-1)
+
+where n is the number of stars (balls) and k is the number of bars (children + 1). In this case, n = 6 and k = 3, so the total number of possible distributions is:
+
+C(8, 2) = 8! / (2! * 6!) = 28 possible distributions
+
+Now let's count the number of distributions that fall into case 1 (A:2, B:2, C:2) and case 2 (A:2, B:3, C:1).
+
+For case 1, there is only one way to distribute the balls:
+
+A_A|B_B|C_C
+
+For case 2, we need to choose 2 balls for A, 3 balls for B, and 1 ball for C. The number of ways to do this is given by the multinomial coefficient:
+
+Multinomial(6; 2, 3, 1) = 6! / (2! * 3! * 1!) = 60 / (2 * 6 * 1) = 15 possible distributions
+
+Since there is only one way for case 1 and 15 ways for case 2, it follows that in many rounds of the game, there will be more results of case 2 than case 1.
+
+Therefore, the answer is:
+{case: 2}

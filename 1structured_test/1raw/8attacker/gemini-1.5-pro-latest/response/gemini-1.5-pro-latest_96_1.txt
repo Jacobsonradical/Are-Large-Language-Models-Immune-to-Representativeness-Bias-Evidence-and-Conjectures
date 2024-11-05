@@ -1,0 +1,43 @@
+Here's how we can break down the problem to estimate the probability:
+
+**Understanding the Information**
+
+* **Prior Probability (from statement 'a'):**  This tells us the general likelihood of an attacker being a certain height *regardless* of the witness testimony. 
+    * P(Attacker < 185cm) = 0.85
+    * P(Attacker >= 185cm) = 0.15
+* **Witness Reliability (from statement 'b'):** This tells us how much we can trust the witness's statement.
+    * P(Witness Correct | Attacker >= 185cm) = 0.80 (True Positive)
+    * P(Witness Incorrect | Attacker >= 185cm) = 0.20 (False Positive) 
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for updating our prior belief based on new evidence. We want:
+
+* **Posterior Probability:** P(Attacker >= 185cm | Witness says >= 185cm) - The probability the attacker was actually 185cm or taller *given* the witness said so.
+
+**Bayes' Theorem Formula (adapted to our problem):**
+
+P(Attacker >= 185cm | Witness says >= 185cm) =  [P(Witness Correct | Attacker >= 185cm) * P(Attacker >= 185cm)] / P(Witness says >= 185cm)
+
+To calculate the denominator, we need to consider both ways the witness could say ">= 185cm":
+
+1. **True Positive:** The attacker was >= 185cm, and the witness was correct.
+2. **False Positive:** The attacker was < 185cm, and the witness was incorrect.
+
+**Let's calculate:**
+
+* **Denominator:**
+    * P(True Positive) = 0.80 * 0.15 = 0.12
+    * P(False Positive) = 0.20 * 0.85 = 0.17
+    * P(Witness says >= 185cm) = 0.12 + 0.17 = 0.29
+
+* **Final Calculation:**
+    * P(Attacker >= 185cm | Witness says >= 185cm) = (0.80 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion:**
+
+While the witness's testimony provides some evidence, it's important to incorporate the prior probability.  There's still only an estimated 41.4% chance the attacker was actually 185cm or taller. 

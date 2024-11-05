@@ -1,0 +1,43 @@
+Given the information provided, we have two pieces of data: the racial demographics of the city and the witness's accuracy in identifying race.
+
+1. The racial demographics of the city are 85% white and 15% black.
+2. The witness's accuracy in identifying race is 80% correct and 20% incorrect.
+
+However, there is an important difference between the population demographics and the witness's accuracy in identifying race. The witness's accuracy does not account for the specific situation of the attack, where the victim could not see the attacker's race. Therefore, the witness's accuracy cannot be directly used to estimate the attacker's race.
+
+Instead, we can use Bayes' theorem to estimate the probability of the attacker being black given the witness's report. Bayes' theorem is a method for updating the probability of a hypothesis given evidence. In this case, the hypothesis is that the attacker is black, and the evidence is the witness's report that the attacker is black.
+
+Bayes' theorem states that P(H|E) = [P(E|H) * P(H)] / [P(E)]
+
+where:
+- P(H|E) is the probability of the hypothesis given the evidence
+- P(E|H) is the probability of the evidence given the hypothesis
+- P(H) is the prior probability of the hypothesis
+- P(E) is the probability of the evidence
+
+In our case, the hypothesis H is that the attacker is black, and the evidence E is the witness's report that the attacker is black. The prior probability P(H) is given by the city's racial demographics, which is 0.15 (or 15%). The probability P(E|H) is given by the witness's accuracy in identifying black people, which is 0.8 (or 80%).
+
+The probability P(E) is the probability of the witness reporting that the attacker is black, given that the attacker could be either black or white. This probability is not given in the information, so we cannot directly calculate it. However, we can make an assumption about it based on the witness's accuracy in identifying race.
+
+Since the witness correctly identifies race 80% of the time and errs 20% of the time, we can assume that when the attacker is actually black, the witness correctly identifies the attacker as black 80% of the time. This means that when the attacker is actually white, the witness mistakenly identifies the attacker as black 20% of the time.
+
+Therefore, if the attacker is actually white, the probability of the witness reporting that the attacker is black is 0.2 (or 20%).
+
+Since the attacker could be either black or white, we can calculate the probability P(E) as the weighted average of these two probabilities, where the weights are determined by the prior probabilities of the attacker being black or white.
+
+P(E) = 0.15 * P(E|H) + 0.85 * P(E|~H)
+
+where ~H denotes the hypothesis that the attacker is white.
+
+Substituting the values we have, we get:
+
+P(E) = 0.15 * 0.8 + 0.85 * 0.2
+P(E) = 0.12 + 0.17
+P(E) = 0.29
+
+Now we can calculate the probability P(H|E) using Bayes' theorem:
+
+P(H|E) = [0.8 * 0.15] / 0.29
+P(H|E) ≈ 0.276
+
+Therefore, our estimate of the probability that the attacker is black, given the witness's report, is approximately 0.276 (or 27.6%). This estimate is lower than the racial demographics of the city, which suggests that the witness's report may not be reliable in this case. However, without more information, we cannot say for certain.

@@ -1,0 +1,39 @@
+Given the information provided, we can use Bayes' theorem to calculate the probability that the attacker is black. Bayes' theorem is a fundamental concept in probability theory that describes the probability of an event based on prior knowledge.
+
+Let's denote:
+- A: the event that the attacker is black
+- W: the event that the witness identified the attacker as black
+
+The two pieces of information given can be translated into the following probabilities:
+- P(A) is the prior probability of the attacker being black, which we want to estimate.
+- P(W|A) is the probability of the witness correctly identifying a black person, given that the attacker is black. This is given to be 0.8.
+- P(W|not A) is the probability of the witness incorrectly identifying a black person, given that the attacker is not black. This is given to be 0.2, as the witness is correct 80% of the time.
+- P(not A) is the prior probability of the attacker being white, which is 1 - P(A).
+- P(W) is the probability of the witness identifying someone as black, regardless of the attacker's race. This can be calculated using the law of total probability:
+  P(W) = P(W|A) * P(A) + P(W|not A) * P(not A)
+
+Now, Bayes' theorem states that:
+P(A|W) = P(W|A) * P(A) / P(W)
+
+We know P(W|A), P(A), and P(W), so we can calculate P(A|W):
+
+P(A|W) = (0.8 * P(A)) / [0.8 * P(A) + 0.2 * (1 - P(A))]
+
+We don't have a value for P(A), but we can solve for it:
+
+P(A) = [0.8 * P(A|W)] / [0.8 * P(A|W) + 0.2 * (1 - P(A|W))]
+
+Substituting the given values, we get:
+
+P(A) = [0.8 * P(A|W)] / [0.8 * P(A|W) + 0.2 * (1 - 0.8)]
+P(A) = [0.8 * P(A|W)] / [0.8 * P(A|W) + 0.16]
+
+At this point, we cannot directly solve for P(A) without additional information. However, the information about the racial composition of the city (85% white and 15% black) can be used to make an educated guess. If we assume that the witness's ability to judge race is independent of the racial composition of the city, then we can use this information to make a rough estimate.
+
+Since 85% of the population is white, we can approximate P(not A) as 0.85 and P(A) as 0.15. Plugging these values into the Bayes' theorem formula, we get:
+
+P(A|W) = [0.8 * 0.15] / [0.8 * 0.15 + 0.2 * (1 - 0.15)]
+P(A|W) = 0.12 / 0.12 + 0.16
+P(A|W) = 0.12 / 0.28 ≈ 0.4286
+
+So, given the information provided and the assumption that the witness's ability to judge race is independent of the racial composition of the city, our estimate of the probability that the attacker is black is approximately 0.43, or 43%. However, it's important to note that this is a rough estimate and may not be accurate due to the assumptions made and the lack of direct information about P(A).

@@ -1,0 +1,50 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**Let's define the events:**
+
+* **A:** The attacker was 185 cm or taller.
+* **B:** The attacker was shorter than 185 cm.
+* **W1:** Witness 1 claims the attacker was 185 cm or taller.
+* **W2:** Witness 2 claims the attacker was shorter than 185 cm.
+
+**We are given:**
+
+* **P(A):** Prior probability the attacker is 185cm or taller = 0.15 (15%)
+* **P(B):** Prior probability the attacker is shorter than 185cm = 0.85 (85%)
+* **P(W1|A):** Probability witness 1 correctly identifies someone 185cm or taller = 0.80 (80%)
+* **P(W1|B):** Probability witness 1 incorrectly identifies someone shorter than 185cm as taller = 0.20 (20%)
+* **P(W2|B):** Probability witness 2 correctly identifies someone shorter than 185cm  = 0.70 (70%)
+* **P(W2|A):** Probability witness 2 incorrectly identifies someone 185cm or taller as shorter = 0.30 (30%)
+
+**We want to find:**
+
+* **P(A|W1, W2):**  The probability the attacker was 185 cm or taller given both witness testimonies.
+
+**Using Bayes' Theorem:**
+
+P(A|W1, W2) = [P(W1, W2|A) * P(A)] / P(W1, W2)
+
+To make the calculation easier, we'll calculate the probability of the attacker being shorter than 185cm given the witness statements (P(B|W1, W2)), and then use the fact that P(A|W1, W2) + P(B|W1, W2) = 1.
+
+**Let's break down the calculation:**
+
+1. **P(W1, W2|A):** The probability of both witnesses giving their specific testimonies given the attacker was actually 185cm or taller. Since the witnesses are assumed to judge independently, we can multiply their individual probabilities:
+   *  P(W1, W2|A) = P(W1|A) * P(W2|A) = 0.80 * 0.30 = 0.24
+
+2. **P(W1, W2|B):**  The probability of both witnesses giving their specific testimonies given the attacker was actually shorter than 185cm:
+   * P(W1, W2|B) = P(W1|B) * P(W2|B) = 0.20 * 0.70 = 0.14
+
+3. **P(W1, W2):**  The probability of the witnesses giving their specific testimonies (regardless of the attacker's actual height). We can calculate this using the law of total probability:
+   * P(W1, W2) = P(W1, W2|A) * P(A) + P(W1, W2|B) * P(B) 
+   * P(W1, W2) = (0.24 * 0.15) + (0.14 * 0.85) = 0.155
+
+4. **P(B|W1, W2):** The probability the attacker was shorter than 185cm given the witness testimonies:
+   * P(B|W1, W2) = [P(W1, W2|B) * P(B)] / P(W1, W2)
+   * P(B|W1, W2) = (0.14 * 0.85) / 0.155 = 0.768
+
+5. **P(A|W1, W2):**  The probability the attacker was 185cm or taller given the witness testimonies:
+   * P(A|W1, W2) = 1 - P(B|W1, W2) = 1 - 0.768 = 0.232 
+
+**Therefore, the estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is:**
+
+{probability: 0.232} 

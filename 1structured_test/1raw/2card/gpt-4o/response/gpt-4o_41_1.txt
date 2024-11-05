@@ -1,0 +1,49 @@
+To find the posterior odds that the 4 cards drawn were from Deck A compared to Deck B, we will follow the process of Bayesian inference.
+
+Let's define:
+- \( H_A \) as the hypothesis that the cards are from Deck A.
+- \( H_B \) as the hypothesis that the cards are from Deck B.
+- \( E \) as the event that 3 out of 4 cards are marked X and 1 card is marked O.
+
+We start with equal prior probabilities for selecting either deck:
+- \( P(H_A) = P(H_B) = 0.5 \).
+
+Next, we need to compute the likelihood of drawing 3 X's and 1 O from each deck.
+
+**Likelihood for Deck A** (where \(2/3\) of the cards are X and \(1/3\) are O):
+
+The probability \( P(E | H_A) \) is computed using the binomial distribution:
+
+\[ P(E | H_A) = \binom{4}{3} \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right)^1 \]
+
+\[
+P(E | H_A) = 4 \cdot \left( \frac{2}{3} \right)^3 \cdot \left( \frac{1}{3} \right) = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81}
+\]
+
+**Likelihood for Deck B** (where \(1/3\) of the cards are X and \(2/3\) are O):
+
+The probability \( P(E | H_B) \) is computed similarly:
+
+\[ P(E | H_B) = \binom{4}{3} \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right)^1 \]
+
+\[
+P(E | H_B) = 4 \cdot \left( \frac{1}{3} \right)^3 \cdot \left( \frac{2}{3} \right) = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81}
+\]
+
+Now, calculate the posterior odds using Bayes' theorem. The posterior odds are given by the ratio of the posterior probabilities of the two hypotheses:
+
+\[
+\text{Posterior Odds} = \frac{P(H_A | E)}{P(H_B | E)} = \frac{P(E | H_A) \cdot P(H_A)}{P(E | H_B) \cdot P(H_B)}
+\]
+
+Given \( P(H_A) = P(H_B) = 0.5 \), they cancel out in the ratio:
+
+\[
+\text{Posterior Odds} = \frac{P(E | H_A)}{P(E | H_B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4
+\]
+
+\[
+\{odds: 4\}
+\]
+
+So the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are 4.

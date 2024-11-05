@@ -1,0 +1,33 @@
+{hospital: 1}
+
+Here's an explanation for my answer:
+
+We know that Hospital 1 delivers about 45 babies per day, while Hospital 2 delivers about 15 babies per day. In order to have more than 60% boys born on a given day, we need a larger number of births. This is because the percentage of boys can fluctuate around the 50% average.
+
+To estimate the probability of having more than 60% boys on a given day, let's consider a binomial distribution model where the number of trials is the number of births, the probability of success is 0.5 (for a boy), and we want to find the probability of having at least 60% successes (boys).
+
+Let's first calculate the probability of having exactly 60% boys (27 boys and 18 girls) in Hospital 1:
+
+P(27 boys and 18 girls) = C(45, 27) * 0.5^27 * 0.5^18 ≈ 0.129
+
+However, this is just the probability for one specific scenario. To account for having at least 60% boys, we should also consider having 61%, 62%, ..., 100% boys. Calculating these probabilities individually would be tedious, so let's use a normal approximation for the binomial distribution.
+
+Mean = np = 45 * 0.5 = 22.5
+Standard deviation = sqrt(np(1-p)) ≈ 3.5355
+
+Now, let's standardize and find the z-score for having 60% boys:
+
+z = (0.6 * 45 - 22.5) / 3.5355 ≈ 2.8284
+
+Using a z-table, we can find that P(Z > 2.8284) ≈ 0.00235. This is just the one-sided probability for having exactly 60% boys. To account for having at least 60% boys, we should also consider higher percentages. The two-sided probability for having a percentage of boys between 60% and 100% is twice the one-sided probability, which is approximately 0.0047 or 0.47%.
+
+Doing the same calculations for Hospital 2, we get:
+
+Mean = np = 15 * 0.5 = 7.5
+Standard deviation = sqrt(np(1-p)) ≈ 1.8708
+
+z = (0.6 * 15 - 7.5) / 1.8708 ≈ 2.0271
+
+Using a z-table, we can find that P(Z > 2.0271) ≈ 0.04297. The two-sided probability for having a percentage of boys between 60% and 100% is twice the one-sided probability, which is approximately 0.08594 or 8.594%.
+
+Comparing the probabilities for both hospitals, we can see that Hospital 1 has a much lower probability (0.47%) of having more than 60% boys born on a given day. In contrast, Hospital 2 has a higher probability (8.594%) of having more than 60% boys on a given day. Therefore, it is likely that Hospital 2 recorded more such days.

@@ -1,0 +1,22 @@
+Given the information provided, we have two sources of evidence to consider: the general distribution of races in the city and the witness's reliability in identifying races.
+
+1. According to the information, 85% of the population is white, and 15% is black. This is our prior probability of an attacker being black, based on the demographics of the city.
+
+2. The witness's ability to identify races is not perfect. They correctly identify races 80% of the time and err in 20% of the cases. This means that when they see a black person, they incorrectly identify them as white 20% of the time.
+
+Now, let's combine these two pieces of information. The witness identified the attacker as black. However, we cannot simply take their word for it and assume that the attacker is actually black, because of the witness's error rate. We need to account for the possibility that the witness made a mistake.
+
+Let's denote:
+- P(Black) as the probability that the attacker is black.
+- P(White|WitnessBlack) as the probability that the witness says the attacker is black, given that the attacker is actually white.
+- P(Black|WitnessBlack) as the probability that the witness says the attacker is black, given that the attacker is actually black.
+
+We know that P(Black) = 0.15 (from the demographics) and P(White|WitnessBlack) = 0.2 (from the witness's error rate). We also know that P(Black|WitnessBlack) + P(White|WitnessBlack) = 1 (since the witness is always correct or wrong). Solving this equation gives us P(White|WitnessBlack) = 0.8.
+
+Now, we can use Bayes' theorem to calculate the updated probability of the attacker being black, given the witness's testimony: P(Black|WitnessBlack) = [P(WitnessBlack|Black) * P(Black)] / [P(WitnessBlack|Black) * P(Black) + P(WitnessBlack|White) * P(White)].
+
+Substituting the values we have, we get: P(Black|WitnessBlack) = [0.8 * 0.15] / [0.8 * 0.15 + 0.2 * 0.85].
+
+The final estimate of the probability that the attacker is black, given the witness's testimony, is approximately 0.47 or 47%.
+
+{probability: 0.47}

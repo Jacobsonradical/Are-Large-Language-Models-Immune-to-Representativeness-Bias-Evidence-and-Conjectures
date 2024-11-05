@@ -1,0 +1,36 @@
+To solve this problem, we use Bayes' Theorem which in this case allows us to update our prior beliefs about the attacker’s height based on the new evidence provided by the witnesses. Our prior belief (prior probability) about the height is given in the problem, and we need to adjust this based on the witnesses' reliability (likelihoods).
+
+Let:
+- \( H \) represent the hypothesis that the attacker is 185 cm or taller.
+- \( \neg H \) represent the hypothesis that the attacker is shorter than 185 cm.
+
+From the problem statement:
+- \( P(H) = 0.15 \) (Prior probability that the attacker is 185 cm or taller)
+- \( P(\neg H) = 0.85 \) (Prior probability that the attacker is shorter than 185 cm)
+
+Based on the witnesses' reliability:
+- The probability that Witness 1 correctly identifies someone as 185 cm or taller, given that they are 185 cm or taller, \( P(W1 \mid H) = 0.8 \).
+- The probability that Witness 1 incorrectly identifies someone as 185 cm or taller, given that they are shorter than 185 cm, \( P(W1 \mid \neg H) = 0.2 \).
+- The probability that Witness 2 correctly identifies someone as shorter than 185 cm, given that they are shorter than 185 cm, \( P(W2 \mid \neg H) = 0.7 \).
+- The probability that Witness 2 incorrectly identifies someone as shorter than 185 cm, given that they are 185 cm or taller, \( P(W2 \mid H) = 0.3 \).
+
+We assume independence between witness reports given the height of the attacker. The combined updated probability that the attacker is 185 cm or taller, given both witnesses' statements (where \( W1 \) indicates that Witness 1 saw the attacker as 185 cm or taller and \( W2 \) saw them as shorter), can be written using Bayes' Theorem and the Law of Total Probability:
+
+\[ P(H \mid W1 \cap \neg W2) = \frac{P(W1 \mid H) \cdot P(\neg W2 \mid H) \cdot P(H)}{P(W1 \cap \neg W2)} \]
+\[ P(H \mid W1 \cap \neg W2) = \frac{0.8 \cdot 0.3 \cdot 0.15}{P(W1 \cap \neg W2)} \]
+\[ P(\neg W2 \mid H) = P(W2 \mid \neg H) = 0.3 \; \text{(from Witness 2's error rate)} \]
+
+The term \( P(W1 \cap \neg W2) \) (probability of Witness 1 saying 'taller' and Witness 2 saying 'shorter') can be expanded using the Law of Total Probability:
+\[ P(W1 \cap \neg W2) = P(W1 \mid H) \cdot P(\neg W2 \mid H) \cdot P(H) + P(W1 \mid \neg H) \cdot P(\neg W2 \mid \neg H) \cdot P(\neg H) \]
+\[ P(W1 \cap \neg W2) = (0.8 \cdot 0.3 \cdot 0.15) + (0.2 \cdot 0.7 \cdot 0.85) \]
+\[ P(W1 \cap \neg W2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155 \]
+
+So,
+\[ P(H \mid W1 \cap \neg W2) = \frac{0.24 \cdot 0.15}{0.155} \approx 0.2323 \]
+
+Therefore,
+```
+{probability: 0.2323}
+``` 
+
+This value represents our updated belief about the probability that the attacker is 185 cm or taller based on the witnesses' testimonies and their abilities to accurately judge height under similar conditions.

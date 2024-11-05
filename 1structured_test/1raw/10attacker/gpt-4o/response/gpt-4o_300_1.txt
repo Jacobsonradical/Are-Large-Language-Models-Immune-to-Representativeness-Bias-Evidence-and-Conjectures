@@ -1,0 +1,48 @@
+To estimate the probability that the attacker's height was 185 cm or taller (let's call this event \( H \)), given the testimonies of the two witnesses, we can use Bayes' Theorem. We will use the following notation:
+
+- \( W1_{tall} \): First witness claims the attacker is 185 cm or taller.
+- \( W2_{short} \): Second witness claims the attacker is shorter than 185 cm.
+- \( P(H) \): Prior probability that a randomly selected person is 185 cm or taller.
+- \( P(H') \): Prior probability that a randomly selected person is shorter than 185 cm.
+- \( P(W1_{tall}|H) \): Probability that the first witness correctly identifies a tall attacker.
+- \( P(W1_{tall}|H') \): Probability that the first witness incorrectly identifies a short attacker as tall.
+- \( P(W2_{short}|H) \): Probability that the second witness incorrectly identifies a tall attacker as short.
+- \( P(W2_{short}|H') \): Probability that the second witness correctly identifies a short attacker.
+
+Given data:
+- \( P(H) = 0.15 \)
+- \( P(H') = 0.85 \)
+- \( P(W1_{tall}|H) = 0.8 \)
+- \( P(W1_{tall}|H') = 0.2 \)
+- \( P(W2_{short}|H) = 0.3 \)
+- \( P(W2_{short}|H') = 0.7 \)
+
+Using Bayes' Theorem, we want to find \( P(H|W1_{tall}, W2_{short}) \):
+
+\[ P(H|W1_{tall}, W2_{short}) = \frac{P(W1_{tall}, W2_{short}|H) \cdot P(H)}{P(W1_{tall}, W2_{short})} \]
+
+First, we need to find \( P(W1_{tall}, W2_{short}|H) \) and \( P(W1_{tall}, W2_{short}) \).
+
+\[ P(W1_{tall}, W2_{short}|H) = P(W1_{tall}|H) \cdot P(W2_{short}|H) \]
+\[ P(W1_{tall}, W2_{short}|H) = 0.8 \cdot 0.3 = 0.24 \]
+
+\[ P(W1_{tall}, W2_{short}|H') = P(W1_{tall}|H') \cdot P(W2_{short}|H') \]
+\[ P(W1_{tall}, W2_{short}|H') = 0.2 \cdot 0.7 = 0.14 \]
+
+Now, we find \( P(W1_{tall}, W2_{short}) \):
+
+\[ P(W1_{tall}, W2_{short}) = P(W1_{tall}, W2_{short}|H) \cdot P(H) + P(W1_{tall}, W2_{short}|H') \cdot P(H') \]
+\[ P(W1_{tall}, W2_{short}) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 \]
+\[ P(W1_{tall}, W2_{short}) = 0.036 + 0.119 = 0.155 \]
+
+Finally, we compute \( P(H|W1_{tall}, W2_{short}) \):
+
+\[ P(H|W1_{tall}, W2_{short}) = \frac{0.24 \cdot 0.15}{0.155} \]
+\[ P(H|W1_{tall}, W2_{short}) = \frac{0.036}{0.155} \]
+\[ P(H|W1_{tall}, W2_{short}) \approx 0.2323 \]
+
+Thus, the estimated probability that the attacker's height was 185 cm or taller is:
+
+```json
+{ "probability": 0.2323 }
+```

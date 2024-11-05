@@ -1,0 +1,49 @@
+To estimate the probability that the attacker’s height was 185 cm or taller, we can use Bayes' Theorem. Here's the breakdown:
+
+1. **Witness Testimonies**:
+   - **First witness (W1)**: 80% accuracy for "≥ 185 cm" and 20% error for "< 185 cm".
+   - **Second witness (W2)**: 70% accuracy for "< 185 cm" and 30% error for "≥ 185 cm".
+
+2. **City Population Distribution**:
+   - Probability \( P(H \geq 185) = 0.15 \).
+   - Probability \( P(H < 185) = 0.85 \).
+
+We are given the testimony from both witnesses: W1 claims the attacker is \( \geq 185 cm \) and W2 claims the attacker is \( < 185 cm \). We need to account for both testimonies to calculate the posterior probability \( P(H \geq 185 | \text{W1}, \text{W2}) \).
+
+#### Step-by-Step Calculation:
+
+1. **Likelihood and Posterior Calculation for First Witness (W1)**:
+
+   - \( P(\text{W1 says } \geq 185 | H \geq 185) = 0.8 \)
+   - \( P(\text{W1 says } \geq 185 | H < 185) = 0.2 \)
+
+2. **Likelihood and Posterior Calculation for Second Witness (W2)**:
+
+   - \( P(\text{W2 says } < 185 | H < 185) = 0.7 \)
+   - \( P(\text{W2 says } < 185 | H \geq 185) = 0.3 \)
+
+We apply Bayes' Theorem combining the two witnesses with their accuracies and testimonies:
+
+\[ P(H \geq 185 | \text{W1}, \text{W2}) = \frac{P(\text{W1}, \text{W2} | H \ge 185) \cdot P(H \ge 185)}{P(\text{W1}, \text{W2})} \]
+
+We need to calculate the joint likelihoods:
+
+\[ P(\text{W1}, \text{W2} | H \ge 185) = P(\text{W1 says } \geq 185 | H \ge 185) \cdot P(\text{W2 says } < 185 | H \ge 185) = 0.8 \cdot 0.3 = 0.24 \]
+
+\[ P(\text{W1}, \text{W2} | H < 185) = P(\text{W1 says } \geq 185 | H < 185) \cdot P(\text{W2 says } < 185 | H < 185) = 0.2 \cdot 0.7 = 0.14 \]
+
+3. **Calculate the Normalizing Constant**:
+
+\[ P(\text{W1}, \text{W2}) = P(\text{W1}, \text{W2} | H \ge 185) \cdot P(H \ge 185) + P(\text{W1}, \text{W2} | H < 185) \cdot P(H < 185) \]
+
+\[ P(\text{W1}, \text{W2}) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) \]
+
+\[ P(\text{W1}, \text{W2}) = 0.036 + 0.119 = 0.155 \]
+
+4. **Posterior Probability Calculation**:
+
+\[ P(H \ge 185 | \text{W1}, \text{W2}) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+So the estimated probability that the attacker's height was 185 cm or taller is:
+
+\{probability: 0.232\}

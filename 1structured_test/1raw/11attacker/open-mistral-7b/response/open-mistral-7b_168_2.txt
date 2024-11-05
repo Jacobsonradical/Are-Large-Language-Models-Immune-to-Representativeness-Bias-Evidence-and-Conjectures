@@ -1,0 +1,39 @@
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Bayes' theorem allows us to update our beliefs about the probability of a hypothesis (in this case, the attacker being black) given new evidence.
+
+The formula for Bayes' theorem is:
+
+P(H|E) = [P(E|H) * P(H)] / [P(E)]
+
+Where:
+- P(H|E) is the probability of the hypothesis given the evidence
+- P(E|H) is the probability of the evidence given the hypothesis
+- P(H) is the prior probability of the hypothesis
+- P(E) is the probability of the evidence
+
+Let's break this down:
+
+1. P(H|E): This is what we want to find - the probability that the attacker is black given the witness's statement and the population demographics.
+
+2. P(E|H): This is the probability that the witness would identify someone as black, given that they are actually black. The witness was correct 80% of the time and incorrect 20% of the time, so P(E|H) = 0.8.
+
+3. P(H): This is the prior probability of the attacker being black. Given that 15% of the population is black, P(H) = 0.15.
+
+4. P(E): This is the probability of the witness's statement, given any attacker. Since we don't know the race of the attacker, we can't directly calculate this probability. However, we can calculate this probability conditioned on the attacker being black (P(E|H)) and the attacker being white (P(E|~H)), then use those probabilities to calculate P(E) using Bayes' theorem again:
+
+   P(E|~H) = P(witness identifies as black | attacker is white)
+
+   Since the witness was incorrect 20% of the time when identifying race, P(E|~H) = 0.2.
+
+   Then, using Bayes' theorem again:
+
+   P(E) = P(E|H) * P(H) + P(E|~H) * P(~H)
+
+   Since P(~H) = 1 - P(H) = 0.85, we have:
+
+   P(E) = 0.8 * 0.15 + 0.2 * 0.85 = 0.12 + 0.17 = 0.29
+
+Now we can calculate P(H|E):
+
+P(H|E) = [P(E|H) * P(H)] / P(E) = (0.8 * 0.15) / 0.29 ≈ 0.414
+
+So, given the evidence and the witness's ability to judge race, the estimated probability that the attacker is black is approximately 0.414 or 41.4%.

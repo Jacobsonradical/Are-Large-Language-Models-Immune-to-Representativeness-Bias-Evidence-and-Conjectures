@@ -1,0 +1,47 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. We are given the following probabilities:
+
+P(A) = 0.15 (85% of the population is shorter than 185 cm, so 15% are 185 cm or taller)
+
+P(W1|A) = 0.8 (first witness is correct when the person is 185 cm or taller 80% of the time)
+
+P(W2|A') = 0.7 (second witness is correct when the person is shorter than 185 cm 70% of the time)
+
+P(A') = 0.85 (since P(A) = 0.15, then P(A') = 1 - P(A) = 0.85)
+
+P(W1|A') = 0.2 (first witness is incorrect when the person is shorter than 185 cm 20% of the time)
+
+Bayes' theorem states:
+
+P(A|W1) = [P(W1|A) * P(A)] / [P(W1|A) * P(A) + P(W1|A') * P(A')]
+
+First, let's compute the probability that both witnesses agree on the height (either both say the attacker is 185 cm or taller, or both say the attacker is shorter than 185 cm):
+
+P(W1 & W2|A) = P(W1|A) * P(W2|A) = 0.8 * 0.8 = 0.64
+
+P(W1' & W2'|A') = P(W1'|A') * P(W2'|A') = 0.2 * 0.3 = 0.06
+
+Now, let's compute the probability that both witnesses disagree on the height (one says the attacker is 185 cm or taller, and the other says the attacker is shorter than 185 cm):
+
+P(W1 & W2'|A) = P(W1|A) * P(W2'|A) = 0.8 * 0.3 = 0.24
+
+P(W1' & W2|A') = P(W1'|A') * P(W2|A') = 0.2 * 0.8 = 0.16
+
+Now, we can compute the probability that both witnesses disagree, given that the first witness claims the attacker is 185 cm or taller:
+
+P(W1 & W2'|W1) = P(W1 & W2'& A) / P(W1) = [P(W1 & W2'& A) + P(W1 & W2'& A')] / [P(W1 & W2& A) + P(W1 & W2'& A) + P(W1' & W2& A') + P(W1 & W2'& A')]
+
+P(W1 & W2'& A) = 0.24
+
+P(W1' & W2& A') = 0.16
+
+P(W1) = P(W1 & W2& A) + P(W1 & W2'& A) + P(W1 & W2'& A')
+
+P(W1) = 0.64 + 0.24 + 0.16 = 1
+
+So,
+
+P(W1 & W2'|W1) = (0.24 + 0.16) / 1 = 0.4
+
+The probability that the attacker's height was 185 cm or taller, given that the first witness claimed so, is 0.4.
+
+{probability: 0.4}

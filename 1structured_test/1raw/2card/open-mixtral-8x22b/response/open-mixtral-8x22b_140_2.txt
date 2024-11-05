@@ -1,0 +1,37 @@
+To calculate the posterior odds, we can use Bayes' theorem. Let's denote A as the event that Deck A was chosen, and B as the event that Deck B was chosen. We are given that P(A) = P(B) = 0.5 (the decks are chosen by chance with equal probability).
+
+Let's denote E as the evidence that, after drawing 4 cards, 3 are marked X and 1 is marked O. We want to find the posterior odds, which is the ratio of the posterior probabilities P(A|E) and P(B|E).
+
+First, let's compute the likelihoods P(E|A) and P(E|B). These are the probabilities of observing the evidence E given that Deck A or Deck B was chosen, respectively.
+
+For Deck A:
+- P(X) = 2/3
+- P(O) = 1/3
+
+For Deck B:
+- P(X) = 1/3
+- P(O) = 2/3
+
+The probability of drawing 3 X's and 1 O in Deck A is a binomial probability:
+P(E|A) = (4 choose 3) * (2/3)^3 * (1/3)^1 = 4 * (8/27) * (1/3) = 32/81
+
+The probability of drawing 3 X's and 1 O in Deck B is also a binomial probability:
+P(E|B) = (4 choose 3) * (1/3)^3 * (2/3)^1 = 4 * (1/27) * (2/3) = 8/81
+
+Now, we can compute the posterior probabilities using Bayes' theorem:
+P(A|E) = [P(E|A) * P(A)] / P(E)
+P(B|E) = [P(E|B) * P(B)] / P(E)
+
+The marginal probability P(E) can be computed as:
+P(E) = P(E|A) * P(A) + P(E|B) * P(B) = (32/81) * (1/2) + (8/81) * (1/2) = 20/81
+
+Now, we can compute the posterior probabilities:
+P(A|E) = (32/81) * (1/2) / (20/81) = 32/40 = 4/5
+P(B|E) = (8/81) * (1/2) / (20/81) = 8/40 = 1/5
+
+Finally, we can compute the posterior odds:
+odds = P(A|E) / P(B|E) = (4/5) / (1/5) = 4
+
+So, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is 4 to 1.
+
+{odds: 4}

@@ -1,0 +1,33 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the testimony of the witnesses, we will use Bayes' Theorem. Bayes' Theorem helps us update our prior belief about a hypothesis based on new evidence.
+
+First, we need to define our terms:
+- Let \( H \) represent the hypothesis that the attacker's height is 185 cm or taller.
+- The prior probability \( P(H) \) is the probability that a randomly selected person from the city is 185 cm or taller, i.e., 15% or 0.15.
+- The prior probability \( P(\neg H) \) is the probability that a randomly selected person is shorter than 185 cm, i.e., 85% or 0.85.
+- Let \( E_1 \) and \( E_2 \) be the statements that the first and second witness, respectively, claimed the attacker's height with respect to 185 cm. \( E_1 \) is the event that the first witness correctly identifies someone as being 185 cm or taller, and \( E_2 \) is the event that the second witness correctly identifies someone as being shorter than 185 cm.
+
+Given the witness accuracies:
+- \( P(E_1 | H) = 0.80 \), the probability the first witness correctly identifies a tall attacker,
+- \( P(E_1 | \neg H) = 0.20 \), the probability the first witness incorrectly identifies a short person as tall,
+- \( P(E_2 | H) = 0.30 \), the probability the second witness incorrectly identifies a tall person as short,
+- \( P(E_2 | \neg H) = 0.70 \), the probability the second witness correctly identifies a short person.
+
+We can compute the joint probabilities:
+- \( P(E_1 \cap E_2 | H) = P(E_1 | H) \times P(E_2 | H) = 0.80 \times 0.30 = 0.24 \)
+- \( P(E_1 \cap E_2 | \neg H) = P(E_1 | \neg H) \times P(E_2 | \neg H) = 0.20 \times 0.70 = 0.14 \)
+
+Now, applying Bayes' theorem:
+
+\[
+P(H | E_1 \cap E_2) = \frac{P(E_1 \cap E_2 | H) P(H)}{P(E_1 \cap E_2 | H) P(H) + P(E_1 \cap E_2 | \neg H) P(\neg H)}
+= \frac{0.24 \times 0.15}{0.24 \times 0.15 + 0.14 \times 0.85} 
+= \frac{0.036}{0.036 + 0.119}
+= \frac{0.036}{0.155}
+\approx 0.232
+\]
+
+Therefore, the probability that the attacker's height was 185 cm or taller, given both sets of testimonies is approximately 0.232.
+
+```json
+{ "probability": 0.232 }
+```

@@ -1,0 +1,44 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem, which allows us to update our prior probability based on new evidence.
+
+Let's denote:
+- A as the event that the attacker is 185 cm or taller.
+- B₁ as the event that the first witness claims the attacker is 185 cm or taller.
+- B₂ as the event that the second witness claims the attacker is shorter than 185 cm.
+- P(A) as the prior probability that the attacker is 185 cm or taller, which is 15% or 0.15.
+- P(B₁|A) as the probability that the first witness claims the attacker is 185 cm or taller, given that the attacker is indeed 185 cm or taller, which is 80% or 0.8.
+- P(B₁|A') as the probability that the first witness claims the attacker is 185 cm or taller, given that the attacker is actually shorter than 185 cm, which is 20% or 0.2.
+- P(B₂|A) as the probability that the second witness claims the attacker is shorter than 185 cm, given that the attacker is 185 cm or taller, which is 30% or 0.3.
+- P(B₂|A') as the probability that the second witness claims the attacker is shorter than 185 cm, given that the attacker is actually shorter than 185 cm, which is 70% or 0.7.
+
+Now, we can calculate the posterior probability P(A|B₁, B₂) using Bayes' theorem:
+
+P(A|B₁, B₂) = P(B₁, B₂|A) \* P(A) / P(B₁, B₂)
+
+However, calculating P(B₁, B₂|A) and P(B₁, B₂) directly can be complex. Instead, we can consider the witnesses' testimonies separately and then combine them using the principle of conditional independence:
+
+P(A|B₁, B₂) ∝ P(B₁|A) \* P(B₂|A) \* P(A) \* P(B₁|A') \* P(B₂|A') \* P(A')
+
+Where P(A') is the prior probability that the attacker is shorter than 185 cm, which is 85% or 0.85.
+
+Now, let's calculate the likelihood ratios for each witness:
+
+LR₁ = P(B₁|A) / P(B₁|A') = 0.8 / 0.2 = 4
+LR₂ = P(B₂|A') / P(B₂|A) = 0.7 / 0.3 = 2.33
+
+The combined likelihood ratio is:
+
+LR = LR₁ \* LR₂ = 4 \* 2.33 ≈ 9.32
+
+Now, we can use the likelihood ratio to update our prior probability:
+
+P(A|B₁, B₂) ∝ LR \* P(A)
+P(A|B₁, B₂) ∝ 9.32 \* 0.15
+P(A|B₁, B₂) ∝ 1.398
+
+Since this is not a probability, we need to normalize it by dividing by the sum of the probabilities for both hypotheses (A and A'):
+
+P(A|B₁, B₂) = 1.398 / (1.398 + 1) ≈ 0.585
+
+Therefore, the estimated probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.585 or 58.5%.
+
+{probability: 0.585}

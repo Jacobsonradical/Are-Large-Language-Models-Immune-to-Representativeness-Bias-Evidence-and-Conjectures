@@ -1,0 +1,33 @@
+Let's reason through this:
+
+1. We know that a random person in the city has an 85% probability of being white and a 15% probability of being black.
+2. The witness identified the attacker as black, but their accuracy rate for identifying a person's race under these conditions is 80%.
+3. This means that when the witness identifies someone as black, there is an 80% chance they are correct and a 20% chance they are mistaken (and the person is actually white).
+4. Given the witness identification, we want to estimate the probability that the attacker is actually black.
+
+Let's calculate this using Bayes' theorem:
+
+P(B|I) = P(I|B) * P(B) / [P(I|B) * P(B) + P(I|W) * P(W)]
+
+Where:
+- P(B|I) is the probability that the attacker is black given the witness identification
+- P(I|B) is the probability that the witness identifies the attacker as black given that the attacker is black
+- P(B) is the prior probability that the attacker is black (15%)
+- P(I|W) is the probability that the witness identifies the attacker as black given that the attacker is white
+- P(W) is the prior probability that the attacker is white (85%)
+
+We have:
+- P(I|B) = 1 (since the witness identified the attacker as black)
+- P(B) = 0.15
+- P(I|W) = 1 - 0.8 (since the witness is wrong 20% of the time) = 0.2
+- P(W) = 0.85
+
+Substituting these values into Bayes' theorem gives us:
+
+P(B|I) = (1 * 0.15) / [(1 * 0.15) + (0.2 * 0.85)]
+
+Calculating this gives us:
+
+P(B|I) ≈ 0.4375 or 43.75%
+
+So, given the information available, there is approximately a 43.75% chance that the attacker is actually black.

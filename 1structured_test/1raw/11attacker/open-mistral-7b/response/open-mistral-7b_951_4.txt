@@ -1,0 +1,24 @@
+Given the information provided, we have two pieces of data to consider: the racial demographics of the city (85% white, 15% black) and the witness's accuracy in identifying races (correctly identifies 80% of the time, errs 20% of the time).
+
+However, there's an important distinction to make between the city's demographics and the witness's accuracy in identifying races. The demographics tell us the likelihood that the attacker is either white or black, but they don't account for the witness's potential error. The witness's accuracy tells us how often the witness correctly identifies the race, but it doesn't account for the actual race of the attacker.
+
+To make an estimate, we need to incorporate both pieces of information. One way to do this is to use Bayes' theorem, which allows us to update our beliefs based on new evidence. In this case, our prior belief is that the attacker is either white (with probability 0.85) or black (with probability 0.15), and our new evidence is the witness's identification.
+
+The updated probability that the attacker is black, given the witness's identification, is given by:
+
+P(attacker is black | witness identification) = P(witness identification | attacker is black) * P(attacker is black) / P(witness identification)
+
+Where:
+- P(witness identification | attacker is black) is the probability that the witness correctly identifies a black attacker (0.80)
+- P(attacker is black) is the prior probability that the attacker is black (0.15)
+- P(witness identification) is the overall probability of the witness making the identification, which is a weighted sum of the probabilities of the two possible underlying conditions: P(witness identification | attacker is black) * P(attacker is black) + P(witness identification | attacker is white) * P(attacker is white)
+
+Unfortunately, we don't have enough information to calculate P(witness identification | attacker is white). However, we can make an approximation by assuming that the witness's error rate is the same for both races. In this case, P(witness identification | attacker is white) = 0.20.
+
+So, the updated probability that the attacker is black given the witness's identification is approximately:
+
+P(attacker is black | witness identification) ≈ 0.80 * 0.15 / (0.80 * 0.15 + 0.20 * 0.85)
+
+This calculates to approximately 0.38, or 38%.
+
+So, given the information provided, our estimate is that there is a 38% chance that the attacker is black. However, this is only an approximation, and the actual probability could be different depending on the exact error rates for the witness and the true distribution of attackers in the city.

@@ -1,0 +1,32 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the two witness statements and their accuracies, as well as the distribution of heights in the population, we can use Bayes' theorem. 
+
+Bayes' theorem states that:
+\[ P(H | E) = \frac{P(E | H) \times P(H)}{P(E)} \]
+where 
+- \( P(H | E) \) is the probability of the attacker being 185 cm or taller given the evidence (E) from the witnesses,
+- \( P(E | H) \) is the probability of the evidence given that the attacker is 185 cm or taller,
+- \( P(H) \) is the prior probability of the attacker being 185 cm or taller,
+- \( P(E) \) is the probability of observing the evidence.
+
+Let's denote the event "attacker is ≥ 185 cm" as \( H \), and "witness says attacker is ≥ 185 cm" as \( W \).
+
+Given from "b",
+\[ P(H) = 0.15 \] (15% of population are ≥ 185 cm)
+\[ P(\neg H) = 0.85 \] (85% of population are < 185 cm)
+
+From "a", witness abilities are:
+- First witness: \( P(W_1 | H) = 0.80 \), \( P(W_1 | \neg H) = 0.20 \)
+- Second witness: \( P(W_2 | H) = 0.30 \), \( P(W_2 | \neg H) = 0.70 \)
+
+The first witness stated the attacker was ≥ 185 cm, and the second stated < 185 cm, so the evidence \( E \) is \( W_1 \land \neg W_2 \). We need \( P(W_1 \land \neg W_2 | H) \) and \( P(W_1 \land \neg W_2 | \neg H) \):
+- \( P(W_1 \land \neg W_2 | H) = P(W_1 | H) \times P(\neg W_2 | H) = 0.80 \times (1-0.30) = 0.80 \times 0.70 = 0.56 \)
+- \( P(W_1 \land \neg W_2 | \neg H) = P(W_1 | \neg H) \times P(\neg W_2 | \neg H) = 0.20 \times (1-0.70) = 0.20 \times 0.30 = 0.06 \)
+
+Then, 
+\[ P(E) = P(W_1 \land \neg W_2) = P(W_1 \land \neg W_2 | H) \times P(H) + P(W_1 \land \neg W_2 | \neg H) \times P(\neg H) = 0.56 \times 0.15 + 0.06 \times 0.85 = 0.084 + 0.051 = 0.135 \]
+
+Therefore,
+\[ P(H | E) = \frac{P(W_1 \land \neg W_2 | H) \times P(H)}{P(E)} = \frac{0.56 \times 0.15}{0.135} = \frac{0.084}{0.135} \approx 0.622 \]
+
+Thus, based on the provided information and the calculated values:
+{probability: 0.622}

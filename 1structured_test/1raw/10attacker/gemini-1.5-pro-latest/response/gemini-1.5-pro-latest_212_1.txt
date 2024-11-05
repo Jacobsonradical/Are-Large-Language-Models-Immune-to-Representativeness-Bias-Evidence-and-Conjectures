@@ -1,0 +1,63 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**1. Define Events:**
+
+*  Let A be the event that the attacker's height is 185 cm or taller.
+*  Let B1 be the event that the first witness claims the attacker is 185 cm or taller.
+*  Let B2 be the event that the second witness claims the attacker is shorter than 185 cm.
+
+**2. State Prior Probabilities:**
+
+*  P(A) = 0.15 (from information "a") - the prior probability of a person in the city being 185 cm or taller.
+*  P(~A) = 0.85 (from information "a") - the prior probability of a person in the city being shorter than 185 cm.
+
+**3. State Likelihoods (from witness reliability):**
+
+*  P(B1|A) = 0.80 (the first witness correctly identifies tall people 80% of the time)
+*  P(B1|~A) = 0.20 (the first witness incorrectly identifies short people as tall 20% of the time) 
+*  P(B2|A) = 0.20 (the second witness incorrectly identifies tall people as short 20% of the time)
+*  P(B2|~A) = 0.70 (the second witness correctly identifies short people 70% of the time)
+
+**4. Apply Bayes' Theorem:**
+
+We want to find P(A|B1, B2), the probability the attacker was tall given both witness testimonies.  It's difficult to calculate this directly, but we can use the odds form of Bayes' Theorem:
+
+```
+Odds(A|B) = Odds(A) * Likelihood Ratio
+```
+
+Where:
+
+* Odds(A) = P(A) / P(~A)  (prior odds)
+* Likelihood Ratio = P(B|A) / P(B|~A)
+* Odds(A|B) = P(A|B) / P(~A|B) (posterior odds)
+
+We need to apply this for both witnesses:
+
+**For the first witness:**
+
+* Odds(A|B1) = (0.15 / 0.85) * (0.80 / 0.20) = 0.706
+
+**For the second witness:**
+
+* Odds(A|B2) = (0.15 / 0.85) * (0.20 / 0.70) = 0.050
+
+**Combining the Evidence:** 
+
+To combine the evidence, we multiply the likelihood ratios from both witnesses:
+
+* Total Likelihood Ratio = (0.80 / 0.20) * (0.20 / 0.70) = 1.143
+
+* Final Odds(A|B1, B2) = (0.15 / 0.85) * 1.143 = 0.202
+
+**5. Convert Odds to Probability:**
+
+* P(A|B1, B2) = Odds(A|B1, B2) / (1 + Odds(A|B1, B2)) = 0.202 / (1 + 0.202) = 0.168
+
+**Answer:**
+
+{probability: 0.168} 
+
+**Conclusion:**
+
+Taking into account both witness testimonies and their reliability, the estimated probability that the attacker's height was 185 cm or taller is approximately 16.8%. 

@@ -1,0 +1,36 @@
+To solve this problem, we will use Bayes' theorem to determine the posterior odds.
+
+Firstly, let's define the following events:
+- \( A \): Drawing cards from Deck A
+- \( B \): Drawing cards from Deck B
+- \( E \): Drawing 3 X's and 1 O
+
+The prior probabilities for choosing each deck are:
+\[ P(A) = P(B) = \frac{1}{2} \]
+
+The likelihoods of drawing 3 X's and 1 O from each deck can be computed using the binomial distribution. Let's calculate these for decks A and B.
+
+For Deck A:
+\[ P(E|A) = \binom{4}{3} \cdot \left(\frac{2}{3}\right)^3 \cdot \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81} \]
+
+For Deck B:
+\[ P(E|B) = \binom{4}{3} \cdot \left(\frac{1}{3}\right)^3 \cdot \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81} \]
+
+Now, we can use Bayes' theorem to find the posterior probabilities:
+
+\[ P(A|E) = \frac{P(E|A) \cdot P(A)}{P(E)} \]
+\[ P(B|E) = \frac{P(E|B) \cdot P(B)}{P(E)} \]
+
+The total probability of E, \( P(E) \), is given by:
+\[ P(E) = P(E|A) \cdot P(A) + P(E|B) \cdot P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{32}{162} + \frac{8}{162} = \frac{40}{162} = \frac{20}{81} \]
+
+Therefore, the posterior probabilities are:
+\[ P(A|E) = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{\frac{32}{162}}{\frac{20}{81}} = \frac{32}{162} \cdot \frac{81}{20} = \frac{32}{162} \cdot \frac{81}{20} = \frac{32 \cdot 81}{162 \cdot 20} = \frac{32}{40} = 0.8 \]
+
+\[ P(B|E) = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{\frac{8}{162}}{\frac{20}{81}} = \frac{8}{162} \cdot \frac{81}{20} = \frac{8}{20} = 0.4 \]
+
+The posterior odds, which are the ratio of these probabilities, are:
+\[ \text{Odds} = \frac{P(A|E)}{P(B|E)} = \frac{0.8}{0.4} = 2 \]
+
+Hence, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+{odds: 2}

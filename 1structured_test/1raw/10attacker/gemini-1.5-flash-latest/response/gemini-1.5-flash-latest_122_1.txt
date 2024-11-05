@@ -1,0 +1,43 @@
+Here's how to approach this problem:
+
+**1.  Understand the Base Rate:**
+
+* The base rate tells us that 15% of the population in the city is 185 cm or taller. This is our prior probability.
+
+**2.  Consider the Witness Testimony:**
+
+* **Witness 1:**  They correctly identify height 80% of the time. This means they're likely to say someone is 185 cm or taller even if they're not (20% of the time).
+* **Witness 2:** They correctly identify height 70% of the time. This means they're likely to say someone is shorter than 185 cm even if they're not (30% of the time).
+
+**3.  Apply Bayes' Theorem:**
+
+Bayes' Theorem helps us update our belief in the attacker's height given the witness testimony.  Let:
+
+*  A = Event that the attacker is 185 cm or taller
+*  B = Event that Witness 1 claims the attacker is 185 cm or taller
+
+We want to find P(A|B), the probability the attacker is 185 cm or taller given Witness 1's claim.
+
+Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each term:
+
+* **P(B|A):**  The probability Witness 1 claims someone is 185 cm or taller given they actually are. This is the accuracy of the witness, 80% or 0.8.
+* **P(A):**  The prior probability of someone being 185 cm or taller, which is 15% or 0.15.
+* **P(B):**  The probability of Witness 1 making the claim.  We need to account for both true positives (correctly identifying someone as tall) and false positives (incorrectly identifying someone as tall):
+    * P(B) = P(B|A) * P(A) + P(B|¬A) * P(¬A) 
+    *  P(B|¬A) = 0.20 (the witness's error rate when someone is *not* tall)
+    *  P(¬A) = 0.85 (the probability someone is *not* 185 cm or taller)
+
+**4.  Calculate the Probability:**
+
+* P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.26
+* P(A|B) = (0.8 * 0.15) / 0.26 = 0.4615
+
+**Answer:**
+
+{probability: 0.4615} 
+
+**Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, given Witness 1's claim, is approximately 0.4615.** 

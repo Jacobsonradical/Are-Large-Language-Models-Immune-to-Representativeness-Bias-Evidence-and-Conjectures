@@ -1,0 +1,44 @@
+Here's how we can calculate the probability:
+
+**Understanding the Problem**
+
+We have two sources of information:
+
+* **Witness Testimony:** The witness is not perfect, but they have a certain level of accuracy.
+* **Population Demographics:** The city has a specific gender distribution.
+
+We need to combine these to estimate the probability that the attacker is male.
+
+**Calculations**
+
+1. **Probability of Witness Identifying Male Correctly:** The witness identifies gender correctly 80% of the time.  Therefore, the probability of the witness correctly identifying a male as male is 0.8.
+
+2. **Probability of Witness Identifying Male Incorrectly:** The witness incorrectly identifies gender 20% of the time. Therefore, the probability of the witness incorrectly identifying a female as male is 0.2.
+
+3. **Prior Probability of Male Attacker:**  The prior probability of the attacker being male is 15% (given the population demographics).
+
+4. **Applying Bayes' Theorem:** Bayes' theorem helps us update our belief based on new evidence. 
+
+   * Let A be the event "the attacker is male".
+   * Let B be the event "the witness identifies the attacker as male".
+
+   We want to find P(A|B), the probability that the attacker is male given the witness's testimony.
+
+   Bayes' Theorem states:
+   P(A|B) = [P(B|A) * P(A)] / P(B)
+
+   * P(B|A) = 0.8 (probability of witness identifying male correctly given attacker is male)
+   * P(A) = 0.15 (prior probability of attacker being male)
+   * P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)] 
+      * P(B|not A) = 0.2 (probability of witness identifying female incorrectly as male)
+      * P(not A) = 0.85 (prior probability of attacker being female)
+
+   Calculating P(B):
+   P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.25
+
+   Now, we can calculate P(A|B):
+   P(A|B) = (0.8 * 0.15) / 0.25 = 0.48
+
+**Answer:**
+
+{probability: 0.48} 

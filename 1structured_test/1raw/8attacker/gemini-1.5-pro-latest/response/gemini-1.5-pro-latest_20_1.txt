@@ -1,0 +1,37 @@
+Let's break down this problem using Bayes' Theorem.
+
+**Understanding the Information**
+
+* **Prior Probability (from information "a"):** This is the general probability of someone being 185cm or taller in the context of attackers.  It's lower than the general population due to the statistic given.  We'll call this P(Tall).  P(Tall) = 0.15 
+* **Likelihood (from information "b"):** This is the probability that the witness would say someone is "185cm or taller" *given* that the person actually is that height. We'll call this P(Witness Correct | Tall). P(Witness Correct | Tall) = 0.80
+* **We want to find:** The probability the attacker is actually tall *given* that the witness said they were. This is P(Tall | Witness Correct).
+
+**Bayes' Theorem**
+
+Bayes' Theorem helps us combine prior knowledge with new evidence:
+
+P(Tall | Witness Correct) = [P(Witness Correct | Tall) * P(Tall)] / P(Witness Correct)
+
+To use this, we need one more piece:
+
+* **P(Witness Correct):**  The overall probability the witness would correctly identify someone as "185cm or taller".  This needs to account for both times they'd be right and times they'd be wrong.
+
+**Calculating P(Witness Correct)**
+
+1. **Witness Correct when person IS tall:**  0.80 (given) * 0.15 (prior of being tall) = 0.12
+2. **Witness INCORRECT when person is SHORT:** 0.20 (error rate) * 0.85 (prior of being short) = 0.17
+3. **Add probabilities from steps 1 & 2:** 0.12 + 0.17 = 0.29  This is P(Witness Correct)
+
+**Final Calculation**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(Tall | Witness Correct) = (0.80 * 0.15) / 0.29 
+                                    = 0.12 / 0.29
+                                    ≈ 0.414
+
+**Answer**
+
+{probability: 0.414} 
+
+**In simpler terms:** While the witness is usually right, the fact that attackers are less likely to be tall lowers the overall probability. There's still a significant chance the attacker was shorter, despite the witness's testimony. 

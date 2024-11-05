@@ -1,0 +1,44 @@
+Here's how to break down the problem and arrive at an estimate:
+
+**Understanding the Information**
+
+* **Information a:** The witness is good at judging height (80% accuracy), but their accuracy is based on ideal conditions. We need to consider how the nighttime attack might affect their accuracy.
+* **Information b:**  Attackers are more likely to be shorter than 185 cm. This gives us a base probability to work with.
+
+**Applying Bayes' Theorem**
+
+We can use Bayes' Theorem to combine the information from the witness and the population statistics to estimate the probability of the attacker being 185 cm or taller.
+
+* **Let A be the event "attacker is 185 cm or taller".**
+* **Let W be the event "witness identified the attacker as 185 cm or taller".**
+
+We want to find P(A|W), the probability the attacker is tall given the witness's identification.
+
+**Bayes' Theorem states:**
+
+P(A|W) = [P(W|A) * P(A)] / P(W)
+
+Let's break down each term:
+
+* **P(W|A):**  Probability the witness identifies the attacker as tall given the attacker IS tall.  This is likely lower than the witness's 80% accuracy due to the nighttime conditions. Let's assume it's 60% (we'll discuss this assumption later).
+* **P(A):**  Prior probability of the attacker being tall. From information b, this is 15%.
+* **P(W):**  Probability the witness identifies the attacker as tall (regardless of the attacker's actual height). We need to calculate this using the law of total probability: 
+    * P(W) = P(W|A) * P(A) + P(W|not A) * P(not A)
+    *  P(W|not A) = 20% (witness error rate when attacker is short)
+    *  P(not A) = 85% (prior probability of attacker being short)
+
+**Calculations**
+
+1. **P(W):**  (0.60 * 0.15) + (0.20 * 0.85) = 0.25 
+2. **P(A|W):** (0.60 * 0.15) / 0.25 = 0.36
+
+**Answer**
+
+{probability: 0.36}
+
+**Important Notes**
+
+* **The 60% assumption for P(W|A) is crucial.**  We've lowered the witness's accuracy due to the nighttime conditions, but this is just an estimate. We need more information about how the witness's accuracy is affected by darkness.
+* **Bayes' Theorem is powerful for combining evidence.**  We've used both the witness's observation and the population statistics to get a more refined estimate than either alone would provide.
+
+Let me know if you'd like to explore different assumptions about the witness's accuracy under nighttime conditions! 

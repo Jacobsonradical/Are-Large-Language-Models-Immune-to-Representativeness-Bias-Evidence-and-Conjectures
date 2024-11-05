@@ -1,0 +1,46 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Prior Probability (a):**  The general population in the city has a 15% chance of being 185cm or taller. This is our starting point.
+* **Witness Reliability (b):** The witness isn't perfect. They have an 80% chance of correctly identifying someone's height relative to 185cm under similar conditions.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem provides a framework for updating our belief (the prior probability) based on new evidence (the witness testimony).
+
+Let:
+
+*  `A` be the event "the attacker is 185cm or taller"
+*  `B` be the event "the witness identifies the attacker as 185cm or taller"
+
+We want to find `P(A|B)`, the probability the attacker is 185cm or taller *given* the witness said so.
+
+Bayes' Theorem states:
+
+`P(A|B) = [P(B|A) * P(A)] / P(B)`
+
+Where:
+
+* `P(B|A)`: Probability the witness would say "185cm or taller" IF the attacker actually was. This is their 80% accuracy. 
+* `P(A)`:  Prior probability of someone in the city being 185cm or taller (15%).
+* `P(B)`: Probability the witness would say "185cm or taller" (regardless of the truth). This requires considering both scenarios: they're right, or they're wrong about someone actually being shorter.
+
+**Calculating P(B)**
+
+* `P(B) =  [P(B|A) * P(A)] + [P(B|not A) * P(not A)]` 
+    * `P(B|not A)`: Witness says "185cm or taller" when the attacker is actually shorter. This is their 20% error rate.
+    * `P(not A)`:  Probability of someone in the city being shorter than 185cm (85%).
+
+**Putting it Together**
+
+1. `P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29`
+2. `P(A|B) = (0.80 * 0.15) / 0.29 = 0.414`
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion**
+
+The probability that the attacker was 185cm or taller, considering both the population distribution and the witness reliability, is approximately 41.4%. While the witness's testimony increases the likelihood, it's important to note that it's not conclusive due to their margin of error. 

@@ -1,0 +1,52 @@
+To estimate the probability that the attacker was 185 cm or taller, we can use Bayes' theorem. Let's define the events as follows:
+
+- \( T \): The attacker is 185 cm or taller.
+- \( S \): The attacker is shorter than 185 cm.
+- \( W_1 \): The first witness claims the attacker is 185 cm or taller.
+- \( W_2 \): The second witness claims the attacker is shorter than 185 cm.
+
+We need to estimate \( P(T | W_1, W_2) \), the probability that the attacker is 185 cm or taller given the testimonies of the two witnesses.
+
+Let's use Bayes' theorem:
+
+\[ P(T | W_1, W_2) = \frac{P(W_1, W_2 | T) \cdot P(T)}{P(W_1, W_2)} \]
+
+First, let's calculate each component:
+
+1. **Prior probabilities**:
+    - \( P(T) = 0.15 \) (15% of the population is 185 cm or taller)
+    - \( P(S) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+2. **Likelihoods**:
+    - Given that the attacker is 185 cm or taller:
+        - \( P(W_1 | T) = 0.80 \) (first witness correctly identifies the height 80% of the time)
+        - \( P(W_2 | T) = 0.30 \) (second witness correctly identifies the height 70% of the time, so the error rate is 30%)
+    
+    - Given that the attacker is shorter than 185 cm:
+        - \( P(W_1 | S) = 0.20 \) (first witness correctly identifies the height 80% of the time, so the error rate is 20%)
+        - \( P(W_2 | S) = 0.70 \) (second witness correctly identifies the height 70% of the time)
+
+3. **Joint likelihood**:
+    - \( P(W_1, W_2 | T) = P(W_1 | T) \cdot P(W_2 | T) = 0.80 \cdot 0.30 = 0.24 \)
+    - \( P(W_1, W_2 | S) = P(W_1 | S) \cdot P(W_2 | S) = 0.20 \cdot 0.70 = 0.14 \)
+
+4. **Total probability of \(W_1\) and \(W_2\)**:
+    
+    \[ P(W_1, W_2) = P(W_1, W_2 | T) \cdot P(T) + P(W_1, W_2 | S) \cdot P(S) \]
+    \[ P(W_1, W_2) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) \]
+    \[ P(W_1, W_2) = 0.036 + 0.119 = 0.155 \]
+
+5. **Posterior Probability**:
+    
+    \[ P(T | W_1, W_2) = \frac{P(W_1, W_2 | T) \cdot P(T)}{P(W_1, W_2)} \]
+    \[ P(T | W_1, W_2) = \frac{0.24 \cdot 0.15}{0.155} \]
+    \[ P(T | W_1, W_2) = \frac{0.036}{0.155} \]
+    \[ P(T | W_1, W_2) \approx 0.232 \]
+
+Therefore, the estimated probability that the attacker was 185 cm or taller, given the testimonies of the two witnesses, is approximately 0.232.
+
+```json
+{
+  "probability": 0.232
+}
+```

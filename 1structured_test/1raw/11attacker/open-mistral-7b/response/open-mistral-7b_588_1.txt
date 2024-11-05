@@ -1,0 +1,31 @@
+Given the information provided, we have two pieces of data:
+
+1. The witness identified a person's race correctly 80% of the time and incorrectly 20% of the time.
+2. The city's population is 85% white and 15% black.
+
+To estimate the probability that the attacker is black, we can use Bayes' theorem, which calculates the probability of an event A given some evidence B. In this case, event A is the attacker being black, and evidence B is the witness's identification.
+
+The formula for Bayes' theorem is:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+The terms in the formula are as follows:
+- P(A|B) is the probability of the attacker being black given the witness's identification. This is what we want to find.
+- P(B|A) is the probability that the witness identifies a black person as black. From the first piece of information, we know that this probability is 0.8.
+- P(A) is the prior probability of the attacker being black. This can be calculated using the city's population data: P(A) = 0.15 (as 15% of the city's population is black).
+- P(B) is the probability of the witness's identification (regardless of the attacker's race). To find this, we can use the law of total probability:
+
+  P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+
+  Since we know P(B|A) and P(A), we can calculate P(B|not A) as 1 - P(B|A) = 0.2. We also know that P(not A) = 0.85 (as 85% of the city's population is white).
+
+  So, P(B) = 0.8 * 0.15 + 0.2 * 0.85 = 0.14 (or 14%)
+
+Now, we can calculate P(A|B):
+
+P(A|B) = P(B|A) * P(A) / P(B)
+       = 0.8 * 0.15 / 0.14
+       = 0.93 / 0.14
+       ≈ 0.664 (or 66.4%)
+
+Therefore, our estimate of the probability that the attacker is black is approximately 0.664 (or 66.4%).

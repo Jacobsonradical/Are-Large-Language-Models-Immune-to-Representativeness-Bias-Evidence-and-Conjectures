@@ -1,0 +1,33 @@
+First, let us define the events:
+- \( D_A \): The event that Deck A is selected.
+- \( D_B \): The event that Deck B is selected.
+- \( C \): The event that 4 cards are drawn, and 3 are X and 1 is O.
+
+The prior probabilities are:
+\[ P(D_A) = P(D_B) = \frac{1}{2} \]
+
+We need to calculate the posterior odds of \( D_A \) and \( D_B \) given event \( C \). By Bayes' theorem:
+\[ P(D_A | C) = \frac{ P(C | D_A) \cdot P(D_A) }{ P(C) } \]
+\[ P(D_B | C) = \frac{ P(C | D_B) \cdot P(D_B) }{ P(C) } \]
+
+We need the likelihoods \( P(C | D_A) \) and \( P(C | D_B) \):
+- For Deck A, with 2/3 X and 1/3 O:
+\[ P(C | D_A) = \binom{4}{3} \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81} \]
+
+- For Deck B, with 1/3 X and 2/3 O:
+\[ P(C | D_B) = \binom{4}{3} \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81} \]
+
+The probabilities \( P(C) \) are:
+\[ P(C) = P(C | D_A) \cdot P(D_A) + P(C | D_B) \cdot P(D_B) \]
+\[ P(C) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{32}{162} + \frac{8}{162} = \frac{40}{162} = \frac{20}{81} \]
+
+Now we calculate the posterior probabilities:
+\[ P(D_A | C) = \frac{ P(C | D_A) \cdot P(D_A) }{ P(C) } = \frac{ \frac{32}{81} \cdot \frac{1}{2} }{ \frac{20}{81} } = \frac{32 \cdot \frac{1}{2}}{20} = \frac{16}{20} = \frac{4}{5} \]
+\[ P(D_B | C) = \frac{ P(C | D_B) \cdot P(D_B) }{ P(C) } = \frac{ \frac{8}{81} \cdot \frac{1}{2} }{ \frac{20}{81} } = \frac{8 \cdot \frac{1}{2}}{20} = \frac{4}{20} = \frac{1}{5} \]
+
+Finally, the posterior odds are:
+\[ \text{Odds}(D_A : D_B) = \frac{P(D_A | C)}{P(D_B | C)} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4 \]
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+
+{odds: 4}

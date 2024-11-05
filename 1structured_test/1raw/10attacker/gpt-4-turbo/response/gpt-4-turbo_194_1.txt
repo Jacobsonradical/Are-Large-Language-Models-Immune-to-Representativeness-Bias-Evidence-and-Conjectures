@@ -1,0 +1,48 @@
+To estimate the probability that the attacker's height was 185 cm or taller given both the witnesses' statements, we can use Bayes' theorem. This theorem helps us update our belief about a hypothesis based on new evidence. Let's denote:
+
+- Event A: The attacker is 185 cm or taller.
+- Event B: The condition or evidence derived from the witnesses' statements.
+
+From the problem:
+- \(P(A) = 0.15\) (15% of the population is 185 cm or taller).
+
+The complement of A, denoted as \(A^c\) (attacker is shorter than 185 cm):
+- \(P(A^c) = 0.85\) (85% are shorter than 185 cm).
+
+Each witness provided an assessment of the attacker's height:
+- Witness 1 is accurate 80% of the time. Thus:
+  - \(P(\text{W1 says 'tall' }\mid A) = 0.8\),
+  - \(P(\text{W1 says 'short' }\mid A^c) = 0.8\).
+- Witness 2 is accurate 70% of the time. Thus:
+  - \(P(\text{W2 says 'tall' }\mid A^c) = 0.3\),
+  - \(P(\text{W2 says 'short' }\mid A) = 0.3\).
+
+From these:
+- \(P(\text{W1 says 'tall'}) = P(\text{W1 says 'tall'} \mid A)P(A) + P(\text{W1 says 'tall'} \mid A^c)P(A^c)\)
+  - \(= (0.8)(0.15) + (0.2)(0.85) = 0.12 + 0.17 = 0.29\).
+- \(P(\text{W2 says 'short'}) = P(\text{W2 says 'short'} \mid A)P(A) + P(\text{W2 says 'short'} \mid A^c)P(A^c)\)
+  - \(= (0.3)(0.15) + (0.7)(0.85) = 0.045 + 0.595 = 0.64\).
+
+Now, we need to find \(P(A \mid \text{W1 says 'tall'}, \text{W2 says 'short'})\) using Bayes' theorem:
+\[ \begin{align*}
+P(A \mid \text{W1 'tall', W2 'short'}) = \frac{P(\text{W1 'tall'} \mid A) \times P(\text{W2 'short'} \mid A) \times P(A)}{P(\text{W1 'tall', W2 'short'})}
+\end{align*} \]
+
+Where \(P(\text{W1 'tall', W2 'short'})\) can be calculated by:
+\[ \begin{align*}
+P(\text{W1 'tall', W2 'short'}) = & \ P(\text{W1 'tall', W2 'short'} \mid A)P(A) + P(\text{W1 'tall', W2 'short'} \mid A^c)P(A^c) \\
+= & \ P(\text{W1 'tall'} \mid A)P(\text{W2 'short'} \mid A)P(A) + P(\text{W1 'tall'} \mid A^c)P(\text{W2 'short'} \mid A^c)P(A^c) \\
+= & \ (0.8)(0.3)(0.15) + (0.2)(0.7)(0.85) \\
+= & \ (0.24)(0.15) + (0.14)(0.85) \\
+= & \ 0.036 + 0.119 = 0.155.
+\end{align*} \]
+
+Now, calculate using Bayes:
+\[ \begin{align*}
+P(A \mid \text{W1 'tall', W2 'short'}) = \frac{(0.8)(0.3)(0.15)}{0.155} = 0.231.
+\end{align*} \]
+
+Thus:
+{
+  "probability": 0.231
+}

@@ -1,0 +1,19 @@
+Given the information provided, we have two sources of information about the probability that the attacker is male: the city's demographic data and the witness's ability to accurately identify gender.
+
+1. According to the demographic data, the probability of a random person in the city being male is 15%. This is our baseline probability, which we can denote as P(male|city).
+
+2. The witness's ability to correctly identify gender is that they get it right 80% of the time and wrong 20% of the time. This means that, given a person, they mistakenly identify a male as female 20% of the time. We can denote the probability of the witness incorrectly identifying a male as female as P(female|witness|male) = 0.2.
+
+3. However, if the witness is incorrect, it means they identified a male as female. Since they are wrong 20% of the time, we can calculate the probability of a witness mistake as P(witness error) = P(female|witness|male) = 0.2.
+
+4. Now, we know that the witness identified the attacker as male. But because we don't know if the witness was correct or not (they could have made a mistake), we need to consider both possibilities: the attacker is actually male, and the witness was correct (P(male|attacker|witness correct)), and the attacker is actually female, and the witness made a mistake (P(female|attacker|witness error)).
+
+5. Since the witness was correct 80% of the time, the probability of the attacker being male given that the witness was correct is P(male|attacker|witness correct) = 1 (because the witness only gives this information when they are correct).
+
+6. The probability of the attacker being female given that the witness made a mistake is P(female|attacker|witness error) = 1 - P(male|attacker) = 1 - 0.15 = 0.85 (because the witness only gives this information when they make a mistake).
+
+7. The probability of the witness being correct is P(witness correct) = 1 - P(witness error) = 1 - 0.2 = 0.8.
+
+8. Therefore, the probability of the attacker being male given the witness's statement is the probability of the witness being correct times the probability of the attacker being male given that the witness was correct: P(male|witness statement) = P(witness correct) * P(male|attacker|witness correct) = 0.8 * 1 = 0.8
+
+So, our estimate of the probability that the attacker is male, given the witness's statement, is 0.8.

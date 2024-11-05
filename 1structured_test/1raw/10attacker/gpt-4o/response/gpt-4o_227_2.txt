@@ -1,0 +1,73 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witness testimonies, we can use Bayesian reasoning.
+
+Let:
+\[
+T_1 = \text{First witness says the attacker is } \geq 185 \text{ cm}
+\]
+\[
+T_2 = \text{Second witness says the attacker is } < 185 \text{ cm}
+\]
+\[
+H_{\geq185} = \text{Attacker is } \geq 185 \text{ cm}
+\]
+\[
+H_{<185} = \text{Attacker is } < 185 \text{ cm}
+\]
+
+We need to estimate:
+\[
+P(H_{\geq185} | T_1 \text{ and } T_2)
+\]
+
+Given:
+\[
+P(H_{\geq185}) = 0.15
+\]
+\[
+P(H_{<185}) = 0.85
+\]
+\[
+P(T_1 | H_{\geq185}) = 0.8 \quad \text{(first witness is correct 80% of the time)}
+\]
+\[
+P(T_1 | H_{<185}) = 0.2 \quad \text{(first witness errors 20% of the time)}
+\]
+\[
+P(T_2 | H_{<185}) = 0.7 \quad \text{(second witness is correct 70% of the time)}
+\]
+\[
+P(T_2 | H_{\geq185}) = 0.3 \quad \text{(second witness errors 30% of the time)}
+\]
+
+We start by using the law of total probability to find \( P(T_1 \text{ and } T_2) \).
+
+\[
+P(T_1 \text{ and } T_2) = P(T_1 \text{ and } T_2 | H_{\geq185}) \cdot P(H_{\geq185}) + P(T_1 \text{ and } T_2 | H_{<185}) \cdot P(H_{<185})
+\]
+
+Where:
+\[
+P(T_1 \text{ and } T_2 | H_{\geq185}) = P(T_1 | H_{\geq185}) \cdot P(T_2 | H_{\geq185}) = 0.8 \cdot 0.3 = 0.24
+\]
+\[
+P(T_1 \text{ and } T_2 | H_{<185}) = P(T_1 | H_{<185}) \cdot P(T_2 | H_{<185}) = 0.2 \cdot 0.7 = 0.14
+\]
+
+Thus:
+\[
+P(T_1 \text{ and } T_2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+\]
+
+Now apply Bayes' theorem to find \( P(H_{\geq185} | T_1 \text{ and } T_2) \):
+\[
+P(H_{\geq185} | T_1 \text{ and } T_2) = \frac{P(T_1 \text{ and } T_2 | H_{\geq185}) \cdot P(H_{\geq185})}{P(T_1 \text{ and } T_2)}
+\]
+\[
+P(H_{\geq185} | T_1 \text{ and } T_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.23(2)
+\]
+
+So the probability that the attacker was 185 cm or taller, as claimed by the first witness, is approximately 0.232.
+
+\[
+\{ \text{probability: 0.232} \}
+\]

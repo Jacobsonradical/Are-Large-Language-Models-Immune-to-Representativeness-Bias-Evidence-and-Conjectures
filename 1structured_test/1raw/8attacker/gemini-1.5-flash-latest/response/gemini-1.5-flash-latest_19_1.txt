@@ -1,0 +1,43 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Information a:**  Tells us that the population is roughly split evenly between people shorter and taller than 185 cm.  However, 85% of attackers are in the shorter group. This implies that attackers are *disproportionately* likely to be shorter than 185 cm.
+* **Information b:** A witness claims the attacker was 185 cm or taller.  The witness has a good but not perfect ability to judge height (80% accuracy).
+
+**Applying Bayes' Theorem**
+
+This problem lends itself to Bayesian reasoning. We want to calculate the probability of the attacker being tall (185 cm or taller) given the witness testimony.  Let's use these symbols:
+
+* **T:** Attacker is tall (185 cm or taller)
+* **S:** Attacker is short (under 185 cm)
+* **W:** Witness says the attacker is tall
+
+We want to find P(T|W), the probability the attacker is tall given the witness statement. Bayes' Theorem gives us:
+
+P(T|W) = [P(W|T) * P(T)] / P(W)
+
+Let's break down each part:
+
+* **P(W|T):** Probability the witness says "tall" given the attacker is actually tall. This is the witness's accuracy, 0.8 (80%).
+* **P(T):** Prior probability the attacker is tall.  From information "a," this is approximately 0.15 (15%).
+* **P(W):** Probability the witness says "tall."  This needs to be calculated considering both possibilities (attacker is tall or short):
+    * P(W) = P(W|T) * P(T) + P(W|S) * P(S)
+    * P(W|S) = 0.2 (witness error rate)
+    * P(S) = 0.85 (prior probability of attacker being short)
+
+**Calculations**
+
+1. **P(W):** 
+   * P(W) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2. **P(T|W):**
+   * P(T|W) = (0.8 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Explanation:**
+
+Despite the witness saying the attacker was tall, the probability of the attacker actually being tall is still relatively low (about 41%). This is because the prior probability of an attacker being short is much higher (85%) due to the information given in part "a". 

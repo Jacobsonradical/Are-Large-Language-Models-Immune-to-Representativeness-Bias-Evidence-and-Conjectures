@@ -1,0 +1,51 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **General Population:** 85% of the city's population is shorter than 185 cm, meaning 15% are 185 cm or taller.
+* **Witness 1:**  Has an 80% accuracy rate in identifying heights correctly under similar conditions. This means there's a 20% chance of them being wrong.
+* **Witness 2:** Has a 70% accuracy rate in identifying heights correctly, with a 30% chance of being wrong.
+
+**Reasoning**
+
+We need to consider the probability of the attacker being tall given the conflicting testimonies of the witnesses.  Since we don't know the attacker's height, we'll use Bayes' Theorem to update our belief based on the witness statements.
+
+**Bayes' Theorem**
+
+Let's define:
+
+*  A: The event that the attacker is 185 cm or taller.
+*  B: The event that Witness 1 claims the attacker is 185 cm or taller.
+
+We want to find P(A|B), the probability the attacker is tall given Witness 1's statement. Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+**Breaking Down the Components**
+
+* **P(B|A):** The probability Witness 1 claims the attacker is tall *given* the attacker is actually tall. This is Witness 1's accuracy rate: 0.8.
+* **P(A):** The prior probability of the attacker being tall, which is the percentage of the population that is 185 cm or taller: 0.15.
+* **P(B):** The probability of Witness 1 claiming the attacker is tall, regardless of the attacker's actual height. This is a bit trickier and needs to be calculated.
+
+**Calculating P(B)**
+
+We need to consider two scenarios to get P(B):
+
+1. **Attacker is tall:**  P(B|A) * P(A) = 0.8 * 0.15 = 0.12
+2. **Attacker is short:**  P(B|A') * P(A') = 0.2 * 0.85 = 0.17  (A' represents the attacker being shorter than 185 cm)
+
+Therefore, P(B) = 0.12 + 0.17 = 0.29
+
+**Putting it Together**
+
+Now we can calculate P(A|B):
+
+P(A|B) = (0.8 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+While Witness 1's statement increases the probability of the attacker being tall, it's still less than 50%. Considering the overall population distribution and Witness 1's accuracy rate, we estimate a 41.4% chance that the attacker was 185 cm or taller. 

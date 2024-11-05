@@ -1,0 +1,36 @@
+To find the posterior odds, we first need to calculate the probabilities of drawing 3 X's and 1 O from each deck, given that 2/3 of the cards in Deck A are marked X and 1/3 are marked O, and 1/3 of the cards in Deck B are marked X and 2/3 are marked O.
+
+Let's denote the probability of drawing 3 X's and 1 O from Deck A as P(A|3X, 1O), and the probability of drawing 3 X's and 1 O from Deck B as P(B|3X, 1O).
+
+Using the binomial probability formula, we have:
+
+P(A|3X, 1O) = C(12, 3) * (2/3)^3 * (1/3)^1
+                    = 220 * (1/27) * (1/3)
+                    = 220/273
+
+Similarly,
+
+P(B|3X, 1O) = C(24, 3) * (1/3)^3 * (2/3)^1
+                    = 220 * (1/27) * (2/3)
+                    = 440/273
+
+Now, let's calculate the prior probabilities of drawing from Deck A or Deck B. Since we don't have any information about which deck was drawn, we assume that both decks are equally likely. Let's denote the prior probability of drawing from Deck A as P(A), and the prior probability of drawing from Deck B as P(B).
+
+Since there are twice as many O-marked cards in Deck B as in Deck A, the total number of cards in Deck A must be 2/3 of the total number of cards in Deck B. Let's denote the total number of cards in Deck B as N. Then the total number of cards in Deck A is 2/3 * N.
+
+Now, let's find P(A) and P(B):
+
+P(A) = Number of ways to choose 4 cards from Deck A with 3 X's and 1 O / Total number of ways to choose 4 cards from any deck
+             = C(12, 3) * (2/3)^3 * (1/3)^1 / [C(N, 4) * (1/2) * (1/2)]
+
+P(B) = Number of ways to choose 4 cards from Deck B with 3 X's and 1 O / Total number of ways to choose 4 cards from any deck
+             = C(24, 3) * (1/3)^3 * (2/3)^1 / [C(N, 4) * (1/2) * (1/2)]
+
+Now, we can calculate the posterior odds:
+
+odds = P(A|3X, 1O) / P(B|3X, 1O)
+         = [C(12, 3) * (2/3)^3 * (1/3)^1] / [C(24, 3) * (1/3)^3 * (2/3)^1]
+         = 220 / 440
+         = 11/22
+
+So the posterior odds that the 4 cards were drawn from Deck A, the deck where most cards are marked X, compared to Deck B, the deck where most cards are marked O, is 11/22.

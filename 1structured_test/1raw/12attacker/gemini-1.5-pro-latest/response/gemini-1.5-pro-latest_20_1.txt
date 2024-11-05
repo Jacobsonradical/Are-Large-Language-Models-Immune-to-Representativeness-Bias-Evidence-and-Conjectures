@@ -1,0 +1,52 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Prior Probability:**  The information about the city's population (85% female, 15% male) gives us the *prior probability* of the attacker being male.  If we knew nothing else, we'd say there's a 15% chance the attacker is male.
+
+* **Witness Reliability:** The witness isn't perfect. Their 80% accuracy introduces uncertainty. This means we can't just accept their statement at face value.
+
+* **Bayes' Theorem:** This problem is best tackled using Bayes' Theorem, which helps us update our beliefs based on new evidence:
+
+   P(A|B) = [P(B|A) * P(A)] / P(B)
+
+   Where:
+
+    * P(A|B) is the probability of event A happening given that event B happened (what we want to find: probability of attacker being male *given* the witness said so).
+    * P(B|A) is the probability of event B happening given that event A happened (witness identifying as male *given* the attacker is actually male).
+    * P(A) is the prior probability of event A happening (prior probability of attacker being male).
+    * P(B) is the probability of event B happening (probability of the witness saying "male").
+
+**Calculations**
+
+Let's define:
+
+* Event A: The attacker is male.
+* Event B: The witness identifies the attacker as male.
+
+We want to find P(A|B), the probability the attacker is male given the witness's identification.
+
+Here's what we know:
+
+* P(A) = 0.15 (prior probability of attacker being male)
+* P(B|A) = 0.80 (witness accuracy when the attacker is male)
+* P(B| not A) = 0.20 (witness incorrectly identifying as male when the attacker is female)
+* P(not A) = 0.85 (prior probability of attacker being female)
+
+To calculate P(B), we use the law of total probability:
+
+* P(B) = P(B|A) * P(A)  +  P(B| not A) * P(not A) 
+* P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+Now we can use Bayes' Theorem:
+
+* P(A|B) = (0.80 * 0.15) / 0.29 
+* P(A|B) ≈ 0.414
+
+**Answer**
+
+{probability: 0.414}
+
+**Conclusion**
+
+Given the witness testimony and the city's demographics, the estimated probability that the attacker is male is approximately 41.4%.  It's important to note that this is still significantly higher than the base rate of 15% for males in the city, highlighting how witness testimony, even when imperfect, can significantly influence our assessment of an event. 

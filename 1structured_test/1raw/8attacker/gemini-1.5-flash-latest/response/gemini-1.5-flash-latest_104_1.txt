@@ -1,0 +1,46 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Information "a":**  This tells us that the population is roughly split in half regarding height (under 185 cm and 185 cm or taller). However, attackers are more likely to be shorter (85% vs 15%).
+* **Information "b":** This gives us the witness's reliability. They are right 80% of the time and wrong 20% of the time.
+
+**Calculating the Probability**
+
+We need to combine the information about attacker height distribution and the witness's reliability to estimate the probability that the attacker was 185 cm or taller.
+
+1. **Prior Probability:** The prior probability of an attacker being 185 cm or taller is 15% (given in information "a").
+
+2. **Likelihood:** The likelihood of the witness identifying someone as 185 cm or taller given they are actually that height is 80% (given in information "b").
+
+3. **Bayes' Theorem:** We can use Bayes' Theorem to calculate the posterior probability (the probability of the attacker being 185 cm or taller given the witness's identification).
+
+   **Bayes' Theorem:**
+   P(A|B) = [P(B|A) * P(A)] / P(B)
+
+   Where:
+   * P(A|B): The probability of event A happening given event B has happened.
+   * P(B|A): The probability of event B happening given event A has happened.
+   * P(A): The prior probability of event A happening.
+   * P(B): The probability of event B happening.
+
+   In our case:
+   * A: Attacker is 185 cm or taller.
+   * B: Witness identifies the attacker as 185 cm or taller.
+
+4. **Calculating P(B):**
+   *  P(B) is the probability of the witness identifying someone as 185 cm or taller, regardless of their actual height. 
+   *  This can be calculated using the Law of Total Probability:
+      * P(B) = P(B|A) * P(A) + P(B|¬A) * P(¬A)
+      * Where ¬A represents the attacker being shorter than 185 cm.
+      * P(B|¬A) is the probability of the witness identifying someone as 185 cm or taller given they are shorter, which is 20% (error rate).
+      * P(¬A) is the prior probability of the attacker being shorter than 185 cm, which is 85%.
+
+   *  Therefore, P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+5. **Putting it all together:**
+    * P(A|B) = (0.8 * 0.15) / 0.29 
+    * P(A|B) ≈ 0.414
+
+**Answer:**
+{probability: 0.414} 

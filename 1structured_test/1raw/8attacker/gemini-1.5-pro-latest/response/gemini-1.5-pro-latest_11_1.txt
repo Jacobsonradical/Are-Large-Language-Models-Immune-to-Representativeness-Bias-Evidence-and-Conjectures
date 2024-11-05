@@ -1,0 +1,46 @@
+Let's use Bayes' Theorem to calculate the probability:
+
+* **Prior Probability (P(A)):** The probability of a person being 185cm or taller in the general population. This is given as 50% or 0.5.
+* **Likelihood (P(B|A)):** The probability that the witness would identify the attacker as 185cm or taller *given* the attacker is actually 185cm or taller. This is the witness's accuracy in these cases, which is 80% or 0.8.
+* **Evidence (P(B)):** The overall probability of the witness identifying someone as 185cm or taller (regardless of whether they actually are).  We need to calculate this.
+* **Posterior Probability (P(A|B)):**  The probability the attacker is 185cm or taller *given* the witness's identification. This is what we want to find.
+
+**Calculating P(B):**
+
+* There's a 50% chance a random person is 185cm or taller, and in those cases, the witness identifies them correctly 80% of the time (0.5 * 0.8 = 0.4).
+* There's a 50% chance a random person is shorter than 185cm, and the witness misidentifies them as taller 20% of the time (0.5 * 0.2 = 0.1).
+* Therefore, the overall probability of the witness saying someone is 185cm or taller is 0.4 + 0.1 = 0.5.
+
+**Bayes' Theorem:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+P(A|B) = (0.8 * 0.5) / 0.5 
+
+P(A|B) = 0.8
+
+**However, we have another piece of information:** 85% of attackers are under 185cm, and only 15% are 185cm or taller. This should significantly influence our prior. 
+
+Let's adjust our calculation:
+
+* **New Prior Probability (P(A)):** 0.15 (probability of an attacker being 185cm or taller)
+* **Likelihood (P(B|A)):** Remains 0.8 
+* **Evidence (P(B)):** We need to recalculate this.
+
+**Recalculating P(B):**
+
+* There's a 15% chance the attacker is 185cm or taller, and the witness identifies them correctly 80% of the time (0.15 * 0.8 = 0.12).
+* There's an 85% chance the attacker is shorter than 185cm, and the witness misidentifies them as taller 20% of the time (0.85 * 0.2 = 0.17).
+* Therefore, the overall probability of the witness saying someone is 185cm or taller is 0.12 + 0.17 = 0.29
+
+**Revised Bayes' Theorem:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+P(A|B) = (0.8 * 0.15) / 0.29
+
+P(A|B) = 0.4138
+
+**Answer:**
+
+{probability: 0.41} 

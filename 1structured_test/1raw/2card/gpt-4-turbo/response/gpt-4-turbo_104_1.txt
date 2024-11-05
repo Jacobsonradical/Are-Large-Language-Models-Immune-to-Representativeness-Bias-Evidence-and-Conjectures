@@ -1,0 +1,41 @@
+To calculate the posterior odds that the 4 cards were drawn from Deck A as opposed to Deck B, we need to use the principles of Bayesian inference. Here's a detailed step-by-step calculation:
+
+1. **Compute the likelihood of drawing 3 X’s and 1 O from each deck**:
+   - From Deck A (where 2/3 are X's and 1/3 are O's): 
+     The probability of this pattern (XXOX, in any order) can be calculated using the combination formula for choosing which of the 4 cards is the O, times the probability of each configuration. There are \( \binom{4}{1} = 4 \) ways to choose 1 O among 4 cards, so:
+     \[
+     \mathrm{P(3X, 1O \mid A)} = 4 \times \left(\frac{2}{3}\right)^3 \times \frac{1}{3} = 4 \times \frac{8}{27} \times \frac{1}{3} = 4 \times \frac{8}{81} = \frac{32}{81}
+     \]
+   - From Deck B (where 1/3 are X’s and 2/3 are O’s):
+     \[
+     \mathrm{P(3X, 1O \mid B)} = 4 \times \left(\frac{1}{3}\right)^3 \times \frac{2}{3} = 4 \times \frac{1}{27} \times \frac{2}{3} = 4 \times \frac{2}{81} = \frac{8}{81}
+     \]
+
+2. **Prior probabilities**:
+   Assuming no prior preference for one deck over the other,
+   \[
+   \mathrm{P(A)} = \mathrm{P(B)} = 0.5
+   \]
+
+3. **Use Bayes' Theorem to calculate the posterior probabilities**:
+   - The total probability of drawing 3 X’s and 1 O is:
+     \[
+     \mathrm{P(3X, 1O)} = \mathrm{P(3X, 1O \mid A)} \times \mathrm{P(A)} + \mathrm{P(3X, 1O \mid B)} \times \mathrm{P(B)} = \frac{32}{81} \times 0.5 + \frac{8}{81} \times 0.5 = \frac{40}{81} \times 0.5 = \frac{20}{81}
+     \]
+   - Posterior probability for Deck A:
+     \[
+     \mathrm{P(A \mid 3X, 1O)} = \frac{\mathrm{P(3X, 1O \mid A)} \times \mathrm{P(A)}}{\mathrm{P(3X, 1O)}} = \frac{\frac{32}{81} \times 0.5}{\frac{20}{81}} = \frac{32}{40} = 0.8
+     \]
+   - Posterior probability for Deck B:
+     \[
+     \mathrm{P(B \mid 3X, 1O)} = \frac{\mathrm{P(3X, 1O \mid B)} \times \mathrm{P(B)}}{\mathrm{P(3X, 1O)}} = \frac{\frac{8}{81} \times 0.5}{\frac{20}{81}} = \frac{8}{40} = 0.2
+     \]
+
+4. **Calculate the posterior odds for A compared to B**:
+   \[
+   \mathrm{Odds_{A \ to \ B}} = \frac{\mathrm{P(A \mid 3X, 1O)}}{\mathrm{P(B \mid 3X, 1O)}} = \frac{0.8}{0.2} = 4
+   \]
+
+Hence, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is 4.
+
+{odds: 4}

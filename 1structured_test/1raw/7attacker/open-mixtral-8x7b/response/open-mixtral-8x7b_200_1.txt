@@ -1,0 +1,28 @@
+To reason through this problem, we need to consider both the base rate (information a) and the accuracy of the witness (information b). 
+
+Given that 85% of the population is shorter than 185 cm, this suggests that the prior probability of a random person being 185 cm or taller is 15% (or 0.15).
+
+Next, we consider the witness's ability to judge a person's height. The witness correctly identifies a person as 185 cm or taller 80% of the time, and errs (identifies a person as 185 cm or taller when they are not) 20% of the time.
+
+To estimate the probability that the attacker is 185 cm or taller given the witness's statement, we can use Bayes' theorem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+where:
+- P(A) is the prior probability that the attacker is 185 cm or taller (0.15)
+- P(B|A) is the probability of observing the witness's statement given that the attacker is 185 cm or taller (0.8, since the witness correctly identifies a person as 185 cm or taller 80% of the time)
+- P(B) is the probability of observing the witness's statement, which can be calculated as:
+  P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+  where:
+  - P(not A) is the probability that the attacker is shorter than 185 cm (0.85)
+  - P(B|not A) is the probability of observing the witness's statement given that the attacker is shorter than 185 cm (0.2, since the witness errs and identifies a person as 185 cm or taller 20% of the time)
+
+Plugging in these values, we get:
+
+P(A|B) = [0.8 * 0.15] / [(0.8 * 0.15) + (0.2 * 0.85)]
+
+Calculating the above expression, we get:
+
+P(A|B) = 0.36
+
+So, the estimated probability that the attacker's height was 185 cm or taller is 0.36.

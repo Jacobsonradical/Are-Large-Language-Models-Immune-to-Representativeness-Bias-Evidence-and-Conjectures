@@ -1,0 +1,49 @@
+Let's define the events:
+- \( H \): The attacker is 185 cm or taller.
+- \( L \): The attacker is shorter than 185 cm.
+- \( W1 \): The first witness claims the attacker is 185 cm or taller.
+- \( W2 \): The second witness claims the attacker is shorter than 185 cm.
+
+We need to find \( P(H \mid W1, W2) \), the probability that the attacker is 185 cm or taller given the witness claims.
+
+We'll use Bayes' Theorem for this purpose. First, we need to calculate the prior probabilities:
+- \( P(H) = 0.15 \)
+- \( P(L) = 0.85 \)
+
+Next, we'll use the provided witness accuracy information:
+- \( P(W1 \mid H) = 0.80 \)
+- \( P(W1 \mid L) = 0.20 \)
+- \( P(W2 \mid H) = 0.30 \)
+- \( P(W2 \mid L) = 0.70 \)
+
+Using Bayes' Theorem:
+
+\[ P(H \mid W1, W2) = \frac{P(W1, W2 \mid H) \cdot P(H)}{P(W1, W2)} \]
+
+Since \( P(W1, W2 \mid H) \) assumes independence between the witnesses:
+
+\[ P(W1, W2 \mid H) = P(W1 \mid H) \cdot P(W2 \mid H) = 0.80 \cdot 0.30 = 0.24 \]
+
+Similarly:
+\[ P(W1, W2 \mid L) = P(W1 \mid L) \cdot P(W2 \mid L) = 0.20 \cdot 0.70 = 0.14 \]
+
+Now, we calculate \( P(W1, W2) \):
+
+\[ P(W1, W2) = P(W1, W2 \mid H) \cdot P(H) + P(W1, W2 \mid L) \cdot P(L) \]
+\[ P(W1, W2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 \]
+\[ P(W1, W2) = 0.036 + 0.119 \]
+\[ P(W1, W2) = 0.155 \]
+
+Finally, plug these values into Bayes' Theorem:
+
+\[ P(H \mid W1, W2) = \frac{0.24 \cdot 0.15}{0.155} \]
+\[ P(H \mid W1, W2) = \frac{0.036}{0.155} \]
+\[ P(H \mid W1, W2) \approx 0.232 \]
+
+Thus,
+
+```json
+{
+  "probability": 0.232
+}
+```

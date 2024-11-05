@@ -1,0 +1,46 @@
+Here's how to approach this problem using Bayes' Theorem:
+
+**Understanding the Information**
+
+* **Prior Probability (from "a"):**  Before considering the witness, there's a 15% chance a randomly selected person from the city is 185cm or taller.
+* **Likelihood (from "b"):** The witness is 80% reliable in distinguishing between people taller and shorter than 185cm.
+* **Posterior Probability (what we want):** The probability the attacker is 185cm or taller *given* the witness's statement.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem states:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B happened.
+* P(B|A): Probability of event B happening given that event A happened.
+* P(A):  Prior probability of event A.
+* P(B):  Probability of event B.
+
+**Let's map this to our problem:**
+
+* **Event A:** Attacker is 185cm or taller.
+* **Event B:** Witness identifies the attacker as 185cm or taller.
+
+* **P(A):** 0.15 (prior probability from information "a")
+* **P(B|A):** 0.80 (likelihood of witness being correct when someone is actually tall)
+* **P(B):**  This is tricky. The witness can say "taller" even if the person is short (20% error rate). We need to calculate the overall probability of the witness saying "taller."
+
+**Calculating P(B)**
+
+* P(B) =  P(B|A) * P(A)  +  P(B| not A) * P(not A)
+    * P(B| not A): Probability of witness saying "taller" when the person is actually short (0.20)
+    * P(not A): Probability of attacker being shorter than 185cm (0.85) 
+* P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Finally, using Bayes' Theorem:**
+
+P(Attacker is 185cm or taller | Witness says "taller") = (0.80 * 0.15) / 0.29 = 0.4138
+
+**Answer:**
+
+{probability: 0.41} 
+
+**Therefore, given the witness testimony and the city's height distribution, there's approximately a 41% probability that the attacker was 185cm or taller.** 

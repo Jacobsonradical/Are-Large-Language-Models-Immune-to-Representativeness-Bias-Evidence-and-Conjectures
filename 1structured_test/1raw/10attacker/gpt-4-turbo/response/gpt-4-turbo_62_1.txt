@@ -1,0 +1,45 @@
+To estimate the probability that the attacker was 185 cm or taller given the witness claims, we can use Bayesian probability logic. Let's define events:
+
+- \( H \) represents the event "the attacker's height is 185 cm or taller (tall)"
+- \( \neg H \) represents the event "the attacker's height is shorter than 185 cm (not tall)"
+
+Given:
+
+1. Prior probabilities:
+   - \( P(H) = 0.15 \) (15% population estimate of being 185 cm or taller)
+   - \( P(\neg H) = 0.85 \) (85% population estimate of being shorter than 185 cm)
+
+2. Witness reliability:
+   - Witness 1 (claims attacker is 185 cm or taller) is accurate 80% of the time and errs 20% of the time.
+   - Witness 2 (claims attacker is shorter than 185 cm) is accurate 70% of the time and errs 30% of the time.
+
+To evaluate the probability of \( H \) given both witness statements using these reliabilities, we consider \( W1 \) and \( W2 \) as the events where Witness 1 claims the attacker is tall and Witness 2 claims the attacker is not tall, respectively.
+
+Applying Bayes' theorem:
+\[ P(H \mid W1, W2) = \frac{P(W1, W2 \mid H) \cdot P(H)}{P(W1, W2)} \]
+
+Where:
+- Likelihood \( P(W1, W2 \mid H) = P(W1 \mid H) \times P(W2 \mid H) \) because the witness statements are assumed independent given the attacker's height.
+- \( P(W1 \mid H) = 0.8 \) (probability Witness 1 is correct given \( H \))
+- \( P(W2 \mid H) = 0.3 \) (probability Witness 2 is wrong given \( H \))
+- \( P(W1, W2 \mid H) = 0.8 \times 0.3 = 0.24 \)
+
+Likewise for the complementary hypothesis (\( \neg H \)):
+- \( P(W1 \mid \neg H) = 0.2 \) (probability Witness 1 is wrong given \( \neg H \))
+- \( P(W2 \mid \neg H) = 0.7 \) (probability Witness 2 is correct given \( \neg H \))
+- \( P(W1, W2 \mid \neg H) = 0.2 \times 0.7 = 0.14 \)
+
+Next, calculate the overall probability of \( P(W1, W2) \) using the law of total probability:
+\[ P(W1, W2) = P(W1, W2 \mid H) \cdot P(H) + P(W1, W2 \mid \neg H) \cdot P(\neg H) \]
+\[ = 0.24 \times 0.15 + 0.14 \times 0.85 \]
+\[ = 0.036 + 0.119 = 0.155 \]
+
+Finally, the posterior probability:
+\[ P(H \mid W1, W2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.2323 \]
+
+Thus, the probability that the attacker's height is 185 cm or taller, given the witnesses' accounts, is about 0.2323.
+
+**Output in requested format**: 
+```json
+{ "probability": 0.2323 }
+```

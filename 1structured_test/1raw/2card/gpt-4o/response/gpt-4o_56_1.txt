@@ -1,0 +1,38 @@
+To determine the posterior odds that the 4 cards were drawn from Deck A compared to Deck B, we'll use Bayes' Theorem and the given information.
+
+We need the following probabilities:
+1. The probability of drawing 3 X's and 1 O from Deck A, denoted \( P(E|A) \)
+2. The probability of drawing 3 X's and 1 O from Deck B, denoted \( P(E|B) \)
+3. The prior probabilities of selecting Deck A or Deck B, which are both \( P(A) = 0.5 \) and \( P(B) = 0.5 \)
+
+First, we calculate \( P(E|A) \):
+- Probability of drawing an X from Deck A = \( \frac{2}{3} \)
+- Probability of drawing an O from Deck A = \( \frac{1}{3} \)
+
+The order of drawing doesn't matter, so we use combinations. There are \( \binom{4}{3} = 4 \) ways to choose which of the 4 cards is an O.
+
+\[ P(E|A) = 4 \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right) = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = 4 \cdot \frac{8}{81} = \frac{32}{81} \]
+
+Next, we calculate \( P(E|B) \):
+- Probability of drawing an X from Deck B = \( \frac{1}{3} \)
+- Probability of drawing an O from Deck B = \( \frac{2}{3} \)
+
+Similarly, the number of ways of drawing 3 X's and 1 O is still 4.
+
+\[ P(E|B) = 4 \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right) = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = 4 \cdot \frac{2}{81} = \frac{8}{81} \]
+
+According to Bayes' Theorem:
+
+\[ P(A|E) = \frac{P(E|A) P(A)}{P(E|A) P(A) + P(E|B) P(B)} \]
+\[ P(B|E) = \frac{P(E|B) P(B)}{P(E|A) P(A) + P(E|B) P(B)} \]
+
+Since \( P(A) = P(B) = 0.5 \) we can simplify to:
+
+\[ P(A|E) = \frac{P(E|A)}{P(E|A) + P(E|B)} = \frac{\frac{32}{81}}{\frac{32}{81} + \frac{8}{81}} = \frac{\frac{32}{81}}{\frac{40}{81}} = \frac{32}{40} = \frac{4}{5} \]
+\[ P(B|E) = \frac{P(E|B)}{P(E|A) + P(E|B)} = \frac{\frac{8}{81}}{\frac{32}{81} + \frac{8}{81}} = \frac{\frac{8}{81}}{\frac{40}{81}} = \frac{8}{40} = \frac{1}{5} \]
+
+Finally, we find the posterior odds:
+\[ \text{Posterior odds (A:B)} = \frac{P(A|E)}{P(B|E)} = \frac{\frac{4}{5}}{\frac{1}{5}} = \frac{4}{5} \cdot \frac{5}{1} = 4 \]
+
+Thus, the answer is:
+{odds: 4}

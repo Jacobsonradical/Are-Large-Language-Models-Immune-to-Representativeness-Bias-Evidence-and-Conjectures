@@ -1,0 +1,43 @@
+Here's how we can determine which case is more likely:
+
+**Understanding the Problem**
+
+We need to figure out which distribution of balls (2-2-2 or 2-3-1) is more probable.  This is a combinatorics problem where we calculate the number of ways to achieve each case.
+
+**Calculations**
+
+* **Total Possible Arrangements:** 
+   Each ball has 3 choices (child A, B, or C). With 6 balls, there are  3 * 3 * 3 * 3 * 3 * 3 = 3^6 = 729 total possible arrangements.
+
+* **Case 1 (2-2-2):**
+    *  Choose 2 balls for A: 6C2 = 15 ways
+    *  Choose 2 balls for B (from the remaining 4): 4C2 = 6 ways
+    *  The remaining 2 balls automatically go to C. 
+    *  Total ways for Case 1: 15 * 6 = 90
+
+* **Case 2 (2-3-1):**
+    * Choose 2 balls for A: 6C2 = 15 ways
+    * Choose 3 balls for B: 4C3 = 4 ways
+    * The remaining ball automatically goes to C
+    * Total ways for Case 2: 15 * 4 = 60
+
+**But wait! There's more...**
+
+We need to consider that Case 2 can happen in different ways (A:2, B:1, C:3 or A:1, B:3, C:2, etc.). We need to account for these variations:
+
+* **Variations of Case 2:** There are 3! (3 factorial) = 6 ways to order the children (ABC, ACB, BAC, etc.) 
+
+* **Total ways for Case 2 (including variations):** 60 * 6 = 360
+
+**Comparison**
+
+* Case 1: 90 ways
+* Case 2: 360 ways
+
+**Answer**
+
+{case: 2} 
+
+**Conclusion**
+
+There will be more results of case 2 (a 2-3-1 distribution) in many rounds of the game. This is because there are more possible ways to achieve a 2-3-1 distribution of balls than a perfectly even 2-2-2 distribution. 

@@ -1,0 +1,32 @@
+To solve this problem, we need to calculate the probabilities of drawing 3 X cards and 1 O card from both decks and then use Bayes' rule to update our beliefs about which deck the cards were drawn from.
+
+Let \( A \) be the event that Deck A was chosen and \( B \) the event that Deck B was chosen. The prior probabilities for each deck \( P(A) = P(B) = \frac{1}{2} \) because one deck is chosen by chance.
+
+Let \( D \) be the event of drawing 3 X cards and 1 O card from the chosen deck.
+
+We calculate \( P(D|A) \) and \( P(D|B) \) first:
+
+1. **Probability of drawing 3 X cards and 1 O card from Deck A (P(D|A))**:
+   \[
+   P(D|A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \times \left(\frac{8}{27}\right) \times \left(\frac{1}{3}\right) = 4 \times \frac{8}{81} = \frac{32}{81}
+   \]
+
+2. **Probability of drawing 3 X cards and 1 O card from Deck B (P(D|B))**:
+   \[
+   P(D|B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \times \left(\frac{1}{27}\right) \times \left(\frac{2}{3}\right) = 4 \times \frac{2}{81} = \frac{8}{81}
+   \]
+
+Using Bayes' rule, we then want to find \( P(A|D) \) and \( P(B|D) \).
+
+The ratio of these probabilities, which gives us the posterior odds, is:
+\[
+\frac{P(A|D)}{P(B|D)} = \frac{P(D|A)P(A)}{P(D|B)P(B)} \times \frac{P(B)}{P(A)}
+\]
+Given that \( P(A) = P(B) \), this simplifies to:
+\[
+\frac{P(D|A)}{P(D|B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4
+\]
+
+Therefore, the posterior odds that the cards were drawn from Deck A, compared to Deck B, given that 3 X cards and 1 O card were drawn, is 4.
+
+{odds: 4}

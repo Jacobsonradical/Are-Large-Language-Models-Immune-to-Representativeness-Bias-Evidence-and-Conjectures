@@ -1,0 +1,45 @@
+Here's how to approach this problem:
+
+**1.  Understanding the Information**
+
+* **General Population:** 15% of the city's population is 185 cm or taller.
+* **Witness 1:**  Correctly identifies height 80% of the time, wrong 20% of the time.
+* **Witness 2:** Correctly identifies height 70% of the time, wrong 30% of the time.
+
+**2. Bayesian Reasoning**
+
+We need to use Bayesian reasoning to update our belief about the attacker's height based on the witness testimony. Here's the breakdown:
+
+* **Prior Probability:**  The prior probability of the attacker being 185 cm or taller is 0.15 (15% from the population statistics).
+* **Likelihood:** We need to consider the likelihood of each witness's statement given the attacker's true height.
+    * **Witness 1 (Taller):**  If the attacker is truly taller than 185 cm, there's an 80% chance Witness 1 will correctly identify this.
+    * **Witness 1 (Shorter):** If the attacker is truly shorter than 185 cm, there's a 20% chance Witness 1 will incorrectly say they are taller.
+    * **Witness 2 (Shorter):**  If the attacker is truly shorter than 185 cm, there's a 70% chance Witness 2 will correctly identify this.
+    * **Witness 2 (Taller):** If the attacker is truly taller than 185 cm, there's a 30% chance Witness 2 will incorrectly say they are shorter.
+
+**3. Calculation**
+
+We can use Bayes' Theorem to calculate the updated probability:
+
+```
+P(Attacker Taller | Witness 1 says Taller) = 
+  [P(Witness 1 says Taller | Attacker Taller) * P(Attacker Taller)] /
+  [P(Witness 1 says Taller | Attacker Taller) * P(Attacker Taller) + P(Witness 1 says Taller | Attacker Shorter) * P(Attacker Shorter)]
+```
+
+Let's plug in the numbers:
+
+```
+P(Attacker Taller | Witness 1 says Taller) = 
+  [0.8 * 0.15] / [0.8 * 0.15 + 0.2 * 0.85] 
+  = 0.12 / 0.3 
+  = 0.4
+```
+
+**4. Answer**
+
+{probability: 0.4}
+
+**Conclusion:**
+
+The probability that the attacker's height was 185 cm or taller, given the first witness's claim, is 0.4 (or 40%). 

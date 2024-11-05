@@ -1,0 +1,46 @@
+To solve this problem, we can use Bayesian statistics to update our prior beliefs based on the new evidence (testimonies of the witnesses).
+
+1. **Definitions and Prior Probability**:
+   \(\Pr(T)\) := Probability that the attacker is 185 cm or taller = 0.15  
+   \(\Pr(T^c)\) := Probability that the attacker is shorter than 185 cm = 0.85
+
+2. **Likelihoods (Probabilities based on Witnesses)**:
+   - **Witness 1** (80% accuracy if true, 20% false alarm):
+     \(\Pr(W_1 | T)\) = P(Witness 1 correctly identifying an attacker taller than 185 cm) = 0.8  
+     \(\Pr(W_1 | T^c)\) = P(Witness 1 incorrectly identifying an attacker shorter than 185 cm as taller) = 0.2  
+   - **Witness 2** (70% accuracy if true, 30% false alarm):
+     \(\Pr(W_2 | T^c)\) = P(Witness 2 correctly identifying an attacker shorter than 185 cm) = 0.7  
+     \(\Pr(W_2 | T)\) = P(Witness 2 incorrectly identifying an attacker taller than 185 cm as shorter) = 0.3
+
+3. **Using Bayes Theorem**:
+   We need to find \(\Pr(T | W_1 \cap W_2^c)\), the probability that the attacker is taller than 185 cm given that Witness 1 claimed so and Witness 2 claimed otherwise:
+   
+   \[
+   \Pr(T | W_1 \cap W_2^c) = \frac{\Pr(W_1 \cap W_2^c | T) \times \Pr(T)}{\Pr(W_1 \cap W_2^c)}
+   \]
+   
+   Here, 
+   \(\Pr(W_1 \cap W_2^c | T) = \Pr(W_1 | T) \times \Pr(W_2^c | T)\)
+   and
+   \(\Pr(W_1 \cap W_2^c | T^c) = \Pr(W_1 | T^c) \times \Pr(W_2^c | T^c)\)
+   
+   - \(\Pr(W_1 \cap W_2^c | T) = 0.8 \times 0.3 = 0.24\)
+   - \(\Pr(W_1 \cap W_2^c | T^c) = 0.2 \times 0.3 = 0.06\)
+   
+   The total probability of the witnesses making these statements, \(\Pr(W_1 \cap W_2^c)\), is calculated using total probability:
+   \[
+   \Pr(W_1 \cap W_2^c) = \Pr(W_1 \cap W_2^c | T) \times \Pr(T) + \Pr(W_1 \cap W_2^c | T^c) \times \Pr(T^c)
+   = 0.24 \times 0.15 + 0.06 \times 0.85
+   = 0.036 + 0.051
+   = 0.087
+   \]
+   
+   Now, calculate the posterior probability:
+   \[
+   \Pr(T | W_1 \cap W_2^c) = \frac{0.24 \times 0.15}{0.087}
+   = \frac{0.036}{0.087}
+   = 0.41379
+   \]
+
+Therefore, according to the best estimate with the given evidence and witness reliability:
+{probability: 0.41379}

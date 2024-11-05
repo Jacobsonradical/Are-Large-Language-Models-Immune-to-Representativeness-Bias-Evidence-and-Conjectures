@@ -1,0 +1,25 @@
+To calculate the posterior odds that the 4 cards were drawn from Deck A versus Deck B, we first need to calculate the probabilities for drawing the observed sequence (3 cards marked X and 1 card marked O) from each deck and then use Bayes' theorem to update our beliefs based on this evidence.
+
+Let's denote:
+- \( P(D = A) \) and \( P(D = B) \) as the prior probabilities of selecting Deck A and Deck B, respectively. Since a deck is chosen at random, \( P(D = A) = P(D = B) = 0.5 \).
+- \( P(E | D = A) \) as the probability of drawing 3 X's and 1 O from deck A.
+- \( P(E | D = B) \) as the probability of drawing 3 X's and 1 O from deck B.
+
+**Calculate \( P(E | D = A) \):**
+- Drawing 3 cards marked X from deck A, where proportion of X cards is 2/3, and 1 card marked O, where proportion of O cards is 1/3:
+\[ P(E | D = A) = \binom{4}{3} \left( \frac{2}{3} \right)^3 \left( \frac{1}{3} \right)^1 = 4 \left( \frac{8}{27} \right) \left( \frac{1}{3} \right) = \frac{32}{81} \]
+
+**Calculate \( P(E | D = B) \):**
+- Drawing 3 cards marked X from deck B, where proportion of X cards is 1/3, and 1 card marked O, where proportion of O cards is 2/3:
+\[ P(E | D = B) = \binom{4}{3} \left( \frac{1}{3} \right)^3 \left( \frac{2}{3} \right)^1 = 4 \left( \frac{1}{27} \right) \left( \frac{2}{3} \right) = \frac{8}{81} \]
+
+**Calculate the posterior odds**, \( \frac{P(D = A | E)}{P(D = B | E)} \):
+1. Use Bayes’ rule in ratio form:
+   \[ \frac{P(D = A | E)}{P(D = B | E)} = \frac{P(E | D = A) P(D = A)}{P(E | D = B) P(D = B)} = \frac{P(E | D = A)}{P(E | D = B)} \cdot \frac{P(D = A)}{P(D = B)} \]
+2. Since \( P(D = A) = P(D = B) = 0.5 \), the ratio \( \frac{P(D = A)}{P(D = B)} = 1 \).
+3. Thus, 
+   \[ \frac{P(D = A | E)}{P(D = B | E)} = \frac{P(E | D = A)}{P(E | D = B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4 \]
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is 4.
+
+{odds: 4}

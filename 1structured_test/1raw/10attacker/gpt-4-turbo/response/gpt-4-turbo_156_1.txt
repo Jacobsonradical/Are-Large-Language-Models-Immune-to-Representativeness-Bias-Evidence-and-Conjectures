@@ -1,0 +1,35 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the available information, we can use Bayes' Theorem. Bayes' Theorem helps update the probability estimate for a hypothesis based on new evidence.
+
+Let:
+- \( A \) represent the event "the attacker is 185 cm or taller."
+- \( B_1 \) represent the event "the first witness claimed the attacker was 185 cm or taller."
+- \( B_2 \) represent the event "the second witness claimed the attacker was shorter than 185 cm."
+
+First, we calculate \( P(A) \) and \( P(\neg A) \):
+- \( P(A) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg A) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+Next, we calculate \( P(B_1 | A) \) and \( P(B_1 | \neg A) \):
+- \( P(B_1 | A) = 0.8 \) (first witness correctly identifies someone as 185 cm or taller 80% of the time)
+- \( P(B_1 | \neg A) = 0.2 \) (first witness incorrectly identifies someone as 185 cm or taller 20% of the time)
+
+We also need \( P(B_2 | A) \) and \( P(B_2 | \neg A) \):
+- \( P(B_2 | A) = 0.3 \) (second witness incorrectly identifies someone as shorter than 185 cm 30% of the time)
+- \( P(B_2 | \neg A) = 0.7 \) (second witness correctly identifies someone as shorter than 185 cm 70% of the time)
+
+Now, combining witness statements, we calculate \( P(B_1 \cap B_2 | A) \) and \( P(B_1 \cap B_2 | \neg A) \):
+- \( P(B_1 \cap B_2 | A) = P(B_1 | A) \cdot P(B_2 | A) = 0.8 \times 0.3 = 0.24 \)
+- \( P(B_1 \cap B_2 | \neg A) = P(B_1 | \neg A) \cdot P(B_2 | \neg A) = 0.2 \times 0.7 = 0.14 \)
+
+The probability of the combined witness statements being \( B_1 \) and \( B_2 \) regardless of whether \( A \) is true or not is:
+- \( P(B_1 \cap B_2) = P(B_1 \cap B_2 | A) \cdot P(A) + P(B_1 \cap B_2 | \neg A) \cdot P(\neg A) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \)
+
+Finally, using Bayes' Theorem, we find \( P(A | B_1 \cap B_2) \):
+- \( P(A | B_1 \cap B_2) = \frac{P(B_1 \cap B_2 | A) \cdot P(A)}{P(B_1 \cap B_2)} = \frac{0.24 \times 0.15}{0.155} \approx \frac{0.036}{0.155} \approx 0.232 \)
+
+Thus, the probability that the attacker's height was 185 cm or taller, given the witness statements and population data, is approximately 0.232.
+
+Result: 
+```json
+{ "probability": 0.232 }
+```

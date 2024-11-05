@@ -1,0 +1,38 @@
+Here's how we can break down the problem to arrive at an estimate:
+
+**Understanding the Information**
+
+* **Information a:** Tells us that the population is roughly split 50/50 between people shorter than 185 cm and those 185 cm or taller. However, attackers within this population are disproportionately shorter (85% vs 15%).
+* **Information b:** Provides information about a witness's reliability in judging height.  They are correct 80% of the time and wrong 20% of the time.
+
+**Calculating the Probability**
+
+We need to consider two scenarios:
+
+1. **Scenario 1: The witness is correct.**  The attacker is indeed 185 cm or taller.  The probability of this is 80% based on the witness's reliability.
+2. **Scenario 2: The witness is incorrect.** The attacker is actually shorter than 185 cm. The probability of this is 20%.
+
+Now, we need to factor in the likelihood of an attacker being short or tall based on information "a".
+
+* **Scenario 1:**  If the witness is correct (80% probability), the attacker is 185 cm or taller (and thus belongs to the 15% of attackers who are this height).
+* **Scenario 2:** If the witness is wrong (20% probability), the attacker is shorter than 185 cm (and thus belongs to the 85% of attackers who are this height).
+
+**Combining the Probabilities**
+
+We can use Bayes' Theorem to calculate the probability of the attacker being 185 cm or taller given the witness's statement:
+
+P(Attacker is 185 cm or taller | Witness said so) = [P(Witness said so | Attacker is 185 cm or taller) * P(Attacker is 185 cm or taller)] / P(Witness said so)
+
+* P(Witness said so | Attacker is 185 cm or taller) = 0.8 (witness is correct 80% of the time)
+* P(Attacker is 185 cm or taller) = 0.15 (15% of attackers are this height)
+* P(Witness said so) can be calculated using the law of total probability: 
+    * P(Witness said so) = P(Witness said so | Attacker is 185 cm or taller) * P(Attacker is 185 cm or taller) + P(Witness said so | Attacker is shorter than 185 cm) * P(Attacker is shorter than 185 cm)
+    * P(Witness said so) = (0.8 * 0.15) + (0.2 * 0.85) = 0.28
+
+**Final Calculation:**
+
+P(Attacker is 185 cm or taller | Witness said so) = (0.8 * 0.15) / 0.28 = 0.43 (approximately)
+
+**Answer:**
+
+{probability: 0.43} 

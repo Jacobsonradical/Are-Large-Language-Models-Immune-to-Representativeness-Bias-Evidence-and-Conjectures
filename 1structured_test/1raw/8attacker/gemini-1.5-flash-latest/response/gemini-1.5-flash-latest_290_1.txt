@@ -1,0 +1,42 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **a:** This tells us the witness's accuracy in identifying height. However, it's crucial to note that their accuracy is based on a 50/50 split in the population.  In reality, attackers are not split evenly by height.
+* **b:** This gives us the actual distribution of attackers by height.  This is vital for a more accurate estimate.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is a powerful tool for updating our belief about an event based on new evidence. Here's how it applies:
+
+* **Let's define:**
+    *  A: Event that the attacker is 185 cm or taller
+    *  B: Event that the witness identifies the attacker as 185 cm or taller
+* **We want to find:** P(A|B) - the probability the attacker is tall given the witness's statement.
+
+**Bayes' Theorem Formula:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each part:
+
+1. **P(B|A):**  Probability of the witness identifying the attacker as tall given they *are* tall. This is 80% (from the witness accuracy information).
+
+2. **P(A):**  Prior probability of the attacker being tall. This is 15% (from the actual attacker height distribution).
+
+3. **P(B):**  Probability of the witness identifying the attacker as tall (regardless of their actual height). This requires a bit more calculation:
+    * P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+    * P(B|not A): Probability of the witness identifying the attacker as tall given they are *not* tall. This is 20% (error rate of the witness).
+    * P(not A): Probability of the attacker *not* being tall. This is 85%.
+    * P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29 
+
+**Putting it Together**
+
+P(A|B) = (0.80 * 0.15) / 0.29 = 0.414
+
+**Answer:** 
+{probability: 0.414} 
+
+**Conclusion**
+
+Even though the witness identifies height with 80% accuracy, the fact that only 15% of attackers are actually tall significantly lowers the probability that the attacker in this case was tall. The updated probability is approximately 41.4%. 

@@ -1,0 +1,35 @@
+Here's how to break down the problem and arrive at an estimate:
+
+**1.  Prior Probability:**
+
+*  We know 15% of the population is 185 cm or taller. This is our prior probability: P(Taller) = 0.15
+
+**2.  Likelihoods:**
+
+* **Witness 1 (claimed Taller):**  
+    *  Accuracy of identifying taller: 80% or P(Witness1 says Taller | Taller) = 0.8
+    *  Error rate of identifying taller: 20% or P(Witness1 says Taller | Shorter) = 0.2
+* **Witness 2 (claimed Shorter):**
+    *  Accuracy of identifying shorter: 70% or P(Witness2 says Shorter | Shorter) = 0.7
+    *  Error rate of identifying shorter: 30% or P(Witness2 says Shorter | Taller) = 0.3
+
+**3.  Bayes' Theorem**
+
+We need to find P(Taller | Witness1 says Taller),  the probability the attacker was taller given Witness 1's claim. Bayes' Theorem helps:
+
+P(Taller | Witness1 says Taller) = [P(Witness1 says Taller | Taller) * P(Taller)] / P(Witness1 says Taller)
+
+We need to calculate the denominator, P(Witness1 says Taller):
+
+P(Witness1 says Taller) =  P(Witness1 says Taller | Taller) * P(Taller)  +  P(Witness1 says Taller | Shorter) * P(Shorter)
+
+P(Witness1 says Taller) = (0.8 * 0.15) + (0.2 * 0.85) = 0.26
+
+**4.  Putting it together:**
+
+P(Taller | Witness1 says Taller) = (0.8 * 0.15) / 0.26  ≈ 0.46
+
+**Answer:** 
+{probability: 0.46} 
+
+**Conclusion:**  Given the witness's accuracy and the population demographics, there's a roughly 46% chance the attacker was 185 cm or taller. 

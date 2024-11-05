@@ -1,0 +1,38 @@
+Given the information provided, we have two pieces of data:
+
+1. The witness's ability to correctly identify gender is 80% and the error rate is 20%.
+2. The population breakdown in the city is 85% female and 15% male.
+
+To estimate the probability that the attacker is male, we can use Bayes' theorem. Bayes' theorem allows us to update our beliefs about the probability of a hypothesis (in this case, the attacker being male) given evidence (in this case, the witness's identification).
+
+The formula for Bayes' theorem is:
+
+P(H|E) = P(E|H) * P(H) / P(E)
+
+Where:
+- P(H|E) is the probability of the hypothesis given the evidence
+- P(E|H) is the probability of the evidence given the hypothesis
+- P(H) is the prior probability of the hypothesis
+- P(E) is the probability of the evidence
+
+In our case, H is the attacker being male, E is the witness's identification, P(H) is 15% (given that 15% of the population is male), P(E|H) is 80% (given that the witness correctly identified a male 80% of the time), and P(H|E) is what we want to find.
+
+However, we don't have enough information to calculate P(E) directly. Instead, we can rewrite Bayes' theorem using the error rate:
+
+P(E|H) = 1 - P(E|~H)
+
+Where ~H is the attacker being female.
+
+Given that the witness errs 20% of the time, P(E|~H) = 0.2.
+
+Now we can rewrite Bayes' theorem:
+
+P(H|E) = (1 - P(E|~H)) * P(H) / [(1 - P(E|H)) * P(H) + P(E|~H) * P(~H)]
+
+P(H|E) = (1 - 0.2) * 0.15 / [(1 - 0.8) * 0.15 + 0.2 * 0.85]
+
+P(H|E) = 0.8 * 0.15 / [0.2 * 0.85 + 0.2 * 0.85]
+
+P(H|E) ≈ 0.175
+
+So, our estimate of the probability that the attacker is male, given the witness's identification, is approximately 17.5%.

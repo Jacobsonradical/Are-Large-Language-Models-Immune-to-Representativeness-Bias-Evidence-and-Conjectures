@@ -1,0 +1,47 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**1. Define events:**
+
+*  Let "T" be the event that the attacker is 185 cm or taller.
+*  Let "S" be the event that the attacker is shorter than 185 cm.
+*  Let "W1" be the event that the first witness claims the attacker is 185 cm or taller.
+*  Let "W2" be the event that the second witness claims the attacker is shorter than 185 cm.
+
+**2. Prior probabilities:**
+
+* P(T) = 0.15 (from the city's height distribution)
+* P(S) = 0.85 (from the city's height distribution)
+
+**3. Witness reliability (likelihoods):**
+
+* P(W1 | T) = 0.80 (The first witness correctly identifies "tall" 80% of the time)
+* P(W2 | S) = 0.70 (The second witness correctly identifies "short" 70% of the time)
+
+**4. What we want:**
+
+* P(T | W1) - The probability the attacker is tall given the first witness's claim.
+
+**5. Bayes' Theorem:**
+
+P(T | W1) = [P(W1 | T) * P(T)] / P(W1) 
+
+To calculate the denominator, P(W1), we need to consider both ways the witness could claim "tall":
+
+* The attacker is actually tall, and the witness is correct:  P(W1 | T) * P(T) 
+* The attacker is actually short, and the witness is incorrect: P(W1 | S) * P(S)
+
+Since these are the only two ways W1 can happen, we have:
+
+P(W1) = [P(W1 | T) * P(T)] + [P(W1 | S) * P(S)]
+
+**6. Calculation:**
+
+* P(W1 | S) = 0.30 (The second witness incorrectly identifies "tall" 30% of the time, which is the same as the first witness incorrectly identifying "short")
+* P(W1) = (0.80 * 0.15) + (0.30 * 0.85) = 0.375
+* P(T | W1) = (0.80 * 0.15) / 0.375 = 0.32
+
+**Answer:**
+
+{probability: 0.32}
+
+**Therefore, given the first witness's claim and the known information, there is an estimated 32% probability that the attacker was 185 cm or taller.** 

@@ -1,0 +1,53 @@
+To estimate the probability that the attacker's height was 185 cm or taller based on the information provided, we can use Bayes' theorem. This involves combining the prior probability of the attacker's height with the likelihood of the witness statements.
+
+Let's define the following events:
+- \( T \) (tall): The attacker is 185 cm or taller.
+- \( S \) (short): The attacker is shorter than 185 cm.
+
+From the problem, we know:
+- \( P(T) = 0.15 \)
+- \( P(S) = 0.85 \)
+
+We also have the reliability of the witnesses:
+- The first witness (W1) claims the attacker was tall:
+  - \( P(W1|\ T) = 0.8 \)       (80% accuracy when the person is tall)
+  - \( P(W1|\ S) = 0.2 \)       (20% error when the person is short)
+- The second witness (W2) claims the attacker was short:
+  - \( P(W2|\ S) = 0.7 \)       (70% accuracy when the person is short)
+  - \( P(W2|\ T) = 0.3 \)       (30% error when the person is tall)
+
+We need to find the probability that the attacker was tall given the witnesses' statements. We use Bayes' theorem for this:
+
+\[
+P(T|\ W1, W2) = \frac{P(W1, W2|\ T) \cdot P(T)}{P(W1, W2)}
+\]
+
+Where \( P(W1, W2) \) can be expanded as follows:
+\[
+P(W1, W2) = P(W1, W2|\ T) \cdot P(T) + P(W1, W2|\ S) \cdot P(S)
+\]
+
+Considering that the witnesses' assessments are conditional on the actual height:
+\[
+P(W1, W2|\ T) = P(W1|\ T) \cdot P(W2|\ T) = 0.8 \cdot 0.3 = 0.24
+\]
+
+\[
+P(W1, W2|\ S) = P(W1|\ S) \cdot P(W2|\ S) = 0.2 \cdot 0.7 = 0.14
+\]
+
+Then, we calculate \( P(W1, W2) \):
+\[
+P(W1, W2) = P(W1, W2|\ T) \cdot P(T) + P(W1, W2|\ S) \cdot P(S) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+\]
+
+Finally, applying Bayes' theorem:
+\[
+P(T|\ W1, W2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+So the estimated probability that the attacker is 185 cm or taller is:
+
+\{
+  "probability": 0.232
+\}

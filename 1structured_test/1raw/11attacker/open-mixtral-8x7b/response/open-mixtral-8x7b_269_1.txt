@@ -1,0 +1,33 @@
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Let's denote:
+
+P(B) = probability of an attacker being black (15%)
+P(W) = probability of an attacker being white (85%)
+P(W|w) = probability of a witness identifying a white person as white (80%)
+P(B|b) = probability of a witness identifying a black person as black (80%)
+
+We are interested in P(B|a), the probability of an attacker being black given the witness's observation.
+
+Bayes' theorem:
+P(B|a) = P(a|B) * P(B) / [P(a|B) * P(B) + P(a|W) * P(W)]
+
+Since we don't have information about the witness's observation for white people, let's use the complementary probabilities:
+
+P(a|W) = 1 - P(W|w) = 1 - 0.8 = 0.2
+
+Now, let's calculate P(a|B) using the law of total probability:
+P(a|B) = P(a and b|B) + P(a and not b|B)
+
+Since the witness is always right when identifying a black person as black (P(b|B) = 1), we have:
+P(a and b|B) = P(a|b and B) * P(b|B) = P(a|b) = 0.8
+
+For P(a and not b|B), the witness identifies a black person as white, which is an error, but we don't have information about the witness's error rate specifically for black people. To estimate this, we can assume that the witness's error rates for white and black people are the same, i.e., 20%. Therefore, P(a and not b|B) = 0.2.
+
+Now, we can calculate P(a|B):
+P(a|B) = 0.8 + 0.2 = 1
+
+Finally, we can use Bayes' theorem to find P(B|a):
+P(B|a) = (1 * 0.15) / [(1 * 0.15) + (0.2 * 0.85)] = 0.45 / (0.45 + 0.17) = 0.45 / 0.62 ≈ 0.7258
+
+Our estimate is approximately 73% (when rounded to two decimal places) that the attacker is black.
+
+Answer: {probability: 0.73}

@@ -1,0 +1,45 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information provided about the witness's ability to judge a person's height and the distribution of heights in the city's population.
+
+Let's denote:
+- P(A): probability that the attacker's height is 185 cm or taller
+- P(B): probability that the witness identifies the attacker's height as 185 cm or taller
+- P(Correct | 185+): probability that the witness is correct when the attacker's height is 185 cm or taller = 0.8
+- P(Error | <185): probability that the witness errs when the attacker's height is less than 185 cm = 0.2
+- P(<185): probability that the attacker's height is less than 185 cm = 0.85 (from the problem description)
+
+Now we can use Bayes' theorem:
+P(A | B) = P(B | A) * P(A) / P(B)
+
+We have two possible scenarios for P(B), depending on whether the attacker's height is 185 cm or taller or not:
+P(B) = P(B | A) * P(A) + P(B | <185) * P(<185)
+
+We need to compute P(B | <185):
+- The witness has a 20% chance of erring, so they will mistakenly identify the attacker as 185 cm or taller with a probability of 0.2
+- This probability is conditional on the attacker's height being less than 185 cm, so P(B | <185) = 0.2 * 0.85 = 0.17
+
+Now we can calculate P(B):
+- P(B) = P(B | A) * P(A) + P(B | <185) * P(<185) = 0.8 * P(A) + 0.17 * 0.85
+
+Now we can compute P(A | B):
+P(A | B) = P(B | A) * P(A) / P(B) = 0.8 * P(A) / (0.8 * P(A) + 0.17 * 0.85)
+
+Solving for P(A):
+- Let's denote P(A) as p
+- 0.8 * p = P(A | B) * (0.8 * p + 0.17 * 0.85)
+- 0.8 * p = P(A | B) * 0.8 * p + P(A | B) * 0.17 * 0.85
+- 0.8 * p - P(A | B) * 0.8 * p = P(A | B) * 0.17 * 0.85
+- p * (0.8 - P(A | B) * 0.8) = P(A | B) * 0.17 * 0.85
+
+We don't have a specific value for P(A | B), but we can express p in terms of P(A | B):
+p = (P(A | B) * 0.17 * 0.85) / (0.8 - P(A | B) * 0.8)
+
+The problem asks for an estimate of the probability that the attacker's height was 185 cm or taller, so we can use the witness's ability to correctly identify a person of that height as our estimate for P(A | B):
+
+P(A | B) = 0.8
+
+Substituting this value into our equation for p:
+p = (0.8 * 0.17 * 0.85) / (0.8 - 0.8 * 0.8) = 0.1632
+
+So our estimate for the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.1632}

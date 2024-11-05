@@ -1,0 +1,36 @@
+{probability: 0.8571}
+
+Here's how I arrived at this estimate:
+
+Let's define the following events:
+- A: Attacker's height is 185 cm or taller
+- B1: First witness claims the attacker is 185 cm or taller
+- B2: Second witness claims the attacker is shorter than 185 cm
+
+From the given information, we know:
+- P(A) = 0.15 (15% of the population is 185 cm or taller)
+- P(B1 | A) = 0.8 (first witness correctly identifies tall people 80% of the time)
+- P(B1 | A') = 0.2 (first witness incorrectly identifies short people as tall 20% of the time)
+- P(B2 | A') = 0.7 (second witness correctly identifies short people 70% of the time)
+- P(B2 | A) = 0.3 (second witness incorrectly identifies tall people as short 30% of the time)
+
+We want to find P(A | B1, B2), the probability that the attacker is 185 cm or taller, given the witness statements.
+
+Using Bayes' theorem:
+P(A | B1, B2) = P(B1, B2 | A) * P(A) / P(B1, B2)
+
+We can calculate P(B1, B2 | A) and P(B1, B2 | A') as follows:
+P(B1, B2 | A) = P(B1 | A) * P(B2 | A) = 0.8 * 0.3 = 0.24
+P(B1, B2 | A') = P(B1 | A') * P(B2 | A') = 0.2 * 0.7 = 0.14
+
+Now, we can calculate P(B1, B2):
+P(B1, B2) = P(B1, B2 | A) * P(A) + P(B1, B2 | A') * P(A')
+           = 0.24 * 0.15 + 0.14 * 0.85
+           = 0.0360 + 0.1190 = 0.1550
+
+Finally, we can calculate P(A | B1, B2):
+P(A | B1, B2) = P(B1, B2 | A) * P(A) / P(B1, B2)
+               = (0.24 * 0.15) / 0.1550
+               = 0.8571
+
+Therefore, the estimated probability that the attacker's height was 185 cm or taller, as claimed by the first witness, is 0.8571 or approximately 85.71%.

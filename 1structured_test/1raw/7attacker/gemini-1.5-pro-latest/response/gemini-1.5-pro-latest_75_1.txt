@@ -1,0 +1,48 @@
+Here's how we can approach this problem, breaking it down into parts:
+
+**Understanding the Information**
+
+* **Witness Reliability (a):** The witness is 80% accurate in judging height under similar conditions. This means:
+    * If the attacker IS 185cm or taller, there's an 80% chance the witness is right.
+    * If the attacker IS NOT 185cm or taller, there's a 20% chance the witness is wrong (and thus claimed they were taller).
+
+* **Population Distribution (b):** This gives us the general likelihood of someone in the city being 185cm or taller. 
+
+**Combining the Information**
+
+We need to use Bayes' Theorem to combine the witness testimony with the population data. Bayes' Theorem helps us calculate the probability of an event (attacker being tall) given prior knowledge (population height distribution) and new evidence (witness testimony).
+
+**Let's Define Events:**
+
+* Event A: Attacker is 185cm or taller.
+* Event B: Witness says the attacker is 185cm or taller.
+
+**What We Need to Calculate:**
+
+* P(A|B): The probability the attacker is 185cm or taller GIVEN that the witness said so.
+
+**Bayes' Theorem Formula:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+**Breaking Down the Calculation:**
+
+1. **P(B|A):**  Probability the witness says "tall" GIVEN the attacker IS tall. This is 0.8 (80% accuracy).
+
+2. **P(A):**  Prior probability of an attacker being tall (from population data). This is 0.15 (15%).
+
+3. **P(B):** Probability the witness says "tall" (regardless of actual height). This is calculated as:
+    * P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)] 
+    * P(B|~A): Probability witness says "tall" GIVEN attacker is NOT tall (20% error rate).
+    * P(~A): Probability of attacker NOT being tall (1 - 0.15 = 0.85). 
+    * P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+**Putting it Together:**
+
+P(A|B) = (0.8 * 0.15) / 0.29 = 0.4138 
+
+**Answer:**
+
+{probability: 0.41} 
+
+**Important Note:** This is just an estimate. Several factors could influence the actual probability, such as the witness's line of sight, lighting conditions, and potential biases. 

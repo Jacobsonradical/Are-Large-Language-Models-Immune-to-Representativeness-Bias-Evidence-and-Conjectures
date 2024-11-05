@@ -1,0 +1,46 @@
+To begin solving this problem, we calculate the likelihoods of drawing 3 cards marked X and 1 card marked O from each deck, and then use Bayes' theorem to compare the probabilities of having selected either Deck A or Deck B.
+
+**Step 1: Calculate likelihoods**
+
+- Probability of drawing 3 X's and 1 O from Deck A:
+\[
+P(3X, 1O | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81}
+\]
+
+- Probability of drawing 3 X's and 1 O from Deck B:
+\[
+P(3X, 1O | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81}
+\]
+
+**Step 2: Prior probability**
+
+Since there is no information favoring the selection of one deck over the other, let the prior probabilities be:
+\[
+P(A) = P(B) = \frac{1}{2}
+\]
+
+**Step 3: Apply Bayes' Rule**
+
+We need to calculate \(P(A | \text{data})\) and \(P(B | \text{data})\), where 'data' denotes the event of drawing 3 X's and 1 O. Using Bayes' rule:
+
+- Probability of drawing 3 X's and 1 O overall:
+\[
+P(\text{data}) = P(3X, 1O | A) P(A) + P(3X, 1O | B) P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{40}{162} = \frac{20}{81}
+\]
+
+- Using Bayes' theorem:
+\[
+P(A | \text{data}) = \frac{P(3X, 1O | A)P(A)}{P(\text{data})} = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = \frac{4}{5}
+\]
+
+\[
+P(B | \text{data}) = \frac{P(3X, 1O | B)P(B)}{P(\text{data})} = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = \frac{1}{5}
+\]
+
+**Step 4: Calculate posterior odds**
+\[
+\text{Odds for A relative to B} = \frac{P(A | \text{data})}{P(B | \text{data})} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4
+\]
+
+Thus, the answer is:
+{odds: 4}

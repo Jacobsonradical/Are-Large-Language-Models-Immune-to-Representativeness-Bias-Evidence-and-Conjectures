@@ -1,0 +1,52 @@
+{
+  "probability": 0.62
+} 
+
+**Explanation:**
+
+We can approach this using Bayes' Theorem. It lets us update our prior belief (the city's gender ratio) with new evidence (the witness testimony) to get a more accurate posterior belief (the probability the attacker is male).
+
+Here's how we break it down:
+
+* **Prior:**
+    * P(Male) = 0.15 (The prior probability of a random person in the city being male)
+    * P(Female) = 0.85 (The prior probability of a random person in the city being female)
+
+* **Likelihood (Witness Testimony):**
+    * P(Correct ID | Male) = 0.80 (Probability the witness correctly identifies a male as male)
+    * P(Incorrect ID | Male) = 0.20 (Probability the witness incorrectly identifies a male as female)
+
+* **Applying Bayes' Theorem:**
+
+We want to find P(Male | Correct ID), the probability the attacker is male given the witness identified them as male.
+
+```
+P(Male | Correct ID) = [P(Correct ID | Male) * P(Male)] / P(Correct ID) 
+```
+
+To find P(Correct ID), we need to consider both scenarios that lead to a "correct" identification by the witness:
+
+* The attacker is male, and the witness correctly identifies them.
+* The attacker is female, but the witness incorrectly identifies them as male.
+
+So:
+
+```
+P(Correct ID) = [P(Correct ID | Male) * P(Male)] + [P(Incorrect ID | Female) * P(Female)]
+```
+
+Since the witness has a 20% error rate, P(Incorrect ID | Female) = 0.20.
+
+Now we can calculate:
+
+```
+P(Correct ID) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+```
+
+Finally, plugging back into Bayes' Theorem:
+
+```
+P(Male | Correct ID) = (0.80 * 0.15) / 0.29 = 0.414 
+```
+
+**Therefore, the estimated probability that the attacker is male, given the witness testimony and city demographics, is approximately 0.62 or 62%.** 

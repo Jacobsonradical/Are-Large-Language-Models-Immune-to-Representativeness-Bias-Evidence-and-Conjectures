@@ -1,0 +1,45 @@
+To address the problem, we need to use Bayes' Theorem. Here's a step-by-step breakdown:
+
+1. **Define the events:**
+   - \(A\): The attacker is 185 cm or taller.
+   - \(B\): The attacker is shorter than 185 cm.
+   - \(W\): The witness identifies the attacker as being 185 cm or taller.
+
+2. **Given probabilities:**
+   - \(P(A) = 0.5\) (since the population is equally split between those shorter than 185 cm and those 185 cm or taller)
+   - \(P(B) = 0.5\) (since the population is equally split)
+
+   For attackers:
+   - \(P(\text{attack} \mid A) = 0.15\)
+   - \(P(\text{attack} \mid B) = 0.85\)
+
+   Probability of being identified as 185 cm or taller:
+   - \(P(W \mid A) = 0.8\)
+   - \(P(W \mid B) = 0.2\)
+
+3. **Calculate the prior probabilities of being the attacker for each group:**
+   - \(P(A \mid \text{attack}) = \frac{P(\text{attack} \mid A) \cdot P(A)}{P(\text{attack})}\)
+   - \(P(B \mid \text{attack}) = \frac{P(\text{attack} \mid B) \cdot P(B)}{P(\text{attack})}\)
+
+   Where \(P(\text{attack}) = P(\text{attack} \mid A) \cdot P(A) + P(\text{attack} \mid B) \cdot P(B) = 0.15 \cdot 0.5 + 0.85 \cdot 0.5 = 0.5\).
+
+4. **Apply Bayes' Theorem to find \(P(A \mid W)\):**
+   - \(P(A \mid W) = \frac{P(W \mid A) \cdot P(A \mid \text{attack})}{P(W \mid A) \cdot P(A \mid \text{attack}) + P(W \mid B) \cdot P(B \mid \text{attack})}\)
+
+   Given:
+   - \(P(A \mid \text{attack}) = \frac{0.15 \cdot 0.5}{0.5} = 0.15\)
+   - \(P(B \mid \text{attack}) = \frac{0.85 \cdot 0.5}{0.5} = 0.85\)
+
+   Putting it together:
+   - \(P(A \mid W) = \frac{0.8 \cdot 0.15}{(0.8 \cdot 0.15) + (0.2 \cdot 0.85)}\)
+
+5. **Calculate:**
+   - Numerator: \(0.8 \cdot 0.15 = 0.12\)
+   - Denominator: \(0.12 + (0.2 \cdot 0.85) = 0.12 + 0.17 = 0.29\)
+   - \(P(A \mid W) = \frac{0.12}{0.29} \approx 0.4138\)
+
+So, the estimated probability that the attacker's height was 185 cm or taller is approximately:
+
+```json
+{probability: 0.4138}
+```

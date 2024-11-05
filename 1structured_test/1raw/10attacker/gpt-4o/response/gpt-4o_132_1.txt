@@ -1,0 +1,38 @@
+To estimate the probability that the attacker was 185 cm or taller, given the witnesses' reports, we will use Bayes' theorem. Let's denote the following events:
+- \( T \): The attacker is 185 cm or taller.
+- \( \neg T \): The attacker is shorter than 185 cm.
+- \( W1_T \): The first witness claims the attacker is 185 cm or taller.
+- \( W2_T \): The second witness claims the attacker is 185 cm or taller.
+
+Given:
+- \( P(T) = 0.15 \)
+- \( P(\neg T) = 0.85 \)
+- \( P(W1_T | T) = 0.8 \)
+- \( P(W1_T | \neg T) = 0.2 \)
+- \( P(\neg W1_T | T) = 0.2 \)
+- \( P(\neg W1_T | \neg T) = 0.8 \)
+- \( P(W2_T | T) = 0.3 \) (70% identified correctly implies 30% identified incorrectly)
+- \( P(W2_T | \neg T) = 0.7 \)
+- \( P(\neg W2_T | T) = 0.7 \)
+- \( P(\neg W2_T | \neg T) = 0.3 \)
+
+We need to find \( P(T | W1_T, \neg W2_T) \), the probability that the attacker was 185 cm or taller given that the first witness claimed the attacker was 185 cm or taller while the second witness claimed otherwise.
+
+Using Bayes' theorem for combined evidence:
+\[ P(T | W1_T, \neg W2_T) = \frac{P(W1_T, \neg W2_T | T)P(T)}{P(W1_T, \neg W2_T)} \]
+
+First, calculate \( P(W1_T, \neg W2_T | T) \):
+\[ P(W1_T, \neg W2_T | T) = P(W1_T | T) \cdot P(\neg W2_T | T) = 0.8 \cdot 0.7 = 0.56 \]
+
+Second, calculate \( P(W1_T, \neg W2_T | \neg T) \):
+\[ P(W1_T, \neg W2_T | \neg T) = P(W1_T | \neg T) \cdot P(\neg W2_T | \neg T) = 0.2 \cdot 0.3 = 0.06 \]
+
+Next, calculate the total probability \( P(W1_T, \neg W2_T) \):
+\[ P(W1_T, \neg W2_T) = P(W1_T, \neg W2_T | T)P(T) + P(W1_T, \neg W2_T | \neg T)P(\neg T) \]
+\[ P(W1_T, \neg W2_T) = (0.56 \cdot 0.15) + (0.06 \cdot 0.85) = 0.084 + 0.051 = 0.135 \]
+
+Finally, use Bayes' theorem to find \( P(T | W1_T, \neg W2_T) \):
+\[ P(T | W1_T, \neg W2_T) = \frac{P(W1_T, \neg W2_T | T)P(T)}{P(W1_T, \neg W2_T)} = \frac{0.56 \cdot 0.15}{0.135} = \frac{0.084}{0.135} \approx 0.622 \]
+
+Therefore,
+\[ \{probability: 0.622\} \]

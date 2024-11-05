@@ -1,0 +1,54 @@
+Here's how to break down the problem and arrive at the probability estimate:
+
+**Understanding the Information:**
+
+* **Information a:**  Tells us that while the population is evenly split in terms of height (185 cm and below vs. above), attackers are more likely to be shorter than 185 cm (85% vs. 15%).
+* **Information b:**  A witness claims the attacker was taller than 185 cm, but this witness is not perfect. They have a 80% accuracy rate in identifying height.
+
+**Calculating the Probability:**
+
+We need to consider two scenarios:
+
+1. **Scenario 1: The witness is correct.** 
+   * If the witness is correct, the attacker is indeed 185 cm or taller.
+   * The probability of this scenario is the witness's accuracy rate: 80% or 0.8.
+
+2. **Scenario 2: The witness is incorrect.**
+   * If the witness is incorrect, the attacker is actually shorter than 185 cm. 
+   * The probability of this scenario is the witness's error rate: 20% or 0.2.
+
+**Combining the Scenarios:**
+
+We know the following:
+
+* **P(Attacker taller | Witness says taller) = 0.8** (Probability the attacker is taller given the witness said so)
+* **P(Attacker taller) = 0.15** (Prior probability of an attacker being taller from information 'a')
+* **P(Attacker shorter) = 0.85** (Prior probability of an attacker being shorter from information 'a')
+
+We can use Bayes' Theorem to calculate the probability of the attacker being taller given the witness's statement:
+
+```
+P(Attacker taller | Witness says taller) = [P(Witness says taller | Attacker taller) * P(Attacker taller)] / P(Witness says taller)
+```
+
+To find P(Witness says taller), we need to consider both scenarios where the witness is correct and incorrect:
+
+* **P(Witness says taller | Attacker taller) * P(Attacker taller) = 0.8 * 0.15 = 0.12**
+* **P(Witness says taller | Attacker shorter) * P(Attacker shorter) = 0.2 * 0.85 = 0.17**
+
+Therefore:
+* **P(Witness says taller) = 0.12 + 0.17 = 0.29**
+
+Now, plugging back into Bayes' Theorem:
+
+```
+P(Attacker taller | Witness says taller) = (0.8 * 0.15) / 0.29 ≈ 0.414
+```
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion:**
+
+Given the witness's statement and the information about attacker heights, our best estimate of the probability that the attacker was 185 cm or taller is approximately 0.414. This means there is a slightly higher chance that the attacker was shorter than 185 cm. 

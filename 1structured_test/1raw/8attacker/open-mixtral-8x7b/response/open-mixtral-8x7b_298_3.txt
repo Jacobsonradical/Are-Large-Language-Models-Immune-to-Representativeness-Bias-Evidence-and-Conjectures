@@ -1,0 +1,33 @@
+Let's analyze the information given:
+
+a. The witness correctly identifies a person as 185 cm or taller 80% of the time, and errs 20% of the time. This means the witness has a true positive rate (sensitivity) of 0.8 and a false positive rate (1 - specificity) of 0.2.
+
+b. Out of such attackers, 85% are people under 185 cm, and only 15% are 185 cm or taller.
+
+Given this information, we can estimate the probability that the attacker's height was 185 cm or taller using Bayes' theorem:
+
+P(Attacker is 185 cm or taller | Witness identified as 185 cm or taller) = [P(Witness identified as 185 cm or taller | Attacker is 185 cm or taller) * P(Attacker is 185 cm or taller)] / P(Witness identified as 185 cm or taller)
+
+We know that:
+P(Witness identified as 185 cm or taller | Attacker is 185 cm or taller) = 0.8 (sensitivity)
+P(Attacker is 185 cm or taller) = 0.15 (based on the 15% given)
+
+However, we need to calculate P(Witness identified as 185 cm or taller). To do this, we can use the law of total probability, considering all possibilities:
+
+P(Witness identified as 185 cm or taller) = P(Witness identified as 185 cm or taller | Attacker is 185 cm or taller) * P(Attacker is 185 cm or taller) + P(Witness identified as 185 cm or taller | Attacker is NOT 185 cm or taller) * P(Attacker is NOT 185 cm or taller)
+
+We already know the first term: 0.8 * 0.15 = 0.12
+
+For the second term:
+P(Witness identified as 185 cm or taller | Attacker is NOT 185 cm or taller) = 0.2 (false positive rate)
+P(Attacker is NOT 185 cm or taller) = 1 - 0.15 = 0.85
+
+So, the second term is: 0.2 * 0.85 = 0.17
+
+Now, we can calculate P(Witness identified as 185 cm or taller):
+P(Witness identified as 185 cm or taller) = 0.12 + 0.17 = 0.29
+
+Finally, we can estimate the probability that the attacker's height was 185 cm or taller:
+P(Attacker is 185 cm or taller | Witness identified as 185 cm or taller) = (0.8 * 0.15) / 0.29 ≈ 0.41
+
+Format answer: {probability: 0.41}

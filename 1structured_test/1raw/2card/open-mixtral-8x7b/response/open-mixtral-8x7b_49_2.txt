@@ -1,0 +1,27 @@
+To solve this problem, we'll use Bayes' theorem. Let's denote the event that the 4 cards were drawn from Deck A as A, and the event that the 4 cards are X's as X. We want to find the posterior odds of A given X, written as P(A|X).
+
+First, let's compute the prior probabilities:
+
+* P(A) = 1/2, since either deck A or B is equally likely to be chosen.
+* P(X) is the probability of drawing 3 X's and 1 O from a deck. If a deck has n cards, then the probability of drawing 3 X's and 1 O is given by the hypergeometric distribution: P(X) = (2n/3) / (n) * (n/3) / (n-1) * (n/3) / (n-2) * [(n/3) + (2n/3)] / (n)
+
+Next, we compute the likelihoods:
+
+* P(X|A) is the probability of drawing 3 X's and 1 O from Deck A, which has 2n/3 X's and 1/3 O's: P(X|A) = (2n/3) / (2n/3) * (2n/3 - 3) / (2n/3 - 1) * (2n/3 - 6) / (2n/3 - 2) * (1/3) / (2n/3)
+* P(X|B) is the probability of drawing 3 X's and 1 O from Deck B, which has 1/3 X's and 2/3 O's: P(X|B) = (1/3) / (n/3) * (1/3 - 1) / (n/3 - 1) * (1/3 - 2) / (n/3 - 2) * (2/3) / (2n/3)
+
+Finally, we can apply Bayes' theorem to find the posterior odds:
+
+* P(A|X) / P(B|X) = P(A) \* P(X|A) / P(B) \* P(X|B)
+
+Using this formula, we can calculate the posterior odds of having drawn from Deck A given that we drew 3 X's and 1 O. For simplicity, let's assume that each deck has n = 300 cards (so that each deck has 200 X's and 100 O's). Then:
+
+* P(X) ≈ 0.011
+* P(X|A) ≈ 0.0026
+* P(X|B) ≈ 0.00003
+
+Plugging these values into Bayes' theorem, we get:
+
+* P(A|X) / P(B|X) ≈ (1/2) \* (0.0026) / (1/2) \* (0.00003) ≈ 87
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A are approximately 87:1, compared to Deck B. This means that it is much more likely that the 4 cards were drawn from Deck A, where most cards are marked X, rather than Deck B, where most cards are marked O.

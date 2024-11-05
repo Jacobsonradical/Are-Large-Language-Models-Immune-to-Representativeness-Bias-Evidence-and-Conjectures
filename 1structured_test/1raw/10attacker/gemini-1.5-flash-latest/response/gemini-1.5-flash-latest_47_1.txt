@@ -1,0 +1,43 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Population Data:** 85% of the city's population is shorter than 185 cm, and 15% are 185 cm or taller. This tells us the base probability of an individual being tall (185 cm or taller) is 0.15.
+* **Witness Accuracy:** 
+    * Witness 1 (claimed tall): 80% accurate, 20% error.
+    * Witness 2 (claimed short): 70% accurate, 30% error.
+
+**Calculating the Probability**
+
+We need to consider the following scenarios:
+
+1. **Scenario 1: Attacker is actually tall (185 cm or taller)**
+   * Witness 1 is correct:  0.15 (attacker is tall) * 0.80 (witness accuracy) = 0.12
+   * Witness 1 is wrong: 0.15 (attacker is tall) * 0.20 (witness error) = 0.03
+
+2. **Scenario 2: Attacker is actually short (shorter than 185 cm)**
+   * Witness 1 is correct: 0.85 (attacker is short) * 0.20 (witness error) = 0.17 
+   * Witness 1 is wrong: 0.85 (attacker is short) * 0.80 (witness accuracy) = 0.68
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem helps us update our belief about an event (attacker's height) based on new evidence (witness testimony).  The formula is:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A (attacker is tall) given evidence B (witness 1's claim)
+* P(B|A) = Probability of evidence B given event A (witness 1 is correct if attacker is tall) = 0.80
+* P(A) = Prior probability of event A (attacker is tall) = 0.15
+* P(B) = Probability of evidence B (witness 1 claims tall). This is the sum of probabilities from all scenarios where witness 1 claims tall: 0.12 + 0.17 = 0.29
+
+**Calculating the Probability**
+
+P(Attacker is tall | Witness 1 claims tall) = (0.80 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.414.** 

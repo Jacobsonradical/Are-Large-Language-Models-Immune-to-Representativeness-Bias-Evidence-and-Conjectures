@@ -1,0 +1,77 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**1. Define Events**
+
+* Let A be the event that the attacker's height is 185 cm or taller.
+* Let B1 be the event that the first witness claims the attacker was 185 cm or taller.
+* Let B2 be the event that the second witness claims the attacker was shorter than 185 cm.
+
+**2. Prior Probabilities**
+
+* P(A) = 0.15 (from the population height distribution)
+* P(~A) = 0.85 (complement of A, meaning the attacker is shorter than 185 cm)
+
+**3. Likelihoods**
+
+* P(B1|A) = 0.80 (Witness 1 correctly identifies taller people 80% of the time)
+* P(B1|~A) = 0.20 (Witness 1 incorrectly identifies shorter people as taller 20% of the time)
+* P(B2|A) = 0.20 (Witness 2 incorrectly identifies taller people as shorter 20% of the time) 
+* P(B2|~A) = 0.70 (Witness 2 correctly identifies shorter people 70% of the time)
+
+**4. Bayes' Theorem**
+
+We want to find P(A|B1, B2), the probability the attacker is taller than 185cm given both witness testimonies.  Since it's difficult to directly calculate the probability with both testimonies considered, we can update our belief iteratively.
+
+* **First, calculate P(A|B1):** The probability the attacker is taller given the first witness's statement.
+
+   ```
+   P(A|B1) = [P(B1|A) * P(A)] / P(B1) 
+   ```
+
+   To find P(B1), use the law of total probability:
+
+   ```
+   P(B1) = [P(B1|A) * P(A)] + [P(B1|~A) * P(~A)]
+   ```
+
+* **Then, use P(A|B1) as the new prior:** Update this probability with the second witness's statement.
+
+   ```
+   P(A|B1, B2) = [P(B2|A, B1) * P(A|B1)] / P(B2|B1)
+   ```
+
+   Since we assume the witnesses' judgments are independent given the attacker's actual height, we have: 
+   
+   ```
+   P(B2|A, B1) = P(B2|A) 
+   ```
+   
+   We can calculate P(B2|B1) similarly to how we calculated P(B1) before, using the law of total probability and our updated belief of P(A|B1).
+
+**5. Calculation**
+
+Let's plug in the numbers and calculate:
+
+* **Calculating P(B1):**
+   ```
+   P(B1) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+   ```
+* **Calculating P(A|B1):**
+   ```
+   P(A|B1) = (0.80 * 0.15) / 0.29 = 0.414 
+   ```
+* **Calculating P(B2|B1):**
+   ```
+   P(B2|B1) = [P(B2|A) * P(A|B1)] + [P(B2|~A) * P(~A|B1)] 
+   P(B2|B1) = (0.20 * 0.414) + (0.70 * (1 - 0.414)) = 0.496
+   ```
+* **Calculating P(A|B1, B2):**
+   ```
+   P(A|B1, B2) = (0.20 * 0.414) / 0.496 = 0.167
+   ```
+
+**Answer:**
+
+{probability: 0.167} 
+
+Therefore, considering both witness testimonies and the population height distribution, the estimated probability that the attacker's height was 185 cm or taller is approximately 0.167 or 16.7%. 

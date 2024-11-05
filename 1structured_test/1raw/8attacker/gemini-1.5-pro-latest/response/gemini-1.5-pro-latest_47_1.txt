@@ -1,0 +1,48 @@
+Let's break down the information and use Bayes' Theorem to calculate the probability.
+
+**We know:**
+
+* **Prior probability (from population data):** 
+    * P(Height < 185cm) = 0.5
+    * P(Height >= 185cm) = 0.5
+* **Attacker height distribution:**
+    * P(Attacker < 185cm) = 0.85
+    * P(Attacker >= 185cm) = 0.15
+* **Witness reliability:**
+    * P(Witness Correct | Height >= 185cm) = 0.80 (True positive rate)
+    * P(Witness Incorrect | Height >= 185cm) = 0.20 (False negative rate)
+    * P(Witness Correct | Height < 185cm) = 0.80 (True negative rate)
+    * P(Witness Incorrect | Height < 185cm) = 0.20 (False positive rate) 
+
+**We want to find:**
+
+* P(Height >= 185cm | Witness says >= 185cm): The probability the attacker is actually 185cm or taller *given* the witness said they were.
+
+**Applying Bayes' Theorem:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* A: Attacker is 185cm or taller 
+* B: Witness says attacker is 185cm or taller
+
+Let's break down the calculation:
+
+1. **P(B|A):** Probability the witness says the attacker is 185cm or taller *given* the attacker is actually 185cm or taller. This is the witness's true positive rate, 0.80.
+
+2. **P(A):** Prior probability of an attacker being 185cm or taller, 0.15.
+
+3. **P(B):** Probability the witness says the attacker is 185cm or taller (regardless of actual height). We can calculate this using the law of total probability:
+    * P(B) =  [P(B|A) * P(A)] + [P(B| not A) * P(not A)]
+    * P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Putting it all together:**
+
+P(Height >= 185cm | Witness says >= 185cm) = (0.80 * 0.15) / 0.29 = 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Therefore, the estimated probability that the attacker's height was 185 cm or taller, given the witness testimony, is approximately 0.414 or 41.4%.** 

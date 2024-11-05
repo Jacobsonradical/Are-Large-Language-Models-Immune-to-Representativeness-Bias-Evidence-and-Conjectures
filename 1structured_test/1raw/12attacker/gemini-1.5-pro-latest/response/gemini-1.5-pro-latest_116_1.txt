@@ -1,0 +1,38 @@
+Here's how to approach this problem, along with the calculation:
+
+**Understanding the Information**
+
+* **Witness Reliability:** The witness isn't perfect. They have an 80% chance of being right about the attacker's gender and a 20% chance of being wrong.
+* **Base Rates:** The city's population has a higher percentage of females (85%) than males (15%). This is important background information.
+
+**We need to use Bayes' Theorem to combine this information. Bayes' Theorem tells us how to update our beliefs about an event (attacker being male) given new evidence (witness testimony).**
+
+**Let's break it down:**
+
+* **Event A:** The attacker is male.
+* **Event B:** The witness identifies the attacker as male.
+
+**We want to find P(A|B):** The probability the attacker is male *given* the witness said it was male.
+
+**Bayes' Theorem states:**
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+* **P(B|A):** The probability the witness would say "male" *if* the attacker *is* male. This is their accuracy rate for identifying males = 0.8 (80%).
+* **P(A):** The prior probability of the attacker being male. This is where the population information comes in = 0.15 (15%).
+* **P(B):** The probability the witness would say "male" (regardless of whether the attacker is actually male or female). This is calculated as follows:
+
+    * P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)]
+    * Where ~A means "attacker is not male" (i.e., female)
+    * P(B|~A): Probability the witness would say "male" if the attacker is female (their error rate for females) = 0.2 (20%)
+    * P(~A): Probability the attacker is female = 0.85 (85%)
+
+**Calculation**
+
+1. **P(B):** (0.8 * 0.15) + (0.2 * 0.85) = 0.29 
+2. **P(A|B):** (0.8 * 0.15) / 0.29 = 0.414
+
+**Answer:**
+
+{probability: 0.414}
+
+**Therefore, given the witness testimony and the city's demographics, the estimated probability that the attacker is male is approximately 41.4%.** 

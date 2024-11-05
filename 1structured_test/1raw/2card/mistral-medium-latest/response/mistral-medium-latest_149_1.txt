@@ -1,0 +1,43 @@
+To solve this problem, we need to calculate the probability of drawing 3 X's and 1 O from each deck and then find the odds of drawing from Deck A versus Deck B.
+
+First, let's define some probabilities:
+P(A) = probability of selecting Deck A = 0.5
+P(B) = probability of selecting Deck B = 0.5
+P(X|A) = probability of drawing an X from Deck A = 2/3
+P(O|A) = probability of drawing an O from Deck A = 1/3
+P(X|B) = probability of drawing an X from Deck B = 1/3
+P(O|B) = probability of drawing an O from Deck B = 2/3
+
+We're looking for the posterior odds P(A|Data)/P(B|Data). Using Bayes' theorem, we have:
+
+P(A|Data) = P(Data|A) \* P(A) / P(Data)
+P(B|Data) = P(Data|B) \* P(B) / P(Data)
+
+The denominator P(Data) is the same for both, so we can ignore it when calculating the odds. We need to find P(Data|A) and P(Data|B):
+
+P(Data|A) = P(3 X's and 1 O from Deck A)
+          = (number of ways to choose 3 X's and 1 O from Deck A) / (total number of ways to draw 4 cards from Deck A)
+          = (C(2/3N, 3) \* C(1/3N, 1)) / C(N, 4)
+
+P(Data|B) = P(3 X's and 1 O from Deck B)
+          = (number of ways to choose 3 X's and 1 O from Deck B) / (total number of ways to draw 4 cards from Deck B)
+          = (C(1/3N, 3) \* C(2/3N, 1)) / C(N, 4)
+
+Here, N is the total number of cards in each deck, C(n, k) is the binomial coefficient, and we've approximated that the number of X's in Deck A is (2/3)N and the number of O's is (1/3)N, and similarly for Deck B.
+
+Since the decks are very large, we can approximate the binomial coefficients using the normal distribution and calculate the probabilities directly:
+
+P(Data|A) ≈ (2/3)^3 \* (1/3)^1
+P(Data|B) ≈ (1/3)^3 \* (2/3)^1
+
+Now, we can find the posterior odds:
+
+odds = P(Data|A) / P(Data|B)
+     = ((2/3)^3 \* (1/3)^1) / ((1/3)^3 \* (2/3)^1)
+     = (2/3)^4 / (1/3)^4
+     = 2^8 / 1^8
+     = 256
+
+So the posterior odds are 256:1 in favor of Deck A.
+
+{odds: 256}

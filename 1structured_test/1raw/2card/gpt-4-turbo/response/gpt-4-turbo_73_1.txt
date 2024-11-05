@@ -1,0 +1,31 @@
+To find the posterior odds that the 4 cards were drawn from Deck A compared to Deck B, we first consider the probability of drawing 3 cards marked X and 1 card marked O from each deck, and then apply Bayes' theorem to update our beliefs based on that new evidence.
+
+Let:
+- \( A \) be the event that Deck A was chosen.
+- \( B \) be the event that Deck B was chosen.
+- \( E \) be the evidence of drawing 3 cards marked X and 1 card marked O.
+
+We initially assume there is an equal probability of choosing either deck. Therefore, \( P(A) = P(B) = 0.5 \).
+
+Next, calculate:
+1. \( P(E|A) \) – the probability of drawing 3 X's and 1 O from Deck A.
+2. \( P(E|B) \) – the probability of drawing 3 X's and 1 O from Deck B.
+
+The decks have combinational symmetries, so we can calculate these probabilities using the binomial formula: \(\binom{n}{k} p^k (1-p)^{n-k}\) where \( n \) is the total number of draws (4), \( k \) is the number of successes (e.g., drawing an X), \( p \) is the probability of success, and \( (1-p) \) is the probability of failure.
+
+**From Deck A**:
+- \( P(X) = \frac{2}{3} \)
+- \( P(O) = \frac{1}{3} \)
+\[ P(E|A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \times \left(\frac{8}{27}\right) \times \left(\frac{1}{3}\right) = 4 \times \frac{8}{81} = \frac{32}{81} \approx 0.395 \]
+
+**From Deck B**:
+- \( P(X) = \frac{1}{3} \)
+- \( P(O) = \frac{2}{3} \)
+\[ P(E|B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \times \left(\frac{1}{27}\right) \times \left(\frac{2}{3}\right) = 4 \times \frac{2}{81} = \frac{8}{81} \approx 0.099 \]
+
+With \( P(A) = P(B) = 0.5 \), the posterior odds in favor of A given E can be calculated using:
+\[ \text{Odds}(A|E) = \frac{P(E|A) \times P(A)}{P(E|B) \times P(B)} = \frac{\frac{32}{81} \times 0.5}{\frac{8}{81} \times 0.5} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4 \]
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A rather than Deck B are 4 to 1.
+
+{odds: 4}

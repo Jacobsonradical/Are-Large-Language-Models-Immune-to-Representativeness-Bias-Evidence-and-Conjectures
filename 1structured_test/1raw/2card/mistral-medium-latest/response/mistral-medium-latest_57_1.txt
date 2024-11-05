@@ -1,0 +1,36 @@
+To find the posterior odds, we can use Bayes' theorem. Let's denote:
+
+H\_A as the hypothesis that the deck chosen is Deck A.
+H\_B as the hypothesis that the deck chosen is Deck B.
+D as the observed data (3 X's and 1 O).
+
+We want to find the posterior odds P(H\_A|D) / P(H\_B|D). According to Bayes' theorem:
+
+P(H\_A|D) = P(D|H\_A) \* P(H\_A) / P(D)
+P(H\_B|D) = P(D|H\_B) \* P(H\_B) / P(D)
+
+Assuming that the choice of the deck is fair (equally likely), P(H\_A) = P(H\_B) = 0.5. Since P(D) appears in both the numerator and denominator, it cancels out in the odds calculation:
+
+Posterior odds = [P(D|H\_A) / P(D|H\_B)]
+
+Now we need to find P(D|H\_A) and P(D|H\_B). These are the probabilities of drawing 3 X's and 1 O from Deck A and Deck B, respectively.
+
+Deck A:
+There are C(N, 4) ways to choose 4 cards from a deck of N cards with 2N/3 cards marked X and N/3 cards marked O. Here, we use the binomial coefficient or "combinations" formula C(n, k) = n! / (k!(n-k)!), where n! is the factorial of n. Since the problem statement refers to "very large decks," we'll approximate the probabilities using a binomial distribution:
+
+P(3 X's and 1 O | Deck A) = C(4, 3) \* (2/3)^3 \* (1/3)^1
+
+Deck B:
+Similarly, for Deck B, we have:
+
+P(3 X's and 1 O | Deck B) = C(4, 3) \* (1/3)^3 \* (2/3)^1
+
+Now we can calculate the posterior odds:
+
+Posterior odds = [(4! / (3!1!)) \* (2/3)^3 \* (1/3)^1] / [(4! / (3!1!)) \* (1/3)^3 \* (2/3)^1]
+                        = (2/3)^3 / (1/3)^3
+                        = 8
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A are 8 to 1.
+
+{odds: 8}

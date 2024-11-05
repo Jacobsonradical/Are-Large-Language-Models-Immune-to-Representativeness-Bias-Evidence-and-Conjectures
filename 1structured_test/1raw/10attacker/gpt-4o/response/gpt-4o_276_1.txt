@@ -1,0 +1,37 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witness statements, we can use Bayes' theorem. Here's the step-by-step process to calculate this:
+
+1. **Define the Variables:**
+   - Let \( H \) represent the attacker being 185 cm or taller.
+   - Let \( L \) represent the attacker being shorter than 185 cm.
+   - Let \( W1 \) represent the first witness's claim (attacker is 185 cm or taller).
+   - Let \( W2 \) represent the second witness's claim (attacker is shorter than 185 cm).
+
+2. **Given Probabilities:**
+   - Prior probability of the attacker being 185 cm or taller: \( P(H) = 0.15 \).
+   - Prior probability of the attacker being shorter than 185 cm: \( P(L) = 0.85 \).
+   - Probability that the first witness correctly identifies a person 185 cm or taller: \( P(W1|H) = 0.80 \).
+   - Probability that the first witness errs (claims 185 cm or taller when the height is less): \( P(W1|L) = 0.20 \).
+   - Probability that the second witness correctly identifies a person shorter than 185 cm: \( P(W2|L) = 0.70 \).
+   - Probability that the second witness errs (claims shorter than 185 cm when the height is 185 cm or taller): \( P(W2|H) = 0.30 \).
+
+3. **Calculate Joint Probabilities:**
+   - Joint probability that the witnesses' claims match the attacker's height is 185 cm or taller:
+     \( P(W1, W2 | H) = P(W1 | H) \cdot P(W2 | H) = 0.80 \cdot 0.30 = 0.24 \).
+   - Joint probability that the witnesses' claims match the attacker is shorter than 185 cm:
+     \( P(W1, W2 | L) = P(W1 | L) \cdot P(W2 | L) = 0.20 \cdot 0.70 = 0.14 \).
+
+4. **Calculate Normalizing Constant:**
+   - Total probability of the evidence:
+     \( P(W1, W2) = P(W1, W2 | H) \cdot P(H) + P(W1, W2 | L) \cdot P(L) \).
+     \( P(W1, W2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155 \).
+
+5. **Posterior Probability Using Bayes' Theorem:**
+   - \( P(H | W1, W2) = \frac{P(W1, W2 | H) \cdot P(H)}{P(W1, W2)} = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \).
+
+Therefore, the estimate of the probability that the attacker is 185 cm or taller, as the first witness claimed, is:
+
+```json
+{
+  "probability": 0.232
+}
+```

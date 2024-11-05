@@ -1,0 +1,54 @@
+Here's how we can approach this problem using Bayesian reasoning:
+
+**Let's define some terms:**
+
+* **A:** The event that the attacker is 185 cm or taller.
+* **B:** The event that the first witness claims the attacker is 185 cm or taller.
+* **C:** The event that the second witness claims the attacker is shorter than 185 cm.
+
+**We want to find P(A|B, C):** The probability the attacker is 185 cm or taller given both witness testimonies.
+
+**We know the following:**
+
+* **P(A) = 0.15:** Prior probability of someone in the city being 185 cm or taller.
+* **P(B|A) = 0.80:** Probability the first witness correctly identifies someone as 185 cm or taller given they are actually that height.
+* **P(B|not A) = 0.20:** Probability the first witness incorrectly identifies someone as 185 cm or taller given they are actually shorter.
+* **P(C|A) = 0.30:** Probability the second witness incorrectly identifies someone as shorter than 185 cm given they are actually that height. 
+* **P(C|not A) = 0.70:** Probability the second witness correctly identifies someone as shorter than 185 cm given they are actually that height.
+
+**Applying Bayes' Theorem:**
+
+We can't directly calculate P(A|B, C). Instead, we can use the odds form of Bayes' Theorem:
+
+```
+odds(A|B, C) = odds(A) * likelihood ratio(B, C|A) 
+```
+
+Where:
+
+* **odds(A) = P(A) / (1 - P(A)):** Prior odds of the attacker being 185cm or taller.
+* **likelihood ratio(B, C|A) =  [P(B|A) * P(C|A)] / [P(B|not A) * P(C|not A)]**
+
+**Calculations:**
+
+1. **odds(A) = 0.15 / (1 - 0.15) = 3/17**
+
+2. **likelihood ratio(B, C|A) = (0.80 * 0.30) / (0.20 * 0.70) = 12/7**
+
+3. **odds(A|B, C) = (3/17) * (12/7) = 36/119**
+
+**Converting odds back to probability:**
+
+```
+P(A|B, C) = odds(A|B, C) / (1 + odds(A|B, C)) 
+            = (36/119) / (1 + 36/119)
+            = 0.233
+```
+
+**Answer:**
+
+{probability: 0.233} 
+
+**Conclusion:**
+
+Given the witness testimonies and the base rate of heights in the city, the probability that the attacker was 185 cm or taller is approximately 23.3%. It's important to note that this is just an estimate, and other factors not included in the problem could influence the actual probability. 

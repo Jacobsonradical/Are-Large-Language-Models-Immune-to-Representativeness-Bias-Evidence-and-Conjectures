@@ -1,0 +1,25 @@
+Let's reason through this problem:
+
+1. We want to estimate the probability that the attacker is 185 cm or taller given the first witness's statement.
+2. Since the second witness claimed that the attacker was shorter than 185 cm, their testimonies are contradictory.
+3. We'll use the first witness's statement and their known accuracy rate of 80% to estimate the probability.
+4. However, it's important to consider the base rate of people who are 185 cm or taller in the city, which is 15%.
+5. Using Bayes' theorem, we can calculate the probability:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+- P(A) is the probability of the attacker being 185 cm or taller, which is 15% or 0.15.
+- P(B|A) is the probability of the first witness correctly identifying the attacker's height, which is 80% or 0.8.
+- P(B) is the probability of the witness making the observed statement. This can be calculated as:
+  P(B) = P(B and A) + P(B and not A)
+  P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+  P(B) = (0.8 * 0.15) + [P(first witness says 185 cm or taller | attacker is shorter than 185 cm) * P(attacker is shorter than 185 cm)]
+  P(B) = (0.8 * 0.15) + (0.2 * 0.85)
+  P(B) = 0.12 + 0.17
+  P(B) = 0.29
+
+Now we can calculate P(A|B):
+P(A|B) = [P(B|A) * P(A)] / P(B) = (0.8 * 0.15) / 0.29 ≈ 0.4138
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.4138.

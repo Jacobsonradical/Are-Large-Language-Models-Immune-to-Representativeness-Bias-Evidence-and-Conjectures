@@ -1,0 +1,40 @@
+To solve this problem, we'll use Bayes' theorem which helps us update our probability estimate for a hypothesis based on new evidence. In this scenario, our hypothesis is “the attacker is 185 cm or taller.” Let \( H \) denote this hypothesis. We have two pieces of evidence from eyewitnesses:
+- \( E_1 \): First witness’s testimony that the attacker is 185 cm or taller.
+- \( E_2 \): Second witness’s testimony that the attacker is shorter than 185 cm.
+
+First, we compute our prior beliefs about \( H \) before considering the eyewitnesses:
+- \( P(H) \) (the probability of a person being 185 cm or taller) = 15% = 0.15
+- \( P(\neg H) \) (the probability of a person being shorter than 185 cm) = 85% = 0.85
+
+Next, consider the reliabilities of the witnesses:
+- First witness is correct 80% of the time, so:
+  - \( P(E_1 | H) \) (probability of \( E_1 \) given \( H \)) = 0.80
+  - \( P(E_1 | \neg H) \) (probability of \( E_1 \) given \( \neg H \)) = 0.20 (since if the attacker is actually short, the likelihood of the witness incorrectly identifying them as tall is 20%)
+- Second witness is correct 70% of the time, so:
+  - \( P(E_2 | \neg H) \) (probability of \( E_2 \) given \( \neg H \)) = 0.70
+  - \( P(E_2 | H) \) (probability of \( E_2 \) given \( H \)) = 0.30 (since if the attacker is actually tall, the likelihood of the witness incorrectly identifying them as short is 30%)
+
+Applying Bayes' theorem to revise \( P(H) \) based on \( E_1 \):
+\[ P(H | E_1) = \frac{P(E_1 | H) P(H)}{P(E_1)} \]
+
+To calculate \( P(E_1) \):
+\[ P(E_1) = P(E_1 | H) P(H) + P(E_1 | \neg H) P(\neg H) \]
+\[ P(E_1) = (0.80 \times 0.15) + (0.20 \times 0.85) = 0.12 + 0.17 = 0.29 \]
+
+So, \( P(H | E_1) \):
+\[ P(H | E_1) = \frac{0.80 \times 0.15}{0.29} = \frac{0.12}{0.29} \approx 0.4138 \]
+
+Now, apply Bayes' theorem to revise \( P(H | E_1) \) based on \( E_2 \):
+\[ P(H | E_1, E_2) = \frac{P(E_2 | H) P(H | E_1)}{P(E_2 | E_1)} \]
+
+To calculate \( P(E_2 | E_1) \):
+\[ P(E_2 | E_1) = P(E_2 | H, E_1) P(H | E_1) + P(E_2 | \neg H, E_1) P(\neg H | E_1) \]
+\[ P(E_2 | E_1) = 0.30 \times 0.4138 + 0.70 \times 0.5862 = 0.1241 + 0.4103 = 0.5344 \]
+
+So, \( P(H | E_1, E_2) \):
+\[ P(H | E_1, E_2) = \frac{0.30 \times 0.4138}{0.5344} = \frac{0.12414}{0.5344} \approx 0.2322 \]
+
+Thus, after considering both witnesses, the probability that the attacker was 185 cm or taller is approximately 0.2322. This integrates all given probabilities and the reliability of the witnesses.
+
+Therefore, the final answer is:
+{probability: 0.2322}

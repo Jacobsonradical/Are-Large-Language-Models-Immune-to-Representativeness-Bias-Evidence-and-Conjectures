@@ -1,0 +1,53 @@
+We can use Bayes' Theorem to estimate the probability that the attacker's height was 185 cm or taller given the witnesses' testimonies. Let's denote:
+
+- \( T \): The event that the attacker's height is 185 cm or taller.
+- \( S \): The event that the attacker's height is shorter than 185 cm.
+- \( W1_T \): The event that the first witness claims the attacker is 185 cm or taller.
+- \( W1_S \): The event that the first witness claims the attacker is shorter than 185 cm.
+- \( W2_T \): The event that the second witness claims the attacker is 185 cm or taller.
+- \( W2_S \): The event that the second witness claims the attacker is shorter than 185 cm.
+
+We want to find \(\mathbb{P}(T \mid W1_T \cap W2_S)\): the probability that the attacker's height is 185 cm or taller given the first witness said the attacker is 185 cm or taller and the second witness said the attacker is shorter than 185 cm.
+
+Using Bayes' Theorem, we have:
+\[ \mathbb{P}(T \mid W1_T \cap W2_S) = \frac{\mathbb{P}(W1_T \cap W2_S \mid T) \cdot \mathbb{P}(T)}{\mathbb{P}(W1_T \cap W2_S)} \]
+
+We'll start by calculating each part.
+
+### Prior Probability
+From the population data:
+\[ \mathbb{P}(T) = 0.15 \]
+\[ \mathbb{P}(S) = 0.85 \]
+
+### Likelihood
+The likelihood of the witnesses' statements given the attacker's height:
+\[ \mathbb{P}(W1_T \mid T) = 0.80 \]
+\[ \mathbb{P}(W1_S \mid T) = 0.20 \]
+\[ \mathbb{P}(W1_T \mid S) = 0.20 \]
+\[ \mathbb{P}(W1_S \mid S) = 0.80 \]
+\[ \mathbb{P}(W2_T \mid T) = 0.30 \]
+\[ \mathbb{P}(W2_S \mid T) = 0.70 \]
+\[ \mathbb{P}(W2_T \mid S) = 0.30 \]
+\[ \mathbb{P}(W2_S \mid S) = 0.70 \]
+
+Given that \(\mathbb{P}(W1_T \cap W2_S \mid T)\) is the product of independent events:
+\[ \mathbb{P}(W1_T \cap W2_S \mid T) = \mathbb{P}(W1_T \mid T) \cdot \mathbb{P}(W2_S \mid T) = 0.80 \cdot 0.70 = 0.56 \]
+
+Similarly:
+\[ \mathbb{P}(W1_T \cap W2_S \mid S) = \mathbb{P}(W1_T \mid S) \cdot \mathbb{P}(W2_S \mid S) = 0.20 \cdot 0.70 = 0.14 \]
+
+### Total Probability
+To find \(\mathbb{P}(W1_T \cap W2_S)\), we use the law of total probability:
+\[ \mathbb{P}(W1_T \cap W2_S) = \mathbb{P}(W1_T \cap W2_S \mid T) \cdot \mathbb{P}(T) + \mathbb{P}(W1_T \cap W2_S \mid S) \cdot \mathbb{P}(S) \]
+\[ \mathbb{P}(W1_T \cap W2_S) = 0.56 \cdot 0.15 + 0.14 \cdot 0.85 \]
+\[ \mathbb{P}(W1_T \cap W2_S) = 0.084 + 0.119 = 0.203 \]
+
+### Posterior Probability
+Finally, we use Bayes' Theorem:
+\[ \mathbb{P}(T \mid W1_T \cap W2_S) = \frac{\mathbb{P}(W1_T \cap W2_S \mid T) \cdot \mathbb{P}(T)}{\mathbb{P}(W1_T \cap W2_S)} \]
+\[ \mathbb{P}(T \mid W1_T \cap W2_S) = \frac{0.56 \cdot 0.15}{0.203} \]
+\[ \mathbb{P}(T \mid W1_T \cap W2_S) = \frac{0.084}{0.203} \]
+\[ \mathbb{P}(T \mid W1_T \cap W2_S) \approx 0.414 \]
+
+Thus, the probability that the attacker was 185 cm or taller, given the witnesses' testimonies, is approximately:
+\[ \{ \text{probability: } 0.414 \} \]

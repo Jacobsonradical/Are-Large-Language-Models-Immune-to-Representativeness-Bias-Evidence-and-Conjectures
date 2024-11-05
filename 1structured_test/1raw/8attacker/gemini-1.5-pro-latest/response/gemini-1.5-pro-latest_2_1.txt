@@ -1,0 +1,52 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Witness Reliability:** The witness is 80% accurate in judging height under similar conditions. This means they are right 80% of the time, and wrong 20% of the time.
+* **Population Distribution:** In cases like this, attackers are more likely to be shorter (85% under 185cm) than taller (15% 185cm or taller).
+
+**Applying Bayes' Theorem**
+
+This type of problem can be solved using Bayes' Theorem, which helps calculate conditional probability:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B): Probability of event A happening given that event B has already happened.
+* P(B|A): Probability of event B happening given that event A has already happened.
+* P(A):  Probability of event A happening.
+* P(B):  Probability of event B happening.
+
+**Let's Define Our Events**
+
+* Event A: The attacker is 185cm or taller.
+* Event B: The witness identified the attacker as 185cm or taller.
+
+**What We Need to Calculate**
+
+* P(A|B): The probability the attacker is actually 185cm or taller *given* the witness said they were.
+
+**Plugging in the Numbers**
+
+* P(B|A) = 0.8 (If the attacker is actually tall, the witness has an 80% chance of being right).
+* P(A) = 0.15 (The prior probability of an attacker being tall is 15%).
+* P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)]  
+   * P(B|~A) = 0.2 (The witness has a 20% chance of saying "tall" even if the attacker is short).
+   * P(~A) = 0.85 (The prior probability of an attacker being shorter than 185cm is 85%). 
+
+**Calculations**
+
+1.  **Calculate P(B):**
+    * P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2.  **Calculate P(A|B):**
+    * P(A|B) = (0.8 * 0.15) / 0.29 = 0.4138
+
+**Answer**
+
+{probability: 0.4138}
+
+**Conclusion:**
+
+Even though the witness said the attacker was 185cm or taller, there is only approximately a 41.38% probability that this is true, given the base rates of attacker heights and the witness's accuracy. 

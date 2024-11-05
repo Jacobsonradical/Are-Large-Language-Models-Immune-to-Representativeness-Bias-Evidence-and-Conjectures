@@ -1,0 +1,34 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we need to consider both the witness testimonies and the base rate (population percentage) of people who are 185 cm or taller.
+
+1. Witness 1: 80% accuracy rate, so the probability that the attacker is 185 cm or taller given their testimony is 0.8.
+2. Witness 2: 70% accuracy rate, so the probability that the attacker is shorter than 185 cm given their testimony is 0.7 (since they claim the attacker was shorter, we use their accuracy rate for identifying shorter people).
+
+However, we also need to take into account the base rate of people who are 185 cm or taller in the population, which is 15%. This is known as Bayes' theorem.
+
+Let's denote:
+P(Tall) as the probability that the attacker is 185 cm or taller
+P(Short) as the probability that the attacker is shorter than 185 cm
+P(W1|Tall) as the probability that Witness 1 says the attacker is tall, given that they are tall
+P(W2|Short) as the probability that Witness 2 says the attacker is short, given that they are short
+
+We want to find P(Tall|W1, W2), the probability that the attacker is tall given both witness testimonies. Using Bayes' theorem:
+
+P(Tall|W1, W2) = P(W1, W2|Tall) * P(Tall) / [P(W1, W2|Tall) \* P(Tall) + P(W1, W2|Short) \* P(Short)]
+
+First, let's find P(W1, W2|Tall) and P(W1, W2|Short):
+
+Since the witnesses are independent, P(W1, W2|Tall) = P(W1|Tall) \* P(W2|Tall) and P(W1, W2|Short) = P(W1|Short) \* P(W2|Short). However, we don't have P(W2|Tall) directly. Instead, we know P(W2|Not Tall) = 0.7. We can rewrite P(W2|Tall) using the law of total probability:
+
+P(W2|Tall) = 1 - P(W2|Not Tall) = 1 - 0.7 = 0.3
+
+Now we can calculate P(W1, W2|Tall) = P(W1|Tall) \* P(W2|Tall) = 0.8 \* 0.3 = 0.24
+
+Similarly, since P(W1|Short) = 0.2 (the error rate of Witness 1), we have P(W1, W2|Short) = P(W1|Short) \* P(W2|Short) = 0.2 \* 0.7 = 0.14
+
+Now we can plug these values into Bayes' theorem:
+
+P(Tall|W1, W2) = (0.24 \* 0.15) / [(0.24 \* 0.15) + (0.14 \* 0.85)] ≈ 0.206
+
+So the estimated probability that the attacker's height was 185 cm or taller, given both witness testimonies and the base rate, is approximately 0.206.
+
+{probability: 0.206}

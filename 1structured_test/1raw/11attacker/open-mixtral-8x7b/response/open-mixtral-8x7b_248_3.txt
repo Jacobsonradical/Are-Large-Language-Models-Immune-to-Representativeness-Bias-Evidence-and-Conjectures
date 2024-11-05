@@ -1,0 +1,19 @@
+Let's reason through this:
+
+1. We know that the witness correctly identifies a person's race 80% of the time and errs 20% of the time.
+2. However, we don't have any information about the direction of these errors - whether the witness is more likely to mistake a white person as black or vice versa.
+3. Therefore, the best we can do is use the base rates of the city's population: 85% white and 15% black.
+4. Given that the witness identified the attacker as black, we are interested in the probability that this identification is correct, given the base rates.
+5. This is a classic problem of Bayesian updating:
+   - P(B|W) = Probability of the attacker being black given the witness's identification
+   - P(W|B) = Probability of the witness identifying the attacker as black given that the attacker is black
+   - P(B) = Probability of a random attacker being black = 15%
+   - We want to find P(B|W)
+6. Using Bayes' theorem, we can calculate:
+   - P(B|W) = [P(W|B) * P(B)] / [P(W|B) * P(B) + P(W|not B) * P(not B)]
+   - But since we don't know the direction of the witness's errors, we can only calculate the maximum possible value of P(B|W), which occurs when P(W|not B) = 0 (i.e., the witness never mistakes a white person as black)
+7. So, the maximum possible value of P(B|W) is:
+   - P(B|W) = [0.8 * 0.15] / [0.8 * 0.15 + (1 - 0.2) * 0.85]
+   - P(B|W) ≈ 0.124
+
+Answer: {probability: 0.124}

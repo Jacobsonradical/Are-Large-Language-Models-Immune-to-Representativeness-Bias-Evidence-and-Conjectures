@@ -1,0 +1,57 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witness testimonies, we can use Bayesian inference.
+
+First, we need to define the following events:
+- \( H = \text{attacker is 185 cm or taller} \)
+- \( L = \text{attacker is shorter than 185 cm} \)
+
+Given:
+- Prior probabilities: 
+  - \( P(H) = 0.15 \)
+  - \( P(L) = 0.85 \)
+
+- Likelihoods based on witnesses:
+  - First witness (W1) claims the attacker was 185 cm or taller:
+    - \( P(W1 \text{ says taller} \mid H) = 0.80 \)
+    - \( P(W1 \text{ says taller} \mid L) = 0.20 \)
+  - Second witness (W2) claims the attacker was shorter:
+    - \( P(W2 \text{ says shorter} \mid L) = 0.70 \)
+    - \( P(W2 \text{ says shorter} \mid H) = 0.30 \)
+
+We want to find \( P(H \mid W1 \text{ says taller}, W2 \text{ says shorter}) \).
+
+Using Bayes' theorem:
+
+\[
+P(H \mid W1 \text{ says taller}, W2 \text{ says shorter}) = \frac{P(W1 \text{ says taller}, W2 \text{ says shorter} \mid H) \cdot P(H)}{P(W1 \text{ says taller}, W2 \text{ says shorter})}
+\]
+
+To simplify this, let's use the law of total probability:
+
+\[
+P(W1 \text{ says taller}, W2 \text{ says shorter}) = P(W1 \text{ says taller}, W2 \text{ says shorter} \mid H) \cdot P(H) + P(W1 \text{ says taller}, W2 \text{ says shorter} \mid L) \cdot P(L)
+\]
+
+Now, calculate the terms:
+
+\[
+P(W1 \text{ says taller}, W2 \text{ says shorter} \mid H) = P(W1 \text{ says taller} \mid H) \cdot P(W2 \text{ says shorter} \mid H) = 0.80 \cdot 0.30 = 0.24
+\]
+
+\[
+P(W1 \text{ says taller}, W2 \text{ says shorter} \mid L) = P(W1 \text{ says taller} \mid L) \cdot P(W2 \text{ says shorter} \mid L) = 0.20 \cdot 0.70 = 0.14
+\]
+
+\[
+P(W1 \text{ says taller}, W2 \text{ says shorter}) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+\]
+
+Finally, using Bayes' theorem:
+
+\[
+P(H \mid W1 \text{ says taller}, W2 \text{ says shorter}) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+So, the probability estimate is:
+\[
+\{probability: 0.232\}
+\]

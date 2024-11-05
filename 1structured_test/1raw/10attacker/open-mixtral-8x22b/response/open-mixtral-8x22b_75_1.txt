@@ -1,0 +1,44 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem, which allows us to update our prior probability based on new evidence.
+
+First, let's denote some events:
+A = attacker is 185 cm or taller
+B1 = first witness claims attacker is 185 cm or taller
+B2 = second witness claims attacker is shorter than 185 cm
+
+From the problem, we know the following probabilities:
+P(A) = 0.15 (15% of the population is 185 cm or taller)
+P(B1|A) = 0.8 (80% chance the first witness correctly identifies someone as 185 cm or taller)
+P(B1|~A) = 0.2 (20% chance the first witness incorrectly identifies someone as 185 cm or taller)
+P(B2|A) = 0.3 (30% chance the second witness incorrectly identifies someone as shorter than 185 cm)
+P(B2|~A) = 0.7 (70% chance the second witness correctly identifies someone as shorter than 185 cm)
+
+We want to find P(A|B1, B2), the probability that the attacker is 185 cm or taller given both witness testimonies.
+
+Using Bayes' theorem, we have:
+P(A|B1, B2) = P(B1, B2|A)P(A) / P(B1, B2)
+
+We can simplify the numerator using the conditional independence of B1 and B2 given A:
+P(B1, B2|A) = P(B1|A)P(B2|A)
+
+We can find P(B1, B2) using the law of total probability:
+P(B1, B2) = P(B1, B2|A)P(A) + P(B1, B2|~A)P(~A)
+
+Since B1 and B2 are not conditionally independent given ~A, we cannot factor P(B1, B2|~A) as P(B1|~A)P(B2|~A). Instead, we'll calculate it directly:
+P(B1, B2|~A) = P(B1|~A)P(B2|B1, ~A)
+
+Now we can calculate P(A|B1, B2):
+P(A|B1, B2) = [P(B1|A)P(B2|A)P(A)] / [P(B1, B2|A)P(A) + P(B1, B2|~A)P(~A)]
+
+Substitute the given values:
+P(A|B1, B2) = [0.8 * 0.3 * 0.15] / [0.8 * 0.3 * 0.15 + 0.2 * P(B2|B1, ~A) * 0.85]
+
+To find P(B2|B1, ~A), we again use Bayes' theorem:
+P(B2|B1, ~A) = P(B1|B2, ~A)P(B2|~A) / P(B1|~A)
+
+Since we don't have P(B1|B2, ~A), we can't calculate this directly. However, we can use the given probabilities to find a lower bound for P(A|B1, B2) by assuming P(B1|B2, ~A) = 0 (which is not true, but provides a lower bound):
+
+P(A|B1, B2) >= [0.8 * 0.3 * 0.15] / [0.8 * 0.3 * 0.15 + 0.2 * 0 * 0.85] = 0.514
+
+Therefore, the probability that the attacker's height was 185 cm or taller is at least 0.514.
+
+{probability: 0.514, but this is a lower bound and the actual probability could be higher}

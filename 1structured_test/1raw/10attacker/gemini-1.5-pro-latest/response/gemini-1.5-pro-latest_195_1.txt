@@ -1,0 +1,54 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**Understanding the Information**
+
+* **Prior Probability (from information "b"):**  The background rate of people being 185cm or taller in the city is 15% (0.15). This is our starting point.
+* **Witness Testimony (from information "a"):**
+    * **Witness 1:** Correctly identifies height 80% of the time. This is their *sensitivity* or *true positive rate*.
+    * **Witness 2:** Correctly identifies height 70% of the time. 
+* **We need to find:** The probability the attacker was 185cm or taller *given* that Witness 1 said they were.
+
+**Applying Bayes Theorem**
+
+Bayes Theorem gives us a framework for updating our belief (the prior probability) based on new evidence (the witness testimony).
+
+Let:
+
+*  A = Event that the attacker is 185cm or taller
+*  B = Event that Witness 1 claims the attacker is 185cm or taller
+
+We want to find P(A|B), the probability the attacker is 185cm or taller *given* Witness 1's statement.
+
+**Bayes' Theorem states:**
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* **P(A|B):**  Probability of A given B (what we want to find)
+* **P(B|A):** Probability of B given A (Witness 1's accuracy when the attacker *is* tall - 80% or 0.8)
+* **P(A):** Prior probability of A (15% or 0.15)
+* **P(B):** Probability of B (This gets a bit trickier - see below)
+
+**Calculating P(B) - The Tricky Part**
+
+To get P(B), the probability that Witness 1 *would* say the attacker is tall, we need to consider both scenarios:
+
+1. **The attacker IS tall:**  P(B|A) * P(A) = 0.8 * 0.15 = 0.12
+2. **The attacker IS NOT tall:** P(B| not A) * P(not A) = 0.2 * 0.85 = 0.17 
+
+P(B) is the sum of these probabilities: 0.12 + 0.17 = 0.29
+
+**Final Calculation**
+
+Now we have all the pieces:
+
+P(A|B) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion:**
+
+Given the witness testimony and the base rate in the population, there is approximately a 41.4% probability that the attacker was indeed 185cm or taller. 

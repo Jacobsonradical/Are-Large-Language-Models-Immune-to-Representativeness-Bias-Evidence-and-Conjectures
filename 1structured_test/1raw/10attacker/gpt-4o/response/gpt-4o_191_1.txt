@@ -1,0 +1,39 @@
+We can use Bayes' theorem to estimate the probability that the attacker's height was 185 cm or taller, denoted as \( H \).
+
+Given:
+
+1. \( P(H) = 0.15 \) — the prior probability that a randomly chosen person in the city is 185 cm or taller.
+2. \( P(\neg H) = 0.85 \) — the prior probability that a randomly chosen person in the city is shorter than 185 cm.
+3. The first witness correctly identifies the height 80% of the time and errs 20% of the time:
+   - \( P(\text{First witness says H} | H) = 0.80 \)
+   - \( P(\text{First witness says H} | \neg H) = 0.20 \)
+4. The second witness correctly identifies the height 70% of the time and errs 30% of the time:
+   - \( P(\text{Second witness says H} | H) = 0.30 \) (because the second witness said shorter than 185 cm)
+   - \( P(\text{Second witness says H} | \neg H) = 0.70 \)
+
+We need to find \( P(H | \text{Both witnesses' claims}) \).
+
+First, we combine the information from both witnesses to get the likelihood:
+
+\[ P(\text{Both witnesses' claims} | H) = P(\text{First witness says H} | H) \times P(\text{Second witness says not H} | H) \]
+\[ P(\text{Both witnesses' claims} | H) = 0.80 \times 0.30 = 0.24 \]
+
+\[ P(\text{Both witnesses' claims} | \neg H) = P(\text{First witness says H} | \neg H) \times P(\text{Second witness says not H} | \neg H) \]
+\[ P(\text{Both witnesses' claims} | \neg H) = 0.20 \times 0.70 = 0.14 \]
+
+Now we apply Bayes' theorem:
+
+\[ P(H | \text{Both witnesses' claims}) = \frac{P(\text{Both witnesses' claims} | H) \times P(H)}{P(\text{Both witnesses' claims})} \]
+
+\[ P(\text{Both witnesses' claims}) = P(\text{Both witnesses' claims} | H) \times P(H) + P(\text{Both witnesses' claims} | \neg H) \times P(\neg H) \]
+
+\[ P(\text{Both witnesses' claims}) = 0.24 \times 0.15 + 0.14 \times 0.85 \]
+\[ P(\text{Both witnesses' claims}) = 0.036 + 0.119 = 0.155 \]
+
+Finally:
+
+\[ P(H | \text{Both witnesses' claims}) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+So the estimated probability that the attacker was 185 cm or taller is:
+
+\[ \{ \text{probability: } 0.232 \} \]

@@ -1,0 +1,52 @@
+To calculate the probability that the attacker's height was 185 cm or taller given the witnesses' statements, we can use Bayes' theorem. We need to combine the accuracy of the witnesses with the prior probabilites based on the population distribution.
+
+1. Define the events:
+   - \( T \): Attacker is 185 cm or taller.
+   - \( S \): Attacker is shorter than 185 cm.
+   - \( W1 \) / \( W2 \): First/second witness claims the attacker is 185 cm or taller.
+   - \( W1' \) / \( W2' \): First/second witness claims the attacker is shorter than 185 cm.
+
+2. Given probabilities:
+   - \( P(T) = 0.15 \) (Probability that a randomly chosen person is 185 cm or taller).
+   - \( P(S) = 0.85 \) (Probability that a randomly chosen person is shorter than 185 cm).
+   - \( P(W1 \mid T) = 0.80 \)
+   - \( P(W1' \mid T) = 0.20 \)
+   - \( P(W1 \mid S) = 0.20 \)
+   - \( P(W1' \mid S) = 0.80 \)
+   
+   - \( P(W2 \mid T) = 0.70 \)
+   - \( P(W2' \mid T) = 0.30 \)
+   - \( P(W2 \mid S) = 0.30 \)
+   - \( P(W2' \mid S) = 0.70 \)
+
+Assumption: Witnesses are independent.
+
+3. Calculate \( P(T \mid W1, W2') \) using Bayes' Theorem.
+   \[
+   P(T \mid W1, W2') = \frac{P(W1, W2' \mid T) \cdot P(T)}{P(W1, W2')}
+   \]
+
+   First, we need \( P(W1, W2' \mid T) \) and \( P(W1, W2' \mid S) \):
+   \[
+   P(W1, W2' \mid T) = P(W1 \mid T) \cdot P(W2' \mid T) = 0.80 \cdot 0.30 = 0.24
+   \]
+   \[
+   P(W1, W2' \mid S) = P(W1 \mid S) \cdot P(W2' \mid S) = 0.20 \cdot 0.70 = 0.14
+   \]
+
+4. Calculate the total probability \( P(W1, W2') \):
+   \[
+   P(W1, W2') = P(W1, W2' \mid T) \cdot P(T) + P(W1, W2' \mid S) \cdot P(S) = 0.24 \times 0.15 + 0.14 \times 0.85
+   \]
+   \[
+   P(W1, W2') = 0.036 + 0.119 = 0.155
+   \]
+
+5. Finally, calculate \( P(T \mid W1, W2') \):
+   \[
+   P(T \mid W1, W2') = \frac{P(W1, W2' \mid T) \cdot P(T)}{P(W1, W2')} = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+   \]
+
+So, the estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.232}

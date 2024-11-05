@@ -1,0 +1,38 @@
+Here's how we can break down the problem and arrive at an estimate:
+
+**Understanding the Information**
+
+* **Information a:**  Tells us the population distribution of heights (roughly equal) and the relative likelihood of an attacker being in each height category.
+* **Information b:** Provides the witness's accuracy in identifying height under similar conditions.
+
+**Reasoning**
+
+We need to combine these pieces of information to estimate the probability of the attacker being 185 cm or taller *given* the witness's statement.  This is a classic example of Bayes' Theorem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B):  The probability of the attacker being 185 cm or taller (A) given the witness's statement (B). This is what we want to find.
+* P(B|A): The probability of the witness correctly identifying someone as 185 cm or taller, given they *actually* are that tall (80% from information b).
+* P(A): The prior probability of an attacker being 185 cm or taller (15% from information a).
+* P(B): The overall probability of the witness saying someone is 185 cm or taller, regardless of their actual height. This is a bit trickier to calculate.
+
+**Calculating P(B)**
+
+We need to consider both scenarios:
+
+* **Scenario 1:** Witness correctly identifies someone taller than 185 cm (80% accurate, 15% of the population): 0.80 * 0.15 = 0.12
+* **Scenario 2:** Witness incorrectly identifies someone shorter than 185 cm (20% inaccurate, 85% of the population): 0.20 * 0.85 = 0.17
+
+Therefore, P(B) = 0.12 + 0.17 = 0.29
+
+**Applying Bayes' Theorem**
+
+P(A|B) = (0.80 * 0.15) / 0.29 = 0.4138
+
+**Estimate**
+
+{probability: 0.4138} 
+
+**Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, given the witness's statement, is approximately 0.4138.** 

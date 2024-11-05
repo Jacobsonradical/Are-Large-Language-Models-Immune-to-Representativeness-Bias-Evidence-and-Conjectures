@@ -1,0 +1,48 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayes' theorem. Let's denote:
+
+H: The event that the attacker is 185 cm or taller
+A: The event that the first witness claims the attacker is 185 cm or taller
+B: The event that the second witness claims the attacker is shorter than 185 cm
+
+We want to find P(H|A), the probability that the attacker is 185 cm or taller given that the first witness made that claim. Using Bayes' theorem, we have:
+
+P(H|A) = P(A|H) \* P(H) / [P(A|H) \* P(H) + P(A|~H) \* P(~H)]
+
+From the information provided, we know that:
+
+P(H) = 0.15 (15% of the population is 185 cm or taller)
+P(~H) = 0.85
+P(A|H) = 0.80 (the first witness correctly identifies tall people 80% of the time)
+P(A|~H) = 0.20 (the first witness incorrectly identifies short people as tall 20% of the time)
+
+However, we need to account for the second witness's testimony as well. Since the witnesses are independent, we can update our probability using the law of total probability:
+
+P(A) = P(A|H) \* P(H) + P(A|B \* ~H) \* P(B|~H) \* P(~H)
+
+We know that P(B|~H) = 0.70 (the second witness correctly identifies short people 70% of the time). Since the second witness claims the attacker is short, and the first witness still claims the attacker is tall, their testimonies are conditioned on each other:
+
+P(A|B \* ~H) = P(A|~H) \* P(B|A \* ~H) / P(B|~H)
+
+We know that P(A|~H) = 0.20 (the first witness incorrectly identifies short people as tall 20% of the time). However, we don't know P(B|A \* ~H), the probability that the second witness claims the attacker is short given that the first witness claims they are tall and the actual attacker is short.
+
+Since we don't have this information, we cannot calculate P(H|A) directly. However, we can make an approximation if we assume that the second witness's testimony is independent of the first witness's given the actual height of the attacker:
+
+P(B|A \* ~H) ≈ P(B|~H) = 0.70
+
+Using this approximation, we can calculate P(A):
+
+P(A) ≈ P(A|H) \* P(H) + P(A|~H) \* P(B|A \* ~H) \* P(~H)
+≈ 0.80 \* 0.15 + 0.20 \* 0.70 \* 0.85
+≈ 0.12 + 0.112
+≈ 0.232
+
+Now, we can calculate P(H|A) using Bayes' theorem:
+
+P(H|A) ≈ (P(A|H) \* P(H)) / P(A)
+≈ (0.80 \* 0.15) / 0.232
+≈ 0.09 / 0.232
+≈ 0.388
+
+{probability: 0.388}
+
+Therefore, given the available information and the approximation, the estimated probability that the attacker's height was 185 cm or taller is approximately 0.388.

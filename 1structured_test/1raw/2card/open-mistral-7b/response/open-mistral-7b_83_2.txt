@@ -1,0 +1,44 @@
+To find the posterior odds, we need to use Bayes' theorem. First, let's denote the events:
+
+A: Deck A was drawn
+B: Deck B was drawn
+X: 3X and 1O were drawn
+
+The prior probabilities (P(A) and P(B)) are given:
+
+P(A) = Probability of drawing Deck A = 1/2
+P(B) = Probability of drawing Deck B = 1/2
+
+Now, let's find the likelihoods (P(X|A) and P(X|B)):
+
+P(X|A) = Probability of drawing 3X and 1O given Deck A was drawn
+Since 2/3 of the cards in deck A are marked X, the probability of drawing an X on any single draw is 2/3.
+The probability of drawing 3X and 1O in 4 draws with replacement from a deck of 2/3X and 1/3O is:
+
+P(X|A) = (2/3)^3 * (1/3) + 3 * (2/3)^2 * (1/3)^2 * (2/3) + 3 * (2/3)^2 * (1/3)^3 * (2/3)^2 + (2/3)^4 * (1/3)^1
+= 0.133 + 0.053 + 0.021 + 0.002 ≈ 0.21
+
+Similarly, for Deck B:
+
+P(X|B) = Probability of drawing 3X and 1O given Deck B was drawn
+Since 1/3 of the cards in deck B are marked X, the probability of drawing an X on any single draw is 1/3.
+The probability of drawing 3X and 1O in 4 draws with replacement from a deck of 1/3X and 2/3O is:
+
+P(X|B) = (1/3)^3 * (2/3) + 3 * (1/3)^2 * (2/3)^2 * (1/3) + 3 * (1/3)^2 * (2/3)^3 * (1/3)^2 + (1/3)^4 * (2/3)^1
+= 0.016 + 0.003 + 0.001 + 0.0002 ≈ 0.02
+
+Now, we can calculate the posterior probabilities (P(A|X) and P(B|X)):
+
+P(A|X) = P(X|A) * P(A) / (P(X|A) * P(A) + P(X|B) * P(B))
+= 0.21 * (1/2) / (0.21 * (1/2) + 0.02 * (1/2))
+≈ 0.21 / 0.14 ≈ 1.5
+
+P(B|X) = P(X|B) * P(B) / (P(X|A) * P(A) + P(X|B) * P(B))
+= 0.02 * (1/2) / (0.21 * (1/2) + 0.02 * (1/2))
+≈ 0.02 / 0.14 ≈ 0.14
+
+Finally, the posterior odds are:
+
+{odds: 1.5}
+
+So, given the drawn cards, the odds are slightly more than 1.5 times higher that the cards were drawn from Deck A, the deck with more X-marked cards, compared to Deck B.

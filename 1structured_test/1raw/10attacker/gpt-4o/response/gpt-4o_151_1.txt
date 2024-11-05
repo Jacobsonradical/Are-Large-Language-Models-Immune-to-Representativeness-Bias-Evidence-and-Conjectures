@@ -1,0 +1,43 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use Bayesian inference. Let's define the following events:
+
+- \( T \): The attacker was 185 cm or taller.
+- \( S \): The attacker was shorter than 185 cm.
+- \( W1_T \): The first witness says the attacker was 185 cm or taller.
+- \( W2_S \): The second witness says the attacker was shorter than 185 cm.
+
+We are given:
+
+1. The prior probabilities:
+   - \( P(T) = 0.15 \)
+   - \( P(S) = 0.85 \)
+
+2. The witness reliability:
+   - \( P(W1_T | T) = 0.80 \)
+   - \( P(W1_T | S) = 0.20 \)
+   - \( P(W2_S | S) = 0.70 \)
+   - \( P(W2_S | T) = 0.30 \)
+
+We want to find \( P(T | W1_T \text{ and } W2_S) \). By Bayes' theorem, we need to find:
+
+\[ P(T | W1_T \text{ and } W2_S) = \frac{P(W1_T \text{ and } W2_S | T) P(T)}{P(W1_T \text{ and } W2_S)} \]
+
+Let's break this down:
+
+1. Calculate \( P(W1_T \text{ and } W2_S | T) \):
+   \[ P(W1_T \text{ and } W2_S | T) = P(W1_T | T) \cdot P(W2_S | T) = 0.80 \cdot 0.30 = 0.24 \]
+
+2. Calculate \( P(W1_T \text{ and } W2_S | S) \):
+   \[ P(W1_T \text{ and } W2_S | S) = P(W1_T | S) \cdot P(W2_S | S) = 0.20 \cdot 0.70 = 0.14 \]
+
+3. Calculate \( P(W1_T \text{ and } W2_S) \) using the law of total probability:
+
+\[ P(W1_T \text{ and } W2_S) = P(W1_T \text{ and } W2_S | T) P(T) + P(W1_T \text{ and } W2_S | S) P(S) \]
+\[ P(W1_T \text{ and } W2_S) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155 \]
+
+4. Finally, calculate \( P(T | W1_T \text{ and } W2_S) \):
+
+\[ P(T | W1_T \text{ and } W2_S) = \frac{P(W1_T \text{ and } W2_S | T) P(T)}{P(W1_T \text{ and } W2_S)} = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Thus, the estimated probability that the attacker was 185 cm or taller, as the first witness claimed, is:
+
+\[ \{ \text{probability}: 0.232 \} \]

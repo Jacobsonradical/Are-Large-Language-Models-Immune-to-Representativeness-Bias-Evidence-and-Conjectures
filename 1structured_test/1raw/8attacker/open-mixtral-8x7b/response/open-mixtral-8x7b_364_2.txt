@@ -1,0 +1,35 @@
+The problem can be broken down as follows:
+
+1. We know that the population of people shorter and taller than 185 cm is roughly equal. This means that the prior probability of a person randomly selected from the population being taller or shorter than 185 cm is 0.5.
+2. We are given that 85% of attackers are people under 185 cm, and 15% attackers are 185 cm or taller. This is the likelihood of the attacker's height given the two categories.
+3. We are also given that a witness identified the attacker as being 185 cm or taller with 80% accuracy and erred 20% of the time. This is the conditional probability of the witness's identification given the attacker's actual height.
+
+Based on this information, we can use Bayes' theorem to compute the posterior probability of the attacker being 185 cm or taller.
+
+Let A be the event that the attacker is 185 cm or taller, and I be the event that the witness identified the attacker as 185 cm or taller.
+
+Bayes' theorem states that P(A|I) = P(I|A) \* P(A) / P(I)
+
+We are given that P(I|A) = 0.8, P(A) = 0.5, and we need to find P(I) and P(I|not A).
+
+P(I) = P(I|A) \* P(A) + P(I|not A) \* P(not A) = 0.8 \* 0.5 + P(I|not A) \* 0.5
+
+We are also given that P(not A) = 0.5, and that P(I|not A) = 1 - P(not I|not A) = 1 - 0.2 = 0.8 (because the witness erred 20% of the time when the attacker is not 185 cm or taller).
+
+Therefore, P(I) = 0.8 \* 0.5 + 0.8 \* 0.5 = 0.8
+
+Now we can compute the posterior probability P(A|I) = P(I|A) \* P(A) / P(I) = 0.8 \* 0.5 / 0.8 = 0.5
+
+However, this calculation assumes that the witness's identification is independent of the attacker's height, which is not the case given that the witness has a higher error rate when the attacker is not 185 cm or taller. To account for this dependency, we can use the law of total probability:
+
+P(A|I) = P(I|A, not A) \* P(A|not A) + P(I|A) \* P(A)
+
+We are given that P(I|A) = 0.8, P(A) = 0.5, P(A|not A) = 0.2 (because the witness erroneously identified the attacker as 185 cm or taller 20% of the time when the attacker is not 185 cm or taller), and we need to find P(I|A, not A).
+
+Since the witness is equally likely to make an error when identifying a short attacker as when identifying a tall attacker, we have P(I|A, not A) = 0.5 \* 0.2 + 0.5 \* 0.8 = 0.5
+
+Therefore, the posterior probability P(A|I) = 0.5 \* 0.2 + 0.8 \* 0.5 = 0.6
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.6}

@@ -1,0 +1,59 @@
+Here's how we can estimate the probability:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Witness Testimony:**  We know the accuracy of each witness in identifying height.
+* **Population Data:** We know the overall distribution of heights in the city.
+
+We want to use this information to determine the probability that the attacker was taller than 185 cm, given the first witness's testimony.
+
+**Applying Bayes' Theorem**
+
+This type of problem is best solved using Bayes' Theorem:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) is the probability of event A happening given that event B has happened (what we want to find).
+* P(B|A) is the probability of event B happening given that event A has happened.
+* P(A) is the prior probability of event A happening.
+* P(B) is the prior probability of event B happening.
+
+**Let's define our events:**
+
+* **A:**  The attacker is 185 cm or taller.
+* **B:** The first witness claims the attacker is 185 cm or taller.
+
+**Now, let's break down the terms in Bayes' Theorem:**
+
+* **P(A|B):** This is the probability we want to find - the probability the attacker is taller than 185 cm given the first witness's claim.
+* **P(B|A):** This is the probability the first witness would claim the attacker is taller than 185 cm *given* the attacker actually is taller than 185 cm. This is the first witness's accuracy, which is 80% (0.8).
+* **P(A):** This is the prior probability of the attacker being taller than 185 cm, which is 15% (0.15) based on the city's population data.
+* **P(B):** This is the probability that the first witness would claim the attacker is taller than 185 cm.  We need to calculate this.
+
+**Calculating P(B):**
+
+To calculate P(B), we need to consider both scenarios:
+
+1. **The attacker is taller than 185 cm:** The probability of this is 0.15 (from population data). The first witness would correctly identify this 80% of the time, so the probability of this scenario is 0.15 * 0.8 = 0.12.
+
+2. **The attacker is shorter than 185 cm:** The probability of this is 0.85 (from population data). The first witness would incorrectly identify this 20% of the time, so the probability of this scenario is 0.85 * 0.2 = 0.17.
+
+Therefore, P(B) = 0.12 + 0.17 = 0.29
+
+**Putting it all together:**
+
+Now we can plug everything into Bayes' Theorem:
+
+P(A|B) = (0.8 * 0.15) / 0.29  ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion:**
+
+Based on the information provided, the estimated probability that the attacker's height was 185 cm or taller is approximately 0.414 or 41.4%. 

@@ -1,0 +1,39 @@
+To solve this question, we can apply Bayes' theorem. According to Bayes' theorem:
+
+\[ P(H \mid E) = \frac{P(E \mid H) \times P(H)}{P(E)} \]
+
+Where:
+- \( P(H \mid E) \) is the probability of the hypothesis (\( H \)) given the evidence (\( E \)).
+- \( P(E \mid H) \) is the probability of observing the evidence given that the hypothesis is true.
+- \( P(H) \) is the prior probability of the hypothesis.
+- \( P(E) \) is the overall probability of observing the evidence.
+
+Given:
+- \( H \): the hypothesis that the attacker was 185 cm or taller.
+- \( P(H) = 0.15 \) (15% of the population is 185 cm or taller).
+- \( P(\neg H) = 0.85 \) (85% of the population is shorter than 185 cm).
+
+We need to consider the accuracy rates of the witnesses:
+- Witness 1: \( P(E_1 \mid H) = 0.80 \) and \( P(E_1 \mid \neg H) = 0.20 \) (error rate, so truly it's the evidence of being "shorter").
+- Witness 2: \( P(E_2 \mid \neg H) = 0.70 \) and \( P(E_2 \mid H) = 0.30 \) (error rate, hence the evidence of being "taller").
+
+Evidence \( E \) can be considered under two scenarios where one witness says the attacker was 185 cm or taller (Witness 1) and the other says the attacker was shorter (Witness 2). Therefore, we need to find the joint probability for both pieces of evidence:
+
+\[ P(E) = P(E_1 \& E_2) \]
+
+\[ P(E_1 \& E_2) = P(E_1 \& E_2 \mid H) \times P(H) + P(E_1 \& E_2 \mid \neg H) \times P(\neg H) \]
+
+From the provided accuracies:
+- \( P(E_1 \& E_2 \mid H) = P(E_1 \mid H) \times P(E_2 \mid H) = 0.80 \times 0.30 = 0.24 \)
+- \( P(E_1 \& E_2 \mid \neg H) = P(E_1 \mid \neg H) \times P(E_2 \mid \neg H) = 0.20 \times 0.70 = 0.14 \)
+
+So now,
+\[ P(E) = (0.24 \times 0.15) + (0.14 \times 0.85) = 0.036 + 0.119 = 0.155 \]
+
+And,
+\[ P(H \mid E_1 \& E_2) = \frac{P(E_1 \& E_2 \mid H) \times P(H)}{P(E_1 \& E_2)} = \frac{0.24 \times 0.15}{0.155} \approx 0.2323 \]
+
+Therefore:
+```json
+{probability: 0.2323}
+```

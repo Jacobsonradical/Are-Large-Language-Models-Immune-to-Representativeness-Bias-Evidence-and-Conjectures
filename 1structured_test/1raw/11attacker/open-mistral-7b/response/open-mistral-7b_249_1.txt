@@ -1,0 +1,37 @@
+Given the information provided, we have two pieces of data:
+
+1. The witness's ability to correctly identify race is 80% and they make an error 20% of the time.
+2. The population composition is 85% white and 15% black.
+
+To estimate the probability that the attacker is black, we can use Bayes' theorem, which allows us to update our prior belief (in this case, the population composition) with the new information (the witness's testimony).
+
+Bayes' theorem is written as:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+- P(A|B) is the probability of event A given event B (the probability that the attacker is black given the witness's testimony)
+- P(B|A) is the likelihood of event B given event A (the probability that the witness correctly identifies a black person as such)
+- P(A) is the prior probability of event A (the probability that the attacker is black before considering the witness's testimony)
+- P(B) is the prior probability of event B (the probability of the witness making the observation that they did)
+
+We can rewrite this using the given information:
+
+P(black|witness_testimony) = [P(witness_testimony|black) * P(black)] / P(witness_testimony)
+
+From the information, we know that:
+- P(witness_testimony|black) = 0.8 (the witness correctly identifies a black person 80% of the time)
+- P(black) = 0.15 (the population is 15% black)
+- P(witness_testimony) = P(white|witness_testimony) * P(white) + P(black|witness_testimony) * P(black)
+
+Given that the witness is equally likely to mistake a white person for black as they are to mistake a black person for white (as stated in the information), P(white|witness_testimony) = P(black|witness_testimony) = 0.2 (the witness makes an error 20% of the time).
+
+Therefore, P(white) = 0.85 (the population is 85% white).
+
+Substituting these values into Bayes' theorem, we get:
+
+P(black|witness_testimony) = [0.8 * 0.15] / [0.8 * 0.15 + 0.2 * 0.85]
+
+Calculating this, we find that P(black|witness_testimony) ≈ 0.33
+
+Therefore, the estimated probability that the attacker is black is approximately 0.33 or 33%.

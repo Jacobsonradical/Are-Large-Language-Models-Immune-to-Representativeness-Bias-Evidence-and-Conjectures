@@ -1,0 +1,48 @@
+Here's how to approach this problem:
+
+**Understanding the Information**
+
+* **Information a:** This tells us the general height distribution in the city. 15% of the population is 185 cm or taller.
+* **Information b:**  This provides us with the witness's reliability. They correctly identify height 80% of the time, regardless of the actual height.
+
+**Applying Bayes' Theorem**
+
+This problem is best solved using Bayes' Theorem, which helps us update our beliefs based on new evidence:
+
+```
+P(A|B) = [P(B|A) * P(A)] / P(B) 
+```
+
+Where:
+
+* **P(A|B):**  The probability of the attacker being 185 cm or taller *given* the witness's identification. This is what we want to find.
+* **P(B|A):** The probability of the witness identifying someone as 185 cm or taller *given* that they actually are. This is the witness's accuracy (80%).
+* **P(A):** The prior probability of the attacker being 185 cm or taller. This is the general population distribution (15%).
+* **P(B):** The probability of the witness identifying someone as 185 cm or taller. This is a bit more complex and needs to be calculated.
+
+**Calculating P(B)**
+
+We can calculate P(B) using the law of total probability:
+
+* **P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)** 
+
+    *  P(B|not A): Probability of the witness *incorrectly* identifying someone as 185 cm or taller, given they are shorter. This is the witness's error rate (20%).
+    *  P(not A):  Probability of the attacker being shorter than 185 cm (85%).
+
+Plugging in the values:
+
+* P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Calculating P(A|B)**
+
+Now we have all the pieces to calculate the probability we want:
+
+* P(A|B) = (0.80 * 0.15) / 0.29 = 0.414
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Explanation:**
+
+The probability that the attacker was 185 cm or taller, given the witness's identification, is approximately 0.414 or 41.4%. This is higher than the initial 15% probability based on population statistics, but the witness's reliability also introduces uncertainty. 

@@ -1,0 +1,69 @@
+Let's first calculate the independent probabilities of each witness being correct:
+
+Witness 1 correct probability (P(C1)): 0.8
+Witness 2 correct probability (P(C2)): 0.7
+
+Now we need to calculate the probability that both witnesses are correct when they agree that the attacker's height was 185 cm or taller:
+
+P(C1 ∩ C2) = P(C1) * P(C2) = 0.8 * 0.7 = 0.56
+
+Now, let's calculate the probability that both witnesses are incorrect when they agree that the attacker's height was 185 cm or taller. We need to find the probability of each witness being incorrect:
+
+Witness 1 incorrect probability (P(I1)): 1 - P(C1) = 1 - 0.8 = 0.2
+Witness 2 incorrect probability (P(I2)): 1 - P(C2) = 1 - 0.7 = 0.3
+
+Now, we can calculate the probability that both witnesses are incorrect when they agree that the attacker's height was 185 cm or taller:
+
+P(I1 ∩ I2) = P(I1) * P(I2) = 0.2 * 0.3 = 0.06
+
+Now, to find the probability that the attacker was indeed 185 cm or taller when both witnesses agree, we need to use the following formula:
+
+P(tall | C1 ∩ C2) = P(C1 ∩ C2) / [P(C1 ∩ C2) + P(I1 ∩ I2)]
+
+Plugging in our values:
+
+P(tall | C1 ∩ C2) = 0.56 / (0.56 + 0.06) = 0.56 / 0.62 ≈ 0.9032
+
+However, we also need to account for the fact that one witness might claim the attacker was tall while the other claims the attacker was short. To calculate this probability, we need to find the probability that Witness 1 is correct and Witness 2 is incorrect and vice versa.
+
+P(C1 ∩ I2) = P(C1) * P(I2) = 0.8 * 0.3 = 0.24
+P(I1 ∩ C2) = P(I1) * P(C2) = 0.2 * 0.7 = 0.14
+
+Now, to find the overall probability that the attacker is tall, we need to sum up the probabilities calculated above:
+
+P(tall) = P(tall | C1 ∩ C2) * P(C1 ∩ C2) + P(tall | C1 ∩ I2) * P(C1 ∩ I2) + P(tall | I1 ∩ C2) * P(I1 ∩ C2)
+
+We already have P(tall | C1 ∩ C2) ≈ 0.9032. Now, let's compute the other two probabilities:
+
+P(tall | C1 ∩ I2) = P(tall | I1 ∩ C2) = (P(C1) - P(C1 ∩ C2)) / (P(C1) + P(I2) - P(C1 ∩ C2))
+
+P(tall | C1 ∩ I2) = P(tall | I1 ∩ C2) = (0.8 - 0.56) / (0.8 + 0.3 - 0.56) = 0.24 / 0.54 ≈ 0.4444
+
+Now, let's sum up these probabilities:
+
+P(tall) ≈ 0.9032 * 0.56 + 0.4444 * (0.24 + 0.14) ≈ 0.5091
+
+Now, we need to calculate the probability that the attacker is tall given the population distribution. Let's denote the population tall probability as P(T).
+
+P(T) = 15% (0.15) or 185 cm or taller
+P(S) = 85% (0.85) or shorter than 185 cm
+
+Now, let's denote our estimate as P'(tall) and calculate the probability that both witnesses agree that the attacker is tall:
+
+P'(tall | C1 ∩ C2) = P(C1 ∩ C2) * P(T)^2 + P(I1 ∩ I2) * P(S)^2
+
+Using our population probability values:
+
+P'(tall | C1 ∩ C2) = 0.56 * (0.15)^2 + 0.06 * (0.85)^2 ≈ 0.0241
+
+Now, we know that P(tall) ≈ 0.5091 and P'(tall | C1 ∩ C2) ≈ 0.0241. To estimate the probability that the attacker is 185 cm or taller, given the witnesses' testimonies, we need to use the following formula:
+
+P(T | C1 ∩ C2) = P(tall) * P'(tall | C1 ∩ C2) / P'(tall)
+
+Plugging in the values:
+
+P(T | C1 ∩ C2) = 0.5091 * 0.0241 / (0.0241 * 0.5091 + 0.9759 * 0.4909) ≈ 0.0247
+
+The probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.0247.
+
+{probability: 0.0247}

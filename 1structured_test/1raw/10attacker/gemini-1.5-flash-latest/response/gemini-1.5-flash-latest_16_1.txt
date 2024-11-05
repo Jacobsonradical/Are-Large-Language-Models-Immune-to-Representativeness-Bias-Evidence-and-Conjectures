@@ -1,0 +1,50 @@
+Here's how to break down the problem and arrive at an estimate:
+
+**1. Prior Probability:**
+
+*  We know that 15% of the population in the city is 185 cm or taller. This is our prior probability that the attacker was tall.  
+
+**2. Likelihoods:**
+
+* **Witness 1:**  The first witness correctly identifies height 80% of the time. This means:
+    *  If the attacker was tall, the witness has an 80% chance of saying "tall".
+    *  If the attacker was short, the witness has a 20% chance of saying "tall" (error).
+* **Witness 2:** The second witness correctly identifies height 70% of the time. This means:
+    * If the attacker was short, the witness has a 70% chance of saying "short".
+    * If the attacker was tall, the witness has a 30% chance of saying "short" (error).
+
+**3. Applying Bayes' Theorem**
+
+We can use Bayes' Theorem to update our prior probability based on the witness testimonies.  Let's denote:
+
+* **A:** Event that the attacker is 185 cm or taller.
+* **B1:** Event that Witness 1 says the attacker is 185 cm or taller.
+
+We want to find P(A|B1), the probability that the attacker is tall given Witness 1 said so.
+
+Bayes' Theorem states:
+
+P(A|B1) = [P(B1|A) * P(A)] / P(B1)
+
+Where:
+
+* **P(B1|A) = 0.8** (Probability of Witness 1 saying "tall" given the attacker is actually tall)
+* **P(A) = 0.15** (Our prior probability of the attacker being tall)
+* **P(B1)**: This is the probability of Witness 1 saying "tall", regardless of the attacker's true height. We need to calculate this using the law of total probability:
+
+P(B1) = P(B1|A) * P(A) + P(B1|not A) * P(not A)
+      = 0.8 * 0.15 + 0.2 * 0.85  
+      = 0.34
+
+**4. Calculate the Posterior Probability:**
+
+Now we can plug everything back into Bayes' Theorem:
+
+P(A|B1) = (0.8 * 0.15) / 0.34 
+         = 0.353
+
+**Answer:** {probability: 0.353}
+
+**Interpretation:**
+
+Based on the available information and Witness 1's testimony, the probability that the attacker was 185 cm or taller is approximately 35.3%. 

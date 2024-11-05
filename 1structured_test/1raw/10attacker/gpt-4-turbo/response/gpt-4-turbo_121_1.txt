@@ -1,0 +1,39 @@
+To solve this question, Bayes' Theorem is applied to update the probability of the attacker being 185 cm or taller based on the testimonies from the two witnesses. Bayes' Theorem formula is:
+
+\[ P(H \mid E) = \frac{P(E \mid H) P(H)}{P(E)} \]
+
+Where:
+- \( P(H \mid E) \) is the probability of the hypothesis (attacker is 185 cm or taller) given the evidence (witnesses' statements),
+- \( P(E \mid H) \) is the probability of the evidence given the hypothesis,
+- \( P(H) \) is the initial or prior probability of the hypothesis,
+- \( P(E) \) is the overall probability of the evidence.
+
+Given:
+- Prior probabilities based on population:
+  - \( P(\text{185+}) = 0.15 \)
+  - \( P(\text{<185}) = 0.85 \)
+
+- Witness 1 (accuracy 80%):
+  - \( P(W_1 = \text{185+} \mid \text{185+}) = 0.8 \)
+  - \( P(W_1 = \text{<185} \mid \text{185+}) = 0.2 \)
+  
+- Witness 2 (accuracy 70%):
+  - \( P(W_2 = \text{185+} \mid \text{<185}) = 0.3 \)
+  - \( P(W_2 = \text{<185} \mid \text{<185}) = 0.7 \)
+  
+We consider hypothesis H1 (attacker is 185 cm or taller) versus hypothesis H2 (attacker is shorter than 185 cm). We need to calculate:
+
+1. \( P(\text{W_1 = 185+} \cap \text{W_2 = <185}) \) using the law of total probability:
+\[ P(\text{W_1 = 185+} \cap \text{W_2 = <185}) = P(\text{W_1 = 185+} \cap \text{W_2 = <185} \mid \text{185+}) P(\text{185+}) + P(\text{W_1 = 185+} \cap \text{W_2 = <185} \mid \text{<185}) P(\text{<185}) \]
+\[ = (0.8 * 0.2 * 0.15) + (0.3 * 0.7 * 0.85) \]
+\[ = 0.024 + 0.1785 = 0.2025 \]
+
+2. Now update using Bayes' Theorem to get \( P(\text{185+} \mid \text{W_1 = 185+} \cap \text{W_2 = <185}) \):
+\[ P(\text{185+} \mid \text{W_1 = 185+} \cap \text{W_2 = <185}) = \frac{P(\text{W_1 = 185+} \cap \text{W_2 = <185} \mid \text{185+}) P(\text{185+})}{P(\text{W_1 = 185+} \cap \text{W_2 = <185})} \]
+\[ = \frac{0.024}{0.2025} = 0.1185185 \]
+
+Thus, the estimate of the probability that the attacker's height was 185 cm or taller is approximately 0.1185, which suggests it is not highly probable that the attacker was that tall, based on the combined witness testimonies under those specific conditions.
+
+Formatted answer:
+
+{"probability": 0.1185}

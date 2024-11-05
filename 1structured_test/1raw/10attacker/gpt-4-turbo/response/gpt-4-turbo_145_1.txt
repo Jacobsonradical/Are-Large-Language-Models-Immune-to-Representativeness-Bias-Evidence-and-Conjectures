@@ -1,0 +1,26 @@
+To solve this using Bayes' theorem, we start by setting up the problem with the following probabilities:
+
+1. Let \(H\) denote the hypothesis that the attacker was 185 cm or taller.
+2. Let \(E_1\) denote the event that the first witness claims the attacker was 185 cm or taller.
+3. Let \(E_2\) denote the event that the second witness claims the attacker was shorter than 185 cm.
+
+From the problem statement:
+- The prior probability \(P(H)\), which is the probability the attacker is 185 cm or taller, is 0.15.
+- The prior probability \(P(\neg H)\), which is the probability the attacker is shorter than 185 cm, is 0.85.
+- The probability \(P(E_1 | H)\), which is the probability that the first witness correctly identified the attacker as 185 cm or taller when they actually are, is 0.80.
+- The probability \(P(E_1 | \neg H)\), which is the probability that the first witness incorrectly identified the attacker as 185 cm or taller when they are not, is 0.20.
+- The probability \(P(E_2 | H)\), which is the probability that the second witness incorrectly identified the attacker as shorter than 185 cm when they are not, is 0.30.
+- The probability \(P(E_2 | \neg H)\), which is the probability that the second witness correctly identified the attacker as shorter than 185 cm when they are, is 0.70.
+
+We need to find \(P(H | E_1)\), the probability that the attacker is 185 cm or taller given that the first witness claimed they were. Apply Bayes' theorem, which in this context is:
+\[ P(H | E_1) = \frac{P(E_1 | H) \times P(H)}{P(E_1)} \]
+where \(P(E_1)\) is the total probability of the first witness claiming the attacker is taller, which can be computed using the Law of Total Probability:
+\[ P(E_1) = P(E_1 | H) \times P(H) + P(E_1 | \neg H) \times P(\neg H) \]
+\[ P(E_1) = (0.80 \times 0.15) + (0.20 \times 0.85) \]
+\[ P(E_1) = 0.12 + 0.17 = 0.29 \]
+
+Plugging these into Bayes' theorem:
+\[ P(H | E_1) = \frac{0.80 \times 0.15}{0.29} \]
+\[ P(H | E_1) = \frac{0.12}{0.29} \approx 0.4138 \]
+
+Thus, the estimated probability that the attacker's height was 185 cm or taller, as the first witness claimed, is roughly 0.4138.

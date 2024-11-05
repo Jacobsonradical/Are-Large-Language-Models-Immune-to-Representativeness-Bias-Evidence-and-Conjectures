@@ -1,0 +1,24 @@
+Given the information provided, we have two pieces of data: the racial composition of the city and the witness's ability to accurately identify race.
+
+The city's racial demographics are 85% white and 15% black. The witness, however, is not infallible and makes mistakes 20% of the time. When the witness sees a person who is half white and half black (which is not given in the data, but let's assume for the sake of argument), the witness correctly identifies the race 80% of the time and errs 20% of the time.
+
+Now, let's consider the case where the attacker is black. If the witness correctly identifies the attacker's race, the probability that the witness is right and the attacker is indeed black is 0.8 (80%). However, if the witness errs and mistakenly identifies a white person as black, the probability that the witness is wrong and the attacker is black is also 0.2 (20%).
+
+Since the witness identified the attacker as black, we are interested in the probability that the attacker is actually black, given that the witness made this identification. This is a conditional probability, calculated as the probability of the event "attacker is black" given the event "witness identified attacker as black."
+
+Using Bayes' theorem, the probability of the attacker being black (given the witness's identification) is:
+
+P(attacker is black | witness identified black) = [P(witness identified black | attacker is black) * P(attacker is black)] / [P(witness identified black | attacker is black) * P(attacker is black) + P(witness identified black | attacker is not black) * P(attacker is not black)]
+
+Using the data provided, we can calculate the probabilities in the Bayes' theorem formula:
+
+P(witness identified black | attacker is black) = 0.8 (from information b)
+P(witness identified black | attacker is not black) = 0.2 * 0.15 / 0.85 = 0.015 (assuming the witness makes an error 20% of the time and the city's population is 85% white)
+P(attacker is black) = 0.15 (from information a)
+P(attacker is not black) = 0.85
+
+Plugging these values into Bayes' theorem, we get:
+
+P(attacker is black | witness identified black) = (0.8 * 0.15) / (0.8 * 0.15 + 0.015 * 0.85) = 0.12
+
+So, given the witness's identification, the probability that the attacker is black is approximately 12%.

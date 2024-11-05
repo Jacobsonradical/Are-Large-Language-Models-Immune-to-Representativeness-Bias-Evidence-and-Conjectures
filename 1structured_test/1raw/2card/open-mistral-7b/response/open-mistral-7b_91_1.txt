@@ -1,0 +1,44 @@
+To find the posterior odds, we need to calculate the likelihood of drawing 3 X's and 1 O from Deck A and Deck B, and then divide these probabilities.
+
+Let's calculate the probabilities for each deck:
+
+For Deck A:
+P(X|A) = Number of X's in Deck A / Total number of cards in Deck A
+         = 2/3
+P(O|A) = Number of O's in Deck A / Total number of cards in Deck A
+         = 1/3
+
+The probability of drawing 3 X's and 1 O from Deck A is given by the binomial distribution:
+
+P(3X, 1O|A) = C(12, 3) * (2/3)^3 * (1/3)^1
+           ≈ 0.1429
+
+For Deck B:
+P(X|B) = Number of X's in Deck B / Total number of cards in Deck B
+         = 1/3
+P(O|B) = Number of O's in Deck B / Total number of cards in Deck B
+         = 2/3
+
+The probability of drawing 3 X's and 1 O from Deck B is given by the binomial distribution:
+
+P(3X, 1O|B) = C(18, 3) * (1/3)^3 * (2/3)^1
+           ≈ 0.1848
+
+Now, we calculate the posterior odds:
+
+odds = P(A|data) / P(B|data)
+      = P(data|A) * P(A) / P(data|B) * P(B)
+
+Using Bayes' theorem, we can write:
+
+P(data|A) = P(A|data) * P(data)
+P(data|B) = P(B|data) * P(data)
+
+Since the event of drawing 3 X's and 1 O is the same for both decks, P(data) is the same for both decks. Therefore, we can cancel it out:
+
+odds = P(A|data) / P(B|data)
+      = P(A) * P(3X, 1O|A) / P(B) * P(3X, 1O|B)
+      = (2/6) * 0.1429 / (1/6) * 0.1848
+      ≈ 0.79
+
+So, the posterior odds that the 4 cards were drawn from Deck A is approximately 0.79. This means that, given the observed data, Deck A is about 79% more likely to be the source of the drawn cards than Deck B.

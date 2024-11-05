@@ -1,0 +1,38 @@
+Here's how to determine which case is more likely:
+
+**Understanding the Problem**
+
+We need to figure out how many different ways we can distribute the balls to the children, and how many of those ways correspond to each case.  The case with more possible arrangements is more likely to occur.
+
+**Calculations**
+
+* **Total Possible Arrangements:** 
+   Since each of the 6 balls has 3 choices (child A, B, or C), there are 3*3*3*3*3*3 = 3<sup>6</sup> = 729 total possible arrangements.
+
+* **Arrangements for Case 1 (A:2, B:2, C:2):**
+    1. **Choose balls for A:**  There are 6C2 (6 choose 2) ways to pick 2 balls out of 6 for child A = 15 ways.
+    2. **Choose balls for B:** There are 4C2 ways to pick 2 balls out of the remaining 4 for child B = 6 ways.
+    3. **Balls for C:** The remaining 2 balls automatically go to child C. 
+
+    However, we've overcounted the arrangements for Case 1.  Why? Because we didn't care about the order we picked the groups of 2.  For example, giving balls 1 & 2 to A, then 3 & 4 to B is the same as giving 3 & 4 to A and then 1 & 2 to B.  We need to correct for this overcounting.
+
+    * **Overcounting Correction:** We've counted each unique arrangement 3! (3 factorial, or 3*2*1 = 6) times – once for each order we could have chosen the groups.
+
+    * **Total Case 1 Arrangements:** (15 * 6) / 6 = 15
+
+* **Arrangements for Case 2 (A:2, B:3, C:1):**
+    1. **Choose balls for A:** 6C2 = 15 ways.
+    2. **Choose balls for B:** 4C3 = 4 ways.
+    3. **Balls for C:** The remaining ball automatically goes to child C.
+
+    * **Overcounting Correction:**  We've overcounted again, but this time only by 2! (2 factorial, or 2*1 = 2) since we only need to worry about the order we chose the groups for A and B.
+
+    * **Total Case 2 Arrangements:** (15 * 4) / 2 = 30
+
+**Conclusion**
+
+There are 30 possible arrangements for Case 2 and only 15 for Case 1. 
+
+**Answer:** {case: 2} 
+
+**Therefore, in many rounds of the game, you will see more results of case 2 (A:2, B:3, C:1).** 

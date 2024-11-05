@@ -1,0 +1,52 @@
+Here's how to approach this problem using Bayes' Theorem:
+
+**Understanding the Problem**
+
+We need to combine two pieces of information:
+
+* **Prior probability:** The general likelihood of an attacker being male based purely on population demographics (15%).
+* **Witness testimony:** The reliability of the witness's statement, taking into account their potential for error.
+
+**Bayes' Theorem**
+
+Bayes' Theorem provides a way to update our prior belief with new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B):  The probability of event A happening given that event B has happened. In our case, this is the probability the attacker is male (A) given the witness said it was a male (B).
+* P(B|A): The probability of event B happening given that event A has happened. In our case, this is the probability the witness would say it was a male (B) given the attacker actually was male (A).
+* P(A): The prior probability of event A. In our case, the probability the attacker is male (from the population).
+* P(B): The probability of event B.  This is the overall probability of the witness saying "male", which can happen in two ways: the attacker is male and they're right, or the attacker is female and they're wrong.
+
+**Calculations**
+
+Let's define:
+
+* Event A: The attacker is male.
+* Event B: The witness identifies the attacker as male.
+
+We are given:
+
+* P(A) = 0.15 (prior probability of attacker being male)
+* P(B|A) = 0.80 (witness correctly identifies males 80% of the time)
+* P(B| not A) = 0.20 (witness incorrectly identifies females as males 20% of the time)
+* P(not A) = 0.85 (prior probability of attacker being female)
+
+To calculate P(B), we use the law of total probability:
+
+P(B) = [P(B|A) * P(A)] + [P(B| not A) * P(not A)] 
+P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+Now we can apply Bayes' Theorem:
+
+P(A|B) = [(0.80 * 0.15) / 0.29] = 0.414
+
+**Answer**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+The probability that the attacker is male, given the witness testimony and the city's demographics, is approximately 41.4%. This is significantly higher than the initial 15% based solely on the population, but the witness's potential for error prevents us from being completely certain. 

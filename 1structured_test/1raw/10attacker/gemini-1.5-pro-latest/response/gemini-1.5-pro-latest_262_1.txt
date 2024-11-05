@@ -1,0 +1,56 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**1. Define the Events**
+
+* Let A be the event that the attacker's height is 185 cm or taller.
+* Let B1 be the event that the first witness claims the attacker is 185 cm or taller.
+* Let B2 be the event that the second witness claims the attacker is shorter than 185 cm.
+
+**2. Prior Probabilities**
+
+* P(A) = 0.15 (Given: 15% of the population is 185 cm or taller)
+* P(~A) = 0.85 (Given: 85% of the population is shorter than 185 cm)
+
+**3. Likelihoods**
+
+* P(B1|A) = 0.80 (The first witness correctly identifies someone 185 cm or taller 80% of the time)
+* P(B1|~A) = 0.20 (The first witness incorrectly identifies someone shorter than 185 cm as taller 20% of the time)
+* P(B2|A) = 0.20 (The second witness incorrectly identifies someone 185 cm or taller as shorter 20% of the time) 
+* P(B2|~A) = 0.70 (The second witness correctly identifies someone shorter than 185 cm 70% of the time)
+
+**4. Bayes' Theorem (Simplified for this case)**
+
+We want to find P(A|B1, B2), the probability the attacker is 185cm or taller given both witness testimonies. Since it's difficult to calculate this directly, we can use the odds form of Bayes' Theorem:
+
+```
+Odds(A|B1, B2) = Odds(A) * Likelihood Ratio
+
+Where:
+* Odds(A) = P(A) / P(~A) 
+* Likelihood Ratio = [P(B1|A) * P(B2|A)] / [P(B1|~A) * P(B2|~A)] 
+```
+
+**5. Calculation**
+
+* Odds(A) = 0.15 / 0.85 = 3/17
+* Likelihood Ratio = (0.80 * 0.20) / (0.20 * 0.70) = 8/7
+
+* Odds(A|B1, B2) = (3/17) * (8/7) = 24/119
+
+**6. Convert Odds back to Probability**
+
+```
+Odds = Probability / (1 - Probability)
+Therefore, 
+Probability = Odds / (1 + Odds)
+```
+
+* P(A|B1, B2) = (24/119) / (1 + 24/119) = 24/143 ≈ 0.168
+
+**Answer:**
+
+{probability: 0.168} 
+
+**Conclusion:**
+
+Despite one witness claiming the attacker was taller, given their accuracy rates and the city's height distribution, the probability of the attacker actually being 185 cm or taller is approximately 16.8%. 

@@ -1,0 +1,58 @@
+Here's how we can estimate the probability:
+
+**Understanding the Information**
+
+* **Prior Probability (a):** This tells us the general likelihood of someone in the city being 185cm or taller. It's our baseline before considering the witness.
+* **Witness Reliability (b):** This tells us how much we can trust the witness's statement. They're not perfect, but they're right more often than wrong.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is a way to update probabilities when we get new evidence. Here's how it applies:
+
+Let:
+
+*  A = Event that the attacker is 185cm or taller
+*  B = Event that the witness identifies someone as 185cm or taller
+
+We want to find: P(A|B), the probability the attacker is 185cm or taller *given* the witness said so.
+
+Bayes' Theorem states: 
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down the terms:
+
+* **P(A):** Prior probability of someone being 185cm or taller (from 'a') = 0.15
+* **P(B|A):** Probability the witness says "185cm or taller" IF the attacker is actually that tall (from 'b') = 0.80 (80% accuracy)
+* **P(B):** Probability the witness says "185cm or taller" (This needs a bit more calculation)
+
+**Calculating P(B)**
+
+The witness could say "185cm or taller" in two ways:
+
+1.  The attacker *is* tall, and the witness is right.
+2.  The attacker *isn't* tall, but the witness is wrong.
+
+So:
+P(B) = [P(B|A) * P(A)] + [P(B|~A) * P(~A)] 
+
+Where:
+
+* P(B|~A) = Probability the witness says "tall" when the person isn't = 0.20 (20% error rate)
+* P(~A) = Probability of someone NOT being 185cm or taller = 1 - P(A) = 0.85
+
+Plugging in:
+P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+**Final Calculation**
+
+Now we have everything for Bayes' Theorem:
+
+P(A|B) = (0.80 * 0.15) / 0.29 = 0.414 (approximately)
+
+**Answer**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+While the witness's testimony provides some evidence, the probability that the attacker was actually 185cm or taller is about 41.4%. This is higher than the baseline 15% but still far from certain. 

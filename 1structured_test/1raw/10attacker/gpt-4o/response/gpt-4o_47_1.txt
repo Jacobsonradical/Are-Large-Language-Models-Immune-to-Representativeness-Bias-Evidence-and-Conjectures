@@ -1,0 +1,40 @@
+To estimate the probability that the attacker's height was 185 cm or taller based on the given information, we can use Bayes' Theorem. Here’s the breakdown of the information we have:
+
+- **Prior Probability (Base Rates):**
+  - \( P(\text{tall}) = P(H_{\geq 185}) = 0.15 \)
+  - \( P(\text{short}) = P(H_{<185}) = 0.85 \)
+
+- **Likelihoods based on witness accuracies:**
+  - First Witness:
+    - \( P(W1 | H_{\geq 185}) = 0.80 \)
+    - \( P(W1 | H_{<185}) = 0.20 \)
+  - Second Witness:
+    - \( P(W2 | H_{\geq 185}) = 0.30 \)
+    - \( P(W2 | H_{<185}) = 0.70 \)
+
+We are interested in \( P(H_{\geq 185} | W1 \text{ and } \neg W2) \), where \( W1 \) is the first witness claiming the attacker was 185 cm or taller, and \( \neg W2 \) is the second witness claiming the attacker was shorter than 185 cm.
+
+Using Bayes' Theorem:
+
+\[ P(A | B) = \frac{P(B | A) \cdot P(A)}{P(B)} \]
+
+First, we need to calculate the joint likelihood of both witnesses' statements for both height hypotheses:
+
+- \( P(W1 \cap \neg W2 | H_{\geq 185}) = P(W1 | H_{\geq 185}) \cdot P(\neg W2 | H_{\geq 185}) = 0.80 \cdot 0.70 = 0.56 \)
+- \( P(W1 \cap \neg W2 | H_{< 185}) = P(W1 | H_{< 185}) \cdot P(\neg W2 | H_{< 185}) = 0.20 \cdot 0.30 = 0.06 \)
+
+Then, we use these to calculate the marginal likelihood of the evidence:
+
+\[ P(W1 \cap \neg W2) = P(W1 \cap \neg W2 | H_{\geq 185}) \cdot P(H_{\geq 185}) + P(W1 \cap \neg W2 | H_{< 185}) \cdot P(H_{< 185}) \]
+
+\[ P(W1 \cap \neg W2) = (0.56 \cdot 0.15) + (0.06 \cdot 0.85) = 0.084 + 0.051 = 0.135 \]
+
+Now, apply Bayes' Theorem to find the posterior probability:
+
+\[ P(H_{\geq 185} | W1 \cap \neg W2) = \frac{P(W1 \cap \neg W2 | H_{\geq 185}) \cdot P(H_{\geq 185})}{P(W1 \cap \neg W2)} \]
+
+\[ P(H_{\geq 185} | W1 \cap \neg W2) = \frac{0.56 \cdot 0.15}{0.135} = \frac{0.084}{0.135} = \frac{84}{135} = \frac{28}{45} \approx 0.622 \]
+
+Thus, our estimate is:
+
+\{probability: 0.622\}

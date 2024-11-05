@@ -1,0 +1,41 @@
+Here's how to determine which case is more likely:
+
+**Understanding the Problem**
+
+We need to figure out which distribution of balls (2-2-2 or 2-3-1) is more probable.  This is a classic combinatorics problem where we count the number of ways to achieve each case.
+
+**Calculations**
+
+* **Total Possible Arrangements:** 
+   Each ball has 3 choices (child A, B, or C). Since we have 6 balls, there are a total of 3 x 3 x 3 x 3 x 3 x 3 = 3<sup>6</sup> = 729 possible arrangements.
+
+* **Case 1 (2-2-2):**
+    *  **Step 1: Choose balls for A:**  We need to choose 2 balls out of 6 for child A. The number of ways to do this is 6C2 (6 choose 2), which is 15.
+    *  **Step 2: Choose balls for B:** Now we have 4 balls left, and we need to choose 2 for child B. This is 4C2, which is 6.
+    *  **Step 3: Balls for C:** The remaining 2 balls automatically go to child C.
+    *  **Total arrangements for Case 1:** 15 * 6 = 90
+
+* **Case 2 (2-3-1):**
+    * **Step 1: Choose balls for A:** 6C2 = 15 ways.
+    * **Step 2: Choose balls for B:** 4C3 = 4 ways.
+    * **Step 3: Balls for C:** The remaining ball goes to child C.
+    * **Total arrangements for Case 2:** 15 * 4 = 60 
+
+**However...**
+
+We've overcounted arrangements for Case 2!  Why? Consider these two scenarios within Case 2:
+
+* Scenario A: Balls 1 & 2 go to A, balls 3, 4, 5 go to B, and ball 6 goes to C.
+* Scenario B: Balls 3 & 4 go to A, balls 1, 5, 6 go to B, and ball 2 goes to C.
+
+We've counted these as different, but they result in the same distribution: A-2, B-3, C-1. To correct for this overcounting, we need to divide the number of arrangements for Case 2 by 3! (3 factorial, or 3*2*1 = 6).
+
+* **Corrected Total for Case 2:** 60 / 6 = 10
+
+**Conclusion**
+
+There are 90 arrangements for Case 1 and only 10 arrangements for Case 2. 
+
+**Answer:** {case: 1} 
+
+**In many rounds of the game, there will be more results of case 1 (A:2, B:2, C:2).** 

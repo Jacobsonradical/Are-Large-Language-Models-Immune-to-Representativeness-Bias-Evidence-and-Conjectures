@@ -1,0 +1,49 @@
+To estimate the probability that the attacker is black, we need to consider the witness's reliability and the racial demographics of the city.
+
+1. The witness's reliability: The witness correctly identifies race 80% of the time and errs 20% of the time.
+
+2. Racial demographics of the city: 85% of the population is white, and 15% is black.
+
+Given that the witness could not see the attacker's race and only provided a racial description, we can assume that their identification is a random event with the same probability of being correct or incorrect, regardless of the actual race of the attacker.
+
+We can model this situation as a binomial probability problem:
+
+- Number of trials (n) = 1 (since we are considering only one identification)
+- Probability of success (p) = The probability that the witness correctly identifies the attacker's race as black
+- Probability of failure (q) = The probability that the witness incorrectly identifies the attacker's race as black
+
+We know that the witness is correct 80% of the time and incorrect 20% of the time, so p = 0.8 and q = 0.2.
+
+The witness identified the attacker as black, so we are considering whether this identification is a success or not. Since the witness identified the attacker as black, the event is a success if the attacker is indeed black.
+
+The probability of this success (P(success)) is the probability that the witness correctly identifies a black person as black, which is p:
+
+P(success) = p = 0.8
+
+However, we are interested in estimating the probability that the attacker is black, not the probability of a correct identification given that the witness identified the attacker as black. To do this, we need to consider the prior probability of the attacker being black, which is the proportion of black people in the city.
+
+The witness's identification is just an additional piece of information that can help us update our belief about the attacker's race. Bayes' theorem allows us to do this:
+
+P(Attacker is black | Witness identification) = P(Witness identification | Attacker is black) * P(Attacker is black) / P(Witness identification)
+
+We have already calculated P(Witness identification | Attacker is black) = p = 0.8.
+
+The prior probability of the attacker being black is P(Attacker is black) = 0.15 (since 15% of the population is black).
+
+P(Witness identification) is the probability of making this identification, regardless of the actual race of the attacker. It can be calculated using the law of total probability:
+
+P(Witness identification) = P(Witness identification | Attacker is black) * P(Attacker is black) + P(Witness identification | Attacker is white) * P(Attacker is white)
+
+Since the witness correctly identifies race 80% of the time and errs 20% of the time, and 85% of the population is white, the probability of making this identification given that the attacker is white is:
+
+P(Witness identification | Attacker is white) = 0.2 (since the witness errs 20% of the time)
+
+Plugging these values into the law of total probability equation, we get:
+
+P(Witness identification) = (0.8 * 0.15) + (0.2 * 0.85) = 0.12 + 0.17 = 0.29
+
+Now, we can calculate the posterior probability:
+
+P(Attacker is black | Witness identification) = (0.8 * 0.15) / 0.29 = 0.345
+
+So, based on the witness's identification and the racial demographics of the city, our estimate of the probability that the attacker is black is approximately 0.345 or 34.5%. This means that, given the information at hand, we believe that there is a 34.5% chance that the attacker is black.

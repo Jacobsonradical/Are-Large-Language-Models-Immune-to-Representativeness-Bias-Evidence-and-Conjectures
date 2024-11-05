@@ -1,0 +1,34 @@
+To tackle this problem, we can use Bayes' theorem which is formulated as:
+
+\[ P(H | E) = \frac{P(E | H) P(H)}{P(E)} \]
+
+Where:
+- \( P(H | E) \) is the posterior probability that the attacker's height is 185 cm or taller given the evidence from the witnesses.
+- \( P(E | H) \) is the likelihood of the evidence given that the attacker is 185 cm or taller.
+- \( P(H) \) is the prior probability that the attacker's height is 185 cm or taller.
+- \( P(E) \) is the total probability of observing the evidence.
+
+From the provided data:
+- The prior probability \( P(H) \) = 0.15 (because 15% of the population is 185 cm or taller).
+- The complementary prior probability \( P(H^c) \) (attacker is shorter than 185 cm) = 0.85.
+
+The witness accuracies are as follows:
+- Witness 1 (claims attacker is ≥ 185 cm) correct 80% when attacker is indeed ≥ 185 cm, but also says attacker is ≥ 185 cm incorrectly in 20% of cases when attacker is < 185 cm.
+- Therefore, \( P(W_1 | H) = 0.80 \) and \( P(W_1 | H^c) = 0.20 \).
+- Witness 2 (claims attacker is < 185 cm) is correct 70% when attacker is indeed < 185 cm, but also says attacker is < 185 cm in 30% of cases when attacker is actually ≥ 185 cm.
+- Therefore, \( P(W_2 | H^c) = 0.70 \) and \( P(W_2 | H) = 0.30 \).
+
+We assume here the witness statements are conditionally independent given the height. Therefore, we can multiply the individual probabilities:
+\[ P(W_1, W_2 | H) = P(W_1 | H) P(W_2 | H) = 0.80 \times 0.30 = 0.24 \]
+\[ P(W_1, W_2 | H^c) = P(W_1 | H^c) P(W_2 | H^c) = 0.20 \times 0.70 = 0.14 \]
+
+Using total probability to find \( P(E) \) (probability of both witness statements):
+\[ P(E) = P(W_1, W_2 | H) P(H) + P(W_1, W_2 | H^c) P(H^c) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Finally, using Bayes' theorem:
+\[ P(H | E) = \frac{P(W_1, W_2 | H) P(H)}{P(E)} = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.2323 \]
+
+Thus, based on the information given and assuming the accuracy of the witnesses as independent conditional on the attacker's height, the probability that the attacker was 185 cm or taller is about 0.2323.
+
+Formatted as requested:
+{probability: 0.2323}

@@ -1,0 +1,44 @@
+First, we need to calculate the probability of drawing 3 cards marked X and 1 card marked O from each deck, then use that information to calculate the posterior odds.
+
+Let:
+- \( P(\text{Deck A}) = P(\text{Deck B}) = 0.5 \) (probability of choosing either deck)
+- \( P(\text{3X, 1O | Deck A}) \) be the probability of drawing 3 cards marked X and 1 card marked O from Deck A.
+- \( P(\text{3X, 1O | Deck B}) \) be the probability of drawing 3 cards marked X and 1 card marked O from Deck B.
+
+**Calculating \( P(\text{3X, 1O | Deck A}) \):**
+From Deck A:
+- Probability of drawing X = \( \frac{2}{3} \)
+- Probability of drawing O = \( \frac{1}{3} \)
+
+The scenario of drawing 3 Xs and 1 O can happen in several different orders, specifically \(\binom{4}{1} = 4\) ways (choosing 1 slot for O out of 4). Each specific sequence has a probability of \( \left(\frac{2}{3}\right)^3 \times \left(\frac{1}{3}\right) = \frac{8}{81} \).
+
+So, \( P(\text{3X, 1O | Deck A}) = 4 \times \frac{8}{81} = \frac{32}{81} \).
+
+**Calculating \( P(\text{3X, 1O | Deck B}) \):**
+From Deck B:
+- Probability of drawing X = \( \frac{1}{3} \)
+- Probability of drawing O = \( \frac{2}{3} \)
+
+Similarly, there are \( \binom{4}{1} = 4 \) ways. Each sequence has a probability of \( \left(\frac{1}{3}\right)^3 \times \left(\frac{2}{3}\right) = \frac{2}{81} \).
+
+So, \( P(\text{3X, 1O | Deck B}) = 4 \times \frac{2}{81} = \frac{8}{81} \).
+
+**Posterior Probabilities and Odds:**
+Now we update the probabilities:
+- \( P(\text{Deck A | 3X, 1O}) = \frac{P(\text{3X, 1O | Deck A})P(\text{Deck A})}{P(\text{3X, 1O})} \)
+- \( P(\text{Deck B | 3X, 1O}) = \frac{P(\text{3X, 1O | Deck B})P(\text{Deck B})}{P(\text{3X, 1O})} \)
+
+Where:
+- \( P(\text{3X, 1O}) = P(\text{3X, 1O | Deck A})P(\text{Deck A}) + P(\text{3X, 1O | Deck B})P(\text{Deck B}) = \frac{32}{81} \times \frac{1}{2} + \frac{8}{81} \times \frac{1}{2} \)
+- \( P(\text{3X, 1O}) = \frac{32+8}{162} = \frac{40}{162} = \frac{20}{81} \)
+
+Then:
+- \( P(\text{Deck A | 3X, 1O}) = \frac{\frac{32}{81} \times \frac{1}{2}}{\frac{20}{81}} = \frac{\frac{32}{162}}{\frac{20}{81}} = \frac{32/162}{20/81} = \frac{32}{162} \times \frac{81}{20} = \frac{4}{5} \)
+- \( P(\text{Deck B | 3X, 1O}) = \frac{\frac{8}{81} \times \frac{1}{2}}{\frac{20}{81}} = \frac{\frac{8}{162}}{\frac{20}{81}} = \frac{8/162}{20/81} = \frac{8}{162} \times \frac{81}{20} = \frac{1}{5} \)
+
+The posterior odds are:
+- \( \text{Odds}(A \text{ vs } B) = \frac{4/5}{1/5} = 4 \)
+
+Thus, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+
+{odds: 4}

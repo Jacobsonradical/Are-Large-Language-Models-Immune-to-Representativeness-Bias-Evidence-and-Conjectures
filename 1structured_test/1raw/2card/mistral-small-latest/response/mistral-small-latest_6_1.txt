@@ -1,0 +1,31 @@
+To solve this problem, we can use Bayes' theorem. Let's denote:
+
+- A: The event that the 4 cards were drawn from Deck A
+- B: The event that the 4 cards were drawn from Deck B
+- X: The event that 3 cards are marked X and 1 card is marked O
+
+We want to find P(A|X) / P(B|X), which is the posterior odds of A given X.
+
+By Bayes' theorem, we have:
+
+P(A|X) = P(X|A) * P(A) / P(X)
+P(B|X) = P(X|B) * P(B) / P(X)
+
+Since the deck was selected at random, P(A) = P(B) = 0.5.
+
+Now, let's calculate P(X|A) and P(X|B):
+
+- P(X|A) is the probability of drawing 3 Xs and 1 O from Deck A. This can be calculated as the binomial probability: C(4, 3) * (2/3)^3 * (1/3)^1 = 4/27
+- P(X|B) is the probability of drawing 3 Xs and 1 O from Deck B. This can be calculated as: C(4, 3) * (1/3)^3 * (2/3)^1 = 4/81
+
+The probability of the evidence X, regardless of which deck was chosen, is given by the law of total probability:
+
+P(X) = P(X|A) * P(A) + P(X|B) * P(B) = (4/27 * 0.5) + (4/81 * 0.5) = 14/162
+
+Now we can calculate the posterior odds:
+
+Posterior odds = P(A|X) / P(B|X) = [P(X|A) * P(A)] / [P(X|B) * P(B)] = [(4/27) * 0.5] / [(4/81) * 0.5] = 6
+
+So, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B is 6.
+
+Answer: {odds: 6}

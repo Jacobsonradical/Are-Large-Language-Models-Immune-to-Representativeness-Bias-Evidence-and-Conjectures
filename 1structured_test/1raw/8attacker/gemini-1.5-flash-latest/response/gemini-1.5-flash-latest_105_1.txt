@@ -1,0 +1,34 @@
+Here's how to approach this problem:
+
+**Understanding the Information:**
+
+* **Information a:**  This tells us the population distribution of heights and the attacker distribution within those heights. It's crucial for calculating prior probabilities.
+* **Information b:** This provides us with the witness's accuracy in identifying height. This is our likelihood information.
+
+**Bayes' Theorem**
+
+We can use Bayes' Theorem to calculate the probability of the attacker being taller than 185 cm given the witness's testimony:
+
+P(Taller | Witness) = [P(Witness | Taller) * P(Taller)] / P(Witness)
+
+Let's break down each term:
+
+* **P(Taller | Witness):** This is the probability we want to find - the probability of the attacker being taller than 185 cm given the witness's testimony.
+* **P(Witness | Taller):** This is the probability of the witness identifying someone as taller than 185 cm given they *actually* are taller than 185 cm.  From information b, this is 80% (0.8).
+* **P(Taller):** This is the prior probability of the attacker being taller than 185 cm. From information a, this is 15% (0.15).
+* **P(Witness):** This is the overall probability of the witness making the statement. We need to calculate this using the Law of Total Probability: 
+    * P(Witness) = P(Witness | Taller) * P(Taller) + P(Witness | Shorter) * P(Shorter)
+    * P(Witness | Shorter) = 20% (0.2) from information b
+    * P(Shorter) = 85% (0.85) from information a
+
+**Calculations**
+
+1. **Calculate P(Witness):**
+   P(Witness) = (0.8 * 0.15) + (0.2 * 0.85) = 0.26
+
+2. **Apply Bayes' Theorem:**
+   P(Taller | Witness) = (0.8 * 0.15) / 0.26 ≈ 0.4615
+
+**Answer**
+
+{probability: 0.4615} 

@@ -1,0 +1,52 @@
+To solve this problem, we need to use Bayes' Theorem. We'll calculate the posterior odds of having chosen Deck A given the sample of cards drawn. The odds can be found by computing the likelihood of drawing 3 X's and 1 O from each deck and comparing them.
+
+### Step-by-Step Calculation
+
+1. **Deck Probabilities:**
+    - Probability of choosing Deck A: \( P(A) = 0.5 \)
+    - Probability of choosing Deck B: \( P(B) = 0.5 \)
+
+2. **Card Probabilities in Each Deck:**
+    - Probability of drawing a card marked X from Deck A: \( P(X|A) = \frac{2}{3} \)
+    - Probability of drawing a card marked O from Deck A: \( P(O|A) = \frac{1}{3} \)
+    - Probability of drawing a card marked X from Deck B: \( P(X|B) = \frac{1}{3} \)
+    - Probability of drawing a card marked O from Deck B: \( P(O|B) = \frac{2}{3} \)
+
+3. **Likelihood of Drawing 3 X's and 1 O:**
+    - From Deck A: \( P(3X, 1O | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right) = 4 \cdot \frac{8}{81} = \frac{32}{81} \)
+    - From Deck B: \( P(3X, 1O | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right) = 4 \cdot \frac{2}{81} = \frac{8}{81} \)
+
+4. **Posterior Probabilities:**
+    - Using Bayes' Theorem: 
+      \[
+      P(A | 3X, 1O) = \frac{P(3X, 1O | A) \cdot P(A)}{P(3X, 1O)}
+      \]
+      \[
+      P(B | 3X, 1O) = \frac{P(3X, 1O | B) \cdot P(B)}{P(3X, 1O)}
+      \]
+
+    - Total Probability of Drawing 3 X's and 1 O:
+      \[
+      P(3X, 1O) = P(3X, 1O | A) \cdot P(A) + P(3X, 1O | B) \cdot P(B)
+      \]
+      \[
+      = \frac{32}{81} \cdot 0.5 + \frac{8}{81} \cdot 0.5 = \frac{16}{81} + \frac{4}{81} = \frac{20}{81}
+      \]
+
+    - Posterior Probability for Deck A:
+      \[
+      P(A | 3X, 1O) = \frac{\frac{32}{81} \cdot 0.5}{\frac{20}{81}} = \frac{32}{40} = 0.8
+      \]
+
+    - Posterior Probability for Deck B:
+      \[
+      P(B | 3X, 1O) = \frac{\frac{8}{81} \cdot 0.5}{\frac{20}{81}} = \frac{8}{40} = 0.2
+      \]
+
+5. **Posterior Odds:**
+    - The odds of Deck A compared to Deck B are:
+      \[
+      \frac{P(A | 3X, 1O)}{P(B | 3X, 1O)} = \frac{0.8}{0.2} = 4
+      \]
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are \( \boxed{4} \).

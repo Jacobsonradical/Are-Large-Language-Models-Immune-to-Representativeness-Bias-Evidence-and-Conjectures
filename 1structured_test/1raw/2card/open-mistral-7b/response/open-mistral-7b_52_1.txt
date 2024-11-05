@@ -1,0 +1,30 @@
+To calculate the posterior odds, we first need to calculate the probabilities of drawing 3 X's and 1 O from each deck and then find the ratio of these probabilities.
+
+Let P(A) be the probability that the selected deck is Deck A, and P(B) be the probability that it's Deck B. We want to find the ratio of P(A|data) to P(B|data), where data represents the observed event of drawing 3 X's and 1 O.
+
+First, let's find the probabilities of drawing 3 X's and 1 O from each deck:
+
+P(A and 3X, 1O) = P(A) * P(3X, 1O|A)
+                         = (1/2) * C(12,3) * (2/3)^3 * (1/3)^1
+                         = (1/2) * 220 * (1/27)
+
+P(B and 3X, 1O) = P(B) * P(3X, 1O|B)
+                         = (1/2) * C(18,3) * (1/3)^3 * (2/3)^1
+                         = (1/2) * 1140 * (1/27)
+
+Now, we can find the posterior probabilities:
+
+P(A|data) = P(A and 3X, 1O) / P(data)
+P(B|data) = P(B and 3X, 1O) / P(data)
+
+Where P(data) is the probability of observing 3 X's and 1 O, which is the sum of P(A and 3X, 1O) and P(B and 3X, 1O).
+
+We have:
+P(A|data) = (220/1140) * (1/P(data))
+P(B|data) = (1140/1140) * (1/P(data))
+
+Finally, the posterior odds are:
+
+{odds: (220/1140)} = {odds: 0.1915}
+
+So, given the observed data, the odds that the 4 cards were drawn from Deck A, the deck with more X-marked cards, is approximately 0.19 to 1 compared to Deck B, the deck with more O-marked cards.

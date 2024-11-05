@@ -1,0 +1,19 @@
+To reason through this problem, we'll use Bayes' theorem which allows us to update our prior beliefs after observing new evidence. Here, our prior belief is the probability that a person is 185 cm or taller based on the city's population (85% are shorter, so 15% are 185 cm or taller). The new evidence is the witness's statement.
+
+1. First, calculate the prior probability (before witness statement):
+   P(A) = Probability that a person is 185 cm or taller = 0.15
+
+2. Next, calculate the probability of the witness identifying the attacker as 185 cm or taller given that the attacker is actually not that tall (false positive rate), and the probability of the witness identifying the attacker as not 185 cm or taller given that the attacker is actually that tall (true negative rate):
+   P(B|not A) = Probability of identifying 185 cm or taller given actual height is less = 0.20
+   P(not B|A) = Probability of identifying less than 185 cm given actual height is 185 cm or taller = 0.20
+
+3. Calculate the true positive rate:
+   P(B|A) = 1 - P(not B|A) = 1 - 0.20 = 0.80
+
+4. Now, use Bayes' theorem to calculate the posterior probability (after witness statement):
+   P(A|B) = [P(B|A) * P(A)] / [P(B|A) * P(A) + P(B|not A) * P(not A)]
+   P(A|B) = [0.80 * 0.15] / [(0.80 * 0.15) + (0.20 * 0.85)]
+   P(A|B) ≈ 0.36
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller, given the available information, is:
+{probability: 0.36}

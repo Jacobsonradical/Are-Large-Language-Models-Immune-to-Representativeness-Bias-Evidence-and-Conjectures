@@ -1,0 +1,38 @@
+Here's how to approach this problem, breaking it down into parts:
+
+**1. Prior Probability:**
+
+* Before considering the witness testimony, the probability of the attacker being male is simply the percentage of males in the city's population. This is our "prior" information. 
+* Prior probability (Male) = 15% = 0.15
+
+**2. Witness Reliability:**
+
+* The witness has an 80% accuracy rate in identifying gender under similar conditions. This means:
+    * If the attacker *was* male, there's an 80% chance the witness would correctly identify them as male.
+    * If the attacker *was not* male (i.e., female), there's a 20% chance the witness would incorrectly identify them as male.
+
+**3. Combining Information (Bayes' Theorem)**
+
+To get a more accurate estimate, we need to combine the prior probability with the witness's reliability. This is where Bayes' Theorem comes in handy, but we can approach it intuitively:
+
+* **Scenario 1: Attacker is Male** 
+    * Probability of this scenario = 0.15 (our prior)
+    * Probability of witness saying "male" GIVEN this scenario = 0.80 
+* **Scenario 2: Attacker is Female**
+    * Probability of this scenario = 0.85 (1 - prior)
+    * Probability of witness saying "male" GIVEN this scenario = 0.20 (witness error rate)
+
+To find the probability the attacker IS male GIVEN the witness said "male," we need to consider the relative likelihood of both scenarios:
+
+* **Likelihood of scenario 1:** 0.15 * 0.80 = 0.12
+* **Likelihood of scenario 2:** 0.85 * 0.20 = 0.17
+
+The probability of the attacker being male is the likelihood of scenario 1 divided by the total likelihood:
+
+* **Probability (Male | Witness said "Male") = 0.12 / (0.12 + 0.17) ≈ 0.414**
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Important Note:** Even though the witness is quite accurate, the low prior probability of a male attacker means the witness's testimony doesn't make it overwhelmingly likely the attacker was male. 

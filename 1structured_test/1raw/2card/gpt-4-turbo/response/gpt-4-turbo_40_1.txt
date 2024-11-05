@@ -1,0 +1,25 @@
+To solve this problem, we must calculate the probability of drawing 3 Xs and 1 O from each deck and then use these probabilities to update our beliefs (using Bayesian inference) about which deck the cards were likely drawn from. We'll use the following steps:
+
+1. **Define the probabilities of drawing from each deck and card combinations**:
+   - Prior probability for each deck, P(A) and P(B), as both decks are equally likely: P(A) = P(B) = 1/2.
+   - Probability of drawing 3 Xs and 1 O from Deck A, P(data | A). Deck A has 2/3 X and 1/3 O.
+   - Probability of drawing 3 Xs and 1 O from Deck B, P(data | B). Deck B has 1/3 X and 2/3 O.
+
+2. **Calculate P(data | A) and P(data | B) using binomial distribution**:
+   \[ P(data | A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \left(\frac{2}{3}\right)^3 \cdot \left(\frac{1}{3}\right) \]
+   \[ P(data | A) = 4 \cdot \left(\frac{8}{27}\right) \cdot \left(\frac{1}{3}\right) = \frac{32}{81} \]
+
+   \[ P(data | B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \left(\frac{1}{3}\right)^3 \cdot \left(\frac{2}{3}\right) \]
+   \[ P(data | B) = 4 \cdot \left(\frac{1}{27}\right) \cdot \left(\frac{2}{3}\right) = \frac{8}{81} \]
+
+3. **Use Bayes' Theorem to update our beliefs**:
+   \[ P(A | data) = \frac{P(data | A) P(A)}{P(data)} \]
+   \[ P(B | data) = \frac{P(data | B) P(B)}{P(data)} \]
+   where \( P(data) = P(data | A) P(A) + P(data | B) P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} \).
+
+4. **Calculate the posterior odds**:
+   \[ \text{Odds} = \frac{P(A | data)}{P(B | data)} = \frac{P(data | A)}{P(data | B)} \] (since \( P(A) = P(B) \)).
+   \[ \text{Odds} = \frac{\frac{32}{81}}{\frac{8}{81}} = 4 \]
+
+Therefore, the posterior odds that the cards were drawn from Deck A compared to Deck B is:
+{odds: 4}

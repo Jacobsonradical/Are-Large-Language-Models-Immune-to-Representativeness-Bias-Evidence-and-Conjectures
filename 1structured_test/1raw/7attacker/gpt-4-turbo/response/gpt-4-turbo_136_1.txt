@@ -1,0 +1,29 @@
+To solve this problem, we need to use Bayesian inference. We are given:
+
+1. Witness's identification performance:
+   - True Positive Rate (Witness correctly identifying someone as 185 cm or taller): 80%
+   - False Positive Rate (Witness incorrectly identifying someone shorter than 185 cm as being 185 cm or taller): 20%
+
+2. Population proportions:
+   - Probability of someone being shorter than 185 cm (P(A<185)): 85%
+   - Probability of someone being 185 cm or taller (P(A≥185)): 15%
+
+We can apply Bayes' Theorem to find the probability that a person is 185 cm or taller given that the witness identified them as such. Bayes' theorem states:
+\[ P(A≥185 | W≥185) = \frac{P(W≥185 | A≥185) \times P(A≥185)}{P(W≥185)} \]
+where \( P(A≥185 | W≥185) \) is the probability the attacker is 185 cm or taller given that the witness identified them as 185 cm or taller, which is what we want to find.
+
+We know:
+- \( P(W≥185 | A≥185) = 0.80 \) (True Positive Rate)
+- \( P(A≥185) = 0.15 \)
+
+We need to calculate \( P(W≥185) \), the probability that the witness identifies someone as 185 cm or taller, which can be found using the law of total probability:
+\[ P(W≥185) = P(W≥185 | A≥185) \times P(A≥185) + P(W≥185 | A<185) \times P(A<185) \]
+\[ P(W≥185) = (0.80 \times 0.15) + (0.20 \times 0.85) \]
+\[ P(W≥185) = 0.12 + 0.17 = 0.29 \]
+
+Now we can use Bayes' Theorem:
+\[ P(A≥185 | W≥185) = \frac{0.80 \times 0.15}{0.29} \]
+\[ P(A≥185 | W≥185) = \frac{0.12}{0.29} \approx 0.4138 \]
+
+Therefore, the estimated probability that the attacker's height is 185 cm or taller, given the witness's identification, is approximately:
+{probability: 0.4138}

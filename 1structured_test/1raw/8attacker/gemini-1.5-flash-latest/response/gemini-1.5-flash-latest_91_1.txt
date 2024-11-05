@@ -1,0 +1,42 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:**  The witness has a good chance of correctly identifying height (80%), but there's a significant chance of error (20%). This information tells us the likelihood of the witness being correct or incorrect, regardless of the actual height of the attacker.
+* **Information b:**  While the population is roughly split in terms of height, the vast majority of attackers are shorter than 185 cm. This gives us a prior probability that an attacker is likely to be shorter.
+
+**Bayes' Theorem**
+
+We can use Bayes' Theorem to calculate the probability of the attacker being 185 cm or taller, given the witness's statement.  Here's how it works:
+
+* **Let's define the events:**
+    *  T: The attacker is 185 cm or taller.
+    *  S: The witness states the attacker is 185 cm or taller.
+* **We want to find:** P(T|S), the probability the attacker is tall given the witness's statement.
+
+* **Bayes' Theorem states:**
+  P(T|S) = [P(S|T) * P(T)] / P(S)
+
+Let's break down each part:
+
+* **P(S|T):** The probability the witness states "tall" given the attacker is actually tall. This is the witness's accuracy, which is 80% or 0.8.
+* **P(T):** The prior probability of an attacker being tall. This is 15% or 0.15 (from information b).
+* **P(S):** The probability of the witness stating "tall". This is a bit trickier and requires considering both scenarios:
+    * The witness correctly states "tall" when the attacker is tall: P(S|T) * P(T) = 0.8 * 0.15 = 0.12
+    * The witness incorrectly states "tall" when the attacker is short: P(S|~T) * P(~T) = 0.2 * 0.85 = 0.17 
+    *  Therefore, P(S) = 0.12 + 0.17 = 0.29
+
+**Calculation**
+
+Now we can plug these values into Bayes' Theorem:
+
+P(T|S) = (0.8 * 0.15) / 0.29 
+P(T|S) ≈ 0.41
+
+**Answer:**
+
+{probability: 0.41} 
+
+**Conclusion**
+
+Even though the witness identifies height fairly well, the fact that the vast majority of attackers are shorter makes the probability of the attacker being 185 cm or taller still relatively low (around 41%). 

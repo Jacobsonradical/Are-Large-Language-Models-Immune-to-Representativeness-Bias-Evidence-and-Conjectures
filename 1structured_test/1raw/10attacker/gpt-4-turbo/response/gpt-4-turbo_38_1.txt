@@ -1,0 +1,40 @@
+To solve this question, we can use Bayes' Theorem, which is a way of finding a probability when we know certain other probabilities. The event A will be that the attacker is 185 cm or taller, while the event B will be the observations provided by the witnesses.
+
+Given:
+- \( P(A) \), the probability that a person is 185 cm or taller, is 15% or 0.15.
+- \( P(A^c) \), the probability that a person is shorter than 185 cm, is 85% or 0.85.
+
+From witness 1:
+- Correctly says "185 cm or taller" 80% of the time. So, \( P(B|A) \) = 0.80.
+- Incorrectly says "shorter than 185 cm" 20% of the time. So, when the person is actually taller than 185 cm, they say "shorter" 20% of the time, but this is irrelevant here as we're focusing on their affirmation.
+
+From witness 2:
+- Correctly says "shorter than 185 cm" 70% of the time. So, when a person is shorter than 185 cm, \( P(B^c|A^c) \) = 0.70.
+- Incorrectly says "185 cm or taller" 30% of the time. So, \( P(B|A^c) \) = 0.30.
+
+We need to find \( P(A|B) \), the probability the attacker is 185 cm or taller given witness 1 says they are. Bayes' Theorem gives this as:
+
+\[
+P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}
+\]
+
+where \( P(B) \) can be calculated using the law of total probability:
+
+\[
+P(B) = P(B|A) \times P(A) + P(B|A^c) \times P(A^c)
+\]
+\[
+P(B) = 0.80 \times 0.15 + 0.30 \times 0.85 = 0.12 + 0.255 = 0.375
+\]
+
+Using these values, we can now calculate \( P(A|B) \):
+
+\[
+P(A|B) = \frac{0.80 \times 0.15}{0.375} = \frac{0.12}{0.375} \approx 0.32
+\]
+
+Thus, the estimate of the probability that the attacker's height was 185 cm or taller, as claimed by the first and contradicted by the second witness, is approximately 0.32.
+
+{
+  "probability": 0.32
+}

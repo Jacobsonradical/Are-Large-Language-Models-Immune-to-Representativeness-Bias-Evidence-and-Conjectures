@@ -1,0 +1,53 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information about the city's population and the reliability of the witness's identification.
+
+First, let's consider the baseline probability of randomly guessing that a person is 185 cm or taller, which is the same as the proportion of people in the city who meet this criterion:
+
+P(tall | city) = 15% = 0.15
+
+Next, we need to account for the witness's accuracy in identifying a person's height. The witness correctly identifies a person as 185 cm or taller 80% of the time, and errs (identifying a person as 185 cm or taller when they are not) 20% of the time.
+
+Let's assume that the witness identified the attacker as 185 cm or taller. We can use Bayes' theorem to update our prior probability based on the witness's identification:
+
+P(tall | witness) = P(witness | tall) \* P(tall | city) / P(witness)
+
+where P(witness | tall) is the probability that the witness identifies a tall person correctly (80%), P(tall | city) is the baseline probability of a randomly chosen person being tall (0.15), and P(witness) is the overall probability of the witness identifying a person as 185 cm or taller.
+
+To compute P(witness), we can use the law of total probability:
+
+P(witness) = P(witness | tall) \* P(tall | city) + P(witness | not tall) \* P(not tall | city)
+
+where P(not tall | city) is the probability that a randomly chosen person is not tall (1 - 0.15 = 0.85), and P(witness | not tall) is the probability that the witness identifies a not-tall person as 185 cm or taller (20%, because the witness is known to err 20% of the time).
+
+Putting it all together, we have:
+
+P(witness) = (0.8) \* (0.15) + (0.2) \* (0.85) = 0.12 + 0.17 = 0.29
+
+Finally, we can compute the posterior probability of the attacker being 185 cm or taller, given the witness's identification:
+
+P(tall | witness) = (0.8) \* (0.15) / (0.29) = 0.32 / 0.29 = 1.14, which is not a valid probability.
+
+This suggests that we have made an error in our calculation. The error is that we have not accounted for the fact that the witness identified the attacker as 185 cm or taller, rather than assuming that the witness identified a randomly chosen person.
+
+To correct this error, we need to modify our calculation of P(witness) to account for the fact that the witness identified the attacker as tall:
+
+P(witness) = P(witness | tall) \* P(tall | city) + P(witness | not tall) \* P(not tall | city | witness)
+
+where P(not tall | city | witness) is the probability that the witness identifies a not-tall person as 185 cm or taller, given that the witness identified the attacker as tall.
+
+We can compute P(not tall | city | witness) as follows:
+
+P(not tall | city | witness) = P(witness | not tall) \* P(not tall | city) / P(witness | not tall)
+
+where P(witness | not tall) is the probability that the witness identifies a not-tall person as 185 cm or taller (0.2), and P(not tall | city) is the probability that a randomly chosen person is not tall (0.85).
+
+Putting it all together, we have:
+
+P(not tall | city | witness) = (0.2) \* (0.85) / (0.2) = 0.17
+
+Finally, we can compute the corrected probability that the attacker is 185 cm or taller, given the witness's identification:
+
+P(tall | witness) = (0.8) \* (0.15) / (0.12 + 0.17 \* 0.8) = 0.12 / (0.12 + 0.14) = 0.46
+
+Therefore, our estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.46}

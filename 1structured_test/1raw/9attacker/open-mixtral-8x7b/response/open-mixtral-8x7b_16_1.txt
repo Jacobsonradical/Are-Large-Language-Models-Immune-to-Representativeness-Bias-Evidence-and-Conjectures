@@ -1,0 +1,34 @@
+Without any further information about the attacker, it is still possible to update our prior beliefs about the attacker's height based on the information about the neighborhood's population. This is an application of Bayes' theorem.
+
+Let's denote:
+- P(A): probability that a random person in the city is 185 cm or taller = 0.15
+- P(B): probability that a random person in the neighborhood is 185 cm or taller = 0.2
+- P(A|B): probability that a random person in the neighborhood is 185 cm or taller, given that they are 185 cm or taller in the city
+
+We want to find P(A|B), which can be computed using Bayes' theorem:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+P(B|A) is the probability that a person is from the neighborhood, given that they are 185 cm or taller in the city. Since the neighborhood is in the city, P(B|A) = 1.
+
+P(B) can be computed using the law of total probability:
+P(B) = P(B and A) + P(B and not A)
+     = P(B|A) * P(A) + P(B|not A) * P(not A)
+     = 1 * 0.15 + P(B|not A) * 0.85
+
+We don't know the exact value of P(B|not A), but it must be between 0 and 0.2 (because it's a fraction of the 80% non-tall people). Let's denote the maximum of P(B|not A) as Pmax(B|not A) = 0.2.
+
+Then, the minimum of P(B) is when P(B|not A) is maximum:
+Pmin(B) = 1 * 0.15 + 0.2 * 0.85 = 0.215
+
+And the maximum of P(B) is when P(B|not A) is minimum (0):
+Pmax(B) = 1 * 0.15 + 0 * 0.85 = 0.15
+
+Now, we can compute the maximum and minimum of P(A|B):
+- Pmax(A|B) = 1 * 0.15 / 0.215 = 0.698 (69.8% chance that the attacker is 185 cm or taller)
+- Pmin(A|B) = 1 * 0.15 / 0.15 = 1 (100% chance that the attacker is 185 cm or taller)
+
+Considering the uncertainty of P(B), a reasonable estimate of P(A|B) would be the average of the two values:
+P(A|B) ≈ (0.698 + 1) / 2 = 0.849 (84.9% chance that the attacker is 185 cm or taller)
+
+{probability: 0.849}

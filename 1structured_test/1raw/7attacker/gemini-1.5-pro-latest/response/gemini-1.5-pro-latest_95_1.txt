@@ -1,0 +1,40 @@
+Here's how we can estimate the probability:
+
+**Understanding the Problem**
+
+We need to combine two pieces of information:
+
+* **Prior Probability (Information 'a'):** The general likelihood of someone in the city being 185cm or taller (15%).
+* **Witness Reliability (Information 'b'):** How much we can trust the witness's statement, given their 80% accuracy rate.
+
+**Using Bayes' Theorem**
+
+Bayes' Theorem is perfect for this kind of problem. It gives us a way to update our prior belief based on new evidence:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Where:
+
+* P(A|B) = Probability of event A (attacker is 185cm or taller) given that event B happened (witness said so).
+* P(B|A) = Probability of event B (witness saying 185cm or taller) given that event A is true (attacker actually is that tall). This is the witness's accuracy when the person is actually that tall (80% or 0.8).
+* P(A) = Prior probability of event A (attacker being 185cm or taller), which is 0.15.
+* P(B) = Overall probability of the witness saying "185cm or taller", regardless of whether the attacker actually is. 
+
+To calculate P(B), we need to consider both scenarios:
+
+1. **Attacker IS 185cm+ and witness is RIGHT:** 0.15 (prior) * 0.8 (accuracy) = 0.12
+2. **Attacker IS NOT 185cm+ and witness is WRONG:** 0.85 (prior) * 0.2 (error rate) = 0.17
+3. **P(B) = Sum of these scenarios = 0.12 + 0.17 = 0.29**
+
+**Putting it Together**
+
+Now we can plug the values back into Bayes' Theorem:
+
+P(Attacker is 185cm+| Witness said so) = (0.8 * 0.15) / 0.29 
+                                               = 0.4138 (approximately)
+
+**Answer:**
+
+{probability: 0.4138} 
+
+**Therefore, given the witness testimony and the city's height distribution, there's approximately a 41.38% probability the attacker was indeed 185cm or taller.** 

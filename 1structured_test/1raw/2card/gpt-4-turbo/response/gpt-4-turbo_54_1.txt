@@ -1,0 +1,39 @@
+To calculate the posterior odds that the 4 cards were drawn from Deck A compared to Deck B, we use Bayes' Theorem. Specifically, we're interested in the conditional probabilities of drawing 3 X's and 1 O from each respective deck, and then use this information to update our initial belief about the likelihood of each deck being chosen.
+
+Let's denote:
+- \( p(X)\) and \( p(O) \) as the probabilities of drawing a card marked X and a card marked O, respectively, from a deck.
+- \( p(D_A) \) and \( p(D_B) \) as the probabilities of choosing Deck A or Deck B (initially equal at 1/2 each given the choice was random).
+- \( p(\text{3X, 1O} | D_A) \) and \( p(\text{3X, 1O} | D_B) \) as the probabilities of drawing 3 X's and 1 O given Deck A and Deck B, respectively.
+
+1. Calculate \( p(\text{3X, 1O} | D_A) \):
+   - In Deck A, \( p(X) = 2/3 \) and \( p(O) = 1/3 \).
+   - Using the binomial formula: 
+     \[
+     p(\text{3X, 1O} | D_A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81}
+     \]
+
+2. Calculate \( p(\text{3X, 1O} | D_B) \):
+   - In Deck B, \( p(X) = 1/3 \) and \( p(O) = 2/3 \).
+   - Using the binomial formula:
+     \[
+     p(\text{3X, 1O} | D_B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81}
+     \]
+
+3. Calculate posterior probabilities:
+   - Using Bayes' rule we update our beliefs based on the evidence of drawing 3 X's and 1 O:
+   \[
+   p(D_A | \text{3X, 1O}) = \frac{p(\text{3X, 1O} | D_A) p(D_A)}{p(\text{3X, 1O} | D_A) p(D_A) + p(\text{3X, 1O} | D_B) p(D_B)}
+   \]
+   - Given \( p(D_A) = p(D_B) = 1/2 \), the denominator is a scaling factor:
+   \[
+   p(D_A | \text{3X, 1O}) = \frac{\frac{32}{81} \times \frac{1}{2}}{\frac{32}{81} \times \frac{1}{2} + \frac{8}{81} \times \frac{1}{2}} = \frac{\frac{32}{81}}{\frac{32}{81} + \frac{8}{81}} = \frac{32}{40} = \frac{4}{5}
+   \]
+   - Hence, \( p(D_B | \text{3X, 1O}) = 1 - \frac{4}{5} = \frac{1}{5} \)
+
+4. The odds ratio now for \( D_A \) to \( D_B \) is:
+   \[
+   \text{Odds} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4
+   \]
+
+Therefore, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B are:
+{odds: 4}

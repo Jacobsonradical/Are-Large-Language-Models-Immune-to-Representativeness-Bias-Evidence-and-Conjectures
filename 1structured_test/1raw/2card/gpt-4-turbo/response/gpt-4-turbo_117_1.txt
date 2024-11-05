@@ -1,0 +1,27 @@
+To solve this problem, we calculate the likelihood of drawing 3 X's and 1 O from each deck (Deck A and Deck B) and then apply Bayes' rule to update our beliefs about the likelihood of each deck being chosen based on the evidence from the draws.
+
+1. **Calculating probabilities of the outcome for each deck**:
+    - **Deck A**: With 2/3 of the cards marked X and 1/3 marked O, the probability of drawing 3 X's and 1 O in no particular order from Deck A is given by the hypergeometric distribution. However, we can simplify using the binomial formula since the deck is large:
+      \[
+      P(3X, 1O \text{ from A}) = \binom{4}{3} \left(\frac{2}{3}\right)^{3} \left(\frac{1}{3}\right)^{1} = 4 \left(\frac{8}{27}\right) \left(\frac{1}{3}\right) = \frac{32}{81}
+      \]
+      
+    - **Deck B**: With 1/3 of the cards marked X and 2/3 marked O, the proportion of drawing 3 X's and 1 O from Deck B is:
+      \[
+      P(3X, 1O \text{ from B}) = \binom{4}{3} \left(\frac{1}{3}\right)^{3} \left(\frac{2}{3}\right)^{1} = 4 \left(\frac{1}{27}\right) \left(\frac{2}{3}\right) = \frac{8}{81}
+      \]
+
+2. **Calculate posterior odds**:
+    - Assume that the prior probability of choosing any deck is the same, \( P(A) = P(B) = \frac{1}{2} \). Using Bayes' Theorem, the posterior odds ratio, \( \frac{P(A | \text{data})}{P(B | \text{data})} \), can be rewritten in terms of likelihoods times priors:
+      \[
+      \text{Odds}(A:B \mid \text{data}) = \frac{P(\text{data} | A) \cdot P(A)}{P(\text{data} | B) \cdot P(B)}
+      \]
+      \[
+      \frac{P(\text{data} | A)}{P(\text{data} | B)} = \frac{\frac{32}{81}}{\frac{8}{81}} = \frac{32}{8} = 4
+      \]
+
+Given these calculations, the posterior odds that the 4 cards were drawn from Deck A compared to Deck B, considering that they are 3 X's and 1 O, is 4 to 1.
+
+**Answer format:**
+
+{odds: 4}

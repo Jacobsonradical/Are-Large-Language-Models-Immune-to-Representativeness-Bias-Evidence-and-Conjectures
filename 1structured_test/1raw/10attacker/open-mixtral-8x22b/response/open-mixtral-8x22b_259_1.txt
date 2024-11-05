@@ -1,0 +1,35 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we will use the Bayesian approach, updating our prior probability with the likelihood information from the witnesses.
+
+First, let's denote the events as follows:
+A: The attacker's height is 185 cm or taller.
+B: The first witness claims the attacker's height is 185 cm or taller.
+C: The second witness claims the attacker's height is shorter than 185 cm.
+
+Our prior probability of A is given by the population distribution:
+P(A) = 15% = 0.15
+
+The likelihoods of B and C given A (and given not-A) can be calculated as follows:
+P(B|A) = 80% = 0.8 (the first witness identifies the correct height)
+P(B|~A) = 20% = 0.2 (the first witness makes an error)
+P(C|A) = 20% = 0.2 (the second witness makes an error)
+P(C|~A) = 70% = 0.7 (the second witness identifies the correct height)
+
+Now, let's update our prior with the likelihoods:
+P(A|B,C) = P(B,C|A) * P(A) / P(B,C)
+
+Since B and C are independent given A, we can write:
+P(B,C|A) = P(B|A) * P(C|A) = 0.8 * 0.2 = 0.16
+
+And similarly:
+P(B,C|~A) = P(B|~A) * P(C|~A) = 0.2 * 0.7 = 0.14
+
+Now, let's calculate P(B,C):
+P(B,C) = P(B,C|A) * P(A) + P(B,C|~A) * P(~A)
+P(B,C) = 0.16 * 0.15 + 0.14 * 0.85 = 0.1445
+
+Finally, we can estimate the probability that the attacker's height was 185 cm or taller:
+P(A|B,C) = (0.16 * 0.15) / 0.1445 ≈ 0.1619
+
+So, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.1619 or 16.19%.
+
+{probability: 0.1619}

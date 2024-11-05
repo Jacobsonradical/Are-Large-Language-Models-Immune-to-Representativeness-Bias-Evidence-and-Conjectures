@@ -1,0 +1,22 @@
+Let's reason through this problem:
+
+1. We know that the first witness is correct 80% of the time when estimating heights.
+2. The attacker is either taller than or shorter than 185 cm.
+3. We want to find the probability that the attacker is 185 cm or taller.
+4. The population distribution tells us that 15% of the population is 185 cm or taller.
+
+However, since the attack happened at night and the victim couldn't see the attacker's height, we cannot directly use this population statistic to estimate the attacker's height. Instead, we should use the reliability of the witness's claims.
+
+5. The first witness is correct 80% of the time, and incorrect 20% of the time.
+6. Given the witness's claim that the attacker was 185 cm or taller, there's an probability of 0.8 that this claim is correct (P(Correct|Claim)) and a probability of 0.2 that this claim is incorrect (P(Incorrect|Claim)).
+7. Based on the witness's claim, we want to find the probability that the attacker is actually 185 cm or taller (P(185 cm or taller|Claim)).
+8. Using Bayes' theorem, we can calculate:
+
+P(185 cm or taller|Claim) = P(Claim|185 cm or taller) * P(185 cm or taller) / P(Claim)
+= P(Correct|Claim) * P(185 cm or taller) / [P(Correct|Claim) * P(185 cm or taller) + P(Incorrect|Claim) * P(not 185 cm or taller)]
+= (0.8) * (0.15) / [(0.8) * (0.15) + (0.2) * (0.85)]
+= 0.12
+
+Therefore, our estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is:
+
+{probability: 0.12}

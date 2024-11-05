@@ -1,0 +1,49 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information given about the witness's ability to judge a person's height and the distribution of attacker heights.
+
+Let's denote:
+- P(A): probability that the attacker's height is 185 cm or taller
+- P(B): probability that the witness identifies the attacker's height as 185 cm or taller
+- P(B'): probability that the witness identifies the attacker's height as shorter than 185 cm
+- P(E): probability that a randomly chosen person is 185 cm or taller
+- P(E'): probability that a randomly chosen person is shorter than 185 cm
+
+We are given:
+- P(B|A) = 0.8 (witness correctly identifies height as 185 cm or taller with 80% probability)
+- P(B'|A) = 0.2 (witness incorrectly identifies height as shorter than 185 cm with 20% probability)
+- P(A) = x (probability we want to estimate)
+- P(E) = 0.5 (population of people 185 cm or taller is roughly equal in size)
+- P(E') = 0.5 (population of people shorter than 185 cm is roughly equal in size)
+- P(A|E) = 0.15 (only 15% of attackers are 185 cm or taller)
+- P(A'|E') = 0.85 (85% of attackers are shorter than 185 cm)
+
+Now, we can apply Bayes' theorem:
+
+P(A|B) = (P(B|A) * P(A)) / P(B)
+
+We need to find P(B):
+P(B) = P(B|A) * P(A) + P(B|A') * P(A')
+
+Since A and A' are complementary events:
+P(A') = 1 - P(A) = 1 - x
+
+We also need to find P(B|A'):
+P(B|A') = P(witness identifies height as 185 cm or taller when the attacker is shorter than 185 cm)
+= 1 - P(witness identifies height as shorter than 185 cm when the attacker is shorter than 185 cm)
+= 1 - P(B'|A')
+= 1 - (P(B'|A') * P(A')) / P(B'|A')
+= 1 - P(A')
+= 1 - (1 - x)
+= x
+
+Now we can compute P(B):
+P(B) = P(B|A) * P(A) + P(B|A') * P(A')
+= (0.8 * x) + (x * (1 - x))
+
+Finally, we can find the probability that the attacker's height was 185 cm or taller:
+
+P(A|B) = (P(B|A) * P(A)) / P(B)
+= (0.8 * x) / ((0.8 * x) + (x * (1 - x)))
+
+Given the information about the population distribution, we know that P(A) has to be less than 0.5, so we can try different values for x and solve the equation. In this case, the correct answer is close to x = 0.3:
+
+probability: 0.378, rounded to three decimal places

@@ -1,0 +1,42 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Information a:**  This tells us the attacker is more likely to be shorter than 185 cm, even though the population is split evenly between those heights.
+* **Information b:** This provides a measure of the witness's reliability in judging height.
+
+**Calculations**
+
+1. **Prior Probability:**  Since the population is split evenly, the prior probability of the attacker being 185 cm or taller is 0.5 (50%).
+
+2. **Likelihood:** The witness correctly identified height 80% of the time. So, the likelihood of the witness identifying someone as 185 cm or taller given they *actually* are that height is 0.8.
+
+3. **Conditional Probability:** We need to find the probability of the attacker being 185 cm or taller given the witness identified them as such. This is where Bayes' Theorem comes in:
+
+   P(Attacker ≥ 185 cm | Witness says ≥ 185 cm) = [P(Witness says ≥ 185 cm | Attacker ≥ 185 cm) * P(Attacker ≥ 185 cm)] / P(Witness says ≥ 185 cm)
+
+   * We know P(Witness says ≥ 185 cm | Attacker ≥ 185 cm) = 0.8 (likelihood)
+   * We know P(Attacker ≥ 185 cm) = 0.5 (prior probability)
+   * We need to calculate P(Witness says ≥ 185 cm).
+
+4. **Calculating P(Witness says ≥ 185 cm):** This requires considering both cases (attacker actually is ≥ 185 cm and attacker actually is < 185 cm) and weighting them by their probabilities:
+
+   * **Case 1: Attacker ≥ 185 cm:**
+      * P(Witness says ≥ 185 cm | Attacker ≥ 185 cm) = 0.8
+      * P(Attacker ≥ 185 cm) = 0.5
+      * Contribution to P(Witness says ≥ 185 cm) = 0.8 * 0.5 = 0.4
+
+   * **Case 2: Attacker < 185 cm:**
+      * P(Witness says ≥ 185 cm | Attacker < 185 cm) = 0.2 (since the witness is wrong 20% of the time)
+      * P(Attacker < 185 cm) = 0.5 
+      * Contribution to P(Witness says ≥ 185 cm) = 0.2 * 0.5 = 0.1
+
+   * P(Witness says ≥ 185 cm) = 0.4 + 0.1 = 0.5
+
+5. **Putting it together:**
+
+   P(Attacker ≥ 185 cm | Witness says ≥ 185 cm) = (0.8 * 0.5) / 0.5 = 0.8
+
+**Answer:**
+
+{probability: 0.8} 

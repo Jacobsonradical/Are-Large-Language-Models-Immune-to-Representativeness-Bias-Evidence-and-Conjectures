@@ -1,0 +1,37 @@
+Let's reason through this:
+
+1. We know that a witness identified the attacker as black, but we also know that the victim could not see the attacker's race, so the only information about the attacker's race comes from the witness.
+2. The witness is correct 80% of the time when identifying a person's race and errs 20% of the time.
+3. The city's population is 85% white and 15% black.
+
+To compute the probability that the attacker is black based on the witness's testimony, we can use Bayes' theorem:
+
+P(B|W) = P(W|B) * P(B) / P(W)
+
+Where:
+- P(B|W) is the probability that the attacker is black given the witness's testimony.
+- P(W|B) is the probability that the witness says the attacker is black when the attacker is actually black.
+- P(B) is the prior probability that the attacker is black, based on the city's population.
+- P(W) is the probability that the witness says the attacker is black, regardless of whether the attacker is actually black or white.
+
+First, let's compute P(W|B):
+
+There are two scenarios where the witness says the attacker is black:
+- The attacker is actually black, which happens with probability P(B) = 0.15.
+- The witness makes a mistake and says the attacker is black when the attacker is actually white, which happens with probability P(W|~B) * P(~B) = 0.2 * 0.85 = 0.17.
+
+So, P(W|B) = 0.15 + 0.17 = 0.32.
+
+Next, let's compute P(W):
+
+There are two scenarios where the witness says the attacker is black:
+- The attacker is actually black, which happens with probability P(W|B) * P(B) = 0.32 * 0.15 = 0.048.
+- The witness makes a mistake and says the attacker is black when the attacker is actually white, which happens with probability P(W|~B) * P(~B) = 0.17.
+
+So, P(W) = 0.048 + 0.17 = 0.218.
+
+Finally, we can compute P(B|W):
+
+P(B|W) = P(W|B) * P(B) / P(W) = 0.32 * 0.15 / 0.218 = 0.229.
+
+Therefore, the estimated probability that the attacker is black is 22.9%.

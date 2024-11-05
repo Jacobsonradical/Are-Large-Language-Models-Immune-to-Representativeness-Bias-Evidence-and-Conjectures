@@ -1,0 +1,39 @@
+Here's how we can approach this problem:
+
+**Understanding the Information**
+
+* **Information a:** This tells us the general population distribution of heights and how that distribution relates to attackers.  
+* **Information b:** This provides information about the reliability of the witness's testimony.
+
+**Calculating the Probability**
+
+1. **Prior Probability:**  Based on information "a", the prior probability of the attacker being 185 cm or taller is 15% (0.15).
+
+2. **Likelihood:** Information "b" tells us the witness is correct 80% of the time. This means:
+    * The likelihood of the witness identifying someone as 185 cm or taller *given* they are actually 185 cm or taller is 0.8.
+    * The likelihood of the witness identifying someone as 185 cm or taller *given* they are actually shorter than 185 cm is 0.2.
+
+3. **Bayes' Theorem:** We can use Bayes' Theorem to calculate the posterior probability (the probability of the attacker being 185 cm or taller given the witness's testimony):
+
+   ```
+   P(Attacker Tall | Witness Says Tall) = [P(Witness Says Tall | Attacker Tall) * P(Attacker Tall)] / P(Witness Says Tall) 
+   ```
+
+   *  **P(Witness Says Tall | Attacker Tall) = 0.8** (from information b)
+   *  **P(Attacker Tall) = 0.15** (prior probability from information a)
+   * **P(Witness Says Tall):**  We need to calculate the probability of the witness saying "tall" in general. This can be calculated using the law of total probability:
+
+       ```
+       P(Witness Says Tall) = P(Witness Says Tall | Attacker Tall) * P(Attacker Tall) + P(Witness Says Tall | Attacker Short) * P(Attacker Short) 
+       P(Witness Says Tall) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29 
+       ```
+
+4. **Putting it together:**
+
+   ```
+   P(Attacker Tall | Witness Says Tall) = (0.8 * 0.15) / 0.29 ≈ 0.41
+   ```
+
+**Answer:**
+
+{probability: 0.41} 

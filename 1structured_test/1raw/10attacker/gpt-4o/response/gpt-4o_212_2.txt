@@ -1,0 +1,46 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we will use Bayes' theorem, which helps us update the probability of a hypothesis based on new evidence.
+
+Let's denote:
+- \( T \) as the event "the attacker is 185 cm or taller."
+- \( S \) as the event "the attacker is shorter than 185 cm."
+- \( W1_{T} \) as the event "the first witness says the attacker is taller."
+- \( W2_{S} \) as the event "the second witness says the attacker is shorter."
+
+Given data:
+- \( P(T) = 0.15 \)
+- \( P(S) = 0.85 \)
+- \( P(W1_T | T) = 0.80 \), \( P(W1_S | T) = 0.20 \) (first witness accuracy and error rates)
+- \( P(W2_S | S) = 0.70 \), \( P(W2_T | S) = 0.30 \) (second witness accuracy and error rates)
+
+Since the second witness claimed the attacker was shorter, it contradicts the first witness's claim. Therefore, we need to consider both pieces of evidence, and then aggregate them.
+
+Using Bayes' theorem, we compute:
+
+1. Probability that both witnesses are correct, given that the attacker is taller (185 cm or more):
+
+\[ P(W1_{T} \text{ and } W2_{S} | T) = P(W1_{T} | T) \cdot P(W2_{S} | T) \]
+Since \( W2_{S} | T \) is essentially the error rate for the second witness:
+\[ P(W2_{S} | T) = 0.30 \]
+\[ P(W1_{T} \text{ and } W2_{S} | T) = 0.80 \cdot 0.30 = 0.24 \]
+
+2. Probability that the scenario is as the witnesses claim but the attacker is shorter:
+
+\[ P(W1_{T} \text{ and } W2_{S} | S) = P(W1_{T} | S) \cdot P(W2_{S} | S) \]
+Using the error rate for the first witness:
+\[ P(W1_{T} | S) = 0.20 \]
+\[ P(W1_{T} \text{ and } W2_{S} | S) = 0.20 \cdot 0.70 = 0.14 \]
+
+Now, we use Bayes' theorem to revise our belief about the height:
+\[ P(T | W1_{T} \text{ and } W2_{S}) = \frac{P(W1_{T} \text{ and } W2_{S} | T) \cdot P(T)}{ P(W1_{T} \text{ and } W2_{S}) } \]
+Where \( P(W1_{T} \text{ and } W2_{S}) \) is a normalization factor:
+\[ P(W1_{T} \text{ and } W2_{S}) = P(W1_{T} \text{ and } W2_{S} | T) \cdot P(T) + P(W1_{T} \text{ and } W2_{S} | S) \cdot P(S) \]
+\[ P(W1_{T} \text{ and } W2_{S}) = (0.24 \cdot 0.15) + (0.14 \cdot 0.85) \]
+\[ P(W1_{T} \text{ and } W2_{S}) = 0.036 + 0.119 = 0.155 \]
+
+Finally, we plug back in:
+\[ P(T | W1_{T} \text{ and } W2_{S}) = \frac{0.24 \cdot 0.15}{0.155} \]
+\[ P(T | W1_{T} \text{ and } W2_{S}) \approx \frac{0.036}{0.155} \approx 0.232 \]
+
+Thus, the estimate of the probability that the attacker's height was 185 cm or taller, given the first witness's claim, is approximately 0.232.
+
+\{probability: 0.232\}

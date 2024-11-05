@@ -1,0 +1,38 @@
+To reason through this problem, we need to consider both the base rate (population distribution) and the accuracy of the witness. This is a situation where the accuracy of the witness is dependent on the true height of the attacker, which makes it a case of dependent or conditional probabilities.
+
+1. According to the base rate, 15% of the population is 185 cm or taller.
+2. The witness correctly identifies a person as 185 cm or taller 80% of the time, but also errs 20% of the time.
+3. We want to find the probability that the attacker is 185 cm or taller, given the information provided by the witness.
+
+Using Bayes' theorem, we can calculate this as follows:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+where:
+- P(A) is the probability that the attacker is 185 cm or taller (0.15)
+- P(B|A) is the probability that the witness correctly identifies the attacker as 185 cm or taller (0.8)
+- P(B) is the probability of the witness saying the attacker is 185 cm or taller, regardless of their actual height (this is what we want to find)
+- P(B|A) * P(A) gives us the probability that the attacker is 185 cm or taller and the witness correctly identifies them as such
+
+To find P(B), we need to consider two scenarios: the witness correctly identifies the attacker as 185 cm or taller, and the witness incorrectly identifies the attacker as 185 cm or taller.
+
+P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+
+We already know P(B|A) * P(A) (0.8 * 0.15 = 0.12). Now we need to find P(B|not A) and P(not A).
+
+- P(not A) is the probability that the attacker is NOT 185 cm or taller, which is 1 - P(A) = 0.85
+- P(B|not A) is the probability that the witness incorrectly identifies the attacker as 185 cm or taller, which is 1 - P(correctly judges height) = 1 - 0.8 = 0.2
+
+Now we can calculate P(B):
+P(B) = [P(B|A) * P(A)] + [P(B|not A) * P(not A)]
+P(B) = (0.12) + [(0.2) * (0.85)]
+P(B) = 0.12 + 0.17
+P(B) = 0.29
+
+Finally, we can calculate the probability that the attacker is 185 cm or taller, given the witness's statement:
+
+P(A|B) = [P(B|A) * P(A)] / P(B)
+P(A|B) = (0.12) / (0.29)
+P(A|B) ≈ 0.4138
+
+{probability: 0.4138}

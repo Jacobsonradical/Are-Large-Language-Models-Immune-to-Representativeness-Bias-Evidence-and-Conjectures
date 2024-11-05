@@ -1,0 +1,49 @@
+Here's how to approach this problem:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Prior probability:** 15% of the city's population is 185 cm or taller. This is our initial belief before considering the witness's testimony.
+* **Likelihood:** The witness correctly identifies height 80% of the time. This tells us how likely the witness is to be right, given the person's actual height.
+
+We need to combine these to get the **posterior probability**, which is the probability that the attacker is 185 cm or taller *given* the witness's testimony.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is a powerful tool for updating beliefs in light of new evidence:
+
+```
+P(A|B) = [P(B|A) * P(A)] / P(B)
+```
+
+Where:
+
+* P(A|B) is the probability of event A happening given that event B has already happened (our posterior probability).
+* P(B|A) is the probability of event B happening given that event A has already happened (our likelihood).
+* P(A) is the probability of event A happening (our prior probability).
+* P(B) is the probability of event B happening.
+
+**Let's define our events:**
+
+* A: Attacker is 185 cm or taller.
+* B: Witness identifies the attacker as 185 cm or taller.
+
+**Applying the values to Bayes' Theorem:**
+
+* P(A) = 0.15 (Prior probability that the attacker is 185 cm or taller)
+* P(B|A) = 0.80 (Likelihood of the witness correctly identifying someone as 185 cm or taller given they actually are)
+* P(B|not A) = 0.20 (Likelihood of the witness incorrectly identifying someone as 185 cm or taller given they are not)
+
+To calculate P(B), we need to consider both scenarios:
+
+* P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+* P(B) = (0.80 * 0.15) + (0.20 * 0.85) = 0.29
+
+Now we can calculate the posterior probability:
+
+* P(A|B) = (0.80 * 0.15) / 0.29 ≈ 0.414
+
+**Answer:**
+
+{probability: 0.414} 

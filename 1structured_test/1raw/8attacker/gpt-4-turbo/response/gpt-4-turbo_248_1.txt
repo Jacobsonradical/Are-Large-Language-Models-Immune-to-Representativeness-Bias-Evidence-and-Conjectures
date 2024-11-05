@@ -1,0 +1,37 @@
+To solve this problem, we apply Bayes' theorem, which allows us to update our probabilities based on new evidence.
+
+First, let's define the relevant probabilities:
+- \( P(S) \) = Probability the attacker is shorter than 185 cm
+- \( P(T) \) = Probability the attacker is 185 cm or taller
+- \( P(W | S) \) = Probability the witness says the attacker is 185 cm or taller given they are shorter than 185 cm
+- \( P(W | T) \) = Probability the witness says the attacker is 185 cm or taller given they are 185 cm or taller
+- \( P(W) \) = Probability the witness says the attacker is 185 cm or taller
+
+From the information provided:
+- The population is split roughly equally between those under 185 cm and those 185 cm or taller, so \( P(S) = 0.5 \) and \( P(T) = 0.5 \).
+- The witness can correctly identify the attacker's height 80% of the time:
+  - \( P(W | T) = 0.80 \) (Correctly identifies taller)
+  - \( P(W | S) = 0.20 \) (Incorrectly identifies as taller)
+
+\( P(W) \) can be calculated using the law of total probability:
+\[
+P(W) = P(W | T)P(T) + P(W | S)P(S)
+\]
+\[
+P(W) = (0.80)(0.5) + (0.20)(0.5) = 0.40 + 0.10 = 0.50
+\]
+
+Now we use Bayes' theorem to find \( P(T | W) \), the probability the attacker is 185 cm or taller given the witness’s testimony:
+\[
+P(T | W) = \frac {P(W | T)P(T)} {P(W)}
+\]
+\[
+P(T | W) = \frac {(0.80)(0.5)} {0.50} = 0.80
+\]
+
+Thus, the probability that the attacker's height was 185 cm or taller, given the witness's testimony, is 0.80.
+
+In format:
+```json
+{ "probability": 0.8 }
+```

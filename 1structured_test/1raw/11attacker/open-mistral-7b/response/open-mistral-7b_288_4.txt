@@ -1,0 +1,37 @@
+Given the information provided, we have two pieces of data:
+
+1. The witness's ability to correctly identify race is 80% and incorrectly identify race is 20%.
+2. The population distribution in the city is 85% white and 15% black.
+
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Bayes' theorem provides a way to update the probability of a hypothesis given some evidence. In this case, the hypothesis is that the attacker is black, and the evidence is the witness's report.
+
+Bayes' theorem is written as:
+
+P(H|E) = P(E|H) * P(H) / P(E)
+
+Where:
+- P(H|E) is the probability of the hypothesis given the evidence
+- P(E|H) is the probability of the evidence given the hypothesis
+- P(H) is the prior probability of the hypothesis
+- P(E) is the probability of the evidence
+
+In our case, H is "the attacker is black," E is "the witness identified the attacker as black," P(H|E) is what we want to find, P(E|H) is the witness's 80% success rate in identifying black people, P(H) is the prior probability of the attacker being black, and P(E) is the probability of the witness making the observation "the attacker is black."
+
+P(E|H) = 0.8 (the witness correctly identifies black people 80% of the time)
+P(H) = 0.15 (the population distribution in the city is 15% black)
+
+To calculate P(E), we need to find the probability of the witness making this observation regardless of the attacker's race. We can do this by weighting the probability of the witness's observation given each race by the prior probability of that race.
+
+P(E) = P(E|H) * P(H) + P(E|not-H) * P(not-H)
+
+Where P(not-H) is the prior probability of the attacker not being black, which is 0.85 (given that P(H) = 0.15).
+
+Since P(E|not-H) is the probability of the witness making the observation "the attacker is black" given that the attacker is not black, we can assume it's the same as the witness's error rate, which is 0.2.
+
+So, P(E) = 0.8 * 0.15 + 0.2 * 0.85 = 0.12 + 0.1825 = 0.3025
+
+Now we can use Bayes' theorem to estimate P(H|E):
+
+P(H|E) = P(E|H) * P(H) / P(E) = 0.8 * 0.15 / 0.3025 ≈ 0.228
+
+So, the estimated probability that the attacker is black is approximately 0.228 or 22.8%.

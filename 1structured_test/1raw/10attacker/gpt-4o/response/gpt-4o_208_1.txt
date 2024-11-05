@@ -1,0 +1,49 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the information from the witnesses and the population statistics, we can use Bayes' Theorem. 
+
+Let's denote the following events:
+- \( T \): The attacker is 185 cm or taller.
+- \( \neg T \): The attacker is shorter than 185 cm.
+- \( W1_T \): The first witness claims the attacker is 185 cm or taller.
+- \( W2_T \): The second witness claims the attacker is shorter than 185 cm.
+
+We know the following:
+- \( P(T) = 0.15 \) (15% of the population is 185 cm or taller)
+- \( P(\neg T) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+The witness accuracies (given a sample of people, half shorter than 185 cm and half 185 cm or taller):
+- First witness: \( P(W1_T | T) = 0.8 \) and \( P(W1_T | \neg T) = 0.2 \)
+- Second witness: \( P(W2_T | T) = 0.3 \) and \( P(W2_T | \neg T) = 0.7 \)
+
+We need to find \( P(T | W1_T, W2_T) \).
+
+Applying Bayes' Theorem:
+
+\[
+P(T | W1_T, W2_T) = \frac{P(W1_T, W2_T | T) \cdot P(T)}{P(W1_T, W2_T)}
+\]
+
+First, we calculate \( P(W1_T, W2_T) \) using the law of total probability:
+
+\[
+P(W1_T, W2_T) = P(W1_T, W2_T | T) \cdot P(T) + P(W1_T, W2_T | \neg T) \cdot P(\neg T)
+\]
+
+Calculate the joint probabilities:
+- \( P(W1_T, W2_T | T) = P(W1_T | T) \cdot P(W2_T | T) = 0.8 \cdot 0.3 = 0.24 \)
+- \( P(W1_T, W2_T | \neg T) = P(W1_T | \neg T) \cdot P(W2_T | \neg T) = 0.2 \cdot 0.7 = 0.14 \)
+
+Now, we can find \( P(W1_T, W2_T) \):
+
+\[
+P(W1_T, W2_T) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+\]
+
+Now, apply Bayes' Theorem:
+
+\[
+P(T | W1_T, W2_T) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+\]
+
+Thus, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately:
+
+{probability: 0.232}

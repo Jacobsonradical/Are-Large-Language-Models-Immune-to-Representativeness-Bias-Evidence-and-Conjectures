@@ -1,0 +1,28 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information from both the witness's ability to judge height and the distribution of attackers' heights.
+
+Let's denote:
+- P(A): Probability that the attacker's height is 185 cm or taller
+- P(B): Probability that the witness identifies the attacker's height as 185 cm or taller
+- P(Correct | 185+): Probability that the witness correctly identifies a person as 185 cm or taller (80%)
+- P(Erroneous | <185): Probability that the witness erroneously identifies a person as 185 cm or taller (20%)
+- P(Attacker <185): Probability that a random attacker is shorter than 185 cm (50%, since the population is roughly equal in size)
+- P(Attacker = 185+ | Attacker <185): Probability that the attacker is 185 cm or taller given that the attacker is shorter than 185 cm (15%)
+- P(Attacker = 185+ | Attacker = 185+): Probability that the attacker is 185 cm or taller given that the attacker is 185 cm or taller (100%)
+
+Now, let's calculate P(B) using the law of total probability:
+P(B) = P(B | Attacker <185) * P(Attacker <185) + P(B | Attacker = 185+) * P(Attacker = 185+)
+
+We know that:
+- P(B | Attacker <185) = P(Erroneous | <185) = 20%
+- P(Attacker <185) = 50%
+- P(B | Attacker = 185+) = P(Correct | 185+) = 80%
+- P(Attacker = 185+) = P(Attacker = 185+ | Attacker <185) * P(Attacker <185) + P(Attacker = 185+ | Attacker = 185+) * P(Attacker = 185+)
+- P(Attacker = 185+) = (15% * 50%) + (100% * 50%) = 15% + 50% = 65%
+
+Substituting these values into the equation for P(B):
+P(B) = 0.2 * 0.5 + 0.8 * 0.65 ≈ 0.68
+
+Now, using Bayes' theorem, we can find P(Attacker = 185+ | B), which is our desired estimate:
+P(Attacker = 185+ | B) = P(B | Attacker = 185+) * P(Attacker = 185+) / P(B) ≈ 0.8 * 0.65 / 0.68 ≈ 0.75
+
+So, the estimated probability that the attacker's height was 185 cm or taller is approximately 0.75 or 75%.

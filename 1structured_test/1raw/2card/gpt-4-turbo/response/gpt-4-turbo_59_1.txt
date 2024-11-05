@@ -1,0 +1,44 @@
+To solve this question, we will perform Bayesian analysis using the given data and calculate the probability (likelihood) of drawing three X cards and one O card from each deck, followed by using Bayes' theorem to update our beliefs about the decks.
+
+**Step 1: Calculating Prior Probabilities**
+
+Let \( P(A) \) be the probability that Deck A was chosen, and \( P(B) \) the probability that Deck B was chosen. Since the deck is chosen by chance,
+\[ P(A) = P(B) = 0.5 \]
+
+**Step 2: Calculating Likelihoods**
+
+Having selected a deck, the likelihood of drawing cards in the sequence of three X's and one O from each deck can be calculated using the binomial distribution.
+
+For Deck A
+- Probability of drawing X, \( p(X) = \frac{2}{3} \)
+- Probability of drawing O, \( p(O) = \frac{1}{3} \)
+
+The probability of drawing 3 X's and 1 O from Deck A (order does not matter) is given by:
+\[ P(\text{3X, 1O} \mid A) = \binom{4}{3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \times \frac{8}{27} \times \frac{1}{3} = \frac{32}{81} \]
+
+For Deck B
+- Probability of drawing X, \( p(X) = \frac{1}{3} \)
+- Probability of drawing O, \( p(O) = \frac{2}{3} \)
+
+The probability of drawing 3 X's and 1 O from Deck B is:
+\[ P(\text{3X, 1O} \mid B) = \binom{4}{3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \times \frac{1}{27} \times \frac{2}{3} = \frac{8}{81} \]
+
+**Step 3: Applying Bayes' Theorem**
+
+Bayes' theorem lets us update our prior probability based on new evidence:
+\[ P(A \mid \text{3X, 1O}) = \frac{P(\text{3X, 1O} \mid A) P(A)}{P(\text{3X, 1O})} \]
+
+Using the Law of Total Probability for \( P(\text{3X, 1O}) \):
+\[ P(\text{3X, 1O}) = P(\text{3X, 1O} \mid A) P(A) + P(\text{3X, 1O} \mid B) P(B) = \frac{32}{81} \times 0.5 + \frac{8}{81} \times 0.5 = \frac{40}{81} \times 0.5 = \frac{20}{81} \]
+
+Therefore,
+\[ P(A \mid \text{3X, 1O}) = \frac{\frac{32}{81} \times 0.5}{\frac{20}{81}} = \frac{32}{40} = 0.8 \]
+\[ P(B \mid \text{3X, 1O}) = \frac{\frac{8}{81} \times 0.5}{\frac{20}{81}} = \frac{8}{40} = 0.2 \]
+
+**Step 4: Calculating Posterior Odds Ratio**
+
+The posterior odds ratio of Deck A to Deck B, given the observation of 3X and 1O, is:
+\[ \text{Odds}(A:B \mid 3X, 1O) = \frac{P(A \mid 3X, 1O)}{P(B \mid 3X, 1O)} = \frac{0.8}{0.2} = 4 \]
+
+**Answer:**
+{odds: 4}

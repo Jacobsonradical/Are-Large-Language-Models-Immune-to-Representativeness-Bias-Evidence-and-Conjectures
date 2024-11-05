@@ -1,0 +1,56 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the witnesses' statements, we can use Bayes' theorem. Here's the breakdown of the required steps:
+
+1. Define the events:
+   - \( A \): Attacker is 185 cm or taller.
+   - \( B \): Attacker is shorter than 185 cm.
+   - \( W1_+ \): First witness says the attacker is 185 cm or taller (true positive rate).
+   - \( W1_- \): First witness says the attacker is shorter than 185 cm (false negative rate).
+   - \( W2_+ \): Second witness says the attacker is 185 cm or taller (false positive rate).
+   - \( W2_- \): Second witness says the attacker is shorter than 185 cm (true negative rate).
+
+2. Given probabilities:
+   - \( P(A) = 0.15 \) (15% of the population)
+   - \( P(B) = 0.85 \) (85% of the population)
+   - \( P(W1_+|A) = 0.8 \) (first witness correct 80% for tall people)
+   - \( P(W1_-|A) = 0.2 \) (first witness wrong 20% for tall people)
+   - \( P(W1_-|B) = 0.7 \) (first witness correct 70% for short people)
+   - \( P(W1_+|B) = 0.3 \) (first witness wrong 30% for short people)
+   - \( P(W2_-|B) = 0.7 \) (second witness correct 70% for short people)
+   - \( P(W2_+|B) = 0.3 \) (second witness wrong 30% for short people)
+   - \( P(W2_+|A) = 0.2 \) (second witness wrong 20% for tall people)
+   - \( P(W2_-|A) = 0.8 \) (second witness correct 80% for tall people)
+
+3. Use Bayes' theorem to calculate \( P(A|W1_+, W2_-) \):
+
+\[
+P(A | W1_+ , W2_-) = \frac{P(W1_+ , W2_- | A) \cdot P(A)}{P(W1_+ , W2_-) }
+\]
+
+4. Calculate \(P(W1_+ , W2_- | A)\):
+\[
+P(W1_+ , W2_- | A) = P(W1_+ | A) \cdot P(W2_- | A) = 0.8 \cdot 0.8 = 0.64
+\]
+
+5. Calculate \(P(W1_+ , W2_- | B)\):
+\[
+P(W1_+ , W2_- | B) = P(W1_+ | B) \cdot P(W2_- | B) = 0.3 \cdot 0.7 = 0.21
+\]
+
+6. Compute the total probability of \( W1_+, W2_-\):
+\[
+P(W1_+ , W2_-) = P(W1_+ , W2_- | A) \cdot P(A) + P(W1_+ , W2_- | B) \cdot P(B)
+\]
+\[
+P(W1_+ , W2_-) = 0.64 \cdot 0.15 + 0.21 \cdot 0.85 = 0.096 + 0.1785 = 0.2745
+\]
+
+7. Finally, calculate \( P(A|W1_+, W2_-) \):
+\[
+P(A | W1_+ , W2_-) = \frac{0.64 \cdot 0.15}{0.2745} = \frac{0.096}{0.2745} \approx 0.3498
+\]
+
+Therefore, the probability that the attacker's height was 185 cm or taller as the first witness claimed is approximately:
+
+```json
+{ "probability": 0.35 }
+```

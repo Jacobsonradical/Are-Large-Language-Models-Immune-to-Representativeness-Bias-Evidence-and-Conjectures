@@ -1,0 +1,35 @@
+To find the posterior odds, we first need to calculate the likelihood of drawing 3 X's and 1 O from each deck and then use Bayes' theorem.
+
+Let's denote the probability of drawing 3 X's and 1 O from Deck A as P(A|3X, 1O), and the probability of drawing 3 X's and 1 O from Deck B as P(B|3X, 1O).
+
+For Deck A:
+P(3X, 1O | A) = C(12, 3) * (2/3)^3 * (1/3) * C(12, 1) * (1/3)^1 * (2/3)^9
+                     = 220 * (1/27) * (1/3) * 2 * (1/81)
+                     = 220 * (1/81) * (2/27)
+                     = 22/243
+
+For Deck B:
+P(3X, 1O | B) = C(18, 3) * (1/3)^3 * (2/3)^1 * C(18, 1) * (2/3)^1 * (1/3)^14
+                     = 1814 * (1/27) * (1/9) * 18 * (1/9) * (1/27648)
+                     = 1814 * (1/27) * (1/9) * (2/27) * (1/9)
+                     = 1814 * (1/28353)
+
+Now, let's calculate the prior probabilities:
+P(A) = (2/3)^4
+      = 1/81
+
+P(B) = (2/3)^12 * (1/3)^4
+      = (1/81)^2 * (1/81)
+      = 1/36^{3}
+
+Now, we can calculate the posterior odds:
+
+{odds: P(A|3X, 1O) / P(B|3X, 1O)}
+
+= (22/243) / (1814/36^{3})
+
+= 22 * 36^{3} / (1814 * 243)
+
+≈ 6.27
+
+So the posterior odds that the 4 cards were drawn from Deck A, the deck where most cards are marked X, is approximately 6.27 times greater than the odds of drawing them from Deck B, the deck where most cards are marked O.

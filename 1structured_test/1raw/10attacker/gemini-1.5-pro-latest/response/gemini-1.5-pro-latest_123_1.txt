@@ -1,0 +1,54 @@
+Here's how we can approach this problem using Bayesian reasoning:
+
+**Let's define some events:**
+
+* **A:** The attacker is 185 cm or taller.
+* **B:** The attacker is shorter than 185 cm.
+* **W1:** Witness 1 claims the attacker is 185 cm or taller.
+* **W2:** Witness 2 claims the attacker is shorter than 185 cm.
+
+**We are given the following probabilities:**
+
+* **P(A) = 0.15** (Prior probability of someone in the city being 185cm or taller)
+* **P(B) = 0.85** (Prior probability of someone in the city being shorter than 185cm)
+* **P(W1|A) = 0.80** (Witness 1's accuracy when the person is actually 185cm or taller)
+* **P(W1|B) = 0.20** (Witness 1's error rate when the person is actually shorter than 185cm)
+* **P(W2|A) = 0.30** (Witness 2's error rate when the person is actually 185cm or taller)
+* **P(W2|B) = 0.70** (Witness 2's accuracy when the person is actually shorter than 185cm)
+
+**We want to find P(A|W1, W2), the probability the attacker is 185cm or taller given both witness testimonies.**
+
+Using Bayes' Theorem and the law of total probability, we can write:
+
+```
+P(A|W1, W2) = [P(W1, W2|A) * P(A)] / P(W1, W2) 
+```
+
+Where:
+
+```
+P(W1, W2) = P(W1, W2|A) * P(A) + P(W1, W2|B) * P(B)
+```
+
+Assuming the witnesses' testimonies are conditionally independent given the attacker's actual height, we have:
+
+```
+P(W1, W2|A) = P(W1|A) * P(W2|A) = 0.80 * 0.30 = 0.24
+P(W1, W2|B) = P(W1|B) * P(W2|B) = 0.20 * 0.70 = 0.14
+```
+
+Now we can calculate:
+
+```
+P(W1, W2) = (0.24 * 0.15) + (0.14 * 0.85) = 0.155
+```
+
+And finally:
+
+```
+P(A|W1, W2) = (0.24 * 0.15) / 0.155 ≈ 0.232
+```
+
+**Therefore, the estimated probability that the attacker's height was 185 cm or taller, given both witness testimonies, is approximately 0.232.**
+
+**{probability: 0.232}** 

@@ -1,0 +1,72 @@
+To solve this problem, we'll use Bayes' theorem. First, let's define the following terms:
+
+P(A) = probability that deck A was chosen
+P(B) = probability that deck B was chosen
+P(X|A) = probability of drawing an X from deck A
+P(X|B) = probability of drawing an X from deck B
+
+We know that P(A) = P(B) = 1/2 since both decks are equally likely to be chosen.
+
+We're given that P(X|A) = 2/3 and P(X|B) = 1/3.
+
+What we want to find is the posterior probability P(A|X=3, O=1), which is the probability that deck A was chosen given that we drew 3 X's and 1 O.
+
+According to Bayes' theorem,
+
+P(A|X=3, O=1) = P(X=3, O=1|A) \* P(A) / P(X=3, O=1)
+
+To calculate the posterior probability, we need to find the terms on the right-hand side of the equation:
+
+P(X=3, O=1|A) = P(X=3|A) \* P(O=1|A)
+
+Given that there are 4 cards drawn and 2/3 of the cards in deck A are marked X, we can calculate the probability of drawing 3 X's as:
+
+P(X=3|A) = C(13, 3) \* (2/3)^3 \* (1/3)^1, where C(13, 3) is the number of combinations of choosing 3 cards from 13.
+
+Similarly,
+
+P(O=1|A) = C(13, 1) \* (1/3)^1 \* (2/3)^3
+
+Now, we can calculate P(X=3, O=1|A):
+
+P(X=3, O=1|A) = P(X=3|A) \* P(O=1|A)
+             = C(13, 3) \* (2/3)^3 \* (1/3)^1 \* C(13, 1) \* (1/3)^1 \* (2/3)^3
+
+Next, we need to find P(X=3, O=1):
+
+P(X=3, O=1) = P(X=3, O=1|A) \* P(A) + P(X=3, O=1|B) \* P(B)
+            = P(X=3, O=1|A) \* 1/2 + P(X=3, O=1|B) \* 1/2
+
+Now, we need to compute P(X=3, O=1|B):
+
+P(X=3, O=1|B) = P(X=3|B) \* P(O=1|B)
+
+Given that there are 4 cards drawn and 1/3 of the cards in deck B are marked X, we can calculate the probability of drawing 3 X's as:
+
+P(X=3|B) = C(26, 3) \* (1/3)^3 \* (2/3)^1, where C(26, 3) is the number of combinations of choosing 3 cards from 26.
+
+Similarly,
+
+P(O=1|B) = C(26, 1) \* (2/3)^1 \* (1/3)^3
+
+Now, we can calculate P(X=3, O=1|B):
+
+P(X=3, O=1|B) = P(X=3|B) \* P(O=1|B)
+             = C(26, 3) \* (1/3)^3 \* (2/3)^1 \* C(26, 1) \* (2/3)^1 \* (1/3)^3
+
+Finally, we can calculate the posterior probability P(A|X=3, O=1):
+
+P(A|X=3, O=1) = P(X=3, O=1|A) \* P(A) / P(X=3, O=1)
+             = P(X=3, O=1|A) \* 1/2 / [P(X=3, O=1|A) \* 1/2 + P(X=3, O=1|B) \* 1/2]
+
+Plugging in the values we calculated earlier, we get:
+
+P(A|X=3, O=1) ≈ 0.9375
+
+To express this as odds, we can divide the probability by 1 minus the probability:
+
+odds = P(A|X=3, O=1) / (1 - P(A|X=3, O=1))
+     ≈ 0.9375 / (1 - 0.9375)
+     ≈ 15.625
+
+{odds: 15.625}

@@ -1,0 +1,42 @@
+To calculate this probability, we need to apply Bayes' Theorem. We define the following events:
+
+- \( H \): attacker's height is 185 cm or taller.
+- \( S \): attacker's height is shorter than 185 cm.
+- \( W_1 \): first witness testifies that the attacker is 185 cm or taller.
+- \( W_2 \): second witness testifies that the attacker is shorter than 185 cm.
+
+Given:
+- \( P(H) = 0.15 \) since 15% of the population is 185 cm or taller.
+- \( P(S) = 0.85 \) since 85% of the population is shorter than 185 cm.
+- \( P(W_1 | H) = 0.8 \) (probability that the first witness correctly identifies someone as 185 cm or taller given that they actually are).
+- \( P(W_1 | S) = 0.2 \) (probability that the first witness mistakenly identifies someone as 185 cm or taller given that they are shorter).
+- \( P(W_2 | H) = 0.3 \) (probability that the second witness mistakenly identifies someone as shorter than 185 cm given that they are 185 cm or taller).
+- \( P(W_2 | S) = 0.7 \) (probability that the second witness correctly identifies someone as shorter than 185 cm given that they really are).
+
+We seek to find \( P(H | W_1, W_2) \) (probability that the attacker is 185 or taller given both witnesses' testimonies).
+
+First, calculate \( P(W_1) \) using the Law of Total Probability:
+\[ P(W_1) = P(W_1 | H) \cdot P(H) + P(W_1 | S) \cdot P(S) = 0.8 \cdot 0.15 + 0.2 \cdot 0.85 = 0.12 + 0.17 = 0.29 \]
+
+Next, calculate \( P(W_2) \) similarly:
+\[ P(W_2) = P(W_2 | H) \cdot P(H) + P(W_2 | S) \cdot P(S) = 0.3 \cdot 0.15 + 0.7 \cdot 0.85 = 0.045 + 0.595 = 0.64 \]
+
+Now, apply Bayes' Theorem:
+\[ P(H | W_1, W_2) = \frac{P(W_1, W_2 | H) \cdot P(H)}{P(W_1, W_2)} \]
+
+Computing \( P(W_1, W_2 | H) \):
+\[ P(W_1, W_2 | H) = P(W_1 | H) \cdot P(W_2 | H) = 0.8 \cdot 0.3 = 0.24 \]
+
+Computing \( P(W_1, W_2 | S) \):
+\[ P(W_1, W_2 | S) = P(W_1 | S) \cdot P(W_2 | S) = 0.2 \cdot 0.7 = 0.14 \]
+
+Calculate \( P(W_1, W_2) \):
+\[ P(W_1, W_2) = P(W_1, W_2 | H) \cdot P(H) + P(W_1, W_2 | S) \cdot P(S) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Now, put it all together:
+\[ P(H | W_1, W_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Thus, the probability that the attacker's height is 185 cm or taller, considering the testimonies of both witnesses, is approximately 0.232.
+
+Therefore:
+{probability: 0.232}

@@ -1,0 +1,30 @@
+To solve this problem, we will apply Bayes' Theorem, which is used to update the probability estimate of a hypothesis after obtaining new evidence. Let's define \( H \) as the hypothesis that the attacker's height was 185 cm or taller, and \( E_1 \) and \( E_2 \) as the evidence provided by the first and the second witness, respectively.
+
+From the information given:
+- Probability that someone in the population is 185 cm or taller (prior probability, \( P(H) \)) = 0.15.
+- Probability that someone in the population is shorter than 185 cm (prior probability, \( P(\neg H) \)) = 0.85.
+
+The first witness claims the attacker is 185 cm or taller and has a 80% correct identification rate for this height, so:
+- \( P(E_1 | H) \) (probability of witness 1 saying the attacker is 185 cm or taller given that the attacker is indeed that height) = 0.80.
+- \( P(E_1 | \neg H) \) (probability of witness 1 saying the attacker is 185 cm or taller given that the attacker is shorter) = 0.20.
+
+The second witness claims the attacker is shorter than 185 cm and has a 70% correct identification rate for being shorter than 185 cm, so:
+- \( P(E_2 | \neg H) \) = 0.70.
+- \( P(E_2 | H) \) = 0.30.
+
+We use Bayes' Theorem to find the posterior probability \( P(H | E_1, E_2) \), which is the probability that the attacker is 185 cm or taller, given the testimonies of both witnesses.
+
+\[ P(H | E_1, E_2) = \frac{P(E_1, E_2 | H) \times P(H)}{P(E_1, E_2)} \]
+
+Assuming independence between testimonies given the height:
+\[ P(E_1, E_2 | H) = P(E_1 | H) \times P(E_2 | H) = 0.80 \times 0.30 = 0.24 \]
+\[ P(E_1, E_2 | \neg H) = P(E_1 | \neg H) \times P(E_2 | \neg H) = 0.20 \times 0.70 = 0.14 \]
+
+The total probability of observing \( E_1 \) and \( E_2 \) (law of total probability):
+\[ P(E_1, E_2) = P(E_1, E_2 | H) \times P(H) + P(E_1, E_2 | \neg H) \times P(\neg H) = 0.24 \times 0.15 + 0.14 \times 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Now we can substitute this information back into Bayes' formula:
+\[ P(H | E_1, E_2) = \frac{0.24 \times 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232 \]
+
+Thus, your estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, should be:
+{probability: 0.232}

@@ -1,0 +1,39 @@
+To solve this problem, we'll use Bayes' theorem. Let A represent the event that the selected deck is Deck A, and B represent the event that the selected deck is Deck B. We're given the following probabilities:
+
+P(A) = Probability of selecting Deck A
+P(B) = Probability of selecting Deck B
+P(X|A) = Probability of drawing a X card given that Deck A was selected
+P(X|B) = Probability of drawing a X card given that Deck B was selected
+
+We're given that P(A) = 1/2 (since the selection of the deck is random), and we know the probabilities of X and O in Decks A and B. We can calculate these probabilities as follows:
+
+P(X|A) = 2/3
+P(X|B) = 1/3
+
+The event of drawing 3 X and 1 O cards can be represented as the intersection of the events of drawing 3 X cards and 1 O card from the selected deck. Let's calculate the probabilities of these events for each deck:
+
+P(3X|A) = Number of ways to choose 3 X cards from 2/3 of the deck / Total number of ways to choose 4 cards from the deck
+        = C(2/3, 3) / C(2/3 * 3 + 1/3 * 3, 4)
+        = (2! * (2/3)^3 * (1/3)^1) / ((4! * (2/3)^3 * (1/3)^1) + (4! * (1/3)^3 * (2/3)^1))
+        = 8/(13*14)
+
+P(3X|B) = Number of ways to choose 3 X cards from 1/3 of the deck / Total number of ways to choose 4 cards from the deck
+        = C(1/3, 3) / C(1/3 * 3 + 2/3 * 3, 4)
+        = (1! * (1/3)^3 * (2/3)^1) / ((4! * (1/3)^3 * (2/3)^1) + (4! * (2/3)^3 * (1/3)^1))
+        = 1/(13*14)
+
+Now, we can calculate the prior odds (before drawing the cards):
+
+P(A) / P(B) = 1 / 1
+
+The likelihood of drawing 3 X and 1 O cards is given by the ratio of the probabilities of drawing these cards from Deck A and Deck B:
+
+P(3X, 1O|A) / P(3X, 1O|B) = P(3X|A) / P(3X|B) = (8/(13*14)) / ((1/(13*14))) = 8 / 1
+
+The posterior odds are calculated by multiplying the prior odds by the likelihood:
+
+Posterior odds = Prior odds * Likelihood
+               = 1 * (8/1)
+               = 8
+
+So, the odds that the 4 cards were drawn from Deck A, the deck where most cards are marked X, is 8 times higher than the odds that they were drawn from Deck B, the deck where most cards are marked O. {odds: 8}

@@ -1,0 +1,46 @@
+Here's how to break down the problem and calculate the probability:
+
+**Understanding the Information**
+
+* **Prior Probability (from "a"):**  This tells us the general likelihood of an attacker's height in the population. It suggests there's a higher chance the attacker is shorter than 185cm.
+* **Witness Reliability (from "b"):** This tells us how much we can trust the witness's statement. They are accurate 80% of the time in similar situations.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem is perfect for this kind of problem. It helps us update our belief based on new evidence.
+
+Let:
+
+*  A = Event that the attacker is 185cm or taller
+*  B = Event that the witness identifies the attacker as 185cm or taller
+
+We want to find P(A|B), the probability the attacker is 185cm or taller *given* the witness's identification.
+
+Bayes' Theorem states: 
+P(A|B) = [P(B|A) * P(A)] / P(B)
+
+Let's break down each term:
+
+* **P(B|A):** The probability the witness would identify the attacker as 185cm or taller *if* the attacker was actually 185cm or taller. This is the witness's accuracy for this height group, which is 80% or 0.8. 
+* **P(A):** The prior probability of an attacker being 185cm or taller, which is 15% or 0.15.
+* **P(B):** The probability the witness would identify someone as 185cm or taller (regardless of the actual height).  We can calculate this using the law of total probability:
+   -  P(B) = P(B|A) * P(A)  +  P(B|~A) * P(~A) 
+   - Where ~A is the event the attacker is *shorter* than 185cm.
+   - We know P(B|~A) is the witness's error rate when the person is actually shorter than 185cm, which is 20% or 0.2.
+   - P(~A), the prior probability of an attacker being shorter than 185cm, is 85% or 0.85.
+
+**Calculations**
+
+1. **Calculate P(B):**
+   - P(B) = (0.8 * 0.15) + (0.2 * 0.85) = 0.29
+
+2. **Calculate P(A|B):**
+   - P(A|B) = (0.8 * 0.15) / 0.29 = 0.414 
+
+**Answer:**
+
+{probability: 0.414}
+
+**Conclusion**
+
+Even though the witness identified the attacker as 185cm or taller, the probability of the attacker actually being that height is approximately 41.4%. This is because the prior probability of attackers being shorter than 185cm is significantly higher. 

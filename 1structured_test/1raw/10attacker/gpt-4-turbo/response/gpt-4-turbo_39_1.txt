@@ -1,0 +1,42 @@
+To estimate the probability that the attacker's height was 185 cm or taller, considering the given information and witness testimonies, we will use Bayes' theorem. Let's denote:
+- \( H \) as the hypothesis that the attacker is 185 cm or taller.
+- \( \neg H \) as the hypothesis that the attacker is shorter than 185 cm.
+
+From the initial information, the prior probabilities are:
+- \( P(H) = 0.15 \) (15% of the population are 185 cm or taller)
+- \( P(\neg H) = 0.85 \) (85% of the population are shorter than 185 cm)
+
+Now, considering the witnesses:
+- Witness 1 is correct 80% of the time (which includes both being correct about \( H \) and \( \neg H \)).
+- Witness 2 is correct 70% of the time.
+
+These lead us to the following likelihood probabilities:
+- \( P(W_1 | H) = 0.80 \) (probability that Witness 1 correctly identifies someone as being 185 cm or taller)
+- \( P(W_1 | \neg H) = 0.20 \) (probability that Witness 1 incorrectly identifies someone as being 185 cm or taller)
+- \( P(W_2 | H) = 0.30 \) (probability that Witness 2 incorrectly identifies someone as being 185 cm or taller)
+- \( P(W_2 | \neg H) = 0.70 \) (probability that Witness 2 correctly identifies someone as being shorter than 185 cm)
+
+Both witnesses present conflicting reports. To find the joint probabilities of these statements under the hypothesis \( H \) and \( \neg H \), respectively:
+- \( P(W_1 \text{ and } W_2 | H) = P(W_1 | H) \times P(W_2 | H) = 0.80 \times 0.30 = 0.24 \)
+- \( P(W_1 \text{ and } W_2 | \neg H) = P(W_1 | \neg H) \times P(W_2 | \neg H) = 0.20 \times 0.70 = 0.14 \)
+
+Applying Bayes' theorem to calculate the posterior probability \( P(H | W_1 \text{ and } W_2) \):
+\[
+P(H | W_1 \text{ and } W_2) = \frac{P(W_1 \text{ and } W_2 | H) \times P(H)}{P(W_1 \text{ and } W_2 | H) \times P(H) + P(W_1 \text{ and } W_2 | \neg H) \times P(\neg H)}
+\]
+\[
+= \frac{0.24 \times 0.15}{0.24 \times 0.15 + 0.14 \times 0.85}
+\]
+\[
+= \frac{0.036}{0.036 + 0.119}
+\]
+\[
+= \frac{0.036}{0.155} \approx 0.232
+\]
+
+Thus, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.232.
+
+**Answer:**
+```json
+{probability: 0.232}
+```

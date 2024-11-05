@@ -1,0 +1,45 @@
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Let's denote P(B) as the probability that a random person in the city is black (15%), P(W) as the probability that a random person is white (85%), A as the event of being the attacker, and W as the event of being identified as black by the witness.
+
+Bayes' theorem states:
+
+P(B|A) = [P(A|B) * P(B)] / [P(A|B) * P(B) + P(A|W) * P(W)]
+
+We are given:
+P(B) = 0.15
+P(W) = 0.85
+P(W|B) = 0.2 (the probability of the witness identifying a black person as white)
+P(B|B) = 0.8 (the probability of the witness identifying a black person as black)
+
+Since the witness identified the attacker as black, we are interested in P(B|A). Since A is the attacker, and we don't know their race, we need to consider both possibilities: A is black (A=B) and A is white (A=W).
+
+P(A=B) = P(A=W) = 0.5 (equal probabilities since we don't know the attacker's race)
+
+Now, let's find P(A|B) and P(A|W):
+
+P(A=B|B) = 1 (if the person is black, then they are the attacker, given that the attacker is black)
+P(A=W|B) = 0 (if the person is black, they cannot be the attacker if the attacker is white)
+
+P(A=W|W) = 1 (if the person is white, then they are the attacker, given that the attacker is white)
+P(A=B|W) = 0 (if the person is white, they cannot be the attacker if the attacker is black)
+
+Now we can calculate P(B|A):
+
+P(B|A) = [P(A=B|B) * P(B)] / [P(A=B|B) * P(B) + P(A=B|W) * P(W)]
+= [1 * 0.15] / [1 * 0.15 + 0 * 0.85]
+= 0.15 / 0.15
+= 1
+
+However, since the witness identified the attacker as black, we should also consider the accuracy of the witness in identifying black people:
+
+P(A=B|B) = 0.8 (the probability of the witness identifying a black person as black)
+
+Now we can calculate P(B|A):
+
+P(B|A) = [P(A=B|B) * P(B)] / [P(A=B|B) * P(B) + P(A=B|W) * P(W)]
+= [0.8 * 0.15] / [0.8 * 0.15 + 0 * 0.85]
+= 0.12 / 0.12
+= 1
+
+The witness identified the attacker as black, and the witness is 80% accurate when identifying black people. Therefore, the probability that the attacker is black, given the information, is 1.
+
+Answer: {probability: 1}

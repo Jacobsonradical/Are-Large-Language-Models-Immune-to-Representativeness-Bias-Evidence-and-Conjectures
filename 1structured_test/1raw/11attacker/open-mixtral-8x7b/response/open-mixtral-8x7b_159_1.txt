@@ -1,0 +1,32 @@
+To estimate the probability that the attacker is black, we can use Bayes' theorem. Let's define:
+
+- P(B) as the prior probability that a random attacker is black (15% from the information b).
+- P(W) as the prior probability that a random attacker is white (85% from the information b).
+- P(W|Witness) as the probability of the witness identifying a white person given that the attacker is white (80% from the information a).
+- P(B|Witness) as the probability of the witness identifying a black person given that the attacker is black (80% from the information a).
+- P(Witness|B) as the probability of the witness saying black given that the attacker is actually black (which we want to calculate).
+- P(Witness|W) as the probability of the witness saying black given that the attacker is actually white (which we can calculate as 1 - P(Witness|W') where W' is the event of the witness saying white).
+
+From Bayes' theorem, we have:
+
+P(B|Witness) = P(Witness|B) * P(B) / P(Witness)
+
+We want to calculate P(B|Witness), but the problem is that we don't know P(Witness), the total probability of the witness saying black. However, we can calculate the ratio between P(B|Witness) and P(W|Witness) as:
+
+P(B|Witness) / P(W|Witness) = P(Witness|B) * P(B) / (P(Witness|W) * P(W))
+
+We are given P(Witness|B) = 0.8 and P(B) = 0.15. We can calculate P(Witness|W) = 1 - P(Witness|W') = 1 - 0.2 = 0.8.
+
+Now, we can calculate the ratio:
+
+P(B|Witness) / P(W|Witness) = 0.8 * 0.15 / (0.8 * 0.85) = 0.09 / 0.68 = 9 / 68 ≈ 0.132
+
+Now, since P(B|Witness) + P(W|Witness) = 1, and P(B|Witness) / P(W|Witness) = 0.132, we can write:
+
+P(B|Witness) + P(B|Witness) * 0.132 = 1
+
+Solving this equation for P(B|Witness), we get:
+
+P(B|Witness) = 1 / (1 + 0.132) ≈ 0.882
+
+So, the probability that the attacker is black given the witness's testimony is approximately 0.882 or 88.2%.

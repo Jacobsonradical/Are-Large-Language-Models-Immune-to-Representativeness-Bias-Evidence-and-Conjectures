@@ -1,0 +1,47 @@
+Given that the population distribution in the city is 85% shorter than 185 cm and 15% are 185 cm or taller, this information can be used as the prior probability of a person being shorter or taller than 185 cm. That is, P(Shorter) = 0.85 and P(Taller or 185 cm) = 0.15.
+
+However, the problem statement provides new information about the population distribution in the neighborhood where the attack occurred, namely, that 80% of the people are shorter than 185 cm and 20% are 185 cm or taller. This new information constitutes evidence and should be used to update our prior probabilities using Bayes' theorem.
+
+Let A represent the event that the attacker's height is 185 cm or taller. Then, the posterior probability of A can be calculated as:
+
+P(A|Evidence) = P(Evidence|A) \* P(A) / P(Evidence),
+
+where P(Evidence|A) is the probability of observing the evidence (the neighborhood population distribution) given that the attacker's height is 185 cm or taller, P(A) is the prior probability of the attacker's height being 185 cm or taller, and P(Evidence) is the probability of observing the evidence.
+
+We can calculate P(Evidence|A) as follows:
+
+P(Evidence|A) = P(Neighborhood Distribution|Attacker's Height is 185 cm or taller)
+
+= P(80% shorter and 20% taller or more|Attacker's Height is 185 cm or taller)
+
+= P(80% shorter|Attacker's Height is 185 cm or taller) \* P(20% taller or more|Attacker's Height is 185 cm or taller)
+
+= 0 \* 1 + 1 \* P(Attacker's Height is exactly 185 cm|Attacker's Height is 185 cm or taller)
+
+= 1 \* 0.15
+
+= 0.15.
+
+Next, we can calculate P(Evidence) as follows:
+
+P(Evidence) = P(Neighborhood Distribution)
+
+= P(80% shorter and 20% taller or more)
+
+= P(80% shorter|20% taller or more) \* P(20% taller or more) + P(80% shorter|Attacker's Height is exactly 185 cm) \* P(Attacker's Height is exactly 185 cm)
+
+= 0 \* 0.2 + 1 \* 0.8 \* 0.85 + 1 \* 0.2 \* 0.15
+
+= 0.68.
+
+Finally, we can calculate the posterior probability of A (the attacker's height being 185 cm or taller) given the evidence as:
+
+P(A|Evidence) = P(Evidence|A) \* P(A) / P(Evidence)
+
+= 0.15 \* 0.15 / 0.68
+
+= 0.0338.
+
+Therefore, our estimate of the probability that the attacker's height was 185 cm or taller is:
+
+{probability: 0.0338}

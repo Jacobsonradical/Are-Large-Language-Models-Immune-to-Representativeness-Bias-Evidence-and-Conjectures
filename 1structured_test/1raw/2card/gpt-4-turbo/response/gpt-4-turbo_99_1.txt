@@ -1,0 +1,42 @@
+To solve the problem, we use Bayesian inference to update our beliefs about the chances of having picked from Deck A versus Deck B based on the observed data (drawing 3 Xs and 1 O).
+
+1. **Assign Prior Probabilities**:
+   Let's assume the prior probabilities of picking any deck is equal since the deck is chosen by chance. Thus, \( P(A) = P(B) = 0.5 \).
+
+2. **Calculate Likelihoods**:
+   - The probability of drawing 3 Xs and 1 O from Deck A (with \( \frac{2}{3} \) of the cards marked X and \( \frac{1}{3} \) marked O) can be calculated using the binomial formula or direct probability multiplication for choosing 3 Xs and 1 O:
+     \[
+     P(\text{3 Xs, 1 O from A}) = {4 \choose 3} \left(\frac{2}{3}\right)^3 \left(\frac{1}{3}\right)^1 = 4 \cdot \frac{8}{27} \cdot \frac{1}{3} = \frac{32}{81}
+     \]
+   
+   - The probability of drawing 3 Xs and 1 O from Deck B (with \( \frac{1}{3} \) of the cards marked X and \( \frac{2}{3} \) marked O) is:
+     \[
+     P(\text{3 Xs, 1 O from B}) = {4 \choose 3} \left(\frac{1}{3}\right)^3 \left(\frac{2}{3}\right)^1 = 4 \cdot \frac{1}{27} \cdot \frac{2}{3} = \frac{8}{81}
+     \]
+
+3. **Calculate Posterior Probabilities** (using Bayes' Rule):
+   - Bayes' Rule states: 
+     \[
+     P(A \mid \text{data}) = \frac{P(\text{data} \mid A) P(A)}{P(\text{data})}
+     \]
+     Similarly for \(P(B \mid \text{data})\)
+   - The total probability of the data (drawing 3 Xs and 1 O) is:
+     \[
+     P(\text{data}) = P(\text{data} \mid A) P(A) + P(\text{data} \mid B) P(B) = \frac{32}{81} \cdot \frac{1}{2} + \frac{8}{81} \cdot \frac{1}{2} = \frac{40}{162} = \frac{20}{81}
+     \]
+   - So,
+     \[
+     P(A \mid \text{data}) = \frac{\frac{32}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{32}{40} = \frac{4}{5}
+     \]
+     \[
+     P(B \mid \text{data}) = \frac{\frac{8}{81} \cdot \frac{1}{2}}{\frac{20}{81}} = \frac{8}{40} = \frac{1}{5}
+     \]
+
+4. **Calculate Odds**:
+   - The odds in favor of A compared to B, given the new evidence, is:
+     \[
+     \frac{P(A \mid \text{data})}{P(B \mid \text{data})} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4:1
+     \]
+
+The answer in the requested format is:
+{odds: 4}

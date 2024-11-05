@@ -1,0 +1,51 @@
+Let's analyze the information given:
+
+a) The first witness correctly identifies the correct height (185 cm or taller) 80% of the time, and errs 20% of the time. The second witness correctly identifies the correct height (shorter than 185 cm) 70% of the time, and errs 30% of the time.
+
+b) In the city, 85% of the population is shorter than 185 cm, and 15% are 185 cm or taller.
+
+We want to estimate the probability that the attacker's height was 185 cm or taller, as the first witness claimed. Since the first witness is correct 80% of the time, and 15% of the population is 185 cm or taller, we might initially think the probability is 0.8 * 0.15 = 0.12, or 12%. However, this would not take into account the information about the second witness and the distribution of population heights.
+
+To obtain the correct estimate, we need to calculate the probability that both witnesses would make a mistake in the same direction (i.e., both claim the attacker is taller than 185 cm when they are not, or both claim the attacker is shorter than 185 cm when they are actually taller).
+
+For the first witness to claim the attacker is 185 cm or taller, they have to be correct 80% of the time, and for the second witness to err in the same direction, they have to claim the attacker is taller 30% of the time when in fact they are not.
+
+Let's calculate the combined probability of both events happening:
+
+P(both claim taller) = P(first claims taller) * P(second claims taller | first claims taller)
+= 0.8 * (1 - 0.7)
+= 0.8 * 0.3
+= 0.24
+
+The probability that they both claim the attacker is shorter is:
+
+P(both claim shorter) = P(first claims shorter) * P(second claims shorter | first claims shorter)
+= (1 - 0.8) * 0.7
+= 0.2 * 0.7
+= 0.14
+
+Now we know the probability that they both agree on the attacker's height:
+
+P(agree) = P(both claim taller) + P(both claim shorter)
+= 0.24 + 0.14
+= 0.38
+
+Finally, we can calculate the probability that the attacker's height was 185 cm or taller, given that both witnesses agree on the attacker's height:
+
+P(attacker is 185 cm or taller | both claim taller) = P(both claim taller | attacker is 185 cm or taller) * P(attacker is 185 cm or taller) / P(both claim taller)
+
+We know P(both claim taller) = 0.24 (calculated earlier), and based on the information in (b), P(attacker is 185 cm or taller) = 0.15. We need to calculate P(both claim taller | attacker is 185 cm or taller).
+
+P(both claim taller | attacker is 185 cm or taller) = P(first claims taller | attacker is 185 cm or taller) * P(second claims taller | attacker is 185 cm or taller)
+= 1 * 0.3 (since the attacker is indeed 185 cm or taller)
+= 0.3
+
+Now we can calculate the final probability:
+
+P(attacker is 185 cm or taller | both claim taller) = (0.3 * 0.15) / 0.24
+= 0.045 / 0.24
+= 0.1875
+
+Therefore, the estimate of the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is:
+
+{probability: 0.1875}

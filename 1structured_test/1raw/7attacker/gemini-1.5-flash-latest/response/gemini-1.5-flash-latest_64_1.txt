@@ -1,0 +1,48 @@
+Here's how we can calculate the probability:
+
+**Understanding the Problem**
+
+We have two pieces of information:
+
+* **Prior probability:**  15% of the population in the city is 185 cm or taller.
+* **Witness testimony:** The witness has a specific accuracy rate in identifying heights, but we need to factor in their potential for error.
+
+**Applying Bayes' Theorem**
+
+Bayes' Theorem helps us update our belief about an event based on new evidence.  In this case:
+
+* **Event:** The attacker is 185 cm or taller.
+* **Evidence:** The witness identified the attacker as being 185 cm or taller.
+
+Let's break down the components of Bayes' Theorem:
+
+* **P(Attacker Tall | Witness Says Tall):** The probability the attacker is tall given the witness said so (what we want to find).
+* **P(Witness Says Tall | Attacker Tall):** The probability the witness says "tall" given the attacker is actually tall (80% accuracy).
+* **P(Attacker Tall):** The prior probability of the attacker being tall (15%).
+* **P(Witness Says Tall):** The probability the witness says "tall" regardless of the attacker's height. This is a bit trickier to calculate directly, but we can use the law of total probability.
+
+**Calculating P(Witness Says Tall)**
+
+* **P(Witness Says Tall | Attacker Tall) * P(Attacker Tall) = 0.80 * 0.15 = 0.12**  (Witness says tall, and attacker is tall)
+* **P(Witness Says Tall | Attacker Short) * P(Attacker Short) = 0.20 * 0.85 = 0.17** (Witness says tall, but attacker is short)
+
+**Therefore, P(Witness Says Tall) = 0.12 + 0.17 = 0.29**
+
+**Applying Bayes' Theorem**
+
+Now we can plug everything into Bayes' Theorem:
+
+```
+P(Attacker Tall | Witness Says Tall) = [P(Witness Says Tall | Attacker Tall) * P(Attacker Tall)] / P(Witness Says Tall)
+
+P(Attacker Tall | Witness Says Tall) = (0.80 * 0.15) / 0.29 
+                                       = 0.414 
+```
+
+**Answer:**
+
+{probability: 0.414} 
+
+**Conclusion**
+
+The probability that the attacker's height was 185 cm or taller, given the witness's testimony, is approximately 0.414 or 41.4%. 

@@ -1,0 +1,50 @@
+Here's how to approach this problem using Bayesian reasoning:
+
+**Understanding the Problem**
+
+We need to update our belief about the attacker's height given the witness testimonies and the general population distribution.  
+
+* **Prior:** The base rate of people being 185cm or taller in the city (15%) is our starting point.
+* **Likelihood:** The accuracy of the witnesses (80% and 70%) tells us how likely their statements are if the attacker was actually taller or shorter than 185cm.
+* **Posterior:** Our goal is to find the probability of the attacker being 185cm or taller *given* this new evidence.
+
+**Let's break it down:**
+
+* **Event A:** Attacker is 185cm or taller.
+* **Event B:** Witness 1 says the attacker is 185cm or taller.
+* **Event C:** Witness 2 says the attacker is shorter than 185cm.
+
+**We know:**
+
+* **P(A):** Prior probability of attacker being 185cm or taller (0.15)
+* **P(¬A):** Prior probability of attacker being shorter than 185cm (0.85)
+* **P(B|A):** Probability witness 1 is correct given the attacker is tall (0.80)
+* **P(¬B|¬A):** Probability witness 1 is correct given the attacker is short (0.80)
+* **P(C|¬A):** Probability witness 2 is correct given the attacker is short (0.70)
+* **P(¬C|A):** Probability witness 2 is incorrect given the attacker is tall (0.30)
+
+**We want to find:**
+
+* **P(A|B,C):** Probability the attacker is tall given both witness testimonies.
+
+**Using Bayes' Theorem:**
+
+P(A|B,C) = [P(B,C|A) * P(A)] / P(B,C)
+
+To calculate this, we need to expand using the law of total probability and consider the cases where the attacker is tall or short:
+
+P(A|B,C) = [P(B|A) * P(C|A) * P(A)] / [P(B|A) * P(C|A) * P(A) + P(B|¬A) * P(C|¬A) * P(¬A)]
+
+**Plugging in the values:**
+
+P(A|B,C) = (0.80 * 0.30 * 0.15) / [(0.80 * 0.30 * 0.15) + (0.20 * 0.70 * 0.85)]
+
+P(A|B,C) ≈ 0.193
+
+**Answer:**
+
+{probability: 0.193}
+
+**Conclusion:**
+
+Despite one witness claiming the attacker was tall, the probability of the attacker actually being 185cm or taller is only around 19.3%. The relatively low prior probability of someone being that tall in the population, combined with the second witness's statement, significantly lowers the overall likelihood. 

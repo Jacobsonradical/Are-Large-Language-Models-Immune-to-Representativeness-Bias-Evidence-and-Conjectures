@@ -1,0 +1,41 @@
+To estimate the probability that the attacker's height was 185 cm or taller, we can use the information from both the witness's ability to judge a person's height and the distribution of attackers' heights.
+
+Let's denote:
+- P(T): Probability that the attacker's height is 185 cm or taller
+- P(S): Probability that the attacker's height is shorter than 185 cm
+- W_Correct: Probability of the witness correctly identifying a person as 185 cm or taller
+- W_Incorrect: Probability of the witness incorrectly identifying a person as 185 cm or taller
+
+From the problem statement, we have:
+- W_Correct = 0.8
+- W_Incorrect = 0.2
+- P(T) = 0.15 (15% of attackers are 185 cm or taller)
+- P(S) = 0.85 (85% of attackers are shorter than 185 cm)
+
+Now, let's calculate the probability of the witness identifying the attacker as 185 cm or taller given that the attacker is indeed 185 cm or taller:
+P(W_Correct | T) = W_Correct * P(T) / (W_Correct * P(T) + W_Incorrect * P(S))
+
+Substituting the known values:
+P(W_Correct | T) = 0.8 * 0.15 / (0.8 * 0.15 + 0.2 * 0.85) ≈ 0.375
+
+Now, we want to find the probability that the attacker's height was 185 cm or taller given that the witness identified the attacker as 185 cm or taller, so we apply Bayes' theorem:
+P(T | W_Correct) = P(W_Correct | T) * P(T) / P(W_Correct)
+
+To find P(W_Correct), we need to calculate the overall probability of the witness identifying a person as 185 cm or taller:
+P(W_Correct) = P(W_Correct | T) * P(T) + P(W_Correct | S) * P(S)
+
+However, we don't have a direct value for P(W_Correct | S). We can use the witness's error rate to estimate it:
+P(W_Incorrect | S) = 1 - P(W_Correct | S)
+
+Solving for P(W_Correct | S):
+P(W_Correct | S) = 1 - P(W_Incorrect | S) = 1 - 0.2 * 0.85 ≈ 0.76
+
+So, we can calculate P(W_Correct):
+P(W_Correct) = P(W_Correct | T) * P(T) + P(W_Correct | S) * P(S)
+P(W_Correct) = 0.375 * 0.15 + 0.76 * 0.85 ≈ 0.6875
+
+Finally, we can calculate our desired probability:
+P(T | W_Correct) = P(W_Correct | T) * P(T) / P(W_Correct)
+P(T | W_Correct) = 0.375 * 0.15 / 0.6875 ≈ 0.0721
+
+So, the probability that the attacker's height was 185 cm or taller is approximately 0.0721 or 7.21%.

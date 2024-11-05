@@ -1,0 +1,28 @@
+To solve this problem, we will calculate the probabilities of drawing 3 X's and 1 O from both decks using hypergeometric distribution, which models the probability of k successes in n draws without replacement from a finite population.
+
+For Deck A (most cards marked X), the probability of drawing 3 X's and 1 O is:
+
+P(3X, 1O | Deck A) = (C(2/3N, 3) * C((1/3)N, 1)) / C(N, 4)
+
+Where N is the total number of cards in the deck, C(n, k) denotes the binomial coefficient, and we assume that N is large enough so that the probabilities are approximately accurate.
+
+Similarly, for Deck B (most cards marked O), the probability of drawing 3 X's and 1 O is:
+
+P(3X, 1O | Deck B) = (C(1/3N, 3) * C((2/3)N, 1)) / C(N, 4)
+
+Now, we want to find the posterior odds that the 4 cards were drawn from Deck A compared to Deck B. The prior odds are equal since there's no reason to favor one deck over the other initially. Therefore, we can calculate the posterior odds using only the likelihood ratio:
+
+Posterior odds = Likelihood ratio = P(3X, 1O | Deck A) / P(3X, 1O | Deck B)
+
+Assuming N is large enough, we can simplify the hypergeometric probabilities as follows:
+
+P(3X, 1O | Deck A) ≈ ((2/3)^3 * (1/3)) * (4!) / (3! * 1!)
+P(3X, 1O | Deck B) ≈ ((1/3)^3 * (2/3)) * (4!) / (3! * 1!)
+
+Calculating the likelihood ratio:
+
+Posterior odds = P(3X, 1O | Deck A) / P(3X, 1O | Deck B) ≈ (2/3)^4 / (1/3)^4 = 2^8 = 256
+
+Therefore, the answer is:
+
+{odds: 256}

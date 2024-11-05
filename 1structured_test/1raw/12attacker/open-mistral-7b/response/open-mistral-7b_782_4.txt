@@ -1,0 +1,37 @@
+Given the information provided, we have two pieces of data to consider:
+
+1. A witness's ability to correctly identify gender is 80% and errs 20% of the time.
+2. The gender distribution in the city is 85% female and 15% male.
+
+Let's break this down:
+
+1. We know that the witness is not perfect and misidentifies gender 20% of the time. This means that even if the attacker is female, there is a 20% chance that the witness will misidentify them as male. Conversely, if the attacker is male, there is also a 20% chance that the witness will misidentify them as female.
+
+2. Since we don't know the attacker's gender, we should consider both possibilities and their associated probabilities. Let P(F) be the probability that the attacker is female, and P(M) be the probability that the attacker is male.
+
+3. Based on the given population distribution, we know that P(F) = 0.85 and P(M) = 0.15.
+
+4. The witness identifies the attacker as male, so if the attacker is indeed male (P(M)), then the witness correctly identifies the gender (no error). The probability of this happening is P(M) itself.
+
+5. If the attacker is female (P(F)), then there is a 20% chance that the witness will misidentify her as male. This can be represented as 0.2 * P(F).
+
+6. Therefore, the probability of the witness identifying the attacker as male, given the attacker's gender, can be written as: P(Witness says male | Attacker is male) = P(M)
+                                                                                           = 0.15
+                                                                                           and
+                                                                                 P(Witness says male | Attacker is female) = 0.2 * P(F)
+                                                                                                                                 = 0.2 * 0.85
+                                                                                                                                 = 0.17
+
+7. Now, we can calculate the probability of the witness identifying the attacker as male, given the information we have about the witness: P(Witness says male) = P(Witness says male | Attacker is male) * P(M) + P(Witness says male | Attacker is female) * P(F)
+                                                                                                                                     = 0.15 * 0.15 + 0.17 * 0.85
+                                                                                                                                     = 0.0225 + 0.1465
+                                                                                                                                     = 0.169
+
+8. To find the probability that the attacker is male, given the witness's statement, we can re-arrange this equation and solve for P(M): P(M) = [P(Witness says male) - P(Witness says male | Attacker is female) * P(F)] / P(Witness says male | Attacker is male)
+                                                                                             = (0.169 - 0.1465 * 0.85) / 0.15
+                                                                                             = 0.169 / 0.15
+                                                                                             = 1.126
+
+Since the probability must be between 0 and 1, we can conclude that the witness's statement is not consistent with the given population distribution, and our estimate of the probability that the attacker is male, based on the witness's statement, is not valid.
+
+However, if we wanted to provide an estimate based solely on the population distribution, we would use the given probabilities for P(F) and P(M) without considering the witness's ability to judge gender. In this case, the probability that the attacker is male would be 0.15.

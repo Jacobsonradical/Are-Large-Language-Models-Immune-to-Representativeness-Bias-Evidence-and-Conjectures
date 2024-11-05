@@ -1,0 +1,44 @@
+Let's reason through this problem:
+
+1. We have two witnesses with different abilities to estimate a person's height.
+2. Witness 1 claims the attacker was 185 cm or taller, and they are correct 80% of the time.
+3. Witness 2 claims the attacker was shorter than 185 cm, and they are correct 70% of the time.
+
+We want to find the probability that Witness 1 is correct, given their claim and their error rate.
+
+To calculate this, we can use Bayes' theorem:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+In this case:
+A = Attacker is 185 cm or taller
+B = Witness 1 claims the attacker is 185 cm or taller
+
+We want to find P(A|B), the probability that the attacker is 185 cm or taller given that Witness 1 claims so.
+
+We are given:
+P(B|A) = 0.8 (Witness 1 is correct 80% of the time when the attacker is 185 cm or taller)
+P(A) = 0.15 (85% of the population is shorter than 185 cm, so 15% are 185 cm or taller)
+
+To find P(B), we need to consider two possibilities:
+- Attacker is 185 cm or taller, and Witness 1 is correct
+- Attacker is shorter than 185 cm, and Witness 1 incorrectly claims they are 185 cm or taller
+
+So, P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+
+We need to find P(B|not A), the probability that Witness 1 claims the attacker is 185 cm or taller when the attacker is actually shorter than 185 cm. Since Witness 1 is wrong 20% of the time when the attacker is shorter than 185 cm, P(B|not A) = 0.2.
+
+Now we can find P(not A) = 1 - P(A) = 0.85 (85% of the population is shorter than 185 cm)
+
+Now we can calculate P(B):
+P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
+P(B) = (0.8 * 0.15) + (0.2 * 0.85)
+P(B) = 0.12 + 0.17
+P(B) = 0.29
+
+Now we have all the values to calculate P(A|B):
+P(A|B) = P(B|A) * P(A) / P(B)
+P(A|B) = (0.8 * 0.15) / 0.29
+P(A|B) ≈ 0.345
+
+So, the probability that the attacker's height was 185 cm or taller, as the first witness claimed, is approximately 0.345 (34.5%).

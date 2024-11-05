@@ -1,0 +1,49 @@
+To estimate the probability that the attacker's height was 185 cm or taller, given the information provided, we'll apply Bayes' theorem. Let's denote the events as follows:
+
+- \( H \): The attacker is 185 cm or taller.
+- \( \neg H \): The attacker is shorter than 185 cm.
+- \( W1 \): The first witness claimed the attacker is 185 cm or taller.
+- \( \neg W1 \): The first witness claimed the attacker is shorter than 185 cm.
+- \( W2 \): The second witness claimed the attacker is 185 cm or taller.
+- \( \neg W2 \): The second witness claimed the attacker is shorter than 185 cm.
+
+First, let's calculate the necessary probabilities:
+
+Given:
+- \( P(H) = 0.15 \)
+- \( P(\neg H) = 0.85 \)
+
+The accuracy of the first witness:
+- \( P(W1|H) = 0.80 \)
+- \( P(\neg W1|H) = 0.20 \)
+- \( P(W1|\neg H) = 0.20 \)
+- \( P(\neg W1|\neg H) = 0.80 \)
+
+The accuracy of the second witness:
+- \( P(W2|H) = 0.70 \)
+- \( P(\neg W2|H) = 0.30 \)
+- \( P(W2|\neg H) = 0.30 \)
+- \( P(\neg W2|\neg H) = 0.70 \)
+
+We are interested in \( P(H | W1 \land \neg W2) \), the probability that the attacker is 185 cm or taller given that the first witness claimed the attacker is 185 cm or taller and the second witness claimed the attacker is shorter than 185 cm.
+
+Using Bayes' theorem:
+\[ P(H | W1 \land \neg W2) = \frac{P(W1 \land \neg W2 | H) \cdot P(H)}{P(W1 \land \neg W2)} \]
+
+First, let's calculate \( P(W1 \land \neg W2 | H) \):
+\[ P(W1 \land \neg W2 | H) = P(W1 | H) \cdot P(\neg W2 | H) = 0.80 \cdot 0.30 = 0.24 \]
+
+Next, let's calculate \( P(W1 \land \neg W2 | \neg H) \):
+\[ P(W1 \land \neg W2 | \neg H) = P(W1 | \neg H) \cdot P(\neg W2 | \neg H) = 0.20 \cdot 0.70 = 0.14 \]
+
+Now, let's calculate \( P(W1 \land \neg W2) \):
+\[ P(W1 \land \neg W2) = P(W1 \land \neg W2 | H) \cdot P(H) + P(W1 \land \neg W2 | \neg H) \cdot P(\neg H) \]
+\[ P(W1 \land \neg W2) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155 \]
+
+Finally, let's calculate \( P(H | W1 \land \neg W2) \):
+\[ P(H | W1 \land \neg W2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} = 0.232 \]
+
+Therefore, the estimate of the probability that the attacker's height was 185 cm or taller is:
+```json
+{ "probability": 0.232 }
+```

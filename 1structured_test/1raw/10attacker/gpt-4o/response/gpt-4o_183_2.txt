@@ -1,0 +1,54 @@
+To estimate the probability that the attacker was 185 cm or taller, we will use Bayes' Theorem. The theorem allows us to update our probability estimate given new evidence. 
+
+Let's denote:
+- \( T \) as the event that the attacker is 185 cm or taller.
+- \( S \) as the event that the attacker is shorter than 185 cm.
+- \( W1_T \) as the event that the first witness claims the attacker is 185 cm or taller.
+- \( W2_S \) as the event that the second witness claims the attacker is shorter than 185 cm.
+
+### Given Information
+1. **Prior Probabilities:**
+   - \( P(T) = 0.15 \) (15% of the population is 185 cm or taller)
+   - \( P(S) = 0.85 \) (85% of the population is shorter than 185 cm)
+
+2. **Witness 1 Accuracy:**
+   - \( P(W1_T | T) = 0.80 \)
+   - \( P(W1_T | S) = 0.20 \)
+
+3. **Witness 2 Accuracy:**
+   - \( P(W2_S | S) = 0.70 \)
+   - \( P(W2_S | T) = 0.30 \)
+
+### Calculations
+
+We seek to calculate \( P(T | W1_T, W2_S) \).
+
+First, we use Bayes' theorem in terms of a single event. However, for two witnesses, we need to consider their testimonies and use the law of total probability:
+
+\[ P(T | W1_T, W2_S) = \frac{P(W1_T, W2_S | T) P(T)}{P(W1_T, W2_S)} \]
+
+Where,
+
+\[ P(W1_T, W2_S) = P(W1_T, W2_S | T)P(T) + P(W1_T, W2_S | S)P(S) \]
+
+To compute these, we assume the witnesses' information is independent given the height of the attacker:
+
+#### For T (185 cm or taller):
+\[ P(W1_T, W2_S | T) = P(W1_T | T) \times P(W2_S | T) = 0.80 \times 0.30 = 0.24 \]
+
+#### For S (shorter than 185 cm):
+\[ P(W1_T, W2_S | S) = P(W1_T | S) \times P(W2_S | S) = 0.20 \times 0.70 = 0.14 \]
+
+Thus,
+\[ P(W1_T, W2_S) = P(W1_T, W2_S | T)P(T) + P(W1_T, W2_S | S)P(S) \]
+\[ P(W1_T, W2_S) = (0.24 \times 0.15) + (0.14 \times 0.85) \]
+\[ P(W1_T, W2_S) = 0.036 + 0.119 = 0.155 \]
+
+Finally,
+\[ P(T | W1_T, W2_S) = \frac{P(W1_T, W2_S | T) P(T)}{P(W1_T, W2_S)} = \frac{0.24 \times 0.15}{0.155} \]
+\[ P(T | W1_T, W2_S) = \frac{0.036}{0.155} \]
+\[ P(T | W1_T, W2_S) \approx 0.232 \]
+
+Thus, 
+
+\[ \{ probability: 0.232 \} \]

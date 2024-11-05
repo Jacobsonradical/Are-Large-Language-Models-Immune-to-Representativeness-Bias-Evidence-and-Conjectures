@@ -1,0 +1,27 @@
+To find the posterior odds, we need to calculate the likelihood of drawing 3 X's and 1 O from each deck, and then divide those probabilities.
+
+Let's denote the number of X's drawn from Deck A as X_A and the number of O's drawn from Deck A as O_A. Similarly, let X_B and O_B denote the number of X's and O's drawn from Deck B.
+
+The probability of drawing 3 X's and 1 O from Deck A is:
+
+P(X_A=3, O_A=1 | Deck A) = C(12,3) * (2/3)^3 * (1/3) * C(12,1) * (1/3)^1 * (2/3)
+
+The probability of drawing 3 X's and 1 O from Deck B is:
+
+P(X_B=3, O_B=1 | Deck B) = C(18,3) * (1/3)^3 * (2/3) * C(18,1) * (2/3)^1 * (1/3)
+
+Now, we can calculate the posterior odds:
+
+odds = P(Deck A | X_A=3, O_A=1) / P(Deck B | X_A=3, O_A=1)
+
+odds = [P(X_A=3, O_A=1 | Deck A) / P(X_A=3, O_A=1)] / [P(X_B=3, O_B=1 | Deck B) / P(X_B=3, O_B=1)]
+
+Since the decks are equally likely before drawing the cards, we have P(Deck A) = P(Deck B) = 1/2.
+
+odds = [P(X_A=3, O_A=1 | Deck A) / P(X_A=3, O_A=1)] / [P(X_B=3, O_B=1 | Deck B) / P(X_B=3, O_B=1)] * [P(X_B=3, O_B=1) / P(X_A=3, O_A=1)]
+
+odds = [(2/135) * (1/6)] / [(1/1287)] * [(1/2)] / [(1/182)]
+
+To calculate this numerically, you can use a calculator to find the product of the fractions. The final answer is approximately 1.004.
+
+Since the odds are slightly in favor of Deck A, but very close to 1, we cannot definitively say that the cards were more likely to be drawn from Deck A than Deck B, given the information provided.

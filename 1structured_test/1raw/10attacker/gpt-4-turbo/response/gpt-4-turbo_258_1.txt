@@ -1,0 +1,35 @@
+To estimate the probability that the attacker's height was 185 cm or taller given the statements of the witnesses, we can use Bayes' theorem. Bayes' theorem allows us to update our prior belief based on new evidence. Here's how we can calculate it step-by-step:
+
+1. **Define the probabilities:**
+   - Let \( H \) be the event that the attacker is 185 cm or taller.
+   - Let \( W_1 \) be the event that Witness 1 claims the attacker is 185 cm or taller.
+   - Let \( W_2 \) be the event that Witness 2 claims the attacker is shorter than 185 cm.
+
+2. **Known probabilities:**
+   - \( P(H) \): Prior probability that a person is 185 cm or taller = 0.15
+   - \( P(\neg H) \): Prior probability that a person is shorter than 185 cm = 0.85
+   - \( P(W_1 | H) \): Probability that Witness 1 correctly identifies a person as 185 cm or taller = 0.80
+   - \( P(W_1 | \neg H) \): Probability that Witness 1 incorrectly identifies a person as 185 cm or taller = 0.20
+   - \( P(W_2 | H) \): Probability that Witness 2 incorrectly identifies a person as shorter than 185 cm = 0.30
+   - \( P(W_2 | \neg H) \): Probability that Witness 2 correctly identifies a person as shorter than 185 cm = 0.70
+
+3. **Calculate the joint probability of the witnesses' statements given \( H \) or \( \neg H \):**
+   - \( P(W_1, W_2 | H) = P(W_1 | H) \cdot P(W_2 | H) = 0.80 \cdot 0.30 = 0.24 \)
+   - \( P(W_1, W_2 | \neg H) = P(W_1 | \neg H) \cdot P(W_2 | \neg H) = 0.20 \cdot 0.70 = 0.14 \)
+
+4. **Use Bayes' theorem to update our belief about the probability of \( H \):**
+   - Using the law of total probability for \( P(W_1, W_2) \):
+     \[
+     P(W_1, W_2) = P(W_1, W_2 | H)P(H) + P(W_1, W_2 | \neg H)P(\neg H) = 0.24 \cdot 0.15 + 0.14 \cdot 0.85 = 0.036 + 0.119 = 0.155
+     \]
+   - Bayes' theorem gives us:
+     \[
+     P(H | W_1, W_2) = \frac{P(W_1, W_2 | H)P(H)}{P(W_1, W_2)} = \frac{0.036}{0.155} \approx 0.232
+     \]
+
+Thus, the estimated probability that the attacker's height was 185 cm or taller, based on the witnesses' claims and their reliability, is approximately 0.232.
+
+**Result:**
+```json
+{ "probability": 0.232 }
+```

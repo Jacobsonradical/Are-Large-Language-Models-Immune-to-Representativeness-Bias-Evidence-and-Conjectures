@@ -1,0 +1,45 @@
+Let's break down the information given:
+
+a) We have two witnesses with different levels of accuracy in estimating a person's height. The first witness is correct 80% of the time and errs 20% of the time. The second witness is correct 70% of the time and errs 30% of the time.
+
+b) We also know that 85% of the population in the city is shorter than 185 cm, and 15% are 185 cm or taller.
+
+We want to estimate the probability that the attacker's height was 185 cm or taller, as the first witness claimed. To do this, we can calculate the probability of both witnesses being correct and multiply it by the prior probability of an attacker being 185 cm or taller.
+
+First, let's calculate the probability of the first witness being correct when they claim the attacker is 185 cm or taller:
+P(W1_correct) = 0.8
+
+Next, let's calculate the probability of the second witness being correct when they claim the attacker is shorter than 185 cm:
+P(W2_correct) = 0.85 * 0.7 + 0.15 * 0.3 = 0.685 (when the attacker is shorter than 185 cm, the second witness is correct 70% of the time if the attacker is in the 85% group, and correct 30% of the time if the attacker is in the 15% group)
+
+Now, since the second witness claims the attacker is shorter than 185 cm, and we know that this is actually true 85% of the time, we need to account for the second witness being correct due to the base rate:
+P(W2_correct | true_height < 185) = 0.85 * 0.7 + 0.15 * 0.3 = 0.685
+
+The probability of the second witness being correct when they claim the attacker is shorter than 185 cm, given that the attacker is indeed shorter than 185 cm, is:
+P(W2_correct | true_height < 185) = 0.685
+
+Given that the second witness is correct, the probability of the first witness being correct when they claim the attacker is 185 cm or taller is:
+P(W1_correct | W2_correct, true_height < 185) = 1 - P(W1_incorrect | W2_correct, true_height < 185) = 1 - 0.2 * 0.685 / (0.2 * 0.685 + 0.8 * 0.315) = 0.927
+
+Finally, we can calculate the probability of the attacker being 185 cm or taller, given that both witnesses made their claims:
+P(true_height >= 185 | W1_claim, W2_claim) = P(W1_claim | true_height >= 185) * P(true_height >= 185) / P(W1_claim)
+
+We know that:
+P(W1_claim | true_height >= 185) = 0.8
+P(true_height >= 185) = 0.15
+
+To calculate P(W1_claim), we can use the law of total probability:
+P(W1_claim) = P(W1_claim | true_height >= 185) * P(true_height >= 185) + P(W1_claim | true_height < 185) * P(true_height < 185)
+
+We need to find P(W1_claim | true_height < 185) and P(true_height < 185):
+P(W1_claim | true_height < 185) = 1 - P(W1_incorrect | true_height < 185) = 1 - 0.2 * 0.85 / (0.2 * 0.85 + 0.8 * 0.15) = 0.875
+P(true_height < 185) = 0.85
+
+Now we can compute P(W1_claim):
+P(W1_claim) = 0.8 * 0.15 + 0.875 * 0.85 = 0.83625
+
+So,
+P(true_height >= 185 | W1_claim, W2_claim) = 0.8 * 0.15 / 0.83625 * 0.927 = 0.145
+
+The answer is:
+{probability: 0.145}

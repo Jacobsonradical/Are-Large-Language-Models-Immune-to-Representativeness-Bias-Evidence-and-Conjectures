@@ -1,0 +1,38 @@
+To estimate the probability that the attacker is male given the witness's testimony and the population demographics, we can use Bayes' theorem. This theorem helps update our probability estimate based on new evidence. 
+
+We denote:
+- \( P(M) \) as the probability that the attacker is male before considering the witness's testimony.
+- \( P(F) \) as the probability that the attacker is female before considering the witness's testimony.
+- \( P(W_M | M) \) as the probability that the witness identifies the attacker as male given that the attacker is indeed male.
+- \( P(W_M | F) \) as the probability the witness identifies the attacker as male given that the attacker is actually female.
+- \( P(M | W_M) \) as the probability that the attacker is male given that the witness identified him as male.
+
+From the problem:
+- \( P(M) = 0.15 \) (15% of the population is male)
+- \( P(F) = 0.85 \) (85% of the population is female)
+- \( P(W_M | M) = 0.8 \) (witness correctly identifies males 80% of the time)
+- \( P(W_M | F) = 0.2 \) (witness incorrectly identifies females as males 20% of the time)
+
+Apply Bayes' theorem:
+\[
+P(M | W_M) = \frac{P(W_M | M) \times P(M)}{P(W_M)}
+\]
+where \( P(W_M) \) is the total probability of the witness identifying the attacker as male, calculated by:
+\[
+P(W_M) = P(W_M | M) \times P(M) + P(W_M | F) \times P(F)
+       = 0.8 \times 0.15 + 0.2 \times 0.85
+       = 0.12 + 0.17
+       = 0.29
+\]
+
+So, the updated probability \( P(M | W_M) \):
+\[
+P(M | W_M) = \frac{0.8 \times 0.15}{0.29} = \frac{0.12}{0.29} \approx 0.4137931 
+\]
+
+Thus, the probability that the attacker is male, given that the witness testified him as male, is approximately 0.41.
+
+Therefore:
+```json
+{ "probability": 0.41 }
+```

@@ -1,0 +1,42 @@
+To solve this problem, we need to calculate the probability that the attacker was 185 cm or taller, given the conflicting eyewitness testimonies and known population probabilities. We can use Bayes' Theorem to incorporate the reliability of the witnesses' perceptions and the baseline population proportions.
+
+1. **Define variables:**
+   - Let \( H \) be the event that the attacker's height is 185 cm or taller.
+   - Let \( L \) be the event that the attacker's height is shorter than 185 cm.
+   - Let \( W_1 \) be the event that Witness 1 claims the attacker is 185 cm or taller.
+   - Let \( W_2 \) be the event that Witness 2 claims the attacker is shorter than 185 cm.
+
+2. **Probabilities given:**
+   - \( P(H) = 0.15 \) (15% of the population is 185 cm or taller)
+   - \( P(L) = 0.85 \) (85% of the population is shorter than 185 cm)
+   - \( P(W_1 | H) = 0.80 \) (Witness 1 is correct 80% of the time if the attacker is 185 cm or taller)
+   - \( P(W_1 | L) = 0.20 \) (Witness 1 is incorrect, thus claims the attacker is 185 cm or taller, 20% of the time if the attacker is shorter)
+   - \( P(W_2 | L) = 0.70 \) (Witness 2 is correct 70% of the time if the attacker is shorter than 185 cm)
+   - \( P(W_2 | H) = 0.30 \) (Witness 2 is incorrect, thus claims the attacker is shorter, 30% of the time if the attacker is 185 cm or taller)
+
+3. **Application of Bayes' Theorem and Total Probability:**
+   - We calculate \( P(W_1 \cap W_2) \) using:
+   \[
+   P(W_1 \cap W_2) = P(W_1 \cap W_2 | H)P(H) + P(W_1 \cap W_2 | L)P(L)
+   \]
+   - Where:
+     - \( P(W_1 \cap W_2 | H) = P(W_1 | H) P(W_2 | H) \)
+     - \( P(W_1 \cap W_2 | L) = P(W_1 | L) P(W_2 | L) \)
+   \[
+   P(W_1 \cap W_2) = (0.80 \cdot 0.30 \cdot 0.15) + (0.20 \cdot 0.70 \cdot 0.85)
+   \]
+   \[
+   P(W_1 \cap W_2) = 0.036 + 0.119 = 0.155
+   \]
+
+4. **Calculate the probability we need:**
+   \[
+   P(H | W_1 \cap W_2) = \frac{P(W_1 \cap W_2 | H) P(H)}{P(W_1 \cap W_2)}
+   \]
+   \[
+   P(H | W_1 \cap W_2) = \frac{0.24 \cdot 0.15}{0.155} = \frac{0.036}{0.155} \approx 0.232
+   \]
+
+Thus, the requested estimate is:
+
+{probability: 0.232}

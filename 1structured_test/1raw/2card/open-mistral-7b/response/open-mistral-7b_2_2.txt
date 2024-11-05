@@ -1,0 +1,33 @@
+To find the posterior odds, we need to calculate the likelihood of drawing 3 X's and 1 O from each deck, and then use Bayes' theorem.
+
+Let's denote:
+A: the event of drawing 4 cards from Deck A
+B: the event of drawing 4 cards from Deck B
+X_i: the i-th card drawn is marked X
+O_i: the i-th card drawn is marked O
+
+The likelihood of drawing 3 X's and 1 O from Deck A (event A) is:
+P(A) = P(X_1 and X_2 and X_3 and O_4 | A)
+     = P(X_1 | A) * P(X_2 | A and X_1) * P(X_3 | A and X_1 and X_2) * P(O_4 | A and X_1 and X_2 and X_3)
+     = (2/3) * (2/2) * (2/1) * (1/2)
+     = 8/126
+
+The likelihood of drawing 3 X's and 1 O from Deck B (event B) is:
+P(B) = P(X_1 and X_2 and X_3 and O_4 | B)
+     = P(X_1 | B) * P(X_2 | B and X_1) * P(X_3 | B and X_1 and X_2) * P(O_4 | B and X_1 and X_2 and X_3)
+     = (1/3) * (1/2) * (1/1) * (2/3)
+     = 2/27
+
+The prior probabilities of drawing from Deck A or B are equal since we don't have any prior information:
+P(A) = P(B) = 1/2
+
+Now we can find the posterior odds:
+
+odds(A | data) = P(A | data) / P(B | data)
+             = [P(data | A) * P(A)] / [P(data | B) * P(B)]
+             = [P(A) * P(data | A)] / [P(B) * P(data | B)]
+             = [(8/126) * (1/2)] / [(2/27) * (1/2)]
+             = 4/2
+             = 2
+
+So the posterior odds that the 4 cards were drawn from Deck A is 2:1 compared to Deck B. This means that, given the observed data of 3 X's and 1 O, Deck A is twice as likely to be the source of the cards compared to Deck B.

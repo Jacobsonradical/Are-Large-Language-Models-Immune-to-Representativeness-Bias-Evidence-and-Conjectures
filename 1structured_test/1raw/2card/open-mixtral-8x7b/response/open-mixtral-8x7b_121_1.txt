@@ -1,0 +1,39 @@
+To solve this problem, we'll use Bayes' theorem, which relates the conditional and marginal probabilities of two events. In this case, the two events are "selecting deck A" (A) and "selecting deck B" (B), and the observation is "drawing 3 X's and 1 O" (X=3, O=1).
+
+First, we need to find the prior probabilities P(A) and P(B). Since both decks are very large and equally likely to be chosen, we have:
+
+P(A) = P(B) = 1/2
+
+Next, we need to find the likelihoods P(X=3, O=1 | A) and P(X=3, O=1 | B). To find these, we'll use the binomial probability formula:
+
+P(X=k, O=n | p) = C(k+n, k) * (p^k) * ((1-p)^n)
+
+where p is the probability of drawing an X, C(a, b) is the number of combinations of a items taken b at a time, and k and n are the number of X's and O's drawn, respectively.
+
+For deck A, p = 2/3, so:
+
+P(X=3, O=1 | A) = C(4, 3) * (2/3)^3 * ((1-2/3)^1)
+              = 4 * (8/27) * (1/3)
+              = 32/81
+
+For deck B, p = 1/3, so:
+
+P(X=3, O=1 | B) = C(4, 3) * (1/3)^3 * ((1-1/3)^1)
+              = 4 * (1/27) * (2/3)
+              = 8/81
+
+Now we can calculate Bayes' theorem:
+
+P(A | X=3, O=1) = P(X=3, O=1 | A) * P(A) / P(X=3, O=1)
+               = (32/81) * (1/2) / ((32/81) * (1/2) + (8/81) * (1/2))
+               = 32/40
+
+To express this as odds, we simply divide:
+
+Odds(A : B | X=3, O=1) = P(A | X=3, O=1) / P(B | X=3, O=1)
+                     = (32/40) / (8/40)
+                     = 32/8
+
+So the posterior odds of the 4 cards being drawn from deck A is:
+
+{odds: 4}
