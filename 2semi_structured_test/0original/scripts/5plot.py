@@ -69,19 +69,20 @@ def main(prob_fp, list_schemes, output_dir):
 
     # 45-degree line
     x_vals = np.linspace(0, 1, 100)
-    plt.plot(x_vals, x_vals, '--', label='Bias Line, y=x', alpha=0.7)
+    plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7)
 
     # Line for y/(1-y) = 9x/(1-x)
     y_vals = (9 * x_vals) / (8 * x_vals + 1)
-    plt.plot(x_vals, y_vals, '-.', label='Normative Curve, y/(1-y) = 9x/(1-x)', alpha=0.7)
+    plt.plot(x_vals, y_vals, '-.', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7)
 
     # Label axes
     plt.xlabel("Posterior probability in low base rate setting")
     plt.ylabel("Posterior probability in high base rate setting")
-    plt.title("Baseline Plot with Normative and Bias Lines")
+    plt.title("Baseline Plot with Normative Curve and Representative Line")
 
     # Legend
-    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    # plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.legend(loc='lower center', bbox_to_anchor=(0.5, -0.2), ncol=2)
 
     # Save the baseline plot
     baseline_fp = os.path.join(plot_dir, "baseline_plot.png")
@@ -101,10 +102,10 @@ def main(prob_fp, list_schemes, output_dir):
         plt.figure(figsize=(8, 8))
 
         # 45-degree line
-        plt.plot(x_vals, x_vals, '--', label='Bias Line, y=x', alpha=0.7)
+        plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7)
 
         # Line for y/(1-y) = 9x/(1-x)
-        plt.plot(x_vals, y_vals, '-.', label='Normative Curve, y/(1-y) = 9x/(1-x)', alpha=0.7)
+        plt.plot(x_vals, y_vals, '-.', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7)
 
         for high, low in list_schemes:
             y = df1[high].dropna().iloc[0]
@@ -124,7 +125,8 @@ def main(prob_fp, list_schemes, output_dir):
         # Legend (handles unique labels only)
         handles, labels = plt.gca().get_legend_handles_labels()
         by_label = dict(zip(labels, handles))
-        plt.legend(by_label.values(), by_label.keys(), loc='upper left', bbox_to_anchor=(1, 1))
+        # plt.legend(by_label.values(), by_label.keys(), loc='upper left', bbox_to_anchor=(1, 1))
+        plt.legend(by_label.values(), by_label.keys(), loc='lower center', bbox_to_anchor=(0.5, -0.2), ncol=3)
 
         # Show plot
         plt.axis('square')
