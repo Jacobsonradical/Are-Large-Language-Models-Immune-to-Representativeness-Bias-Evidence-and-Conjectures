@@ -90,9 +90,9 @@ def main(prob_fp, list_schemes, output_dir):
 
     # Define updated color scheme
     scheme_styles = {
-        'unchar': {'color': '#00FFFF', 'marker': 'o', 'label': 'Uncharacteristic Description'},
+        'unchar': {'color': '#A52A2A', 'marker': 'o', 'label': 'Uncharacteristic Description'},
         'cs': {'color': '#800080', 'marker': '^', 'label': 'Computer Science Description'},
-        'human': {'color': '#A52A2A', 'marker': 's', 'label': 'Humanity Description'},
+        'human': {'color': '#00FFFF', 'marker': 's', 'label': 'Humanity Description'},
     }
 
     # Continue with the main plotting for each model
