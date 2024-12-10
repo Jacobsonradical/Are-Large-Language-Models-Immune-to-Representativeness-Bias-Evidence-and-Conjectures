@@ -67,13 +67,13 @@ def main(prob_fp, list_schemes, output_dir):
     # Create and save the figure with just the lines and labels
     plt.figure(figsize=(8, 8))
 
-    # 45-degree line
+    # 45-degree line (Representative)
     x_vals = np.linspace(0, 1, 100)
-    plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7)
+    plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7, color="#008080", linewidth=2)
 
-    # Line for y/(1-y) = 9x/(1-x)
+    # Line for y/(1-y) = 9x/(1-x) (Normative)
     y_vals = (9 * x_vals) / (8 * x_vals + 1)
-    plt.plot(x_vals, y_vals, '-.', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7)
+    plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7, color="#008080", linewidth=2)
 
     # Label axes
     plt.xlabel("Posterior probability in low base rate setting")
@@ -81,7 +81,6 @@ def main(prob_fp, list_schemes, output_dir):
     plt.title("Baseline Plot with Normative Curve and Representative Line")
 
     # Legend
-    # plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
     plt.legend(loc='lower center', bbox_to_anchor=(0.5, -0.2), ncol=2)
 
     # Save the baseline plot
@@ -89,23 +88,24 @@ def main(prob_fp, list_schemes, output_dir):
     plt.savefig(baseline_fp, bbox_inches='tight', dpi=300)
     plt.close()
 
-    # Continue with the main plotting for each model
+    # Define updated color scheme
     scheme_styles = {
-        'unchar': {'color': 'red', 'marker': 'o', 'label': 'Uncharacteristic Description'},
-        'cs': {'color': 'blue', 'marker': '^', 'label': 'Computer Science Description'},
-        'human': {'color': 'orange', 'marker': 's', 'label': 'Humanity Description'},
+        'unchar': {'color': '#00FFFF', 'marker': 'o', 'label': 'Uncharacteristic Description'},
+        'cs': {'color': '#800080', 'marker': '^', 'label': 'Computer Science Description'},
+        'human': {'color': '#A52A2A', 'marker': 's', 'label': 'Humanity Description'},
     }
 
+    # Continue with the main plotting for each model
     for model_name in df["model_name"].unique():
         df1 = df[df["model_name"] == model_name]
 
         plt.figure(figsize=(8, 8))
 
-        # 45-degree line
-        plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7)
+        # 45-degree line (Representative)
+        plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7, color="#b3b300", linewidth=2)
 
-        # Line for y/(1-y) = 9x/(1-x)
-        plt.plot(x_vals, y_vals, '-.', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7)
+        # Line for y/(1-y) = 9x/(1-x) (Normative)
+        plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7, color="#b3b300", linewidth=2)
 
         for high, low in list_schemes:
             y = df1[high].dropna().iloc[0]
@@ -125,7 +125,6 @@ def main(prob_fp, list_schemes, output_dir):
         # Legend (handles unique labels only)
         handles, labels = plt.gca().get_legend_handles_labels()
         by_label = dict(zip(labels, handles))
-        # plt.legend(by_label.values(), by_label.keys(), loc='upper left', bbox_to_anchor=(1, 1))
         plt.legend(by_label.values(), by_label.keys(), loc='lower center', bbox_to_anchor=(0.5, -0.2), ncol=3)
 
         # Show plot
@@ -134,8 +133,6 @@ def main(prob_fp, list_schemes, output_dir):
         output_fp = os.path.join(plot_dir, f"{model_name}.png")
         plt.savefig(output_fp, bbox_inches='tight', dpi=300)
         plt.close()
-
-
 
 
 if __name__ == "__main__":
