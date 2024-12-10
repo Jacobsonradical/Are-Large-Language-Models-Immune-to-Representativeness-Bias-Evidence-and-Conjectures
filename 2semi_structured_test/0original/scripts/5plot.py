@@ -73,7 +73,7 @@ def main(prob_fp, list_schemes, output_dir):
 
     # Line for y/(1-y) = 9x/(1-x) (Normative)
     y_vals = (9 * x_vals) / (8 * x_vals + 1)
-    plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7, color="#008080", linewidth=2)
+    plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=1, color="#008080", linewidth=2.5)
 
     # Label axes
     plt.xlabel("Posterior probability in low base rate setting")
@@ -105,7 +105,7 @@ def main(prob_fp, list_schemes, output_dir):
         plt.plot(x_vals, x_vals, '--', label='Representative: y=x', alpha=0.7, color="#b3b300", linewidth=2)
 
         # Line for y/(1-y) = 9x/(1-x) (Normative)
-        plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=0.7, color="#b3b300", linewidth=2)
+        plt.plot(x_vals, y_vals, ':', label='Normative: y/(1-y) = 9x/(1-x)', alpha=1, color="#b3b300", linewidth=2.5)
 
         for high, low in list_schemes:
             y = df1[high].dropna().iloc[0]
@@ -115,7 +115,7 @@ def main(prob_fp, list_schemes, output_dir):
             if scheme:
                 style = scheme_styles[scheme]
                 plt.scatter(x, y, color=style['color'], marker=style['marker'],
-                            alpha=0.7, label=style['label'])
+                            alpha=0.7, label=style['label'], s=100)
 
         # Label axes
         plt.xlabel("Posterior probability in low base rate setting")
