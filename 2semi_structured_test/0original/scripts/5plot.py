@@ -92,7 +92,7 @@ def main(prob_fp, list_schemes, output_dir):
     scheme_styles = {
         'unchar': {'color': '#A52A2A', 'marker': 'o', 'label': 'Uncharacteristic Description'},
         'cs': {'color': '#800080', 'marker': '^', 'label': 'Computer Science Description'},
-        'human': {'color': '#00FFFF', 'marker': 's', 'label': 'Humanity Description'},
+        'human': {'color': '#008080', 'marker': 's', 'label': 'Humanity Description'},
     }
 
     # Continue with the main plotting for each model
@@ -115,7 +115,7 @@ def main(prob_fp, list_schemes, output_dir):
             if scheme:
                 style = scheme_styles[scheme]
                 plt.scatter(x, y, color=style['color'], marker=style['marker'],
-                            alpha=0.7, label=style['label'], s=100)
+                            alpha=1, label=style['label'], s=100)
 
         # Label axes
         plt.xlabel("Posterior probability in low base rate setting")
